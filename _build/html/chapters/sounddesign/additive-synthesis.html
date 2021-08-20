@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Additive Synthesis &#8212; Algorithmic Composition</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Percussive Sound" href="percussive-sound.html" />
+    <link rel="prev" title="1. Terms" href="terms.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/basics.html">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ugens.html">
+   3. Unit Generators
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="terms.html">
+   1. Terms
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Additive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="percussive-sound.html">
+   3. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filters.html">
+   4. Filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="am.html">
+   5. Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fm.html">
+   6. Frequency Modulation (FM)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/jump-right-in.html">
+   1. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/distributions.html">
+   2. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/sounddesign/additive-synthesis.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fundamental-waveforms">
+   2.1. Fundamental Waveforms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-sine-wave">
+     2.1.1. The Sine Wave
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-sawtooth-wave">
+     2.1.2. The Sawtooth Wave
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-square-wave">
+     2.1.3. The Square Wave
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-triangle-wave">
+     2.1.4. The Triangle Wave
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reconstruction-of-the-sawtooth-wave">
+   2.2. Reconstruction of the Sawtooth Wave
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="additive-synthesis">
+<h1><span class="section-number">2. </span>Additive Synthesis<a class="headerlink" href="#additive-synthesis" title="Permalink to this headline">¶</a></h1>
+<p>In <em>additive synthesis</em> we start by very simple wave forms, for example, a bunch of sine waves.
+To create more complex signals and therefore sounds we add them together.</p>
+<p>The beauty of <em>additive synthesis</em> is that we have full and direct control over each frequency and its amplitude within the final result.
+We can even change each component (frequency, amplitude pair) over time.</p>
+<p>This advantage consequently leads to a weakness of <em>additive synthesis</em>: it is computational expensive!
+Instead of building a complex function before evaluation we evaluate each component and sum everything up.
+For a complex and interesting sound we need a lot of oscillators.
+For this reason, <em>additive synthesis</em> is hard to realize on analog synthesizer and even digital synthesizer can reach their limit quite fast.</p>
+<p>Computers are getting faster and faster, therefore, <em>additive synthesis</em> might become more and more attractive.
+Let us first start with a short introductory of the fundamental waveforms we might wanna combine.</p>
+<div class="section" id="fundamental-waveforms">
+<h2><span class="section-number">2.1. </span>Fundamental Waveforms<a class="headerlink" href="#fundamental-waveforms" title="Permalink to this headline">¶</a></h2>
+<p>Jean-Baptise Joseph Fourier discovered that every <em>signal</em> can be represented as a Fourier series.
+A signal <span class="math notranslate nohighlight">\(y(t)\)</span> is a function with some special conditions:</p>
+<ol class="simple">
+<li><p>piecewise continuous and</p></li>
+<li><p>bounded.</p></li>
+</ol>
+<p>Functions that describe an amplitude <span class="math notranslate nohighlight">\(y(t)\)</span> over the time <span class="math notranslate nohighlight">\(t\)</span> are audio signals and have those two qualities.
+The signal is also periodic but that is not a necessary condition for the existence of a Fourier series of the signal.</p>
+<p>To understand the effect of a signal it is essential to understand its Fourier series.
+In fact, the <em>stethoscope</em> displays the frequencies of the functions that are the components of the Fourier series.</p>
+<p>For audio synthesis, there are very important signals analog as well as digital synthesizer offers as a starting point.
+They are our basic oscillators and we have to understand their nature by looking at their Fourier series.</p>
+<div class="section" id="the-sine-wave">
+<span id="sec-sine-wave"></span><h3><span class="section-number">2.1.1. </span>The Sine Wave<a class="headerlink" href="#the-sine-wave" title="Permalink to this headline">¶</a></h3>
+<p>The sine wave</p>
+<div class="math notranslate nohighlight" id="equation-eq-sine">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-sine" title="Permalink to this equation">¶</a></span>\[    y_\text{sine}(t) = A \cdot \sin(2\pi \cdot f \cdot t)\]</div>
+<p>is the most pure most basic and most simple signal or wave form there is.
+Its Fourier series is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(2.1)</a>.
+It consists of only the fundamental frequency <span class="math notranslate nohighlight">\(f\)</span> and is theoretically the basis for all other signals.</p>
+<div class="figure align-default" id="fig-sine">
+<a class="reference internal image-reference" href="../../_images/sine.png"><img alt="../../_images/sine.png" src="../../_images/sine.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The sine wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sine" title="Permalink to this image">¶</a></p>
+</div>
+<p>However, in practice one does not model something as complex as noise by using a Fourier series consisting of sine waves.
+It would be too computational expensive and, since our resources are finite but the Fourier series consist infinite amount of terms, it can never be perfect.</p>
+</div>
+<div class="section" id="the-sawtooth-wave">
+<span id="sec-sawtooth-wave"></span><h3><span class="section-number">2.1.2. </span>The Sawtooth Wave<a class="headerlink" href="#the-sawtooth-wave" title="Permalink to this headline">¶</a></h3>
+<p>The first more complicated and important function I want to discuss is the so called <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a></p>
+<div class="math notranslate nohighlight" id="equation-eq-saw">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">¶</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.</p>
+<div class="figure align-default" id="fig-sawtooth">
+<a class="reference internal image-reference" href="../../_images/sawtooth.png"><img alt="../../_images/sawtooth.png" src="../../_images/sawtooth.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">¶</a></p>
+</div>
+<p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <strong>sclang</strong> however, the <span class="math notranslate nohighlight">\(x\)</span>-axis will be always the number of the sample.
+Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 2.2</span></a> using <strong>sclang</strong>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">trifunc</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">amp</span><span class="p">;</span>
+	<span class="nx">amp</span> <span class="o">=</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span> <span class="o">-</span> <span class="nx">floor</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span><span class="p">)));</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span> <span class="nx">trifunc</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="nx">t</span><span class="p">);});</span>
+
+<span class="nx">y</span><span class="p">.</span><span class="nx">plot</span><span class="p">();</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To understand the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> musically, we have to look at its Fourier series:</p>
+<div class="math notranslate nohighlight" id="equation-eq-saw-fourier">
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-saw-fourier" title="Permalink to this equation">¶</a></span>\[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<p>We can approximate the series by only summing up the first <span class="math notranslate nohighlight">\(n\)</span> terms:</p>
+<div class="math notranslate nohighlight" id="equation-eq-saw-fourier-n">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">¶</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<div class="figure align-default" id="fig-sawtooth-20">
+<a class="reference internal image-reference" href="../../_images/sawtooth_20.png"><img alt="../../_images/sawtooth_20.png" src="../../_images/sawtooth_20.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">¶</a></p>
+</div>
+<p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(2.2)</a>.
+However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(2.3)</a> that</p>
+<ol class="simple">
+<li><p>each harmonic of <span class="math notranslate nohighlight">\(k \cdot f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
+<li><p>the amplitude decreases by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
+</ol>
+<p>Furthermore, we can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>!</p>
+<p>In <strong>sclang</strong> we can generate the sound of a <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> using the <a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Saw</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-square-wave">
+<span id="sec-square-wave"></span><h3><span class="section-number">2.1.3. </span>The Square Wave<a class="headerlink" href="#the-square-wave" title="Permalink to this headline">¶</a></h3>
+<p>Another important wave is the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> which is a special case of the pulse wave:</p>
+<div class="math notranslate nohighlight" id="equation-eq-square">
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-square" title="Permalink to this equation">¶</a></span>\[    y_\text{square}(t) = A \cdot \text{sign}\left( \sin\left( 2\pi \cdot f \cdot t \right) \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\text{sign}(\cdot)\)</span> is defined by</p>
+<div class="math notranslate nohighlight" id="equation-eq-sign">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-sign" title="Permalink to this equation">¶</a></span>\[\begin{split}    \text{sign}(x) = \begin{cases}
+    +1 &amp; \text{ if } x \geq 0\\
+    -1 &amp; \text{ else.}
+    \end{cases}\end{split}\]</div>
+<div class="figure align-default" id="fig-square">
+<a class="reference internal image-reference" href="../../_images/square.png"><img alt="../../_images/square.png" src="../../_images/square.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">The square wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-square" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let’s look at its Fourier series:</p>
+<div class="math notranslate nohighlight" id="equation-eq-square-fourier">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">¶</a></span>\[    y(_\text{square}t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
+<p>Again we learn from the Fourier series (Eq. <a class="reference internal" href="#equation-eq-square-fourier">(2.7)</a>) that</p>
+<ol class="simple">
+<li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k-1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
+<li><p>the amplitude decreases with <span class="math notranslate nohighlight">\(4/(2k - 1)\)</span></p></li>
+</ol>
+<p>The amplitudes also decrease linearly with increasing frequencies.</p>
+<div class="figure align-default" id="fig-square-20">
+<a class="reference internal image-reference" href="../../_images/square_20.png"><img alt="../../_images/square_20.png" src="../../_images/square_20.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">¶</a></p>
+</div>
+<p>In <strong>sclang</strong> we can generate the sound of a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> using the <a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Pulse</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Pulse</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-triangle-wave">
+<span id="sec-triangle-wave"></span><h3><span class="section-number">2.1.4. </span>The Triangle Wave<a class="headerlink" href="#the-triangle-wave" title="Permalink to this headline">¶</a></h3>
+<p>The next important wave is the <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-triangle">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-triangle" title="Permalink to this equation">¶</a></span>\[    y_\text{tri}(t) = A \cdot \left( 4 \cdot \left| f \cdot (t+1/4) -  \left \lfloor{ \frac{1}{2} + f \cdot (t+1/4)} \right \rfloor \right| - 1 \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left| \cdot \right|\)</span> is defined by</p>
+<div class="math notranslate nohighlight" id="equation-eq-abs">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-abs" title="Permalink to this equation">¶</a></span>\[\begin{split}    \left| x \right| = \begin{cases}
+    +x &amp; \text{ if } x \geq 0\\
+    -x &amp; \text{ else.}
+    \end{cases}\end{split}\]</div>
+<div class="figure align-default" id="fig-triangle">
+<a class="reference internal image-reference" href="../../_images/triangle.png"><img alt="../../_images/triangle.png" src="../../_images/triangle.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.6 </span><span class="caption-text">The triangle wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-triangle" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let’s look at its Fourier series:</p>
+<div class="math notranslate nohighlight" id="equation-eq-triangle-fourier">
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-triangle-fourier" title="Permalink to this equation">¶</a></span>\[    y_\text{tri}(t) = A \cdot \frac{8}{\pi^2} \cdot \sum_{k=0}^{\infty} (-1)^k \frac{\sin(2\pi \cdot f \cdot (2k+1) \cdot t)}{(2k+1)^2}\]</div>
+<p>Again we learn from the Fourier series (Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(2.10)</a>) that</p>
+<ol class="simple">
+<li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k+1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
+<li><p>the amplitude decreases with <span class="math notranslate nohighlight">\(8\pi/(2k - 1)^2\)</span></p></li>
+</ol>
+<p>The amplitudes decrease <strong>quadratically</strong> with increasing frequencies.</p>
+<div class="figure align-default" id="fig-triangle-20">
+<a class="reference internal image-reference" href="../../_images/triangle_5.png"><img alt="../../_images/triangle_5.png" src="../../_images/triangle_5.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.7 </span><span class="caption-text">An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=5\)</span>.</span><a class="headerlink" href="#fig-triangle-20" title="Permalink to this image">¶</a></p>
+</div>
+<p>In <strong>sclang</strong> we can generate the sound of a <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">square wave</span></a> using the <a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">LFTri</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reconstruction-of-the-sawtooth-wave">
+<h2><span class="section-number">2.2. </span>Reconstruction of the Sawtooth Wave<a class="headerlink" href="#reconstruction-of-the-sawtooth-wave" title="Permalink to this headline">¶</a></h2>
+<p>Let us first recreate the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without using instead of <code class="docutils literal notranslate"><span class="pre">Saw</span></code> only <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>.
+The following code generates the sound of the Fourier series approximation.
+I implemented Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>.
+You can change <code class="docutils literal notranslate"><span class="pre">n</span></code> to increase the number of harmonics.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">*</span><span class="nx">k</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="important admonition" id="invalid-synthdef-arguments">
+<p class="admonition-title">SCLang and the Server</p>
+<p>We are tempted to convert the variable <code class="docutils literal notranslate"><span class="pre">n</span></code> into an argument that we can change while the synth is playing!
+Here we enter the limits of a synth or in other words the difference between <strong>sclang</strong> and the code that is actually running on the audio server.</p>
+<p><strong>sclang</strong> is executed on the client.
+Therefore, the <code class="docutils literal notranslate"><span class="pre">do</span></code>-construct is executed on the client before the synth is sent to the server.
+Consequently, changing <code class="docutils literal notranslate"><span class="pre">n</span></code> while the synth is playing will not change anything.</p>
+</div>
+<p>My machine has not problem of running over hundred oscillators (<code class="docutils literal notranslate"><span class="pre">n=100</span></code>).
+The CPU workload is at about 8-9 percent.
+If we only use the first ten harmonics, the sound is clearly much more doll and it becomes crispier by adding more and more harmonics.
+However, for me at least, at some point it is hard to perceive any difference if I add even more harmonics.</p>
+<p>Ok, so far so good.
+Of course, it makes no real sense to recreate the ‘pure’ <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> by multiple oscillators because it is much more computational expensive.
+But if we introduce modulation we can create many different sounds that can not be produced by only one <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a>.
+Even if we use filters this can be quite difficult or impossible.</p>
+<p>For example, a string of a ‘perfect’ violin makes a sound that can be described by a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> – each harmonic of the fundamental is present.
+However, a violin sounds completely different than a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> combined with an <a class="reference internal" href="terms.html#sec-envelope"><span class="std std-ref">envelope</span></a>.
+Why? Well the world is imperfect and so is the violin but our ears like that imperfection.
+The amplitudes of the harmonics deviate from Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a> and they change over time each in a different way!
+Furthermore, there is always some distortion also within the frequencies.</p>
+<p>Let is first try an percussive envelope:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+        <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+        <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)),</span>
+    <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span>
+    <span class="p">);</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">*</span><span class="nx">k</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">amp</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The sound is quite boring because nothing changes over time.
+There is no dynamic thus we lose interest immediately.
+Let us introduce some change over time.</p>
+<p>My starting point is the introduction of detune but a detune that changes over time!
+I introduce a variable <code class="docutils literal notranslate"><span class="pre">vibrato</span></code> that lies in between <span class="math notranslate nohighlight">\([1-\epsilon; 1+\epsilon]\)</span>.
+<span class="math notranslate nohighlight">\(\epsilon\)</span> is the percentage of maximal detune, that is, a harmonic with a frequency of <span class="math notranslate nohighlight">\(f\)</span> will have an actual frequency of <span class="math notranslate nohighlight">\(f \pm \epsilon f\)</span>.
+In the code below, I call <span class="math notranslate nohighlight">\(\epsilon\)</span> <code class="docutils literal notranslate"><span class="pre">detune</span></code>.</p>
+<p>The detune changes over time.
+However, I want to go even one step further and introduce another component that changes over time: the frequency of the detuning.
+In other words, how fast the detune changes also changes slowly over time.</p>
+<p>I make use of <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> which chooses a value between 1 and -1 every <span class="math notranslate nohighlight">\(1/f\)</span> seconds where <span class="math notranslate nohighlight">\(f\)</span> is its frequency.
+In between of these times, values are linearly interpolated.
+Note that for each speaker the noises are different!
+It is hard to explain what exactly happens with our <code class="docutils literal notranslate"><span class="pre">vibrato</span></code> over time so let us plot an example</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="mi">5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.015</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.015</span><span class="p">)}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">1.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>gives us the following plot:</p>
+<div class="figure align-default" id="fig-add-synth-double-noise">
+<a class="reference internal image-reference" href="../../_images/add-synth-double-noise.png"><img alt="../../_images/add-synth-double-noise.png" src="../../_images/add-synth-double-noise.png" style="width: 800px;" /></a>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detuneFreq</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.015</span><span class="p">;</span>
+
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+        <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span>
+        <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)),</span>
+    <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span>
+    <span class="p">);</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="nx">detuneFreq</span><span class="p">,</span> <span class="nx">detuneFreq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">harmonic</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">harmonic</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">amp</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In my opinion, this already sounds much more interesting.
+Of course, we went beyond <em>additive synthesis</em> and used <em>frequency modulation</em> but those go hand in hand especially if the modulation frequency is low.</p>
+<p>What can we do in addition?
+Well, at the moment we have one global envelope for all frequencies.
+What about <code class="docutils literal notranslate"><span class="pre">n</span></code> independent envelopes?
+We could, for example, imitate nature and decrease the amplitudes of high frequencies faster than those of low frequencies.
+We could make this relation randomly such that only the expected decrease in amplitude behaves like that.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detuneFreq</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.015</span><span class="p">;</span>
+
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+
+        <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+            <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">),</span>
+            <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.1</span><span class="p">),</span>
+            <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>
+        <span class="p">);</span>
+
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="nx">detuneFreq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">harmonic</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">)))</span> <span class="o">*</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">((</span><span class="nx">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">));</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">harmonic</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">DetectSilence</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Ok, this loops complicated.
+However, I did not change too much.
+First, I have rewritten the series such that the sum is the most outer operation.
+Secondly, I generate for each frequency one independent envelope with a random attack and release.
+Thirdly, I take the power to decrease the envelope for high frequencies faster:</p>
+<div class="math notranslate nohighlight" id="equation-eq-env-amplified">
+<span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-env-amplified" title="Permalink to this equation">¶</a></span>\[    x \leftarrow x^{1 + \frac{k-1}{3}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is a value of the envelope (a series of numbers) of the <span class="math notranslate nohighlight">\(k^\text{th}\)</span>-harmonic.
+Compare the following two plots.</p>
+<div class="figure align-default" id="fig-add-synth-env-2">
+<a class="reference internal image-reference" href="../../_images/add-synth-env_2.png"><img alt="../../_images/add-synth-env_2.png" src="../../_images/add-synth-env_2.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(2.11)</a> for <span class="math notranslate nohighlight">\(k = 2\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-add-synth-env-10">
+<a class="reference internal image-reference" href="../../_images/add-synth-env_10.png"><img alt="../../_images/add-synth-env_10.png" src="../../_images/add-synth-env_10.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.9 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(2.11)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/sounddesign"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="terms.html" title="previous page"><span class="section-number">1. </span>Terms</a>
+    <a class='right-next' id="next-link" href="percussive-sound.html" title="next page"><span class="section-number">3. </span>Percussive Sound</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Benedikt Zönnchen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
