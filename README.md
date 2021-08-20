@@ -16,3 +16,7 @@ One such process that works for me is called the Feynman learning technique:
 
 This book is my attempt to follow that technique imperfectly.
 Maybe, in the end, someone else will find the material useful.
+
+At the moment I focus on [SuperCollider](https://supercollider.github.io/). 
+
+The book is published here: [https://bzoennchen.github.io/supercollider-book/intro.html](https://bzoennchen.github.io/supercollider-book/intro.html)
