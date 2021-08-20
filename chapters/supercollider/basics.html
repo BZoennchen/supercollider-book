@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Basics &#8212; Algorithmic Composition</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Unit Generators" href="ugens.html" />
+    <link rel="prev" title="1. The Ecosystem" href="ecosystem.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ugens.html">
+   3. Unit Generators
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/terms.html">
+   1. Terms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/additive-synthesis.html">
+   2. Additive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/percussive-sound.html">
+   3. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/filters.html">
+   4. Filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/am.html">
+   5. Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/fm.html">
+   6. Frequency Modulation (FM)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/jump-right-in.html">
+   1. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/distributions.html">
+   2. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/supercollider/basics.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-execution">
+   2.1. Code Execution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#triggering-the-evaluation">
+     2.1.1. Triggering the Evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#execution-of-c-code">
+     2.1.2. Execution of C++ Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#order-of-execution">
+     2.1.3. Order of Execution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-and-scope">
+   2.2. Variables and Scope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arrays">
+   2.3. Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creation">
+     2.3.1. Creation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#access-of-elements">
+     2.3.2. Access of Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manipulation">
+     2.3.3. Manipulation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   2.4. Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-control-structures">
+   2.5. Basic Control Structures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classes-and-objects">
+   2.6. Classes and Objects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-first-sine-wave">
+   2.7. A First Sine Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-first-synthdef">
+   2.8. A First SynthDef
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="basics">
+<h1><span class="section-number">2. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="code-execution">
+<h2><span class="section-number">2.1. </span>Code Execution<a class="headerlink" href="#code-execution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="triggering-the-evaluation">
+<h3><span class="section-number">2.1.1. </span>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start!
+Let’s write some <strong>sclang</strong> code and execute it via the REPL (Read–eval–print loop).</p>
+<p>To execute the following line press <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello World!&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To execute multiple lines we have to enclose the code in brackets <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code> and we have to evaluate the code using <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> on Mac and <code class="docutils literal notranslate"><span class="pre">CTRL</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> on Windows.</p>
+<div class="hint admonition" id="hint-code-execution">
+<p class="admonition-title">Code Execution</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> to evaluate a single line of code and use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> to evaluate a code block.</p>
+</div>
+<p>For example:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="s2">&quot;Hello World!&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="s2">&quot;We make some music&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In both cases you will notice that in the post windows the last line is printed twice.
+This is because the last statement will always be printed on the post window.</p>
+<p>Similar to any other object-oriented language, we call a <strong>method</strong> <code class="docutils literal notranslate"><span class="pre">postln</span></code> on the <strong>object</strong> representing a <code class="docutils literal notranslate"><span class="pre">String</span></code>.
+However in the <a class="reference external" href="https://doc.sccode.org/">SuperCollider documentation</a> they use different terms.
+The object is the <strong>receiver</strong> of a <strong>message</strong> (method).</p>
+<p>The object is always the first argument of the method (similar to <code class="docutils literal notranslate"><span class="pre">Python</span></code>).
+We refer to this object as <code class="docutils literal notranslate"><span class="pre">this</span></code>.
+For example we could also use the following syntax:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">postln</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>A very useful key combination is <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">d</span></code>.
+It will open the documentation of the code your cursor is at.</p>
+<div class="hint admonition" id="hint-lookup-documentation">
+<p class="admonition-title">Lookup Documentation</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">d</span></code> to look at the documentation of the class or method your cursor is at.</p>
+</div>
+</div>
+<div class="section" id="execution-of-c-code">
+<h3><span class="section-number">2.1.2. </span>Execution of C++ Code<a class="headerlink" href="#execution-of-c-code" title="Permalink to this headline">¶</a></h3>
+<div class="hint admonition" id="hint-lookup-source-code">
+<p class="admonition-title">Lookup Source Code</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> to look at the actual implementation of the class or method your cursor is at.</p>
+</div>
+<p>If we look into the source code of the <code class="docutils literal notranslate"><span class="pre">postln</span></code> method by using <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> and navigating to the class <code class="docutils literal notranslate"><span class="pre">Object</span></code>, we can digest the following implementation:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">postln</span> <span class="p">{</span> <span class="nb">this</span><span class="p">.</span><span class="nx">asString</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>The curly brackets define a function with the name <code class="docutils literal notranslate"><span class="pre">postln</span></code>.
+As mentioned the first <code class="docutils literal notranslate"><span class="pre">this</span></code> is either</p>
+<ol class="simple">
+<li><p>the object the method is called on (if we use <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;.postln;</span></code>) or</p></li>
+<li><p>the first argument of the method (if we use <code class="docutils literal notranslate"><span class="pre">postln(&quot;Hello</span> <span class="pre">World!&quot;);</span></code>)</p></li>
+</ol>
+<p>By <code class="docutils literal notranslate"><span class="pre">this.asString</span></code>, the object is transformed into a <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">postln</span></code> of the <code class="docutils literal notranslate"><span class="pre">String</span></code> is called.
+Of course in our case the object is already a <code class="docutils literal notranslate"><span class="pre">String</span></code> and we directly call <code class="docutils literal notranslate"><span class="pre">postln</span></code> of <code class="docutils literal notranslate"><span class="pre">String</span></code>!</p>
+<p>Let’s have a look at <code class="docutils literal notranslate"><span class="pre">postln</span></code> of the class <code class="docutils literal notranslate"><span class="pre">String</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">postln</span> <span class="p">{</span>
+    <span class="nx">_PostLine</span>
+    <span class="o">^</span><span class="nb">this</span><span class="p">.</span><span class="nx">primitiveFailed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This looks strange.
+What is going on here?
+Here we enter the <code class="docutils literal notranslate"><span class="pre">C++</span></code> code.
+<code class="docutils literal notranslate"><span class="pre">_PostLine</span></code> is a <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">primitive</a>.
+It is executed and if nothing goes wrong the code below (<code class="docutils literal notranslate"><span class="pre">^this.primitiveFailed</span></code>) is <strong>not</strong> executed.
+In the <code class="docutils literal notranslate"><span class="pre">C++</span></code> file <a class="reference external" href="https://github.com/supercollider/supercollider/blob/18c4aad363c49f29e866f884f5ac5bd35969d828/lang/LangPrimSource/PyrPrimitive.cpp">PyrPrimitive.cpp</a> we find the following code snippet:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">definePrimitive</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">index</span><span class="o">++</span><span class="p">,</span> <span class="s">&quot;_PostLine&quot;</span><span class="p">,</span> <span class="n">prPostLine</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">prPostLine</span></code> is a method:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">prPostLine</span><span class="p">(</span><span class="k">struct</span> <span class="nc">VMGlobals</span><span class="o">*</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">numArgsPushed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">PyrSlot</span><span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">g</span><span class="o">-&gt;</span><span class="n">sp</span><span class="p">;</span>
+    <span class="c1">// if (NotObj(a)) return errWrongType;</span>
+    <span class="c1">// assume it is a string!</span>
+    <span class="n">postText</span><span class="p">(</span><span class="n">slotRawString</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">s</span><span class="p">,</span> <span class="n">slotRawString</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">);</span>
+    <span class="n">postChar</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">errNone</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">documentation</a> we find the following explanation</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the top of the stack and is the last argument pushed. <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span> <span class="pre">-</span> <span class="pre">inNumArgsPushed</span> <span class="pre">+</span> <span class="pre">1</span></code> is the <strong>receiver</strong> and where the result goes.</p>
+</div></blockquote>
+<p>In our case <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the <code class="docutils literal notranslate"><span class="pre">String</span></code> object.
+This interaction between <strong>sclang</strong> and <code class="docutils literal notranslate"><span class="pre">C++</span></code> reminds me of the interaction between <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code>.
+As long as we do not write our own <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">primitives</a> we can ignore the <code class="docutils literal notranslate"><span class="pre">C++</span></code> interaction.</p>
+</div>
+<div class="section" id="order-of-execution">
+<h3><span class="section-number">2.1.3. </span>Order of Execution<a class="headerlink" href="#order-of-execution" title="Permalink to this headline">¶</a></h3>
+<p>In <strong>sclang</strong> the code is strictly evaluated from left to the right.
+This means that all operands have the same priority which might lead to unexpected results.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>gives <code class="docutils literal notranslate"><span class="pre">(4</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">*</span> <span class="pre">5</span> <span class="pre">=</span> <span class="pre">40</span></code> instead of <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">+</span> <span class="pre">(4</span> <span class="pre">*</span> <span class="pre">5)</span> <span class="pre">=</span> <span class="pre">24</span></code>.</p>
+</div>
+</div>
+<div class="section" id="variables-and-scope">
+<h2><span class="section-number">2.2. </span>Variables and Scope<a class="headerlink" href="#variables-and-scope" title="Permalink to this headline">¶</a></h2>
+<p>Here we encounter the first inconvenient.
+In <a class="reference external" href="https://supercollider.github.io/">(SC)</a> there are some special pre-defined variables.
+Each <strong>single character variable</strong> <code class="docutils literal notranslate"><span class="pre">[a-z]</span></code> is pre-defined and globally available.
+They are called <em>Interpreter variables</em>.</p>
+<p>If you come from a modern programming language, this is strange.
+However, it is often useful for prototyping in <a class="reference external" href="https://supercollider.github.io/">(SC)</a>.
+A very special variable is <code class="docutils literal notranslate"><span class="pre">s</span></code>, because it holds a reference to the default local server.
+Therefore, to start the audio server, we evaluate:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>No one stops you from overwriting <code class="docutils literal notranslate"><span class="pre">s</span></code>, but I would not recommend it.
+As already mentioned, to define a code-block we use round brackets.
+We can use <code class="docutils literal notranslate"><span class="pre">x</span></code> without defining it because it is already defined for us.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Evaluating</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>results in an error because <code class="docutils literal notranslate"><span class="pre">number</span></code> is undefined.
+The code evaluation works similar to the cell evaluation in a <code class="docutils literal notranslate"><span class="pre">Python</span></code> Jupyter-Notebook but variables (except for the single character) are <em>local</em>.
+Without round brackets the following code does not work</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">number</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>because <code class="docutils literal notranslate"><span class="pre">number</span></code> <em>local</em> within the scope of a single line!
+If we use brackets</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">number</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">number</span></code> is <em>local</em> within the brackets.
+Note that we have to execute the whole block otherwise <code class="docutils literal notranslate"><span class="pre">number</span></code> is still <em>local</em> within one line.</p>
+<p>To define our own <em>global</em> variable we have to use <code class="docutils literal notranslate"><span class="pre">~</span></code> in front of the variable name, for example:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="o">~</span><span class="nx">number</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>works just fine.
+These variables are called <em>Environment variables</em>.</p>
+<p>We can also use single character <em>local</em> variables. The following code returns <code class="docutils literal notranslate"><span class="pre">13</span></code></p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">(</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>but the code below returns <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">(</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>As their name indicate, variables can be reassigned and we can give them any new value (dynamic types) at any time.</p>
+</div>
+<div class="section" id="arrays">
+<h2><span class="section-number">2.3. </span>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<p>A signal is basically a sequence of numbers.
+This sequence can be realized by an <code class="docutils literal notranslate"><span class="pre">Array</span></code>.</p>
+<div class="section" id="creation">
+<h3><span class="section-number">2.3.1. </span>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<p>To create a new <code class="docutils literal notranslate"><span class="pre">Array</span></code> the class offers many factory methods.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="kc">maxSize:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [  ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// [ 0.0, 0.5, 1.0 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// [1, 2, 3] </span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-of-elements">
+<h3><span class="section-number">2.3.2. </span>Access of Elements<a class="headerlink" href="#access-of-elements" title="Permalink to this headline">¶</a></h3>
+<p>We can access an element by <code class="docutils literal notranslate"><span class="pre">.at(index)</span></code> or by the shorthand <code class="docutils literal notranslate"><span class="pre">&#64;index</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">// 3</span>
+<span class="nx">a</span><span class="k">@</span><span class="mi">2</span><span class="p">;</span> <span class="c1">// 3</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This also works with an array of indices:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">at</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// [3, 4]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In signal processing we want to manipulate elements of such a sequence.
+Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <strong>sclang</strong> is implemented accordingly.</p>
+</div>
+<div class="section" id="manipulation">
+<h3><span class="section-number">2.3.3. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Multiplying</strong> an array with a number, will result in an new array for which each element is multiplied by the number.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">a</span></code> has not changed.
+<strong>Multiplying two arrays</strong> <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span></code> will result in a new array where the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th element equals <code class="docutils literal notranslate"><span class="pre">a[i]</span> <span class="pre">*</span> <span class="pre">b[i%a.size]</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span> <span class="o">*</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// [ 4, 12, 10, 18 ]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Division</strong> works the same way:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span> <span class="o">/</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">// [ 1.0, 1.3333333333333, 2.5, 2.0 ]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We can <strong>duplicate</strong> an array <code class="docutils literal notranslate"><span class="pre">k</span></code> times by using <code class="docutils literal notranslate"><span class="pre">!k</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="o">!</span><span class="mi">2</span><span class="o">!</span><span class="mi">3</span> <span class="c1">// [ [ 5, 5 ], [ 5, 5 ], [ 5, 5 ] ]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2><span class="section-number">2.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>In <strong>sclang</strong> functions are first-class objects which means that a function can be an argument of another function.
+The language drives the programmer to make use of this fact in various ways.</p>
+<p>To define a function, we encapsulate its content by curly brackets, and to execute it, we call <code class="docutils literal notranslate"><span class="pre">value</span></code> on it:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="nx">x</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">();</span>      <span class="c1">// returns 10</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In <strong>sclang</strong> there is no <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.
+We only have to call <code class="docutils literal notranslate"><span class="pre">func.value</span></code> for functions and not for methods of an object or class.
+A functions always returns the content of the last evaluated statement, in this case <code class="docutils literal notranslate"><span class="pre">x</span></code>.
+In my personal opinion an additional keyword can make the code more readable.</p>
+<p>To see what I mean by making use functions as first-class objects we can look at the <a class="reference external" href="https://doc.sccode.org/Reference/Control-Structures.html">control structures</a>.
+<code class="docutils literal notranslate"><span class="pre">if</span></code> is in fact a function which takes three arguments:</p>
+<ol class="simple">
+<li><p>the condition</p></li>
+<li><p>a function which is executed if the condition is <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
+<li><p>a function which is executed if the condition is <code class="docutils literal notranslate"><span class="pre">false</span></code></p></li>
+</ol>
+<p>Compare the following code that returns <code class="docutils literal notranslate"><span class="pre">10</span></code> if the argument of <code class="docutils literal notranslate"><span class="pre">func</span></code> is <code class="docutils literal notranslate"><span class="pre">10</span></code> and a random integer between 0 and 19 (20 exclusive).</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">input</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">input</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">input</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>It is important to understand, that the function <code class="docutils literal notranslate"><span class="pre">{rand(20);}</span></code> is evaluated each time we call <code class="docutils literal notranslate"><span class="pre">func.value(11);</span></code>.
+Again, we can either write <code class="docutils literal notranslate"><span class="pre">rand(20);</span></code> or <code class="docutils literal notranslate"><span class="pre">20.rand;</span></code>.</p>
+<p>If we want the <code class="docutils literal notranslate"><span class="pre">func</span></code> to return the same randomly chosen value each time it is called we can use a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a>
+In short, a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a> is a function combined with a set of variables that are neither defined within the function nor are arguments of the functions.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">input</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">input</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">input</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">r</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Of course we can do the same without using a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a></p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">input</span><span class="p">,</span> <span class="nx">r</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">input</span> <span class="o">==</span> <span class="mi">10</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">input</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{</span>
+        <span class="nx">r</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="nx">val</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="nx">val</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">func</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="nx">val</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>but since functions are first-class objects it is often convenient to use a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a>.</p>
+<p>Let’s look at another example:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">add</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="kc">a:</span> <span class="mi">6</span><span class="p">,</span> <span class="kc">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 17</span>
+<span class="nx">add</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="kc">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 16</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">Python</span></code>, one can define a default value for each argument, and we can ignore the order if we add the names.
+To define a specific argument in the function call, we have to use <code class="docutils literal notranslate"><span class="pre">:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">=</span></code>.
+Furthermore, there is another rather strange shortcut:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">b</span><span class="o">|</span>
+    <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">add</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="kc">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 16</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-control-structures">
+<h2><span class="section-number">2.5. </span>Basic Control Structures<a class="headerlink" href="#basic-control-structures" title="Permalink to this headline">¶</a></h2>
+<p>In <strong>sclang</strong>, control sequences are functions.
+They expects one or multiple functions that are executed conditionally.
+We already saw the <code class="docutils literal notranslate"><span class="pre">if</span></code>-Functions which expects one boolean expression (a predicate) and two functions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">while</span></code>-functions expects one predicate and another function that can be executed as long as the predicate is true.
+For example:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="p">({</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">},</span> <span class="p">{</span><span class="nx">i</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;});</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code>-function works much more restricted:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">.</span><span class="nx">postln</span><span class="p">;})</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>A little more flexible is the <code class="docutils literal notranslate"><span class="pre">forBy</span></code>-function for which <code class="docutils literal notranslate"><span class="pre">for</span></code> is a special case.
+It allows us to define an additional <code class="docutils literal notranslate"><span class="pre">stepValue</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="k">forBy</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">.</span><span class="nx">postln</span><span class="p">;})</span> <span class="c1">// 0 2 4 6 8</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">do</span></code>-function iterates over a given sequence, similar to a <code class="docutils literal notranslate"><span class="pre">foreach</span></code> of other languages (<code class="docutils literal notranslate"><span class="pre">for</span></code> in <code class="docutils literal notranslate"><span class="pre">Python</span></code>).</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="k">do</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">9</span><span class="p">),</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">item</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">post</span><span class="p">;</span> <span class="s2">&quot;,&quot;</span><span class="p">.</span><span class="nx">post</span><span class="p">;</span> <span class="nx">i</span><span class="p">.</span><span class="nx">postln</span><span class="p">;})</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Here <code class="docutils literal notranslate"><span class="pre">item</span></code> is the element of the <code class="docutils literal notranslate"><span class="pre">Array</span></code> generated by <code class="docutils literal notranslate"><span class="pre">(1..9)</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index of the element!</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">switch</span></code>-function expects a <code class="docutils literal notranslate"><span class="pre">value</span></code> and pairs of tested values and functions to be executed.
+The test checks for equality <code class="docutils literal notranslate"><span class="pre">==</span></code>.
+To be more flexible and to use different predicates one can use the <code class="docutils literal notranslate"><span class="pre">caee</span></code>-function which is as efficient as <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements.</p>
+</div>
+<div class="section" id="classes-and-objects">
+<h2><span class="section-number">2.6. </span>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
+<p>In <strong>sclang</strong> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Classes can contain class-methods (static methods) and object-methods.
+A class-method starts with an <code class="docutils literal notranslate"><span class="pre">*</span></code>.
+For example I implemented a new class <code class="docutils literal notranslate"><span class="pre">Utils</span></code> with offering a class-method <code class="docutils literal notranslate"><span class="pre">initUtils</span></code> that creates all the useful analyzing tools depicted in <a class="reference internal" href="ecosystem.html#fig-ide-tools"><span class="std std-numref">Fig. 1.2</span></a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Utils</span> <span class="p">{</span>
+    <span class="o">*</span><span class="nx">initTools</span> <span class="p">{</span>
+        <span class="kd">arg</span> <span class="nx">activateLimiter</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="c1">// boot server</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">killAll</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">numBuffers</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">memSize</span> <span class="o">=</span> <span class="mi">8192</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
+        <span class="c1">//Server.local.quit;</span>
+
+        <span class="c1">// server tools</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">makeWindow</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">meter</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
+        <span class="nb">FreqScope</span><span class="p">.</span><span class="k">new</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">plotTree</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nx">activateLimiter</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">StageLimiter</span><span class="p">.</span><span class="nx">activate</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Another important difference between functions and methods is that for method the return value has to be marked by a <code class="docutils literal notranslate"><span class="pre">^</span></code>.
+The following code is depicts the object-method <code class="docutils literal notranslate"><span class="pre">reverse</span></code> of <code class="docutils literal notranslate"><span class="pre">ArrayedCollection</span></code> which is the super-class of <code class="docutils literal notranslate"><span class="pre">Array</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">reverse</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nb">this</span><span class="p">.</span><span class="nx">copy</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">size1</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">halfsize</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="kc">div:</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">halfsize</span><span class="p">.</span><span class="k">do</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">size1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="o">^</span><span class="nx">res</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>First the origin array <code class="docutils literal notranslate"><span class="pre">this</span></code> is copied.
+Then elements are swapped accordingly.
+And finally the copy <code class="docutils literal notranslate"><span class="pre">res</span></code> is returned.</p>
+</div>
+<div class="section" id="a-first-sine-wave">
+<h2><span class="section-number">2.7. </span>A First Sine Wave<a class="headerlink" href="#a-first-sine-wave" title="Permalink to this headline">¶</a></h2>
+<p>Let us create the most simple sound possible: a sine wave.
+First, we define a function returns a so called unit generator <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> that starts when we call <code class="docutils literal notranslate"><span class="pre">play()</span></code>.
+In fact <code class="docutils literal notranslate"><span class="pre">play()</span></code></p>
+<ol class="simple">
+<li><p>transforms our the <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> into a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> (synth definition),</p></li>
+<li><p>adds it to the server and</p></li>
+<li><p>executes it.</p></li>
+</ol>
+<div class="warning admonition" id="hint-protect-your-ears">
+<p class="admonition-title">Protect your ears!</p>
+<p><a class="reference external" href="https://supercollider.github.io/">SC</a> will not protect you from any wrongdoing.
+It will play the sound you defined and if this sound can hurt your ears you have to be sure to protect them.
+It is good practice to use headphones which are far away from your ears if you do not know what sound to expect!</p>
+</div>
+<p>There are hundred of different <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a>.
+Basically, they spit out real numbers over time.
+For example <code class="docutils literal notranslate"><span class="pre">SineOsc</span></code> samples a sine wave.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sine</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mf">0.2</span><span class="p">)};</span>
+<span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If we execute this code, we get a warning that the server ‘localhost’ is not running.
+We have to boot the real-time audio server <strong>scsynth</strong> fist, by:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
+<span class="o">~</span><span class="nx">sine</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mf">0.2</span><span class="p">)};</span>
+<span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="hint admonition" id="hint-sound-termination">
+<p class="admonition-title">Sound termination</p>
+<p>To terminate all sound press <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code>. <strong>This might be the most important shortcut of all.</strong></p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">~sine</span></code> is a function that returns <code class="docutils literal notranslate"><span class="pre">SinOsc.ar(freq,</span> <span class="pre">mul:</span> <span class="pre">0.2)</span></code> which is a <code class="docutils literal notranslate"><span class="pre">BinaryOpUGen</span></code>.</p>
+<p>If we press <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> while the curser is at <code class="docutils literal notranslate"><span class="pre">play()</span></code> and we select the implementation for <code class="docutils literal notranslate"><span class="pre">Function</span></code>, we can see lookup what <code class="docutils literal notranslate"><span class="pre">~sine.play()</span></code> actually does:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">outbus</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">fadeTime</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span> <span class="nx">addAction</span><span class="o">=</span><span class="ss">\addToHead</span><span class="p">,</span> <span class="nx">args</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">def</span><span class="p">,</span> <span class="nx">synth</span><span class="p">,</span> <span class="nx">server</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">,</span> <span class="nx">synthMsg</span><span class="p">;</span>
+    <span class="nx">target</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">asTarget</span><span class="p">;</span>
+    <span class="nx">server</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">server</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">server</span><span class="p">.</span><span class="nx">serverRunning</span><span class="p">.</span><span class="nx">not</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">(</span><span class="s2">&quot;server &#39;&quot;</span> <span class="o">++</span> <span class="nx">server</span><span class="p">.</span><span class="nx">name</span> <span class="o">++</span> <span class="s2">&quot;&#39; not running.&quot;</span><span class="p">).</span><span class="nx">warn</span><span class="p">;</span> <span class="o">^</span><span class="kc">nil</span>
+    <span class="p">};</span>
+    <span class="nx">def</span> <span class="o">=</span> <span class="nb">this</span><span class="p">.</span><span class="nx">asSynthDef</span><span class="p">(</span>
+        <span class="kc">fadeTime:</span><span class="nx">fadeTime</span><span class="p">,</span>
+        <span class="kc">name:</span> <span class="nb">SystemSynthDefs</span><span class="p">.</span><span class="nx">generateTempName</span>
+    <span class="p">);</span>
+    <span class="nx">synth</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">.</span><span class="nx">basicNew</span><span class="p">(</span><span class="nx">def</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">server</span><span class="p">);</span>
+        <span class="c1">// if notifications are enabled on the server,</span>
+        <span class="c1">// use the n_end signal to remove the temp synthdef</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">server</span><span class="p">.</span><span class="nx">notified</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">OSCFunc</span><span class="p">({</span>
+            <span class="nx">server</span><span class="p">.</span><span class="nx">sendMsg</span><span class="p">(</span><span class="ss">\d_free</span><span class="p">,</span> <span class="nx">def</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+        <span class="p">},</span> <span class="s1">&#39;/n_end&#39;</span><span class="p">,</span> <span class="nx">server</span><span class="p">.</span><span class="nx">addr</span><span class="p">,</span> <span class="kc">argTemplate:</span> <span class="p">[</span><span class="nx">synth</span><span class="p">.</span><span class="nx">nodeID</span><span class="p">]).</span><span class="nx">oneShot</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">synthMsg</span> <span class="o">=</span> <span class="nx">synth</span><span class="p">.</span><span class="nx">newMsg</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="p">[</span><span class="ss">\i_out</span><span class="p">,</span> <span class="nx">outbus</span><span class="p">,</span> <span class="ss">\out</span><span class="p">,</span> <span class="nx">outbus</span><span class="p">]</span> <span class="o">++</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">addAction</span><span class="p">);</span>
+    <span class="nx">def</span><span class="p">.</span><span class="nx">doSend</span><span class="p">(</span><span class="nx">server</span><span class="p">,</span> <span class="nx">synthMsg</span><span class="p">);</span>
+    <span class="o">^</span><span class="nx">synth</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">play()</span></code> constructs a new <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, adds it to the server, and generates a synth which is returned.
+The <code class="docutils literal notranslate"><span class="pre">fadeTime</span></code> makes sure that the sound ramps up over a certain amount of seconds.
+For example we can increase <code class="docutils literal notranslate"><span class="pre">fadeTime</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span> <span class="mf">2.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">play</span></code> comes in handy if we wanna just try something out – if we want to explore sounds in a quick and dirty way.
+For complex synth we will define our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.</p>
+</div>
+<div class="section" id="a-first-synthdef">
+<h2><span class="section-number">2.8. </span>A First SynthDef<a class="headerlink" href="#a-first-synthdef" title="Permalink to this headline">¶</a></h2>
+<p>Instead of using <code class="docutils literal notranslate"><span class="pre">play()</span></code> we can instead implement our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
+This gives us much more control over the sound creation.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="c1">// (1) Define a new SynthDef / a blueprint for a Synth</span>
+<span class="kd">var</span> <span class="nx">synthDef</span> <span class="o">=</span> <span class="nb">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\sineWave</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">,</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mf">0.2</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// (2) Add the SynthDef to the server</span>
+<span class="nx">synthDef</span><span class="p">.</span><span class="nx">add</span><span class="p">();</span>
+<span class="p">)</span>
+
+<span class="c1">// (3) Generate a new Synth of \sineWave on the server</span>
+<span class="nb">Synth</span><span class="p">(</span><span class="ss">\sineWave</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By calling <code class="docutils literal notranslate"><span class="pre">SynthDef.new</span></code> we generate a new object of type <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
+On behalf of the perspective of the audio server <strong>scsynth</strong> this object acts as a part of a factory for <code class="docutils literal notranslate"><span class="pre">Synth</span></code> objects!
+A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> encapsulates the client-side representation of a given def, and provides methods for creating new defs, writing them to disk, and streaming them to a server.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has a name which we have to use if we want to generate a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> produced by <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
+The name can either be a <code class="docutils literal notranslate"><span class="pre">String</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;sineWave&quot;</span></code> or a symbol <code class="docutils literal notranslate"><span class="pre">\sineWave</span></code>.</p>
+<p>The second argument is a function which has to be a <strong>UGen Graph Function</strong>.
+It is an instance of Function which details how the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> unit generators are interconnected, its inputs and outputs, and what parameters are available for external control.</p>
+<p>We declare an argument called <code class="docutils literal notranslate"><span class="pre">freq</span></code> with a default value of <code class="docutils literal notranslate"><span class="pre">200</span></code>.
+Then we create an <a class="reference internal" href="../sounddesign/terms.html#sec-envelope"><span class="std std-ref">Envelope</span></a> which has a percussive shape.
+The envelope controls the amplitude of our sine wave over time.
+Finally, we send the audio signal <code class="docutils literal notranslate"><span class="pre">sig</span></code> to the output bus <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>By using <code class="docutils literal notranslate"><span class="pre">!2</span></code> after the signal creation,</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mf">0.2</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>we duplicate the signal.
+The result is an array of length two each containing a signal.
+By writing this array to the output bus at channel <code class="docutils literal notranslate"><span class="pre">0</span></code>, channel <code class="docutils literal notranslate"><span class="pre">0</span></code> gets the first element of the array and channel <code class="docutils literal notranslate"><span class="pre">1</span></code> the second one.
+Therefore, we hear the sound in both speakers.</p>
+<p>We can also <strong>store</strong> the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> permanently on our hard drive by calling <code class="docutils literal notranslate"><span class="pre">store()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add()</span></code>.
+This call will create the file <code class="docutils literal notranslate"><span class="pre">sineWave.scsyndef</span></code> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> folder which can be found in your <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> Application folder.
+If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> in the <code class="docutils literal notranslate"><span class="pre">snythdefs</span></code> folder are added to the server automatically.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> are static!
+This means that the dynamics of a sound can only be influenced by <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> and the arguments of the <strong>UGen Graph Function</strong>.
+Those arguments can only be arguments of <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a>!
+For example, any iteration or <code class="docutils literal notranslate"><span class="pre">Array</span></code> within a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to be of fixed size.
+Randomness can only be provided by <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a>.</p>
+<p>For example, the following <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> creates <code class="docutils literal notranslate"><span class="pre">Synth</span></code> of equal frequency which is chosen by random between <code class="docutils literal notranslate"><span class="pre">200</span></code> and <code class="docutils literal notranslate"><span class="pre">400</span></code> at the time of the creation of the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\sineWave</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">,</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">.</span><span class="nx">rand</span> <span class="o">+</span> <span class="mi">200</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mf">0.2</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Therefore, each time we create a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> it sounds the same.
+However, we can use the <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Rand</span></code> which is evaluated when we actually play the <code class="docutils literal notranslate"><span class="pre">Synth</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\sineWave</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">,</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Rand</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="kc">mul:</span> <span class="mf">0.2</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Each time we call <code class="docutils literal notranslate"><span class="pre">Synth(\sineWave)</span></code> we hear a different sound.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/supercollider"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="ecosystem.html" title="previous page"><span class="section-number">1. </span>The Ecosystem</a>
+    <a class='right-next' id="next-link" href="ugens.html" title="next page"><span class="section-number">3. </span>Unit Generators</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Benedikt Zönnchen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

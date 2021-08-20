@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Filters &#8212; Algorithmic Composition</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. Amplitude Modulation" href="am.html" />
+    <link rel="prev" title="3. Percussive Sound" href="percussive-sound.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/basics.html">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ugens.html">
+   3. Unit Generators
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="terms.html">
+   1. Terms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="additive-synthesis.html">
+   2. Additive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="percussive-sound.html">
+   3. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="am.html">
+   5. Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fm.html">
+   6. Frequency Modulation (FM)
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/jump-right-in.html">
+   1. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/distributions.html">
+   2. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/sounddesign/filters.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phases">
+   4.1. Phases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#phasing-filtering">
+   4.2. Phasing &amp; Filtering
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responses-and-resonance">
+   4.3. Responses and Resonance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   4.4. Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="filters">
+<h1><span class="section-number">4. </span>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
+<p>The very basic understanding of filters might be that they just make parts of the signal quieter – which is wrong.
+They do far more than just attenuate some frequencies.
+We have to understand phase relationships to really understand whats going on.</p>
+<div class="section" id="phases">
+<h2><span class="section-number">4.1. </span>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
+<p>Let us first combine two sine waves.
+The first two identical ones</p>
+<div class="amsmath math notranslate nohighlight" id="equation-da624d99-bc32-4111-8098-3b622931d152">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-da624d99-bc32-4111-8098-3b622931d152" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t)
+\end{equation}\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
+</pre></div>
+</div>
+<p>and then two where the second one is phase shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0d9fca29-546e-4f22-a36c-285009aca0b0">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-0d9fca29-546e-4f22-a36c-285009aca0b0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0
+\end{equation}\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
+</pre></div>
+</div>
+<p>Because we shift the phase by <span class="math notranslate nohighlight">\(\pi\)</span> the resulting sound is silence!
+This demonstrate the high impact of the relationships between signals with different phases.
+Of course, we can not hear any difference between a sine wave and the same sine wave with some different phase.
+Only in combination the phase plays a role!</p>
+<p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
+<p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c392cc26-d061-4203-b7f7-d18e312be472">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-c392cc26-d061-4203-b7f7-d18e312be472" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
+\end{equation}\]</div>
+<p>seconds.
+For an oscillator with a frequency of <span class="math notranslate nohighlight">\(100\)</span> Hz a phase shift of <span class="math notranslate nohighlight">\(\pi\)</span> would imply a delay of ony <span class="math notranslate nohighlight">\(0.005\)</span> seconds.</p>
+<p>What is happing if we combine two sawtooth waves such that the fundamental frequencies of these two signals cancel each other out?
+Since <code class="docutils literal notranslate"><span class="pre">Saw</span></code> has no parameter for the phase, we reconstruct the wave by using 25 sine waves:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="nx">fundAmp</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">numHarmonics</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">numHarmonics</span><span class="p">,</span> <span class="p">{</span> <span class="o">|</span><span class="nx">n</span><span class="o">|</span>
+        <span class="kd">var</span> <span class="nx">hFreq</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nx">n</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">phase</span> <span class="o">=</span> <span class="nx">pi</span> <span class="o">*</span> <span class="nx">hFreq</span> <span class="o">/</span> <span class="nx">freq</span><span class="p">;</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">hFreq</span> <span class="o">!</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">phase</span><span class="p">,</span> <span class="nx">fundAmp</span><span class="o">/</span><span class="nx">n</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">hFreq</span> <span class="o">!</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">fundAmp</span><span class="o">/</span><span class="nx">n</span><span class="p">)</span>
+    <span class="p">});</span>
+    <span class="nx">sig</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Compare this to the sound of a regular sawtooth wave:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">300</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span>
+</pre></div>
+</div>
+<p>We clearly hear some differences and if we do the math we can see why!
+As before, the fundamentals of frequency <span class="math notranslate nohighlight">\(f\)</span> Hz of combining two sawtooth one shifted by <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds, cancel each other out.
+However the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, that is, its amplitude is doubled.
+This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
+<p>In the fact, amplitude of each even harmonic is reinforced since</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a1721ec7-0ba1-44d8-acb1-24953bae7546">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-a1721ec7-0ba1-44d8-acb1-24953bae7546" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{2nf}{2f} = n 
+\end{equation}\]</div>
+<p>is a whole number but each odd harmonic gets canceled out since</p>
+<div class="amsmath math notranslate nohighlight" id="equation-06359a24-9dfc-48cd-b490-bc05ffbaaf30">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-06359a24-9dfc-48cd-b490-bc05ffbaaf30" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k = \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
+<p>This dual character (canceling or doubling) can be much more complex, that is, some frequencies might get a bit louder some a bit reinforced, few doubled and few canceled.</p>
+<p>Cancelation is equivalent to filtering!
+So our examples of using two oscillators one shifted by <span class="math notranslate nohighlight">\(\pi\)</span> can be seen as filtering one oscillator by the other.
+The second one acts like a filter.
+This filter is called <em>comb filter</em>.
+In <strong>sclang</strong> this filter is called <code class="docutils literal notranslate"><span class="pre">DelayX</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> stands for different interpolation techniques.</p>
+<p>The following code is equivalent to the two sine waves that cancel each other out:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nb">DelayL</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">maxdelaytime:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="kc">delaytime:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">200</span><span class="p">));</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">CombX</span></code> is a delay line <strong>with feedback</strong>.
+With <code class="docutils literal notranslate"><span class="pre">DelayL</span></code> we can achieve the filtering of the sawthoth wave without combining the sine waves by using multiple <a class="reference internal" href="../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span> <span class="o">!</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nb">DelayL</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">maxdelaytime:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="kc">delaytime:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">200</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="phasing-filtering">
+<h2><span class="section-number">4.2. </span>Phasing &amp; Filtering<a class="headerlink" href="#phasing-filtering" title="Permalink to this headline">¶</a></h2>
+<p>If we speak of filters we often man low pass or high pass filters, that is, filters that filter frequencies above or below some cutoff frequency.
+For example the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <strong>sclang</strong> is a 2nd order Butterworth lowpass filter.</p>
+<div class="figure align-default" id="fig-butterworth-filter">
+<a class="reference internal image-reference" href="../../_images/butterworth-filter.png"><img alt="../../_images/butterworth-filter.png" src="../../_images/butterworth-filter.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
+</div>
+<p>The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
+Well, that is not completely true because the cutoff frequency is also reduced by 3 <a class="reference internal" href="terms.html#sec-decibel"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
+Reducing the loudness by 3 dB means that the perceived level is reduced by a factor of 2.
+The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 4.1</span></a> shows the reduction in amplitude.</p>
+<p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 4.1</span></a>.
+This effect is important if we want to combine multiple filters because they interact!
+In other words: we can not just combine a high pass and low pass filter to get the same result of a band pass filter!</p>
+<p>The following code is an example for a band pass filter.
+First we use a low pass and high pass filter, then a band pass filter.
+The results sound very similar but not identical.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">HPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+
+<span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">BPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="kc">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+</pre></div>
+</div>
+<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.</p>
+<p>The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">BRF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="kc">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="responses-and-resonance">
+<h2><span class="section-number">4.3. </span>Responses and Resonance<a class="headerlink" href="#responses-and-resonance" title="Permalink to this headline">¶</a></h2>
+<p>To bring dynamic into the sound by a filter, we can do the obvious: change the cuttoff frequency over time!
+Let us try this with a low pass filter:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\maxcutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">))</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoff</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="ss">\maxcutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cuttoff</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Almost all physical objects resonate.
+Or, to put it another way, almost all objects will vibrate naturally at certain frequencies.
+What happens to musical objects such as a string when we do not play/pluck them but they are in an environment where sound is generated.
+In other words: how does such an object interact with vibrations of other objects?</p>
+<p>What we observe in that case is <strong>resonance</strong>!
+If the musical object is excited by frequencies that coincide with its natural resonant frequencies, then it will vibrate in sympathy with the source oscillator.
+Otherwise it will approximately ‘stand still’.
+How a musical instrument resonate has a great effect on the color of its sound.</p>
+<p>Resonance filters boost certain frequencies, making the harmonics at those frequencies louder than they were in the input signal.
+The effect is sounds like resonance.
+Therefore, resonance filters emulate resonance.</p>
+<p>Which frequencies are boosted?
+For most resonance filters, the frequencies near the cutoff frequency are boosted.
+In <strong>sclang</strong> the <a class="reference internal" href="../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a> resonance filter start with an <code class="docutils literal notranslate"><span class="pre">R</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> is the resonance low pass filter.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\maxcutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\bandwidth</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">]);</span>
+
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">))</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoff</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="ss">\maxcutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">RLPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cuttoff</span><span class="p">,</span> <span class="kc">rq:</span> <span class="ss">\bandwidth</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="nx">cuttoff</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Try different values especially for the bandwidth.
+A small bandwidth will result in a strong effect.</p>
+<p>In fact, if the bandwidth is very small, the effect becomes so pronounced that the high and low frequencies disappear from the signal and another effect occurs: the filter begins to oscillate at its cutoff frequency.
+The result is a powerful unnatural sound unique to the electronic synthesizer.</p>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">4.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>Filters are essential for <em>subtractive synthesis</em>.
+Filters do not only change the level of certain frequencies but apply a phase shift.
+Many of the filters only apply such a shift and we often do not think of them as filters.</p>
+<p>Let me summarize some of the applications of filters:</p>
+<ul class="simple">
+<li><p>We can use static filters to emphasis certain frequencies.</p></li>
+<li><p>We can use static filters to create formants in a sound, and imitate the characteristics of the human voice or traditional acoustic instruments.</p></li>
+<li><p>A <em>resonance filter</em> with a moderate <em>resonance bandwidth</em> with a cuttoff frequency that tracks the pitch, can create a characteristic quality that remains tonally consistent as we play the keyboard.</p></li>
+<li><p>For some <em>resonance filters</em>, if we decrease the <em>resonance bandwidth</em> we enter an area where the filter is at the brick of self-oscillation. This creates a distinctive distortion that can be a very good starting point.</p></li>
+<li><p>If we decrease the <em>resonance bandwidth</em> even further, the filter will become a sine wave generator in its own right. In theory, no input signal is passed at this point, but few filters completely remove all the signal, and the result is a tortured sound that has extensive uses in modern music.</p></li>
+</ul>
+<p>In analogue synthesis, filters are the defining element of a synthesizer!
+They are crucial, also in digital synthesis, and if you are into creative synthesis, your sound generation will depend upon what you have got and what you do with it</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/sounddesign"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="percussive-sound.html" title="previous page"><span class="section-number">3. </span>Percussive Sound</a>
+    <a class='right-next' id="next-link" href="am.html" title="next page"><span class="section-number">5. </span>Amplitude Modulation</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Benedikt Zönnchen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
