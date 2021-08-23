@@ -60,3 +60,5 @@ LFO's are often used to control some argument of another oscillator, for example
 ## Ring Modulation
 
 Ring modulation (RM) is often used as a synonym for [amplitude modulation (AM)](sec-am).
+Sometimes the term RM is used when the modulator is bipolar (the amplitude becomes positive as well as negative) and AM refers to a unipolar amplitude modulation.
+However, I stick to the term [amplitude modulation (AM)](sec-am) to refer to both.
