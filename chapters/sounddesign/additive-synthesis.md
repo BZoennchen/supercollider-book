@@ -433,7 +433,7 @@ Ndef(\sine_sum, {
 )
 ```
 
-Ok, this loops complicated.
+Ok, this looks complicated.
 However, I did not change too much.
 First, I have rewritten the series such that the sum is the most outer operation.
 Secondly, I generate for each frequency one independent envelope with a random attack and release.
@@ -463,3 +463,7 @@ name: fig-add-synth-env_10
 The effect of Eq. {eq}`eq:env:amplified` for $k = 10$.
 ```
 
+Fourthly, I remove the ``doneAction: Done.freeSelf`` from the envelopes because this would shut down the synth as soon as the first envelope reaches its end.
+The sound would abruptly end too early.
+To clean up the audio server, I instead use ``DetectSilence``-[UGen](sec-ugens).
+It executes the cleanup, that is, the action ``freeSelf`` if the signal ``sig`` indicates silence for a small period of time, which is very handy.

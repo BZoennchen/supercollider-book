@@ -156,6 +156,18 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/bibliography.html">
+   1. Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Trash
  </span>
 </p>
@@ -603,7 +615,7 @@ We could make this relation randomly such that only the expected decrease in amp
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Ok, this loops complicated.
+<p>Ok, this looks complicated.
 However, I did not change too much.
 First, I have rewritten the series such that the sum is the most outer operation.
 Secondly, I generate for each frequency one independent envelope with a random attack and release.
@@ -620,6 +632,10 @@ Compare the following two plots.</p>
 <a class="reference internal image-reference" href="../../_images/add-synth-env_10.png"><img alt="../../_images/add-synth-env_10.png" src="../../_images/add-synth-env_10.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.9 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(2.11)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">¶</a></p>
 </div>
+<p>Fourthly, I remove the <code class="docutils literal notranslate"><span class="pre">doneAction:</span> <span class="pre">Done.freeSelf</span></code> from the envelopes because this would shut down the synth as soon as the first envelope reaches its end.
+The sound would abruptly end too early.
+To clean up the audio server, I instead use <code class="docutils literal notranslate"><span class="pre">DetectSilence</span></code>-<a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a>.
+It executes the cleanup, that is, the action <code class="docutils literal notranslate"><span class="pre">freeSelf</span></code> if the signal <code class="docutils literal notranslate"><span class="pre">sig</span></code> indicates silence for a small period of time, which is very handy.</p>
 </div>
 </div>
 
