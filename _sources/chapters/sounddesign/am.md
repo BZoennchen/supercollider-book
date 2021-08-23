@@ -1,5 +1,5 @@
 (sec-am)=
-# Amplitude Modulation
+# Amplitude Modulation (AM)
 
 If we modulate (change a value over time) the amplitude of a audible signal we call this *amplitude modulation* (AM).
 As we will see it the frequency range of the modulation has a great effect on the result.
@@ -54,7 +54,7 @@ This looks complicated but if we look at the Fourier transformation of $y(t)$ we
 If the modulation frequency is low, that is, in the range of $0$ and $20$ Hz, we can recognize a amplitude modulation by the change of amplitude in $y(t)$.
 However, if we choose a modulation frequency in the range of audible frequencies, we no longer really modulate the amplitude of the signal $y(t)$ but the frequencies of the signal.
 
-For example, if we use A_\text{car} = A_\text{mod} = 1$ and $f_\text{car} = 400$ Hz, $f_\text{mod} = 250$ Hz, the signal consists of three frequencies:
+For example, if we use $A_\text{car} = A_\text{mod} = 1$ and $f_\text{car} = 400$ Hz, $f_\text{mod} = 250$ Hz, the signal consists of three frequencies:
 
 1. $400$ Hz (center)
 2. $400 + 250 = 650$ Hz (sum) and
@@ -216,3 +216,69 @@ For example, this gives us:
 + $r=2/1$: $-1, 1, 3$
 + $r=3/2$: $-1/2, 1, 5/2$
 + ...
+
+
+### Unipolar Amplitude Modulation
+
+We speak of unipolar if the modulation signal either stays positive or negative over time.
+For example:
+
+```isc
+({
+    var mod = SinOsc.ar(110, mul: 0.5, add: 0.5);
+    var car = mod * SinOsc.ar(440);
+    car;
+}.play;
+)
+```
+
+The effect is very similar.
+
+### Complex Amplitude Modulation
+
+Instead of using sine waves we can also use other signals, for example we could use for one or both of the signals (carrier and modulator) a sawtooth wave.
+If the carrier signal consist of frequencies equal to $f_{\text{car},1}, \ldots, f_{\text{car},n}$ and the modulator consists of frequencies $f_{\text{mod},1}, \ldots, f_{\text{mod},m}$, then the resulting signal will consist of frequencies:
+
+\begin{equation}
+f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}
+\end{equation}
+
+thus it consists of $n \cdot m$ frequencies (if nothing cancels out).
+Consequently, AM can generate complex signals with a rich frequency spectrum in a computational inexpensive way.
+
+```isc
+({
+    var mod = LFSaw.ar(110);
+    var car = mod * LFSaw.ar(200);
+    car = car * 0.25;
+    LeakDC.ar(car!2);
+}.play;
+)
+```
+
+``car`` consists of frequencies of all harmonics of the carrier $200, 400, \ldots$ combined with all harmonics of the modulator $110, 220, 330, \ldots$.
+If we would use $100$ Hz for the fundamental of the modulator, the result would be a signal that does only contain odd harmonics.
+
+```isc
+({
+    var mod = LFSaw.ar(100);
+    var car = mod * LFSaw.ar(200);
+    car = car * 0.25;
+    LeakDC.ar(car!2);
+}.play;
+)
+```
+
+If we use low modulation frequency, we can achieve some distortion. 
+The following sounds a bit like the sound of a helicopter.
+
+```isc
+({
+    var mod = LFSaw.ar(LFNoise1.ar(1).range(10, 15));
+    var car = mod * LFSaw.ar(200);
+    car = LPF.ar(car, 500);
+    car = car * 0.25;
+    LeakDC.ar(car!2);
+}.play;
+)
+```
