@@ -1,3 +1,4 @@
+(sec-additive-synthesis)=
 # Additive Synthesis
 
 In *additive synthesis* we start by very simple wave forms, for example, a bunch of sine waves.
@@ -248,7 +249,7 @@ In **sclang** we can generate the sound of a [square wave](sec-triangle-wave) us
 
 ## Reconstruction of the Sawtooth Wave
 
-Let us first recreate the [sawtooth wave](sec-square-wave) without using instead of ``Saw`` only ``SinOsc``.
+Let us first recreate the [sawtooth wave](sec-square-wave) without ``LFSaw`` but instead only a bunch of ``SinOsc`` oscillators.
 The following code generates the sound of the Fourier series approximation.
 I implemented Eq. {eq}`eq:saw:fourier:n`.
 You can change ``n`` to increase the number of harmonics.
@@ -281,10 +282,11 @@ Here we enter the limits of a synth or in other words the difference between **s
 
 **sclang** is executed on the client.
 Therefore, the ``do``-construct is executed on the client before the synth is sent to the server.
+In some sense, the synth is compiled and ``n`` is a variable which is fixed at run time.
 Consequently, changing ``n`` while the synth is playing will not change anything.
 ```
 
-My machine has not problem of running over hundred oscillators (``n=100``).
+My machine has no problem of running over hundred oscillators (``n=100``).
 The CPU workload is at about 8-9 percent.
 If we only use the first ten harmonics, the sound is clearly much more doll and it becomes crispier by adding more and more harmonics.
 However, for me at least, at some point it is hard to perceive any difference if I add even more harmonics.
@@ -292,15 +294,24 @@ However, for me at least, at some point it is hard to perceive any difference if
 Ok, so far so good.
 Of course, it makes no real sense to recreate the 'pure' [sawtooth wave](sec-square-wave) by multiple oscillators because it is much more computational expensive.
 But if we introduce modulation we can create many different sounds that can not be produced by only one [sawtooth wave](sec-square-wave).
-Even if we use filters this can be quite difficult or impossible.
+Even with filters this can be quite challenging or impossible.
 
 For example, a string of a 'perfect' violin makes a sound that can be described by a [sawtooth wave](sec-square-wave) -- each harmonic of the fundamental is present.
-However, a violin sounds completely different than a [sawtooth wave](sec-square-wave) combined with an [envelope](sec-envelope).
-Why? Well the world is imperfect and so is the violin but our ears like that imperfection.
-The amplitudes of the harmonics deviate from Eq. {eq}`eq:saw:fourier:n` and they change over time each in a different way!
-Furthermore, there is always some distortion also within the frequencies.
+However there is no globally determining envelope.
+Instead each frequency changes its power over time independently.
+Therefore, a real violin sounds completely different than a [sawtooth wave](sec-square-wave) combined with an [envelope](sec-envelope).
+Furthermore, the world is imperfect and so is the violin -- there is always some distortion also within the frequencies.
+Fortunately, our ears like this slight imperfection.
+By introducing slight imperfections the sound becomes more gentle.
+In summary, for a real violin
 
-Let is first try an percussive envelope:
+1. the amplitudes of the harmonics deviate from Eq. {eq}`eq:saw:fourier:n`,
+2. they slightly deviate over time each in a different way,
+3. and their power (amplitude) is a unique function of time.
+
+### Global envelope
+
+Let is first try a percussive envelope:
 
 ```isc
 (
@@ -332,14 +343,13 @@ The sound is quite boring because nothing changes over time.
 There is no dynamic thus we lose interest immediately.
 Let us introduce some change over time.
 
+### Noisy detuning of partials over time
+
 My starting point is the introduction of detune but a detune that changes over time!
 I introduce a variable ``vibrato`` that lies in between $[1-\epsilon; 1+\epsilon]$.
 $\epsilon$ is the percentage of maximal detune, that is, a harmonic with a frequency of $f$ will have an actual frequency of $f \pm \epsilon f$.
 In the code below, I call $\epsilon$ ``detune``.
-
 The detune changes over time.
-However, I want to go even one step further and introduce another component that changes over time: the frequency of the detuning.
-In other words, how fast the detune changes also changes slowly over time.
 
 I make use of ``LFNoise1`` which chooses a value between 1 and -1 every $1/f$ seconds where $f$ is its frequency.
 In between of these times, values are linearly interpolated.
@@ -347,17 +357,19 @@ Note that for each speaker the noises are different!
 It is hard to explain what exactly happens with our ``vibrato`` over time so let us plot an example
 
 ```isc
-{LFNoise1.ar(LFNoise1.ar(1.0*5).range(0.1*100, 100)!2).range(1-0.015, 1+0.015)}.plot(1.01)
+{LFNoise1.ar(100!2).range(1-0.015, 1+0.015)}.plot(1.01)
 ```
 
 gives us the following plot:
 
-```{figure} ../../figs/sounddesign/add-synth-double-noise.png
+```{figure} ../../figs/sounddesign/add-synth-single-noise.png
 ---
 width: 800px
-name: fig-add-synth-double-noise
+name: fig-add-synth-single-noise
 ---
 ```
+
+The updated version of ``\sine_sum`` looks like the following:
 
 ```isc
 (
@@ -379,7 +391,7 @@ Ndef(\sine_sum, {
     n.do({
         arg index;
         var k = index+1;
-        var vibrato = LFNoise1.ar(LFNoise1.ar(\rel.kr(1.0)*5).range(0.1*detuneFreq, detuneFreq)!2).range(1-detune, 1+detune);
+        var vibrato = LFNoise1.ar(detuneFreq!2).range(1-detune, 1+detune);
         var harmonicFreq = \freq.kr(220) * vibrato * k;
         var harmonic = ((-1).pow(k) * SinOsc.ar(harmonicFreq) / k);
         sig = sig + harmonic;
@@ -393,6 +405,8 @@ Ndef(\sine_sum, {
 
 In my opinion, this already sounds much more interesting.
 Of course, we went beyond *additive synthesis* and used *frequency modulation* but those go hand in hand especially if the modulation frequency is low.
+
+### Separated partial envelopes
 
 What can we do in addition?
 Well, at the moment we have one global envelope for all frequencies.
@@ -420,7 +434,7 @@ Ndef(\sine_sum, {
             curve: \curve.kr(-4))
         );
 
-        var vibrato = LFNoise1.ar(LFNoise1.ar(\rel.kr(5.0)*5).range(0.01, detuneFreq)!2).range(1-detune, 1+detune);
+        var vibrato = LFNoise1.ar(detuneFreq!2).range(1-detune, 1+detune);
         var harmonicFreq = \freq.kr(220) * vibrato * k;
         var harmonic = ((1/2) - ((1/pi) * ((-1).pow(k) * SinOsc.ar(harmonicFreq) / k))) * env.pow(1+((k-1)/3));
         sig = sig + harmonic;

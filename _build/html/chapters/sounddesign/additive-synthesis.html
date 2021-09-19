@@ -145,7 +145,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   5. Amplitude Modulation
+   5. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
@@ -284,6 +284,23 @@
   <a class="reference internal nav-link" href="#reconstruction-of-the-sawtooth-wave">
    2.2. Reconstruction of the Sawtooth Wave
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#global-envelope">
+     2.2.1. Global envelope
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#noisy-detuning-of-partials-over-time">
+     2.2.2. Noisy detuning of partials over time
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separated-partial-envelopes">
+     2.2.3. Separated partial envelopes
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -297,7 +314,7 @@
               <div>
                 
   <div class="section" id="additive-synthesis">
-<h1><span class="section-number">2. </span>Additive Synthesis<a class="headerlink" href="#additive-synthesis" title="Permalink to this headline">¶</a></h1>
+<span id="sec-additive-synthesis"></span><h1><span class="section-number">2. </span>Additive Synthesis<a class="headerlink" href="#additive-synthesis" title="Permalink to this headline">¶</a></h1>
 <p>In <em>additive synthesis</em> we start by very simple wave forms, for example, a bunch of sine waves.
 To create more complex signals and therefore sounds we add them together.</p>
 <p>The beauty of <em>additive synthesis</em> is that we have full and direct control over each frequency and its amplitude within the final result.
@@ -454,7 +471,7 @@ However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-
 </div>
 <div class="section" id="reconstruction-of-the-sawtooth-wave">
 <h2><span class="section-number">2.2. </span>Reconstruction of the Sawtooth Wave<a class="headerlink" href="#reconstruction-of-the-sawtooth-wave" title="Permalink to this headline">¶</a></h2>
-<p>Let us first recreate the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without using instead of <code class="docutils literal notranslate"><span class="pre">Saw</span></code> only <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>.
+<p>Let us first recreate the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code> but instead only a bunch of <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> oscillators.
 The following code generates the sound of the Fourier series approximation.
 I implemented Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>.
 You can change <code class="docutils literal notranslate"><span class="pre">n</span></code> to increase the number of harmonics.</p>
@@ -483,22 +500,33 @@ You can change <code class="docutils literal notranslate"><span class="pre">n</s
 Here we enter the limits of a synth or in other words the difference between <strong>sclang</strong> and the code that is actually running on the audio server.</p>
 <p><strong>sclang</strong> is executed on the client.
 Therefore, the <code class="docutils literal notranslate"><span class="pre">do</span></code>-construct is executed on the client before the synth is sent to the server.
+In some sense, the synth is compiled and <code class="docutils literal notranslate"><span class="pre">n</span></code> is a variable which is fixed at run time.
 Consequently, changing <code class="docutils literal notranslate"><span class="pre">n</span></code> while the synth is playing will not change anything.</p>
 </div>
-<p>My machine has not problem of running over hundred oscillators (<code class="docutils literal notranslate"><span class="pre">n=100</span></code>).
+<p>My machine has no problem of running over hundred oscillators (<code class="docutils literal notranslate"><span class="pre">n=100</span></code>).
 The CPU workload is at about 8-9 percent.
 If we only use the first ten harmonics, the sound is clearly much more doll and it becomes crispier by adding more and more harmonics.
 However, for me at least, at some point it is hard to perceive any difference if I add even more harmonics.</p>
 <p>Ok, so far so good.
 Of course, it makes no real sense to recreate the ‘pure’ <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> by multiple oscillators because it is much more computational expensive.
 But if we introduce modulation we can create many different sounds that can not be produced by only one <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a>.
-Even if we use filters this can be quite difficult or impossible.</p>
+Even with filters this can be quite challenging or impossible.</p>
 <p>For example, a string of a ‘perfect’ violin makes a sound that can be described by a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> – each harmonic of the fundamental is present.
-However, a violin sounds completely different than a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> combined with an <a class="reference internal" href="terms.html#sec-envelope"><span class="std std-ref">envelope</span></a>.
-Why? Well the world is imperfect and so is the violin but our ears like that imperfection.
-The amplitudes of the harmonics deviate from Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a> and they change over time each in a different way!
-Furthermore, there is always some distortion also within the frequencies.</p>
-<p>Let is first try an percussive envelope:</p>
+However there is no globally determining envelope.
+Instead each frequency changes its power over time independently.
+Therefore, a real violin sounds completely different than a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> combined with an <a class="reference internal" href="terms.html#sec-envelope"><span class="std std-ref">envelope</span></a>.
+Furthermore, the world is imperfect and so is the violin – there is always some distortion also within the frequencies.
+Fortunately, our ears like this slight imperfection.
+By introducing slight imperfections the sound becomes more gentle.
+In summary, for a real violin</p>
+<ol class="simple">
+<li><p>the amplitudes of the harmonics deviate from Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>,</p></li>
+<li><p>they slightly deviate over time each in a different way,</p></li>
+<li><p>and their power (amplitude) is a unique function of time.</p></li>
+</ol>
+<div class="section" id="global-envelope">
+<h3><span class="section-number">2.2.1. </span>Global envelope<a class="headerlink" href="#global-envelope" title="Permalink to this headline">¶</a></h3>
+<p>Let is first try a percussive envelope:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
@@ -527,24 +555,26 @@ Furthermore, there is always some distortion also within the frequencies.</p>
 <p>The sound is quite boring because nothing changes over time.
 There is no dynamic thus we lose interest immediately.
 Let us introduce some change over time.</p>
+</div>
+<div class="section" id="noisy-detuning-of-partials-over-time">
+<h3><span class="section-number">2.2.2. </span>Noisy detuning of partials over time<a class="headerlink" href="#noisy-detuning-of-partials-over-time" title="Permalink to this headline">¶</a></h3>
 <p>My starting point is the introduction of detune but a detune that changes over time!
 I introduce a variable <code class="docutils literal notranslate"><span class="pre">vibrato</span></code> that lies in between <span class="math notranslate nohighlight">\([1-\epsilon; 1+\epsilon]\)</span>.
 <span class="math notranslate nohighlight">\(\epsilon\)</span> is the percentage of maximal detune, that is, a harmonic with a frequency of <span class="math notranslate nohighlight">\(f\)</span> will have an actual frequency of <span class="math notranslate nohighlight">\(f \pm \epsilon f\)</span>.
-In the code below, I call <span class="math notranslate nohighlight">\(\epsilon\)</span> <code class="docutils literal notranslate"><span class="pre">detune</span></code>.</p>
-<p>The detune changes over time.
-However, I want to go even one step further and introduce another component that changes over time: the frequency of the detuning.
-In other words, how fast the detune changes also changes slowly over time.</p>
+In the code below, I call <span class="math notranslate nohighlight">\(\epsilon\)</span> <code class="docutils literal notranslate"><span class="pre">detune</span></code>.
+The detune changes over time.</p>
 <p>I make use of <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> which chooses a value between 1 and -1 every <span class="math notranslate nohighlight">\(1/f\)</span> seconds where <span class="math notranslate nohighlight">\(f\)</span> is its frequency.
 In between of these times, values are linearly interpolated.
 Note that for each speaker the noises are different!
 It is hard to explain what exactly happens with our <code class="docutils literal notranslate"><span class="pre">vibrato</span></code> over time so let us plot an example</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="mi">5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.015</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.015</span><span class="p">)}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">1.01</span><span class="p">)</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">100</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.015</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.015</span><span class="p">)}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">1.01</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>gives us the following plot:</p>
-<div class="figure align-default" id="fig-add-synth-double-noise">
-<a class="reference internal image-reference" href="../../_images/add-synth-double-noise.png"><img alt="../../_images/add-synth-double-noise.png" src="../../_images/add-synth-double-noise.png" style="width: 800px;" /></a>
+<div class="figure align-default" id="fig-add-synth-single-noise">
+<a class="reference internal image-reference" href="../../_images/add-synth-single-noise.png"><img alt="../../_images/add-synth-single-noise.png" src="../../_images/add-synth-single-noise.png" style="width: 800px;" /></a>
 </div>
+<p>The updated version of <code class="docutils literal notranslate"><span class="pre">\sine_sum</span></code> looks like the following:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
@@ -564,7 +594,7 @@ It is hard to explain what exactly happens with our <code class="docutils litera
     <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
         <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
         <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="nx">detuneFreq</span><span class="p">,</span> <span class="nx">detuneFreq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">detuneFreq</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span>
         <span class="kd">var</span> <span class="nx">harmonic</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
         <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">harmonic</span><span class="p">;</span>
@@ -578,6 +608,9 @@ It is hard to explain what exactly happens with our <code class="docutils litera
 </div>
 <p>In my opinion, this already sounds much more interesting.
 Of course, we went beyond <em>additive synthesis</em> and used <em>frequency modulation</em> but those go hand in hand especially if the modulation frequency is low.</p>
+</div>
+<div class="section" id="separated-partial-envelopes">
+<h3><span class="section-number">2.2.3. </span>Separated partial envelopes<a class="headerlink" href="#separated-partial-envelopes" title="Permalink to this headline">¶</a></h3>
 <p>What can we do in addition?
 Well, at the moment we have one global envelope for all frequencies.
 What about <code class="docutils literal notranslate"><span class="pre">n</span></code> independent envelopes?
@@ -602,7 +635,7 @@ We could make this relation randomly such that only the expected decrease in amp
             <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>
         <span class="p">);</span>
 
-        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="nx">detuneFreq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">detuneFreq</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span>
         <span class="kd">var</span> <span class="nx">harmonic</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">)))</span> <span class="o">*</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">((</span><span class="nx">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">));</span>
         <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">harmonic</span><span class="p">;</span>
@@ -636,6 +669,7 @@ Compare the following two plots.</p>
 The sound would abruptly end too early.
 To clean up the audio server, I instead use <code class="docutils literal notranslate"><span class="pre">DetectSilence</span></code>-<a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a>.
 It executes the cleanup, that is, the action <code class="docutils literal notranslate"><span class="pre">freeSelf</span></code> if the signal <code class="docutils literal notranslate"><span class="pre">sig</span></code> indicates silence for a small period of time, which is very handy.</p>
+</div>
 </div>
 </div>
 
