@@ -39,10 +39,100 @@ Therefore, the fundamental frequency is in some way related to the displacement 
 So what shall we do?
 Admit defeat and concede?
 Well, yes and no!
-We can not emulate a drum by recreating each of its harmonics, for example by using *additive synthesis*, that would be impossible.
+We can not emulate a drum by recreating each of its harmonics, for example by using [additive synthesis](sec-additive-synthesis), that would be impossible because it would be too computational expensive.
 What we need is noise!
 
+## Noise
 
+Noise is a random signal having intensity at a wide range of frequencies.
+For example, *white noise* has equal intensity at different frequencies, giving it a constant power spectral density.
+Let us listen to *white noise* using ``WhiteNoise``.
 
+```isc
+{WhiteNoise.ar(0.25!2)}.play;
+```
 
+Note that we can not define the frequency since noise consist of a wide range of frequencies.
+This sounds similar to a FM radio while searching for a channel.
 
+```{figure} ../../figs/sounddesign/whitenoise.png
+---
+width: 600px
+name: fig-whitenoise
+---
+A plot of ``WhiteNoise`` over a duration of 2 milliseconds.
+```
+
+If we look at the frequency analyser, we can see almost a line, that is, all frequency have roughly equal power.
+Therefore, the sound is kind of harsh.
+To achieve a softer sound we can use ``PinkNoise``
+
+```isc
+{PinkNoise.ar(0.25!2)}.play;
+```
+
+For *pink noise* the spectrum falls off in power by 3 dB per octave.
+The spectrum of *brown noise* ``BrownNoise`` falls even faster, that is, 6 dB in power per octave.
+The so called *clip noise* ``ClipNoise`` is even a little more harsh than ``WhiteNoise``.
+It generates a high frequency stream of 1, -1 with equal probability.
+
+```{figure} ../../figs/sounddesign/clipnoise.png
+---
+width: 600px
+name: fig-clipnoise
+---
+A plot of ``ClipNoise`` over a duration of 2 milliseconds.
+```
+
+The last available noise offered by the default **sclang** is ``GrayNoise`` which sounds very deep, like a heavy rain.
+
+Using ``GraySound`` combined with a low frequency ``SinOsc`` controlled by an percussive envelope, we already achieve a quite convincing sound of a drum:
+
+```isc
+(
+Ndef(\drum, {
+    var sig, amp, n, env;
+    env = EnvGen.kr(Env.perc(0.01, 0.5, 1.0, -8.0), doneAction: Done.freeSelf);
+    sig = SinOsc.ar(140!2) * 1.2;
+    sig = GrayNoise.ar(0.15!2) + sig;	
+    sig = sig * env;
+}).play;
+)
+```
+
+Compare this to the ``WhiteNoise``:
+
+```isc
+(
+Ndef(\drum, {
+    var sig, amp, n, env;
+    env = EnvGen.kr(Env.perc(0.01, 0.5, 1.0, -8.0), doneAction: Done.freeSelf);
+    sig = SinOsc.ar(140!2) * 1.2;
+    sig = WhiteNoise.ar(0.15!2) + sig;	
+    sig = sig * env;
+}).play;
+)
+```
+
+## Bells
+
+Very different from string and wind instruments, bells consists of many inharmonic 'partials'.
+So let us try a bunch of ``SinOsc`` using random frequencies between some range.
+
+```isc
+(
+Ndef(\bell, {
+    var freq, sig, env, amp;
+    amp = 0.2;
+
+    Mix.ar(
+    {
+        freq = rrand(100, 5000);
+        env = EnvGen.kr(envelope: Env.perc(0.001, 500/freq), gate: Dust.kr(0.05));
+        sig = SinOsc.ar(freq) * env;
+        sig = sig * amp;
+        sig = Pan2.ar(sig, rrand(-1.0, 1.0));
+    }.dup(100));
+}).play;
+)
+```
