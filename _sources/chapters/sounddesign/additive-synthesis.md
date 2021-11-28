@@ -309,7 +309,7 @@ In summary, for a real violin
 2. they slightly deviate over time each in a different way,
 3. and their power (amplitude) is a unique function of time.
 
-### Global envelope
+### Global Envelope
 
 Let is first try a percussive envelope:
 
@@ -343,7 +343,7 @@ The sound is quite boring because nothing changes over time.
 There is no dynamic thus we lose interest immediately.
 Let us introduce some change over time.
 
-### Noisy detuning of partials over time
+### Noisy De-tuning of Partials Over Time
 
 My starting point is the introduction of detune but a detune that changes over time!
 I introduce a variable ``vibrato`` that lies in between $[1-\epsilon; 1+\epsilon]$.
@@ -406,7 +406,7 @@ Ndef(\sine_sum, {
 In my opinion, this already sounds much more interesting.
 Of course, we went beyond *additive synthesis* and used *frequency modulation* but those go hand in hand especially if the modulation frequency is low.
 
-### Separated partial envelopes
+### Separated Partial Envelopes
 
 What can we do in addition?
 Well, at the moment we have one global envelope for all frequencies.
