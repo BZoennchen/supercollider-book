@@ -317,19 +317,19 @@ As a consequence of the success of FM synthesis, the company sold millions of FM
 <div class="section" id="introduction">
 <h2><span class="section-number">6.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-383b8e0c-4c24-4479-948f-480add4d47fe">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-383b8e0c-4c24-4479-948f-480add4d47fe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6fc7b9ee-8c79-4e4c-89d3-c86fde95f7c7">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-6fc7b9ee-8c79-4e4c-89d3-c86fde95f7c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a91c86d1-28eb-437c-96ee-a0d81fe50449">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-a91c86d1-28eb-437c-96ee-a0d81fe50449" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3f4fbb2f-52c8-4523-9d0b-4ad2df0fa1c7">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-3f4fbb2f-52c8-4523-9d0b-4ad2df0fa1c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c976025-c5f7-471e-b0b0-6ebf216b8019">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-1c976025-c5f7-471e-b0b0-6ebf216b8019" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fe1b4f8f-112c-4d71-8e43-2c8de6ecfd58">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-fe1b4f8f-112c-4d71-8e43-2c8de6ecfd58" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -353,8 +353,8 @@ Try the following code snippet!</p>
 </pre></div>
 </div>
 <p>Here we use</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6719059-3d75-4fba-9200-f5709ad6ae0a">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-b6719059-3d75-4fba-9200-f5709ad6ae0a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1d0cd2f1-5106-4e0d-a03e-c03ec1fcf9bd">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-1d0cd2f1-5106-4e0d-a03e-c03ec1fcf9bd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f_{\text{mod}} = f_\text{car} \cdot 10^{-2}
 \end{equation}\]</div>
 <p>such that the <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is two magnitudes smaller than the carrier frequency.
@@ -412,8 +412,8 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 How many frequencies are present?
 Well, in theory infinite amount!
 Fortunately, there is a formula for the frequencies <span class="math notranslate nohighlight">\(f_{\text{sb},n^{\pm}}\)</span> of the side-bands</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57680fe2-4991-4f2c-87be-504bb31240d0">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-57680fe2-4991-4f2c-87be-504bb31240d0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0dbe81fe-d552-4bf7-b0c6-24c6f2192c22">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-0dbe81fe-d552-4bf7-b0c6-24c6f2192c22" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p>
@@ -423,13 +423,13 @@ f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},
 </div>
 <p>If we want to keep the same side band relation for different carrier frequencies, we have to compute the modulation frequency based on the carrier frequency.
 Therefore, it is useful to introduce a ratio:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b9b90670-501c-4def-be54-8fc00c0fc552">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-b9b90670-501c-4def-be54-8fc00c0fc552" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9af55e68-2504-4d9e-af3c-a4f67166022c">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-9af55e68-2504-4d9e-af3c-a4f67166022c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 r_{\text{mod}} = \frac{f_\text{car}}{f_\text{mod}}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73fe4044-5aae-448a-ab9d-8975d1143960">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-73fe4044-5aae-448a-ab9d-8975d1143960" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-286a7cad-5775-4a7b-862a-c7c7eb829873">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-286a7cad-5775-4a7b-862a-c7c7eb829873" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_{\text{mod}}.
 \end{equation}\]</div>
 </div>
@@ -445,26 +445,26 @@ We can only control their amplitudes as a whole!</p>
 <p>Also, the amplitude of the modulator is not solely responsible for this effect but the relationship between it and the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span>!
 The so called <em>modulation index</em> gives us this relationship.
 It is equal to the ratio of frequency deviation of <span class="math notranslate nohighlight">\(y(t)\)</span> and the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9e923d5-0fae-4cb3-84ea-1d072c2f5ae8">
-<span class="eqno">(6.8)<a class="headerlink" href="#equation-c9e923d5-0fae-4cb3-84ea-1d072c2f5ae8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2a81011c-0f04-40b6-be43-b8e978deefaa">
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-2a81011c-0f04-40b6-be43-b8e978deefaa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \beta(t) = A_{\text{mod}} \frac{d \sin(2\pi f_{\text{mod}} \cdot t)}{dt} \cdot f_{\text{mod}}^{-1}
 \end{equation}\]</div>
 <p>We can compute the <em>maximum modulation index</em> <span class="math notranslate nohighlight">\(\beta_{\text{max}}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c2249d98-86af-4d73-bdda-ebbded33ba36">
-<span class="eqno">(6.9)<a class="headerlink" href="#equation-c2249d98-86af-4d73-bdda-ebbded33ba36" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-19e55a14-f622-4222-b58d-df758d244d53">
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-19e55a14-f622-4222-b58d-df758d244d53" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \beta_{ \text{max} } = \frac{ A_{\text{mod}} }{ f_{\text{mod}} }.
 \end{equation}\]</div>
 <p>If we want to have the approximately the same harmonic relationship for all keys on the keyboard, we have to change both <span class="math notranslate nohighlight">\(f_{\text{car}}\)</span> and <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> accordingly while playing.
 However, if we also want the same tone, we also have to adapt <span class="math notranslate nohighlight">\(A_{\text{mod}}\)</span> such that <span class="math notranslate nohighlight">\(\beta_{ \text{max} }\)</span> stays approximately constant, that is, we compute <span class="math notranslate nohighlight">\(A_{\text{mod}}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53b97268-f658-4b51-83af-fd80658b04a4">
-<span class="eqno">(6.10)<a class="headerlink" href="#equation-53b97268-f658-4b51-83af-fd80658b04a4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f51a44e6-5681-4d91-a042-d5e0afa7429c">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-f51a44e6-5681-4d91-a042-d5e0afa7429c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A_{\text{mod}} = \beta_{\text{max}} \cdot f_{\text{mod}},
 \end{equation}\]</div>
 <p>and fix <span class="math notranslate nohighlight">\(\beta_{\text{max}}\)</span> as we desire.</p>
 <p>Ok, but wait, we still have no formula for the amplitude of each pair of sidebands with frequency <span class="math notranslate nohighlight">\(f_{\text{sb},n^{\pm}}\)</span>.
 This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0987dd3c-60a4-478c-9fe3-e4ffc6f7b06b">
-<span class="eqno">(6.11)<a class="headerlink" href="#equation-0987dd3c-60a4-478c-9fe3-e4ffc6f7b06b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b5846967-1206-44b1-8d3f-f24e8c395252">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-b5846967-1206-44b1-8d3f-f24e8c395252" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A_{ \text{sb},n^{\pm} } = J_n(\beta_\text{max}) = \sum^{\infty}_{k=0} \frac{ (-1)^k \cdot \left(\frac{\beta_\text{max}}{2}\right)^{n+2k} }{k! \cdot (n+k)!}.
 \end{equation}\]</div>
 <p>The series is a converging series and especially in our case where <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> is not too large, the values of each term become very small very quick.</p>
@@ -481,8 +481,8 @@ Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a c
 In practice that not the case.
 Furthermore, the amplitude of many of these side bands might be too low to be recognized by our ears.</p>
 <p>As a rule of thump, the following formula gives an approximation of the bandwidth (where all side bands are contained in) of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6dcb3f18-6465-4179-b987-ee8b9c843114">
-<span class="eqno">(6.12)<a class="headerlink" href="#equation-6dcb3f18-6465-4179-b987-ee8b9c843114" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a4516b38-3ae6-4a90-83bd-231cbf96ab93">
+<span class="eqno">(6.12)<a class="headerlink" href="#equation-a4516b38-3ae6-4a90-83bd-231cbf96ab93" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).
 \end{equation}\]</div>
 <p>Again the <em>modulation index</em> will determine the bandwidth.
@@ -491,8 +491,8 @@ The larger the index, the larger the bandwidth.</p>
 <div class="section" id="summary">
 <h2><span class="section-number">6.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f6da0be-647b-4ff4-9e82-5e291055f72b">
-<span class="eqno">(6.13)<a class="headerlink" href="#equation-7f6da0be-647b-4ff4-9e82-5e291055f72b" title="Permalink to this equation">¶</a></span>\[\begin{gather}
+<div class="amsmath math notranslate nohighlight" id="equation-fc1203e8-84ee-4c52-a709-f7ad89696453">
+<span class="eqno">(6.13)<a class="headerlink" href="#equation-fc1203e8-84ee-4c52-a709-f7ad89696453" title="Permalink to this equation">¶</a></span>\[\begin{gather}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod}\\
 A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{gather}\]</div>
