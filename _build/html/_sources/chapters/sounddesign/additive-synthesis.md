@@ -2,17 +2,21 @@
 # Additive Synthesis
 
 In *additive synthesis* we start by very simple wave forms, for example, a bunch of sine waves.
-To create more complex signals and therefore sounds we add them together.
+To create more complex signals, and therefore sounds, we add them together.
+The resulting sound of adding two wave forms together can be surprisingly different than the original two wave forms in separation.
 
 The beauty of *additive synthesis* is that we have full and direct control over each frequency and its amplitude within the final result.
 We can even change each component (frequency, amplitude pair) over time.
 
-This advantage consequently leads to a weakness of *additive synthesis*: it is computational expensive!
-Instead of building a complex function before evaluation we evaluate each component and sum everything up.
-For a complex and interesting sound we need a lot of oscillators.
+This advantage comes at a price!
+We require an oscillator for each of those signals which can quickly become to computational expensive!
+Instead of building a rich function before evaluation, we evaluate each simple component and sum everything up.
+And to get an interesting sound, we need a lot of oscillators, i.e. we need some complexity.
 For this reason, *additive synthesis* is hard to realize on analog synthesizer and even digital synthesizer can reach their limit quite fast.
 
-Computers are getting faster and faster, therefore, *additive synthesis* might become more and more attractive.
+However, computers getting faster and faster, therefore, *additive synthesis* might become more and more attractive in the future.
+Even if it is the basic technique of sound synthesis, it might become even more important.
+
 Let us first start with a short introductory of the fundamental waveforms we might wanna combine.
 
 ## Fundamental Waveforms
@@ -20,17 +24,18 @@ Let us first start with a short introductory of the fundamental waveforms we mig
 Jean-Baptise Joseph Fourier discovered that every *signal* can be represented as a Fourier series.
 A signal $y(t)$ is a function with some special conditions:
 
-1. piecewise continuous and
-2. bounded.
+1. **piecewise continuous** and
+2. **bounded**.
 
-Functions that describe an amplitude $y(t)$ over the time $t$ are audio signals and have those two qualities.
+Functions that describe an amplitude $y(t)$ over the time $t$ are audio signals and have these two qualities.
 The signal is also periodic but that is not a necessary condition for the existence of a Fourier series of the signal.
 
-To understand the effect of a signal it is essential to understand its Fourier series.
+To understand the effect of a signal, it is essential to understand its Fourier series.
 In fact, the *stethoscope* displays the frequencies of the functions that are the components of the Fourier series.
 
-For audio synthesis, there are very important signals analog as well as digital synthesizer offers as a starting point.
-They are our basic oscillators and we have to understand their nature by looking at their Fourier series.
+For audio synthesis, there are some very important and basic oscillators.
+Both types of synthesizer, that is, analog as well as digital synthesizer, offers these basic oscillators as a starting point.
+Let us try to understand their nature by looking at their Fourier series.
 
 (sec-sine-wave)=
 ### The Sine Wave
