@@ -60,7 +60,8 @@ The sine wave with a frequency and amplitude of 1.
 ```
 
 However, in practice one does not model something as complex as noise by using a Fourier series consisting of sine waves.
-It would be too computational expensive and, since our resources are finite but the Fourier series consist infinite amount of terms, it can never be perfect.
+It would be too computational expensive.
+In theory the Fourier series of many functions consist an infinite amount of terms but since our resources are finite, we are only able to generate an approximation.
 
 
 (sec-sawtooth-wave)=
