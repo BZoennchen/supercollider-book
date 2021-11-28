@@ -369,13 +369,14 @@ In theory the Fourier series of many functions consist an infinite amount of ter
 <a class="reference internal image-reference" href="../../_images/sawtooth.png"><img alt="../../_images/sawtooth.png" src="../../_images/sawtooth.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">¶</a></p>
 </div>
-<p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <strong>sclang</strong> however, the <span class="math notranslate nohighlight">\(x\)</span>-axis will be always the number of the sample.
+<p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <strong>sclang</strong>.
+However, the <span class="math notranslate nohighlight">\(x\)</span>-axis will be always the number of the sample.
 Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 2.2</span></a> using <strong>sclang</strong>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">trifunc</span> <span class="o">=</span> <span class="p">{</span>
-	<span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">amp</span><span class="p">;</span>
-	<span class="nx">amp</span> <span class="o">=</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span> <span class="o">-</span> <span class="nx">floor</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span><span class="p">)));</span>
+    <span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span> <span class="o">-</span> <span class="nx">floor</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span><span class="p">)));</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -399,9 +400,9 @@ Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><
 However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(2.3)</a> that</p>
 <ol class="simple">
 <li><p>each harmonic of <span class="math notranslate nohighlight">\(k \cdot f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
-<li><p>the amplitude decreases by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
+<li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(k\)</span> decrease by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
 </ol>
-<p>Furthermore, we can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>!</p>
+<p>Furthermore, we can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>.</p>
 <p>In <strong>sclang</strong> we can generate the sound of a <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> using the <a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Saw</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>

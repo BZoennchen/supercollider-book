@@ -85,15 +85,16 @@ name: fig-sawtooth
 The sawtooth wave with a frequency and amplitude of 1.
 ```
 
-I generated this plot using ``Python`` but we can do the same in **sclang** however, the $x$-axis will be always the number of the sample.
+I generated this plot using ``Python`` but we can do the same in **sclang**.
+However, the $x$-axis will be always the number of the sample.
 Let us generate the plot in {numref}`Fig. {number} <fig-sawtooth>` using **sclang**:
 
 ```isc
 (
 var trifunc = {
-	arg t;
-	var freq = 1, amp;
-	amp = (freq*t - floor(1/2 + (freq*t)));
+    arg t;
+    var freq = 1, amp;
+    amp = (freq*t - floor(1/2 + (freq*t)));
 };
 
 var t = Array.interpolation(100, 0, 1);
@@ -129,9 +130,9 @@ The evaluation of many sine functions is computational more expensive than evalu
 However, we learn from Eq. {eq}`eq:saw:fourier` that
 
 1. each harmonic of $k \cdot f$ with $k \in \mathbb{N}$ of the fundamental $f$ is present and
-2. the amplitude decreases by $1/k$.
+2. the amplitude of the harmonic $k$ decrease by $1/k$.
 
-Furthermore, we can compute an approximation of the [sawtooth wave](sec-sawtooth-wave) by the technique of additive synthesis using Eq. {eq}`eq:saw:fourier:n`!
+Furthermore, we can compute an approximation of the [sawtooth wave](sec-sawtooth-wave) by the technique of additive synthesis using Eq. {eq}`eq:saw:fourier:n`.
 
 In **sclang** we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) using the [UGen](sec-ugens) ``Saw``:
 
