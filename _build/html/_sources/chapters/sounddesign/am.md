@@ -163,7 +163,7 @@ This can be used to create aggressive and conventionally 'unmusical' sounds that
 
 We can control the amount of clangour by raising or lowering the level of the modulator $A_\text{mod}$.
 
-### Harmonic and inharmonic timbres
+### Harmonic and Inharmonic Timbres
 
 Let us introduce a ratio $r$ between the carrier frequency and the modulation frequency such that:
 
