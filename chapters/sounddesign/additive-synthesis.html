@@ -316,29 +316,33 @@
   <div class="section" id="additive-synthesis">
 <span id="sec-additive-synthesis"></span><h1><span class="section-number">2. </span>Additive Synthesis<a class="headerlink" href="#additive-synthesis" title="Permalink to this headline">¶</a></h1>
 <p>In <em>additive synthesis</em> we start by very simple wave forms, for example, a bunch of sine waves.
-To create more complex signals and therefore sounds we add them together.</p>
+To create more complex signals, and therefore sounds, we add them together.
+The resulting sound of adding two wave forms together can be surprisingly different than the original two wave forms in separation.</p>
 <p>The beauty of <em>additive synthesis</em> is that we have full and direct control over each frequency and its amplitude within the final result.
 We can even change each component (frequency, amplitude pair) over time.</p>
-<p>This advantage consequently leads to a weakness of <em>additive synthesis</em>: it is computational expensive!
-Instead of building a complex function before evaluation we evaluate each component and sum everything up.
-For a complex and interesting sound we need a lot of oscillators.
+<p>This advantage comes at a price!
+We require an oscillator for each of those signals which can quickly become to computational expensive!
+Instead of building a rich function before evaluation, we evaluate each simple component and sum everything up.
+And to get an interesting sound, we need a lot of oscillators, i.e. we need some complexity.
 For this reason, <em>additive synthesis</em> is hard to realize on analog synthesizer and even digital synthesizer can reach their limit quite fast.</p>
-<p>Computers are getting faster and faster, therefore, <em>additive synthesis</em> might become more and more attractive.
-Let us first start with a short introductory of the fundamental waveforms we might wanna combine.</p>
+<p>However, computers getting faster and faster, therefore, <em>additive synthesis</em> might become more and more attractive in the future.
+Even if it is the basic technique of sound synthesis, it might become even more important.</p>
+<p>Let us first start with a short introductory of the fundamental waveforms we might wanna combine.</p>
 <div class="section" id="fundamental-waveforms">
 <h2><span class="section-number">2.1. </span>Fundamental Waveforms<a class="headerlink" href="#fundamental-waveforms" title="Permalink to this headline">¶</a></h2>
 <p>Jean-Baptise Joseph Fourier discovered that every <em>signal</em> can be represented as a Fourier series.
 A signal <span class="math notranslate nohighlight">\(y(t)\)</span> is a function with some special conditions:</p>
 <ol class="simple">
-<li><p>piecewise continuous and</p></li>
-<li><p>bounded.</p></li>
+<li><p><strong>piecewise continuous</strong> and</p></li>
+<li><p><strong>bounded</strong>.</p></li>
 </ol>
-<p>Functions that describe an amplitude <span class="math notranslate nohighlight">\(y(t)\)</span> over the time <span class="math notranslate nohighlight">\(t\)</span> are audio signals and have those two qualities.
+<p>Functions that describe an amplitude <span class="math notranslate nohighlight">\(y(t)\)</span> over the time <span class="math notranslate nohighlight">\(t\)</span> are audio signals and have these two qualities.
 The signal is also periodic but that is not a necessary condition for the existence of a Fourier series of the signal.</p>
-<p>To understand the effect of a signal it is essential to understand its Fourier series.
+<p>To understand the effect of a signal, it is essential to understand its Fourier series.
 In fact, the <em>stethoscope</em> displays the frequencies of the functions that are the components of the Fourier series.</p>
-<p>For audio synthesis, there are very important signals analog as well as digital synthesizer offers as a starting point.
-They are our basic oscillators and we have to understand their nature by looking at their Fourier series.</p>
+<p>For audio synthesis, there are some very important and basic oscillators.
+Both types of synthesizer, that is, analog as well as digital synthesizer, offers these basic oscillators as a starting point.
+Let us try to understand their nature by looking at their Fourier series.</p>
 <div class="section" id="the-sine-wave">
 <span id="sec-sine-wave"></span><h3><span class="section-number">2.1.1. </span>The Sine Wave<a class="headerlink" href="#the-sine-wave" title="Permalink to this headline">¶</a></h3>
 <p>The sine wave</p>
