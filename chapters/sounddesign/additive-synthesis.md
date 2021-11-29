@@ -315,7 +315,7 @@ By introducing slight imperfections the sound becomes more gentle.
 In summary, for a real violin
 
 1. the amplitudes of the harmonics deviate from Eq. {eq}`eq:saw:fourier:n`,
-2. they slightly deviate over time each in a different way,
+2. they slightly deviate over time -- each in a different way,
 3. and their power (amplitude) is a unique function of time.
 
 ### Global Envelope
@@ -421,7 +421,7 @@ What can we do in addition?
 Well, at the moment we have one global envelope for all frequencies.
 What about ``n`` independent envelopes?
 We could, for example, imitate nature and decrease the amplitudes of high frequencies faster than those of low frequencies.
-We could make this relation randomly such that only the expected decrease in amplitude behaves like that.
+We could introduce randomness such that only the *expected decrease in amplitude* behaves like that.
 
 ```isc
 (
