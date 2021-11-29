@@ -132,7 +132,10 @@ However, we learn from Eq. {eq}`eq:saw:fourier` that
 1. each harmonic of $k \cdot f$ with $k \in \mathbb{N}$ of the fundamental $f$ is present and
 2. the amplitude of the harmonic $k$ decrease by $1/k$.
 
-Furthermore, we can compute an approximation of the [sawtooth wave](sec-sawtooth-wave) by the technique of additive synthesis using Eq. {eq}`eq:saw:fourier:n`.
+Even if the sawtooth wave does not quite sound like a string instrument, its properties are similar to the properties of string instruments.
+Therefore, the sawtooth wave can be the a starting point for modeling the sound of a violin or guitar.
+
+We can compute an approximation of the [sawtooth wave](sec-sawtooth-wave) by the technique of additive synthesis using Eq. {eq}`eq:saw:fourier:n`.
 
 In **sclang** we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) using the [UGen](sec-ugens) ``Saw``:
 
@@ -144,7 +147,6 @@ In **sclang** we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) 
 ### The Square Wave
 
 Another important wave is the [square wave](sec-square-wave) which is a special case of the pulse wave:
-
 
 ```{math}
 :label: eq:square
@@ -173,13 +175,13 @@ Let's look at its Fourier series:
 
 ```{math}
 :label: eq:square:fourier
-    y(_\text{square}t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}
+    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}
 ```
 
 Again we learn from the Fourier series (Eq. {eq}`eq:square:fourier`) that
 
 1. each odd harmonic $(2k-1)f$ with $k \in \mathbb{N}$ of the fundamental $f$ is present and
-2. the amplitude decreases with $4/(2k - 1)$
+2. the amplitude of the harmonic $2k - 1$ decreases with $4/(2k - 1)$
 
 The amplitudes also decrease linearly with increasing frequencies.
 
@@ -236,7 +238,7 @@ Let's look at its Fourier series:
 Again we learn from the Fourier series (Eq. {eq}`eq:triangle:fourier`) that
 
 1. each odd harmonic $(2k+1)f$ with $k \in \mathbb{N}_0$ of the fundamental $f$ is present and
-2. the amplitude decreases with $8\pi/(2k - 1)^2$
+2. the amplitude of the harmonic $2k+1$ decreases with $8/\pi^2(2k + 1)^2$
 
 The amplitudes decrease **quadratically** with increasing frequencies.
 
