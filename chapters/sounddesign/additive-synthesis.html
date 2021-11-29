@@ -402,7 +402,9 @@ However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-
 <li><p>each harmonic of <span class="math notranslate nohighlight">\(k \cdot f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(k\)</span> decrease by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
 </ol>
-<p>Furthermore, we can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>.</p>
+<p>Even if the sawtooth wave does not quite sound like a string instrument, its properties are similar to the properties of string instruments.
+Therefore, the sawtooth wave can be the a starting point for modeling the sound of a violin or guitar.</p>
+<p>We can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(2.4)</a>.</p>
 <p>In <strong>sclang</strong> we can generate the sound of a <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> using the <a class="reference internal" href="../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Saw</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
@@ -425,11 +427,11 @@ However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-
 </div>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-square-fourier">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">¶</a></span>\[    y(_\text{square}t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">¶</a></span>\[    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
 <p>Again we learn from the Fourier series (Eq. <a class="reference internal" href="#equation-eq-square-fourier">(2.7)</a>) that</p>
 <ol class="simple">
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k-1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
-<li><p>the amplitude decreases with <span class="math notranslate nohighlight">\(4/(2k - 1)\)</span></p></li>
+<li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k - 1\)</span> decreases with <span class="math notranslate nohighlight">\(4/(2k - 1)\)</span></p></li>
 </ol>
 <p>The amplitudes also decrease linearly with increasing frequencies.</p>
 <div class="figure align-default" id="fig-square-20">
@@ -462,7 +464,7 @@ However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-
 <p>Again we learn from the Fourier series (Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(2.10)</a>) that</p>
 <ol class="simple">
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k+1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
-<li><p>the amplitude decreases with <span class="math notranslate nohighlight">\(8\pi/(2k - 1)^2\)</span></p></li>
+<li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k+1\)</span> decreases with <span class="math notranslate nohighlight">\(8/\pi^2(2k + 1)^2\)</span></p></li>
 </ol>
 <p>The amplitudes decrease <strong>quadratically</strong> with increasing frequencies.</p>
 <div class="figure align-default" id="fig-triangle-20">
