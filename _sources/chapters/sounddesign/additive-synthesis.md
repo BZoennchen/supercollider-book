@@ -35,8 +35,8 @@ To understand the effect of a signal, it is essential to understand its Fourier 
 In fact, the *stethoscope* displays the frequencies of the functions that are the components of the Fourier series.
 
 For audio synthesis, there are some very important and basic oscillators.
-Both types of synthesizer, that is, analog as well as digital synthesizer, offers these basic oscillators as a starting point.
-Let us try to understand their nature by looking at their Fourier series.
+Both types of synthesizer, that is, analog as well as digital synthesizers, offers these basic oscillators as a starting point.
+Let us try to understand their timbre by looking at their Fourier series.
 
 (sec-sine-wave)=
 ### The Sine Wave
@@ -48,7 +48,7 @@ The sine wave
     y_\text{sine}(t) = A \cdot \sin(2\pi \cdot f \cdot t)
 ```
 
-is the most pure most basic and most simple signal or wave form there is.
+is the most pure, most basic, and most simple signal or wave form there is.
 Its Fourier series is equivalent to Eq. {eq}`eq:sine`. 
 It consists of only the fundamental frequency $f$ and is theoretically the basis for all other signals.
 
@@ -62,7 +62,7 @@ The sine wave with a frequency and amplitude of 1.
 
 However, in practice one does not model something as complex as noise by using a Fourier series consisting of sine waves.
 It would be too computational expensive.
-In theory the Fourier series of many functions consist an infinite amount of terms but since our resources are finite, we are only able to generate an approximation.
+In theory, the Fourier series of many functions consist an infinite amount of terms, but since our hardware resources are finite, we are only able to generate an approximation of the real thing.
 
 
 (sec-sawtooth-wave)=
