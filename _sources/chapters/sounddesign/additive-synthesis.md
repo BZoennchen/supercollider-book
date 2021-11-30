@@ -62,6 +62,7 @@ The sine wave with a frequency and amplitude of 1.
 
 However, in practice one does not model something as complex as noise by using a Fourier series consisting of sine waves.
 It would be too computational expensive.
+
 In theory, the Fourier series of many functions consist an infinite amount of terms, but since our hardware resources are finite, we are only able to generate an approximation of the real thing.
 
 
