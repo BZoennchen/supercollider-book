@@ -260,7 +260,8 @@ In **sclang** we can generate the sound of a [square wave](sec-triangle-wave) us
 
 ## Reconstruction of the Sawtooth Wave
 
-Let us first recreate the [sawtooth wave](sec-square-wave) without ``LFSaw`` but instead only a bunch of ``SinOsc`` oscillators.
+Let us first recreate the [sawtooth wave](sec-square-wave) without ``LFSaw``.
+Instead we use a bunch of ``SinOsc`` oscillators.
 The following code generates the sound of the Fourier series approximation.
 I implemented Eq. {eq}`eq:saw:fourier:n`.
 You can change ``n`` to increase the number of harmonics.
@@ -276,13 +277,14 @@ Ndef(\sine_sum, {
     n.do({
         arg index;
         var k = index+1;
-        sig = sig + ((-1).pow(k) * SinOsc.ar(\freq.kr(220)*k) / k);
+        sig = sig + ((-1).pow(k%2) * SinOsc.ar(\freq.kr(220)*k) / k);
     });
 
     sig = (1/2) - ((1/pi) * sig);
     sig = sig!2 * amp;
 }).play;
 )
+
 ```
 
 ```{admonition} SCLang and the Server
@@ -308,12 +310,13 @@ But if we introduce modulation we can create many different sounds that can not 
 Even with filters this can be quite challenging or impossible.
 
 For example, a string of a 'perfect' violin makes a sound that can be described by a [sawtooth wave](sec-square-wave) -- each harmonic of the fundamental is present.
-However there is no globally determining envelope.
+However, there is no globally determining envelope.
 Instead each frequency changes its power over time independently.
 Therefore, a real violin sounds completely different than a [sawtooth wave](sec-square-wave) combined with an [envelope](sec-envelope).
-Furthermore, the world is imperfect and so is the violin -- there is always some distortion also within the frequencies.
+Furthermore, the world is imperfect and so is the violin -- there is always some distortion, also within the frequencies.
 Fortunately, our ears like this slight imperfection.
-By introducing slight imperfections the sound becomes more gentle.
+By introducing imperfections the sound becomes more gentle.
+It is a balance between order and chaos.
 In summary, for a real violin
 
 1. the amplitudes of the harmonics deviate from Eq. {eq}`eq:saw:fourier:n`,
@@ -341,7 +344,7 @@ Ndef(\sine_sum, {
     n.do({
         arg index;
         var k = index+1;
-        sig = sig + ((-1).pow(k) * SinOsc.ar(\freq.kr(220)*k) / k);
+        sig = sig + ((-1).pow(k%2) * SinOsc.ar(\freq.kr(220)*k) / k);
     });
 
     sig = (1/2) - ((1/pi) * sig);
@@ -358,7 +361,7 @@ Let us introduce some change over time.
 
 My starting point is the introduction of detune but a detune that changes over time!
 I introduce a variable ``vibrato`` that lies in between $[1-\epsilon; 1+\epsilon]$.
-$\epsilon$ is the percentage of maximal detune, that is, a harmonic with a frequency of $f$ will have an actual frequency of $f \pm \epsilon f$.
+$\epsilon$ is the percentage of maximal detune, that is, a harmonic with a frequency of $f$ will have an actual frequency within $[f(1-\epsilon); f(1+\epsilon()]$.
 In the code below, I call $\epsilon$ ``detune``.
 The detune changes over time.
 
@@ -404,7 +407,7 @@ Ndef(\sine_sum, {
         var k = index+1;
         var vibrato = LFNoise1.ar(detuneFreq!2).range(1-detune, 1+detune);
         var harmonicFreq = \freq.kr(220) * vibrato * k;
-        var harmonic = ((-1).pow(k) * SinOsc.ar(harmonicFreq) / k);
+        var harmonic = ((-1).pow(k%2) * SinOsc.ar(harmonicFreq) / k);
         sig = sig + harmonic;
     });
 
@@ -415,7 +418,7 @@ Ndef(\sine_sum, {
 ```
 
 In my opinion, this already sounds much more interesting.
-Of course, we went beyond *additive synthesis* and used *frequency modulation* but those go hand in hand especially if the modulation frequency is low.
+Of course, we went beyond *additive synthesis* and used *frequency modulation* but those go hand in hand, especially if the modulation frequency is low.
 
 ### Separated Partial Envelopes
 
@@ -447,7 +450,7 @@ Ndef(\sine_sum, {
 
         var vibrato = LFNoise1.ar(detuneFreq!2).range(1-detune, 1+detune);
         var harmonicFreq = \freq.kr(220) * vibrato * k;
-        var harmonic = ((1/2) - ((1/pi) * ((-1).pow(k) * SinOsc.ar(harmonicFreq) / k))) * env.pow(1+((k-1)/3));
+        var harmonic = ((1/2) - ((1/pi) * ((-1).pow(k%2) * SinOsc.ar(harmonicFreq) / k))) * env.pow(1+((k-1)/3));
         sig = sig + harmonic;
     });
 
