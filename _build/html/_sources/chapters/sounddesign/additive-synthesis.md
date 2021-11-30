@@ -9,7 +9,7 @@ The beauty of *additive synthesis* is that we have full and direct control over 
 We can even change each component (frequency, amplitude pair) over time.
 
 This advantage comes at a price!
-We require an oscillator for each of those signals which can quickly become to computational expensive!
+We require an oscillator for each of those signals which can quickly become too computational expensive!
 Instead of building a rich function before evaluation, we evaluate each simple component and sum everything up.
 And to get an interesting sound, we need a lot of oscillators, i.e. we need some complexity.
 For this reason, *additive synthesis* is hard to realize on analog synthesizer and even digital synthesizer can reach their limit quite fast.
