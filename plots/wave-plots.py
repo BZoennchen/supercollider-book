@@ -7,7 +7,7 @@ transparent = True
 PI = np.pi
 TWO_PI = 2*PI
 NUM = 200
-show = True
+show = False
 
 
 def lineplot(x, y, filename=None, title=None):
@@ -84,13 +84,13 @@ def exp_map(k, filename=None):
 
 
 def main():
-    #sine(1, './../figs/sounddesign/sine.png')
-    #sawtooth(1, './../figs/sounddesign/sawtooth.png')
-    #square(1, './../figs/sounddesign/square.png')
+    sine(1, './../figs/sounddesign/sine.png')
+    sawtooth(1, './../figs/sounddesign/sawtooth.png')
+    square(1, './../figs/sounddesign/square.png')
     triangle(1, './../figs/sounddesign/triangle.png')
     triangle_ap(f=1, n=5, filename='./../figs/sounddesign/triangle_5.png')
-    #sawtooth_ap(f=1, n=20, filename='./../figs/sounddesign/sawtooth_20.png')
-    #square_ap(f=1, n=20, filename='./../figs/sounddesign/square_20.png')
+    sawtooth_ap(f=1, n=20, filename='./../figs/sounddesign/sawtooth_20.png')
+    square_ap(f=1, n=20, filename='./../figs/sounddesign/square_20.png')
 
     exp_map(k=2, filename='./../figs/sounddesign/add-synth-env_2.png')
     exp_map(k=10, filename='./../figs/sounddesign/add-synth-env_10.png')
