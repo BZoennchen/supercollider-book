@@ -44,7 +44,14 @@ What we need is noise!
 
 ## Noise
 
-Noise is a random signal having intensity at a wide range of frequencies.
+If we define richness by the number of sine waves that are represented in a sound, then arguable the richest is pure noise.
+In section [Additive Synthesis](sec-additive-synthesis) we have noticed that the greater the number of enharmonic spectral elements there were, the more the sound approaches noise.
+In other words, if add sine waves, each with a random frequency, we will eventually and up with noise -- the richest signal possible.
+
+Noise is often defined as all possible frequencies having equal representation.
+We can also define it as a wave with no pattern or maybe as a series of numbers of which we can not recognize its pattern.
+
+In a more general sense, noise is a random signal having intensity at a wide range of frequencies.
 For example, *white noise* has equal intensity at different frequencies, giving it a constant power spectral density.
 Let us listen to *white noise* using ``WhiteNoise``.
 
@@ -65,14 +72,21 @@ A plot of ``WhiteNoise`` over a duration of 2 milliseconds.
 
 If we look at the frequency analyser, we can see almost a line, that is, all frequency have roughly equal power.
 Therefore, the sound is kind of harsh.
-To achieve a softer sound we can use ``PinkNoise``
+
+To achieve a softer sound we can use ``PinkNoise``.
+Pink noise is exponentially biased towards lower frequencies.
+It has equal energy per octave band (musical octaves are exponential).
 
 ```isc
 {PinkNoise.ar(0.25!2)}.play;
 ```
 
 For *pink noise* the spectrum falls off in power by 3 dB per octave.
+It sounds more natural and full than white noise because it corresponds with the way we hear musical octaves.
+White noise appears brighter and thinner.
+
 The spectrum of *brown noise* ``BrownNoise`` falls even faster, that is, 6 dB in power per octave.
+
 The so called *clip noise* ``ClipNoise`` is even a little more harsh than ``WhiteNoise``.
 It generates a high frequency stream of 1, -1 with equal probability.
 
@@ -113,6 +127,33 @@ Ndef(\drum, {
 }).play;
 )
 ```
+
+We can create noise using [additive synthesis](sec-additive-synthesis).
+Let us use 1000 oscillators, that is, ``UGens``.
+For pink noise we need an exponential distribution of frequencies while for white noise a linear distribution is required.
+
+```isc
+(
+Ndef(\pink_noise, {
+    var sig;
+    sig = Mix.fill(1000, {SinOsc.ar(exprand(1.0, 20000))})*0.001;
+    sig;
+}).play;
+)
+```
+
+```isc
+(
+Ndef(\white_noise, {
+    var sig;
+    sig = Mix.fill(1000, {SinOsc.ar(rrand(1.0, 20000))})*0.001;
+    sig;
+}).play;
+)
+```
+
+On my machine, the CPU is at 20 percent.
+Using ``WhiteNoise`` or ``PinkNoise`` leads to almost no CPU workload.
 
 ## Bells
 
