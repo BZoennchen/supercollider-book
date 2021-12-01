@@ -390,14 +390,30 @@ For pink noise we need an exponential distribution of frequencies while for whit
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\white_noise</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Mix</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))})</span><span class="o">*</span><span class="mf">0.001</span><span class="p">;</span>
-    <span class="nx">sig</span><span class="p">;</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Mix</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))})</span><span class="o">*</span><span class="mf">0.001</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+	<span class="nx">sig</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>On my machine, the CPU is at 20 percent.
 Using <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code> or <code class="docutils literal notranslate"><span class="pre">PinkNoise</span></code> leads to almost no CPU workload.</p>
+<p>The natural way to work with noise is to apply filters.
+In the following, I use a resonant low pass filter <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> to filter pink noise.
+The cutoff frequency and the quality of the resonance is controlled via <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> at a low frequency.
+The result sounds like a stormy night:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\breeze</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cut</span><span class="p">,</span> <span class="nx">res</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">;</span>
+    <span class="nx">cut</span> <span class="o">=</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1200</span><span class="p">);</span>
+    <span class="nx">res</span> <span class="o">=</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">RLPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cut</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Pan2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="bells">
 <h2><span class="section-number">3.3. </span>Bells<a class="headerlink" href="#bells" title="Permalink to this headline">¶</a></h2>

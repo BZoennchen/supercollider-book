@@ -146,14 +146,34 @@ Ndef(\pink_noise, {
 (
 Ndef(\white_noise, {
     var sig;
-    sig = Mix.fill(1000, {SinOsc.ar(rrand(1.0, 20000))})*0.001;
-    sig;
+	sig = (Mix.fill(1000, {SinOsc.ar(rrand(1.0, 20000))})*0.001)!2;
+	sig
 }).play;
 )
 ```
 
 On my machine, the CPU is at 20 percent.
 Using ``WhiteNoise`` or ``PinkNoise`` leads to almost no CPU workload.
+
+The natural way to work with noise is to apply filters.
+In the following, I use a resonant low pass filter ``RLPF`` to filter pink noise.
+The cutoff frequency and the quality of the resonance is controlled via ``LFNoise2`` at a low frequency.
+The result sounds like a stormy night:
+
+```isc
+(
+Ndef(\breeze, {
+    var sig, cut, res;
+    sig = PinkNoise.ar() * 0.7;
+    cut = LFNoise2.ar(1).range(600, 1200);
+    res = LFNoise2.ar(1).range(0.001, 1.0);
+    sig = RLPF.ar(sig, cut, res);
+    sig = Pan2.ar(sig, LFNoise2.ar(0.5).range(-0.5, 0.5));
+}).play;
+)
+```
+
+
 
 ## Bells
 
