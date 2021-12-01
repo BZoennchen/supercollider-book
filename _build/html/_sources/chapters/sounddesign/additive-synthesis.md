@@ -38,7 +38,24 @@ Ndef(\sine_sum, {
 
 We can not do the same by using a predefined [sawtooth wave](sec-sawtooth-wave)!
 
-This advantage comes at a price!
+Let us also listen to some inharmonics, combined by *additive synthesis*.
+
+```isc
+(
+Ndef(\inharmonics, {
+    var sig, inharmonics, env;
+    env = EnvGen.ar(Env.perc(attackTime: 0.001, releaseTime: 1.5, curve: -4));
+    inharmonics = Array.fill(24, {exprand(150,1200)});
+    sig = SinOsc.ar(inharmonics) * inharmonics.size.reciprocal;
+    sig = Splay.ar(sig) * env;
+    sig;
+}).play;
+)
+```
+
+It sounds quite inharmonic.
+
+The flexibility and power of *additive synthesis* comes at a price.
 We require an oscillator for each of the partials which can quickly lead to a computational overload -- especially if our goal is real-time synthesis.
 To create an interesting sound, we need a lot of oscillators, i.e. we need complexity.
 For this reason, *additive synthesis* is hard to realize on analog synthesizer and even digital synths can reach their limit quite fast.

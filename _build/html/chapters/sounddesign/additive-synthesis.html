@@ -347,7 +347,21 @@ Therefore, even if the harmonics are the same if we run the code multiple times,
 </pre></div>
 </div>
 <p>We can not do the same by using a predefined <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>!</p>
-<p>This advantage comes at a price!
+<p>Let us also listen to some inharmonics, combined by <em>additive synthesis</em>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\inharmonics</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">inharmonics</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="mf">0.001</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="kc">curve:</span> <span class="o">-</span><span class="mi">4</span><span class="p">));</span>
+    <span class="nx">inharmonics</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="p">{</span><span class="nx">exprand</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">1200</span><span class="p">)});</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">inharmonics</span><span class="p">)</span> <span class="o">*</span> <span class="nx">inharmonics</span><span class="p">.</span><span class="nx">size</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Splay</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>It sounds quite inharmonic.</p>
+<p>The flexibility and power of <em>additive synthesis</em> comes at a price.
 We require an oscillator for each of the partials which can quickly lead to a computational overload – especially if our goal is real-time synthesis.
 To create an interesting sound, we need a lot of oscillators, i.e. we need complexity.
 For this reason, <em>additive synthesis</em> is hard to realize on analog synthesizer and even digital synths can reach their limit quite fast.</p>
