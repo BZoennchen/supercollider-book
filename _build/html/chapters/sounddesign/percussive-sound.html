@@ -443,23 +443,23 @@ It allows us to specify a set of frequencies to be filtered  and <strong>resonat
 This is part of <em>physical modelling</em> where we try not to replicate the sound directly but indirectly by modelling the bodies that generate it.</p>
 <p>Hitting a bell will result in a burst of noise.
 The bell filters the noise and resonates according to its body and body parts.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span>(
-Ndef(\bell_physical, {
-    var chime, freqSpecs, sig, sigBurst, totalHarm = 10;
-    var envBurst, burstLength = 0.0001;
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\bell_physical</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">chime</span><span class="p">,</span> <span class="nx">freqSpecs</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">sigBurst</span><span class="p">,</span> <span class="nx">totalHarm</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">envBurst</span><span class="p">,</span> <span class="nx">burstLength</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">;</span>
 
-    envBurst = EnvGen.kr(Env.perc(attackTime: 0, releaseTime: burstLength), gate: Impulse.kr(1));
-    sigBurst = PinkNoise.ar() * envBurst;
+    <span class="nx">envBurst</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="nx">burstLength</span><span class="p">),</span> <span class="kc">gate:</span> <span class="nb">Impulse</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="nx">sigBurst</span> <span class="o">=</span> <span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">()</span> <span class="o">*</span> <span class="nx">envBurst</span><span class="p">;</span>
 
-    freqSpecs = `[
-        {rrand(100, 1200)}.dup(totalHarm),                         // freqs
-        {rrand(0.3, 1.0)}.dup(totalHarm).normalizeSum.round(0.01), // amps
-        {rrand(2.0, 4.0)}.dup(totalHarm)];                         // ring times
+    <span class="nx">freqSpecs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">(</span><span class="nx">totalHarm</span><span class="p">),</span>                         <span class="c1">// freqs</span>
+        <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">(</span><span class="nx">totalHarm</span><span class="p">).</span><span class="nx">normalizeSum</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="c1">// amps</span>
+        <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">(</span><span class="nx">totalHarm</span><span class="p">)];</span>                         <span class="c1">// ring times</span>
 
-    sig = Klank.ar(freqSpecs, sigBurst) * totalHarm.reciprocal;
-    sig;
-}).play;
-)
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Klank</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freqSpecs</span><span class="p">,</span> <span class="nx">sigBurst</span><span class="p">)</span> <span class="o">*</span> <span class="nx">totalHarm</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>Both versions sound quite similar.</p>
