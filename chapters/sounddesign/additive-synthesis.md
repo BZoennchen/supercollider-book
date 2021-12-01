@@ -7,7 +7,26 @@ Adding two wave forms together can result lead to a sound that is very distinct 
 For example, two sine waves can cancel each other out, leaving us silence.
 
 The power and beauty of *additive synthesis* is the level of control we have to generate our sound.
+Most synthesizers offer a variety of wave forms for building sounds but if the shape of the wave is predefined we have no control (outside of filtering) over the individual harmonics.
+In contrast, *additive synthesis* gives us granular and independent control over each wave's parameters.
 We can directly control the power of each frequency of the final result over time.
+In fact, we can change and detune frequencies over time as well.
+
+The following Code generates by using *additive synthesis* an approximation of the [sawtooth wave](sec-sawtooth-wave) using 12 harmonics but we put all odd harmonics in the left and all even harmonics in the right channel.
+
+```isc
+(
+{([
+    SinOsc.ar(400, mul: 1) + SinOsc.ar(1200, mul: 1/3) + SinOsc.ar(2000, mul: 1/5) +
+    SinOsc.ar(2800, mul: 1/7) + SinOsc.ar(3600, mul: 1/9) + SinOsc.ar(4400, mul: 1/11),
+    SinOsc.ar(800, mul: 1/2) + SinOsc.ar(1600, mul: 1/4) + SinOsc.ar(2400, mul: 1/6) + 
+    SinOsc.ar(3200, mul: 1/8) + SinOsc.ar(4000, mul: 1/10) + SinOsc.ar(4800, mul: 1/12)]
+)*0.1
+}.scope
+)
+```
+
+We can not do the same by using a predefined [sawtooth wave](sec-sawtooth-wave)!
 
 This advantage comes at a price!
 We require an oscillator for each of the partials which can quickly lead to a computational overload -- especially if our goal is real-time synthesis.
@@ -284,7 +303,6 @@ Ndef(\sine_sum, {
     sig = sig!2 * amp;
 }).play;
 )
-
 ```
 
 ```{admonition} SCLang and the Server
