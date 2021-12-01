@@ -15,14 +15,19 @@ In fact, we can change and detune frequencies over time as well.
 The following Code generates by using *additive synthesis* an approximation of the [sawtooth wave](sec-sawtooth-wave) using 12 harmonics but we put all odd harmonics in the left and all even harmonics in the right channel.
 
 ```isc
+
 (
-{([
-    SinOsc.ar(400, mul: 1) + SinOsc.ar(1200, mul: 1/3) + SinOsc.ar(2000, mul: 1/5) +
-    SinOsc.ar(2800, mul: 1/7) + SinOsc.ar(3600, mul: 1/9) + SinOsc.ar(4400, mul: 1/11),
-    SinOsc.ar(800, mul: 1/2) + SinOsc.ar(1600, mul: 1/4) + SinOsc.ar(2400, mul: 1/6) + 
-    SinOsc.ar(3200, mul: 1/8) + SinOsc.ar(4000, mul: 1/10) + SinOsc.ar(4800, mul: 1/12)]
-)*0.1
-}.scope
+Ndef(\sine_sum, {
+    var sig, amp;
+    amp = 0.1;
+    sig = [
+        SinOsc.ar(400, mul: 1) + SinOsc.ar(1200, mul: 1/3) + SinOsc.ar(2000, mul: 1/5) +
+        SinOsc.ar(2800, mul: 1/7) + SinOsc.ar(3600, mul: 1/9) + SinOsc.ar(4400, mul: 1/11),
+        SinOsc.ar(800, mul: 1/2) + SinOsc.ar(1600, mul: 1/4) + SinOsc.ar(2400, mul: 1/6) + 
+        SinOsc.ar(3200, mul: 1/8) + SinOsc.ar(4000, mul: 1/10) + SinOsc.ar(4800, mul: 1/12)
+    ];
+    sig = sig*0.1;
+}).play;
 )
 ```
 
