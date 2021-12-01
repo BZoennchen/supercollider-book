@@ -165,8 +165,8 @@ The result sounds like a stormy night:
 Ndef(\breeze, {
     var sig, cut, res;
     sig = PinkNoise.ar() * 0.7;
-    cut = LFNoise2.ar(1).range(600, 1200);
-    res = LFNoise2.ar(1).range(0.001, 1.0);
+    cut = LFNoise2.kr(1).range(600, 1200);
+    res = LFNoise2.kr(1).range(0.001, 1.0);
     sig = RLPF.ar(sig, cut, res);
     sig = Pan2.ar(sig, LFNoise2.ar(0.5).range(-0.5, 0.5));
 }).play;
@@ -178,22 +178,53 @@ Ndef(\breeze, {
 ## Bells
 
 Very different from string and wind instruments, bells consists of many inharmonic 'partials'.
-So let us try a bunch of ``SinOsc`` using random frequencies between some range.
+In the section [additive synthesis](), we already constructed the sound of a bell using the sum of multiple sine waves ``SinOsc``:
 
 ```isc
 (
-Ndef(\bell, {
-    var freq, sig, env, amp;
-    amp = 0.2;
+Ndef(\bell_additive, {
+    var sig, inharmonics, env, partials = 10;
+    env = EnvGen.ar(Env.perc(
+        attackTime: 0,
+        releaseTime: {rrand(1.0, 3.0)}!partials,
+        level: {rrand(0.3, 1.0)}!partials),
+    gate: Impulse.kr(1)
+    );
 
-    Mix.ar(
-    {
-        freq = rrand(100, 5000);
-        env = EnvGen.kr(envelope: Env.perc(0.001, 500/freq), gate: Dust.kr(0.05));
-        sig = SinOsc.ar(freq) * env;
-        sig = sig * amp;
-        sig = Pan2.ar(sig, rrand(-1.0, 1.0));
-    }.dup(100));
+    inharmonics = Array.fill(partials, {rrand(100, 1200)});
+    sig = SinOsc.ar(inharmonics) * partials.reciprocal * env;
+    sig = Splay.ar(sig);
+    sig;
 }).play;
 )
 ```
+
+We can achieve the same by resonating our noise.
+``Klang`` is an ``UGen`` that imitates the resonant parts of a body or space.
+It allows us to specify a set of frequencies to be filtered  and **resonated**, matching amplitudes, and decay rates.
+This is part of *physical modelling* where we try not to replicate the sound directly but indirectly by modelling the bodies that generate it.
+
+Hitting a bell will result in a burst of noise.
+The bell filters the noise and resonates according to its body and body parts.
+
+```isc
+(
+Ndef(\bell_physical, {
+    var chime, freqSpecs, sig, sigBurst, totalHarm = 10;
+    var envBurst, burstLength = 0.0001;
+
+    envBurst = EnvGen.kr(Env.perc(attackTime: 0, releaseTime: burstLength), gate: Impulse.kr(1));
+    sigBurst = PinkNoise.ar() * envBurst;
+
+    freqSpecs = `[
+        {rrand(100, 1200)}.dup(totalHarm),                         // freqs
+        {rrand(0.3, 1.0)}.dup(totalHarm).normalizeSum.round(0.01), // amps
+        {rrand(2.0, 4.0)}.dup(totalHarm)];                         // ring times
+
+    sig = Klank.ar(freqSpecs, sigBurst) * totalHarm.reciprocal;
+    sig;
+}).play;
+)
+```
+
+Both versions sound quite similar.
