@@ -315,7 +315,12 @@ What we need is noise!</p>
 </div>
 <div class="section" id="noise">
 <h2><span class="section-number">3.2. </span>Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h2>
-<p>Noise is a random signal having intensity at a wide range of frequencies.
+<p>If we define richness by the number of sine waves that are represented in a sound, then arguable the richest is pure noise.
+In section <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">Additive Synthesis</span></a> we have noticed that the greater the number of enharmonic spectral elements there were, the more the sound approaches noise.
+In other words, if add sine waves, each with a random frequency, we will eventually and up with noise – the richest signal possible.</p>
+<p>Noise is often defined as all possible frequencies having equal representation.
+We can also define it as a wave with no pattern or maybe as a series of numbers of which we can not recognize its pattern.</p>
+<p>In a more general sense, noise is a random signal having intensity at a wide range of frequencies.
 For example, <em>white noise</em> has equal intensity at different frequencies, giving it a constant power spectral density.
 Let us listen to <em>white noise</em> using <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
@@ -328,14 +333,18 @@ This sounds similar to a FM radio while searching for a channel.</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A plot of <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code> over a duration of 2 milliseconds.</span><a class="headerlink" href="#fig-whitenoise" title="Permalink to this image">¶</a></p>
 </div>
 <p>If we look at the frequency analyser, we can see almost a line, that is, all frequency have roughly equal power.
-Therefore, the sound is kind of harsh.
-To achieve a softer sound we can use <code class="docutils literal notranslate"><span class="pre">PinkNoise</span></code></p>
+Therefore, the sound is kind of harsh.</p>
+<p>To achieve a softer sound we can use <code class="docutils literal notranslate"><span class="pre">PinkNoise</span></code>.
+Pink noise is exponentially biased towards lower frequencies.
+It has equal energy per octave band (musical octaves are exponential).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>For <em>pink noise</em> the spectrum falls off in power by 3 dB per octave.
-The spectrum of <em>brown noise</em> <code class="docutils literal notranslate"><span class="pre">BrownNoise</span></code> falls even faster, that is, 6 dB in power per octave.
-The so called <em>clip noise</em> <code class="docutils literal notranslate"><span class="pre">ClipNoise</span></code> is even a little more harsh than <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>.
+It sounds more natural and full than white noise because it corresponds with the way we hear musical octaves.
+White noise appears brighter and thinner.</p>
+<p>The spectrum of <em>brown noise</em> <code class="docutils literal notranslate"><span class="pre">BrownNoise</span></code> falls even faster, that is, 6 dB in power per octave.</p>
+<p>The so called <em>clip noise</em> <code class="docutils literal notranslate"><span class="pre">ClipNoise</span></code> is even a little more harsh than <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>.
 It generates a high frequency stream of 1, -1 with equal probability.</p>
 <div class="figure align-default" id="fig-clipnoise">
 <a class="reference internal image-reference" href="../../_images/clipnoise.png"><img alt="../../_images/clipnoise.png" src="../../_images/clipnoise.png" style="width: 600px;" /></a>
@@ -366,6 +375,29 @@ It generates a high frequency stream of 1, -1 with equal probability.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>We can create noise using <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
+Let us use 1000 oscillators, that is, <code class="docutils literal notranslate"><span class="pre">UGens</span></code>.
+For pink noise we need an exponential distribution of frequencies while for white noise a linear distribution is required.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\pink_noise</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Mix</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">exprand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))})</span><span class="o">*</span><span class="mf">0.001</span><span class="p">;</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\white_noise</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Mix</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">20000</span><span class="p">))})</span><span class="o">*</span><span class="mf">0.001</span><span class="p">;</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>On my machine, the CPU is at 20 percent.
+Using <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code> or <code class="docutils literal notranslate"><span class="pre">PinkNoise</span></code> leads to almost no CPU workload.</p>
 </div>
 <div class="section" id="bells">
 <h2><span class="section-number">3.3. </span>Bells<a class="headerlink" href="#bells" title="Permalink to this headline">¶</a></h2>
