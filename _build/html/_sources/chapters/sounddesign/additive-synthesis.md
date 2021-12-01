@@ -44,16 +44,16 @@ Let us also listen to some inharmonics, combined by *additive synthesis*.
 (
 Ndef(\inharmonics, {
     var sig, inharmonics, env, partials = 20;
-	env = EnvGen.ar(Env.perc(
-		attackTime: 0, 
-		releaseTime: {Rand(0.2, 2.0)}!partials, 
-		level: {Rand(0, 1.0)}!partials, 
-		curve: -4));
-	
-	inharmonics = Array.fill(partials, {exprand(150, 4000)});
-	sig = SinOsc.ar(inharmonics) * partials.reciprocal * env;
-	sig = Splay.ar(sig);
-	sig;
+    env = EnvGen.ar(Env.perc(
+        attackTime: 0, 
+        releaseTime: {Rand(0.2, 2.0)}!partials, 
+        level: {Rand(0, 1.0)}!partials, 
+        curve: -4));
+
+    inharmonics = Array.fill(partials, {exprand(150, 4000)});
+    sig = SinOsc.ar(inharmonics) * partials.reciprocal * env;
+    sig = Splay.ar(sig);
+    sig;
 }).play;
 )
 ```
