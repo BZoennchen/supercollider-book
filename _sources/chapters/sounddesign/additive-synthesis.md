@@ -43,17 +43,22 @@ Let us also listen to some inharmonics, combined by *additive synthesis*.
 ```isc
 (
 Ndef(\inharmonics, {
-    var sig, inharmonics, env;
-    env = EnvGen.ar(Env.perc(attackTime: 0.001, releaseTime: 1.5, curve: -4));
-    inharmonics = Array.fill(24, {exprand(150,1200)});
-    sig = SinOsc.ar(inharmonics) * inharmonics.size.reciprocal;
-    sig = Splay.ar(sig) * env;
-    sig;
+    var sig, inharmonics, env, partials = 20;
+	env = EnvGen.ar(Env.perc(
+		attackTime: 0, 
+		releaseTime: {Rand(0.2, 2.0)}!partials, 
+		level: {Rand(0, 1.0)}!partials, 
+		curve: -4));
+	
+	inharmonics = Array.fill(partials, {exprand(150, 4000)});
+	sig = SinOsc.ar(inharmonics) * partials.reciprocal * env;
+	sig = Splay.ar(sig);
+	sig;
 }).play;
 )
 ```
 
-It sounds quite inharmonic.
+It sounds like a bell and quite inharmonic.
 
 The flexibility and power of *additive synthesis* comes at a price.
 We require an oscillator for each of the partials which can quickly lead to a computational overload -- especially if our goal is real-time synthesis.
