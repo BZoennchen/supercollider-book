@@ -13,17 +13,23 @@ We can directly control the power of each frequency of the final result over tim
 In fact, we can change and detune frequencies over time as well.
 
 The following Code generates by using *additive synthesis* an approximation of the [sawtooth wave](sec-sawtooth-wave) using 12 harmonics but we put all odd harmonics in the left and all even harmonics in the right channel.
+Additionally, each harmonic has its own and distinct randomized envelope.
+Therefore, even if the harmonics are the same if we run the code multiple times, the sound is different because each time the envelopes are different.
 
 ```isc
 (
 Ndef(\sine_sum, {
-    var sig, amp, odd, even;
+    var sig, amp, odd, even, env;
 	amp = 0.1;
 	odd = Array.series(6, 1, 2);
 	even = odd + 1;
+	env = EnvGen.ar(Env.perc(
+        attackTime: {Rand(0.001, 1.03)}!6, 
+        releaseTime: {Rand(1.0, 1.3)}!6, 
+        curve: {Rand(-6, -2)}!6));
 	sig = [
-		Mix.ar(SinOsc.ar(freq: odd * \freq.kr(400), mul: 1/odd)), 
-		Mix.ar(SinOsc.ar(freq: even * \freq.kr(400), mul: 1/even))
+		Mix.ar(SinOsc.ar(freq: odd * \freq.kr(400), mul: 1/odd * env)), 
+		Mix.ar(SinOsc.ar(freq: even * \freq.kr(400), mul: 1/even * env))
 	];
 	sig*0.1;
 }).play;
