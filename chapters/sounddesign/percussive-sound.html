@@ -406,8 +406,8 @@ The result sounds like a stormy night:</p>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\breeze</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cut</span><span class="p">,</span> <span class="nx">res</span><span class="p">;</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">;</span>
-    <span class="nx">cut</span> <span class="o">=</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1200</span><span class="p">);</span>
-    <span class="nx">res</span> <span class="o">=</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="nx">cut</span> <span class="o">=</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1200</span><span class="p">);</span>
+    <span class="nx">res</span> <span class="o">=</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nb">RLPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cut</span><span class="p">,</span> <span class="nx">res</span><span class="p">);</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Pan2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">));</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
@@ -418,24 +418,51 @@ The result sounds like a stormy night:</p>
 <div class="section" id="bells">
 <h2><span class="section-number">3.3. </span>Bells<a class="headerlink" href="#bells" title="Permalink to this headline">¶</a></h2>
 <p>Very different from string and wind instruments, bells consists of many inharmonic ‘partials’.
-So let us try a bunch of <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> using random frequencies between some range.</p>
+In the section <span class="xref myst">additive synthesis</span>, we already constructed the sound of a bell using the sum of multiple sine waves <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\bell</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">freq</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">amp</span><span class="p">;</span>
-    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\bell_additive</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">inharmonics</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">partials</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+        <span class="kc">attackTime:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="kc">releaseTime:</span> <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)}</span><span class="o">!</span><span class="nx">partials</span><span class="p">,</span>
+        <span class="kc">level:</span> <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)}</span><span class="o">!</span><span class="nx">partials</span><span class="p">),</span>
+    <span class="kc">gate:</span> <span class="nb">Impulse</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">);</span>
 
-    <span class="nb">Mix</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="nx">freq</span> <span class="o">=</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
-        <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="kc">envelope:</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">500</span><span class="o">/</span><span class="nx">freq</span><span class="p">),</span> <span class="kc">gate:</span> <span class="nb">Dust</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.05</span><span class="p">));</span>
-        <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
-        <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Pan2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">));</span>
-    <span class="p">}.</span><span class="nx">dup</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+    <span class="nx">inharmonics</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">partials</span><span class="p">,</span> <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)});</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">inharmonics</span><span class="p">)</span> <span class="o">*</span> <span class="nx">partials</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Splay</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span><span class="p">;</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>We can achieve the same by resonating our noise.
+<code class="docutils literal notranslate"><span class="pre">Klang</span></code> is an <code class="docutils literal notranslate"><span class="pre">UGen</span></code> that imitates the resonant parts of a body or space.
+It allows us to specify a set of frequencies to be filtered  and <strong>resonated</strong>, matching amplitudes, and decay rates.
+This is part of <em>physical modelling</em> where we try not to replicate the sound directly but indirectly by modelling the bodies that generate it.</p>
+<p>Hitting a bell will result in a burst of noise.
+The bell filters the noise and resonates according to its body and body parts.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span>(
+Ndef(\bell_physical, {
+    var chime, freqSpecs, sig, sigBurst, totalHarm = 10;
+    var envBurst, burstLength = 0.0001;
+
+    envBurst = EnvGen.kr(Env.perc(attackTime: 0, releaseTime: burstLength), gate: Impulse.kr(1));
+    sigBurst = PinkNoise.ar() * envBurst;
+
+    freqSpecs = `[
+        {rrand(100, 1200)}.dup(totalHarm),                         // freqs
+        {rrand(0.3, 1.0)}.dup(totalHarm).normalizeSum.round(0.01), // amps
+        {rrand(2.0, 4.0)}.dup(totalHarm)];                         // ring times
+
+    sig = Klank.ar(freqSpecs, sigBurst) * totalHarm.reciprocal;
+    sig;
+}).play;
+)
+</pre></div>
+</div>
+<p>Both versions sound quite similar.</p>
 </div>
 </div>
 
