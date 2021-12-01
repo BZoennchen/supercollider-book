@@ -451,7 +451,7 @@ Ndef(\bell_physical, {
     envBurst = EnvGen.kr(Env.perc(attackTime: 0, releaseTime: burstLength), gate: Impulse.kr(1));
     sigBurst = PinkNoise.ar() * envBurst;
 
-    freqSpecs = \`[
+    freqSpecs = `[
         {rrand(100, 1200)}.dup(totalHarm),                         // freqs
         {rrand(0.3, 1.0)}.dup(totalHarm).normalizeSum.round(0.01), // amps
         {rrand(2.0, 4.0)}.dup(totalHarm)];                         // ring times
