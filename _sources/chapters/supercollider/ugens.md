@@ -85,6 +85,9 @@ Somehow ``Amplitude`` underestimates the perceive loudness quite a bit.
 Futhermore, we have to tell ``Amplitude`` the time period the signal loudness increases ``attackTime`` and the time period the amplitude decreases ``releaseTime``.
 If we don't know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
 ``Amplitude`` seems to analyse each chunk of the signal of size ``attackTime`` + ``releaseTime`` and computes an amplitude value for this time period.
-Therefore, if we choose ``attackTime`` + ``releaseTime`` $\approx 1/f$, where $f$ is the frequency of the signal, we almost get $|y(t)|$.
+Therefore, if we choose ``attackTime`` + ``releaseTime`` $\approx 1/(c \cdot f)$, where $f$ is the frequency of the signal and $c > 1), we almost get $|y(t)|$.
+I conclude that these values should be greater than $1/f$.
 
 **Note** that we are talking about a discrete signal even if we write $y(t)$.
+
+The default values are ``attackTime: 0.01`` and ``releaseTime: 0.01``, so for a signal with a frequency close to $100$ Hz, we should increase these values.
