@@ -135,14 +135,6 @@ For $\alpha = 0.6$ we get
 \end{split}
 \end{equation}
 
-and in general
-
-\begin{equation}
-\begin{split}
-\text{out}[i] \leftarrow 0.6^{i} \text{in}[0] + \sum\limits_{k=1}^{i} 0.4\cdot 0.6^{i-k} \cdot \text{in}[k].
-\end{split}
-\end{equation}
-
 For a negative $\alpha = -0.6$ we get
 
 \begin{equation}
@@ -151,10 +143,10 @@ For a negative $\alpha = -0.6$ we get
 \end{split}
 \end{equation}
 
-and in general
+The general formula is given by 
 
 \begin{equation}
 \begin{split}
-\text{out}[i] \leftarrow (-0.6)^{i} \text{in}[0] + \sum\limits_{k=1}^{i} 0.4\cdot (-0.6)^{i-k} \cdot \text{in}[k].
+\text{out}[i] \leftarrow \alpha^i \text{in}[0] + \sum\limits_{k=1}^{i} (1-\alpha) \cdot \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
 \end{equation}
