@@ -292,8 +292,7 @@ Why this <code class="docutils literal notranslate"><span class="pre">UGen</span
 Isn’t the amplitude of a signal <span class="math notranslate nohighlight">\(y(t)\)</span> defined by <span class="math notranslate nohighlight">\(|y(t)|\)</span>?</p>
 <p>Well THE amplitude is not defined instead we are dealing with different kinds of amplitudes.
 For example, we say that the following signal</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="p">{</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">freg</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">attackTime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">releaseTime</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
@@ -310,8 +309,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31ccafa1-d8fc-431a-81ac-68a25659bbf5">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-31ccafa1-d8fc-431a-81ac-68a25659bbf5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-74d35c2c-0038-46d0-954a-81310df0aefb">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-74d35c2c-0038-46d0-954a-81310df0aefb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -320,6 +319,22 @@ In the example above, we can perceive that the sound gets louder over a time of 
 <p>For a increasing and decaying signal we could compute each local maxima and minima, take the absolute value and interpolate in between.
 That is basically what <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> does.
 It computes the perceive loudness, i.e., local amplitude of a signal!</p>
+<p>The following code generates another plot, that shows the difference.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">freg</span> <span class="o">=</span> <span class="mi">400</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">attackTime</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">releaseTime</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="nx">attackTime</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="nx">releaseTime</span><span class="p">));</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freg</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="p">[</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">attackTime:</span> <span class="nx">attackTime</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="nx">attackTime</span><span class="o">/</span><span class="mi">10</span><span class="p">),</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">sig</span><span class="p">)]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">0.4</span><span class="p">);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="fig-all-amplitude-sine-png">
+<a class="reference internal image-reference" href="figs/supercollider/amplitude/all-amplitude-sine.png.png"><img alt="figs/supercollider/amplitude/all-amplitude-sine.png.png" src="figs/supercollider/amplitude/all-amplitude-sine.png.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine-png" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 
