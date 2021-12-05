@@ -127,10 +127,18 @@ For example,
 \end{split}
 \end{equation}
 
-For $\alpha = 0.6$ we get:
+For $\alpha = 0.6$ we get
 
 \begin{equation}
 \begin{split}
-\text{out}[2] \leftarrow 0.4 \text{in}[2] + 0.6 \cdot 0.4 \text{in}[1] + 0.6^2 \cdot 0.4 \text{in}[1]
+\text{out}[2] \leftarrow 0.4 \text{in}[2] + 0.6 \cdot 0.4 \text{in}[1] + 0.6^2 \cdot 0.4 \text{in}[0],
+\end{split}
+\end{equation}
+
+and for a negative $\alpha = -0.6$ we get
+
+\begin{equation}
+\begin{split}
+\text{out}[2] \leftarrow 0.4 \text{in}[2] + (-0.6) \cdot 0.4 \text{in}[1] + (-0.6)^2 \cdot 0.4 \text{in}[0].
 \end{split}
 \end{equation}
