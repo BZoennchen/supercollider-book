@@ -264,8 +264,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#onezero">
+   3.2. OneZero
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#onepole">
-   3.2. OnePole
+   3.3. OnePole
   </a>
  </li>
 </ul>
@@ -314,8 +319,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dbde7dfd-a2eb-472d-b4da-708fbe5d9e1c">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-dbde7dfd-a2eb-472d-b4da-708fbe5d9e1c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7628d569-e333-45d0-a21a-0221fadf5c13">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-7628d569-e333-45d0-a21a-0221fadf5c13" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -336,9 +341,9 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="fig-all-amplitude-sine-png">
+<div class="figure align-default" id="fig-all-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/all-amplitude-sine.png"><img alt="../../_images/all-amplitude-sine.png" src="../../_images/all-amplitude-sine.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine-png" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>Somehow <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> underestimates the perceive loudness quite a bit.</p>
 <p>Futhermore, we have to tell <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> the time period the signal loudness increases <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and the time period the amplitude decreases <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
@@ -360,19 +365,70 @@ Here we cut the noisy sound if its amplitude measured by <code class="docutils l
 <p>If <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.1</span></code> is true, it returns (on the server side) not true but 1.
 Otherwise the expression is evaluated to 0.</p>
 </div>
+<div class="section" id="onezero">
+<h2><span class="section-number">3.2. </span>OneZero<a class="headerlink" href="#onezero" title="Permalink to this headline">¶</a></h2>
+<p>I had a hard time understanding the filters operating and convoluting the input signal <span class="math notranslate nohighlight">\(\text{in}\)</span>, since the documentation is very minimal.
+But I think I could reverse engineer the behaviour of these filters.
+And the best way to start is by explaining the <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</p>
+<p>The documentation states that a one zero filter implements the formula:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f383610a-b948-40f5-98d4-25d1624112d4">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-f383610a-b948-40f5-98d4-25d1624112d4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{in}[i-1]
+\end{equation}\]</div>
+<p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
+\text{in}[i] is actually the <span class="math notranslate nohighlight">\(i\)</span>-th sample of the discrete input signal.
+Therefore, these filters depend on the sample rate / audio rate!</p>
+<p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we a differentiator!
+Let <span class="math notranslate nohighlight">\(y(t)\)</span> our signal, then we basically compute</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f1a7fdab-31ac-4350-8398-f0e391248364">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-f1a7fdab-31ac-4350-8398-f0e391248364" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    \frac{y(t) - y(t - h)}{2}
+\end{equation}\]</div>
+<p>To compute the difference quotient, we have to figure out what <span class="math notranslate nohighlight">\(h\)</span> is.
+In other words, what is the time between \text{in}[i] and \text{in}[i-1].
+The answer is <span class="math notranslate nohighlight">\(1/a_\text{rate}\)</span> where <span class="math notranslate nohighlight">\(a_\text{rate}\)</span> is the audio rate.</p>
+<p>To compute the difference quotient we use the following formula:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-55943a89-3c50-463c-86ce-721cb257f28b">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-55943a89-3c50-463c-86ce-721cb257f28b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
+\end{equation}\]</div>
+<p>Using the discrete input signal <span class="math notranslate nohighlight">\(\text{in}\)</span> this gives us:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ee9ae309-0dfd-45a6-aae8-5a6a8dc1794e">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-ee9ae309-0dfd-45a6-aae8-5a6a8dc1794e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{/a_\text{rate}}.
+\end{equation}\]</div>
+<p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
+Remember</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5f428c9d-1ef9-4f86-aab5-829516ae142b">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-5f428c9d-1ef9-4f86-aab5-829516ae142b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    d\sin(2\pi \cdot f \cdot t)/dt = \cos(2\pi \cdot f \cdot t) \cdot 2 \pi \cdot f
+\end{equation}\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+	<span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">220</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">sample_rate</span> <span class="o">=</span> <span class="mi">48000</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">dt</span> <span class="o">=</span> <span class="nx">sample_rate</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+	<span class="p">[</span><span class="nb">OneZero</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">),</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">/</span> <span class="nx">dt</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">pi</span> <span class="o">*</span> <span class="nx">freq</span><span class="p">),</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">220</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="fig-all-sin-deviation">
+<a class="reference internal image-reference" href="../../_images/sin_deviation.png"><img alt="../../_images/sin_deviation.png" src="../../_images/sin_deviation.png" style="width: 400px;" /></a>
+</div>
+</div>
 <div class="section" id="onepole">
-<h2><span class="section-number">3.2. </span>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">¶</a></h2>
 <p>Another <code class="docutils literal notranslate"><span class="pre">UGen</span></code> I have a hard time get my head around is <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 The documentation states that a one pole filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01a29901-2b84-4b19-974a-1e974777970c">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-01a29901-2b84-4b19-974a-1e974777970c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-56e2de3e-e805-4bbb-a54b-2219f709c8a2">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-56e2de3e-e805-4bbb-a54b-2219f709c8a2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4cc2224f-8d33-4ab5-8868-d672efa5e061">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-4cc2224f-8d33-4ab5-8868-d672efa5e061" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ab22fbc6-0b20-410d-b974-aed9e24c3e3e">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-ab22fbc6-0b20-410d-b974-aed9e24c3e3e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] \leftarrow \ &amp; (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
 = &amp; \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
@@ -380,22 +436,22 @@ For example,</p>
 \end{split}
 \end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(\alpha = 0.6\)</span> we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17bab686-d77a-4a1d-98be-abab81d48115">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-17bab686-d77a-4a1d-98be-abab81d48115" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5e56ce67-a54e-4ef2-b7a2-d12c7e10b316">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-5e56ce67-a54e-4ef2-b7a2-d12c7e10b316" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + 0.6 \cdot 0.4 \cdot \text{in}[1] + 0.6^2 \cdot \text{in}[0],
 \end{split}
 \end{equation}\]</div>
 <p>For a negative <span class="math notranslate nohighlight">\(\alpha = -0.6\)</span> we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7bf4f98b-9433-4d26-9bf3-5d95f1a36384">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-7bf4f98b-9433-4d26-9bf3-5d95f1a36384" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0e8fb81-bbb3-464d-a5c7-7a90cd1cd2c7">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-d0e8fb81-bbb3-464d-a5c7-7a90cd1cd2c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + (-0.6) \cdot 0.4 \cdot \text{in}[1] + (-0.6)^2 \cdot \text{in}[0].
 \end{split}
 \end{equation}\]</div>
 <p>The general formula is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51021c2f-fb3f-4d8e-9fff-08769cc0a055">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-51021c2f-fb3f-4d8e-9fff-08769cc0a055" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d9971a30-93e8-44ec-8c84-16870cca2e5a">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-d9971a30-93e8-44ec-8c84-16870cca2e5a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[i] \leftarrow \alpha^i \cdot \text{in}[0] + \sum\limits_{k=1}^{i} (1-|\alpha|) \cdot \alpha^{i-k} \cdot \text{in}[k].
 \end{split}

@@ -36,7 +36,7 @@ For example, we say that the following signal
 
 has an amplitude of ``1.0``.
 
-```{figure} ../../figs/supercollider/amplitude/amplitude-sine.png
+```{figure} ../../figs/supercollider/ugens/amplitude-sine.png
 ---
 width: 800px
 name: fig-amplitude-sine
@@ -72,10 +72,10 @@ The following code generates another plot, that shows the difference.
 )
 ```
 
-```{figure} ../../figs/supercollider/amplitude/all-amplitude-sine.png
+```{figure} ../../figs/supercollider/ugens/all-amplitude-sine.png
 ---
 width: 800px
-name: fig-all-amplitude-sine.png
+name: fig-all-amplitude-sine
 ---
 A modulated amplitude of a sine wave. At the top the measured perceive loudness using ``Amplitude``. In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
 ```
@@ -105,6 +105,69 @@ Here we cut the noisy sound if its amplitude measured by ``Amplitude`` is below 
 
 If ``Amplitude.ar(sig) > 0.1`` is true, it returns (on the server side) not true but 1.
 Otherwise the expression is evaluated to 0.
+
+## OneZero
+
+I had a hard time understanding the filters operating and convoluting the input signal $\text{in}$, since the documentation is very minimal.
+But I think I could reverse engineer the behaviour of these filters.
+And the best way to start is by explaining the ``OneZero``-``UGen``.
+
+The documentation states that a one zero filter implements the formula:
+
+\begin{equation}
+\text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{in}[i-1]
+\end{equation}
+
+with $-1 \leq \alpha \leq 1$.
+\text{in}[i] is actually the $i$-th sample of the discrete input signal.
+Therefore, these filters depend on the sample rate / audio rate!
+
+Let us use $\alpha = -0.5$ and we a differentiator!
+Let $y(t)$ our signal, then we basically compute
+
+\begin{equation}
+    \frac{y(t) - y(t - h)}{2}
+\end{equation}
+
+To compute the difference quotient, we have to figure out what $h$ is.
+In other words, what is the time between \text{in}[i] and \text{in}[i-1].
+The answer is $1/a_\text{rate}$ where $a_\text{rate}$ is the audio rate.
+
+To compute the difference quotient we use the following formula:
+
+\begin{equation}
+    \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
+\end{equation}
+
+Using the discrete input signal $\text{in}$ this gives us:
+
+\begin{equation}
+    \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{/a_\text{rate}}.
+\end{equation}
+
+To test this result, let us compute the cosine using ``SinOsc`` and a ``OneZero``.
+Remember
+
+\begin{equation}
+    d\sin(2\pi \cdot f \cdot t)/dt = \cos(2\pi \cdot f \cdot t) \cdot 2 \pi \cdot f
+\end{equation}
+
+```isc
+({
+	var freq = 220;
+	var sample_rate = 48000;
+	var dt = sample_rate.reciprocal;
+	[OneZero.ar(SinOsc.ar(freq), -0.5) * 2 / dt / (2 * pi * freq), SinOsc.ar(freq)]
+}.plot(1/220)
+)
+```
+
+```{figure} ../../figs/supercollider/ugens/sin_deviation.png
+---
+width: 400px
+name: fig-all-sin_deviation
+---
+```
 
 ## OnePole
 
