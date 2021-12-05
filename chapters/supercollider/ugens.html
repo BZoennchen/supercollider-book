@@ -309,8 +309,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bb08062-6f44-4ea3-bc2c-1cc36a31f7a6">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-9bb08062-6f44-4ea3-bc2c-1cc36a31f7a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1e217686-70a5-4f8a-9639-a2ff1440f70c">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-1e217686-70a5-4f8a-9639-a2ff1440f70c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -339,8 +339,8 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
 <p>Futhermore, we have to tell <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> the time period the signal loudness increases <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and the time period the amplitude decreases <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
 If we don’t know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
 <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> seems to analyse each chunk of the signal of size <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> + <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code> and computes an amplitude value for this time period.
-Therefore, if we choose <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> + <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code> <span class="math notranslate nohighlight">\(\approx 1/(c \cdot f)\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the signal and <span class="math notranslate nohighlight">\(c &gt; 1), we almost get \)</span>|y(t)|<span class="math notranslate nohighlight">\(.
-I conclude that these values should be greater than \)</span>1/f$.</p>
+Therefore, if we choose <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> + <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code> <span class="math notranslate nohighlight">\(\approx 1/(c \cdot f)\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the signal and <span class="math notranslate nohighlight">\(c &gt; 1\)</span>, we almost get <span class="math notranslate nohighlight">\(|y(t)|\)</span>.
+I conclude that these values should be greater than <span class="math notranslate nohighlight">\(1/f\)</span>.</p>
 <p><strong>Note</strong> that we are talking about a discrete signal even if we write <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 <p>The default values are <code class="docutils literal notranslate"><span class="pre">attackTime:</span> <span class="pre">0.01</span></code> and <code class="docutils literal notranslate"><span class="pre">releaseTime:</span> <span class="pre">0.01</span></code>, so for a signal with a frequency close to <span class="math notranslate nohighlight">\(100\)</span> Hz, we should increase these values.</p>
 </div>
