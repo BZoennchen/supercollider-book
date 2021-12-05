@@ -72,7 +72,7 @@ The following code generates another plot, that shows the difference.
 )
 ```
 
-```{figure} ../../figs/supercollider/amplitude/all-amplitude-sine.png.png
+```{figure} ../../figs/supercollider/amplitude/all-amplitude-sine.png
 ---
 width: 600px
 name: fig-all-amplitude-sine.png
