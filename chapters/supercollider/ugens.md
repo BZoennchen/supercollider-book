@@ -105,3 +105,6 @@ Here we cut the noisy sound if its amplitude measured by ``Amplitude`` is below 
 
 If ``Amplitude.ar(sig) > 0.1`` is true, it returns (on the server side) not true but a 1.
 Otherwise the expression returns 0.
+
+## OnePole
+
