@@ -50,3 +50,11 @@ What we actually mean is the maximum amplitude of the signal:
 \begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}
+
+Ok, but there is more.
+What about the perceived amplitude of a signal.
+In the example above, we can perceive that the sound gets louder over a time of 0.1 seconds and decays away in 0.2 seconds.
+
+For a increasing and decaying signal we could compute each local maxima and minima, take the absolute value and interpolate in between.
+That is basically what ``Amplitude`` does.
+It computes the perceive loudness, i.e., local amplitude of a signal!
