@@ -119,18 +119,18 @@ The documentation states that a one zero filter implements the formula:
 \end{equation}
 
 with $-1 \leq \alpha \leq 1$.
-\text{in}[i] is actually the $i$-th sample of the discrete input signal.
+$\text{in}[i]$ is actually the $i$-th sample of the discrete input signal.
 Therefore, these filters depend on the sample rate / audio rate!
 
 Let us use $\alpha = -0.5$ and we a differentiator!
-Let $y(t)$ our signal, then we basically compute
+Let $y(t)$ be our signal, then we basically compute
 
 \begin{equation}
-    \frac{y(t) - y(t - h)}{2}
+    \frac{y(t) - y(t - h)}{2}.
 \end{equation}
 
 To compute the difference quotient, we have to figure out what $h$ is.
-In other words, what is the time between \text{in}[i] and \text{in}[i-1].
+In other words, what is the time between $\text{in}[i]$ and $\text{in}[i-1]$.
 The answer is $1/a_\text{rate}$ where $a_\text{rate}$ is the audio rate.
 
 To compute the difference quotient we use the following formula:
@@ -139,17 +139,17 @@ To compute the difference quotient we use the following formula:
     \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
 \end{equation}
 
-Using the discrete input signal $\text{in}$ this gives us:
+Using the discrete input signal $\text{in}$ gives us:
 
 \begin{equation}
-    \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{/a_\text{rate}}.
+    \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}
 
 To test this result, let us compute the cosine using ``SinOsc`` and a ``OneZero``.
 Remember
 
 \begin{equation}
-    d\sin(2\pi \cdot f \cdot t)/dt = \cos(2\pi \cdot f \cdot t) \cdot 2 \pi \cdot f
+    \frac{d\sin(2\pi \cdot f \cdot t)}{dt} = 2 \pi \cdot f \cdot \cos(2\pi \cdot f \cdot t) 
 \end{equation}
 
 ```isc
