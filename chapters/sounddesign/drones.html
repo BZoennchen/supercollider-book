@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Drones &#8212; Algorithmic Composition</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Bibliography" href="../misc/bibliography.html" />
+    <link rel="prev" title="6. Frequency Modulation (FM)" href="fm.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/basics.html">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ugens.html">
+   3. Unit Generators
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="terms.html">
+   1. Terms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="additive-synthesis.html">
+   2. Additive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="percussive-sound.html">
+   3. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filters.html">
+   4. Filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="am.html">
+   5. Amplitude Modulation (AM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fm.html">
+   6. Frequency Modulation (FM)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   7. Drones
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/bibliography.html">
+   1. Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/jump-right-in.html">
+   1. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/distributions.html">
+   2. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/sounddesign/drones.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="drones">
+<h1><span class="section-number">7. </span>Drones<a class="headerlink" href="#drones" title="Permalink to this headline">¶</a></h1>
+<p>In this section we try to create an ambient drone sound.
+Our basic wave front will be a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>.
+The drone has a long attack and decay.
+In fact, we start without an envelope.
+This time we will use the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to define our drone synth.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\drone</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">;</span>
+	<span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">))</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>That’s our basic <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> which does not sound very drone-like.
+A drone has a lot of movement.
+Our first step is to change the frequency of the drone over time but not too much.
+Since we want this sine like wobble effect, we use a sine wave for the frequency modulation.
+But to add additional movement, we modulate the frequency of the frequency modulation randomly:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\drone</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">freqmod</span><span class="p">;</span>
+	<span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+	<span class="nx">freqmod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="mi">1</span><span class="o">+</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">));</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span> <span class="o">*</span> <span class="nx">freqmod</span><span class="p">)</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+	<span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We can reduce the harshness by using a <code class="docutils literal notranslate"><span class="pre">VarSaw</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Saw</span></code>.
+<code class="docutils literal notranslate"><span class="pre">VarSaw</span></code> let’s us modulate its <code class="docutils literal notranslate"><span class="pre">width</span></code> by which we can control how much it is shaped like a <a class="reference internal" href="additive-synthesis.html#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\drone</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">freqmod</span><span class="p">,</span> <span class="nx">widthmod</span><span class="p">;</span>
+	<span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.85</span><span class="p">;</span>
+	<span class="nx">freqmod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="mi">1</span><span class="o">+</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">));</span>
+	<span class="nx">widthmod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">);</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">VarSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span> <span class="o">*</span> <span class="nx">freqmod</span><span class="p">)</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+	<span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s duplicate to create some sort of unison:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\drone</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">freqmod</span><span class="p">,</span> <span class="nx">widthmod</span><span class="p">,</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+	<span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.85</span><span class="p">;</span>
+
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="p">{</span>
+		<span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
+		<span class="nx">freqmod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span> <span class="mi">1</span><span class="o">+</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">));</span>
+		<span class="nx">widthmod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">);</span>
+		<span class="nx">sig</span> <span class="o">=</span> <span class="nb">VarSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">((</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span> <span class="o">*</span> <span class="nx">freqmod</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">).</span><span class="nx">reciprocal</span><span class="p">;</span>
+	<span class="p">})</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">Splay</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">);</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">Balance2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">sig</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.2</span><span class="p">))</span><span class="o">*</span><span class="mf">0.1</span><span class="p">);</span>
+    <span class="c1">//sig;</span>
+	<span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>TODO</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/sounddesign"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="fm.html" title="previous page"><span class="section-number">6. </span>Frequency Modulation (FM)</a>
+    <a class='right-next' id="next-link" href="../misc/bibliography.html" title="next page"><span class="section-number">1. </span>Bibliography</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Benedikt Zönnchen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
