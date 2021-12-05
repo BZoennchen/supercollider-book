@@ -39,7 +39,7 @@ has an amplitude of ``1.0``.
 
 ```{figure} ../../figs/supercollider/amplitude/amplitude-sine.png
 ---
-width: 200px
+width: 600px
 name: fig-amplitude-sine
 ---
 A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.
