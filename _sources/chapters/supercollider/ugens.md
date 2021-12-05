@@ -123,6 +123,6 @@ For example,
 \begin{split}
 \text{out}[2] \leftarrow \ & (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
 = & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
-= & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + (1-|\alpha|) \cdot \text{in}[0]).
+= & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot (1-|\alpha|) \cdot \text{in}[0]).
 \end{split}
 \end{equation}
