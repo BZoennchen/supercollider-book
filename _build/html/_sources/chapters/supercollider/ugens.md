@@ -103,8 +103,16 @@ Here we cut the noisy sound if its amplitude measured by ``Amplitude`` is below 
 )
 ```
 
-If ``Amplitude.ar(sig) > 0.1`` is true, it returns (on the server side) not true but a 1.
-Otherwise the expression returns 0.
+If ``Amplitude.ar(sig) > 0.1`` is true, it returns (on the server side) not true but 1.
+Otherwise the expression is evaluated to 0.
 
 ## OnePole
 
+Another ``UGen`` I have a hard time get my head around is ``OnePole``.
+The documentation states that a one pole filter implements the formula:
+
+\begin{equation}
+out[i] \leftarrow (1 - |\alpha|) \cdot in[i] + \alpha \cdot out[i-1]
+\end{equation}
+
+with $-1 \leq \alpha \leq 1$.
