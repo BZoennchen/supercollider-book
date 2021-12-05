@@ -25,12 +25,12 @@ For example, we say that the following signal
 ```isc
 (
 {
-	var freg = 400;
-	var attackTime = 0.1;
-	var releaseTime = 0.2;
-	var env = EnvGen.ar(Env.perc(attackTime: attackTime, releaseTime: releaseTime));
-	var sig = SinOsc.ar(freg) * env;
-	sig
+    var freg = 400;
+    var attackTime = 0.1;
+    var releaseTime = 0.2;
+    var env = EnvGen.ar(Env.perc(attackTime: attackTime, releaseTime: releaseTime));
+    var sig = SinOsc.ar(freg) * env;
+    sig
 }.plot(0.4);
 )
 ```
