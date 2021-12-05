@@ -126,3 +126,11 @@ For example,
 = & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot (1-|\alpha|) \cdot \text{in}[0]).
 \end{split}
 \end{equation}
+
+For $\alpha = 0.6$ we get:
+
+\begin{equation}
+\begin{split}
+\text{out}[2] \leftarrow 0.4 \text{in}[2] + 0.6 \cdot 0.4 \text{in}[1] + 0.6^2 \cdot 0.4 \text{in}[1]
+\end{split}
+\end{equation}
