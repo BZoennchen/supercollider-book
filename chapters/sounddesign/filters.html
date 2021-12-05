@@ -298,16 +298,16 @@ We have to understand phase relationships to really understand whats going on.</
 <h2><span class="section-number">4.1. </span>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
 <p>Let us first combine two sine waves.
 The first two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f1d0bc6-e722-42d7-b2ec-c1296f1e1066">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-6f1d0bc6-e722-42d7-b2ec-c1296f1e1066" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d3fd80aa-c7fb-404c-8fb9-17d54661a27f">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-d3fd80aa-c7fb-404c-8fb9-17d54661a27f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t)
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-94c89afc-829f-4b23-a6a4-221e67d5409d">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-94c89afc-829f-4b23-a6a4-221e67d5409d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a042449f-83f1-41f5-a614-1ce4e9a10a70">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-a042449f-83f1-41f5-a614-1ce4e9a10a70" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -319,8 +319,8 @@ Of course, we can not hear any difference between a sine wave and the same sine 
 Only in combination the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ad8ff28-2589-4dd9-bb21-bd09eb2095ca">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-7ad8ff28-2589-4dd9-bb21-bd09eb2095ca" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5c965d3f-7196-4bb5-88de-18cbd8008e19">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-5c965d3f-7196-4bb5-88de-18cbd8008e19" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -350,13 +350,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, that is, its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
 <p>In the fact, amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4924db35-3ac3-4cc7-bd0d-5a8a93ee14b2">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-4924db35-3ac3-4cc7-bd0d-5a8a93ee14b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b21e510-8e78-4b8f-b3c4-d105f0405fd3">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-7b21e510-8e78-4b8f-b3c4-d105f0405fd3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba094214-4c4c-47d4-86f3-e58a28d34305">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-ba094214-4c4c-47d4-86f3-e58a28d34305" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bb50552d-8481-4af8-a772-cafbf4e971bd">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-bb50552d-8481-4af8-a772-cafbf4e971bd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k = \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
