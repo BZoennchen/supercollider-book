@@ -135,7 +135,15 @@ For $\alpha = 0.6$ we get
 \end{split}
 \end{equation}
 
-and for a negative $\alpha = -0.6$ we get
+and in general
+
+\begin{equation}
+\begin{split}
+\text{out}[i] \leftarrow \sum\limits_{k=0}^i 0.4^k \cdot 0.6^{i-k} \text{in}[k].
+\end{split}
+\end{equation}
+
+For a negative $\alpha = -0.6$ we get
 
 \begin{equation}
 \begin{split}
@@ -143,4 +151,10 @@ and for a negative $\alpha = -0.6$ we get
 \end{split}
 \end{equation}
 
-If $\alpha$ is positive, we basically smoothen the signal.
+and in general
+
+\begin{equation}
+\begin{split}
+\text{out}[i] \leftarrow \sum\limits_{k=0}^i 0.4^k \cdot (-0.6)^{i-k} \text{in}[k].
+\end{split}
+\end{equation}
