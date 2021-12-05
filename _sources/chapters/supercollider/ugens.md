@@ -147,6 +147,14 @@ The general formula is given by
 
 \begin{equation}
 \begin{split}
-\text{out}[i] \leftarrow \alpha^i \text{in}[0] + \sum\limits_{k=1}^{i} (|1-\alpha|) \cdot \alpha^{i-k} \cdot \text{in}[k].
+\text{out}[i] \leftarrow \alpha^i \text{in}[0] + \sum\limits_{k=1}^{i} (1-|\alpha|) \cdot \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
 \end{equation}
+
+I guess that the result depends on the sample rate, i.e. on the size of $\text{in}$ and $\text{out}$.
+But in general a positive $\alpha$ will average a signal.
+In other words, it will decrease the rate of change of the signal.
+The larger $\alpha$ the smaller will be the rate of change of the result $\text{out}$.
+
+A negative $\alpha$ will basically compute the an averaged deviation of the signal.
+Therefore, any signal with a constant deviation will result in a signal of lower amplitude and if $\alpha$ is close to -1 there will be silence.
