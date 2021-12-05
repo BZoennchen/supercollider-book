@@ -112,7 +112,8 @@ Another ``UGen`` I have a hard time get my head around is ``OnePole``.
 The documentation states that a one pole filter implements the formula:
 
 \begin{equation}
-out[i] \leftarrow (1 - |\alpha|) \cdot in[i] + \alpha \cdot out[i-1]
+\text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]
 \end{equation}
 
 with $-1 \leq \alpha \leq 1$.
+\text{out} is the resulting signal and \text{in} the input signal of ``OnePole``.
