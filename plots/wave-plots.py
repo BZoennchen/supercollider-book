@@ -92,10 +92,10 @@ def one_pole(y, alpha):
 
 
 def test(f):
-    t = np.linspace(0, 1, NUM)
-    amp = 2 * (f*t - np.floor(1/2 + f*t))
-    lineplot(t, one_pole(amp, 0.99))
-    lineplot(t, amp)
+    t = np.linspace(0, 1/f, int(1/f * NUM))
+    amp = np.sin(TWO_PI * f * t)
+    lineplot(t, one_pole(amp, 0.995))
+    #lineplot(t, amp)
 
 
 def main():
@@ -115,4 +115,4 @@ if __name__ == "__main__":
     sns.set_theme()
     sns.set_style("whitegrid")
     # main()
-    test(10)
+    test(100)
