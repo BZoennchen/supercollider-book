@@ -121,8 +121,8 @@ For example,
 
 \begin{equation}
 \begin{split}
-\text{out}[2] & \leftarrow (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
-& = (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
-& = (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{in}[0])
+\text{out}[2] \leftarrow & (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
+= & (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
+= & (1 - |\alpha|) \cdot \text{in}[2] + ((\alpha - |\alpha^2|) \cdot \text{in}[1] + \alpha^2 \cdot \text{in}[0])
 \end{split}
 \end{equation}
