@@ -47,4 +47,4 @@ A modulated amplitude of a sine wave. We say that this signal has an amplitude o
 
 What we actually mean is the maximum amplitude of the signal:
 
-$$max\limits_{t \in ]-\infty; +\infty[} |y(t)|.$$
+$$\max\limits_{t \in ]-\infty; +\infty[} |y(t)|.$$
