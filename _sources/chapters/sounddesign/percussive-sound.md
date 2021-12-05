@@ -178,7 +178,7 @@ Ndef(\breeze, {
 ## Bells
 
 Very different from string and wind instruments, bells consists of many inharmonic 'partials'.
-In the section [additive synthesis](), we already constructed the sound of a bell using the sum of multiple sine waves ``SinOsc``:
+In the section [additive synthesis](sec-additive-synthesis), we already constructed the sound of a bell using the sum of multiple sine waves ``SinOsc``:
 
 ```isc
 (
