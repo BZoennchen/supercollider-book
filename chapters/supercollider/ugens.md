@@ -91,3 +91,17 @@ I conclude that these values should be greater than $1/f$.
 **Note** that we are talking about a discrete signal even if we write $y(t)$.
 
 The default values are ``attackTime: 0.01`` and ``releaseTime: 0.01``, so for a signal with a frequency close to $100$ Hz, we should increase these values.
+
+Let's end with an example.
+Here we cut the noisy sound if its amplitude measured by ``Amplitude`` is below 0.2.
+
+```isc
+({ 
+    var sig = WhiteNoise.ar(0.5!2) * 0.5 * SinOsc.kr(1);
+    sig * (Amplitude.ar(sig) > 0.1);
+}.play
+)
+```
+
+If ``Amplitude.ar(sig) > 0.1`` is true, it returns (on the server side) not true but a 1.
+Otherwise the expression returns 0.

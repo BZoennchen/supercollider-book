@@ -309,8 +309,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e217686-70a5-4f8a-9639-a2ff1440f70c">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-1e217686-70a5-4f8a-9639-a2ff1440f70c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0e2acf22-c837-482c-8892-1390d3aa2779">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-0e2acf22-c837-482c-8892-1390d3aa2779" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -343,6 +343,17 @@ Therefore, if we choose <code class="docutils literal notranslate"><span class="
 I conclude that these values should be greater than <span class="math notranslate nohighlight">\(1/f\)</span>.</p>
 <p><strong>Note</strong> that we are talking about a discrete signal even if we write <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 <p>The default values are <code class="docutils literal notranslate"><span class="pre">attackTime:</span> <span class="pre">0.01</span></code> and <code class="docutils literal notranslate"><span class="pre">releaseTime:</span> <span class="pre">0.01</span></code>, so for a signal with a frequency close to <span class="math notranslate nohighlight">\(100\)</span> Hz, we should increase these values.</p>
+<p>Let’s end with an example.
+Here we cut the noisy sound if its amplitude measured by <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> is below 0.2.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span> 
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">);</span>
+<span class="p">}.</span><span class="nx">play</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.1</span></code> is true, it returns (on the server side) not true but a 1.
+Otherwise the expression returns 0.</p>
 </div>
 </div>
 
