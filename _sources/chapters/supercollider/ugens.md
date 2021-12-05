@@ -38,7 +38,7 @@ has an amplitude of ``1.0``.
 
 ```{figure} ../../figs/supercollider/amplitude/amplitude-sine.png
 ---
-width: 600px
+width: 800px
 name: fig-amplitude-sine
 ---
 A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.
@@ -74,7 +74,7 @@ The following code generates another plot, that shows the difference.
 
 ```{figure} ../../figs/supercollider/amplitude/all-amplitude-sine.png
 ---
-width: 600px
+width: 800px
 name: fig-all-amplitude-sine.png
 ---
 A modulated amplitude of a sine wave. At the top the measured perceive loudness using ``Amplitude``. In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
