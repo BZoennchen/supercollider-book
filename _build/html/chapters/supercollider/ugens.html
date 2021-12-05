@@ -314,8 +314,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba7e9042-02f1-4f0e-b4e0-b7b23240d417">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-ba7e9042-02f1-4f0e-b4e0-b7b23240d417" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ddd5715e-a89b-44fa-8662-9798963e1573">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-ddd5715e-a89b-44fa-8662-9798963e1573" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -364,15 +364,15 @@ Otherwise the expression is evaluated to 0.</p>
 <h2><span class="section-number">3.2. </span>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">¶</a></h2>
 <p>Another <code class="docutils literal notranslate"><span class="pre">UGen</span></code> I have a hard time get my head around is <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 The documentation states that a one pole filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-949f524c-2175-4977-ab9e-d28dd31241e7">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-949f524c-2175-4977-ab9e-d28dd31241e7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8e43eac5-a91d-4183-8fd1-6972a5933175">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-8e43eac5-a91d-4183-8fd1-6972a5933175" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7a3db10-cf89-4e3a-9370-fee4980c25a6">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-b7a3db10-cf89-4e3a-9370-fee4980c25a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7c9bc1ac-05ba-44f8-989d-faa5001d4b89">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-7c9bc1ac-05ba-44f8-989d-faa5001d4b89" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] \leftarrow \ &amp; (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
 = &amp; \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
@@ -380,24 +380,24 @@ For example,</p>
 \end{split}
 \end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(\alpha = 0.6\)</span> we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d25d0833-9a27-4e47-b5bc-a2fe217fd941">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-d25d0833-9a27-4e47-b5bc-a2fe217fd941" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a0d9c61c-106d-485e-aadd-3ba9e5bf713f">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-a0d9c61c-106d-485e-aadd-3ba9e5bf713f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + 0.6 \cdot 0.4 \cdot \text{in}[1] + 0.6^2 \cdot \text{in}[0],
 \end{split}
 \end{equation}\]</div>
 <p>For a negative <span class="math notranslate nohighlight">\(\alpha = -0.6\)</span> we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfb75ddd-ce7a-4cb5-be6f-e56948e7dad3">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-dfb75ddd-ce7a-4cb5-be6f-e56948e7dad3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-34eacbfc-b075-4fe3-87cc-fba5556d388c">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-34eacbfc-b075-4fe3-87cc-fba5556d388c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + (-0.6) \cdot 0.4 \cdot \text{in}[1] + (-0.6)^2 \cdot \text{in}[0].
 \end{split}
 \end{equation}\]</div>
 <p>The general formula is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71ebbab9-2473-4a46-9804-68c174f63905">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-71ebbab9-2473-4a46-9804-68c174f63905" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e0d2ae35-b39b-4279-9d05-4a4c6a9044a8">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-e0d2ae35-b39b-4279-9d05-4a4c6a9044a8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
-\text{out}[i] \leftarrow \alpha^i \text{in}[0] + \sum\limits_{k=1}^{i} (1-\alpha) \cdot \alpha^{i-k} \cdot \text{in}[k].
+\text{out}[i] \leftarrow \alpha^i \text{in}[0] + \sum\limits_{k=1}^{i} (|1-\alpha|) \cdot \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
 \end{equation}\]</div>
 </div>
