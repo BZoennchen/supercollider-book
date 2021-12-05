@@ -123,7 +123,7 @@ For example,
 \begin{split}
 \text{out}[2] \leftarrow \ & (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
 = & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
-= & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot (1-|\alpha|) \cdot \text{in}[0]).
+= & \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \alpha \cdot \text{in}[0]).
 \end{split}
 \end{equation}
 
@@ -131,7 +131,7 @@ For $\alpha = 0.6$ we get
 
 \begin{equation}
 \begin{split}
-\text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + 0.6 \cdot 0.4 \cdot \text{in}[1] + 0.6^2 \cdot 0.4 \cdot \text{in}[0],
+\text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + 0.6 \cdot 0.4 \cdot \text{in}[1] + 0.6^2 \cdot \text{in}[0],
 \end{split}
 \end{equation}
 
@@ -139,6 +139,8 @@ and for a negative $\alpha = -0.6$ we get
 
 \begin{equation}
 \begin{split}
-\text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + (-0.6) \cdot 0.4 \cdot \text{in}[1] + (-0.6)^2 \cdot 0.4 \cdot \text{in}[0].
+\text{out}[2] \leftarrow 0.4 \cdot \text{in}[2] + (-0.6) \cdot 0.4 \cdot \text{in}[1] + (-0.6)^2 \cdot \text{in}[0].
 \end{split}
 \end{equation}
+
+If $\alpha$ is positive, we basically smoothen the signal.
