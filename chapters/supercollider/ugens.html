@@ -314,8 +314,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-964cc54c-5c7c-4b0b-80b5-945deb9e42c7">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-964cc54c-5c7c-4b0b-80b5-945deb9e42c7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bcffef87-0a43-49ec-8960-196187fab5aa">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-bcffef87-0a43-49ec-8960-196187fab5aa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -364,19 +364,19 @@ Otherwise the expression is evaluated to 0.</p>
 <h2><span class="section-number">3.2. </span>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">¶</a></h2>
 <p>Another <code class="docutils literal notranslate"><span class="pre">UGen</span></code> I have a hard time get my head around is <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 The documentation states that a one pole filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd46c5c1-66f0-44a4-be32-8fcde88b1f05">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-fd46c5c1-66f0-44a4-be32-8fcde88b1f05" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5c5e3bf0-3a66-43ad-81a9-19572786f690">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-5c5e3bf0-3a66-43ad-81a9-19572786f690" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-726cbd3c-bf47-49ac-965e-e5a56893bb60">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-726cbd3c-bf47-49ac-965e-e5a56893bb60" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f9ba9ff6-42f4-443b-ab07-4eec7c57a14d">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-f9ba9ff6-42f4-443b-ab07-4eec7c57a14d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
-\text{out}[2] \leftarrow &amp; (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
-= &amp; (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
-= &amp; (1 - |\alpha|) \cdot \text{in}[2] + ((\alpha - |\alpha^2|) \cdot \text{in}[1] + \alpha^2 \cdot \text{in}[0])
+\text{out}[2] \leftarrow \ &amp; (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
+= &amp; \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])
+= &amp; \ (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{in}[0]).
 \end{split}
 \end{equation}\]</div>
 </div>
