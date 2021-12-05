@@ -309,8 +309,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the maximum amplitude of the signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89b911b9-ed35-45d4-9009-ab05f1421518">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-89b911b9-ed35-45d4-9009-ab05f1421518" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ebaa5d75-a518-4e22-9848-106646ef5a4d">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-ebaa5d75-a518-4e22-9848-106646ef5a4d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -326,7 +326,7 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
     <span class="kd">var</span> <span class="nx">releaseTime</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="nx">attackTime</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="nx">releaseTime</span><span class="p">));</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freg</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="p">[</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">attackTime:</span> <span class="nx">attackTime</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="nx">attackTime</span><span class="o">/</span><span class="mi">10</span><span class="p">),</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">sig</span><span class="p">)]</span>
+    <span class="p">[</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">attackTime:</span> <span class="nx">attackTime</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="nx">attackTime</span><span class="p">),</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">sig</span><span class="p">)]</span>
 <span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">0.4</span><span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
@@ -335,6 +335,12 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
 <a class="reference internal image-reference" href="../../_images/all-amplitude-sine.png"><img alt="../../_images/all-amplitude-sine.png" src="../../_images/all-amplitude-sine.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine-png" title="Permalink to this image">¶</a></p>
 </div>
+<p>Somehow <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> underestimates the perceive loudness quite a bit.</p>
+<p>Futhermore, we have to tell <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> the time period the signal loudness increases <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and the time period the amplitude decreases <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
+If we don’t know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
+<code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> seems to analyse each chunk of the signal of size <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> + <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code> and computes an amplitude value for this time period.
+Therefore, if we choose <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> + <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code> <span class="math notranslate nohighlight">\(\approx 1/f\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the signal, we almost get <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</p>
+<p><strong>Note</strong> that we are talking about a discrete signal even if we write <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 </div>
 </div>
 

@@ -67,7 +67,7 @@ The following code generates another plot, that shows the difference.
     var releaseTime = 0.2;
     var env = EnvGen.ar(Env.perc(attackTime: attackTime, releaseTime: releaseTime));
     var sig = SinOsc.ar(freg) * env;
-    [Amplitude.ar(sig, attackTime: attackTime/10, releaseTime: attackTime/10), sig, abs(sig)]
+    [Amplitude.ar(sig, attackTime: attackTime, releaseTime: attackTime), sig, abs(sig)]
 }.plot(0.4);
 )
 ```
@@ -79,3 +79,12 @@ name: fig-all-amplitude-sine.png
 ---
 A modulated amplitude of a sine wave. At the top the measured perceive loudness using ``Amplitude``. In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
 ```
+
+Somehow ``Amplitude`` underestimates the perceive loudness quite a bit.
+
+Futhermore, we have to tell ``Amplitude`` the time period the signal loudness increases ``attackTime`` and the time period the amplitude decreases ``releaseTime``.
+If we don't know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
+``Amplitude`` seems to analyse each chunk of the signal of size ``attackTime`` + ``releaseTime`` and computes an amplitude value for this time period.
+Therefore, if we choose ``attackTime`` + ``releaseTime`` $\approx 1/f$, where $f$ is the frequency of the signal, we almost get $|y(t)|$.
+
+**Note** that we are talking about a discrete signal even if we write $y(t)$.
