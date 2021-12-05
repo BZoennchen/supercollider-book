@@ -7,7 +7,7 @@ transparent = True
 PI = np.pi
 TWO_PI = 2*PI
 NUM = 44000
-show = True
+show = False
 
 
 def lineplot(x, y, filename=None, title=None):
@@ -91,7 +91,7 @@ def one_pole(y, alpha):
     return y_new
 
 
-def test(f):
+def test_pole(f):
     t = np.linspace(0, 1/f, int(1/f * NUM))
     amp = np.sin(TWO_PI * f * t)
     lineplot(t, one_pole(amp, 0.995))
@@ -114,5 +114,5 @@ def main():
 if __name__ == "__main__":
     sns.set_theme()
     sns.set_style("whitegrid")
-    # main()
-    test(100)
+    main()
+    # test_pole(100)

@@ -147,7 +147,7 @@ The general formula is given by
 
 \begin{equation}
 \begin{split}
-\text{out}[i] \leftarrow \alpha^i \text{in}[0] + \sum\limits_{k=1}^{i} (1-|\alpha|) \cdot \alpha^{i-k} \cdot \text{in}[k].
+\text{out}[i] \leftarrow \alpha^i \cdot \text{in}[0] + \sum\limits_{k=1}^{i} (1-|\alpha|) \cdot \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
 \end{equation}
 
