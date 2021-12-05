@@ -116,4 +116,13 @@ The documentation states that a one pole filter implements the formula:
 \end{equation}
 
 with $-1 \leq \alpha \leq 1$.
-\text{out} is the resulting signal and \text{in} the input signal of ``OnePole``.
+$\text{out}$ is the resulting signal and $\text{in}$ the input signal of ``OnePole``.
+For example,
+
+\begin{equation}
+\begin{split}
+\text{out}[2] & \leftarrow (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot \text{out}[1]\\
+& = (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{out}[0])\\
+& = (1 - |\alpha|) \cdot \text{in}[2] + \alpha \cdot ((1 - |\alpha|) \cdot \text{in}[1] + \alpha \cdot \text{in}[0])
+\end{split}
+\end{equation}

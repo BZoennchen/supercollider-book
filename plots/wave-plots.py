@@ -6,8 +6,8 @@ dpi = 300
 transparent = True
 PI = np.pi
 TWO_PI = 2*PI
-NUM = 200
-show = False
+NUM = 44000
+show = True
 
 
 def lineplot(x, y, filename=None, title=None):
@@ -83,6 +83,21 @@ def exp_map(k, filename=None):
     lineplot(x, fx, filename, title=r'$y(x) = x^{1+(k-1)/3}$')
 
 
+def one_pole(y, alpha):
+    y_new = np.zeros(len(y))
+    y_new[0] = y[0]
+    for i in range(1, len(y_new)):
+        y_new[i] = (1-np.abs(alpha)) * y[i] + alpha * y_new[i-1]
+    return y_new
+
+
+def test(f):
+    t = np.linspace(0, 1, NUM)
+    amp = 2 * (f*t - np.floor(1/2 + f*t))
+    lineplot(t, one_pole(amp, 0.99))
+    lineplot(t, amp)
+
+
 def main():
     sine(1, './../figs/sounddesign/sine.png')
     sawtooth(1, './../figs/sounddesign/sawtooth.png')
@@ -99,4 +114,5 @@ def main():
 if __name__ == "__main__":
     sns.set_theme()
     sns.set_style("whitegrid")
-    main()
+    # main()
+    test(10)
