@@ -139,7 +139,7 @@ and in general
 
 \begin{equation}
 \begin{split}
-\text{out}[i] \leftarrow 0.6^{i} \text{in}[0] + \sum\limits_{k=0}^{i-1} 0.4\cdot 0.6^{i-k} \text{in}[k].
+\text{out}[i] \leftarrow 0.6^{i} \text{in}[0] + \sum\limits_{k=1}^{i} 0.4\cdot 0.6^{i-k} \text{in}[k].
 \end{split}
 \end{equation}
 
@@ -155,6 +155,6 @@ and in general
 
 \begin{equation}
 \begin{split}
-\text{out}[i] \leftarrow (-0.6)^{i} \text{in}[0] + \sum\limits_{k=0}^{i-1} 0.4\cdot (-0.6)^{i-k} \text{in}[k].
+\text{out}[i] \leftarrow (-0.6)^{i} \text{in}[0] + \sum\limits_{k=1}^{i} 0.4\cdot (-0.6)^{i-k} \text{in}[k].
 \end{split}
 \end{equation}
