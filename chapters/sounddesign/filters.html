@@ -298,16 +298,16 @@ We have to understand phase relationships to really understand whats going on.</
 <h2><span class="section-number">4.1. </span>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
 <p>Let us first combine two sine waves.
 The first two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-45d6f8af-f62e-416b-b04b-5fd009903205">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-45d6f8af-f62e-416b-b04b-5fd009903205" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-33f9dd19-11a2-4eaf-9885-5dba33341fc9">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-33f9dd19-11a2-4eaf-9885-5dba33341fc9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t)
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a011cd0-e48d-4feb-affb-77efb3966b78">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-3a011cd0-e48d-4feb-affb-77efb3966b78" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d8728e94-0837-4a99-a968-61df1b134f7b">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-d8728e94-0837-4a99-a968-61df1b134f7b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -319,8 +319,8 @@ Of course, we can not hear any difference between a sine wave and the same sine 
 Only in combination the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47ec079a-33e3-46f7-aa70-a5735b875ed2">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-47ec079a-33e3-46f7-aa70-a5735b875ed2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-db7ee570-42fa-4fc6-930b-d84ec5319144">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-db7ee570-42fa-4fc6-930b-d84ec5319144" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -350,13 +350,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, that is, its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
 <p>In the fact, amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2c17020-80ce-4dc3-91a3-3eaf0b6318c0">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-d2c17020-80ce-4dc3-91a3-3eaf0b6318c0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-10bd291d-6a45-48d1-b0ec-c1ba497c6668">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-10bd291d-6a45-48d1-b0ec-c1ba497c6668" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c053ef0b-6fe1-4555-b923-8a36ced1d6dd">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-c053ef0b-6fe1-4555-b923-8a36ced1d6dd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-31277746-4170-4f92-a5d2-e076d8763f31">
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-31277746-4170-4f92-a5d2-e076d8763f31" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k = \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -394,7 +394,7 @@ For example the low pass filter <code class="docutils literal notranslate"><span
 <p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
 </div>
 <p>The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not completely true because the cutoff frequency is also reduced by 3 <span class="xref myst">decibel (dB)</span>, so the reduction starts a little bit below the cutoff frequency.
+Well, that is not completely true because the cutoff frequency is also reduced by 3 <a class="reference internal" href="terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 3 dB means that the perceived level is reduced by a factor of 2.
 The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 4.1</span></a> shows the reduction in amplitude.</p>
 <p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 4.1</span></a>.
