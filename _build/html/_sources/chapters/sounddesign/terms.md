@@ -83,6 +83,7 @@ It is the energy per unit of time emitted by a sound source in all directions.
 The sound power is measured in watt (W) and it is surprisingly small.
 For example, a complete concert orchestra and a thunder have ruffly the power of only 1 watt.
 
+(sec-intensity)=
 ## Sound Intensity
 
 Sound intensity is sound power per unit area, i.e. watt per square meters.

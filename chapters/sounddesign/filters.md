@@ -131,7 +131,7 @@ By Alejo2083 - Own work, CC BY-SA 3.0, [link](https://commons.wikimedia.org/w/in
 ```
 
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not completely true because the cutoff frequency is also reduced by 3 [decibel (dB)](sec-decibel), so the reduction starts a little bit below the cutoff frequency.
+Well, that is not completely true because the cutoff frequency is also reduced by 3 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 3 dB means that the perceived level is reduced by a factor of 2.
 The top plot of {numref}`Fig. {number} <fig-butterworth-filter>` shows the reduction in amplitude.
 
