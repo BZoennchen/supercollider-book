@@ -2,32 +2,33 @@
 
 [SuperCollider (SC)](https://supercollider.github.io/) is a package or platform that consists of three components:
 + **scsynth**: a real-time audio server, i.e., the part that creates and plays the sound.
-+ **sclang**: an interpreted programming language focused on sound creation and signal processing. The user controls the server **scsynth** by sending (Open Sound Control) messages to the audio server.
-+ **scide**: a powerful Integrated Development Environment (IDE) for programming in **sclang**. It offers an integrated help system, analyzing tools, and extensive documentation.
++ **sclang**: an interpreted programming language for sound creation and signal processing. The user controls the server **scsynth** by sending Open Sound Control (OSC) messages to the audio server.
++ **scide**: a powerful Integrated Development Environment (IDE) for programming in **sclang**. It offers an integrated help system, analyzing tools, and an extensive documentation.
 
 [SuperCollider (SC)](https://supercollider.github.io/) is written in ``C++`` and was developed by James McCartney.
-It was released in 1996, and in 2002 McCartney released it as free software under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html).
-It is now maintained and developed by an active community.
+It was released in 1996.
+In 2002 McCartney transformed it into a free software under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html).
+It is still maintained and developed by an active community.
 
-All three parts of [SuperCollider (SC)](https://supercollider.github.io/) are independent, that is, there might be some other subsystem that replaces some of the parts.
-One can program using other IDEs such as VSCode.
+All three parts of [SuperCollider (SC)](https://supercollider.github.io/) are independent, that is, there might be some other subsystem that replaces some of its parts.
+One can code by using other IDEs such as VSCode.
 We can also use **sclang** independently to program applications that have nothing to do with signal processing.
 These use cases are rare.
 However, we find many projects that replace **sclang** and **scide**, especially in the area of Live Programming, for example:
 
-+ [Sonic Pi](https://sonic-pi.net/): Highly accessible and therefore especially interesting in the context of education 
-+ [TidalCycle](https://tidalcycles.org/): Functional language that focuses on the creation of complex rhythms
-+ [FoxDot](https://foxdot.org/): Similar to [TidalCycle](https://tidalcycles.org/) but focuses more on the melodic side of compositions
++ [Sonic Pi](https://sonic-pi.net/): highly accessible and therefore especially interesting in the context of education.
++ [TidalCycle](https://tidalcycles.org/): functional language that focuses on the creation of complex rhythms.
++ [FoxDot](https://foxdot.org/): similar to [TidalCycle](https://tidalcycles.org/) but focuses more on the melodic side of compositions.
 + ...
 
 In that case, we can develop our synths using **sclang** and run them on the server **scsynth**, but we control them by these systems.
-If we are only use existing synth and samples, we can do no longer rely on [SuperCollider (SC)](https://supercollider.github.io/).
+If we are only interested in using existing synth and samples, we can do no longer rely on [SuperCollider (SC)](https://supercollider.github.io/).
 
-Of course, deciding between [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/), [FoxDot](https://foxdot.org/), and plain [SuperCollider (SC)](https://supercollider.github.io/) comes down to personal preference.
+Of course, deciding between [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/), [FoxDot](https://foxdot.org/), and plain [SuperCollider (SC)](https://supercollider.github.io/) comes down to personal preference and goals.
 Each platform targets different objectives and has different advantages as well as disadvantages.
 In my opinion, [SuperCollider (SC)](https://supercollider.github.io/) is the most powerful one but can be less intuitive and flexible, especially for the live coding experience.
 
-I encourage readers that are interested in live coding to check them out!
+I encourage readers that are interested in live coding to check them all out!
 
 ## SCSynth
 
@@ -40,9 +41,9 @@ For example, one can change the arguments of a ``SynthDef`` while the synth is e
 Very similar to object-oriented programming, a ``SynthDef`` is a blueprint for a synth instance.
 The composer
 
-1. defines the blueprint, that is, a ``SynthDef``
-2. adds the blueprint to the server
-3. creates a new instance, that is, a synth
+1. defines the blueprint, that is, a ``SynthDef``,
+2. adds the blueprint to the server,
+3. creates a new instance, that is, a synth,
 4. and executes, controls, and terminates it.
 
 All those steps are done via the client-side interpreted programming language **sclang**.
@@ -59,7 +60,7 @@ From a musical point of view, it has its own interactive programming and Live Co
 ## SCIDE
 
 The [SuperCollider (SC)](https://supercollider.github.io/) Integrated Development Environment (IDE) is a Qt-based cross-platform application.
-Code can be executed in a notebook-like manner, that is, interactively using the REPL (Read–eval–print loop).
+Code can be executed in a notebook-like manner, that is, interactively using the REPL (Read–Eval–Print Loop).
 
 ```{figure} ../../figs/ecosystem/ide.png
 ---

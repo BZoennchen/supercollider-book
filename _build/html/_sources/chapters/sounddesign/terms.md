@@ -24,7 +24,7 @@ A periodic waveform can be *simple* (e.g. a single sine wave) or *complex* and a
 The simplest and most fundamental waveform is the sine wave
 
 \begin{equation}
-    y(t) = A \cdot \sin(2\pi \cdot f \cdot t + \phi),
+    y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}
 
 where the *frequency* $f$ is the inverse of the period $T$.
@@ -67,27 +67,27 @@ Since there are the same number of keys for each octave but higher octaves cover
 
 ## Cent
 
-An octave is divided into 1200 cents.
+An octave is divided into 1200 *cents*.
 Therefore one semitone is 100 cents.
 Notable pitch differences can be perceived in a range from 10 to 25 cents, depending on the listeners hearing and musical education or exposer.
 
 ## Hearing Range
 
-Hearing range is the range of frequency that a being can perceive.
+The *hearing range* is the range of frequency that a being can perceive.
 The hearing range of humans is 20 Hz to 20kHz where cats go up to 75kHz and bats up to 200kHz.
 
 ## Sound Power
 
-The sound power is a physical measure.
+The *sound power* is a physical measure.
 It is the energy per unit of time emitted by a sound source in all directions.
 The sound power is measured in watt (W) and it is surprisingly small.
-For example, a complete concert orchestra and a thunder have ruffly the power of only 1 watt.
+For example, a complete concert orchestra and a thunder have roughly the power of only 1 watt.
 
 (sec-intensity)=
 ## Sound Intensity
 
-Sound intensity is sound power per unit area, i.e. watt per square meters.
-The sound we can perceive can have is surprisingly intensity.
+*Sound intensity* is sound power per unit area, i.e. watt per square meters.
+The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing $TOH$ is
 
 \begin{equation}
@@ -100,7 +100,7 @@ On other end, the threshold of pain $TOP$ is
     TOP = 10 \,\text{W/m}^2.
 \end{equation}
 
-At that intensity we start suffering from pain.
+At that intensity we start suffering.
 
 The sound intensity is measured in *decibel* (dB) which is a relative unit of measurement.
 It is one-tenth of a bel: 1 dB equals 0.1 B.
@@ -110,7 +110,7 @@ Since the measure is relative, we have to fix it, if we want to use a decibel sc
 It is convenient to start with 
 
 + 0 dB as the sound intensity of the threshold of hearing $THO$
-+ a whisper is about 15 dB
++ whispering is about 15 dB
 + a library 45 dB
 + a normal conversation 60 dB
 + a toilet flushing 75-85 dB
@@ -119,7 +119,7 @@ It is convenient to start with
 + a jet engine 120 dB
 + a ballon popping 157 dB
 
-If we follow that convention we can compute the decibels of a sound intensity $I$ by
+If we follow that convention, we can compute the decibels of a sound intensity $I$ by
 
 \begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
@@ -155,7 +155,7 @@ should be approximately perceived half the level of
 
 ## Loudness
 
-Loudness is a subjective perception of sound intensity.
+*Loudness* is a subjective perception of sound intensity.
 It depends on the duration and frequency of a sound, the age and other subjective properties of the lister.
 We perceive short lasting sounds and sounds with a low frequency less loud than long lasting high frequency sounds.
 Therefore, the sound intensity can be the same but the loudness can be very different.
@@ -163,8 +163,82 @@ It is measured in phons.
 
 ## Timbre
 
+There is no measure of timbre.
+It is generally very hard to define formally.
+It is often referred to as the *color of a sound* which does not explain anything but gives us an intuition.
+
+Two different instruments can play the same note but we still can easily recognize the difference in the sound they generate.
+We may say an instrument sounds harsh, soft, doll and so on.
+Why is that? Well, because they have a unique timbre.
+This is even true for instruments of the same type, such as two violins.
+
+If we define timbre as a relative subjective measure it is basically the difference in the harmonic (or inharmonic) spectrum over time.
+Let us imagine that a signal is the composition of the fundamental and infinitely many harmonics (and inharmonics).
+Each (in)harmonic $h_i(t)$ is a sine wave with an amplitude $A_i(t)$, that is, a function over time.
+The signal can be seen as a **superposition** of all (in)harmonic $h_i(t)$ for $i = 0, 1, \ldots,$.
+There are infinitely many different $h_i$ thus infinitely many different sounds which represent the same note.
+
+For example, both of the flowing synth generate the same note but have a very different timbre:
+
+```isc
+({
+    var sig;
+    sig = SinOsc.ar(220)!2 * 0.5;
+    sig * EnvGen.ar(Env.perc(0.1));
+}.play(fadeTime:0);)
+
+({
+    var sig;
+    sig = LFSaw.ar(220)!2;
+    sig * EnvGen.ar(Env.perc(0.1)) * 0.5;
+}.play(fadeTime:0);)
+```
+
+If we synthesize sound, we can achieve different timbre by:
+
+1. The number and kind of harmonics or inharmonics of the signal,
+2. [amplitude modulation (AM)](sec-am), e.g. [envelopes](sec-envelope) and
+3. [frequency modulation (FM)](sec-fm).
+
+However, this captures only the perspective of [additive synthesis](sec-additive-synthesis).
+Manipulating a very rich signal already composed of many harmonics is another way to achieve different timbres.
+This is called [subtractive synthesis](sec-subtractive-synthesis) and makes use of [filters](sec-filters).
+
 (sec-envelope)=
 ## Envelopes
+
+Envelopes partly form the timbre of an instrument.
+They control the amplitude of a waveforms over time thus describe how a sound changes over time.
+In SuperCollider we create envelopes by envelope generators ``EnvGen``.
+
+One of the most common kind of envelope generator has four stages:
+
+1. **Attack** is the time taken for initial run-up of level from nil to peak. On a piano this is the beginning when the key is pressed.
+2. **Decay** is the time taken for the subsequent run down from the attack level to the designated **sustain level**.
+3. **Sustain** is the level during the main sequence of the sound's duration. On a piano this is the level until the key is released.
+4. **Release** is the time taken for the level to decay from the sustain level to zero after the key is released.
+
+Another simpler envelope is the percussive envelope (for modelling percussive instruments) which has only two stages: a very short attack, and medium decay.
+
+Of course each ``UGen`` can have its dedicated envelope.
+If there is only one envelope that controls the amplitude of every involved partial, I call it global envelope.
+
+The envelopes greatly influence the resulting sound.
+If we want to recreate the sound of a real instrument we have to match at least its global envelope.
+A piano has a very short attack (like a sixth of a second), a short decay followed by a varying sustain (depending on the pianist) and a rather short release.
+
+The follow code models the sound of a piano combining a [sawtooth wave](sec-sawtooth-wave) wave, a low pass filter to eliminate the harshness and an envelope with three stages (attack, decay, release).
+There is no sustain because we assume the pianist does not use the sustain pedal after hitting midi note 69.
+
+```isc
+({
+    var sig;
+    sig = LPF.ar(LFSaw.ar(69.midicps), 800)!2;
+    sig * EnvGen.kr(Env(levels: [0, 1, 0.5, 0], times: [0.01, 0.07, 0.3])) * 0.5;
+}.play(fadeTime:0);)
+```
+
+Compared to that, a violin has a long attack -- the sound ramps up if the violinist accelerates the motion of his or her arm.
 
 (sec-lfo)=
 ## Low Frequency Oscillator

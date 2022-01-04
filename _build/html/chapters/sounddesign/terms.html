@@ -134,28 +134,33 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="percussive-sound.html">
-   3. Percussive Sound
+  <a class="reference internal" href="filters.html">
+   3. Filters
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="filters.html">
-   4. Filters
+  <a class="reference internal" href="subtractive-synthesis.html">
+   4. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="percussive-sound.html">
+   5. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   5. Amplitude Modulation (AM)
+   6. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="fm.html">
-   6. Frequency Modulation (FM)
+   7. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="drones.html">
-   7. Drones
+   8. Drones
   </a>
  </li>
 </ul>
@@ -356,9 +361,9 @@ The wave is energy that deforms the medium, i.e., it transfers energy from one p
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is the sine wave</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da393606-9c5f-45c8-aa10-3510f0032cd7">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-da393606-9c5f-45c8-aa10-3510f0032cd7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
-    y(t) = A \cdot \sin(2\pi \cdot f \cdot t + \phi),
+<div class="amsmath math notranslate nohighlight" id="equation-6ece5b80-89f5-47b3-9c7a-0d32682141a9">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-6ece5b80-89f5-47b3-9c7a-0d32682141a9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+    y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the period <span class="math notranslate nohighlight">\(T\)</span>.
 The period is the time at which the waveform repeats itself and the frequency <span class="math notranslate nohighlight">\(f = 1/T\)</span> is measured in herz (circles per second).
@@ -382,50 +387,50 @@ In combination we get a <em>pitch</em>.</p>
 <p>A1 and A3 have the same tone but A3 is two octaves higher thus its pitch is higher.
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by <span class="math notranslate nohighlight">\(2^2 = 4\)</span>.
 The mapping between frequency <span class="math notranslate nohighlight">\(f\)</span> and pitch <span class="math notranslate nohighlight">\(p\)</span> is a logarithmic one.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c8faa47-f8fc-4c54-9acb-8322a0e0f7d2">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-7c8faa47-f8fc-4c54-9acb-8322a0e0f7d2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de8dc768-489b-40e2-936a-967c9f01f285">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-de8dc768-489b-40e2-936a-967c9f01f285" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     f(p) = 2^\frac{p-69}{12} \cdot 440
 \end{equation}\]</div>
 <p>Since the frequency doubles after 12 keys, we have to multiply the frequency of pitch <span class="math notranslate nohighlight">\(p\)</span> by <span class="math notranslate nohighlight">\(2^{\frac{1}{12}}\)</span> to get <span class="math notranslate nohighlight">\(p+1\)</span>. In other words</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fe9fbcd-23b2-426f-bd3c-326443d1f12d">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-0fe9fbcd-23b2-426f-bd3c-326443d1f12d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1d6ffb2f-d802-4620-b36d-a124492be8b0">
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-1d6ffb2f-d802-4620-b36d-a124492be8b0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{f(p+1)}{f(p)} = 2^{\frac{1}{12}}.
 \end{equation}\]</div>
 <p>Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.</p>
 </div>
 <div class="section" id="cent">
 <h2><span class="section-number">1.5. </span>Cent<a class="headerlink" href="#cent" title="Permalink to this headline">¶</a></h2>
-<p>An octave is divided into 1200 cents.
+<p>An octave is divided into 1200 <em>cents</em>.
 Therefore one semitone is 100 cents.
 Notable pitch differences can be perceived in a range from 10 to 25 cents, depending on the listeners hearing and musical education or exposer.</p>
 </div>
 <div class="section" id="hearing-range">
 <h2><span class="section-number">1.6. </span>Hearing Range<a class="headerlink" href="#hearing-range" title="Permalink to this headline">¶</a></h2>
-<p>Hearing range is the range of frequency that a being can perceive.
+<p>The <em>hearing range</em> is the range of frequency that a being can perceive.
 The hearing range of humans is 20 Hz to 20kHz where cats go up to 75kHz and bats up to 200kHz.</p>
 </div>
 <div class="section" id="sound-power">
 <h2><span class="section-number">1.7. </span>Sound Power<a class="headerlink" href="#sound-power" title="Permalink to this headline">¶</a></h2>
-<p>The sound power is a physical measure.
+<p>The <em>sound power</em> is a physical measure.
 It is the energy per unit of time emitted by a sound source in all directions.
 The sound power is measured in watt (W) and it is surprisingly small.
-For example, a complete concert orchestra and a thunder have ruffly the power of only 1 watt.</p>
+For example, a complete concert orchestra and a thunder have roughly the power of only 1 watt.</p>
 </div>
 <div class="section" id="sound-intensity">
 <span id="sec-intensity"></span><h2><span class="section-number">1.8. </span>Sound Intensity<a class="headerlink" href="#sound-intensity" title="Permalink to this headline">¶</a></h2>
-<p>Sound intensity is sound power per unit area, i.e. watt per square meters.
-The sound we can perceive can have is surprisingly intensity.
+<p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meters.
+The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d9a8358-7b1a-4bc7-8695-2330651c6131">
-<span class="eqno">(1.4)<a class="headerlink" href="#equation-2d9a8358-7b1a-4bc7-8695-2330651c6131" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af6a4c78-3afa-4f62-a02a-ecdcf4ba04ba">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-af6a4c78-3afa-4f62-a02a-ecdcf4ba04ba" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2999edab-eeab-454a-a2a9-ad1c3ebea5d2">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-2999edab-eeab-454a-a2a9-ad1c3ebea5d2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cd118d21-0716-40f4-a1eb-93f9c6ff4fb1">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-cd118d21-0716-40f4-a1eb-93f9c6ff4fb1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
-<p>At that intensity we start suffering from pain.</p>
+<p>At that intensity we start suffering.</p>
 <p>The sound intensity is measured in <em>decibel</em> (dB) which is a relative unit of measurement.
 It is one-tenth of a bel: 1 dB equals 0.1 B.
 It expresses the ratio of two values of a power or root-power quantity on a logarithmic scale using 10 as the base.</p>
@@ -433,7 +438,7 @@ It expresses the ratio of two values of a power or root-power quantity on a loga
 It is convenient to start with</p>
 <ul class="simple">
 <li><p>0 dB as the sound intensity of the threshold of hearing <span class="math notranslate nohighlight">\(THO\)</span></p></li>
-<li><p>a whisper is about 15 dB</p></li>
+<li><p>whispering is about 15 dB</p></li>
 <li><p>a library 45 dB</p></li>
 <li><p>a normal conversation 60 dB</p></li>
 <li><p>a toilet flushing 75-85 dB</p></li>
@@ -442,9 +447,9 @@ It is convenient to start with</p>
 <li><p>a jet engine 120 dB</p></li>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
-<p>If we follow that convention we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5b6bf18-6d94-4bdb-8daf-4a9e44ef69c4">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-e5b6bf18-6d94-4bdb-8daf-4a9e44ef69c4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-77193bb9-6b82-4e23-9aa3-168699433db2">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-77193bb9-6b82-4e23-9aa3-168699433db2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -470,7 +475,7 @@ To convert db to amp use <code class="docutils literal notranslate"><span class=
 </div>
 <div class="section" id="loudness">
 <h2><span class="section-number">1.9. </span>Loudness<a class="headerlink" href="#loudness" title="Permalink to this headline">¶</a></h2>
-<p>Loudness is a subjective perception of sound intensity.
+<p><em>Loudness</em> is a subjective perception of sound intensity.
 It depends on the duration and frequency of a sound, the age and other subjective properties of the lister.
 We perceive short lasting sounds and sounds with a low frequency less loud than long lasting high frequency sounds.
 Therefore, the sound intensity can be the same but the loudness can be very different.
@@ -478,9 +483,70 @@ It is measured in phons.</p>
 </div>
 <div class="section" id="timbre">
 <h2><span class="section-number">1.10. </span>Timbre<a class="headerlink" href="#timbre" title="Permalink to this headline">¶</a></h2>
+<p>There is no measure of timbre.
+It is generally very hard to define formally.
+It is often referred to as the <em>color of a sound</em> which does not explain anything but gives us an intuition.</p>
+<p>Two different instruments can play the same note but we still can easily recognize the difference in the sound they generate.
+We may say an instrument sounds harsh, soft, doll and so on.
+Why is that? Well, because they have a unique timbre.
+This is even true for instruments of the same type, such as two violins.</p>
+<p>If we define timbre as a relative subjective measure it is basically the difference in the harmonic (or inharmonic) spectrum over time.
+Let us imagine that a signal is the composition of the fundamental and infinitely many harmonics (and inharmonics).
+Each (in)harmonic <span class="math notranslate nohighlight">\(h_i(t)\)</span> is a sine wave with an amplitude <span class="math notranslate nohighlight">\(A_i(t)\)</span>, that is, a function over time.
+The signal can be seen as a <strong>superposition</strong> of all (in)harmonic <span class="math notranslate nohighlight">\(h_i(t)\)</span> for <span class="math notranslate nohighlight">\(i = 0, 1, \ldots,\)</span>.
+There are infinitely many different <span class="math notranslate nohighlight">\(h_i\)</span> thus infinitely many different sounds which represent the same note.</p>
+<p>For example, both of the flowing synth generate the same note but have a very different timbre:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.1</span><span class="p">));</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
+
+<span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
+</pre></div>
+</div>
+<p>If we synthesize sound, we can achieve different timbre by:</p>
+<ol class="simple">
+<li><p>The number and kind of harmonics or inharmonics of the signal,</p></li>
+<li><p><a class="reference internal" href="am.html#sec-am"><span class="std std-ref">amplitude modulation (AM)</span></a>, e.g. <a class="reference internal" href="#sec-envelope"><span class="std std-ref">envelopes</span></a> and</p></li>
+<li><p><a class="reference internal" href="fm.html#sec-fm"><span class="std std-ref">frequency modulation (FM)</span></a>.</p></li>
+</ol>
+<p>However, this captures only the perspective of <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
+Manipulating a very rich signal already composed of many harmonics is another way to achieve different timbres.
+This is called <a class="reference internal" href="subtractive-synthesis.html#sec-subtractive-synthesis"><span class="std std-ref">subtractive synthesis</span></a> and makes use of <a class="reference internal" href="filters.html#sec-filters"><span class="std std-ref">filters</span></a>.</p>
 </div>
 <div class="section" id="envelopes">
 <span id="sec-envelope"></span><h2><span class="section-number">1.11. </span>Envelopes<a class="headerlink" href="#envelopes" title="Permalink to this headline">¶</a></h2>
+<p>Envelopes partly form the timbre of an instrument.
+They control the amplitude of a waveforms over time thus describe how a sound changes over time.
+In SuperCollider we create envelopes by envelope generators <code class="docutils literal notranslate"><span class="pre">EnvGen</span></code>.</p>
+<p>One of the most common kind of envelope generator has four stages:</p>
+<ol class="simple">
+<li><p><strong>Attack</strong> is the time taken for initial run-up of level from nil to peak. On a piano this is the beginning when the key is pressed.</p></li>
+<li><p><strong>Decay</strong> is the time taken for the subsequent run down from the attack level to the designated <strong>sustain level</strong>.</p></li>
+<li><p><strong>Sustain</strong> is the level during the main sequence of the sound’s duration. On a piano this is the level until the key is released.</p></li>
+<li><p><strong>Release</strong> is the time taken for the level to decay from the sustain level to zero after the key is released.</p></li>
+</ol>
+<p>Another simpler envelope is the percussive envelope (for modelling percussive instruments) which has only two stages: a very short attack, and medium decay.</p>
+<p>Of course each <code class="docutils literal notranslate"><span class="pre">UGen</span></code> can have its dedicated envelope.
+If there is only one envelope that controls the amplitude of every involved partial, I call it global envelope.</p>
+<p>The envelopes greatly influence the resulting sound.
+If we want to recreate the sound of a real instrument we have to match at least its global envelope.
+A piano has a very short attack (like a sixth of a second), a short decay followed by a varying sustain (depending on the pianist) and a rather short release.</p>
+<p>The follow code models the sound of a piano combining a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> wave, a low pass filter to eliminate the harshness and an envelope with three stages (attack, decay, release).
+There is no sustain because we assume the pianist does not use the sustain pedal after hitting midi note 69.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">),</span> <span class="mi">800</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">(</span><span class="kc">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="kc">times:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
+</pre></div>
+</div>
+<p>Compared to that, a violin has a long attack – the sound ramps up if the violinist accelerates the motion of his or her arm.</p>
 </div>
 <div class="section" id="low-frequency-oscillator">
 <span id="sec-lfo"></span><h2><span class="section-number">1.12. </span>Low Frequency Oscillator<a class="headerlink" href="#low-frequency-oscillator" title="Permalink to this headline">¶</a></h2>

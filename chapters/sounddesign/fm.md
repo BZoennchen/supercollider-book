@@ -1,3 +1,4 @@
+(sec-fm)=
 # Frequency Modulation (FM)
 
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.

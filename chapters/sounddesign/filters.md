@@ -1,3 +1,4 @@
+(sec-filters)=
 # Filters
 
 The very basic understanding of filters might be that they just make parts of the signal quieter -- which is wrong.
