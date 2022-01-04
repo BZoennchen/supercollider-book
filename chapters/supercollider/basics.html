@@ -132,28 +132,33 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   3. Percussive Sound
+  <a class="reference internal" href="../sounddesign/filters.html">
+   3. Filters
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/filters.html">
-   4. Filters
+  <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
+   4. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/percussive-sound.html">
+   5. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   5. Amplitude Modulation (AM)
+   6. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   6. Frequency Modulation (FM)
+   7. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   7. Drones
+   8. Drones
   </a>
  </li>
 </ul>
@@ -294,13 +299,18 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concatenation">
+     2.3.2. Concatenation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#access-of-elements">
-     2.3.2. Access of Elements
+     2.3.3. Access of Elements
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#manipulation">
-     2.3.3. Manipulation
+     2.3.4. Manipulation
     </a>
    </li>
   </ul>
@@ -330,6 +340,11 @@
    2.8. A First SynthDef
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#server-side-and-client-side-language">
+   2.9. Server-side and Client-side language
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -348,7 +363,7 @@
 <div class="section" id="triggering-the-evaluation">
 <h3><span class="section-number">2.1.1. </span>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start!
-Let’s write some <strong>sclang</strong> code and execute it via the REPL (Read–eval–print loop).</p>
+Let’s write some <strong>sclang</strong> code and execute it via the REPL (Read–Eval–Print Loop).</p>
 <p>To execute the following line press <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello World!&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 </pre></div>
@@ -389,12 +404,12 @@ It will open the documentation of the code your cursor is at.</p>
 <p class="admonition-title">Lookup Source Code</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> to look at the actual implementation of the class or method your cursor is at.</p>
 </div>
-<p>If we look into the source code of the <code class="docutils literal notranslate"><span class="pre">postln</span></code> method by using <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> and navigating to the class <code class="docutils literal notranslate"><span class="pre">Object</span></code>, we can digest the following implementation:</p>
+<p>If we look into the source code of the <code class="docutils literal notranslate"><span class="pre">postln</span></code> method by using <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> and navigate to the class <code class="docutils literal notranslate"><span class="pre">Object</span></code>, we can digest the following implementation:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">postln</span> <span class="p">{</span> <span class="nb">this</span><span class="p">.</span><span class="nx">asString</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>The curly brackets define a function with the name <code class="docutils literal notranslate"><span class="pre">postln</span></code>.
-As mentioned the first <code class="docutils literal notranslate"><span class="pre">this</span></code> is either</p>
+As mentioned <code class="docutils literal notranslate"><span class="pre">this</span></code> is either</p>
 <ol class="simple">
 <li><p>the object the method is called on (if we use <code class="docutils literal notranslate"><span class="pre">&quot;Hello</span> <span class="pre">World!&quot;.postln;</span></code>) or</p></li>
 <li><p>the first argument of the method (if we use <code class="docutils literal notranslate"><span class="pre">postln(&quot;Hello</span> <span class="pre">World!&quot;);</span></code>)</p></li>
@@ -526,12 +541,51 @@ This sequence can be realized by an <code class="docutils literal notranslate"><
 <p>To create a new <code class="docutils literal notranslate"><span class="pre">Array</span></code> the class offers many factory methods.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="kc">maxSize:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [  ]</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// [ 0.0, 0.5, 1.0 ]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// [1, 2, 3] </span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// [1, 2, 3]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">..</span><span class="mi">5</span><span class="p">)</span> <span class="c1">//  [1, 2, 3, 4, 5]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="o">*</span><span class="nx">i</span><span class="p">})</span> <span class="c1">// [ 0, 1, 4, 9, 16 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kd">with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span> <span class="c1">// [ 1, 2, abc, 1.2 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="kc">size:</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">start:</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">step:</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// [ 1, 6, 11, 16 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">geom</span><span class="p">(</span><span class="kc">size:</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">start:</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">grow:</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// [ 1, 5, 25, 125 ]</span>
+</pre></div>
+</div>
+<p>There are also factory methods to create two</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">rows</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cols</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="c1">// [ [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ] ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="nx">rows</span><span class="p">,</span> <span class="nx">cols</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">r</span><span class="o">*</span><span class="nx">c</span><span class="o">+</span><span class="nx">c</span><span class="p">});</span>
+<span class="p">)</span>
+
+<span class="c1">// [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ]</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="k">if</span><span class="p">(</span><span class="nx">r</span> <span class="o">==</span> <span class="nx">c</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">})});</span>
+</pre></div>
+</div>
+<p>and even n dimensional Arrays</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// [ [ [ 0, 0, 0, 0 ], [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ] ], </span>
+<span class="c1">//   [ [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ] ], </span>
+<span class="c1">//   [ [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ], [ 0, 5, 10, 15 ] ], </span>
+<span class="c1">//   [ [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ], [ 0, 5, 10, 15 ], [ 0, 6, 12, 18 ] ] ]</span>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">fillND</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">*</span><span class="nx">c</span><span class="p">;</span> <span class="p">});</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="concatenation">
+<h3><span class="section-number">2.3.2. </span>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h3>
+<p>First we can concatenate by creating a new array and copy all elements:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">++</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6 ]</span>
+</pre></div>
+</div>
+<p>or we can add all elements from one Array to the other:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">addAll</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6 ]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="access-of-elements">
-<h3><span class="section-number">2.3.2. </span>Access of Elements<a class="headerlink" href="#access-of-elements" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span>Access of Elements<a class="headerlink" href="#access-of-elements" title="Permalink to this headline">¶</a></h3>
 <p>We can access an element by <code class="docutils literal notranslate"><span class="pre">.at(index)</span></code> or by the shorthand <code class="docutils literal notranslate"><span class="pre">&#64;index</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
@@ -547,11 +601,18 @@ This sequence can be realized by an <code class="docutils literal notranslate"><
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">Python</span></code> we can slice an array:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">at</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// [3, 4]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>In signal processing we want to manipulate elements of such a sequence.
 Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <strong>sclang</strong> is implemented accordingly.</p>
 </div>
 <div class="section" id="manipulation">
-<h3><span class="section-number">2.3.3. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.4. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h3>
 <p><strong>Multiplying</strong> an array with a number, will result in an new array for which each element is multiplied by the number.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
@@ -689,7 +750,7 @@ Furthermore, there is another rather strange shortcut:</p>
 <div class="section" id="basic-control-structures">
 <h2><span class="section-number">2.5. </span>Basic Control Structures<a class="headerlink" href="#basic-control-structures" title="Permalink to this headline">¶</a></h2>
 <p>In <strong>sclang</strong>, control sequences are functions.
-They expects one or multiple functions that are executed conditionally.
+They expect one or multiple functions that are executed conditionally.
 We already saw the <code class="docutils literal notranslate"><span class="pre">if</span></code>-Functions which expects one boolean expression (a predicate) and two functions.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">while</span></code>-functions expects one predicate and another function that can be executed as long as the predicate is true.
 For example:</p>
@@ -729,6 +790,10 @@ To be more flexible and to use different predicates one can use the <code class=
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
+<p>However, we omit the <code class="docutils literal notranslate"><span class="pre">new</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
 <p>Classes can contain class-methods (static methods) and object-methods.
 A class-method starts with an <code class="docutils literal notranslate"><span class="pre">*</span></code>.
 For example I implemented a new class <code class="docutils literal notranslate"><span class="pre">Utils</span></code> with offering a class-method <code class="docutils literal notranslate"><span class="pre">initUtils</span></code> that creates all the useful analyzing tools depicted in <a class="reference internal" href="ecosystem.html#fig-ide-tools"><span class="std std-numref">Fig. 1.2</span></a>.</p>
@@ -756,8 +821,8 @@ For example I implemented a new class <code class="docutils literal notranslate"
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Another important difference between functions and methods is that for method the return value has to be marked by a <code class="docutils literal notranslate"><span class="pre">^</span></code>.
-The following code is depicts the object-method <code class="docutils literal notranslate"><span class="pre">reverse</span></code> of <code class="docutils literal notranslate"><span class="pre">ArrayedCollection</span></code> which is the super-class of <code class="docutils literal notranslate"><span class="pre">Array</span></code>:</p>
+<p>Another important difference between functions and methods is that for methods, the return value has to be marked by a <code class="docutils literal notranslate"><span class="pre">^</span></code>.
+The following code depicts the object-method <code class="docutils literal notranslate"><span class="pre">reverse</span></code> of <code class="docutils literal notranslate"><span class="pre">ArrayedCollection</span></code> which is the super-class of <code class="docutils literal notranslate"><span class="pre">Array</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">reverse</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nb">this</span><span class="p">.</span><span class="nx">copy</span><span class="p">;</span>
@@ -772,13 +837,14 @@ The following code is depicts the object-method <code class="docutils literal no
 </div>
 <p>First the origin array <code class="docutils literal notranslate"><span class="pre">this</span></code> is copied.
 Then elements are swapped accordingly.
-And finally the copy <code class="docutils literal notranslate"><span class="pre">res</span></code> is returned.</p>
+And finally the copy <code class="docutils literal notranslate"><span class="pre">res</span></code> is returned.
+The expression <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">div:</span> <span class="pre">2;</span></code> is equivialent to <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">/</span> <span class="pre">2;</span></code> or <code class="docutils literal notranslate"><span class="pre">res.size.div(2);</span></code>.</p>
 </div>
 <div class="section" id="a-first-sine-wave">
 <h2><span class="section-number">2.7. </span>A First Sine Wave<a class="headerlink" href="#a-first-sine-wave" title="Permalink to this headline">¶</a></h2>
-<p>Let us create the most simple sound possible: a sine wave.
-First, we define a function returns a so called unit generator <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> that starts when we call <code class="docutils literal notranslate"><span class="pre">play()</span></code>.
-In fact <code class="docutils literal notranslate"><span class="pre">play()</span></code></p>
+<p>Let us create the most simple sound possible: the sound of a sine wave.
+First, we define a function that returns a so called unit generator <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> that starts when we call <code class="docutils literal notranslate"><span class="pre">play()</span></code>.
+In fact <code class="docutils literal notranslate"><span class="pre">play()</span></code> is a shorthand to and</p>
 <ol class="simple">
 <li><p>transforms our the <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> into a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> (synth definition),</p></li>
 <li><p>adds it to the server and</p></li>
@@ -869,14 +935,17 @@ This gives us much more control over the sound creation.</p>
 </pre></div>
 </div>
 <p>By calling <code class="docutils literal notranslate"><span class="pre">SynthDef.new</span></code> we generate a new object of type <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
-On behalf of the perspective of the audio server <strong>scsynth</strong> this object acts as a part of a factory for <code class="docutils literal notranslate"><span class="pre">Synth</span></code> objects!
+On behalf of the perspective of the audio server <strong>scsynth</strong>, this object acts as a part of a factory for <code class="docutils literal notranslate"><span class="pre">Synth</span></code> objects!
 A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> encapsulates the client-side representation of a given def, and provides methods for creating new defs, writing them to disk, and streaming them to a server.</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has a name which we have to use if we want to generate a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> produced by <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
 The name can either be a <code class="docutils literal notranslate"><span class="pre">String</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;sineWave&quot;</span></code> or a symbol <code class="docutils literal notranslate"><span class="pre">\sineWave</span></code>.</p>
-<p>The second argument is a function which has to be a <strong>UGen Graph Function</strong>.
+<p>By calling <code class="docutils literal notranslate"><span class="pre">synthDef.add()</span></code> we add our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server.
+From then on, we can create <code class="docutils literal notranslate"><span class="pre">Synth</span></code> of this definition.
+Note that if we terminate the server, the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is lost.</p>
+<p>The second argument of the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is a function which has to be a <strong>UGen Graph Function</strong>.
 It is an instance of Function which details how the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> unit generators are interconnected, its inputs and outputs, and what parameters are available for external control.</p>
 <p>We declare an argument called <code class="docutils literal notranslate"><span class="pre">freq</span></code> with a default value of <code class="docutils literal notranslate"><span class="pre">200</span></code>.
-Then we create an <a class="reference internal" href="../sounddesign/terms.html#sec-envelope"><span class="std std-ref">Envelope</span></a> which has a percussive shape.
+Then we create an <a class="reference internal" href="../sounddesign/terms.html#sec-envelope"><span class="std std-ref">envelope</span></a> which has a percussive shape.
 The envelope controls the amplitude of our sine wave over time.
 Finally, we send the audio signal <code class="docutils literal notranslate"><span class="pre">sig</span></code> to the output bus <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>By using <code class="docutils literal notranslate"><span class="pre">!2</span></code> after the signal creation,</p>
@@ -887,9 +956,12 @@ Finally, we send the audio signal <code class="docutils literal notranslate"><sp
 The result is an array of length two each containing a signal.
 By writing this array to the output bus at channel <code class="docutils literal notranslate"><span class="pre">0</span></code>, channel <code class="docutils literal notranslate"><span class="pre">0</span></code> gets the first element of the array and channel <code class="docutils literal notranslate"><span class="pre">1</span></code> the second one.
 Therefore, we hear the sound in both speakers.</p>
-<p>We can also <strong>store</strong> the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> permanently on our hard drive by calling <code class="docutils literal notranslate"><span class="pre">store()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add()</span></code>.
-This call will create the file <code class="docutils literal notranslate"><span class="pre">sineWave.scsyndef</span></code> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> folder which can be found in your <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> Application folder.
-If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> in the <code class="docutils literal notranslate"><span class="pre">snythdefs</span></code> folder are added to the server automatically.</p>
+<p>We can also <strong>store</strong> the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> permanently on our hard drive by calling <code class="docutils literal notranslate"><span class="pre">load()</span></code> or <code class="docutils literal notranslate"><span class="pre">store()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add()</span></code>.
+This call will create the file <code class="docutils literal notranslate"><span class="pre">sineWave.scsyndef</span></code> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> directory which can be found in your <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> Application directory.
+If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> in the <code class="docutils literal notranslate"><span class="pre">snythdefs</span></code> directory are added to the server automatically.</p>
+</div>
+<div class="section" id="server-side-and-client-side-language">
+<h2><span class="section-number">2.9. </span>Server-side and Client-side language<a class="headerlink" href="#server-side-and-client-side-language" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> are static!
 This means that the dynamics of a sound can only be influenced by <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> and the arguments of the <strong>UGen Graph Function</strong>.
 Those arguments can only be arguments of <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a>!

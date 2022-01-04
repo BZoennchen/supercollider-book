@@ -1,23 +1,27 @@
 # Introduction
 
-I discovered the world of algorithmic composition and sound design using code!
-First I was interested in [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi) as a beginners starting point to learn programming.
-But soon I was hooked and I wanted to learn more about actual algorithmic composition and sound design, doing what I may be best at: coding.
-It is the essential puzzle piece I was always looking for -- a strong connection between computer science and art.
-I discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
+I discovered the world of algorithmic composition and sound design using code this year (2021)!
+It all started when I watched an enthusiastic and really motivating presentation about [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi) by Sam Aaron.
+I was immediately hooked!
+However, soon after experimenting with Sonic Pi I wanted to write my own synth for which it is not suitable.
+I wanted to learn more about actual algorithmic composition and sound design, doing what I may be best at: coding.
+On the way I discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
+Being creative by producing sound was the essential puzzle piece I was always looking for -- a strong connection between computer science and art.
 
 ## Why Writing a Book?
 
-I’m very excited and want to learn more about the topic. This book is my attempt to do so, nothing more and nothing less (for now at least).
-To really understand something, one has to pass through a grueling learning process. One such strategy that works for me is called the Feynman learning technique:
+I’m very excited and want to learn more about the topic. 
+This book is my attempt to do so, nothing more and nothing less (for now at least).
+To really understand something, one has to pass through a grueling learning process.
+One such strategy that works for me is called the Feynman learning technique:
 
 1. Pretend to teach a concept you want to learn about to a student in the sixth grade.
 2. Identify gaps in your explanation. Go back to the source material to understand it better.
 3. Organize and simplify.
 4. Transmit (optional).
 
-This book is my attempt to follow that technique imperfectly.
-Maybe, in the end, someone else will find some useful ideas in it.
+This book is my attempt to follow Feynman's technique imperfectly.
+Maybe, in the end, someone else will find some useful ideas in this book.
 At the moment, I focus on [SuperCollider](https://supercollider.github.io/). 
 
 ## Source Code
@@ -28,21 +32,24 @@ The book is currently published using [GitHub-Pages](https://bzoennchen.github.i
 
 ## The Nature of an Online-Book
 
-I experiment with SuperCollider and other tools and write this book in my spare time. 
-It is a hobby. Therefore, I will develop and update it over time. It is only a skeleton at its current state, and I will add new chapters and edit old ones. 
+I experiment with SuperCollider and other tools and I write this book all in my spare time. 
+It is a hobby. 
+Therefore, I will develop and update it over time.
+It is only a skeleton at its current state, and I will add new chapters and edit old ones. 
 Therefore, do not expect anything professional.
 
 In the future, you might be interested in extending the book with your content. 
-Maybe this project will become a community effort to make SuperCollider, Sound Design, other tools and techniques more accessible.
+Maybe this project will become a community effort to make SuperCollider, sound design, other tools and techniques more accessible.
 
 Another thing I am looking forward to is combining the book with a Jupyter-Kernel for SuperCollider such that the book becomes interactive.
 
 ## Silent Contributors
 
-I want to emphasize that this book is a mixture of my discoveries and the content of the materials I studied. 
-Without the already existing material, I would not be able to learn supercollider or sound design in general. 
+I want to emphasize that this book is a mixture of my discoveries filtered and altert by my mind.
+The creator of my discoveries and the content of the materials I studied are silent contributors.
+Without the already existing material, I would not be able to learn SuperCollider or sound design in general. 
 
-A special thank you has to go to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) for free as the content of his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
+A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
 
 In the following, I list all the material I looked into:
 
@@ -54,4 +61,5 @@ In the following, I list all the material I looked into:
 6. [Synth-Secrets Series](https://www.soundonsound.com/series/synth-secrets) by Gordon Reid {cite}`reid:2021`
 7. [Computer Music in SuperCollider 3](https://www.e-booksdirectory.com/details.php?ebook=10110) by David Michael Cottle {cite}`cottle:2006`
 8. [Introduction to SuperCollider](https://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=4017&lng=eng&id=) by Andrea Valle {cite}`valle:2016`
-
+9. [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5) by Meinard Müller {cite}`mueller:2015`
+10. [Musimathics](http://www.musimathics.com/) by Gareth Loy {cite}`loy:2006`

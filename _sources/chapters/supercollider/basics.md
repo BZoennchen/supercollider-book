@@ -5,7 +5,7 @@
 ### Triggering the Evaluation
 
 Let's start!
-Let's write some **sclang** code and execute it via the REPL (Read–eval–print loop).
+Let's write some **sclang** code and execute it via the REPL (Read–Eval–Print Loop).
 
 To execute the following line press ``SHIFT`` + ``RETURN``.
 
@@ -62,14 +62,14 @@ Use ``CMD`` + ``d`` to look at the documentation of the class or method your cur
 Use ``CMD`` + ``i`` to look at the actual implementation of the class or method your cursor is at.
 ```
 
-If we look into the source code of the ``postln`` method by using ``CMD`` + ``i`` and navigating to the class ``Object``, we can digest the following implementation:
+If we look into the source code of the ``postln`` method by using ``CMD`` + ``i`` and navigate to the class ``Object``, we can digest the following implementation:
 
 ```isc
 postln { this.asString.postln; }
 ```
 
 The curly brackets define a function with the name ``postln``.
-As mentioned the first ``this`` is either
+As mentioned ``this`` is either
 
 1. the object the method is called on (if we use ``"Hello World!".postln;``) or
 2. the first argument of the method (if we use ``postln("Hello World!");``)
@@ -231,7 +231,53 @@ To create a new ``Array`` the class offers many factory methods.
 ```isc
 a = Array.new(maxSize: 3); // [  ]
 a = Array.interpolation(3, 0, 1) // [ 0.0, 0.5, 1.0 ]
-a = [1, 2, 3] // [1, 2, 3] 
+a = [1, 2, 3] // [1, 2, 3]
+a = (1..5) //  [1, 2, 3, 4, 5]
+a = Array.fill(5, {arg i; i*i}) // [ 0, 1, 4, 9, 16 ]
+a = Array.with(1, 2, 'abc', 1.2) // [ 1, 2, abc, 1.2 ]
+a = Array.series(size: 4, start: 1, step: 5); // [ 1, 6, 11, 16 ]
+a = Array.geom(size: 4, start: 1, grow: 5); // [ 1, 5, 25, 125 ]
+```
+
+There are also factory methods to create two
+
+```isc
+(
+var rows = 3;
+var cols = 4;
+
+// [ [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ] ]
+a = Array.fill2D(rows, cols, {arg r, c; r*c+c});
+)
+
+// [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ]
+Array.fill2D(3, 3, {arg r, c; if(r == c, {1}, {0})});
+```
+
+and even n dimensional Arrays
+
+```isc
+// [ [ [ 0, 0, 0, 0 ], [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ] ], 
+//   [ [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ] ], 
+//   [ [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ], [ 0, 5, 10, 15 ] ], 
+//   [ [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ], [ 0, 5, 10, 15 ], [ 0, 6, 12, 18 ] ] ]
+
+Array.fillND([4, 4, 4], { arg a, b, c; a+b*c; }); 
+```
+
+### Concatenation
+
+First we can concatenate by creating a new array and copy all elements:
+
+```isc
+[1,2,3] ++ [4,5,6] // [ 1, 2, 3, 4, 5, 6 ]
+```
+
+or we can add all elements from one Array to the other:
+
+```isc
+a = [1,2,3];
+a.addAll([4,5,6]); // [ 1, 2, 3, 4, 5, 6 ]
 ```
 
 ### Access of Elements
@@ -247,6 +293,15 @@ a@2; // 3
 ```
 
 This also works with an array of indices:
+
+```isc
+(
+a = [1, 2, 3, 4];
+a.at([2, 3]); // [3, 4]
+)
+```
+
+Similar to ``Python`` we can slice an array:
 
 ```isc
 (
@@ -418,7 +473,7 @@ add.value(b: 11) // returns 16
 ## Basic Control Structures
 
 In **sclang**, control sequences are functions.
-They expects one or multiple functions that are executed conditionally.
+They expect one or multiple functions that are executed conditionally.
 We already saw the ``if``-Functions which expects one boolean expression (a predicate) and two functions.
 
 The ``while``-functions expects one predicate and another function that can be executed as long as the predicate is true.
@@ -470,6 +525,12 @@ In **sclang** the constructor of an object is called by ``Classname.new``.
 var numbers = Array.new(10);
 ```
 
+However, we omit the ``new``:
+
+```isc
+var numbers = Array(10);
+```
+
 Classes can contain class-methods (static methods) and object-methods.
 A class-method starts with an ``*``.
 For example I implemented a new class ``Utils`` with offering a class-method ``initUtils`` that creates all the useful analyzing tools depicted in {numref}`Fig. {number} <fig-ide-tools>`.
@@ -499,8 +560,8 @@ Utils {
 }
 ```
 
-Another important difference between functions and methods is that for method the return value has to be marked by a ``^``.
-The following code is depicts the object-method ``reverse`` of ``ArrayedCollection`` which is the super-class of ``Array``:
+Another important difference between functions and methods is that for methods, the return value has to be marked by a ``^``.
+The following code depicts the object-method ``reverse`` of ``ArrayedCollection`` which is the super-class of ``Array``:
 
 ```isc
 reverse {
@@ -518,12 +579,13 @@ reverse {
 First the origin array ``this`` is copied.
 Then elements are swapped accordingly.
 And finally the copy ``res`` is returned.
+The expression ``res.size div: 2;`` is equivialent to ``res.size / 2;`` or ``res.size.div(2);``.
 
 ## A First Sine Wave
 
-Let us create the most simple sound possible: a sine wave. 
-First, we define a function returns a so called unit generator [UGen](sec-ugens) that starts when we call ``play()``.
-In fact ``play()``
+Let us create the most simple sound possible: the sound of a sine wave. 
+First, we define a function that returns a so called unit generator [UGen](sec-ugens) that starts when we call ``play()``.
+In fact ``play()`` is a shorthand to and 
 
 1. transforms our the [UGen](sec-ugens) into a ``SynthDef`` (synth definition), 
 2. adds it to the server and 
@@ -630,17 +692,21 @@ Synth(\sineWave);
 ```
 
 By calling ``SynthDef.new`` we generate a new object of type ``SynthDef``.
-On behalf of the perspective of the audio server **scsynth** this object acts as a part of a factory for ``Synth`` objects!
+On behalf of the perspective of the audio server **scsynth**, this object acts as a part of a factory for ``Synth`` objects!
 A ``SynthDef`` encapsulates the client-side representation of a given def, and provides methods for creating new defs, writing them to disk, and streaming them to a server.
 
 Each ``SynthDef`` has a name which we have to use if we want to generate a ``Synth`` produced by ``SynthDef``.
 The name can either be a ``String`` ``"sineWave"`` or a symbol ``\sineWave``.
 
-The second argument is a function which has to be a **UGen Graph Function**.
+By calling ``synthDef.add()`` we add our ``SynthDef`` to the server.
+From then on, we can create ``Synth`` of this definition.
+Note that if we terminate the server, the ``SynthDef`` is lost.
+
+The second argument of the ``SynthDef`` is a function which has to be a **UGen Graph Function**.
 It is an instance of Function which details how the ``SynthDef`` unit generators are interconnected, its inputs and outputs, and what parameters are available for external control.
 
 We declare an argument called ``freq`` with a default value of ``200``.
-Then we create an [Envelope](sec-envelope) which has a percussive shape.
+Then we create an [envelope](sec-envelope) which has a percussive shape.
 The envelope controls the amplitude of our sine wave over time.
 Finally, we send the audio signal ``sig`` to the output bus ``0``.
 
@@ -655,9 +721,11 @@ The result is an array of length two each containing a signal.
 By writing this array to the output bus at channel ``0``, channel ``0`` gets the first element of the array and channel ``1`` the second one.
 Therefore, we hear the sound in both speakers.
 
-We can also **store** the ``SynthDef`` permanently on our hard drive by calling ``store()`` instead of ``add()``.
-This call will create the file ``sineWave.scsyndef`` in the ``synthdefs`` folder which can be found in your [SuperCollider](https://supercollider.github.io/) Application folder.
-If you restart [SuperCollider](https://supercollider.github.io/) all ``SynthDefs`` in the ``snythdefs`` folder are added to the server automatically.
+We can also **store** the ``SynthDef`` permanently on our hard drive by calling ``load()`` or ``store()`` instead of ``add()``.
+This call will create the file ``sineWave.scsyndef`` in the ``synthdefs`` directory which can be found in your [SuperCollider](https://supercollider.github.io/) Application directory.
+If you restart [SuperCollider](https://supercollider.github.io/) all ``SynthDefs`` in the ``snythdefs`` directory are added to the server automatically.
+
+## Server-side and Client-side language
 
 ``SynthDefs`` are static!
 This means that the dynamics of a sound can only be influenced by [UGens](sec-ugens) and the arguments of the **UGen Graph Function**.

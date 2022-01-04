@@ -132,28 +132,33 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   3. Percussive Sound
+  <a class="reference internal" href="../sounddesign/filters.html">
+   3. Filters
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/filters.html">
-   4. Filters
+  <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
+   4. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/percussive-sound.html">
+   5. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   5. Amplitude Modulation (AM)
+   6. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   6. Frequency Modulation (FM)
+   7. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   7. Drones
+   8. Drones
   </a>
  </li>
 </ul>
@@ -287,29 +292,30 @@
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is a package or platform that consists of three components:</p>
 <ul class="simple">
 <li><p><strong>scsynth</strong>: a real-time audio server, i.e., the part that creates and plays the sound.</p></li>
-<li><p><strong>sclang</strong>: an interpreted programming language focused on sound creation and signal processing. The user controls the server <strong>scsynth</strong> by sending (Open Sound Control) messages to the audio server.</p></li>
-<li><p><strong>scide</strong>: a powerful Integrated Development Environment (IDE) for programming in <strong>sclang</strong>. It offers an integrated help system, analyzing tools, and extensive documentation.</p></li>
+<li><p><strong>sclang</strong>: an interpreted programming language for sound creation and signal processing. The user controls the server <strong>scsynth</strong> by sending Open Sound Control (OSC) messages to the audio server.</p></li>
+<li><p><strong>scide</strong>: a powerful Integrated Development Environment (IDE) for programming in <strong>sclang</strong>. It offers an integrated help system, analyzing tools, and an extensive documentation.</p></li>
 </ul>
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is written in <code class="docutils literal notranslate"><span class="pre">C++</span></code> and was developed by James McCartney.
-It was released in 1996, and in 2002 McCartney released it as free software under the <a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>.
-It is now maintained and developed by an active community.</p>
-<p>All three parts of <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> are independent, that is, there might be some other subsystem that replaces some of the parts.
-One can program using other IDEs such as VSCode.
+It was released in 1996.
+In 2002 McCartney transformed it into a free software under the <a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>.
+It is still maintained and developed by an active community.</p>
+<p>All three parts of <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> are independent, that is, there might be some other subsystem that replaces some of its parts.
+One can code by using other IDEs such as VSCode.
 We can also use <strong>sclang</strong> independently to program applications that have nothing to do with signal processing.
 These use cases are rare.
 However, we find many projects that replace <strong>sclang</strong> and <strong>scide</strong>, especially in the area of Live Programming, for example:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>: Highly accessible and therefore especially interesting in the context of education</p></li>
-<li><p><a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>: Functional language that focuses on the creation of complex rhythms</p></li>
-<li><p><a class="reference external" href="https://foxdot.org/">FoxDot</a>: Similar to <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> but focuses more on the melodic side of compositions</p></li>
+<li><p><a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>: highly accessible and therefore especially interesting in the context of education.</p></li>
+<li><p><a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>: functional language that focuses on the creation of complex rhythms.</p></li>
+<li><p><a class="reference external" href="https://foxdot.org/">FoxDot</a>: similar to <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> but focuses more on the melodic side of compositions.</p></li>
 <li><p>…</p></li>
 </ul>
 <p>In that case, we can develop our synths using <strong>sclang</strong> and run them on the server <strong>scsynth</strong>, but we control them by these systems.
-If we are only use existing synth and samples, we can do no longer rely on <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a>.</p>
-<p>Of course, deciding between <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>, <a class="reference external" href="https://foxdot.org/">FoxDot</a>, and plain <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> comes down to personal preference.
+If we are only interested in using existing synth and samples, we can do no longer rely on <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a>.</p>
+<p>Of course, deciding between <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>, <a class="reference external" href="https://foxdot.org/">FoxDot</a>, and plain <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> comes down to personal preference and goals.
 Each platform targets different objectives and has different advantages as well as disadvantages.
 In my opinion, <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is the most powerful one but can be less intuitive and flexible, especially for the live coding experience.</p>
-<p>I encourage readers that are interested in live coding to check them out!</p>
+<p>I encourage readers that are interested in live coding to check them all out!</p>
 <div class="section" id="scsynth">
 <h2><span class="section-number">1.1. </span>SCSynth<a class="headerlink" href="#scsynth" title="Permalink to this headline">¶</a></h2>
 <p>The real-time audio server forms the core of the platform.
@@ -320,9 +326,9 @@ For example, one can change the arguments of a <code class="docutils literal not
 <p>Very similar to object-oriented programming, a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is a blueprint for a synth instance.
 The composer</p>
 <ol class="simple">
-<li><p>defines the blueprint, that is, a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code></p></li>
-<li><p>adds the blueprint to the server</p></li>
-<li><p>creates a new instance, that is, a synth</p></li>
+<li><p>defines the blueprint, that is, a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>,</p></li>
+<li><p>adds the blueprint to the server,</p></li>
+<li><p>creates a new instance, that is, a synth,</p></li>
 <li><p>and executes, controls, and terminates it.</p></li>
 </ol>
 <p>All those steps are done via the client-side interpreted programming language <strong>sclang</strong>.</p>
@@ -338,7 +344,7 @@ Functions are first-class objects.</p>
 <div class="section" id="scide">
 <h2><span class="section-number">1.3. </span>SCIDE<a class="headerlink" href="#scide" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> Integrated Development Environment (IDE) is a Qt-based cross-platform application.
-Code can be executed in a notebook-like manner, that is, interactively using the REPL (Read–eval–print loop).</p>
+Code can be executed in a notebook-like manner, that is, interactively using the REPL (Read–Eval–Print Loop).</p>
 <div class="figure align-default" id="fig-ide">
 <a class="reference internal image-reference" href="../../_images/ide.png"><img alt="../../_images/ide.png" src="../../_images/ide.png" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">The <strong>scide</strong>.</span><a class="headerlink" href="#fig-ide" title="Permalink to this image">¶</a></p>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Filters &#8212; Algorithmic Composition</title>
+    <title>3. Filters &#8212; Algorithmic Composition</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,8 +57,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5. Amplitude Modulation (AM)" href="am.html" />
-    <link rel="prev" title="3. Percussive Sound" href="percussive-sound.html" />
+    <link rel="next" title="4. Subtractive Synthesis" href="subtractive-synthesis.html" />
+    <link rel="prev" title="2. Additive Synthesis" href="additive-synthesis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -133,29 +133,34 @@
    2. Additive Synthesis
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="percussive-sound.html">
-   3. Percussive Sound
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Filters
+   3. Filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="subtractive-synthesis.html">
+   4. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="percussive-sound.html">
+   5. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   5. Amplitude Modulation (AM)
+   6. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="fm.html">
-   6. Frequency Modulation (FM)
+   7. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="drones.html">
-   7. Drones
+   8. Drones
   </a>
  </li>
 </ul>
@@ -260,22 +265,22 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phases">
-   4.1. Phases
+   3.1. Phases
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phasing-filtering">
-   4.2. Phasing &amp; Filtering
+   3.2. Phasing &amp; Filtering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#responses-and-resonance">
-   4.3. Responses and Resonance
+   3.3. Responses and Resonance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   4.4. Summary
+   3.4. Summary
   </a>
  </li>
 </ul>
@@ -290,24 +295,24 @@
               <div>
                 
   <div class="section" id="filters">
-<h1><span class="section-number">4. </span>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
+<span id="sec-filters"></span><h1><span class="section-number">3. </span>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
 <p>The very basic understanding of filters might be that they just make parts of the signal quieter – which is wrong.
 They do far more than just attenuate some frequencies.
 We have to understand phase relationships to really understand whats going on.</p>
 <div class="section" id="phases">
-<h2><span class="section-number">4.1. </span>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
 <p>Let us first combine two sine waves.
 The first two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33f9dd19-11a2-4eaf-9885-5dba33341fc9">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-33f9dd19-11a2-4eaf-9885-5dba33341fc9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2b9d5045-b36d-4b85-bfa7-773e288c2791">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-2b9d5045-b36d-4b85-bfa7-773e288c2791" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t)
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8728e94-0837-4a99-a968-61df1b134f7b">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-d8728e94-0837-4a99-a968-61df1b134f7b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a4687b4f-ee4a-4063-8212-b7325f74af70">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-a4687b4f-ee4a-4063-8212-b7325f74af70" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -319,8 +324,8 @@ Of course, we can not hear any difference between a sine wave and the same sine 
 Only in combination the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db7ee570-42fa-4fc6-930b-d84ec5319144">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-db7ee570-42fa-4fc6-930b-d84ec5319144" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-81bb73e4-957c-4400-a6bd-27c445f6e70f">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-81bb73e4-957c-4400-a6bd-27c445f6e70f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -350,13 +355,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, that is, its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
 <p>In the fact, amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10bd291d-6a45-48d1-b0ec-c1ba497c6668">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-10bd291d-6a45-48d1-b0ec-c1ba497c6668" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d3a02a5-788e-471e-9730-341c239a7e84">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-8d3a02a5-788e-471e-9730-341c239a7e84" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31277746-4170-4f92-a5d2-e076d8763f31">
-<span class="eqno">(4.5)<a class="headerlink" href="#equation-31277746-4170-4f92-a5d2-e076d8763f31" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1b163e9-d7a8-4800-a65a-4cb628a6265d">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-a1b163e9-d7a8-4800-a65a-4cb628a6265d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k = \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -386,18 +391,18 @@ With <code class="docutils literal notranslate"><span class="pre">DelayL</span><
 </div>
 </div>
 <div class="section" id="phasing-filtering">
-<h2><span class="section-number">4.2. </span>Phasing &amp; Filtering<a class="headerlink" href="#phasing-filtering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Phasing &amp; Filtering<a class="headerlink" href="#phasing-filtering" title="Permalink to this headline">¶</a></h2>
 <p>If we speak of filters we often man low pass or high pass filters, that is, filters that filter frequencies above or below some cutoff frequency.
 For example the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <strong>sclang</strong> is a 2nd order Butterworth lowpass filter.</p>
 <div class="figure align-default" id="fig-butterworth-filter">
 <a class="reference internal image-reference" href="../../_images/butterworth-filter.png"><img alt="../../_images/butterworth-filter.png" src="../../_images/butterworth-filter.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
 </div>
 <p>The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 Well, that is not completely true because the cutoff frequency is also reduced by 3 <a class="reference internal" href="terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 3 dB means that the perceived level is reduced by a factor of 2.
-The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 4.1</span></a> shows the reduction in amplitude.</p>
-<p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 4.1</span></a>.
+The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 3.6</span></a> shows the reduction in amplitude.</p>
+<p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 3.6</span></a>.
 This effect is important if we want to combine multiple filters because they interact!
 In other words: we can not just combine a high pass and low pass filter to get the same result of a band pass filter!</p>
 <p>The following code is an example for a band pass filter.
@@ -432,7 +437,7 @@ The results sound very similar but not identical.</p>
 </div>
 </div>
 <div class="section" id="responses-and-resonance">
-<h2><span class="section-number">4.3. </span>Responses and Resonance<a class="headerlink" href="#responses-and-resonance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Responses and Resonance<a class="headerlink" href="#responses-and-resonance" title="Permalink to this headline">¶</a></h2>
 <p>To bring dynamic into the sound by a filter, we can do the obvious: change the cuttoff frequency over time!
 Let us try this with a low pass filter:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -487,7 +492,7 @@ A small bandwidth will result in a strong effect.</p>
 The result is a powerful unnatural sound unique to the electronic synthesizer.</p>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">4.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>Filters are essential for <em>subtractive synthesis</em>.
 Filters do not only change the level of certain frequencies but apply a phase shift.
 Many of the filters only apply such a shift and we often do not think of them as filters.</p>
@@ -529,8 +534,8 @@ They are crucial, also in digital synthesis, and if you are into creative synthe
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="percussive-sound.html" title="previous page"><span class="section-number">3. </span>Percussive Sound</a>
-    <a class='right-next' id="next-link" href="am.html" title="next page"><span class="section-number">5. </span>Amplitude Modulation (AM)</a>
+    <a class='left-prev' id="prev-link" href="additive-synthesis.html" title="previous page"><span class="section-number">2. </span>Additive Synthesis</a>
+    <a class='right-next' id="next-link" href="subtractive-synthesis.html" title="next page"><span class="section-number">4. </span>Subtractive Synthesis</a>
 
         </div>
         
