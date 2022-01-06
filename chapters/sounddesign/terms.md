@@ -161,6 +161,7 @@ We perceive short lasting sounds and sounds with a low frequency less loud than 
 Therefore, the sound intensity can be the same but the loudness can be very different.
 It is measured in phons.
 
+(sec-timbre)=
 ## Timbre
 
 There is no measure of timbre.
@@ -197,8 +198,9 @@ For example, both of the flowing synth generate the same note but have a very di
 If we synthesize sound, we can achieve different timbre by:
 
 1. The number and kind of harmonics or inharmonics of the signal,
-2. [amplitude modulation (AM)](sec-am), e.g. [envelopes](sec-envelope) and
-3. [frequency modulation (FM)](sec-fm).
+2. [amplitude modulation (AM)](sec-am), e.g. [envelopes](sec-envelope),
+3. [frequency modulation (FM)](sec-fm), and
+4. resonance
 
 However, this captures only the perspective of [additive synthesis](sec-additive-synthesis).
 Manipulating a very rich signal already composed of many harmonics is another way to achieve different timbres.
@@ -252,3 +254,6 @@ LFO's are often used to control some argument of another oscillator, for example
 Ring modulation (RM) is often used as a synonym for [amplitude modulation (AM)](sec-am).
 Sometimes the term RM is used when the modulator is bipolar (the amplitude becomes positive as well as negative) and AM refers to a unipolar amplitude modulation.
 However, I stick to the term [amplitude modulation (AM)](sec-am) to refer to both.
+
+(sec-comb-filter)=
+## Comb Filter
