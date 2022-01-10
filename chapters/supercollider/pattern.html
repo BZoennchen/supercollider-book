@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Pattern &#8212; Algorithmic Composition</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/tabs.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Terms" href="../sounddesign/terms.html" />
+    <link rel="prev" title="3. Unit Generators" href="ugens.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basics.html">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ugens.html">
+   3. Unit Generators
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Pattern
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/terms.html">
+   1. Terms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/additive-synthesis.html">
+   2. Additive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/filters.html">
+   3. Filters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
+   4. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/percussive-sound.html">
+   5. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/am.html">
+   6. Amplitude Modulation (AM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/fm.html">
+   7. Frequency Modulation (FM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sounddesign/drones.html">
+   8. Drones
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/bibliography.html">
+   1. Bibliography
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/jump-right-in.html">
+   1. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../trash/distributions.html">
+   2. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/chapters/supercollider/pattern.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-instrument-and-its-artist">
+   4.1. The Instrument and its Artist
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pattern-streams-and-events">
+   4.2. Pattern, Streams and Events
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   4.3. Examples
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pattern">
+<h1><span class="section-number">4. </span>Pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">¶</a></h1>
+<p>Using <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> we can design synth, i.e., instruments, i.e., sound.
+But having instruments is not enough, we also want to play them!
+We want to create rhythms and texture.</p>
+<p>As mentioned in <a class="reference internal" href="ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a>, we could use another Software such as <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> or <a class="reference external" href="https://foxdot.org/">FoxDot</a> to do so.
+However, <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> offers its own amazing and powerful interface to compose a musical piece.
+It uses so called <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a> and <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.</p>
+<p>I call this section Pattern because as we will see, we do not really care about <code class="docutils literal notranslate"><span class="pre">Streams</span></code> and <code class="docutils literal notranslate"><span class="pre">Events</span></code> if we understand the concept of <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
+<div class="section" id="the-instrument-and-its-artist">
+<h2><span class="section-number">4.1. </span>The Instrument and its Artist<a class="headerlink" href="#the-instrument-and-its-artist" title="Permalink to this headline">¶</a></h2>
+<p>Philosophically speaking, the tools we use, influence how we think about the world.
+Tools, like pen and paper, instruments, a hammer, programming languages or frameworks, and even our hands, act like interpreters.
+They translate our thoughts into actions that change the physical world around us.</p>
+<p>However, this interaction is not a one-way-street where we, the artist, enforce ideas on the instrument.
+Instead, the instrument we use influences our ideas by limiting the space of possibilities.
+In fact, we have no idea of any expressions before we interact with some interpreter, i.e., some tool/instrument.
+The instrument defines the space of possibilities.
+It makes up our imagination.
+It might be even the other way around: the instrument is using us to express itself.</p>
+<p>In my opinion, there is no clear optimal amount of limitations, i.e., space of possibilities.
+Too much freedom can be a burden on the artist.
+Without boundaries the language of the instrument can be to complicated.
+If we can express everything, we become unable to express anything at all – it can be hard to get started.
+On the other hand, too strict limitations will lead to repetition.
+If the space of possibilities is too small, the artist becomes superfluous.</p>
+<p>Therefore, to find out what space of possibilities you are looking for, I highly recommend that you check out all available tools and if none suites your needs you may want to build your own!
+Building instrument to express ourselves is one of those wonderful acts a programmer can do!
+Of course, you will always stay in some limited super-space of possibilities defined by the machine you are working on.
+Our machines are able to compute anything that is Turing-computable which is, as far we know, anything that is computable in general.
+However, we are limited by the computational time and space complexity of the problem we want to compute.</p>
+<p>Now let us talk about the space of possibilities that the <strong>sclang</strong> of SuperCollider offers.</p>
+</div>
+<div class="section" id="pattern-streams-and-events">
+<h2><span class="section-number">4.2. </span>Pattern, Streams and Events<a class="headerlink" href="#pattern-streams-and-events" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> is basically a series of elements that you can obtain in a <strong>lazy</strong> fashion.
+It is very similar to an <code class="docutils literal notranslate"><span class="pre">Array</span></code> with the difference that it is <strong>lazy</strong>.
+Laziness means that instead of holding all values of the <code class="docutils literal notranslate"><span class="pre">Stream</span></code> in the memory (like an <code class="docutils literal notranslate"><span class="pre">Array</span></code> does) the values are generated by a function when needed.
+Therefore, a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> can contain infinitely many values which is impossible for an <code class="docutils literal notranslate"><span class="pre">Array</span></code>!
+For example, we can define a function that gives us all integers.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">f</span> <span class="o">=</span> <span class="p">{</span><span class="o">~</span><span class="nx">val</span> <span class="o">=</span> <span class="o">~</span><span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">~</span><span class="nx">val</span><span class="p">;};</span>
+<span class="nx">f</span><span class="p">.();</span>
+</pre></div>
+</div>
+<p>If we evaluate the last line multiple times, we get 1, 2, 3, and so on.
+This is basically an infinite stream of values.
+We can use <a class="reference external" href="https://doc.sccode.org/Classes/FuncStream.html">FuncStream</a> to create a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of integers.
+Then we can call <code class="docutils literal notranslate"><span class="pre">next</span></code> on the <code class="docutils literal notranslate"><span class="pre">Stream</span></code> to get the next value of it.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">~</span><span class="nx">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">f</span> <span class="o">=</span> <span class="p">{</span><span class="o">~</span><span class="nx">val</span> <span class="o">=</span> <span class="o">~</span><span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">~</span><span class="nx">val</span><span class="p">;};</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nb">FuncStream</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+<span class="p">)</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// 1</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// 2</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>If a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> runs out of values, it returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.
+In <strong>sclang</strong> everything is an <a class="reference external" href="https://doc.sccode.org/Classes/Object.html">Object</a> and the class <code class="docutils literal notranslate"><span class="pre">Object</span></code> defines <code class="docutils literal notranslate"><span class="pre">next</span></code> to return the object itself.
+Thus every object can be viewed as a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> and most simply stream themselves.
+Consequently, almost everything can be viewed as a <code class="docutils literal notranslate"><span class="pre">Stream</span></code>.</p>
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is an abstract class that is the base for the Patterns library.
+These classes form a rich and concise score language for music.
+<code class="docutils literal notranslate"><span class="pre">Patterns</span></code> are the blueprint of <code class="docutils literal notranslate"><span class="pre">Streams</span></code>.
+Calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> on a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> transforms it into a <code class="docutils literal notranslate"><span class="pre">Stream</span></code>.
+All objects respond to this interface, most by returning themselves.
+So most objects are <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> that define streams that are an infinite sequence of the object and embed as singleton <code class="docutils literal notranslate"><span class="pre">Streams</span></code> of that object returned once.</p>
+<p>Let us look at an example.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">(</span><span class="kc">list:</span> <span class="p">[</span><span class="nb">Prand</span><span class="p">((</span><span class="mi">5</span><span class="p">..</span><span class="mi">7</span><span class="p">)),</span> <span class="nb">Prand</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">4</span><span class="p">))],</span> <span class="kc">repeats:</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">asStream</span><span class="p">();</span>
+<span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 50 and 70</span>
+<span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 10 and 40</span>
+<span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 50 and 70</span>
+<span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 10 and 40</span>
+<span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// nil</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pseq</span></code> transforms an <code class="docutils literal notranslate"><span class="pre">Array</span></code> into a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
+<code class="docutils literal notranslate"><span class="pre">Prand</span></code> choses from an <code class="docutils literal notranslate"><span class="pre">Array</span></code> a random element.
+In the above example, we combine both <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
+<code class="docutils literal notranslate"><span class="pre">Pseq</span></code> gets an <code class="docutils literal notranslate"><span class="pre">Array</span></code> consisting of two <code class="docutils literal notranslate"><span class="pre">Prand</span></code>-<code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
+By the parameter <code class="docutils literal notranslate"><span class="pre">repeats:</span> <span class="pre">2</span></code> we configure <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> go over <code class="docutils literal notranslate"><span class="pre">list</span></code> two times.</p>
+<p>Why are <code class="docutils literal notranslate"><span class="pre">Patterns</span></code> useful?
+Well <code class="docutils literal notranslate"><span class="pre">Patterns</span></code> can be combined and they can be manipulated by all regular math functions if they return numbers.
+They are really powerful to build complex <code class="docutils literal notranslate"><span class="pre">Streams</span></code>.
+In the above example we multiply the <code class="docutils literal notranslate"><span class="pre">Pseq</span></code>-<code class="docutils literal notranslate"><span class="pre">Pattern</span></code> by 10 (which returns a <code class="docutils literal notranslate"><span class="pre">BinaryOpStream</span></code>).</p>
+<p>If we think in musical terms, a composition is a specific <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> and a performance is a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of that <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
+Playing a piano can be seen as a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of specific <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.
+We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.</p>
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> is a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> of <code class="docutils literal notranslate"><span class="pre">Events</span></code>.
+It model this process by discrete events.
+We define a duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, and the parameters of our instrument and the instrument itself, i.e., the synth.
+A <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> can then be played by calling <code class="docutils literal notranslate"><span class="pre">play</span></code> on it.
+The method returns a <a class="reference external" href="https://doc.sccode.org/Classes/EventStreamPlayer.html">EventStreamPlayer</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Events</span></code> extended <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environments</a>.
+<code class="docutils literal notranslate"><span class="pre">Environments</span></code> manage namespaces.
+They are very similar to hash maps, hash tables, or Python dictionary.
+For example, calling a function will create a new local function-<code class="docutils literal notranslate"><span class="pre">Environment</span></code>.
+An <code class="docutils literal notranslate"><span class="pre">Environment</span></code> maps names to variables and functions.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Environment</span><span class="p">.</span><span class="nx">make</span><span class="p">({</span>
+    <span class="o">~</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">c</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">add</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;};</span>
+<span class="p">});</span>
+<span class="nx">env</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">env</span><span class="p">[</span><span class="ss">\a</span><span class="p">];</span> <span class="c1">// 100</span>
+<span class="nx">env</span><span class="p">[</span><span class="ss">\add</span><span class="p">].(</span><span class="mi">3</span><span class="p">,</span><span class="mi">13</span><span class="p">);</span> <span class="c1">// 16</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we define an environment with three variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> and a function <code class="docutils literal notranslate"><span class="pre">add</span></code>.
+<code class="docutils literal notranslate"><span class="pre">~a;</span></code> is in fact an abbreviation for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.at(\a);</span></code> and <code class="docutils literal notranslate"> <span class="pre">~a</span> <span class="pre">=</span> <span class="pre">100;</span></code> for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.put(\a,</span> <span class="pre">888);</span></code>.
+As you can see we already worked with environments without knowing it.
+We are not so much interested in <code class="docutils literal notranslate"><span class="pre">Environments</span></code> but <code class="docutils literal notranslate"><span class="pre">Events</span></code> and they can be defined using a far more compact syntax, i.e., we just use round brackets:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">);</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>What is going on here?
+We actually can hear a sound???
+Well if you look at the print window, you can see all the predefined variables/symbols of the <code class="docutils literal notranslate"><span class="pre">Environment</span></code>/<code class="docutils literal notranslate"><span class="pre">Event</span></code>.
+Everything that we have to define to play a sound such as <code class="docutils literal notranslate"><span class="pre">\amp</span></code>, <code class="docutils literal notranslate"><span class="pre">\instrument</span></code>, <code class="docutils literal notranslate"><span class="pre">\server</span></code> is predefined.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">\instrument</span></code> is a default instrument that is built-in into SuperCollider but we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., synth.
+To use all the nice parameters our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments and we have to name them as intended.
+For example, the frequency should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called <code class="docutils literal notranslate"><span class="pre">gate</span></code> and the amplitude should be defined by <code class="docutils literal notranslate"><span class="pre">amp</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nx">gate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span>
+        <span class="nb">Env</span><span class="p">.</span><span class="nx">asr</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="kc">sustainLevel:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="mf">0.1</span><span class="p">),</span> 
+        <span class="kc">gate:</span> <span class="nx">gate</span><span class="p">,</span> 
+        <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\beep</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">);</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>First we add a very simple synth then we play it for a duration of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> beats per seconds.
+If we look closely, we can observer that there is a <code class="docutils literal notranslate"><span class="pre">sustain</span></code> argument that is set to 80 percent of the duration, i.e. to <code class="docutils literal notranslate"><span class="pre">0.16</span></code> beats per seconds.
+It is the time after the <code class="docutils literal notranslate"><span class="pre">gate</span></code> within our synth is triggered!
+We can set <code class="docutils literal notranslate"><span class="pre">sustain</span></code> ourselves.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\beep</span><span class="p">,</span> <span class="ss">\sustain</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">);</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This seems to make the <code class="docutils literal notranslate"><span class="pre">dur</span></code> argument irrelevant.
+However, we need <code class="docutils literal notranslate"><span class="pre">dur</span></code> if we not only play one event but a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of events!
+Let us have a look.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\beep</span><span class="p">,</span>
+    <span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.1</span> 
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pbind</span></code> is a special <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> that generates a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> that spits out <code class="docutils literal notranslate"><span class="pre">Events</span></code>.
+By using the <code class="docutils literal notranslate"><span class="pre">play</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> pattern, we play all the events the event stream gives us.
+In that case, <code class="docutils literal notranslate"><span class="pre">dur</span></code> determines the waiting time between two successive events.
+Thereby, we do not play all events instantly but create a rhythm.
+<strong>Note</strong> that if the sound sustains longer than <code class="docutils literal notranslate"><span class="pre">dur</span></code> we get overlapping sounds.
+For example:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">p</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\beep</span><span class="p">,</span>
+    <span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span>
+<span class="p">);</span>
+<span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+<span class="nx">q</span><span class="p">.</span><span class="nx">stop</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We can call <code class="docutils literal notranslate"><span class="pre">stop</span></code> on the <code class="docutils literal notranslate"><span class="pre">Stream</span></code> (not the <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>!) to stop it (or we can hit <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code> / <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code> as always).</p>
+</div>
+<div class="section" id="examples">
+<h2><span class="section-number">4.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>There are many different <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>, I will only discuss some of them which I find most important.
+In fact, the official <a class="reference external" href="https://doc.sccode.org/">documentation of SuperCollider</a> is not always super helpful but the tutorial <a class="reference external" href="https://doc.sccode.org/Tutorials/Streams-Patterns-Events1.html">Understanding Streams, Patterns and Events</a> is an excellent source to get started.</p>
+<p>I use two <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> for the following examples.
+One simple beep generated by a sine wave and a percussive drum like synth.
+TODO!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/supercollider"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="ugens.html" title="previous page"><span class="section-number">3. </span>Unit Generators</a>
+    <a class='right-next' id="next-link" href="../sounddesign/terms.html" title="next page"><span class="section-number">1. </span>Terms</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Benedikt Zönnchen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
