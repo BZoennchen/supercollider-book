@@ -721,7 +721,7 @@ The result is an array of length two each containing a signal.
 By writing this array to the output bus at channel ``0``, channel ``0`` gets the first element of the array and channel ``1`` the second one.
 Therefore, we hear the sound in both speakers.
 
-We can also **store** the ``SynthDef`` permanently on our hard drive by calling ``load()`` or ``store()`` instead of ``add()``.
+We can also **store** the ``SynthDef`` permanently on our hard drive by calling ``store()`` instead of ``add()``.
 This call will create the file ``sineWave.scsyndef`` in the ``synthdefs`` directory which can be found in your [SuperCollider](https://supercollider.github.io/) Application directory.
 If you restart [SuperCollider](https://supercollider.github.io/) all ``SynthDefs`` in the ``snythdefs`` directory are added to the server automatically.
 

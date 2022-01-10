@@ -1,3 +1,4 @@
+(sec-ecosystem)=
 # The Ecosystem
 
 [SuperCollider (SC)](https://supercollider.github.io/) is a package or platform that consists of three components:
