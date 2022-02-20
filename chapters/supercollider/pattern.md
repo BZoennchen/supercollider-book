@@ -1,42 +1,48 @@
 # Pattern
 
-Using [UGens](sec-ugens) we can design synth, i.e., instruments, i.e., sound.
+[UGens](sec-ugens) are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 But having instruments is not enough, we also want to play them!
-We want to create rhythms and texture.
+We want to create rhythms, and texture and melodies.
 
-As mentioned in [The Ecosystem](sec-ecosystem), we could use another Software such as [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/) or [FoxDot](https://foxdot.org/) to do so.
+As mentioned in [The Ecosystem](sec-ecosystem), there are other software packages such as [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/) or [FoxDot](https://foxdot.org/) which are designed to play synths and samples.
 However, [SuperCollider (SC)](https://supercollider.github.io/) offers its own amazing and powerful interface to compose a musical piece.
 It uses so called [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html) and [Events](https://doc.sccode.org/Classes/Event.html).
 
-I call this section Pattern because as we will see, we do not really care about ``Streams`` and ``Events`` if we understand the concept of ``Pattern``.
+I call this section Pattern because, as we will see, we do not really care about ``Streams`` and ``Events`` if we understand the concept of ``Pattern``.
 
 ## The Instrument and its Artist
 
+In my opinion there is no clear separation between the world of ideas and the world of materials and tools.
 Philosophically speaking, the tools we use, influence how we think about the world.
+And our thoughts lead to new tools, new technologies.
 Tools, like pen and paper, instruments, a hammer, programming languages or frameworks, and even our hands, act like interpreters.
 They translate our thoughts into actions that change the physical world around us.
 
-However, this interaction is not a one-way-street where we, the artist, enforce ideas on the instrument.
-Instead, the instrument we use influences our ideas by limiting the space of possibilities.
-In fact, we have no idea of any expressions before we interact with some interpreter, i.e., some tool/instrument.
-The instrument defines the space of possibilities.
+However, this interaction is not a one-way-street where we, the artist, enforce ideas onto the instrument.
+Instead, the instrument influences our ideas by limiting our space of possibilities.
+Before we think about the being of a hammer, we use it.
+Furthermore, a hammer is always connected to other things, for example a nail or a wooden chair.
+The instrument provides us with the means of expression. 
+It defines the space of possibilities.
 It makes up our imagination.
-It might be even the other way around: the instrument is using us to express itself.
+Maybe we can even go so far and say that it is in fact the instrument that uses us to express itself.
 
-In my opinion, there is no clear optimal amount of limitations, i.e., space of possibilities.
-Too much freedom can be a burden on the artist.
-Without boundaries the language of the instrument can be to complicated.
-If we can express everything, we become unable to express anything at all -- it can be hard to get started.
-On the other hand, too strict limitations will lead to repetition.
+Consequently, there is no clear optimal amount of limitations, i.e., space of possibilities.
+Changing the space can be a great source for inspiration.
+Too much freedom can be a burden for the artist.
+Without boundaries the language of the instrument can be too complicated.
+If we can create everything, we become unable to express anything.
+On the other hand, too strict limitations lead to repetition.
 If the space of possibilities is too small, the artist becomes superfluous.
 
 Therefore, to find out what space of possibilities you are looking for, I highly recommend that you check out all available tools and if none suites your needs you may want to build your own! 
-Building instrument to express ourselves is one of those wonderful acts a programmer can do!
-Of course, you will always stay in some limited super-space of possibilities defined by the machine you are working on.
-Our machines are able to compute anything that is Turing-computable which is, as far we know, anything that is computable in general.
-However, we are limited by the computational time and space complexity of the problem we want to compute.
+Building instruments to express ourselves, is one of those wonderful acts a programmer can do!
+Of course, we will always stay in some limited super-space of possibilities defined by the machine we are working on.
+Our machines are able to compute anything that is *Turing-computable*, i.e., (up to this day) everything that we can compute in general
+However, we are limited by time and space.
+On the computer is translates to computational time and space complexities.
 
-Now let us talk about the space of possibilities that the **sclang** of SuperCollider offers.
+Now let us talk about the space of possibilities that **sclang** offers.
 
 ## Pattern, Streams and Events
 
@@ -96,7 +102,7 @@ q.next; // nil
 ``Prand`` choses from an ``Array`` a random element.
 In the above example, we combine both ``Pattern``.
 ``Pseq`` gets an ``Array`` consisting of two ``Prand``-``Pattern``.
-By the parameter ``repeats: 2`` we configure ``Pseq`` go over ``list`` two times.
+By the parameter ``repeats: 2`` we configure ``Pseq`` to go over ``list`` two times.
 
 Why are ``Patterns`` useful?
 Well ``Patterns`` can be combined and they can be manipulated by all regular math functions if they return numbers.
@@ -108,16 +114,16 @@ Playing a piano can be seen as a ``Stream`` of specific [Events](https://doc.scc
 We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.
 
 [Pbind](https://doc.sccode.org/Classes/Pbind.html) is a ``Pattern`` of ``Events``. 
-It model this process by discrete events.
+It models this process by discrete events.
 We define a duration ``dur``, and the parameters of our instrument and the instrument itself, i.e., the synth.
 A ``Pbind`` can then be played by calling ``play`` on it.
-The method returns a [EventStreamPlayer](https://doc.sccode.org/Classes/EventStreamPlayer.html).
+The method returns an [EventStreamPlayer](https://doc.sccode.org/Classes/EventStreamPlayer.html).
 
-``Events`` extended [Environments](https://doc.sccode.org/Classes/Environment.html).
+``Events`` extend [Environments](https://doc.sccode.org/Classes/Environment.html).
 ``Environments`` manage namespaces.
-They are very similar to hash maps, hash tables, or Python dictionary.
+They are very similar to hash maps, hash tables, or a Python dictionary.
 For example, calling a function will create a new local function-``Environment``.
-An ``Environment`` maps names to variables and functions.
+``Environments`` map names to variables and functions.
 
 ```isc
 (
@@ -133,9 +139,9 @@ env[\add].(3,13); // 16
 )
 ```
 
-Here we define an environment with three variables ``a``, ``b``, ``c`` and a function ``add``.
-``~a;`` is in fact an abbreviation for ``currentEnvironment.at(\a);`` and `` ~a = 100;`` for ``currentEnvironment.put(\a, 888);``.
-As you can see we already worked with environments without knowing it.
+Here we define an ``Environment`` with three variables ``a``, ``b``, ``c`` and a function ``add``.
+``~a`` is in fact an abbreviation for ``currentEnvironment.at(\a)`` and `` ~a = 100`` for ``currentEnvironment.put(\a, 888)``.
+As you can see we already worked with ``Environments`` without knowing them.
 We are not so much interested in ``Environments`` but ``Events`` and they can be defined using a far more compact syntax, i.e., we just use round brackets:
 
 ```isc
@@ -150,8 +156,8 @@ We actually can hear a sound???
 Well if you look at the print window, you can see all the predefined variables/symbols of the ``Environment``/``Event``.
 Everything that we have to define to play a sound such as ``\amp``, ``\instrument``, ``\server`` is predefined.
 
-The ``\instrument`` is a default instrument that is built-in into SuperCollider but we can use our own ``SynthDef``, i.e., synth.
-To use all the nice parameters our ``SynthDef`` has to use the correct arguments and we have to name them as intended.
+The ``\instrument`` is a default instrument that is built into SuperCollider but we can use our own ``SynthDef``, i.e., synth.
+To use all the nice predefined parameters, our ``SynthDef`` has to use the correct arguments and we have to name them as intended.
 For example, the frequency should be called ``freq``, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called ``gate`` and the amplitude should be defined by ``amp``.
 
 ```isc
@@ -174,10 +180,10 @@ event.play;
 )
 ```
 
-First we add a very simple synth then we play it for a duration of ``0.2`` beats per seconds.
+First we add a very simple synth, then we play it for a duration of ``0.2`` beats per seconds (bps).
 If we look closely, we can observer that there is a ``sustain`` argument that is set to 80 percent of the duration, i.e. to ``0.16`` beats per seconds.
 It is the time after the ``gate`` within our synth is triggered!
-We can set ``sustain`` ourselves.
+We can change this default behavior by setting our own ``sustain`` value.
 
 ```isc
 (
@@ -205,7 +211,7 @@ Pbind(
 By using the ``play`` method on the ``Pbind`` pattern, we play all the events the event stream gives us.
 In that case, ``dur`` determines the waiting time between two successive events.
 Thereby, we do not play all events instantly but create a rhythm.
-**Note** that if the sound sustains longer than ``dur`` we get overlapping sounds.
+**Note** that if the sound sustains longer than ``dur`` we get overlapping sounds, i.e., [legato](sec-legato).
 For example:
 
 ```isc

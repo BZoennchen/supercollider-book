@@ -133,37 +133,37 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/additive-synthesis.html">
-   2. Additive Synthesis
+   3. Additive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/filters.html">
-   3. Filters
+   4. Filters
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   4. Subtractive Synthesis
+   5. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   5. Percussive Sound
+   6. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   6. Amplitude Modulation (AM)
+   7. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   7. Frequency Modulation (FM)
+   8. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   8. Drones
+   9. Drones
   </a>
  </li>
 </ul>
@@ -294,36 +294,42 @@
                 
   <div class="section" id="pattern">
 <h1><span class="section-number">4. </span>Pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">¶</a></h1>
-<p>Using <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> we can design synth, i.e., instruments, i.e., sound.
+<p><a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 But having instruments is not enough, we also want to play them!
-We want to create rhythms and texture.</p>
-<p>As mentioned in <a class="reference internal" href="ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a>, we could use another Software such as <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> or <a class="reference external" href="https://foxdot.org/">FoxDot</a> to do so.
+We want to create rhythms, and texture and melodies.</p>
+<p>As mentioned in <a class="reference internal" href="ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a>, there are other software packages such as <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> or <a class="reference external" href="https://foxdot.org/">FoxDot</a> which are designed to play synths and samples.
 However, <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> offers its own amazing and powerful interface to compose a musical piece.
 It uses so called <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a> and <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.</p>
-<p>I call this section Pattern because as we will see, we do not really care about <code class="docutils literal notranslate"><span class="pre">Streams</span></code> and <code class="docutils literal notranslate"><span class="pre">Events</span></code> if we understand the concept of <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
+<p>I call this section Pattern because, as we will see, we do not really care about <code class="docutils literal notranslate"><span class="pre">Streams</span></code> and <code class="docutils literal notranslate"><span class="pre">Events</span></code> if we understand the concept of <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.</p>
 <div class="section" id="the-instrument-and-its-artist">
 <h2><span class="section-number">4.1. </span>The Instrument and its Artist<a class="headerlink" href="#the-instrument-and-its-artist" title="Permalink to this headline">¶</a></h2>
-<p>Philosophically speaking, the tools we use, influence how we think about the world.
+<p>In my opinion there is no clear separation between the world of ideas and the world of materials and tools.
+Philosophically speaking, the tools we use, influence how we think about the world.
+And our thoughts lead to new tools, new technologies.
 Tools, like pen and paper, instruments, a hammer, programming languages or frameworks, and even our hands, act like interpreters.
 They translate our thoughts into actions that change the physical world around us.</p>
-<p>However, this interaction is not a one-way-street where we, the artist, enforce ideas on the instrument.
-Instead, the instrument we use influences our ideas by limiting the space of possibilities.
-In fact, we have no idea of any expressions before we interact with some interpreter, i.e., some tool/instrument.
-The instrument defines the space of possibilities.
+<p>However, this interaction is not a one-way-street where we, the artist, enforce ideas onto the instrument.
+Instead, the instrument influences our ideas by limiting our space of possibilities.
+Before we think about the being of a hammer, we use it.
+Furthermore, a hammer is always connected to other things, for example a nail or a wooden chair.
+The instrument provides us with the means of expression.
+It defines the space of possibilities.
 It makes up our imagination.
-It might be even the other way around: the instrument is using us to express itself.</p>
-<p>In my opinion, there is no clear optimal amount of limitations, i.e., space of possibilities.
-Too much freedom can be a burden on the artist.
-Without boundaries the language of the instrument can be to complicated.
-If we can express everything, we become unable to express anything at all – it can be hard to get started.
-On the other hand, too strict limitations will lead to repetition.
+Maybe we can even go so far and say that it is in fact the instrument that uses us to express itself.</p>
+<p>Consequently, there is no clear optimal amount of limitations, i.e., space of possibilities.
+Changing the space can be a great source for inspiration.
+Too much freedom can be a burden for the artist.
+Without boundaries the language of the instrument can be too complicated.
+If we can create everything, we become unable to express anything.
+On the other hand, too strict limitations lead to repetition.
 If the space of possibilities is too small, the artist becomes superfluous.</p>
 <p>Therefore, to find out what space of possibilities you are looking for, I highly recommend that you check out all available tools and if none suites your needs you may want to build your own!
-Building instrument to express ourselves is one of those wonderful acts a programmer can do!
-Of course, you will always stay in some limited super-space of possibilities defined by the machine you are working on.
-Our machines are able to compute anything that is Turing-computable which is, as far we know, anything that is computable in general.
-However, we are limited by the computational time and space complexity of the problem we want to compute.</p>
-<p>Now let us talk about the space of possibilities that the <strong>sclang</strong> of SuperCollider offers.</p>
+Building instruments to express ourselves, is one of those wonderful acts a programmer can do!
+Of course, we will always stay in some limited super-space of possibilities defined by the machine we are working on.
+Our machines are able to compute anything that is <em>Turing-computable</em>, i.e., (up to this day) everything that we can compute in general
+However, we are limited by time and space.
+On the computer is translates to computational time and space complexities.</p>
+<p>Now let us talk about the space of possibilities that <strong>sclang</strong> offers.</p>
 </div>
 <div class="section" id="pattern-streams-and-events">
 <h2><span class="section-number">4.2. </span>Pattern, Streams and Events<a class="headerlink" href="#pattern-streams-and-events" title="Permalink to this headline">¶</a></h2>
@@ -375,7 +381,7 @@ So most objects are <code class="docutils literal notranslate"><span class="pre"
 <code class="docutils literal notranslate"><span class="pre">Prand</span></code> choses from an <code class="docutils literal notranslate"><span class="pre">Array</span></code> a random element.
 In the above example, we combine both <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
 <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> gets an <code class="docutils literal notranslate"><span class="pre">Array</span></code> consisting of two <code class="docutils literal notranslate"><span class="pre">Prand</span></code>-<code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
-By the parameter <code class="docutils literal notranslate"><span class="pre">repeats:</span> <span class="pre">2</span></code> we configure <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> go over <code class="docutils literal notranslate"><span class="pre">list</span></code> two times.</p>
+By the parameter <code class="docutils literal notranslate"><span class="pre">repeats:</span> <span class="pre">2</span></code> we configure <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> to go over <code class="docutils literal notranslate"><span class="pre">list</span></code> two times.</p>
 <p>Why are <code class="docutils literal notranslate"><span class="pre">Patterns</span></code> useful?
 Well <code class="docutils literal notranslate"><span class="pre">Patterns</span></code> can be combined and they can be manipulated by all regular math functions if they return numbers.
 They are really powerful to build complex <code class="docutils literal notranslate"><span class="pre">Streams</span></code>.
@@ -384,15 +390,15 @@ In the above example we multiply the <code class="docutils literal notranslate">
 Playing a piano can be seen as a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of specific <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.
 We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.</p>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> is a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> of <code class="docutils literal notranslate"><span class="pre">Events</span></code>.
-It model this process by discrete events.
+It models this process by discrete events.
 We define a duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, and the parameters of our instrument and the instrument itself, i.e., the synth.
 A <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> can then be played by calling <code class="docutils literal notranslate"><span class="pre">play</span></code> on it.
-The method returns a <a class="reference external" href="https://doc.sccode.org/Classes/EventStreamPlayer.html">EventStreamPlayer</a>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Events</span></code> extended <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environments</a>.
+The method returns an <a class="reference external" href="https://doc.sccode.org/Classes/EventStreamPlayer.html">EventStreamPlayer</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Events</span></code> extend <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environments</a>.
 <code class="docutils literal notranslate"><span class="pre">Environments</span></code> manage namespaces.
-They are very similar to hash maps, hash tables, or Python dictionary.
+They are very similar to hash maps, hash tables, or a Python dictionary.
 For example, calling a function will create a new local function-<code class="docutils literal notranslate"><span class="pre">Environment</span></code>.
-An <code class="docutils literal notranslate"><span class="pre">Environment</span></code> maps names to variables and functions.</p>
+<code class="docutils literal notranslate"><span class="pre">Environments</span></code> map names to variables and functions.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Environment</span><span class="p">.</span><span class="nx">make</span><span class="p">({</span>
     <span class="o">~</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
@@ -406,9 +412,9 @@ An <code class="docutils literal notranslate"><span class="pre">Environment</spa
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Here we define an environment with three variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> and a function <code class="docutils literal notranslate"><span class="pre">add</span></code>.
-<code class="docutils literal notranslate"><span class="pre">~a;</span></code> is in fact an abbreviation for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.at(\a);</span></code> and <code class="docutils literal notranslate"> <span class="pre">~a</span> <span class="pre">=</span> <span class="pre">100;</span></code> for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.put(\a,</span> <span class="pre">888);</span></code>.
-As you can see we already worked with environments without knowing it.
+<p>Here we define an <code class="docutils literal notranslate"><span class="pre">Environment</span></code> with three variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> and a function <code class="docutils literal notranslate"><span class="pre">add</span></code>.
+<code class="docutils literal notranslate"><span class="pre">~a</span></code> is in fact an abbreviation for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.at(\a)</span></code> and <code class="docutils literal notranslate"> <span class="pre">~a</span> <span class="pre">=</span> <span class="pre">100</span></code> for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.put(\a,</span> <span class="pre">888)</span></code>.
+As you can see we already worked with <code class="docutils literal notranslate"><span class="pre">Environments</span></code> without knowing them.
 We are not so much interested in <code class="docutils literal notranslate"><span class="pre">Environments</span></code> but <code class="docutils literal notranslate"><span class="pre">Events</span></code> and they can be defined using a far more compact syntax, i.e., we just use round brackets:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">);</span>
@@ -420,8 +426,8 @@ We are not so much interested in <code class="docutils literal notranslate"><spa
 We actually can hear a sound???
 Well if you look at the print window, you can see all the predefined variables/symbols of the <code class="docutils literal notranslate"><span class="pre">Environment</span></code>/<code class="docutils literal notranslate"><span class="pre">Event</span></code>.
 Everything that we have to define to play a sound such as <code class="docutils literal notranslate"><span class="pre">\amp</span></code>, <code class="docutils literal notranslate"><span class="pre">\instrument</span></code>, <code class="docutils literal notranslate"><span class="pre">\server</span></code> is predefined.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">\instrument</span></code> is a default instrument that is built-in into SuperCollider but we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., synth.
-To use all the nice parameters our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments and we have to name them as intended.
+<p>The <code class="docutils literal notranslate"><span class="pre">\instrument</span></code> is a default instrument that is built into SuperCollider but we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., synth.
+To use all the nice predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments and we have to name them as intended.
 For example, the frequency should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called <code class="docutils literal notranslate"><span class="pre">gate</span></code> and the amplitude should be defined by <code class="docutils literal notranslate"><span class="pre">amp</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
@@ -442,10 +448,10 @@ For example, the frequency should be called <code class="docutils literal notran
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>First we add a very simple synth then we play it for a duration of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> beats per seconds.
+<p>First we add a very simple synth, then we play it for a duration of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> beats per seconds (bps).
 If we look closely, we can observer that there is a <code class="docutils literal notranslate"><span class="pre">sustain</span></code> argument that is set to 80 percent of the duration, i.e. to <code class="docutils literal notranslate"><span class="pre">0.16</span></code> beats per seconds.
 It is the time after the <code class="docutils literal notranslate"><span class="pre">gate</span></code> within our synth is triggered!
-We can set <code class="docutils literal notranslate"><span class="pre">sustain</span></code> ourselves.</p>
+We can change this default behavior by setting our own <code class="docutils literal notranslate"><span class="pre">sustain</span></code> value.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\beep</span><span class="p">,</span> <span class="ss">\sustain</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">);</span>
 <span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
@@ -469,7 +475,7 @@ Let us have a look.</p>
 By using the <code class="docutils literal notranslate"><span class="pre">play</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> pattern, we play all the events the event stream gives us.
 In that case, <code class="docutils literal notranslate"><span class="pre">dur</span></code> determines the waiting time between two successive events.
 Thereby, we do not play all events instantly but create a rhythm.
-<strong>Note</strong> that if the sound sustains longer than <code class="docutils literal notranslate"><span class="pre">dur</span></code> we get overlapping sounds.
+<strong>Note</strong> that if the sound sustains longer than <code class="docutils literal notranslate"><span class="pre">dur</span></code> we get overlapping sounds, i.e., <a class="reference internal" href="../sounddesign/terms.html#sec-legato"><span class="std std-ref">legato</span></a>.
 For example:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>

@@ -257,3 +257,6 @@ However, I stick to the term [amplitude modulation (AM)](sec-am) to refer to bot
 
 (sec-comb-filter)=
 ## Comb Filter
+
+(sec-legato)=
+# Legato
