@@ -36,7 +36,7 @@ Of course, you will always stay in some limited super-space of possibilities def
 Our machines are able to compute anything that is Turing-computable which is, as far we know, anything that is computable in general.
 However, we are limited by the computational time and space complexity of the problem we want to compute.
 
-Now let us talk about the space of possibilities that the **sclang** of SuperCollider offers.
+Now let us talk about the space of possibilities that **sclang** offers us.
 
 ## Pattern, Streams and Events
 
@@ -70,17 +70,28 @@ x.next(); // 3
 
 If a ``Stream`` runs out of values, it returns ``nil``.
 In **sclang** everything is an [Object](https://doc.sccode.org/Classes/Object.html) and the class ``Object`` defines ``next`` to return the object itself.
-Thus every object can be viewed as a ``Stream`` and most simply stream themselves.
+Therefore, every object can be viewed as a ``Stream``.
+If it is a constant it streams itself.
 Consequently, almost everything can be viewed as a ``Stream``.
 
+```isc
+5.next();  // 5
+```
+
 [Pattern](https://doc.sccode.org/Classes/Pattern.html) is an abstract class that is the base for the Patterns library. 
-These classes form a rich and concise score language for music.
+Together all pattern classes form a rich and concise score language for music.
 ``Patterns`` are the blueprint of ``Streams``.
 Calling ``asStream`` on a ``Pattern`` transforms it into a ``Stream``.
-All objects respond to this interface, most by returning themselves.
-So most objects are ``Pattern`` that define streams that are an infinite sequence of the object and embed as singleton ``Streams`` of that object returned once.
+As already mentioned, all simple objects respond to this interface, by returning themselves.
+Consequently, most objects are ``Pattern`` that define a ``Stream`` that represents an infinite sequence of that object.
 
-Let us look at an example.
+```{admonition} Pattern and Streams
+:name: important-pattern-and-streams
+:class: important
+Simlar to classes and objects, ``Pattern`` are a blueprint for ``Streams``.
+```
+
+Let us look at a non-trivial example:
 
 ```isc
 p = Pseq(list: [Prand((5..7)), Prand((1..4))], repeats: 2) * 10;
@@ -107,13 +118,24 @@ If we think in musical terms, a composition is a specific ``Pattern`` and a perf
 Playing a piano can be seen as a ``Stream`` of specific [Events](https://doc.sccode.org/Classes/Event.html).
 We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.
 
+## Pbind - Modeling a Musician
+
 [Pbind](https://doc.sccode.org/Classes/Pbind.html) is a ``Pattern`` of ``Events``. 
-It model this process by discrete events.
+It models the playing of an instrument, i.e. the actual musician by a stream of discrete events.
+
+```{admonition} Combining Streams
+:name: hint-pbind
+:class: hint
+``Pbind`` combines several *value streams* into *one event stream*.
+```
+
+### Playing Events
+
 We define a duration ``dur``, and the parameters of our instrument and the instrument itself, i.e., the synth.
 A ``Pbind`` can then be played by calling ``play`` on it.
 The method returns a [EventStreamPlayer](https://doc.sccode.org/Classes/EventStreamPlayer.html).
 
-``Events`` extended [Environments](https://doc.sccode.org/Classes/Environment.html).
+``Events`` extend [Environments](https://doc.sccode.org/Classes/Environment.html).
 ``Environments`` manage namespaces.
 They are very similar to hash maps, hash tables, or Python dictionary.
 For example, calling a function will create a new local function-``Environment``.
@@ -151,7 +173,7 @@ Well if you look at the print window, you can see all the predefined variables/s
 Everything that we have to define to play a sound such as ``\amp``, ``\instrument``, ``\server`` is predefined.
 
 The ``\instrument`` is a default instrument that is built-in into SuperCollider but we can use our own ``SynthDef``, i.e., synth.
-To use all the nice parameters our ``SynthDef`` has to use the correct arguments and we have to name them as intended.
+To use all the nice parameters, our ``SynthDef`` has to use the correct arguments and we have to name them as intended.
 For example, the frequency should be called ``freq``, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called ``gate`` and the amplitude should be defined by ``amp``.
 
 ```isc
@@ -201,11 +223,19 @@ Pbind(
 )
 ```
 
+### Playing EventStreams
+
 ``Pbind`` is a special ``Pattern`` that generates a ``Stream`` that spits out ``Events``.
 By using the ``play`` method on the ``Pbind`` pattern, we play all the events the event stream gives us.
 In that case, ``dur`` determines the waiting time between two successive events.
 Thereby, we do not play all events instantly but create a rhythm.
-**Note** that if the sound sustains longer than ``dur`` we get overlapping sounds.
+
+```{admonition} Difference between duration and sustain
+:name: hint-overlapping-sound
+:class: hint
+The duration ``dur`` is the elapsed time after the next event is scheduled while ``sustain`` is the time after the ``gate`` of the synth is triggered. If the sound sustains longer than ``dur`` we get overlapping sounds.
+```
+
 For example:
 
 ```isc
@@ -222,6 +252,120 @@ q.stop;
 ```
 
 We can call ``stop`` on the ``Stream`` (not the ``Pattern``!) to stop it (or we can hit ``CMD`` + ``.`` / ``Ctrl`` + ``.`` as always).
+
+Since we combine multiple ``Streams`` we may want to influence one value stream by the other.
+For example, we might want that the ``amp`` depends on the frequency such that we can reduce the amplitude for higher pitches.#
+There are multiple was to do so.
+One is by using one of the most powerfull ``Pattern``, that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
+
+``Pfunc`` expects a function as argument and this function is called whenever the respective ``Stream`` generates its next value.
+The argument of the ``next`` call is passed to the function.
+
+```isc
+(
+var pattern = Pfunc({arg val; val*val;});
+var square = pattern.asStream();
+square.next(5);
+)
+```
+
+``Pbind`` passes the whole event to this function.
+Therefore, we can look inside the event, and use the information to compute our value.
+In the following code snippet we print the ``amp`` so you can see the effect.
+
+```isc
+(
+p = Pbind(
+    \instrument, \beep,
+    \freq, Pseq([440, 220, 330], inf),
+    \dur, 0.25,
+    \sustain, 0.3,
+	\amp, Pfunc({arg event; min(1.0, event[\freq].linexp(100, 500, 1.0, 0.2)).postln;})
+);
+q = p.play;
+)
+```
+
+``Pfunc`` can do a lot of other things and there is a pattern that is specifically designed for our case.
+It is called [Pkey](https://doc.sccode.org/Classes/Pkey.html).
+The following code creates exactly the same sound.
+
+```isc
+(
+p = Pbind(
+    \instrument, \beep,
+    \freq, Pseq([440, 220, 330], inf),
+    \dur, 0.25,
+    \sustain, 0.3,
+	\amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+);
+q = p.play;
+)
+```
+
+The third way to do this, is to use a global variable.
+However, this seems to be a really dirty method which I do not recommend.
+I think, using ``Pkey`` is the cleanest way to do things.
+
+### Cascading Pbinds
+
+We can, of course, use multiple ``Pbinds``.
+
+```isc
+(
+var intro, middle, outro;
+intro = Pbind(
+    \instrument, \beep,
+    \freq, Pseq([440, 220, 330], 3),
+    \dur, 0.25,
+    \sustain, 0.3,
+	\amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+);
+
+middle = Pbind(
+    \instrument, \beep,
+    \freq, Pseq([233, 321, 344], 3),
+    \dur, 0.25,
+    \sustain, 0.3,
+	\amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+);
+
+outro = intro = Pbind(
+    \instrument, \beep,
+    \freq, Pseq([440, 220, 330], 3),
+    \dur, 0.25,
+    \sustain, 0.3,
+    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+);
+
+p = Pseq(list: [intro, middle, outro], repeats: 2);
+q = p.play;
+)
+```
+
+What a masterpiece ;).
+We can generate the same piece using only one ``Pbind``:
+
+```isc
+(
+var intro, middle, outro;
+p = Pbind(
+    \instrument, \beep,
+	\freq, Pseq([
+		Pseq([440, 220, 330], 3), 
+		Pseq([233, 321, 344], 3),
+		Pseq([440, 220, 330], 3)
+	], repeats: 2),
+    \dur, 0.25,
+    \sustain, 0.3,
+    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+);
+q = p.play;
+)
+```
+
+Later we will see that we can organize our piece by using multiple ``Pbind``.
+But for now let's move on.
 
 ## Examples
 

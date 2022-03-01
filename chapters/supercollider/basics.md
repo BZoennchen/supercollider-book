@@ -370,6 +370,18 @@ func.value();      // returns 10
 )
 ```
 
+We actually can skip ``value`` within a function call
+
+```isc
+(
+var func = {
+  var x = 10;
+  x;
+};
+func.();      // returns 10
+)
+```
+
 In **sclang** there is no ``return`` keyword.
 We only have to call ``func.value`` for functions and not for methods of an object or class.
 A functions always returns the content of the last evaluated statement, in this case ``x``.

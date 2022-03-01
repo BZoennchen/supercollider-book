@@ -3,9 +3,11 @@
 I discovered the world of algorithmic composition and sound design using code this year (2021)!
 It all started when I watched an enthusiastic and really motivating presentation about [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi) by Sam Aaron.
 I was immediately hooked!
-However, soon after experimenting with Sonic Pi I wanted to write my own synth for which it is not suitable.
+
+However, soon after experimenting with Sonic Pi, I wanted to write my own synth for which it is not suitable.
 I wanted to learn more about actual algorithmic composition and sound design, doing what I may be best at: coding.
-On the way I discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
+Along the way I discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
+
 Being creative by producing sound was the essential puzzle piece I was always looking for -- a strong connection between computer science and art.
 
 ## Why Writing a Book?
@@ -45,8 +47,8 @@ Another thing I am looking forward to is combining the book with a Jupyter-Kerne
 
 ## Silent Contributors
 
-I want to emphasize that this book is a mixture of my discoveries filtered and altert by my mind.
-The creator of my discoveries and the content of the materials I studied are silent contributors.
+I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
+The creators of my discoveries and the content of the materials I studied are silent contributors.
 Without the already existing material, I would not be able to learn SuperCollider or sound design in general. 
 
 A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
