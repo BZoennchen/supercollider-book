@@ -116,7 +116,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pattern.html">
-   4. Pattern
+   4. Playing Pattern
   </a>
  </li>
 </ul>
@@ -133,37 +133,37 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/additive-synthesis.html">
-   3. Additive Synthesis
+   2. Additive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/filters.html">
-   4. Filters
+   3. Filters
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   5. Subtractive Synthesis
+   4. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   6. Percussive Sound
+   5. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   7. Amplitude Modulation (AM)
+   6. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   8. Frequency Modulation (FM)
+   7. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   9. Drones
+   8. Drones
   </a>
  </li>
 </ul>
@@ -363,12 +363,19 @@
                 
   <div class="section" id="basics">
 <h1><span class="section-number">2. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
+<p>In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
+By only reading this section and <a class="reference internal" href="ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a> you have a good building ground to start your discovery with the SuperCollider platform.</p>
 <div class="section" id="code-execution">
 <h2><span class="section-number">2.1. </span>Code Execution<a class="headerlink" href="#code-execution" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="ecosystem.html#sec-scide"><span class="std std-ref">SuperCollider IDE</span></a> (SCIDE) is build for interaction.
+If you are familiar with the concept of Notebooks, for example Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
+The idea is that you can execute code while developing.
+Instead of writing a complete program you are constantly stimulated to run small code snippets.
+In live coding this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.</p>
 <div class="section" id="triggering-the-evaluation">
 <h3><span class="section-number">2.1.1. </span>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start!
-Let’s write some <strong>sclang</strong> code and execute it via the REPL (Read–Eval–Print Loop).</p>
+Let’s write some <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code and execute it via the REPL (Read–Eval–Print Loop).</p>
 <p>To execute the following line press <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello World!&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 </pre></div>
@@ -455,7 +462,7 @@ In the <code class="docutils literal notranslate"><span class="pre">C++</span></
 <div><p><code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the top of the stack and is the last argument pushed. <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span> <span class="pre">-</span> <span class="pre">inNumArgsPushed</span> <span class="pre">+</span> <span class="pre">1</span></code> is the <strong>receiver</strong> and where the result goes.</p>
 </div></blockquote>
 <p>In our case <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the <code class="docutils literal notranslate"><span class="pre">String</span></code> object.
-This interaction between <strong>sclang</strong> and <code class="docutils literal notranslate"><span class="pre">C++</span></code> reminds me of the interaction between <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code>.
+This interaction between <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code> reminds me of the interaction between <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code>.
 As long as we do not write our own <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">primitives</a> we can ignore the <code class="docutils literal notranslate"><span class="pre">C++</span></code> interaction.</p>
 </div>
 <div class="section" id="order-of-execution">
@@ -614,7 +621,7 @@ This sequence can be realized by an <code class="docutils literal notranslate"><
 </pre></div>
 </div>
 <p>In signal processing we want to manipulate elements of such a sequence.
-Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <strong>sclang</strong> is implemented accordingly.</p>
+Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is implemented accordingly.</p>
 </div>
 <div class="section" id="manipulation">
 <h3><span class="section-number">2.3.4. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h3>
@@ -652,7 +659,7 @@ Therefore, an <code class="docutils literal notranslate"><span class="pre">Array
 </div>
 <div class="section" id="functions">
 <h2><span class="section-number">2.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>In <strong>sclang</strong> functions are first-class objects which means that a function can be an argument of another function.
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> functions are first-class objects which means that a function can be an argument of another function.
 The language drives the programmer to make use of this fact in various ways.</p>
 <p>To define a function, we encapsulate its content by curly brackets, and to execute it, we call <code class="docutils literal notranslate"><span class="pre">value</span></code> on it:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -664,7 +671,7 @@ The language drives the programmer to make use of this fact in various ways.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>In <strong>sclang</strong> there is no <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> there is no <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.
 We only have to call <code class="docutils literal notranslate"><span class="pre">func.value</span></code> for functions and not for methods of an object or class.
 A functions always returns the content of the last evaluated statement, in this case <code class="docutils literal notranslate"><span class="pre">x</span></code>.
 In my personal opinion an additional keyword can make the code more readable.</p>
@@ -754,7 +761,7 @@ Furthermore, there is another rather strange shortcut:</p>
 </div>
 <div class="section" id="basic-control-structures">
 <h2><span class="section-number">2.5. </span>Basic Control Structures<a class="headerlink" href="#basic-control-structures" title="Permalink to this headline">¶</a></h2>
-<p>In <strong>sclang</strong>, control sequences are functions.
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, control sequences are functions.
 They expect one or multiple functions that are executed conditionally.
 We already saw the <code class="docutils literal notranslate"><span class="pre">if</span></code>-Functions which expects one boolean expression (a predicate) and two functions.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">while</span></code>-functions expects one predicate and another function that can be executed as long as the predicate is true.
@@ -791,7 +798,7 @@ To be more flexible and to use different predicates one can use the <code class=
 </div>
 <div class="section" id="classes-and-objects">
 <h2><span class="section-number">2.6. </span>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
-<p>In <strong>sclang</strong> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>

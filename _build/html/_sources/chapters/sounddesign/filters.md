@@ -5,7 +5,7 @@ The very basic understanding of filters might be that they just make parts of th
 They do far more than just attenuate some frequencies.
 Because filters often use some kind of feedback cycle, I find them difficult to understand. 
 
-## Phases
+## Phase Shifting
 Before we can talk about filters let us talk about phases.
 As we will see we can filter a signal by using a simple oscillator.
 
@@ -83,7 +83,7 @@ Cancelation is equivalent to filtering!
 So our examples of using two oscillators one shifted by $\pi$ can be seen as filtering one oscillator by the other.
 The second one acts like a filter.
 This filter is called [Comb Filter](sec-comb-filter).
-In **sclang** this filter is called ``DelayX`` where ``X`` stands for different interpolation techniques.
+In ``sclang`` this filter is called ``DelayX`` where ``X`` stands for different interpolation techniques.
 
 The following code is equivalent to the two sine waves that cancel each other out:
 
@@ -106,6 +106,11 @@ With ``DelayL`` we can achieve the filtering of the sawthoth wave without combin
 }.play;
 )
 ```
+
+## Delays
+
+(sec-comb-filter)=
+## Comb Filter
 
 ## Smoothening
 
@@ -369,7 +374,7 @@ A filtered random signal. First we apply ``OnePole`` and ``Lag`` which gives us 
 ## Phasing & Filtering
 
 If we speak of filters we often man low pass or high pass filters, that is, filters that filter frequencies above or below some cutoff frequency.
-For example the low pass filter ``LPF`` in **sclang** is a 2nd order Butterworth lowpass filter.
+For example the low pass filter ``LPF`` in ``sclang`` is a 2nd order Butterworth lowpass filter.
 
 ```{figure} ../../figs/sounddesign/filters/butterworth-filter.png
 ---
@@ -456,12 +461,12 @@ Otherwise it will approximately 'stand still'.
 How a musical instrument resonate has a great effect on the color of its sound ([timbre](sec-timbre)).
 
 Resonance filters boost certain frequencies, making the harmonics at those frequencies louder than they were in the input signal.
-The effect is sounds like resonance. 
+The effect sounds like resonance. 
 Therefore, resonance filters emulate resonance.
 
 Which frequencies are boosted?
 For most resonance filters, the frequencies near the cutoff frequency are boosted.
-In **sclang** the [UGens](def-ugen) resonance filter start with an ``R``, for example, ``RLPF`` is the resonance low pass filter.
+In ``sclang`` the [UGens](def-ugen) resonance filter start with an ``R``, for example, ``RLPF`` is the resonance low pass filter.
 
 ```isc
 (
@@ -501,4 +506,4 @@ Let me summarize some of the applications of filters:
 + If we decrease the *resonance bandwidth* even further, the filter will become a sine wave generator in its own right. In theory, no input signal is passed at this point, but few filters completely remove all the signal, and the result is a tortured sound that has extensive uses in modern music.
 
 In analogue synthesis, filters are the defining element of a synthesizer!
-They are crucial, also in digital synthesis, and if you are into creative synthesis, your sound generation will depend upon what you have got and what you do with it
+They are crucial, also in digital synthesis, and if you are into creative synthesis, your sound generation will depend upon what you have got and what you do with it.

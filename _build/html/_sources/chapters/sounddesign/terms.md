@@ -1,5 +1,8 @@
 # Terms
 
+Learning something now almost always includes learning a new language.
+In this reference section, I explain common terms.
+
 ## Sound Waves
 
 In nature, *sound* is produced by a vibrating object.
@@ -7,7 +10,15 @@ These vibrations cause air molecules to oscillate.
 They bump into each other at some areas (compression) and tend to leave other areas (rarefaction).
 A pattern of lower and higher molecule density emerges.
 
-On a larger scale, this change in air pressure is a mechanical wave that travels from the object to other objects.
+```{figure} ../../figs/sounddesign/terms/molecules.png
+---
+width: 400px
+name: fig-molecules
+---
+A pattern of lower and higher molecule density.
+```
+
+On a larger scale, this change in air pressure is a mechanical wave that travels from the oscillating object, called *oscillator*, to other objects.
 Overall, we can think of sound as a mechanical wave that propagates from one place through the medium of transportation.
 The wave is energy that deforms the medium, i.e., it transfers energy from one place to the other.
 
@@ -27,19 +38,20 @@ The simplest and most fundamental waveform is the sine wave
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}
 
-where the *frequency* $f$ is the inverse of the period $T$.
-The period is the time at which the waveform repeats itself and the frequency $f = 1/T$ is measured in herz (circles per second).
+where the *frequency* $f$ is the inverse of the *period* $T$.
+The period $T$ is the time at which the waveform repeats itself and the frequency $f = 1/T$ is measured in hertz (Hz = circles per second).
 $A$ is the amplitude and $\phi$ the phase of the waveform.
 
 The *frequency* of a waveform determines the perceived *pitch* of the sound it produces.
 The higher the frequency the higher the pitch.
 Pitch is perceived on a logarithmic scale, that is, two frequencies are perceived similarly if they differ by a power of 2.
 440 Hz is one octave above 220 Hz but we perceive it as the same *tone*.
+To increase the pitch by $n$ octaves, we have to multiply the frequency by $2^n$.
 
 The *amplitude* of a waveform determines the perceived loudness of the sound.
 The higher the amplitude the louder the sound. 
 
-## Midi notes
+## Midi Notes
 
 Midi notes are just numbers on a piano.
 We simply number the different keys in an ascending order from left to right.
@@ -68,13 +80,53 @@ Since there are the same number of keys for each octave but higher octaves cover
 ## Cent
 
 An octave is divided into 1200 *cents*.
-Therefore one semitone is 100 cents.
-Notable pitch differences can be perceived in a range from 10 to 25 cents, depending on the listeners hearing and musical education or exposer.
+Therefore, one semitone is 100 cents.
+Notable, pitch differences can be perceived in a range from 10 to 25 cents, depending on the listeners hearing and musical education or exposer.
+In terms of a center frequency $f$, 10 cents are 
+
+\begin{equation*}
+    f \cdot 2 \cdot \frac{10}{1200} = f \cdot \frac{1}{60}
+\end{equation*}
+
+hertz, and 25 cents are translated to 
+
+\begin{equation*}
+    f \cdot 2 \cdot \frac{25}{1200} = f \cdot \frac{1}{24}
+\end{equation*}
+
+Compare the sound of the following signals.
+Can you hear the difference?
+
+```isc
+(
+{
+    var sig, freq = 440;
+    sig = SinOsc.ar(freq!2);
+    sig * 0.25;
+}.play;
+)
+
+(
+{
+    var sig, freq = 440 * (1 + 24.reciprocal);
+    sig = SinOsc.ar(freq!2);
+    sig * 0.25;
+}.play;
+)
+```
 
 ## Hearing Range
 
 The *hearing range* is the range of frequency that a being can perceive.
 The hearing range of humans is 20 Hz to 20kHz where cats go up to 75kHz and bats up to 200kHz.
+This does not mean that we can not perceive sound below 20 Hz but at this point it perceived as discrete clicks instead of a continues tone.
+Furthermore, we can hear minimal relative frequency differences very intensively.
+Experimenting with low frequencies can be very fun!
+
+```isc
+// triangle waveform below the human hearing range
+({ LFTri.ar(10!2) * 0.25; }.play;)
+```
 
 ## Sound Power
 
@@ -165,7 +217,7 @@ It is measured in phons.
 ## Timbre
 
 There is no measure of timbre.
-It is generally very hard to define formally.
+It is generally very hard to define it formally.
 It is often referred to as the *color of a sound* which does not explain anything but gives us an intuition.
 
 Two different instruments can play the same note but we still can easily recognize the difference in the sound they generate.
@@ -211,19 +263,27 @@ This is called [subtractive synthesis](sec-subtractive-synthesis) and makes use 
 
 Envelopes partly form the timbre of an instrument.
 They control the amplitude of a waveforms over time thus describe how a sound changes over time.
-In SuperCollider we create envelopes by envelope generators ``EnvGen``.
+In SuperCollider we create envelopes by combining envelope generators [EnvGen](https://doc.sccode.org/Classes/EnvGen.html) and envelopes [Env](https://doc.sccode.org/Classes/Env.html).
 
-One of the most common kind of envelope generator has four stages:
+One of the most common kind of envelope has four stages:
 
-1. **Attack** is the time taken for initial run-up of level from nil to peak. On a piano this is the beginning when the key is pressed.
-2. **Decay** is the time taken for the subsequent run down from the attack level to the designated **sustain level**.
-3. **Sustain** is the level during the main sequence of the sound's duration. On a piano this is the level until the key is released.
-4. **Release** is the time taken for the level to decay from the sustain level to zero after the key is released.
+1. **Attack** is the **time** taken for initial run-up of level from nil to peak. On a piano this is the beginning when the key is pressed.
+2. **Decay** is the **time** taken for the subsequent run down from the attack level to the designated **sustain level**.
+3. **Sustain** is the **level** during the main sequence of the sound's duration. On a piano this is the level until the key is released.
+4. **Release** is the **time** taken for the level to decay from the sustain level to zero after the key is released.
+
+```{figure} ../../figs/sounddesign/terms/adsr-env.png
+---
+width: 400px
+name: fig-adrs-env
+---
+ADSR envelope with an attack of 1 second, decay of 2 seconds, a sustain (level) of 0.6 and a release of 4 seconds. 
+```
 
 Another simpler envelope is the percussive envelope (for modelling percussive instruments) which has only two stages: a very short attack, and medium decay.
 
 Of course each ``UGen`` can have its dedicated envelope.
-If there is only one envelope that controls the amplitude of every involved partial, I call it global envelope.
+If there is only one envelope that controls the amplitude of every involved partial, I call it *global envelope*.
 
 The envelopes greatly influence the resulting sound.
 If we want to recreate the sound of a real instrument we have to match at least its global envelope.
@@ -233,11 +293,20 @@ The follow code models the sound of a piano combining a [sawtooth wave](sec-sawt
 There is no sustain because we assume the pianist does not use the sustain pedal after hitting midi note 69.
 
 ```isc
-({
-    var sig;
-    sig = LPF.ar(LFSaw.ar(69.midicps), 800)!2;
-    sig * EnvGen.kr(Env(levels: [0, 1, 0.5, 0], times: [0.01, 0.07, 0.3])) * 0.5;
+(({
+    var sig, atk, dec, rel;
+    atk = 0.01;
+    dec = 0.07;
+    rel = 0.3;
+    sig = LPF.ar(LFSaw.ar(69.midicps), 2*69.midicps)!2;
+    sig * EnvGen.kr(Env(levels: [0, 1, 0.5, 0], times: [atk, dec, rel])) * 0.5;
 }.play(fadeTime:0);)
+```
+
+In SuperCollider we can plot an envelope by sending the ``plot`` message to it.
+
+```isc
+Env(levels: [0, 1, 0.5, 0], times: [0.01, 0.07, 0.3]).plot
 ```
 
 Compared to that, a violin has a long attack -- the sound ramps up if the violinist accelerates the motion of his or her arm.
@@ -255,8 +324,21 @@ Ring modulation (RM) is often used as a synonym for [amplitude modulation (AM)](
 Sometimes the term RM is used when the modulator is bipolar (the amplitude becomes positive as well as negative) and AM refers to a unipolar amplitude modulation.
 However, I stick to the term [amplitude modulation (AM)](sec-am) to refer to both.
 
-(sec-comb-filter)=
-## Comb Filter
-
 (sec-legato)=
-# Legato
+## Legato
+
+With respect to the piano, legato means that a series of notes are played without a gap of silence.
+Before the pianist hits the next combination of keys when he or she sustains the previous keys.
+This concept is extended to wind and string instruments.
+
+In SuperCollider the term is also used for its time conversion.
+In this case it is a fraction, i.e., a number greater than zero.
+Playing synth can be seen as a discrete event simulation.
+Playing a note is via a synth is an event in time.
+The event has a *delta* ``\delta`` (basically the duration of the event) and a *sustain* (time) ``\sustain``.
+After the sustain (time), the decay starts.
+And after the *delta* the next event starts.
+Instead of specifying ``\sustain`` we can specify ``\legato`` that is translated to ``\sustain = \delta * \legato``.
+
+Therefore, legato in this context is a fraction of an event's duration for which a synth should sustain.
+If legato is large, events will overlap.

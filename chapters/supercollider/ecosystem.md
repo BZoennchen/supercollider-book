@@ -58,12 +58,13 @@ Functions are first-class objects.
 
 From a musical point of view, it has its own interactive programming and Live Coding packages and a subsystem for composing patterns and signal graphs.
 
+(sec-scide)=
 ## SCIDE
 
 The [SuperCollider (SC)](https://supercollider.github.io/) Integrated Development Environment (IDE) is a Qt-based cross-platform application.
 Code can be executed in a notebook-like manner, that is, interactively using the REPL (Read–Eval–Print Loop).
 
-```{figure} ../../figs/ecosystem/ide.png
+```{figure} ../../figs/supercollider/ecosystem/ide.png
 ---
 width: 800px
 name: fig-ide
@@ -79,7 +80,7 @@ The IDE offers some useful tools such as
 + a *Freq Analyzer* that displays the frequencies of the current signal ``FreqScope.new;``
 + a *Server* displays useful information about the server such as the CPU workload ``Server.local.makeWindow;``.
 
-```{figure} ../../figs/ecosystem/ide-tools.png
+```{figure} ../../figs/supercollider/ecosystem/ide-tools.png
 ---
 width: 600px
 name: fig-ide-tools

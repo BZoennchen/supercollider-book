@@ -1,11 +1,20 @@
 # Basics
 
+In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
+By only reading this section and [The Ecosystem](sec-ecosystem) you have a good building ground to start your discovery with the SuperCollider platform.
+
 ## Code Execution
+
+The [SuperCollider IDE](sec-scide) (SCIDE) is build for interaction.
+If you are familiar with the concept of Notebooks, for example Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
+The idea is that you can execute code while developing.
+Instead of writing a complete program you are constantly stimulated to run small code snippets.
+In live coding this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.
 
 ### Triggering the Evaluation
 
 Let's start!
-Let's write some **sclang** code and execute it via the REPL (Read–Eval–Print Loop).
+Let's write some ``sclang`` code and execute it via the REPL (Read–Eval–Print Loop).
 
 To execute the following line press ``SHIFT`` + ``RETURN``.
 
@@ -117,7 +126,7 @@ In the [documentation](https://doc.sccode.org/Guides/WritingPrimitives.html) we 
 >``g->sp`` is the top of the stack and is the last argument pushed. ``g->sp - inNumArgsPushed + 1`` is the **receiver** and where the result goes.
 
 In our case ``g->sp`` is the ``String`` object.
-This interaction between **sclang** and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
+This interaction between ``sclang`` and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
 As long as we do not write our own [primitives](https://doc.sccode.org/Guides/WritingPrimitives.html) we can ignore the ``C++`` interaction.
 
 ### Order of Execution
@@ -311,7 +320,7 @@ a.at([2, 3]); // [3, 4]
 ```
 
 In signal processing we want to manipulate elements of such a sequence.
-Therefore, an ``Array`` in **sclang** is implemented accordingly.
+Therefore, an ``Array`` in ``sclang`` is implemented accordingly.
 
 ### Manipulation
 
@@ -355,7 +364,7 @@ We can **duplicate** an array ``k`` times by using ``!k``:
 
 ## Functions
 
-In **sclang** functions are first-class objects which means that a function can be an argument of another function.
+In ``sclang`` functions are first-class objects which means that a function can be an argument of another function.
 The language drives the programmer to make use of this fact in various ways.
 
 To define a function, we encapsulate its content by curly brackets, and to execute it, we call ``value`` on it:
@@ -370,7 +379,7 @@ func.value();      // returns 10
 )
 ```
 
-In **sclang** there is no ``return`` keyword.
+In ``sclang`` there is no ``return`` keyword.
 We only have to call ``func.value`` for functions and not for methods of an object or class.
 A functions always returns the content of the last evaluated statement, in this case ``x``.
 In my personal opinion an additional keyword can make the code more readable.
@@ -472,7 +481,7 @@ add.value(b: 11) // returns 16
 
 ## Basic Control Structures
 
-In **sclang**, control sequences are functions.
+In ``sclang``, control sequences are functions.
 They expect one or multiple functions that are executed conditionally.
 We already saw the ``if``-Functions which expects one boolean expression (a predicate) and two functions.
 
@@ -519,7 +528,7 @@ To be more flexible and to use different predicates one can use the ``caee``-fun
 
 ## Classes and Objects
 
-In **sclang** the constructor of an object is called by ``Classname.new``.
+In ``sclang`` the constructor of an object is called by ``Classname.new``.
 
 ```isc
 var numbers = Array.new(10);

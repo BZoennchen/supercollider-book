@@ -118,7 +118,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/pattern.html">
-   4. Pattern
+   4. Playing Pattern
   </a>
  </li>
 </ul>
@@ -135,37 +135,37 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/additive-synthesis.html">
-   3. Additive Synthesis
+   2. Additive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/filters.html">
-   4. Filters
+   3. Filters
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   5. Subtractive Synthesis
+   4. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   6. Percussive Sound
+   5. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   7. Amplitude Modulation (AM)
+   6. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   8. Frequency Modulation (FM)
+   7. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   9. Drones
+   8. Drones
   </a>
  </li>
 </ul>
@@ -329,7 +329,7 @@ There are 12 keys on a pianos keyboard within one octave, this means that if we 
 <p>This is a quite boring sound.
 A way to enrich it, is to add slightly detuned copies of the sinewave which change their frequency over time.
 The noise oscillators <code class="docutils literal notranslate"><span class="pre">LFNoiseX.ar(freq:</span> <span class="pre">freq)</span></code> generate a juggeling signal which changes its amplitude inbetween the <span class="math notranslate nohighlight">\([-1;1]\)</span> uniformly distributed.
-Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 1.3</span></a>.</p>
+Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 1.5</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{[</span>
     <span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
@@ -341,7 +341,7 @@ Between the changes, the amplitude stays constant (0), is interpolated linearly 
 </div>
 <div class="figure align-default" id="fig-plot-lfnoisex">
 <a class="reference internal image-reference" href="../../_images/plot-LFNoiseX.png"><img alt="../../_images/plot-LFNoiseX.png" src="../../_images/plot-LFNoiseX.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">¶</a></p>
 </div>
 <p>So let us create <span class="math notranslate nohighlight">\(n\)</span> number of detuned sinewaves and adding them to the fundamental:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
