@@ -1,7 +1,7 @@
 # Basics
 
-Before we go into the details I have to say that, comming from programming languages such as ``Java``, ``C`` and ``Python``, the snytax of ``sclang`` is not the most beautiful.
-However, this first expression hides the fact that a lot of decisions regarding the syntax makes sence at second glance.
+Before we go into the details I have to say that, coming from programming languages such as ``Java``, ``C`` and ``Python``, the syntax of ``sclang`` is not the most beautiful.
+However, this first expression hides the fact that a lot of decisions regarding syntax make sense at a second glance.
 So don't be scared by the first impression.
 
 In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
@@ -10,10 +10,10 @@ By only reading this section and [The Ecosystem](sec-ecosystem) you have a good 
 ## Code Execution
 
 The [SuperCollider IDE](sec-scide) (SCIDE) is build for interaction.
-If you are familiar with the concept of Notebooks, for example Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
+If you are familiar with the concept of Notebooks, for example, Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
 The idea is that you can execute code while developing.
-Instead of writing a complete program you are constantly stimulated to run small code snippets.
-In live coding this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.
+Instead of writing a complete program, you are constantly stimulated to run small code snippets.
+In live coding, this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.
 
 ### Triggering the Evaluation
 
@@ -47,12 +47,12 @@ In both cases you will notice that the last line is printed twice in the post wi
 This is because the last statement will always be printed on the post window.
 
 Similar to any other object-oriented language, we call a **method** ``postln`` on the **object** representing a ``String``.
-However in the [SuperCollider documentation](https://doc.sccode.org/) they use different terms.
+However, in the [SuperCollider documentation](https://doc.sccode.org/) they use different terms.
 The object is the **receiver** of a **message** (method).
 
 The object is always the first argument of the method (similar to ``Python``).
 We refer to this object as ``this``.
-For example we could also use the following syntax:
+For example, we could also use the following syntax:
 
 ```isc
 postln("Hello World!");
@@ -82,7 +82,7 @@ postln { this.asString.postln; }
 ```
 
 The curly brackets define a function with the name ``postln``.
-As mentioned ``this`` is either
+As mentioned, ``this`` is either
 
 1. the object the method is called on (if we use ``"Hello World!".postln;``) or
 2. the first argument of the method (if we use ``postln("Hello World!");``)
@@ -152,7 +152,7 @@ gives ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
 
 ## Variables and Scope
 
-Here we encounter the first inconvenient. 
+Here we encounter the first inconvenience. 
 In [(SC)](https://supercollider.github.io/) there are some special pre-defined variables. 
 Each **single character variable** ``[a-z]`` is pre-defined and globally available.
 They are called *Interpreter variables*.
@@ -160,13 +160,13 @@ They are called *Interpreter variables*.
 ```{admonition} The Local Server Variable 
 :name: important-local-server-variable
 :class: important
-By default the variable ``s`` holds a reference to the local audio server.
+By default, the variable ``s`` holds a reference to the local audio server.
 ```
 
 
 If you come from a modern programming language, this is strange. 
 However, it is often useful for prototyping in [(SC)](https://supercollider.github.io/). 
-A very special variable is ``s``, because it holds a reference to the default local server. 
+A very special variable is ``s`` because it holds a reference to the default local server. 
 Therefore, to start the audio server, we evaluate:
 
 ```isc
@@ -192,14 +192,14 @@ number = 10
 
 results in an error because ``number`` is undefined. 
 The code evaluation works similar to the cell evaluation in a ``Python`` Jupyter-Notebook but variables (except for the single character) are *local*.
-Without round brackets the following code does not work
+Without round brackets, the following code does not work
 
 ```isc
 var number = 10;
 number;
 ```
 
-because ``number`` *local* within the scope of a single line!
+because ``number`` is *locally* defined within the scope of a single line!
 If we use brackets
 
 ```isc
@@ -243,7 +243,7 @@ x;
 )
 ```
 
-As their name indicate, variables can be reassigned and we can give them any new value (dynamic types) at any time.
+As their name indicates, variables can be reassigned and we can give them any new value (dynamic types) at any time.
 
 ## Arrays
 
@@ -280,7 +280,7 @@ a = Array.fill2D(rows, cols, {arg r, c; r*c+c});
 Array.fill2D(3, 3, {arg r, c; if(r == c, {1}, {0})});
 ```
 
-and even n dimensional Arrays
+and even n-dimensional Arrays
 
 ```isc
 // [ [ [ 0, 0, 0, 0 ], [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ] ], 
@@ -293,7 +293,7 @@ Array.fillND([4, 4, 4], { arg a, b, c; a+b*c; });
 
 ### Concatenation
 
-First we can concatenate by creating a new array and copy all elements:
+First, we can concatenate by creating a new array and copying all elements:
 
 ```isc
 [1,2,3] ++ [4,5,6] // [ 1, 2, 3, 4, 5, 6 ]
@@ -308,7 +308,7 @@ a.addAll([4,5,6]); // [ 1, 2, 3, 4, 5, 6 ]
 
 ### Access of Elements
 
-We can access an element by ``.at(index)`` or by the shorthand ``@index``:
+We can access any element by ``.at(index)`` or by the shorthand ``@index``:
 
 ```isc
 (
@@ -317,7 +317,7 @@ a.at(2); // 3
 )
 ```
 
-Instead of ``at`` we can use the ``a@2;`` as shorthand. 
+Instead of ``at``, we can use the ``a@2;`` as shorthand. 
 Similar to ``numpy`` arrays, can also index multiple entries at once:
 
 ```isc
@@ -336,12 +336,12 @@ a.at([2, 3]); // [3, 4]
 )
 ```
 
-In signal processing we want to manipulate elements of such a sequence.
+In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an ``Array`` in ``sclang`` is implemented accordingly.
 
 ### Manipulation
 
-**Multiplying** an array with a number, will result in an new array for which each element is multiplied by the number.
+**Multiplying** an array with a number, will result in a new array for which each element is multiplied by the number.
 
 ```isc
 (
@@ -412,17 +412,17 @@ This looks a little bit weird but works just fint.
 
 In ``sclang`` there is no ``return`` keyword.
 We only have to call ``func.value`` for functions and not for methods of an object or class.
-A functions always returns the content of the last evaluated statement, in this case ``x``.
-In my personal opinion an additional keyword can make the code more readable.
+A function always returns the content of the last evaluated statement, in this case ``x``.
+In my personal opinion, an additional keyword can make the code more readable.
 
-To see what I mean by making use functions as first-class objects we can look at the [control structures](https://doc.sccode.org/Reference/Control-Structures.html).
-``if`` is in fact a function which takes three arguments:
+To see what I mean by making use of functions as first-class objects we can look at the [control structures](https://doc.sccode.org/Reference/Control-Structures.html).
+``if`` is in fact a function that takes three arguments:
 
 1. the condition
 2. a function which is executed if the condition is ``true``
 3. a function which is executed if the condition is ``false``
    
-Compare the following code that returns ``10`` if the argument of ``func`` is ``10`` and a random integer between 0 and 19 (20 exclusive).
+Compare the following code that returns ``10`` if the argument of ``func`` is ``10`` and a random integer between 0 and 19 (20 excluded).
 
 ```isc
 (
@@ -463,7 +463,7 @@ func.(11).postln;
 )
 ```
 
-Of course we can do the same without using a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming))
+Of course, we can do the same without using a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming))
 
 ```isc
 (
@@ -514,7 +514,7 @@ add.(b: 11) // returns 16
 
 In ``sclang``, control sequences are functions.
 They expect one or multiple functions that are executed conditionally.
-We already saw the ``if``-Functions which expects one boolean expression (a predicate) and two functions.
+We already saw the ``if``-Functions which expect one boolean expression (a predicate) and two functions.
 
 The ``while``-functions expects one predicate and another function that can be executed as long as the predicate is true.
 For example:
@@ -555,7 +555,7 @@ Here ``item`` is the element of the ``Array`` generated by ``(1..9)`` and ``i`` 
 
 A ``switch``-function expects a ``value`` and pairs of tested values and functions to be executed.
 The test checks for equality ``==``.
-To be more flexible and to use different predicates one can use the ``caee``-function which is as efficient as ``if``-statements.
+To be more flexible and to use different predicates one can use the ``case``-function which is as efficient as ``if``-statements.
 
 ## Classes and Objects
 
@@ -571,8 +571,8 @@ However, we can omit the ``new``.
 var numbers = Array(10);
 ```
 
-Classes can contain class-methods (static methods) and object-methods.
-A class-method starts with an ``*``.
+Classes can contain class methods (static methods) and object methods.
+A class method starts with an ``*``.
 For example I implemented a new class ``Utils`` which offers a **class-method** ``initUtils`` that initializes all the useful analyzing tools depicted in {numref}`Fig. {number} <fig-ide-tools>`.
 
 ```isc
@@ -641,20 +641,20 @@ Complex : Number {
 ...
 ```
 
-Tha class has two attributes  ``real`` and ``img`` indicated by the ugly ``<>`` and initialized by the constructor.
-Furthermore, it has a method ``+`` which takes one non optional and one optional argument.
+The class has two attributes  ``real`` and ``img`` indicated by the ugly ``<>`` and initialized by the constructor.
+Furthermore, it has a method ``+`` which takes one non-optional and one optional argument.
 ``aNumber`` is another complex number and ``adverb`` is a modifier that modifies, in this case, modifies the plus operation.
 If we ignore the second argument, the ``+`` method returns a new complex number by adding two complex numbers together.
 Therefore, ``+`` is a pure function.
 
 I may come back to object-oriented programming with ``sclang`` but for now we do not really need it.
-The best way to learn more about it, is to look into the source code pressing ``i + CMD``.
+The best way to learn more about it is to look into the source code pressing ``i + CMD``.
 
 ## A First Sine Wave
 
 Let us create the most simple sound possible: the sound of a sine wave. 
-First, we define a function that returns a so called unit generator [UGen](sec-ugens) that starts when we call ``play()``.
-In fact ``play()`` is a shorthand to and 
+First, we define a function that returns a so-called unit generator [UGen](sec-ugens) that starts when we call ``play()``.
+In fact ``play()`` is shorthand too and 
 
 1. transforms our the [UGen](sec-ugens) into a ``SynthDef`` (synth definition), 
 2. adds it to the server and 
@@ -665,10 +665,10 @@ In fact ``play()`` is a shorthand to and
 :class: warning
 [SC](https://supercollider.github.io/) will not protect you from any wrongdoing. 
 It will play the sound you defined and if this sound can hurt your ears you have to be sure to protect them.
-It is good practice to use headphones which are far away from your ears if you do not know what sound to expect!
+It is good practice to use headphones that are far away from your ears if you do not know what sound to expect!
 ```
 
-There are hundred of different [UGens](sec-ugens).
+There are hundreds of different [UGens](sec-ugens).
 Basically, they spit out real numbers over time. 
 For example ``SineOsc`` samples a sine wave.
 
@@ -731,13 +731,13 @@ For example we can increase ``fadeTime``:
 ```
 
 ``play`` comes in handy if we wanna just try something out -- if we want to explore sounds in a quick and dirty way.
-For complex synth we will define our own ``SynthDef``.
+For complex synth, we will define our own ``SynthDef``.
 
 
 ## A First SynthDef
 
 Instead of using ``play()`` we can instead implement our own ``SynthDef``.
-This gives us much more control over the sound creation.
+This gives us much more control over sound creation.
 
 ```isc
 (
@@ -760,9 +760,9 @@ synthDef.add();
 Synth(\sineWave);
 ```
 
-By calling ``SynthDef.new`` we generate a new object of type ``SynthDef``.
-On behalf of the perspective of the audio server **scsynth**, this object acts as a part of a factory for ``Synth`` objects!
-A ``SynthDef`` encapsulates the client-side representation of a given def, and provides methods for creating new defs, writing them to disk, and streaming them to a server.
+By calling ``SynthDef.new()`` or just ``SynthDef()`` we generate a new factory object that produces synth according to the ``SynthDef`` blueprint.
+On behalf of the perspective of the audio server **scsynth**, this factory object produces ``Synth`` objects!
+A ``SynthDef`` encapsulates the client-side representation of a given definition and provides methods for creating new defs, writing them to disk, and streaming them to a server.
 
 Each ``SynthDef`` has a name which we have to use if we want to generate a ``Synth`` produced by ``SynthDef``.
 The name can either be a ``String`` ``"sineWave"`` or a symbol ``\sineWave``.
@@ -771,8 +771,8 @@ By calling ``synthDef.add()`` we add our ``SynthDef`` to the server.
 From then on, we can create ``Synth`` of this definition.
 Note that if we terminate the server, the ``SynthDef`` is lost.
 
-The second argument of the ``SynthDef`` is a function which has to be a **UGen Graph Function**.
-It is an instance of Function which details how the ``SynthDef`` unit generators are interconnected, its inputs and outputs, and what parameters are available for external control.
+The second argument of the ``SynthDef`` is a function that has to be a **UGen Graph Function**.
+It is an instance of Function which details how the ``SynthDef`` unit generators are interconnected, their inputs and outputs, and what parameters are available for external control.
 
 We declare an argument called ``freq`` with a default value of ``200``.
 Then we create an [envelope](sec-envelope) which has a percussive shape.
@@ -786,7 +786,7 @@ SinOsc.ar(freq, mul: 0.2)!2
 ```
 
 we duplicate the signal.
-The result is an array of length two each containing a signal.
+The result is an array of lengths two each containing a signal.
 By writing this array to the output bus at channel ``0``, channel ``0`` gets the first element of the array and channel ``1`` the second one.
 Therefore, we hear the sound in both speakers.
 
