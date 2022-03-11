@@ -126,7 +126,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pattern.html">
-   4. Pattern
+   4. Playing Pattern
   </a>
  </li>
 </ul>
@@ -138,42 +138,42 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/terms.html">
-   5. Terms
+   6. Terms
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/additive-synthesis.html">
-   6. Additive Synthesis
+   7. Additive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/filters.html">
-   7. Filters
+   8. Filters
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   8. Subtractive Synthesis
+   9. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   9. Percussive Sound
+   10. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   10. Amplitude Modulation (AM)
+   11. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   11. Frequency Modulation (FM)
+   12. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   12. Drones
+   13. Drones
   </a>
  </li>
 </ul>
@@ -185,7 +185,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
-   13. Bibliography
+   14. Bibliography
   </a>
  </li>
 </ul>
@@ -197,12 +197,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/jump-right-in.html">
-   14. Building Sounds
+   15. Building Sounds
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/distributions.html">
-   15. Random distributions
+   16. Random distributions
   </a>
  </li>
 </ul>
@@ -478,12 +478,19 @@
 <p>Before we go into the details I have to say that, comming from programming languages such as <code class="docutils literal notranslate"><span class="pre">Java</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">Python</span></code>, the snytax of <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is not the most beautiful.
 However, this first expression hides the fact that a lot of decisions regarding the syntax makes sence at second glance.
 So don’t be scared by the first impression.</p>
+<p>In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
+By only reading this section and <a class="reference internal" href="ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a> you have a good building ground to start your discovery with the SuperCollider platform.</p>
 <div class="section" id="code-execution">
 <h2><span class="section-number">2.1. </span>Code Execution<a class="headerlink" href="#code-execution" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="ecosystem.html#sec-scide"><span class="std std-ref">SuperCollider IDE</span></a> (SCIDE) is build for interaction.
+If you are familiar with the concept of Notebooks, for example Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
+The idea is that you can execute code while developing.
+Instead of writing a complete program you are constantly stimulated to run small code snippets.
+In live coding this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.</p>
 <div class="section" id="triggering-the-evaluation">
 <h3><span class="section-number">2.1.1. </span>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start!
-Let’s write some <strong>sclang</strong> code and execute it via the REPL (Read–Eval–Print Loop).</p>
+Let’s write some <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code and execute it via the REPL (Read–Eval–Print Loop).</p>
 <p>To execute the following line press <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> while your cursor is at the code line.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello World!&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 </pre></div>
@@ -570,7 +577,7 @@ In the <code class="docutils literal notranslate"><span class="pre">C++</span></
 <div><p><code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the top of the stack and is the last argument pushed. <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span> <span class="pre">-</span> <span class="pre">inNumArgsPushed</span> <span class="pre">+</span> <span class="pre">1</span></code> is the <strong>receiver</strong> and where the result goes.</p>
 </div></blockquote>
 <p>In our case <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the <code class="docutils literal notranslate"><span class="pre">String</span></code> object.
-This interaction between <strong>sclang</strong> and <code class="docutils literal notranslate"><span class="pre">C++</span></code> reminds me of the interaction between <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code>.
+This interaction between <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code> reminds me of the interaction between <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code>.
 As long as we do not write our own <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">primitives</a> we can ignore the <code class="docutils literal notranslate"><span class="pre">C++</span></code> interaction.</p>
 </div>
 <div class="section" id="order-of-execution">
@@ -737,7 +744,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">numpy</s
 </pre></div>
 </div>
 <p>In signal processing we want to manipulate elements of such a sequence.
-Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <strong>sclang</strong> is implemented accordingly.</p>
+Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is implemented accordingly.</p>
 </div>
 <div class="section" id="manipulation">
 <h3><span class="section-number">2.3.4. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h3>
@@ -775,7 +782,7 @@ Therefore, an <code class="docutils literal notranslate"><span class="pre">Array
 </div>
 <div class="section" id="functions">
 <h2><span class="section-number">2.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>In <strong>sclang</strong> functions are first-class objects which means that a function can be an argument of another function.
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> functions are first-class objects which means that a function can be an argument of another function.
 The language drives the programmer to make use of this fact in various ways.</p>
 <p>To define a function, we encapsulate its content by curly brackets, and to execute it, we call <code class="docutils literal notranslate"><span class="pre">value</span></code> on it:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>

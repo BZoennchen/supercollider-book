@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Filters &#8212; Algorithmic Composition</title>
+    <title>8. Filters &#8212; Algorithmic Composition</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -60,8 +60,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Subtractive Synthesis" href="subtractive-synthesis.html" />
-    <link rel="prev" title="6. Additive Synthesis" href="additive-synthesis.html" />
+    <link rel="next" title="9. Subtractive Synthesis" href="subtractive-synthesis.html" />
+    <link rel="prev" title="7. Additive Synthesis" href="additive-synthesis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,7 +128,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/pattern.html">
-   4. Pattern
+   4. Playing Pattern
   </a>
  </li>
 </ul>
@@ -140,42 +140,42 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="terms.html">
-   5. Terms
+   6. Terms
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="additive-synthesis.html">
-   6. Additive Synthesis
+   7. Additive Synthesis
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Filters
+   8. Filters
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subtractive-synthesis.html">
-   8. Subtractive Synthesis
+   9. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="percussive-sound.html">
-   9. Percussive Sound
+   10. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   10. Amplitude Modulation (AM)
+   11. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="fm.html">
-   11. Frequency Modulation (FM)
+   12. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="drones.html">
-   12. Drones
+   13. Drones
   </a>
  </li>
 </ul>
@@ -187,7 +187,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
-   13. Bibliography
+   14. Bibliography
   </a>
  </li>
 </ul>
@@ -199,12 +199,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/jump-right-in.html">
-   14. Building Sounds
+   15. Building Sounds
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/distributions.html">
-   15. Random distributions
+   16. Random distributions
   </a>
  </li>
 </ul>
@@ -279,48 +279,58 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phases">
-   7.1. Phases
+  <a class="reference internal nav-link" href="#phase-shifting">
+   8.1. Phase Shifting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delays">
+   8.2. Delays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comb-filter">
+   8.3. Comb Filter
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#smoothening">
-   7.2. Smoothening
+   8.4. Smoothening
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#onezero">
-   7.3. OneZero
+   8.5. OneZero
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#onepole">
-   7.4. OnePole
+   8.6. OnePole
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lag">
-   7.5. Lag
+   8.7. Lag
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#varlag">
-   7.6. VarLag
+   8.8. VarLag
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phasing-filtering">
-   7.7. Phasing &amp; Filtering
+   8.9. Phasing &amp; Filtering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#responses-and-resonance">
-   7.8. Responses and Resonance
+   8.10. Responses and Resonance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   7.9. Summary
+   8.11. Summary
   </a>
  </li>
 </ul>
@@ -344,48 +354,58 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#phases">
-   7.1. Phases
+  <a class="reference internal nav-link" href="#phase-shifting">
+   8.1. Phase Shifting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#delays">
+   8.2. Delays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comb-filter">
+   8.3. Comb Filter
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#smoothening">
-   7.2. Smoothening
+   8.4. Smoothening
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#onezero">
-   7.3. OneZero
+   8.5. OneZero
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#onepole">
-   7.4. OnePole
+   8.6. OnePole
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lag">
-   7.5. Lag
+   8.7. Lag
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#varlag">
-   7.6. VarLag
+   8.8. VarLag
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#phasing-filtering">
-   7.7. Phasing &amp; Filtering
+   8.9. Phasing &amp; Filtering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#responses-and-resonance">
-   7.8. Responses and Resonance
+   8.10. Responses and Resonance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   7.9. Summary
+   8.11. Summary
   </a>
  </li>
 </ul>
@@ -398,26 +418,26 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="filters">
-<span id="sec-filters"></span><h1><span class="section-number">7. </span>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
+<span id="sec-filters"></span><h1><span class="section-number">8. </span>Filters<a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h1>
 <p>The very basic understanding of filters might be that they just make parts of the signal quieter – which is wrong.
 They do far more than just attenuate some frequencies.
 Because filters often use some kind of feedback cycle, I find them difficult to understand.</p>
-<div class="section" id="phases">
-<h2><span class="section-number">7.1. </span>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="phase-shifting">
+<h2><span class="section-number">8.1. </span>Phase Shifting<a class="headerlink" href="#phase-shifting" title="Permalink to this headline">¶</a></h2>
 <p>Before we can talk about filters let us talk about phases.
 As we will see we can filter a signal by using a simple oscillator.</p>
 <p>Let us first combine two sine waves.
 The first two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d7958d5-fe77-4165-9ddb-e2a4fa2b030c">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-1d7958d5-fe77-4165-9ddb-e2a4fa2b030c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e04bb05-b4c9-4c4f-80b4-dbdd02dd324c">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-6e04bb05-b4c9-4c4f-80b4-dbdd02dd324c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t)
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-72938d0b-5d55-463c-9a51-3e05db328088">
-<span class="eqno">(7.2)<a class="headerlink" href="#equation-72938d0b-5d55-463c-9a51-3e05db328088" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-51ae8d80-592b-4e1a-a439-cdd89e0e8348">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-51ae8d80-592b-4e1a-a439-cdd89e0e8348" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -429,8 +449,8 @@ Of course, we can not hear any difference between a sine wave and the same sine 
 Only in combination the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b19c29c-e1f9-46be-87aa-d2df893a7b05">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-9b19c29c-e1f9-46be-87aa-d2df893a7b05" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2b30affe-e12c-4e2b-841f-34ea92ffccb0">
+<span class="eqno">(8.3)<a class="headerlink" href="#equation-2b30affe-e12c-4e2b-841f-34ea92ffccb0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -448,13 +468,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, that is, its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
 <p>In the fact, amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f523b655-3ea8-48e2-963a-4e3bd5f17cdc">
-<span class="eqno">(7.4)<a class="headerlink" href="#equation-f523b655-3ea8-48e2-963a-4e3bd5f17cdc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-550a121f-c1ba-451d-b961-5873501aeb01">
+<span class="eqno">(8.4)<a class="headerlink" href="#equation-550a121f-c1ba-451d-b961-5873501aeb01" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8dbea20-8737-43b3-90db-905999f4ca6e">
-<span class="eqno">(7.5)<a class="headerlink" href="#equation-b8dbea20-8737-43b3-90db-905999f4ca6e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f00b23f8-11ef-40a1-a29e-cb79597a0dcb">
+<span class="eqno">(8.5)<a class="headerlink" href="#equation-f00b23f8-11ef-40a1-a29e-cb79597a0dcb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k = \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -462,8 +482,8 @@ This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</spa
 <p>Cancelation is equivalent to filtering!
 So our examples of using two oscillators one shifted by <span class="math notranslate nohighlight">\(\pi\)</span> can be seen as filtering one oscillator by the other.
 The second one acts like a filter.
-This filter is called <a class="reference internal" href="terms.html#sec-comb-filter"><span class="std std-ref">Comb Filter</span></a>.
-In <strong>sclang</strong> this filter is called <code class="docutils literal notranslate"><span class="pre">DelayX</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> stands for different interpolation techniques.</p>
+This filter is called <a class="reference internal" href="#sec-comb-filter"><span class="std std-ref">Comb Filter</span></a>.
+In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> this filter is called <code class="docutils literal notranslate"><span class="pre">DelayX</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> stands for different interpolation techniques.</p>
 <p>The following code is equivalent to the two sine waves that cancel each other out:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
@@ -483,13 +503,19 @@ With <code class="docutils literal notranslate"><span class="pre">DelayL</span><
 </pre></div>
 </div>
 </div>
+<div class="section" id="delays">
+<h2><span class="section-number">8.2. </span>Delays<a class="headerlink" href="#delays" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="comb-filter">
+<span id="sec-comb-filter"></span><h2><span class="section-number">8.3. </span>Comb Filter<a class="headerlink" href="#comb-filter" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="smoothening">
-<h2><span class="section-number">7.2. </span>Smoothening<a class="headerlink" href="#smoothening" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Smoothening<a class="headerlink" href="#smoothening" title="Permalink to this headline">¶</a></h2>
 <p>A signal can also be filtered by smoothening it.
 For example, let <span class="math notranslate nohighlight">\(\text{in}[0], \ldots, \text{in}[n]\)</span> be the discrete (input) signal of a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a> and <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> be the filtered (output) signal.
 If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aec07267-4838-479a-a56a-9a3fc4d0881d">
-<span class="eqno">(7.6)<a class="headerlink" href="#equation-aec07267-4838-479a-a56a-9a3fc4d0881d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-900c306c-9e21-452b-9bcd-6cd59e31cd13">
+<span class="eqno">(8.6)<a class="headerlink" href="#equation-900c306c-9e21-452b-9bcd-6cd59e31cd13" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \begin{split}
     \text{out}[0] &amp;\leftarrow 0.5 \cdot \text{in}[0]\\
     \text{out}[i] &amp;\leftarrow 0.5 \cdot \text{in}[i] - 0.5 \cdot \text{in}[i-1]
@@ -503,7 +529,7 @@ All values of <span class="math notranslate nohighlight">\(\text{out}\)</span> a
 </div>
 <div class="figure align-default" id="fig-canceled-saw-onezero-filter">
 <a class="reference internal image-reference" href="../../_images/canceled-saw-onezero-filter.png"><img alt="../../_images/canceled-saw-onezero-filter.png" src="../../_images/canceled-saw-onezero-filter.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Canceling a sawtooth wave by applying a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-filter. You can see peaks at values where the sawtooth is not differentiable.</span><a class="headerlink" href="#fig-canceled-saw-onezero-filter" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.1 </span><span class="caption-text">Canceling a sawtooth wave by applying a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-filter. You can see peaks at values where the sawtooth is not differentiable.</span><a class="headerlink" href="#fig-canceled-saw-onezero-filter" title="Permalink to this image">¶</a></p>
 </div>
 <p>This works so well because the rate of change of a sawtooth wave is constant almost everywhere.</p>
 <p>The integral of one phase of a sine wave is zero.
@@ -511,13 +537,13 @@ Consequently, by averaging the discrete signal to accomplish the respective sum 
 <a class="reference internal" href="#sec-onepole"><span class="std std-ref">OnePole</span></a> computes an (weighted) average via a feedback cycle resulting in an exponential drop of weights.</p>
 </div>
 <div class="section" id="onezero">
-<span id="sec-onezero"></span><h2><span class="section-number">7.3. </span>OneZero<a class="headerlink" href="#onezero" title="Permalink to this headline">¶</a></h2>
+<span id="sec-onezero"></span><h2><span class="section-number">8.5. </span>OneZero<a class="headerlink" href="#onezero" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> extends from <a class="reference external" href="https://doc.sccode.org/Classes/Filter.html">Filter</a> thus it is a filter.
 I had a hard time understanding what this filter actually does to its input signal <span class="math notranslate nohighlight">\(\text{in}\)</span>, since the documentation is very minimal.
 But I think I could reverse engineer its behaviour.</p>
 <p>The documentation states that a one zero filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5936c035-6666-423c-8210-38d4a2710ffd">
-<span class="eqno">(7.7)<a class="headerlink" href="#equation-5936c035-6666-423c-8210-38d4a2710ffd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d9fb8c0c-8b79-4ee2-be73-dcc12bea5b40">
+<span class="eqno">(8.7)<a class="headerlink" href="#equation-d9fb8c0c-8b79-4ee2-be73-dcc12bea5b40" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{in}[i-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
@@ -525,27 +551,27 @@ But I think I could reverse engineer its behaviour.</p>
 Therefore, <code class="docutils literal notranslate"><span class="pre">OneZero</span></code> as well as <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> depend on the sample rate / audio rate!</p>
 <p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we a differentiator!
 Let <span class="math notranslate nohighlight">\(y(t)\)</span> be our signal, then we basically compute</p>
-<div class="amsmath math notranslate nohighlight" id="equation-635ef543-7b50-4e9e-9321-f52c923d702a">
-<span class="eqno">(7.8)<a class="headerlink" href="#equation-635ef543-7b50-4e9e-9321-f52c923d702a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2a07b2d3-c81f-44e8-a353-4348326f6672">
+<span class="eqno">(8.8)<a class="headerlink" href="#equation-2a07b2d3-c81f-44e8-a353-4348326f6672" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2}.
 \end{equation}\]</div>
 <p>To compute the difference quotient, we have to figure out what <span class="math notranslate nohighlight">\(h\)</span> is.
 In other words, what is the time between <span class="math notranslate nohighlight">\(\text{in}[i]\)</span> and <span class="math notranslate nohighlight">\(\text{in}[i-1]\)</span>.
 The answer is <span class="math notranslate nohighlight">\(1/a_\text{rate}\)</span> where <span class="math notranslate nohighlight">\(a_\text{rate}\)</span> is the audio rate.</p>
 <p>To compute the difference quotient we use the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb79f3ac-d8d8-4929-8a72-3d15d0dfd003">
-<span class="eqno">(7.9)<a class="headerlink" href="#equation-cb79f3ac-d8d8-4929-8a72-3d15d0dfd003" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1589617f-e245-4b09-af23-815fa151e3d5">
+<span class="eqno">(8.9)<a class="headerlink" href="#equation-1589617f-e245-4b09-af23-815fa151e3d5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
 \end{equation}\]</div>
 <p>Using the discrete input signal <span class="math notranslate nohighlight">\(\text{in}\)</span> gives us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac8889eb-ed1c-42a8-882b-2d6f3cd3cc2b">
-<span class="eqno">(7.10)<a class="headerlink" href="#equation-ac8889eb-ed1c-42a8-882b-2d6f3cd3cc2b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-920a294e-75ff-4f68-b542-a6fdbecd62a5">
+<span class="eqno">(8.10)<a class="headerlink" href="#equation-920a294e-75ff-4f68-b542-a6fdbecd62a5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}\]</div>
 <p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57e4951c-0623-496a-b27e-113725908361">
-<span class="eqno">(7.11)<a class="headerlink" href="#equation-57e4951c-0623-496a-b27e-113725908361" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f57b2138-e5bb-48ef-996a-f78954ffedbb">
+<span class="eqno">(8.11)<a class="headerlink" href="#equation-f57b2138-e5bb-48ef-996a-f78954ffedbb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot f \cdot t)}{dt} = 2 \pi \cdot f \cdot \cos(2\pi \cdot f \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -559,7 +585,7 @@ Remember</p>
 </div>
 <div class="figure align-default" id="fig-all-sin-deviation">
 <a class="reference internal image-reference" href="../../_images/sin_deviation.png"><img alt="../../_images/sin_deviation.png" src="../../_images/sin_deviation.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.2 </span><span class="caption-text">At the top the cosine generated by the bottom signal and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</span><a class="headerlink" href="#fig-all-sin-deviation" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">At the top the cosine generated by the bottom signal and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</span><a class="headerlink" href="#fig-all-sin-deviation" title="Permalink to this image">¶</a></p>
 </div>
 <div class="hint admonition">
 <p class="admonition-title">Slope UGen</p>
@@ -572,28 +598,28 @@ Remember</p>
 <p>If we use <span class="math notranslate nohighlight">\(\alpha = 1.0\)</span> we generate a single sample delay and for -1.0 we additionally mirror the signal at the <span class="math notranslate nohighlight">\(x\)</span>-axis.</p>
 </div>
 <div class="section" id="onepole">
-<span id="sec-onepole"></span><h2><span class="section-number">7.4. </span>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">¶</a></h2>
+<span id="sec-onepole"></span><h2><span class="section-number">8.6. </span>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">¶</a></h2>
 <p>Another <code class="docutils literal notranslate"><span class="pre">UGen</span></code> I have a hard time get my head around is <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 The documentation states that a one pole filter implements the formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole">
-<span class="eqno">(7.12)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]\]</div>
+<span class="eqno">(8.12)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6e3a4777-9e7d-40fc-a749-e8569e76365f">
-<span class="eqno">(7.13)<a class="headerlink" href="#equation-6e3a4777-9e7d-40fc-a749-e8569e76365f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98daa604-1c10-4668-ade3-9ddb784f9aab">
+<span class="eqno">(8.13)<a class="headerlink" href="#equation-98daa604-1c10-4668-ade3-9ddb784f9aab" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[0] \leftarrow (1 - |\alpha|) \cdot \text{in}[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
-Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(7.12)</a>:</p>
+Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(8.12)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole2">
-<span class="eqno">(7.14)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow \text{in}[i] + \alpha \cdot (\text{out}[i-1] - \text{in}[i])\]</div>
+<span class="eqno">(8.14)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow \text{in}[i] + \alpha \cdot (\text{out}[i-1] - \text{in}[i])\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole3">
-<span class="eqno">(7.15)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])\]</div>
+<span class="eqno">(8.15)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(\text{in}[0], \ldots \text{in}[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8dad6302-ef86-4cfc-b543-93d46825f3fd">
-<span class="eqno">(7.16)<a class="headerlink" href="#equation-8dad6302-ef86-4cfc-b543-93d46825f3fd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-64895cb9-eb05-4647-8a43-add3b5e5d028">
+<span class="eqno">(8.16)<a class="headerlink" href="#equation-64895cb9-eb05-4647-8a43-add3b5e5d028" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] &amp; \leftarrow \text{out}[1] + \beta \cdot (\text{in}[2] - \text{out}[1]) \\
   &amp; = \text{in}[2] \cdot \beta + \text{in}[1] \cdot (\beta - \beta^2) + \text{in}[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -602,15 +628,15 @@ If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span 
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b772227-8817-4555-9c59-f65e5c8e3cb3">
-<span class="eqno">(7.17)<a class="headerlink" href="#equation-4b772227-8817-4555-9c59-f65e5c8e3cb3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c0a52481-ab59-4f8d-a69c-3c24764e317c">
+<span class="eqno">(8.17)<a class="headerlink" href="#equation-c0a52481-ab59-4f8d-a69c-3c24764e317c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[i] \leftarrow (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
 \end{equation}\]</div>
 <p>The change from one filter output to the next is proportional to the difference between the previous output and the next input.
 Therefore, the signal is smoothen exponentially, which matches the exponential decay seen in the continuous-time system.
-The exponential decay is depicted in <a class="reference internal" href="#fig-lag-and-onepole"><span class="std std-numref">Fig. 7.3</span></a>.</p>
+The exponential decay is depicted in <a class="reference internal" href="#fig-lag-and-onepole"><span class="std std-numref">Fig. 8.3</span></a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">OnePole</span></code> is a low-pass filter.
 Compare. for example, the following similar sounding signals of a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>, first filtered by the low-pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> and then filtered by <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> using a large <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span> <span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span>
@@ -621,7 +647,7 @@ Compare. for example, the following similar sounding signals of a <a class="refe
 In the <a class="reference external" href="https://en.wikipedia.org/wiki/Low-pass_filter">Wikipedia article</a> about low-pass filters, you can find some additional explanations regarding the relationship between the continuous electrical and discrete digital filter.</p>
 </div>
 <div class="section" id="lag">
-<span id="sec-lag"></span><h2><span class="section-number">7.5. </span>Lag<a class="headerlink" href="#lag" title="Permalink to this headline">¶</a></h2>
+<span id="sec-lag"></span><h2><span class="section-number">8.7. </span>Lag<a class="headerlink" href="#lag" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Lag</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> but it has a more meaningful parameter, called <code class="docutils literal notranslate"><span class="pre">lagTime</span></code>.
 I do not yet fully understand what it means but basically it is the time frame for which the signal should be smoothen.</p>
 <p>The following code plots a the signal of a noise generator which generates a random value every <code class="docutils literal notranslate"><span class="pre">1/freq</span></code> seconds.
@@ -637,7 +663,7 @@ Our frequency is 10 Hz and our <code class="docutils literal notranslate"><span 
 <p>This gives us the following plot.</p>
 <div class="figure align-default" id="fig-lag-and-onepole">
 <a class="reference internal image-reference" href="../../_images/lag-and-onepole.png"><img alt="../../_images/lag-and-onepole.png" src="../../_images/lag-and-onepole.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.3 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-lag-and-onepole" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.3 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-lag-and-onepole" title="Permalink to this image">¶</a></p>
 </div>
 <p>Since <code class="docutils literal notranslate"><span class="pre">Lag</span></code> is often used to smoothen changing parameters, for example in a performance, SC supports a syntactical shorthand:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
@@ -650,12 +676,12 @@ Our frequency is 10 Hz and our <code class="docutils literal notranslate"><span 
 </div>
 <div class="figure align-default" id="fig-lag-filtering">
 <a class="reference internal image-reference" href="../../_images/lag-filtering.png"><img alt="../../_images/lag-filtering.png" src="../../_images/lag-filtering.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.4 </span><span class="caption-text">A signal consisting of 440 HZ and 40 Hz partial (left) filtered by <code class="docutils literal notranslate"><span class="pre">Lag</span></code> (right).</span><a class="headerlink" href="#fig-lag-filtering" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text">A signal consisting of 440 HZ and 40 Hz partial (left) filtered by <code class="docutils literal notranslate"><span class="pre">Lag</span></code> (right).</span><a class="headerlink" href="#fig-lag-filtering" title="Permalink to this image">¶</a></p>
 </div>
 <p>As we increase the <code class="docutils literal notranslate"><span class="pre">lagTime</span></code> we have to boost the amplitude of the signal.</p>
 </div>
 <div class="section" id="varlag">
-<span id="sec-varlag"></span><h2><span class="section-number">7.6. </span>VarLag<a class="headerlink" href="#varlag" title="Permalink to this headline">¶</a></h2>
+<span id="sec-varlag"></span><h2><span class="section-number">8.8. </span>VarLag<a class="headerlink" href="#varlag" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">VarLag</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">Lag</span></code> but with other curve shapes than exponential but it works only on control rate signals <code class="docutils literal notranslate"><span class="pre">kr</span></code>!
 Compare the different shapes of the lag:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -672,22 +698,22 @@ Compare the different shapes of the lag:</p>
 </div>
 <div class="figure align-default" id="fig-var-lag">
 <a class="reference internal image-reference" href="../../_images/var-lag.png"><img alt="../../_images/var-lag.png" src="../../_images/var-lag.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.5 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-var-lag" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-var-lag" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="phasing-filtering">
-<h2><span class="section-number">7.7. </span>Phasing &amp; Filtering<a class="headerlink" href="#phasing-filtering" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.9. </span>Phasing &amp; Filtering<a class="headerlink" href="#phasing-filtering" title="Permalink to this headline">¶</a></h2>
 <p>If we speak of filters we often man low pass or high pass filters, that is, filters that filter frequencies above or below some cutoff frequency.
-For example the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <strong>sclang</strong> is a 2nd order Butterworth lowpass filter.</p>
+For example the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is a 2nd order Butterworth lowpass filter.</p>
 <div class="figure align-default" id="fig-butterworth-filter">
 <a class="reference internal image-reference" href="../../_images/butterworth-filter.png"><img alt="../../_images/butterworth-filter.png" src="../../_images/butterworth-filter.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7.6 </span><span class="caption-text">By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.6 </span><span class="caption-text">By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
 </div>
 <p>The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 Well, that is not completely true because the cutoff frequency is also reduced by 3 <a class="reference internal" href="terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 3 dB means that the perceived level is reduced by a factor of 2.
-The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 7.6</span></a> shows the reduction in amplitude.</p>
-<p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 7.6</span></a>.
+The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 8.6</span></a> shows the reduction in amplitude.</p>
+<p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 8.6</span></a>.
 This effect is important if we want to combine multiple filters because they interact!
 In other words: we can not just combine a high pass and low pass filter to get the same result of a band pass filter!</p>
 <p>The following code is an example for a band pass filter.
@@ -722,7 +748,7 @@ The results sound very similar but not identical.</p>
 </div>
 </div>
 <div class="section" id="responses-and-resonance">
-<h2><span class="section-number">7.8. </span>Responses and Resonance<a class="headerlink" href="#responses-and-resonance" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.10. </span>Responses and Resonance<a class="headerlink" href="#responses-and-resonance" title="Permalink to this headline">¶</a></h2>
 <p>To bring dynamic into the sound by a filter, we can do the obvious: change the cuttoff frequency over time!
 Let us try this with a low pass filter:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -750,11 +776,11 @@ If the musical object is excited by frequencies that coincide with its natural r
 Otherwise it will approximately ‘stand still’.
 How a musical instrument resonate has a great effect on the color of its sound (<a class="reference internal" href="terms.html#sec-timbre"><span class="std std-ref">timbre</span></a>).</p>
 <p>Resonance filters boost certain frequencies, making the harmonics at those frequencies louder than they were in the input signal.
-The effect is sounds like resonance.
+The effect sounds like resonance.
 Therefore, resonance filters emulate resonance.</p>
 <p>Which frequencies are boosted?
 For most resonance filters, the frequencies near the cutoff frequency are boosted.
-In <strong>sclang</strong> the <a class="reference internal" href="../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a> resonance filter start with an <code class="docutils literal notranslate"><span class="pre">R</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> is the resonance low pass filter.</p>
+In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the <a class="reference internal" href="../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a> resonance filter start with an <code class="docutils literal notranslate"><span class="pre">R</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> is the resonance low pass filter.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
 <span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
@@ -777,7 +803,7 @@ A small bandwidth will result in a strong effect.</p>
 The result is a powerful unnatural sound unique to the electronic synthesizer.</p>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">7.9. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.11. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>Filters are essential for <em>subtractive synthesis</em>.
 Filters do not only change the level of certain frequencies but apply a phase shift.
 Many of the filters only apply such a shift and we often do not think of them as filters.</p>
@@ -790,7 +816,7 @@ Many of the filters only apply such a shift and we often do not think of them as
 <li><p>If we decrease the <em>resonance bandwidth</em> even further, the filter will become a sine wave generator in its own right. In theory, no input signal is passed at this point, but few filters completely remove all the signal, and the result is a tortured sound that has extensive uses in modern music.</p></li>
 </ul>
 <p>In analogue synthesis, filters are the defining element of a synthesizer!
-They are crucial, also in digital synthesis, and if you are into creative synthesis, your sound generation will depend upon what you have got and what you do with it</p>
+They are crucial, also in digital synthesis, and if you are into creative synthesis, your sound generation will depend upon what you have got and what you do with it.</p>
 </div>
 </div>
 
@@ -823,13 +849,13 @@ They are crucial, also in digital synthesis, and if you are into creative synthe
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6. </span>Additive Synthesis</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>Additive Synthesis</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="subtractive-synthesis.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Subtractive Synthesis</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Subtractive Synthesis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

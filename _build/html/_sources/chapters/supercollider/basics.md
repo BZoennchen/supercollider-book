@@ -4,12 +4,21 @@ Before we go into the details I have to say that, comming from programming langu
 However, this first expression hides the fact that a lot of decisions regarding the syntax makes sence at second glance.
 So don't be scared by the first impression.
 
+In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
+By only reading this section and [The Ecosystem](sec-ecosystem) you have a good building ground to start your discovery with the SuperCollider platform.
+
 ## Code Execution
+
+The [SuperCollider IDE](sec-scide) (SCIDE) is build for interaction.
+If you are familiar with the concept of Notebooks, for example Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
+The idea is that you can execute code while developing.
+Instead of writing a complete program you are constantly stimulated to run small code snippets.
+In live coding this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.
 
 ### Triggering the Evaluation
 
 Let's start!
-Let's write some **sclang** code and execute it via the REPL (Read–Eval–Print Loop).
+Let's write some ``sclang`` code and execute it via the REPL (Read–Eval–Print Loop).
 
 To execute the following line press ``SHIFT`` + ``RETURN`` while your cursor is at the code line.
 
@@ -121,7 +130,7 @@ In the [documentation](https://doc.sccode.org/Guides/WritingPrimitives.html) we 
 >``g->sp`` is the top of the stack and is the last argument pushed. ``g->sp - inNumArgsPushed + 1`` is the **receiver** and where the result goes.
 
 In our case ``g->sp`` is the ``String`` object.
-This interaction between **sclang** and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
+This interaction between ``sclang`` and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
 As long as we do not write our own [primitives](https://doc.sccode.org/Guides/WritingPrimitives.html) we can ignore the ``C++`` interaction.
 
 ### Order of Execution
@@ -328,7 +337,7 @@ a.at([2, 3]); // [3, 4]
 ```
 
 In signal processing we want to manipulate elements of such a sequence.
-Therefore, an ``Array`` in **sclang** is implemented accordingly.
+Therefore, an ``Array`` in ``sclang`` is implemented accordingly.
 
 ### Manipulation
 
@@ -372,7 +381,7 @@ We can **duplicate** an array ``k`` times by using ``!k``:
 
 ## Functions
 
-In **sclang** functions are first-class objects which means that a function can be an argument of another function.
+In ``sclang`` functions are first-class objects which means that a function can be an argument of another function.
 The language drives the programmer to make use of this fact in various ways.
 
 To define a function, we encapsulate its content by curly brackets, and to execute it, we call ``value`` on it:
