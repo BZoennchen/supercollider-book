@@ -143,9 +143,9 @@ name: fig-sawtooth
 The sawtooth wave with a frequency and amplitude of 1.
 ```
 
-I generated this plot using ``Python`` but we can do the same in **sclang**.
+I generated this plot using ``Python`` but we can do the same in ``sclang``.
 However, the $x$-axis will be always the number of the sample.
-Let us generate the plot in {numref}`Fig. {number} <fig-sawtooth>` using **sclang**:
+Let us generate the plot in {numref}`Fig. {number} <fig-sawtooth>` using ``sclang``:
 
 ```isc
 (
@@ -195,7 +195,7 @@ Therefore, the sawtooth wave can be the a starting point for modeling the sound 
 
 We can compute an approximation of the [sawtooth wave](sec-sawtooth-wave) by the technique of additive synthesis using Eq. {eq}`eq:saw:fourier:n`.
 
-In **sclang** we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) using the [UGen](sec-ugens) ``Saw``:
+In ``sclang`` we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) using the [UGen](sec-ugens) ``Saw``:
 
 ```isc
 {Saw.ar(220!2)*0.25}.play;
@@ -251,7 +251,7 @@ name: fig-square-20
 An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using $n=20$.
 ```
 
-In **sclang** we can generate the sound of a [square wave](sec-square-wave) using the [UGen](sec-ugens) ``Pulse``:
+In ``sclang`` we can generate the sound of a [square wave](sec-square-wave) using the [UGen](sec-ugens) ``Pulse``:
 
 ```isc
 {Pulse.ar(220!2) * 0.25;}.play;
@@ -311,7 +311,7 @@ name: fig-triangle-20
 An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using $n=5$.
 ```
 
-In **sclang** we can generate the sound of a [square wave](sec-triangle-wave) using the [UGen](sec-ugens) ``LFTri``:
+In ``sclang`` we can generate the sound of a [square wave](sec-triangle-wave) using the [UGen](sec-ugens) ``LFTri``:
 
 ```isc
 {LFTri.ar(220!2) * 0.25;}.play;
@@ -349,9 +349,9 @@ Ndef(\sine_sum, {
 :name: invalid-synthdef-arguments
 :class: important
 We are tempted to convert the variable ``n`` into an argument that we can change while the synth is playing!
-Here we enter the limits of a synth or in other words the difference between **sclang** and the code that is actually running on the audio server.
+Here we enter the limits of a synth or in other words the difference between ``sclang`` and the code that is actually running on the audio server.
 
-**sclang** is executed on the client.
+``sclang`` is executed on the client.
 Therefore, the ``do``-construct is executed on the client before the synth is sent to the server.
 In some sense, the synth is compiled and ``n`` is a variable which is fixed at run time.
 Consequently, changing ``n`` while the synth is playing will not change anything.

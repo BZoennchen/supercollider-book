@@ -60,7 +60,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Pattern" href="pattern.html" />
+    <link rel="next" title="4. Playing Pattern" href="pattern.html" />
     <link rel="prev" title="2. Basics" href="basics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -128,7 +128,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pattern.html">
-   4. Pattern
+   4. Playing Pattern
   </a>
  </li>
 </ul>
@@ -140,42 +140,42 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/terms.html">
-   5. Terms
+   6. Terms
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/additive-synthesis.html">
-   6. Additive Synthesis
+   7. Additive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/filters.html">
-   7. Filters
+   8. Filters
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   8. Subtractive Synthesis
+   9. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   9. Percussive Sound
+   10. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   10. Amplitude Modulation (AM)
+   11. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   11. Frequency Modulation (FM)
+   12. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   12. Drones
+   13. Drones
   </a>
  </li>
 </ul>
@@ -187,7 +187,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
-   13. Bibliography
+   14. Bibliography
   </a>
  </li>
 </ul>
@@ -199,12 +199,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/jump-right-in.html">
-   14. Building Sounds
+   15. Building Sounds
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/distributions.html">
-   15. Random distributions
+   16. Random distributions
   </a>
  </li>
 </ul>
@@ -363,7 +363,7 @@ Therefore, if we want a <code class="docutils literal notranslate"><span class="
 <blockquote>
 <div><p>Tracks the peak amplitude of a signal.</p>
 </div></blockquote>
-<p>I had a hard time to understand whats going on here, especially how one should deal with the arguments <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
+<p>I had a hard time to understand what is going on here, especially how one should deal with the arguments <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
 Why is this <code class="docutils literal notranslate"><span class="pre">UGen</span></code> even helpful?
 Isn’t the amplitude of a signal <span class="math notranslate nohighlight">\(y(t)\)</span> defined by <span class="math notranslate nohighlight">\(|y(t)|\)</span>?</p>
 <p>Well THE amplitude is not clearly defined at all.
@@ -386,8 +386,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52537143-2b39-416f-87b3-e486de4ac559">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-52537143-2b39-416f-87b3-e486de4ac559" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6402e5af-6150-4d08-a433-8a8be6005434">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-6402e5af-6150-4d08-a433-8a8be6005434" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -424,12 +424,12 @@ I conclude that these values should be greater than <span class="math notranslat
 Here we cut the noisy sound if its amplitude measured by <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> is below 0.2.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span> 
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">);</span>
 <span class="p">}.</span><span class="nx">play</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.1</span></code> is true, it returns (on the server-side) not true but 1.
+<p>As longas <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.2</span></code> is true, it returns (on the server-side) not true but 1.
 Otherwise the expression is evaluated to 0.</p>
 </div>
 </div>
@@ -469,7 +469,7 @@ Otherwise the expression is evaluated to 0.</p>
     <a class='right-next' id="next-link" href="pattern.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Pattern</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Playing Pattern</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,13 +1,26 @@
 # Basics
 
+Before we go into the details I have to say that, comming from programming languages such as ``Java``, ``C`` and ``Python``, the snytax of ``sclang`` is not the most beautiful.
+However, this first expression hides the fact that a lot of decisions regarding the syntax makes sence at second glance.
+So don't be scared by the first impression.
+
+In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
+By only reading this section and [The Ecosystem](sec-ecosystem) you have a good building ground to start your discovery with the SuperCollider platform.
+
 ## Code Execution
+
+The [SuperCollider IDE](sec-scide) (SCIDE) is build for interaction.
+If you are familiar with the concept of Notebooks, for example Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
+The idea is that you can execute code while developing.
+Instead of writing a complete program you are constantly stimulated to run small code snippets.
+In live coding this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.
 
 ### Triggering the Evaluation
 
 Let's start!
-Let's write some **sclang** code and execute it via the REPL (Read–Eval–Print Loop).
+Let's write some ``sclang`` code and execute it via the REPL (Read–Eval–Print Loop).
 
-To execute the following line press ``SHIFT`` + ``RETURN``.
+To execute the following line press ``SHIFT`` + ``RETURN`` while your cursor is at the code line.
 
 ```isc
 "Hello World!".postln;
@@ -30,7 +43,7 @@ For example:
 )
 ```
 
-In both cases you will notice that in the post windows the last line is printed twice.
+In both cases you will notice that the last line is printed twice in the post windows.
 This is because the last statement will always be printed on the post window.
 
 Similar to any other object-oriented language, we call a **method** ``postln`` on the **object** representing a ``String``.
@@ -117,19 +130,25 @@ In the [documentation](https://doc.sccode.org/Guides/WritingPrimitives.html) we 
 >``g->sp`` is the top of the stack and is the last argument pushed. ``g->sp - inNumArgsPushed + 1`` is the **receiver** and where the result goes.
 
 In our case ``g->sp`` is the ``String`` object.
-This interaction between **sclang** and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
+This interaction between ``sclang`` and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
 As long as we do not write our own [primitives](https://doc.sccode.org/Guides/WritingPrimitives.html) we can ignore the ``C++`` interaction.
 
 ### Order of Execution
 
-In **sclang** the code is strictly evaluated from left to the right.
+In ``sclang`` the code is strictly evaluated from left to the right.
 This means that all operands have the same priority which might lead to unexpected results.
 
 ```isc
 4 + 4 * 5
 ```
 
-gives ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``. 
+gives ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
+
+```{admonition} Order of Execution 
+:name: important-order-of-execution
+:class: important
+``sclang`` uses a *strictly left to right order of execution*.
+```
 
 ## Variables and Scope
 
@@ -137,6 +156,13 @@ Here we encounter the first inconvenient.
 In [(SC)](https://supercollider.github.io/) there are some special pre-defined variables. 
 Each **single character variable** ``[a-z]`` is pre-defined and globally available.
 They are called *Interpreter variables*.
+
+```{admonition} The Local Server Variable 
+:name: important-local-server-variable
+:class: important
+By default the variable ``s`` holds a reference to the local audio server.
+```
+
 
 If you come from a modern programming language, this is strange. 
 However, it is often useful for prototyping in [(SC)](https://supercollider.github.io/). 
@@ -288,11 +314,11 @@ We can access an element by ``.at(index)`` or by the shorthand ``@index``:
 (
 a = [1, 2, 3, 4];
 a.at(2); // 3
-a@2; // 3
 )
 ```
 
-This also works with an array of indices:
+Instead of ``at`` we can use the ``a@2;`` as shorthand. 
+Similar to ``numpy`` arrays, can also index multiple entries at once:
 
 ```isc
 (
@@ -311,7 +337,7 @@ a.at([2, 3]); // [3, 4]
 ```
 
 In signal processing we want to manipulate elements of such a sequence.
-Therefore, an ``Array`` in **sclang** is implemented accordingly.
+Therefore, an ``Array`` in ``sclang`` is implemented accordingly.
 
 ### Manipulation
 
@@ -355,7 +381,7 @@ We can **duplicate** an array ``k`` times by using ``!k``:
 
 ## Functions
 
-In **sclang** functions are first-class objects which means that a function can be an argument of another function.
+In ``sclang`` functions are first-class objects which means that a function can be an argument of another function.
 The language drives the programmer to make use of this fact in various ways.
 
 To define a function, we encapsulate its content by curly brackets, and to execute it, we call ``value`` on it:
@@ -366,11 +392,11 @@ var func = {
   var x = 10;
   x;
 };
-func.value();      // returns 10
+func.value();   // returns 10
 )
 ```
 
-We actually can skip ``value`` within a function call
+We actually do not have to write down ``value`` to call a function
 
 ```isc
 (
@@ -378,11 +404,13 @@ var func = {
   var x = 10;
   x;
 };
-func.();      // returns 10
+func.();   // returns 10
 )
 ```
 
-In **sclang** there is no ``return`` keyword.
+This looks a little bit weird but works just fint.
+
+In ``sclang`` there is no ``return`` keyword.
 We only have to call ``func.value`` for functions and not for methods of an object or class.
 A functions always returns the content of the last evaluated statement, in this case ``x``.
 In my personal opinion an additional keyword can make the code more readable.
@@ -406,9 +434,9 @@ var func = {
         rand(20);
     });
 };
-func.value(11).postln;
-func.value(11).postln;
-func.value(11).postln;
+func.(11).postln;
+func.(11).postln;
+func.(11).postln;
 )
 ```
 
@@ -429,9 +457,9 @@ var func = {
         r;
     });
 };
-func.value(11).postln;
-func.value(11).postln;
-func.value(11).postln;
+func.(11).postln;
+func.(11).postln;
+func.(11).postln;
 )
 ```
 
@@ -448,9 +476,9 @@ var func = {
         r;
     });
 };
-func.value(11, val).postln;
-func.value(11, val).postln;
-func.value(11, val).postln;
+func.(11, val).postln;
+func.(11, val).postln;
+func.(11, val).postln;
 )
 ```
 
@@ -464,8 +492,8 @@ var add = {
     arg a = 5, b;
     a + b;
 };
-add.value(a: 6, b: 11) // returns 17
-add.value(b: 11) // returns 16
+add.(a: 6, b: 11) // returns 17
+add.(b: 11) // returns 16
 )
 ```
 
@@ -478,13 +506,13 @@ Furthermore, there is another rather strange shortcut:
 var add = {|a = 5, b|
     a + b;
 };
-add.value(b: 11) // returns 16
+add.(b: 11) // returns 16
 )
 ```
 
 ## Basic Control Structures
 
-In **sclang**, control sequences are functions.
+In ``sclang``, control sequences are functions.
 They expect one or multiple functions that are executed conditionally.
 We already saw the ``if``-Functions which expects one boolean expression (a predicate) and two functions.
 
@@ -531,13 +559,13 @@ To be more flexible and to use different predicates one can use the ``caee``-fun
 
 ## Classes and Objects
 
-In **sclang** the constructor of an object is called by ``Classname.new``.
+In ``sclang`` the constructor of an object is called by ``Classname.new``.
 
 ```isc
 var numbers = Array.new(10);
 ```
 
-However, we omit the ``new``:
+However, we can omit the ``new``.
 
 ```isc
 var numbers = Array(10);
@@ -545,29 +573,29 @@ var numbers = Array(10);
 
 Classes can contain class-methods (static methods) and object-methods.
 A class-method starts with an ``*``.
-For example I implemented a new class ``Utils`` with offering a class-method ``initUtils`` that creates all the useful analyzing tools depicted in {numref}`Fig. {number} <fig-ide-tools>`.
+For example I implemented a new class ``Utils`` which offers a **class-method** ``initUtils`` that initializes all the useful analyzing tools depicted in {numref}`Fig. {number} <fig-ide-tools>`.
 
 ```isc
 Utils {
     *initTools {
         arg activateLimiter = false;
-        // boot server
+        // reboot all
         Server.killAll;
         Server.local.options.numBuffers = 1024 * 16;
         Server.local.options.memSize = 8192 * 64;
         Server.local.boot;
-        //Server.local.quit;
+        Server.local.waitForBoot(onComplete: {
+            // re-initialize tools
+            Server.local.makeWindow;
+            Server.local.meter;
+            Server.local.scope;
+            FreqScope.new;
+            Server.local.plotTree;
 
-        // server tools
-        Server.local.makeWindow;
-        Server.local.meter;
-        Server.local.scope;
-        FreqScope.new;
-        Server.local.plotTree;
-
-        if(activateLimiter) {
-            StageLimiter.activate;
-        }
+            if(activateLimiter) {
+                StageLimiter.activate;
+            }
+        });
     }
 }
 ```
@@ -592,6 +620,35 @@ First the origin array ``this`` is copied.
 Then elements are swapped accordingly.
 And finally the copy ``res`` is returned.
 The expression ``res.size div: 2;`` is equivialent to ``res.size / 2;`` or ``res.size.div(2);``.
+
+Let us look at another example, i.e., the class ``Complex``:
+
+```isc
+Complex : Number {
+    var <>real, <>imag;
+
+    *new { arg real, imag;
+        ^super.newCopyArgs(real, imag);
+    }
+
+    + { arg aNumber, adverb;
+        if ( aNumber.isNumber, {
+            ^Complex.new(real + aNumber.real, imag + aNumber.imag)
+        },{
+            ^aNumber.performBinaryOpOnComplex('+', this, adverb)
+        });
+    }
+...
+```
+
+Tha class has two attributes  ``real`` and ``img`` indicated by the ugly ``<>`` and initialized by the constructor.
+Furthermore, it has a method ``+`` which takes one non optional and one optional argument.
+``aNumber`` is another complex number and ``adverb`` is a modifier that modifies, in this case, modifies the plus operation.
+If we ignore the second argument, the ``+`` method returns a new complex number by adding two complex numbers together.
+Therefore, ``+`` is a pure function.
+
+I may come back to object-oriented programming with ``sclang`` but for now we do not really need it.
+The best way to learn more about it, is to look into the source code pressing ``i + CMD``.
 
 ## A First Sine Wave
 
@@ -685,7 +742,7 @@ This gives us much more control over the sound creation.
 ```isc
 (
 // (1) Define a new SynthDef / a blueprint for a Synth
-var synthDef = SynthDef.new(\sineWave, {
+var synthDef = SynthDef(\sineWave, {
     arg freq=200;
     var sig, env;
 
@@ -749,7 +806,7 @@ For example, the following ``SynthDef`` creates ``Synth`` of equal frequency whi
 
 
 ```isc
-SynthDef.new(\sineWave, {
+SynthDef(\sineWave, {
     var sig, env;
 
     env = EnvGen.kr(Env.perc, doneAction: Done.freeSelf);
@@ -763,7 +820,7 @@ Therefore, each time we create a ``Synth`` it sounds the same.
 However, we can use the [UGen](sec-ugens) ``Rand`` which is evaluated when we actually play the ``Synth``:
 
 ```isc
-SynthDef.new(\sineWave, {
+SynthDef(\sineWave, {
     var sig, env;
 
     env = EnvGen.kr(Env.perc, doneAction: Done.freeSelf);

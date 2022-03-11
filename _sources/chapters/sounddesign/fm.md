@@ -1,12 +1,26 @@
 (sec-fm)=
 # Frequency Modulation (FM)
 
+FM is the most common encoding technique for public radio transmission (hence 'FM' radio) by using frequencies that are out of the limits of human hearing.
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.
 In other words, we change the frequency of a signal over time.
 
-FM for sound design was discovered by John Chowning by accident in the mid-'60s.
+FM for sound design was discovered by John Chowning by accident in the mid-60s.
 He wanted to generate vibrato effects but noticed that when he increased the modulating frequency, a new complex sound appears.
-FM is the most common encoding technique for public radio transmission (hence 'FM' radio) by using frequencies which out of the limits of human hearing.
+
+```isc
+// vibrato example using a low modulation frequency
+({
+    var sig, freq_car, freq_mod, amp_car, amp_mod;
+    freq_car = 300;
+    freq_mod = 10;
+    amp_car = 0.5;
+    amp_mod = freq_car * 0.05;
+    sig = amp_car * SinOsc.ar(freq_car + (amp_mod * SinOsc.ar(freq_mod)));
+    sig;
+}.play;)
+```
+
 Chowning pushed for commercial use but none of the American manufacturers saw the potential of FM.
 In desperation, Stanford turned to the Japanese manufacturer Yamaha.
 As a consequence of the success of FM synthesis, the company sold millions of FM synthesizers, organs and home keyboards.
@@ -47,20 +61,22 @@ If the frequency of the modulator $f_{\text{mod}}$ is small, than we achieve a s
 Try the following code snippet!
 
 ```isc
+// another vibrato example
 (
+Spec.add(\freq_mod, [0.2, 20]);
+Spec.add(\freq_car, [50, 1000]);
+Spec.add(\amp_mod, [1, 1000]);
 Ndef(\fm_low_mod, {
-    var freq = 300;
-    var mod = SinOsc.ar(freq/100)*5;
-    SinOsc.ar(freq + mod) * 0.5 ! 2;
+    var mod = SinOsc.ar(\freq_mod.kr(2)) * \amp_mod.kr(5);
+    SinOsc.ar(\freq_car.kr(200) + mod) * 0.5 ! 2;
 }).play;
 )
+Ndef(\fm_low_mod).gui;
 ```
 
 Here we use 
 
-\begin{equation}
-f_{\text{mod}} = f_\text{car} \cdot 10^{-2}
-\end{equation}
+$$f_{\text{mod}} = f_\text{car} \cdot 10^{-2}$$
 
 such that the $f_{\text{mod}}$ is two magnitudes smaller than the carrier frequency.
 The effect is a cyclical squeezing and stretching of the carrier waveform.
@@ -68,15 +84,18 @@ It is astonishing how sensitive the human hearing is.
 We recognize the low frequency within the overall sine wave, that is, we hear the slowly changing wave shape even if the change is very small.
 Those small changes result in a vibration similar to the effect of a violinist moving her or his finger positioned on the string in slightly different positions.
 
+```{admonition} Vibrato
+:name: remark-vibrato-ugen
+:class: remark
+There is a ``UGen`` called [Vibrato](https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html) to introduce vibrato after a decay time.
+```
+
+The following sounds similar to the first example above.
+
 ```isc
-(
-Spec.add(\modfreq, [1, 600]);
-Ndef(\fm_low_mod, {
-    var mod = SinOsc.ar(\modfreq.kr(2)) * 5;
-    SinOsc.ar(\freq.kr(200) + mod) * 0.5 ! 2;
-}).play;
-)
-Ndef(\fm_low_mod).gui;
+// vibrato with 10 Hz wobble, starting after 2 second and ramping up over 1 second
+// the amplitude is 5 percent of the frequency i.e. 300 * 0.05.
+({SinOsc.ar(Vibrato.kr(freq: 300, rate: 10, decay: 2, depth: 0.05, onset: 1));}.play;)
 ```
 
 ## Sirens
@@ -86,11 +105,13 @@ At some point, the modulation becomes a form of distortion within the individual
 To make the distortion more prominent, we have to increase the amplitude of the modulator -- a portion of the carrier frequency $f_{\text{car}}$ is a good starting point.
 
 ```isc
+// fm with a high modulator frequency and amplitude
 (
-Spec.add(\modfreq, [1, 600]);
+Spec.add(\freq_mod, [1, 2000]);
+Spec.add(\freq_car, [1, 1000]);
 Ndef(\fm_low_mod, {
-    var mod = SinOsc.ar(\modfreq.kr(2)) * \freq.kr(200);
-    SinOsc.ar(\freq.kr(200) + mod) * 0.5 ! 2;
+    var mod = SinOsc.ar(\freq_mod.kr(800)) * \freq_car.kr(400);
+    SinOsc.ar(\freq_car.kr(400) + mod) * 0.5 ! 2;
 }).play;
 )
 Ndef(\fm_low_mod).gui;
@@ -104,7 +125,7 @@ Let us look at this distortion by plotting $y(t)$ for $f_{\text{car}} = f_{\text
 
 ```isc
 (
-({
+    ({
     var freq, mod, sig;
     freq = 200;
     mod = SinOsc.ar(freq) * freq;
@@ -127,9 +148,7 @@ How many frequencies are present?
 Well, in theory infinite amount!
 Fortunately, there is a formula for the frequencies $f_{\text{sb},n^{\pm}}$ of the side-bands
 
-\begin{equation}
-f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},
-\end{equation}
+$$f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},$$
 
 with $n \in \mathbb{N}$.
 
@@ -142,17 +161,35 @@ Snapshot of the stethoscope using a logarithmic frequency scale ($x$-axis).
 ```
 
 If we want to keep the same side band relation for different carrier frequencies, we have to compute the modulation frequency based on the carrier frequency.
+
+```{admonition} Side Band Frequencies
+:name: remark-side-band-amplitude
+:class: remark
+A linear relation between $f_\text{car}$ and $f_\text{mod}$ keeps the side bands similar.
+```
+
 Therefore, it is useful to introduce a ratio:
 
-\begin{equation}
-r_{\text{mod}} = \frac{f_\text{car}}{f_\text{mod}}
-\end{equation}
+$$r_{\text{mod}} = \frac{f_\text{car}}{f_\text{mod}}$$
 
 such that
 
-\begin{equation}
-f_\text{mod} = f_\text{car} \cdot r^{-1}_{\text{mod}}.
-\end{equation}
+$$f_\text{mod} = f_\text{car} \cdot r^{-1}_{\text{mod}}.$$
+
+```isc
+// fm using the ratio to keep the bandwidth realtion the same
+// while varying the carrier frequency
+(
+Spec.add(\ratio, [1/10, 10]);
+Spec.add(\freq_car, [1, 1000]);
+Ndef(\fm_low_mod, {
+    var freq_mod = \freq_car.kr(400) * \ratio.kr(1);
+    var mod = SinOsc.ar(freq_mod) * \freq_car.kr(400);
+    SinOsc.ar(\freq_car.kr(400) + mod) * 0.5 ! 2;
+}).play;
+)
+Ndef(\fm_low_mod).gui;
+```
 
 ## Side Band Amplitudes
 
@@ -169,31 +206,29 @@ Also, the amplitude of the modulator is not solely responsible for this effect b
 The so called *modulation index* gives us this relationship.
 It is equal to the ratio of frequency deviation of $y(t)$ and the modulation frequency $f_{\text{mod}}$:
 
-\begin{equation}
-\beta(t) = A_{\text{mod}} \frac{d \sin(2\pi f_{\text{mod}} \cdot t)}{dt} \cdot f_{\text{mod}}^{-1}
-\end{equation}
+$$\beta(t) = A_{\text{mod}} \frac{d \sin(2\pi f_{\text{mod}} \cdot t)}{dt} \cdot f_{\text{mod}}^{-1}$$
 
 We can compute the *maximum modulation index* $\beta_{\text{max}}$ by
 
-\begin{equation}
-\beta_{ \text{max} } = \frac{ A_{\text{mod}} }{ f_{\text{mod}} }.
-\end{equation}
+$$\beta_{ \text{max} } = \frac{ A_{\text{mod}} }{ f_{\text{mod}} }.$$
 
-If we want to have the approximately the same harmonic relationship for all keys on the keyboard, we have to change both $f_{\text{car}}$ and $f_{\text{mod}}$ accordingly while playing.
+If we want to have approximately the same harmonic relationship for all keys on the keyboard, we have to change both $f_{\text{car}}$ and $f_{\text{mod}}$ accordingly while playing.
 However, if we also want the same tone, we also have to adapt $A_{\text{mod}}$ such that $\beta_{ \text{max} }$ stays approximately constant, that is, we compute $A_{\text{mod}}$ by
 
-\begin{equation}
-A_{\text{mod}} = \beta_{\text{max}} \cdot f_{\text{mod}},
-\end{equation}
+$$A_{\text{mod}} = \beta_{\text{max}} \cdot f_{\text{mod}},$$
 
 and fix $\beta_{\text{max}}$ as we desire.
+
+```{admonition} Modulation Index
+:name: important-side-band-amplitude
+:class: remark
+The *modulation index*  $\beta_{\text{max}}$, that is,ratio of the modulation amplitude and the modulator frequency dertermines approximatly the amplitudes of the side bands as a whole.
+```
 
 Ok, but wait, we still have no formula for the amplitude of each pair of sidebands with frequency $f_{\text{sb},n^{\pm}}$.
 This amplitude is given by the *Bessel function (of first kind)*:
 
-\begin{equation}
-A_{ \text{sb},n^{\pm} } = J_n(\beta_\text{max}) = \sum^{\infty}_{k=0} \frac{ (-1)^k \cdot \left(\frac{\beta_\text{max}}{2}\right)^{n+2k} }{k! \cdot (n+k)!}.
-\end{equation}
+$$A_{ \text{sb},n^{\pm} } = J_n(\beta_\text{max}) = \sum^{\infty}_{k=0} \frac{ (-1)^k \cdot \left(\frac{\beta_\text{max}}{2}\right)^{n+2k} }{k! \cdot (n+k)!}.$$
 
 The series is a converging series and especially in our case where $\beta_\text{max}$ is not too large, the values of each term become very small very quick.
 
@@ -211,14 +246,12 @@ As we can see, $A_{ \text{sb},n^{\pm} }$ depends only on $\beta_\text{max}$ but 
 ## Bandwidth
 
 We stated that there are infinite amount of side bands.
-In practice that not the case.
+In practice that is not the case.
 Furthermore, the amplitude of many of these side bands might be too low to be recognized by our ears.
 
 As a rule of thump, the following formula gives an approximation of the bandwidth (where all side bands are contained in) of the signal:
 
-\begin{equation}
-2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).
-\end{equation}
+$$2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).$$
 
 Again the *modulation index* will determine the bandwidth.
 The larger the index, the larger the bandwidth.
@@ -227,16 +260,15 @@ The larger the index, the larger the bandwidth.
 
 Given $f_\text{car}$, $r_\text{mod}$, $\beta_\text{max}$ we compute $f_\text{mod}$ and  $A_\text{mod}$ by
 
-\begin{gather}
-f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod}\\
-A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
-\end{gather}
+\begin{equation}
+f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
+\end{equation}
 
 ## Example
 
-The following is an example FM synth, heavily inspired by the [tutorial](https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured) given by [Alik Rustamoff](https://reflectives.bandcamp.com/track/ikaere) 
+The following example is a FM synth heavily inspired by the [tutorial](https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured) given by [Alik Rustamoff](https://reflectives.bandcamp.com/track/ikaere) 
 It uses the relations above but instead of using only one modulator we use three.
-In the code ``f`` is $f_\text{car}$, ``modFreq1`` is $f_\text{mod}$, ``\ratio1`` is $r_\text{mod}$ and ``\modIndex1`` represents $\beta_text{max}$.
+In the code ``f`` is $f_\text{car}$, ``modFreq1`` is $f_\text{mod}$, ``\ratio1`` is $r_\text{mod}$ and ``\modIndex1`` represents $\beta_\text{max}$.
 Furthermore, we added some naturalization (distortion and more) to achieve a more gentle result.
 
 ```isc
@@ -257,29 +289,32 @@ SynthDef(\fm, {
     // f = f_car
     f = \freq.kr(220);
 
-    // (6.13a) f_mod = f_car * r^{-1}_mod + distortion
+    // (11.4a) f_mod = f_car * r^{-1}_mod + distortion
     modFreq1 = f * \ratio1.kr(2).reciprocal + {Rand(-2, 2)}.dup;
     modFreq2 = f * \ratio2.kr(3).reciprocal + {Rand(-2, 2)}.dup;
     modFreq3 = f * \ratio3.kr(4).reciprocal + {Rand(-2, 2)}.dup;
 
-    // (6.13b) A_mod = f_mod + beta_max
+    // (11.4b) A_mod = f_mod + beta_max
     ampmod1 = modFreq1 * \modIndex1.kr(1);
     ampmod2 = modFreq2 * \modIndex2.kr(0.5);
     ampmod3 = modFreq3 * \modIndex3.kr(0.8);
 
-    // (partly 6.2 multiplied with env) A_mod * sin(2pi*f_mod t)
+    // (partly 11.2 multiplied with env) A_mod * sin(2pi*f_mod t)
     // effectively reduces the modulation index beta_max over time
     mod1 = SinOsc.ar(modFreq1) * ampmod1 * env;
     mod2 = SinOsc.ar(modFreq2) * ampmod2 * env;
     mod3 = SinOsc.ar(modFreq3) * ampmod3 * env;
 
-    // (6.1 or 6.3) y(t) = A_car * sin(f_car + A_mid * sin(2pi*f_mod t) t)
+    // (11.1 or 11.3) y(t) = A_car * sin(f_car + A_mid * sin(2pi*f_mod t) t)
     car = \amp.kr(0.5) * SinOsc.ar(
         // f_car
         f +
         // changes the effective carrier frequency over time (low frequency) [\pm 5 * 10^{-3} * f_car; 0]
-        LFTri.ar(env.pow(0.5) * LFNoise1.kr(0.3).range(1,5), Rand(0.0,2pi), mul: env.pow(0.2) * f * 0.005) +
-        // distortion [-f/8; +f/8] but the noise is smoothen (its more like a Brownian motion.
+        LFTri.ar(
+            freq: env.pow(0.5) * LFNoise1.kr(0.3).range(1,5), 
+            iphase: Rand(0.0,2pi), 
+            mul: env.pow(0.2) * f * 0.005) +
+        // distortion [-f/8; +f/8] but the noise is smoothen (it imitates a Brownian motion).
         WhiteNoise.ar(f/8!2).lag(0.001) +
         // f_mod
         [mod1,mod2,mod3].sum);
@@ -299,8 +334,8 @@ Let us play the synth:
 Pbind(
     \instrument, \fm,
     \dur, Pshuf(2.pow((-4..1)), inf),
-    \degree, Pshuf([0, 2, 5, 6, 8, 11], inf),
-    \octave, Pstutter(3, Pseq([3,4,5], inf)),
+	\degree, Pshuf([0, 2, 5, 6, 8, 11], inf),
+	\octave, Pdup(Prand([2,3,4], inf), Pseq([3,4,5], inf)),
 ).play;
 )
 ```
