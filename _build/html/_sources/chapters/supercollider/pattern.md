@@ -505,7 +505,7 @@ However, we need ``dur`` if we not only play one event but a ``Stream`` of event
 Remember, ``dur`` influences the scheduler of our musical events.
 We can see the effect if we play a stream of events.
 
-## Playing Pbind
+## Playing Pbinds
 Let us have a look.
 
 ```isc

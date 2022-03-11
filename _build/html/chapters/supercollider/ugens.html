@@ -327,30 +327,41 @@ The normal workflow goes as follows:</p>
 <li><p>define (all) our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> via <code class="docutils literal notranslate"><span class="pre">sclang</span></code></p></li>
 <li><p>we them (all) it to the audio sever <strong>scsynth</strong></p></li>
 <li><p>create a synth on the server</p></li>
+<li><p>remove the synth from the server</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="o">//</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">define</span> <span class="n">the</span> <span class="n">SynthDef</span>
-<span class="n">var</span> <span class="n">synthdef</span> <span class="o">=</span> <span class="n">SynthDef</span><span class="p">(</span>\<span class="n">sine_beep</span><span class="p">,</span> <span class="p">{</span>
-	<span class="n">arg</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="n">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
-	<span class="n">var</span> <span class="n">sig</span><span class="p">;</span>
-	<span class="n">sig</span> <span class="o">=</span> <span class="n">SinOsc</span><span class="o">.</span><span class="n">ar</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span> <span class="o">*</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">Env</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">ar</span><span class="p">(</span><span class="n">doneAction</span><span class="p">:</span> <span class="n">Done</span><span class="o">.</span><span class="n">freeSelf</span><span class="p">);</span>
-	<span class="n">Out</span><span class="o">.</span><span class="n">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="c1">// (1) define the SynthDef</span>
+<span class="kd">var</span> <span class="nx">synthdef</span> <span class="o">=</span> <span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]).</span><span class="kd">ar</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="kc">freq:</span> <span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="nx">amp</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">add</span> <span class="n">it</span> <span class="n">to</span> <span class="n">the</span> <span class="n">audio</span> <span class="n">server</span> <span class="n">scsynth</span>
-<span class="n">synthdef</span><span class="o">.</span><span class="n">add</span><span class="p">;</span>
+<span class="c1">// (2) add it to the audio server scsynth</span>
+<span class="nx">synthdef</span><span class="p">.</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
-<span class="o">//</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">use</span> <span class="n">it</span> <span class="n">by</span> <span class="n">creating</span> <span class="n">Synth</span> <span class="n">of</span> <span class="n">the</span> <span class="n">SynthDef</span>
-<span class="n">Synth</span><span class="p">(</span>\<span class="n">sine_beep</span><span class="p">,</span> <span class="p">[</span><span class="n">freq</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="n">amp</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">]);</span>
+<span class="c1">// (3) use it by creating Synth of the SynthDef</span>
+<span class="nb">Synth</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">[</span><span class="kc">freq:</span> <span class="mi">200</span><span class="p">,</span> <span class="kc">amp:</span> <span class="mf">0.4</span><span class="p">]);</span>
+
+<span class="c1">// (4) the synth removes itself because we specied doneAction: Done.freeSelf</span>
 </pre></div>
 </div>
 <p>If we put the last line within the namespace of the rest above, the evaluation will cause an error because adding a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server takes time and is an asynchronous non-blocking process.
 If you want to perform, it is good practice to add all your synth definition beforehand.</p>
-<p>In the last line, the server <strong>scsynth</strong> executes a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> defined by a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> identified by its name <code class="docutils literal notranslate"><span class="pre">\sine_beep</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;sine_beep&quot;</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> consists of so called <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> (unit generators).
+<p>In the last executable line, the server <strong>scsynth</strong> executes a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> defined by a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> identified by its name <code class="docutils literal notranslate"><span class="pre">\sine_beep</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;sine_beep&quot;</span></code>.
+After 0.01 + 0.4 seconds our envelope ends and garbage collection is triggered.
+The done action tells the server to remove the played synth.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> consists of so called <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> (unit generators).
 A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> represents a directed signal graph where each node is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and each edge is the signal output of one <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and the signal input of another <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.
-There are osillators that have no signal input.
+The graph can be drawn as a <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>.</p>
+<div class="figure align-default" id="fig-sfg-example">
+<a class="reference internal image-reference" href="../../_images/sfg-example.png"><img alt="../../_images/sfg-example.png" src="../../_images/sfg-example.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">SFG of the example above which consist of three <code class="docutils literal notranslate"><span class="pre">UGen</span></code>. The envelope converts the mono signal into a stereo signal.</span><a class="headerlink" href="#fig-sfg-example" title="Permalink to this image">¶</a></p>
+</div>
+<p>There are osillators, called <em>sources</em> that have no signal input.
 They build the starting points!</p>
 <div class="admonition-ugen admonition" id="def-ugen">
 <p class="admonition-title">UGen</p>
@@ -358,7 +369,24 @@ They build the starting points!</p>
 They are the basic building blocks of synth definitions on the server, and are used to generate or process both audio and control signals.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">UGens</span></code> are used to analyse, synthesize, and process signals at audio <code class="docutils literal notranslate"><span class="pre">ar</span></code> and control <code class="docutils literal notranslate"><span class="pre">kr</span></code> (or initialization only <code class="docutils literal notranslate"><span class="pre">ir</span></code>) rate.
-<a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> provides us with many different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are client-side representations of the unit generators.</p>
+The audio rate is much higher than the control rate.</p>
+<div class="remark admonition" id="remark-control-rate">
+<p class="admonition-title">Control Rate</p>
+<p>If precision is not important (e.g. in case of <a class="reference internal" href="../sounddesign/terms.html#sec-lfo"><span class="std std-ref">low frequency oscillators (LFOs)</span></a>) one should use the control rate <code class="docutils literal notranslate"><span class="pre">kr</span></code> to save CPU resources.</p>
+</div>
+<p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> provides us with over 250 different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are client-side representations of the unit generators.
+They can be categorized into:</p>
+<ul class="simple">
+<li><p>sources: periodic, aperiodic</p></li>
+<li><p>filters</p></li>
+<li><p>distortion</p></li>
+<li><p>panning</p></li>
+<li><p>reverbs</p></li>
+<li><p>delays and buffer ugens</p></li>
+<li><p>granular synthesis</p></li>
+<li><p>control: envelopes, trigger, counters, gates, lags, decays</p></li>
+<li><p>spectral</p></li>
+</ul>
 <div class="important admonition">
 <p class="admonition-title">UGen execution</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">UGen</span></code> is executed on the server!</p>
@@ -388,7 +416,8 @@ Playing the synth by creating a <code class="docutils literal notranslate"><span
 <p>Both <code class="docutils literal notranslate"><span class="pre">SythDefs</span></code> look similar but <code class="docutils literal notranslate"><span class="pre">\crndsine</span></code> uses a client-side random generator, where <code class="docutils literal notranslate"><span class="pre">\srndsine</span></code> uses a server-side one, that is, the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <code class="docutils literal notranslate"><span class="pre">Random</span></code>.
 Since <code class="docutils literal notranslate"><span class="pre">rrand</span></code> is evaluated when the we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, each synth of this <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> will generate a randomly chosen sound which is the same for all synths.
 Therefore, if we want a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> that generates a random sound whenever it is created we need server-side randomness using a suitable <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</p>
-<p>In the following, I discuss certain <code class="docutils literal notranslate"><span class="pre">UGens</span></code> which I had difficulties to understand.</p>
+<p>In the following, I discuss certain <code class="docutils literal notranslate"><span class="pre">UGens</span></code> which I had difficulties to understand.
+For all the well documented <code class="docutils literal notranslate"><span class="pre">UGens</span></code> such as <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Saw.html">Saw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFTri.html">LFTri</a>, I refer to the <a class="reference external" href="https://doc.sccode.org/Guides/Tour_of_UGens.html">official documentation</a>.</p>
 <div class="section" id="amplitude">
 <h2><span class="section-number">3.1. </span>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h2>
 <p>In the description of the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://doc.sccode.org/Classes/Amplitude.html">Amplitude</a> we find the following statement:</p>
@@ -415,11 +444,11 @@ For example, we say that the following signal</p>
 <p>has an amplitude of <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
 <div class="figure align-default" id="fig-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/amplitude-sine.png"><img alt="../../_images/amplitude-sine.png" src="../../_images/amplitude-sine.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-19f21cd8-5989-422e-ac79-7b3618cc29b8">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-19f21cd8-5989-422e-ac79-7b3618cc29b8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-168ba7a5-a425-4d6a-8314-9abed9457f89">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-168ba7a5-a425-4d6a-8314-9abed9457f89" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -442,7 +471,7 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
 </div>
 <div class="figure align-default" id="fig-all-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/all-amplitude-sine.png"><img alt="../../_images/all-amplitude-sine.png" src="../../_images/all-amplitude-sine.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>Somehow <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> underestimates the perceive loudness quite a bit.</p>
 <p>Futhermore, we have to tell <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> the time period the signal loudness increases <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and the time period the amplitude decreases <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.

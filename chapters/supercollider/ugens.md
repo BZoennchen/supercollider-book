@@ -9,15 +9,17 @@ The normal workflow goes as follows:
 1. define (all) our ``SynthDef`` via ``sclang``
 2. we them (all) it to the audio sever **scsynth**
 3. create a synth on the server
+4. remove the synth from the server
 
-```
+```isc
 (
 // (1) define the SynthDef
 var synthdef = SynthDef(\sine_beep, {
-	arg freq = 440, amp = 0.5;
-	var sig;
-	sig = SinOsc.ar(freq) * amp * Env([0,1,0], [0.01, 0.4], [5,-5]).ar(doneAction: Done.freeSelf);
-	Out.ar(0, sig);
+    arg freq = 440, amp = 0.5;
+    var sig, env;
+    env = Env([0,1,0], [0.01, 0.4], [5,-5]).ar(doneAction: Done.freeSelf);
+    sig = SinOsc.ar(freq: freq, mul: amp) * env!2;
+    Out.ar(0, sig);
 });
 
 // (2) add it to the audio server scsynth
@@ -26,15 +28,30 @@ synthdef.add;
 
 // (3) use it by creating Synth of the SynthDef
 Synth(\sine_beep, [freq: 200, amp: 0.4]);
+
+// (4) the synth removes itself because we specied doneAction: Done.freeSelf
 ```
 
 If we put the last line within the namespace of the rest above, the evaluation will cause an error because adding a ``SynthDef`` to the server takes time and is an asynchronous non-blocking process.
 If you want to perform, it is good practice to add all your synth definition beforehand.
 
-In the last line, the server **scsynth** executes a ``Synth`` defined by a ``SynthDef`` identified by its name ``\sine_beep`` or ``"sine_beep"``.
+In the last executable line, the server **scsynth** executes a ``Synth`` defined by a ``SynthDef`` identified by its name ``\sine_beep`` or ``"sine_beep"``.
+After 0.01 + 0.4 seconds our envelope ends and garbage collection is triggered.
+The done action tells the server to remove the played synth.
+
 The ``SynthDef`` consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
 A ``SynthDef`` represents a directed signal graph where each node is a ``UGen`` and each edge is the signal output of one ``UGen`` and the signal input of another ``UGen``.
-There are osillators that have no signal input.
+The graph can be drawn as a [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph).
+
+```{figure} ../../figs/supercollider/ugens/sfg-example.png
+---
+width: 800px
+name: fig-sfg-example
+---
+SFG of the example above which consist of three ``UGen``. The envelope converts the mono signal into a stereo signal.
+```
+
+There are osillators, called *sources* that have no signal input.
 They build the starting points!
 
 ```{admonition} UGen
@@ -44,7 +61,26 @@ They are the basic building blocks of synth definitions on the server, and are u
 ```
 
 ``UGens`` are used to analyse, synthesize, and process signals at audio ``ar`` and control ``kr`` (or initialization only ``ir``) rate.
-[SuperCollider (SC)](https://supercollider.github.io/) provides us with many different ``UGen``-classes which are client-side representations of the unit generators.
+The audio rate is much higher than the control rate.
+
+```{admonition} Control Rate
+:name: remark-control-rate
+:class: remark
+If precision is not important (e.g. in case of [low frequency oscillators (LFOs)](sec-lfo)) one should use the control rate ``kr`` to save CPU resources.
+```
+
+[SuperCollider (SC)](https://supercollider.github.io/) provides us with over 250 different ``UGen``-classes which are client-side representations of the unit generators.
+They can be categorized into:
+
++ sources: periodic, aperiodic
++ filters
++ distortion
++ panning
++ reverbs
++ delays and buffer ugens
++ granular synthesis
++ control: envelopes, trigger, counters, gates, lags, decays
++ spectral
 
 ```{admonition} UGen execution
 :class: important
@@ -81,6 +117,7 @@ Since ``rrand`` is evaluated when the we add the ``SynthDef``, each synth of thi
 Therefore, if we want a ``Synth`` that generates a random sound whenever it is created we need server-side randomness using a suitable ``UGen``.
 
 In the following, I discuss certain ``UGens`` which I had difficulties to understand.
+For all the well documented ``UGens`` such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html), [Saw](https://doc.sccode.org/Classes/Saw.html), [LFTri](https://doc.sccode.org/Classes/LFTri.html), I refer to the [official documentation](https://doc.sccode.org/Guides/Tour_of_UGens.html).
 
 ## Amplitude
 
