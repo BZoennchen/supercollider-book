@@ -1,3 +1,4 @@
+(sec-basics)=
 # Basics
 
 Before we go into the details I have to say that, coming from programming languages such as ``Java``, ``C`` and ``Python``, the syntax of ``sclang`` is not the most beautiful.
@@ -762,7 +763,7 @@ Synth(\sineWave);
 
 By calling ``SynthDef.new()`` or just ``SynthDef()`` we generate a new factory object that produces synth according to the ``SynthDef`` blueprint.
 On behalf of the perspective of the audio server **scsynth**, this factory object produces ``Synth`` objects!
-A ``SynthDef`` encapsulates the client-side representation of a given definition and provides methods for creating new defs, writing them to disk, and streaming them to a server.
+A ``SynthDef`` encapsulates the client-side representation of a synth definition and provides methods for creating new ``Synths``, writing them to disk, and streaming them to a server.
 
 Each ``SynthDef`` has a name which we have to use if we want to generate a ``Synth`` produced by ``SynthDef``.
 The name can either be a ``String`` ``"sineWave"`` or a symbol ``\sineWave``.

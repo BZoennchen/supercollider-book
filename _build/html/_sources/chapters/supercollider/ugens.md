@@ -1,8 +1,41 @@
 (sec-ugens)=
 # Unit Generators
 
-The server **scsynth** executes ``Synth`` defined by a ``SynthDef`` which consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (Unit Generators).
-``UGens`` are used to analyse, synthesize, and process signals at audio ``ar`` and control ``kr`` (or initialization only ``ir``) rate.
+In [Basics](sec-basics) we already talked about ``SynthDefs`` and ``Synths``.
+Let us recall.
+A ``SynthDef`` encapsulates the client-side representation of a synth definition and provides methods for creating new ``Synths`` on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.
+The normal workflow goes as follows:
+
+1. define (all) our ``SynthDef`` via ``sclang``
+2. we them (all) it to the audio sever **scsynth**
+3. create a synth on the server
+
+```
+(
+// (1) define the SynthDef
+var synthdef = SynthDef(\sine_beep, {
+	arg freq = 440, amp = 0.5;
+	var sig;
+	sig = SinOsc.ar(freq) * amp * Env([0,1,0], [0.01, 0.4], [5,-5]).ar(doneAction: Done.freeSelf);
+	Out.ar(0, sig);
+});
+
+// (2) add it to the audio server scsynth
+synthdef.add;
+)
+
+// (3) use it by creating Synth of the SynthDef
+Synth(\sine_beep, [freq: 200, amp: 0.4]);
+```
+
+If we put the last line within the namespace of the rest above, the evaluation will cause an error because adding a ``SynthDef`` to the server takes time and is an asynchronous non-blocking process.
+If you want to perform, it is good practice to add all your synth definition beforehand.
+
+In the last line, the server **scsynth** executes a ``Synth`` defined by a ``SynthDef`` identified by its name ``\sine_beep`` or ``"sine_beep"``.
+The ``SynthDef`` consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
+A ``SynthDef`` represents a directed signal graph where each node is a ``UGen`` and each edge is the signal output of one ``UGen`` and the signal input of another ``UGen``.
+There are osillators that have no signal input.
+They build the starting points!
 
 ```{admonition} UGen
 :name: def-ugen
@@ -10,11 +43,12 @@ A ``UGen`` represent calculations with a signal.
 They are the basic building blocks of synth definitions on the server, and are used to generate or process both audio and control signals.
 ```
 
+``UGens`` are used to analyse, synthesize, and process signals at audio ``ar`` and control ``kr`` (or initialization only ``ir``) rate.
 [SuperCollider (SC)](https://supercollider.github.io/) provides us with many different ``UGen``-classes which are client-side representations of the unit generators.
 
 ```{admonition} UGen execution
 :class: important
-A ``UGen`` runs on the server!
+A ``UGen`` is executed on the server!
 ```
 
 To understand ``UGens`` we have to understand the concept of client-side and server-side code evaluation.
