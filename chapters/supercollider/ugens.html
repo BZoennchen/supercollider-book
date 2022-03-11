@@ -319,17 +319,49 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="unit-generators">
 <span id="sec-ugens"></span><h1><span class="section-number">3. </span>Unit Generators<a class="headerlink" href="#unit-generators" title="Permalink to this headline">¶</a></h1>
-<p>The server <strong>scsynth</strong> executes <code class="docutils literal notranslate"><span class="pre">Synth</span></code> defined by a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> which consists of so called <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> (Unit Generators).
-<code class="docutils literal notranslate"><span class="pre">UGens</span></code> are used to analyse, synthesize, and process signals at audio <code class="docutils literal notranslate"><span class="pre">ar</span></code> and control <code class="docutils literal notranslate"><span class="pre">kr</span></code> (or initialization only <code class="docutils literal notranslate"><span class="pre">ir</span></code>) rate.</p>
+<p>In <a class="reference internal" href="basics.html#sec-basics"><span class="std std-ref">Basics</span></a> we already talked about <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> and <code class="docutils literal notranslate"><span class="pre">Synths</span></code>.
+Let us recall.
+A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> encapsulates the client-side representation of a synth definition and provides methods for creating new <code class="docutils literal notranslate"><span class="pre">Synths</span></code> on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.
+The normal workflow goes as follows:</p>
+<ol class="simple">
+<li><p>define (all) our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> via <code class="docutils literal notranslate"><span class="pre">sclang</span></code></p></li>
+<li><p>we them (all) it to the audio sever <strong>scsynth</strong></p></li>
+<li><p>create a synth on the server</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">//</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">define</span> <span class="n">the</span> <span class="n">SynthDef</span>
+<span class="n">var</span> <span class="n">synthdef</span> <span class="o">=</span> <span class="n">SynthDef</span><span class="p">(</span>\<span class="n">sine_beep</span><span class="p">,</span> <span class="p">{</span>
+	<span class="n">arg</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="n">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+	<span class="n">var</span> <span class="n">sig</span><span class="p">;</span>
+	<span class="n">sig</span> <span class="o">=</span> <span class="n">SinOsc</span><span class="o">.</span><span class="n">ar</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span> <span class="o">*</span> <span class="n">amp</span> <span class="o">*</span> <span class="n">Env</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">ar</span><span class="p">(</span><span class="n">doneAction</span><span class="p">:</span> <span class="n">Done</span><span class="o">.</span><span class="n">freeSelf</span><span class="p">);</span>
+	<span class="n">Out</span><span class="o">.</span><span class="n">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sig</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">add</span> <span class="n">it</span> <span class="n">to</span> <span class="n">the</span> <span class="n">audio</span> <span class="n">server</span> <span class="n">scsynth</span>
+<span class="n">synthdef</span><span class="o">.</span><span class="n">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="o">//</span> <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="n">use</span> <span class="n">it</span> <span class="n">by</span> <span class="n">creating</span> <span class="n">Synth</span> <span class="n">of</span> <span class="n">the</span> <span class="n">SynthDef</span>
+<span class="n">Synth</span><span class="p">(</span>\<span class="n">sine_beep</span><span class="p">,</span> <span class="p">[</span><span class="n">freq</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="n">amp</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>If we put the last line within the namespace of the rest above, the evaluation will cause an error because adding a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server takes time and is an asynchronous non-blocking process.
+If you want to perform, it is good practice to add all your synth definition beforehand.</p>
+<p>In the last line, the server <strong>scsynth</strong> executes a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> defined by a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> identified by its name <code class="docutils literal notranslate"><span class="pre">\sine_beep</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;sine_beep&quot;</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> consists of so called <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> (unit generators).
+A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> represents a directed signal graph where each node is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and each edge is the signal output of one <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and the signal input of another <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.
+There are osillators that have no signal input.
+They build the starting points!</p>
 <div class="admonition-ugen admonition" id="def-ugen">
 <p class="admonition-title">UGen</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">UGen</span></code> represent calculations with a signal.
 They are the basic building blocks of synth definitions on the server, and are used to generate or process both audio and control signals.</p>
 </div>
-<p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> provides us with many different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are client-side representations of the unit generators.</p>
+<p><code class="docutils literal notranslate"><span class="pre">UGens</span></code> are used to analyse, synthesize, and process signals at audio <code class="docutils literal notranslate"><span class="pre">ar</span></code> and control <code class="docutils literal notranslate"><span class="pre">kr</span></code> (or initialization only <code class="docutils literal notranslate"><span class="pre">ir</span></code>) rate.
+<a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> provides us with many different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are client-side representations of the unit generators.</p>
 <div class="important admonition">
 <p class="admonition-title">UGen execution</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">UGen</span></code> runs on the server!</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">UGen</span></code> is executed on the server!</p>
 </div>
 <p>To understand <code class="docutils literal notranslate"><span class="pre">UGens</span></code> we have to understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is executed when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server.
@@ -386,8 +418,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d82199a-505d-41be-b93e-f5622ceff3b9">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-3d82199a-505d-41be-b93e-f5622ceff3b9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-19f21cd8-5989-422e-ac79-7b3618cc29b8">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-19f21cd8-5989-422e-ac79-7b3618cc29b8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
