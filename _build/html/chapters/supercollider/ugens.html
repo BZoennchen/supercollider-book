@@ -363,7 +363,7 @@ Therefore, if we want a <code class="docutils literal notranslate"><span class="
 <blockquote>
 <div><p>Tracks the peak amplitude of a signal.</p>
 </div></blockquote>
-<p>I had a hard time to understand whats going on here, especially how one should deal with the arguments <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
+<p>I had a hard time to understand what is going on here, especially how one should deal with the arguments <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
 Why is this <code class="docutils literal notranslate"><span class="pre">UGen</span></code> even helpful?
 Isn’t the amplitude of a signal <span class="math notranslate nohighlight">\(y(t)\)</span> defined by <span class="math notranslate nohighlight">\(|y(t)|\)</span>?</p>
 <p>Well THE amplitude is not clearly defined at all.
@@ -386,8 +386,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52537143-2b39-416f-87b3-e486de4ac559">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-52537143-2b39-416f-87b3-e486de4ac559" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-448de7a9-2d66-4c3e-b3c5-87ae9868d41f">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-448de7a9-2d66-4c3e-b3c5-87ae9868d41f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -424,12 +424,12 @@ I conclude that these values should be greater than <span class="math notranslat
 Here we cut the noisy sound if its amplitude measured by <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> is below 0.2.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span> 
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="p">(</span><span class="nb">Amplitude</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">);</span>
 <span class="p">}.</span><span class="nx">play</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.1</span></code> is true, it returns (on the server-side) not true but 1.
+<p>As longas <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.2</span></code> is true, it returns (on the server-side) not true but 1.
 Otherwise the expression is evaluated to 0.</p>
 </div>
 </div>

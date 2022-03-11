@@ -54,7 +54,7 @@ In the description of the ``UGen`` called [Amplitude](https://doc.sccode.org/Cla
 
 >Tracks the peak amplitude of a signal.
 
-I had a hard time to understand whats going on here, especially how one should deal with the arguments ``attackTime`` and ``releaseTime``.
+I had a hard time to understand what is going on here, especially how one should deal with the arguments ``attackTime`` and ``releaseTime``.
 Why is this ``UGen`` even helpful?
 Isn't the amplitude of a signal $y(t)$ defined by $|y(t)|$?
 
@@ -138,10 +138,10 @@ Here we cut the noisy sound if its amplitude measured by ``Amplitude`` is below 
 ```isc
 ({ 
     var sig = WhiteNoise.ar(0.5!2) * 0.5 * SinOsc.kr(1);
-    sig * (Amplitude.ar(sig) > 0.1);
+    sig * (Amplitude.ar(sig) > 0.2);
 }.play
 )
 ```
 
-If ``Amplitude.ar(sig) > 0.1`` is true, it returns (on the server-side) not true but 1.
+As longas ``Amplitude.ar(sig) > 0.2`` is true, it returns (on the server-side) not true but 1.
 Otherwise the expression is evaluated to 0.

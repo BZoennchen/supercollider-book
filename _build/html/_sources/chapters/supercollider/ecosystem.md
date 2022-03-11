@@ -89,4 +89,4 @@ Different **scide** tools for analyzing and observing what is going on.
 One synth is running (a sine wave of 220 cycles per second).
 ```
 
-These tools, depicted in {numref}`Fig. {number} <fig-ide-tools>`, can be used to observe and analyse the state of the server as well as the signal processing.
+These tools, depicted in {numref}`Fig. {number} <fig-ide-tools>`, can be used to observe and analyze the state of the server as well as the signal processing.
