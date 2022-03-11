@@ -345,16 +345,16 @@ Because filters often use some kind of feedback cycle, I find them difficult to 
 As we will see we can filter a signal by using a simple oscillator.</p>
 <p>Let us first combine two sine waves.
 The first two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cff336dc-e59f-4225-b735-0187043dd71b">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-cff336dc-e59f-4225-b735-0187043dd71b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-417be85e-89cc-4341-97bb-605a3f0c3453">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-417be85e-89cc-4341-97bb-605a3f0c3453" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t)
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-42286b0c-28d3-4c05-867f-bd7d6b3eb250">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-42286b0c-28d3-4c05-867f-bd7d6b3eb250" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9061a782-93eb-4a0e-b34b-494e7eb2f623">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-9061a782-93eb-4a0e-b34b-494e7eb2f623" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -366,8 +366,8 @@ Of course, we can not hear any difference between a sine wave and the same sine 
 Only in combination the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87ab06cd-ad2a-4afa-a266-5f00c33dfe1a">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-87ab06cd-ad2a-4afa-a266-5f00c33dfe1a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79703bb2-a1bf-47e1-9594-f5721a68bf1b">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-79703bb2-a1bf-47e1-9594-f5721a68bf1b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -385,13 +385,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, that is, its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
 <p>In the fact, amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5717a3b-8df0-4f56-b408-f3f73a239d12">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-e5717a3b-8df0-4f56-b408-f3f73a239d12" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d41721db-0068-4e66-a79e-38d6c383a40c">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-d41721db-0068-4e66-a79e-38d6c383a40c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73aa83fc-90ca-4c52-8cb7-e33162919870">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-73aa83fc-90ca-4c52-8cb7-e33162919870" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a230a0cb-1de6-45e8-bc29-536afa2037c9">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-a230a0cb-1de6-45e8-bc29-536afa2037c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k = \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -431,8 +431,8 @@ With <code class="docutils literal notranslate"><span class="pre">DelayL</span><
 <p>A signal can also be filtered by smoothening it.
 For example, let <span class="math notranslate nohighlight">\(\text{in}[0], \ldots, \text{in}[n]\)</span> be the discrete (input) signal of a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a> and <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> be the filtered (output) signal.
 If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f4596f1-6d75-44fd-ae49-5a2ede257848">
-<span class="eqno">(3.7)<a class="headerlink" href="#equation-3f4596f1-6d75-44fd-ae49-5a2ede257848" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf1f6f51-0232-4f90-8560-9517faba85a8">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-cf1f6f51-0232-4f90-8560-9517faba85a8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \begin{split}
     \text{out}[0] &amp;\leftarrow 0.5 \cdot \text{in}[0]\\
     \text{out}[i] &amp;\leftarrow 0.5 \cdot \text{in}[i] - 0.5 \cdot \text{in}[i-1]
@@ -459,8 +459,8 @@ Consequently, by averaging the discrete signal to accomplish the respective sum 
 I had a hard time understanding what this filter actually does to its input signal <span class="math notranslate nohighlight">\(\text{in}\)</span>, since the documentation is very minimal.
 But I think I could reverse engineer its behaviour.</p>
 <p>The documentation states that a one zero filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e69f34fa-bdee-429a-afc7-a8004311abfa">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-e69f34fa-bdee-429a-afc7-a8004311abfa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eda8d3d4-7450-4291-a35d-f5f12f20a903">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-eda8d3d4-7450-4291-a35d-f5f12f20a903" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{in}[i-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
@@ -468,27 +468,27 @@ But I think I could reverse engineer its behaviour.</p>
 Therefore, <code class="docutils literal notranslate"><span class="pre">OneZero</span></code> as well as <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> depend on the sample rate / audio rate!</p>
 <p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we a differentiator!
 Let <span class="math notranslate nohighlight">\(y(t)\)</span> be our signal, then we basically compute</p>
-<div class="amsmath math notranslate nohighlight" id="equation-853607f3-d164-4b90-820b-a53cabaf5b5b">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-853607f3-d164-4b90-820b-a53cabaf5b5b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac3dbc6a-fd5d-4357-98ff-294c8340b43c">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-ac3dbc6a-fd5d-4357-98ff-294c8340b43c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2}.
 \end{equation}\]</div>
 <p>To compute the difference quotient, we have to figure out what <span class="math notranslate nohighlight">\(h\)</span> is.
 In other words, what is the time between <span class="math notranslate nohighlight">\(\text{in}[i]\)</span> and <span class="math notranslate nohighlight">\(\text{in}[i-1]\)</span>.
 The answer is <span class="math notranslate nohighlight">\(1/a_\text{rate}\)</span> where <span class="math notranslate nohighlight">\(a_\text{rate}\)</span> is the audio rate.</p>
 <p>To compute the difference quotient we use the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48770e77-482a-4501-85ca-bd9e83820f58">
-<span class="eqno">(3.10)<a class="headerlink" href="#equation-48770e77-482a-4501-85ca-bd9e83820f58" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e03f60a-e70c-49f2-aa9b-758fc8deae8d">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-3e03f60a-e70c-49f2-aa9b-758fc8deae8d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
 \end{equation}\]</div>
 <p>Using the discrete input signal <span class="math notranslate nohighlight">\(\text{in}\)</span> gives us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4dc9da89-4883-4ec4-b868-a02ae3be666f">
-<span class="eqno">(3.11)<a class="headerlink" href="#equation-4dc9da89-4883-4ec4-b868-a02ae3be666f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cee1cd59-6762-40cb-a3d8-400fa2a2a1a8">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-cee1cd59-6762-40cb-a3d8-400fa2a2a1a8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}\]</div>
 <p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd5d45d4-5fec-4ad7-9192-617ce09685c2">
-<span class="eqno">(3.12)<a class="headerlink" href="#equation-cd5d45d4-5fec-4ad7-9192-617ce09685c2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4b61cd12-c19c-49ce-aaec-efd91b97546b">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-4b61cd12-c19c-49ce-aaec-efd91b97546b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot f \cdot t)}{dt} = 2 \pi \cdot f \cdot \cos(2\pi \cdot f \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -522,8 +522,8 @@ The documentation states that a one pole filter implements the formula:</p>
 <span class="eqno">(3.13)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1415c40b-4ec6-47cb-9008-1f5aa667f978">
-<span class="eqno">(3.14)<a class="headerlink" href="#equation-1415c40b-4ec6-47cb-9008-1f5aa667f978" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6552ca40-2e72-47a5-a988-f6d7ee75b8a3">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-6552ca40-2e72-47a5-a988-f6d7ee75b8a3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \text{out}[0] \leftarrow (1 - |\alpha|) \cdot \text{in}[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
@@ -535,8 +535,8 @@ Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\
 <span class="eqno">(3.16)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">¶</a></span>\[    \text{out}[i] \leftarrow \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(\text{in}[0], \ldots \text{in}[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d236124b-0713-4a71-b10c-33ff5385c6e2">
-<span class="eqno">(3.17)<a class="headerlink" href="#equation-d236124b-0713-4a71-b10c-33ff5385c6e2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b1f6e296-eb1c-441f-818e-bda611afb9be">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-b1f6e296-eb1c-441f-818e-bda611afb9be" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] &amp; \leftarrow \text{out}[1] + \beta \cdot (\text{in}[2] - \text{out}[1]) \\
   &amp; = \text{in}[2] \cdot \beta + \text{in}[1] \cdot (\beta - \beta^2) + \text{in}[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -545,8 +545,8 @@ If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span 
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e36bfd2f-4907-4898-9417-d6af7526b7ad">
-<span class="eqno">(3.18)<a class="headerlink" href="#equation-e36bfd2f-4907-4898-9417-d6af7526b7ad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8234d7d6-8ca1-4c7b-ad45-c88a34c07f9e">
+<span class="eqno">(3.18)<a class="headerlink" href="#equation-8234d7d6-8ca1-4c7b-ad45-c88a34c07f9e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[i] \leftarrow (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
