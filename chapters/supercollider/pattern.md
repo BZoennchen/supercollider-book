@@ -2,10 +2,10 @@
 
 [UGens](sec-ugens) are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 But having instruments is not enough, we also want to play them!
-We want to create rhythms, and texture and melodies.
+We want to create rhythms, textures, and melodies.
 
 As mentioned in [The Ecosystem](sec-ecosystem), there are other software packages such as [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/) or [FoxDot](https://foxdot.org/) which are designed to play synths and samples.
-Each offer a distinct language and therefore a way of thinking.
+Each offers a distinct language and therefore a way of thinking.
 However, [SuperCollider (SC)](https://supercollider.github.io/) offers its own amazing and powerful interface to compose a musical piece.
 It uses so called [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html) and [Events](https://doc.sccode.org/Classes/Event.html).
 
@@ -13,47 +13,43 @@ I call this section *Playing Pattern* because, as we will see, we do not really 
 
 ## The Instrument and its Artist
 
-In my opinion there is no clear separation between the world of ideas and the world of materials and tools.
+In my opinion, there is no clear separation between the world of ideas and the world of materials and tools.
 Philosophically speaking, the tools we use, influence how we think about the world.
 And our thoughts lead to new tools, new technologies.
-Tools, like pen and paper, instruments, a hammer, programming languages or frameworks, and even our hands, act like interpreters.
+Tools, like pen and paper, instruments, a hammer, programming languages or frameworks, and even our hands, act as interpreters.
 They translate our thoughts into actions that change the physical world around us.
 
-However, this interaction is not a one-way-street where we, the artist, enforce ideas onto the instrument.
+However, this interaction is not a one-way street where we, the artist, enforce ideas onto the instrument.
 Instead, the instrument influences our ideas by limiting our space of possibilities.
 In fact, our brain does the same!
-It limits what we can perceive such that complexity can build up within our mind.
+It limits what we can perceive such that complexity can build up within our minds.
 And before we think about our brain, we use it.
 
-In the realm of (other) tools it seem to be similar.
+In the realm of (other) tools, it seems to be similar.
 Before we think about the being of a hammer, we use it.
 Furthermore, a hammer is always connected to other things, for example, a nail or a wooden chair.
 
 A tool or an instrument provides us with the means of expression. 
 It defines the space of possibilities.
-By limitations it paradoxically opens up our imagination.
-Maybe we can even go so far to say that it is in fact the instrument that uses us to express itself.
-
-<<<<<<< HEAD
-Now let us talk about the space of possibilities that **sclang** offers us.
-=======
-Consequently, there is no clear optimal amount of limitations, i.e., space of possibilities.
-Changing the space can be a great source for inspiration.
->>>>>>> 609182058d6a13509813e8d0ff7834fbbaaa4d43
+By limitations, it paradoxically opens up our imagination.
+Maybe we can even go so far as to say that it is in fact the instrument that uses us to express itself.
 
 Too much freedom can be a burden for the artist.
-Without boundaries the language of the instrument can be too complicated.
+Without boundaries, the language of the instrument can be too complicated.
 If we can create everything, we become unable to express anything.
 
 On the other hand, too strict limitations lead to repetition.
 If the space of possibilities is too narrow, the artist becomes superfluous.
 
+Consequently, there is no clear optimal amount of limitations, i.e., space of possibilities.
+Changing the space can be a great source of inspiration.
+
 Therefore, to find out what space of possibilities you are looking for, I highly recommend that you check out all available tools and if none suits your needs you may want to build your own! 
-Building instruments to express ourselves, is one of those wonderful acts a programmer can do!
+Building instruments to express ourselves is one of those wonderful acts a programmer can do!
 Of course, we will always stay in some limited super-space of possibilities defined by the underlying machine we are working on.
 Our machines are able to compute anything that is *Turing-computable*, i.e., (up to this day) everything that we can compute in general.
 However, we are limited by time and space.
-On the computer this translates to computational time and space complexities.
+On the computer, this translates to computational time and space complexities.
 If a computation consumes our lifetime it is unpractical.
 
 Now let us talk about the space of possibilities that ``sclang`` offers.
@@ -65,7 +61,7 @@ Now let us talk about the space of possibilities that ``sclang`` offers.
 A [Stream](https://doc.sccode.org/Classes/Stream.html) is basically a series of elements that you can obtain in a **lazy** fashion.
 It is very similar to an ``Array`` with the difference that it is **lazy**.
 Laziness means that instead of holding all values of the ``Stream`` in-memory (like an ``Array`` does) values are generated on demand by a function.
-Therefore, a ``Stream`` can offer infinitely many values which is impossible for an ``Array``!
+Therefore, a ``Stream`` can offer infinitely many values which are impossible for an ``Array``!
 For example, we can define a function that gives us all integers.
 
 ```isc
@@ -113,7 +109,7 @@ Consequently, most objects are ``Pattern`` that define a ``Stream`` that represe
 ```{admonition} Pattern and Streams
 :name: important-pattern-and-streams
 :class: important
-Simlar to classes and objects, ``Pattern`` are a blueprint for ``Streams``.
+Similar to classes and objects, ``Pattern``is a blueprint for ``Streams``.
 ```
 
 Let us look at a non-trivial example:
@@ -129,7 +125,7 @@ q.next; // nil
 ```
 
 ``Pseq`` transforms an ``Array`` into a ``Pattern``. 
-``Prand`` choses from an ``Array`` a random element.
+``Prand`` chooses from an ``Array`` a random element.
 In the above example, we combine both ``Pattern``.
 ``Pseq`` gets an ``Array`` consisting of two ``Prand``-pattern.
 By the parameter ``repeats: 2`` we configure ``Pseq`` to go over ``list`` twice.
@@ -154,7 +150,7 @@ q = p.asStream;
 
 Why are patterns useful?
 Well, they can be combined and they can be manipulated by all regular math functions if they return numbers.
-In the above example we multiply the ``Pseq``-pattern by 10 (which by calling ``asStream`` returns a ``BinaryOpStream``).
+In the above example, we multiply the ``Pseq``-pattern by 10 (which by calling ``asStream`` returns a ``BinaryOpStream``).
 They are really powerful to build complex ``Streams``.
 Therefore, they offer us a very comfortable way of building melodies without dealing with threads directly.
 The ``Pattern`` library abstracts the task of thread creation, synchronization, joining, termination and clean up away.
@@ -236,7 +232,7 @@ event.play;
 What is going on here?
 We actually can hear a sound???
 Well if you look at the print window, you can see all the predefined variables/symbols of the ``Environment``/``Event``.
-In my case this is equal to
+In my case, this is equal to
 
 ```isc
 'instrument': default, 
@@ -283,27 +279,27 @@ The cutoff frequency of the low pass filter decreases over the time span of 1 se
 
 ### Value Conversions
 
-In the [Event](https://doc.sccode.org/Classes/Event.html) class we can also find the code that actually ``plays`` an event.
+In the [Event](https://doc.sccode.org/Classes/Event.html) class, we can also find the code that actually ``plays`` an event.
 The method of interest is called ``makeParentEvents``.
 It is very lengthy and you do not have to understand it.
 But if you are interested in what is exactly happening, it is a good starting point.
-Furthermore, it gives us the information about all the default values.
+Furthermore, it gives us information about all the default values.
 These values are also discussed in the official [pattern guide](https://doc.sccode.org/Tutorials/A-Practical-Guide/PG_07_Value_Conversions.html).
 
-SuperCollider provides the specification of different parameter that influence the scheduling and the play of a single synth.
-But it provides different ways to express the same thing and converts it to a specific other thing.
+SuperCollider provides the specification of the different parameters that influence the scheduling and the play of a single synth.
+But it provides different ways to express the same thing and converts it to a specific thing.
 For example, a synth only knows frequencies but you do not have to think in terms of frequencies.
-Instead you can think in terms of midi notes and the event player will transform your midi note into the respective frequency.
+Instead, you can think in terms of midi notes and the event player will transform your midi note into the respective frequency.
 Of course, defining midi note and frequency does not really make sense.
-SuperCollider will always take the most concrete value, i.e., frequency over midi note.
+SuperCollider will always take the most concrete value, i.e., frequency over the midi note.
 
 #### Timing
 
-First of all time is measured in beats per seconds (bps) and events are scheduled on a specific [TempoClock](https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html) that runs at a specific bps.
-The default clock runs at 60 beats per seconds.
+First of all, time is measured in beats per second (bps), and events are scheduled on a specific [TempoClock](https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html) that runs at a specific bps.
+The default clock runs at 60 beats per second.
 We will discuss later how we can change this.
 
-Let us look at parameters determining the timing of an event.
+Let us look at the parameters determining the timing of an event.
 Let $t_e$ be the start time of the event $e$ (scheduled on our clock).
 Then $t_e + \Delta t_e$ is the end time of $e$, i.e., the start time of the next scheduled event.
 
@@ -368,7 +364,7 @@ Then for all $1 \leq i < m$
 holds.
 
 ```isc
-// 2 second pause before the event is played
+//2-second pause before the event is played
 (\instrument: \default, \dur: 0.2, \freq: 300, \lag: 2).play;
 ```
 
@@ -380,7 +376,7 @@ As already mentioned, we do not have to work with frequencies.
 In fact, there are many ways to define the pitch of the event, i.e., the played synth and many of them are more relevant for musicians who are used to them.
 I am not completely familiar with all the concepts so I will not provide a full picture.
 
-One of the concept are the so called midi notes.
+One of the concepts are the so-called midi notes.
 This system assigns ascending numbers to the keys of a piano.
 
 ```isc
@@ -416,7 +412,7 @@ For the default of 12 ``stepsPerOctave`` (western music).
 )
 ```
 
-we can compute the midinote by the following formula
+we can compute the midi note by the following formula
 
 ```isc
 \stepsPerOctave * \octave + \scale.at(\degree + \mtranspose)
@@ -451,7 +447,7 @@ Both of the following code lines generate a sound of equal amplitude.
 
 ### Custom Instrument
 
-Of course, we  can use our own ``SynthDef``, i.e., synth.
+Of course, we can use our own ``SynthDef``, i.e., synth.
 To use all the nice predefined parameters, our ``SynthDef`` has to use the correct arguments and we have to name them as intended.
 
 For example, the frequency should be called ``freq``, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called ``gate`` and the amplitude should be defined by ``amp``.
@@ -476,9 +472,9 @@ event.play;
 )
 ```
 
-First we add a very simple synth, then we play it for a duration of ``0.2`` beats per seconds (bps).
+First, we add a very simple synth, then we play it for a duration of ``0.2`` beats per second (bps).
 
-If we look closely, we can observer that there is a ``sustain`` argument that is set to 80 percent of the duration, i.e. to ``0.16`` beats per seconds.
+If we look closely, we can observe that there is a ``sustain`` argument that is set to 80 percent of the duration, i.e. to ``0.16`` beats per seconds.
 This is because the default values of our arguments are defined as follows.
 
 ```isc
@@ -566,7 +562,7 @@ We can call ``stop`` on the ``Stream`` (not the ``Pattern``!) to stop it (or we 
 
 Now you might ask: how do the events actually look like?
 As already mentioned each event is filled with default arguments if they are not defined.
-For each defined argument, in our case ``instrument``, ``freq``, ``dur`` and ``legato`` the method ``next`` is called on the value referenced by the corresponding name.
+For each defined argument, in our case ``instrument``, ``freq``, ``dur``, and ``legato`` the method ``next`` is called on the value referenced by the corresponding name.
 As we learned, if this value is a number, the number itself is returned.
 If it is a pattern, it was already transformed into a stream when ``play`` was called and will return what the recursive evaluation of ``next`` gives us.
 
@@ -574,10 +570,10 @@ If it is a pattern, it was already transformed into a stream when ``play`` was c
 
 Since we combine multiple ``Streams`` we may want to influence one value stream by the other.
 For example, we might want that the ``amp`` depends on the frequency such that we can reduce the amplitude for higher pitches.#
-There are multiple was to do so.
-One is by using one of the most powerfull ``Pattern``, that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
+There are multiple ways to do so.
+One is by using one of the most powerful ``Pattern``, that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
 
-``Pfunc`` expects a function as argument and this function is called whenever the respective ``Stream`` generates its next value.
+``Pfunc`` expects a function as an argument and this function is called whenever the respective ``Stream`` generates its next value.
 The argument of the ``next`` call is passed to the function.
 
 ```isc
@@ -590,7 +586,7 @@ square.next(5);
 
 ``Pbind`` passes the whole event to this function.
 Therefore, we can look inside the event, and use the information to compute our value.
-In the following code snippet we print the ``amp`` so you can see the effect.
+In the following code snippet, we print the ``amp`` so you can see the effect.
 
 ```isc
 (
@@ -622,7 +618,7 @@ q = p.play;
 )
 ```
 
-The third way to do this, is to use a global variable.
+The third way to do this is to use a global variable.
 However, this seems to be a really dirty method which I do not recommend.
 I think, using ``Pkey`` is the cleanest way to do things.
 
@@ -684,7 +680,7 @@ q = p.play;
 ```
 
 Later we will see that we can organize our piece by using multiple ``Pbind``.
-But for now let's move on.
+But for now, let's move on.
 
 ## Examples
 
@@ -692,5 +688,5 @@ There are many different ``Pattern``, I will only discuss some of them which I f
 In fact, the official [documentation of SuperCollider](https://doc.sccode.org/) is not always super helpful but the tutorial [Understanding Streams, Patterns and Events](https://doc.sccode.org/Tutorials/Streams-Patterns-Events1.html) is an excellent source to get started.
 
 I use two ``SynthDefs`` for the following examples.
-One simple beep generated by a sine wave and a percussive drum like synth.
+One simple beep generated by a sine wave and a percussive drum-like synth.
 TODO!
