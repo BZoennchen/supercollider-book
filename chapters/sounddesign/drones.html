@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -121,7 +121,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/ugens.html">
-   3. Unit Generators
+   3. Playing Synth
   </a>
  </li>
  <li class="toctree-l1">
@@ -141,15 +141,74 @@
    5. Terms
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="additive-synthesis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    6. Additive Synthesis
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filters.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="filters/filters.html">
    7. Filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subtractive-synthesis.html">
@@ -292,7 +351,7 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="drones">
 <h1><span class="section-number">12. </span>Drones<a class="headerlink" href="#drones" title="Permalink to this headline">¶</a></h1>
 <p>In this section we try to create an ambient drone sound.
-Our basic wave front will be a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>.
+Our basic wave front will be a <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>.
 The drone has a long attack and decay.
 In fact, we start without an envelope.
 This time we will use the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to define our drone synth.</p>
@@ -306,7 +365,7 @@ This time we will use the <code class="docutils literal notranslate"><span class
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>That’s our basic <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> which does not sound very drone-like.
+<p>That’s our basic <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> which does not sound very drone-like.
 A drone has a lot of movement.
 Our first step is to change the frequency of the drone over time but not too much.
 Since we want this sine like wobble effect, we use a sine wave for the frequency modulation.
@@ -323,7 +382,7 @@ But to add additional movement, we modulate the frequency of the frequency modul
 </pre></div>
 </div>
 <p>We can reduce the harshness by using a <code class="docutils literal notranslate"><span class="pre">VarSaw</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Saw</span></code>.
-<code class="docutils literal notranslate"><span class="pre">VarSaw</span></code> let’s us modulate its <code class="docutils literal notranslate"><span class="pre">width</span></code> by which we can control how much it is shaped like a <a class="reference internal" href="additive-synthesis.html#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>.</p>
+<code class="docutils literal notranslate"><span class="pre">VarSaw</span></code> let’s us modulate its <code class="docutils literal notranslate"><span class="pre">width</span></code> by which we can control how much it is shaped like a <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\drone</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">freqmod</span><span class="p">,</span> <span class="nx">widthmod</span><span class="p">;</span>

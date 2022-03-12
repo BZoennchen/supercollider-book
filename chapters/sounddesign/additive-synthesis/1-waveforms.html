@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.1. Fundamental Waveforms &#8212; Algorithmic Composition</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="6.2. Example" href="2-example.html" />
+    <link rel="prev" title="6. Additive Synthesis" href="additive-synthesis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/basics.html">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ugens.html">
+   3. Playing Synth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/pattern.html">
+   4. Playing Pattern
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../terms.html">
+   5. Terms
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="additive-synthesis.html">
+   6. Additive Synthesis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../filters/filters.html">
+   7. Filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../subtractive-synthesis.html">
+   8. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../percussive-sound.html">
+   9. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../am.html">
+   10. Amplitude Modulation (AM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fm.html">
+   11. Frequency Modulation (FM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drones.html">
+   12. Drones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   13. Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/jump-right-in.html">
+   14. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/distributions.html">
+   15. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/sounddesign/additive-synthesis/1-waveforms.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sine-wave">
+   6.1.1. The Sine Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sawtooth-wave">
+   6.1.2. The Sawtooth Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-square-wave">
+   6.1.3. The Square Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-triangle-wave">
+   6.1.4. The Triangle Wave
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fundamental Waveforms</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sine-wave">
+   6.1.1. The Sine Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-sawtooth-wave">
+   6.1.2. The Sawtooth Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-square-wave">
+   6.1.3. The Square Wave
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-triangle-wave">
+   6.1.4. The Triangle Wave
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="fundamental-waveforms">
+<h1><span class="section-number">6.1. </span>Fundamental Waveforms<a class="headerlink" href="#fundamental-waveforms" title="Permalink to this headline">¶</a></h1>
+<p>Jean-Baptise Joseph Fourier discovered that every function that is</p>
+<ol class="simple">
+<li><p><strong>piecewise continuous</strong> and</p></li>
+<li><p><strong>bounded</strong></p></li>
+</ol>
+<p>can be represented as a Fourier series.
+I call functions with these properties <em>signals</em>.</p>
+<p>Functions that describe an amplitude <span class="math notranslate nohighlight">\(y(t)\)</span> over the time <span class="math notranslate nohighlight">\(t\)</span> are audio signals and have these two qualities.
+The signal might also be periodic but that is not a necessary condition for the existence of a Fourier series of the signal.</p>
+<p>To understand the effect of a signal, it is essential to understand its Fourier series.
+In fact, the <em>stethoscope</em> displays the frequencies of the functions that are the components of the Fourier series.</p>
+<p>For audio synthesis, there are some very important and basic oscillators.
+Both types of synthesizers, that is, analog as well as digital synthesizers, offer these basic oscillators as a starting point.
+Let us try to understand their timbre by looking at their Fourier series.</p>
+<div class="section" id="the-sine-wave">
+<span id="sec-sine-wave"></span><h2><span class="section-number">6.1.1. </span>The Sine Wave<a class="headerlink" href="#the-sine-wave" title="Permalink to this headline">¶</a></h2>
+<p>The sine wave</p>
+<div class="math notranslate nohighlight" id="equation-eq-sine">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-sine" title="Permalink to this equation">¶</a></span>\[    y_\text{sine}(t) = A \cdot \sin(2\pi \cdot f \cdot t)\]</div>
+<p>is the most pure, most basic, and most simple signal.
+It is also the most basic waveform there is.
+Its Fourier series is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(6.1)</a>.
+It consists of only the fundamental frequency <span class="math notranslate nohighlight">\(f\)</span> and is theoretically the basis for all other signals.</p>
+<div class="figure align-default" id="fig-sine">
+<a class="reference internal image-reference" href="../../../_images/sine.png"><img alt="../../../_images/sine.png" src="../../../_images/sine.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">The sine wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sine" title="Permalink to this image">¶</a></p>
+</div>
+<p>However, in practice one does not model something as complex as noise by using a Fourier series consisting of sine waves.
+It would be too computational expensive.</p>
+<p>In theory, the Fourier series of many functions consist of an infinite amount of terms, but since our hardware resources are finite, we are only able to generate an approximation of the real thing.</p>
+</div>
+<div class="section" id="the-sawtooth-wave">
+<span id="sec-sawtooth-wave"></span><h2><span class="section-number">6.1.2. </span>The Sawtooth Wave<a class="headerlink" href="#the-sawtooth-wave" title="Permalink to this headline">¶</a></h2>
+<p>The first more complicated and important waveform I want to discuss is the so called <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a></p>
+<div class="math notranslate nohighlight" id="equation-eq-saw">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">¶</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.</p>
+<div class="figure align-default" id="fig-sawtooth">
+<a class="reference internal image-reference" href="../../../_images/sawtooth.png"><img alt="../../../_images/sawtooth.png" src="../../../_images/sawtooth.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">¶</a></p>
+</div>
+<p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>.
+However, the <span class="math notranslate nohighlight">\(x\)</span>-axis will be always the number of the sample.
+Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 6.2</span></a> using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">trifunc</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span> <span class="o">-</span> <span class="nx">floor</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">t</span><span class="p">)));</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span> <span class="nx">trifunc</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="nx">t</span><span class="p">);});</span>
+
+<span class="nx">y</span><span class="p">.</span><span class="nx">plot</span><span class="p">();</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>To understand the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> musically, we have to look at its Fourier series:</p>
+<div class="math notranslate nohighlight" id="equation-eq-saw-fourier">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-eq-saw-fourier" title="Permalink to this equation">¶</a></span>\[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<p>We can approximate the series by only summing up the first <span class="math notranslate nohighlight">\(n\)</span> terms:</p>
+<div class="math notranslate nohighlight" id="equation-eq-saw-fourier-n">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">¶</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<div class="figure align-default" id="fig-sawtooth-20">
+<a class="reference internal image-reference" href="../../../_images/sawtooth_20.png"><img alt="../../../_images/sawtooth_20.png" src="../../../_images/sawtooth_20.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">¶</a></p>
+</div>
+<p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(6.2)</a>.
+However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(6.3)</a> that</p>
+<ol class="simple">
+<li><p>each harmonic of <span class="math notranslate nohighlight">\(k \cdot f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
+<li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(k\)</span> decrease by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
+</ol>
+<p>Even if the sawtooth wave does not quite sound like a string instrument, its properties are similar to the audio signal generated by string instruments.
+Therefore, the sawtooth wave can be the a starting point for modeling the sound of a violin or guitar.</p>
+<p>We can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(6.4)</a>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we can generate the sound of a <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> using the <a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Saw</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-square-wave">
+<span id="sec-square-wave"></span><h2><span class="section-number">6.1.3. </span>The Square Wave<a class="headerlink" href="#the-square-wave" title="Permalink to this headline">¶</a></h2>
+<p>Another important waveform is the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> which is a special case of the pulse wave:</p>
+<div class="math notranslate nohighlight" id="equation-eq-square">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-eq-square" title="Permalink to this equation">¶</a></span>\[    y_\text{square}(t) = A \cdot \text{sign}\left( \sin\left( 2\pi \cdot f \cdot t \right) \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\text{sign}(\cdot)\)</span> is defined by</p>
+<div class="math notranslate nohighlight" id="equation-eq-sign">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-eq-sign" title="Permalink to this equation">¶</a></span>\[\begin{split}    \text{sign}(x) = \begin{cases}
+    +1 &amp; \text{ if } x \geq 0\\
+    -1 &amp; \text{ else.}
+    \end{cases}\end{split}\]</div>
+<div class="figure align-default" id="fig-square">
+<a class="reference internal image-reference" href="../../../_images/square.png"><img alt="../../../_images/square.png" src="../../../_images/square.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">The square wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-square" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let’s look at its Fourier series:</p>
+<div class="math notranslate nohighlight" id="equation-eq-square-fourier">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">¶</a></span>\[    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
+<p>Again we learn from the Fourier series (Eq. <a class="reference internal" href="#equation-eq-square-fourier">(6.7)</a>) that</p>
+<ol class="simple">
+<li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k-1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
+<li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k - 1\)</span> decreases with <span class="math notranslate nohighlight">\(4/(2k - 1)\)</span></p></li>
+</ol>
+<p>The amplitudes also decrease linearly with increasing frequencies.</p>
+<div class="figure align-default" id="fig-square-20">
+<a class="reference internal image-reference" href="../../../_images/square_20.png"><img alt="../../../_images/square_20.png" src="../../../_images/square_20.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">¶</a></p>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we can generate the sound of a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> using the <a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">Pulse</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">Pulse</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The signal of some wind instruments like the clarinet is similar to square wave.
+Their sound only contains odd harmonics.</p>
+</div>
+<div class="section" id="the-triangle-wave">
+<span id="sec-triangle-wave"></span><h2><span class="section-number">6.1.4. </span>The Triangle Wave<a class="headerlink" href="#the-triangle-wave" title="Permalink to this headline">¶</a></h2>
+<p>The next important wave is the <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-triangle">
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-eq-triangle" title="Permalink to this equation">¶</a></span>\[    y_\text{tri}(t) = A \cdot \left( 4 \cdot \left| f \cdot (t+1/4) -  \left \lfloor{ \frac{1}{2} + f \cdot (t+1/4)} \right \rfloor \right| - 1 \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\left| \cdot \right|\)</span> is defined by</p>
+<div class="math notranslate nohighlight" id="equation-eq-abs">
+<span class="eqno">(6.9)<a class="headerlink" href="#equation-eq-abs" title="Permalink to this equation">¶</a></span>\[\begin{split}    \left| x \right| = \begin{cases}
+    +x &amp; \text{ if } x \geq 0\\
+    -x &amp; \text{ else.}
+    \end{cases}\end{split}\]</div>
+<div class="figure align-default" id="fig-triangle">
+<a class="reference internal image-reference" href="../../../_images/triangle.png"><img alt="../../../_images/triangle.png" src="../../../_images/triangle.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">The triangle wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-triangle" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let’s look at its Fourier series:</p>
+<div class="math notranslate nohighlight" id="equation-eq-triangle-fourier">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-eq-triangle-fourier" title="Permalink to this equation">¶</a></span>\[    y_\text{tri}(t) = A \cdot \frac{8}{\pi^2} \cdot \sum_{k=0}^{\infty} (-1)^k \frac{\sin(2\pi \cdot f \cdot (2k+1) \cdot t)}{(2k+1)^2}\]</div>
+<p>Again we learn from the Fourier series (Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(6.10)</a>) that</p>
+<ol class="simple">
+<li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k+1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
+<li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k+1\)</span> decreases with <span class="math notranslate nohighlight">\(8/\pi^2(2k + 1)^2\)</span></p></li>
+</ol>
+<p>The amplitudes decrease <strong>quadratically</strong> with increasing frequencies.</p>
+<div class="figure align-default" id="fig-triangle-20">
+<a class="reference internal image-reference" href="../../../_images/triangle_5.png"><img alt="../../../_images/triangle_5.png" src="../../../_images/triangle_5.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.7 </span><span class="caption-text">An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=5\)</span>.</span><a class="headerlink" href="#fig-triangle-20" title="Permalink to this image">¶</a></p>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we can generate the sound of a <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">square wave</span></a> using the <a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">LFTri</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/sounddesign/additive-synthesis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="additive-synthesis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6. </span>Additive Synthesis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2-example.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.2. </span>Example</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Benedikt Zönnchen<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

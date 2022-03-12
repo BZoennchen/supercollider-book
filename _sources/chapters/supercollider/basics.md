@@ -30,8 +30,8 @@ To execute the following line press ``SHIFT`` + ``RETURN`` while your cursor is 
 To execute multiple lines we have to enclose the code in brackets ``(``, ``)`` and we have to evaluate the code using ``CMD`` + ``RETURN`` on Mac and ``CTRL`` + ``RETURN`` on Windows.
 
 ```{admonition} Code Execution 
-:name: hint-code-execution
-:class: hint
+:name: remark-code-execution
+:class: remark
 Use ``SHIFT`` + ``RETURN`` to evaluate a single line of code and use ``CMD`` + ``RETURN`` to evaluate a code block.
 ```
 
@@ -63,16 +63,16 @@ A very useful key combination is ``CMD`` + ``d``.
 It will open the documentation of the code your cursor is at.
 
 ```{admonition} Lookup Documentation
-:name: hint-lookup-documentation
-:class: hint
+:name: remark-lookup-documentation
+:class: remark
 Use ``CMD`` + ``d`` to look at the documentation of the class or method your cursor is at.
 ```
 
 ### Execution of C++ Code
 
 ```{admonition} Lookup Source Code
-:name: hint-lookup-source-code
-:class: hint
+:name: remark-lookup-source-code
+:class: remark
 Use ``CMD`` + ``i`` to look at the actual implementation of the class or method your cursor is at.
 ```
 
@@ -146,8 +146,8 @@ This means that all operands have the same priority which might lead to unexpect
 gives ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
 
 ```{admonition} Order of Execution 
-:name: important-order-of-execution
-:class: important
+:name: attention-order-of-execution
+:class: attention
 ``sclang`` uses a *strictly left to right order of execution*.
 ```
 
@@ -159,8 +159,8 @@ Each **single character variable** ``[a-z]`` is pre-defined and globally availab
 They are called *Interpreter variables*.
 
 ```{admonition} The Local Server Variable 
-:name: important-local-server-variable
-:class: important
+:name: attention-local-server-variable
+:class: attention
 By default, the variable ``s`` holds a reference to the local audio server.
 ```
 
@@ -662,8 +662,8 @@ In fact ``play()`` is shorthand too and
 3. executes it.
 
 ```{admonition} Protect your ears!
-:name: hint-protect-your-ears
-:class: warning
+:name: attention-protect-your-ears
+:class: attention
 [SC](https://supercollider.github.io/) will not protect you from any wrongdoing. 
 It will play the sound you defined and if this sound can hurt your ears you have to be sure to protect them.
 It is good practice to use headphones that are far away from your ears if you do not know what sound to expect!
@@ -688,8 +688,8 @@ s.boot;
 ```
 
 ```{admonition} Sound termination
-:name: hint-sound-termination
-:class: hint
+:name: attention-sound-termination
+:class: attention
 To terminate all sound press ``CMD`` + ``.``. **This might be the most important shortcut of all.**
 ```
 

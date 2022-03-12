@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Example &#8212; Algorithmic Composition</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7. Filters" href="../filters/filters.html" />
+    <link rel="prev" title="6.1. Fundamental Waveforms" href="1-waveforms.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ecosystem.html">
+   1. The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/basics.html">
+   2. Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ugens.html">
+   3. Playing Synth
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/pattern.html">
+   4. Playing Pattern
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../terms.html">
+   5. Terms
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="additive-synthesis.html">
+   6. Additive Synthesis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../filters/filters.html">
+   7. Filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../subtractive-synthesis.html">
+   8. Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../percussive-sound.html">
+   9. Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../am.html">
+   10. Amplitude Modulation (AM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fm.html">
+   11. Frequency Modulation (FM)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../drones.html">
+   12. Drones
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   13. Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/jump-right-in.html">
+   14. Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/distributions.html">
+   15. Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/sounddesign/additive-synthesis/2-example.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-envelope">
+   6.2.1. Global Envelope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#noisy-de-tuning-of-partials-over-time">
+   6.2.2. Noisy De-tuning of Partials Over Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#separated-partial-envelopes">
+   6.2.3. Separated Partial Envelopes
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Example</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#global-envelope">
+   6.2.1. Global Envelope
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#noisy-de-tuning-of-partials-over-time">
+   6.2.2. Noisy De-tuning of Partials Over Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#separated-partial-envelopes">
+   6.2.3. Separated Partial Envelopes
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="example">
+<h1><span class="section-number">6.2. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h1>
+<p>Let us first recreate the <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code>.
+Instead we use a bunch of <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> oscillators.
+The following code generates the sound of the Fourier series approximation.
+I implemented Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(6.4)</a>.
+You can change <code class="docutils literal notranslate"><span class="pre">n</span></code> to increase the number of harmonics.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">*</span><span class="nx">k</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="attention admonition" id="attention-invalid-synthdef-arguments">
+<p class="admonition-title">SCLang and the Server</p>
+<p>We are tempted to convert the variable <code class="docutils literal notranslate"><span class="pre">n</span></code> into an argument that we can change while the synth is playing!
+Here we enter the limits of a synth or in other words the difference between <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and the code that is actually running on the audio server.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> is executed on the client.
+Therefore, the <code class="docutils literal notranslate"><span class="pre">do</span></code>-construct is executed on the client before the synth is sent to the server.
+In some sense, the synth is compiled and <code class="docutils literal notranslate"><span class="pre">n</span></code> is a variable which is fixed at run time.
+Consequently, changing <code class="docutils literal notranslate"><span class="pre">n</span></code> while the synth is playing will not change anything.</p>
+</div>
+<p>My machine has no problem of running over hundred oscillators (<code class="docutils literal notranslate"><span class="pre">n=100</span></code>).
+The CPU workload is at about 8-9 percent.
+If we only use the first ten harmonics, the sound is clearly much more doll and it becomes crispier by adding more and more harmonics.
+However, for me at least, at some point it is hard to perceive any difference if I add even more harmonics.</p>
+<p>Ok, so far so good.
+Of course, it makes no real sense to recreate the ‘pure’ <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> by multiple oscillators because it is much more computational expensive.
+But if we introduce modulation we can create many different sounds that can not be produced by only one <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a>.
+Even with filters this can be quite challenging or impossible.</p>
+<p>For example, a string of a ‘perfect’ violin makes a sound that can be described by a <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> – each harmonic of the fundamental is present.
+However, there is no globally determining envelope.
+Instead each frequency changes its power over time independently.
+Therefore, a real violin sounds completely different than a <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> combined with an <a class="reference internal" href="../terms.html#sec-envelope"><span class="std std-ref">envelope</span></a>.
+Furthermore, the world is imperfect and so is the violin – there is always some distortion, also within the frequencies.
+Fortunately, our ears like this slight imperfection.
+By introducing imperfections the sound becomes more gentle.
+It is a balance between order and chaos.
+In summary, for a real violin</p>
+<ol class="simple">
+<li><p>the amplitudes of the harmonics deviate from Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(6.4)</a>,</p></li>
+<li><p>they slightly deviate over time – each in a different way,</p></li>
+<li><p>and their power (amplitude) is a unique function of time.</p></li>
+</ol>
+<div class="section" id="global-envelope">
+<h2><span class="section-number">6.2.1. </span>Global Envelope<a class="headerlink" href="#global-envelope" title="Permalink to this headline">¶</a></h2>
+<p>Let is first try a percussive envelope:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+        <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+        <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)),</span>
+    <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span>
+    <span class="p">);</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">*</span><span class="nx">k</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">amp</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The sound is quite boring because nothing changes over time.
+There is no dynamic thus we lose interest immediately.
+Let us introduce some change over time.</p>
+</div>
+<div class="section" id="noisy-de-tuning-of-partials-over-time">
+<h2><span class="section-number">6.2.2. </span>Noisy De-tuning of Partials Over Time<a class="headerlink" href="#noisy-de-tuning-of-partials-over-time" title="Permalink to this headline">¶</a></h2>
+<p>My starting point is the introduction of detune but a detune that changes over time!
+I introduce a variable <code class="docutils literal notranslate"><span class="pre">vibrato</span></code> that lies in between <span class="math notranslate nohighlight">\([1-\epsilon; 1+\epsilon]\)</span>.
+<span class="math notranslate nohighlight">\(\epsilon\)</span> is the percentage of maximal detune, that is, a harmonic with a frequency of <span class="math notranslate nohighlight">\(f\)</span> will have an actual frequency within <span class="math notranslate nohighlight">\([f(1-\epsilon); f(1+\epsilon()]\)</span>.
+In the code below, I call <span class="math notranslate nohighlight">\(\epsilon\)</span> <code class="docutils literal notranslate"><span class="pre">detune</span></code>.
+The detune changes over time.</p>
+<p>I make use of <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> which chooses a value between 1 and -1 every <span class="math notranslate nohighlight">\(1/f\)</span> seconds where <span class="math notranslate nohighlight">\(f\)</span> is its frequency.
+In between of these times, values are linearly interpolated.
+Note that for each speaker the noises are different!
+It is hard to explain what exactly happens with our <code class="docutils literal notranslate"><span class="pre">vibrato</span></code> over time so let us plot an example</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">100</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.015</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.015</span><span class="p">)}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">1.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>gives us the following plot:</p>
+<div class="figure align-default" id="fig-add-synth-single-noise">
+<a class="reference internal image-reference" href="../../../_images/add-synth-single-noise.png"><img alt="../../../_images/add-synth-single-noise.png" src="../../../_images/add-synth-single-noise.png" style="width: 800px;" /></a>
+</div>
+<p>The updated version of <code class="docutils literal notranslate"><span class="pre">\sine_sum</span></code> looks like the following:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detuneFreq</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.015</span><span class="p">;</span>
+
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+        <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span>
+        <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+        <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)),</span>
+    <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span>
+    <span class="p">);</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">detuneFreq</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">harmonic</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">);</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">harmonic</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">amp</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In my opinion, this already sounds much more interesting.
+Of course, we went beyond <em>additive synthesis</em> and used <em>frequency modulation</em> but those go hand in hand, especially if the modulation frequency is low.</p>
+</div>
+<div class="section" id="separated-partial-envelopes">
+<h2><span class="section-number">6.2.3. </span>Separated Partial Envelopes<a class="headerlink" href="#separated-partial-envelopes" title="Permalink to this headline">¶</a></h2>
+<p>What can we do in addition?
+Well, at the moment we have one global envelope for all frequencies.
+What about <code class="docutils literal notranslate"><span class="pre">n</span></code> independent envelopes?
+We could, for example, imitate nature and decrease the amplitudes of high frequencies faster than those of low frequencies.
+We could introduce randomness such that only the <em>expected decrease in amplitude</em> behaves like that.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detuneFreq</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.015</span><span class="p">;</span>
+
+    <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">n</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
+        <span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+
+        <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+            <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">),</span>
+            <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.1</span><span class="p">),</span>
+            <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>
+        <span class="p">);</span>
+
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">detuneFreq</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="nx">detune</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="nx">detune</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">k</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">harmonic</span> <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="nx">pi</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">).</span><span class="nx">pow</span><span class="p">(</span><span class="nx">k</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">)</span> <span class="o">/</span> <span class="nx">k</span><span class="p">)))</span> <span class="o">*</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">((</span><span class="nx">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">));</span>
+        <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">harmonic</span><span class="p">;</span>
+    <span class="p">});</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">DetectSilence</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Ok, this looks complicated.
+However, I did not change too much.
+First, I have rewritten the series such that the sum is the most outer operation.
+Secondly, I generate for each frequency one independent envelope with a random attack and release.
+Thirdly, I take the power to decrease the envelope for high frequencies faster:</p>
+<div class="math notranslate nohighlight" id="equation-eq-env-amplified">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-eq-env-amplified" title="Permalink to this equation">¶</a></span>\[    x \leftarrow x^{1 + \frac{k-1}{3}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is a value of the envelope (a series of numbers) of the <span class="math notranslate nohighlight">\(k^\text{th}\)</span>-harmonic.
+Compare the following two plots.</p>
+<div class="figure align-default" id="fig-add-synth-env-2">
+<a class="reference internal image-reference" href="../../../_images/add-synth-env_2.png"><img alt="../../../_images/add-synth-env_2.png" src="../../../_images/add-synth-env_2.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.8 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(6.11)</a> for <span class="math notranslate nohighlight">\(k = 2\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-add-synth-env-10">
+<a class="reference internal image-reference" href="../../../_images/add-synth-env_10.png"><img alt="../../../_images/add-synth-env_10.png" src="../../../_images/add-synth-env_10.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.9 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(6.11)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">¶</a></p>
+</div>
+<p>Fourthly, I remove the <code class="docutils literal notranslate"><span class="pre">doneAction:</span> <span class="pre">Done.freeSelf</span></code> from the envelopes because this would shut down the synth as soon as the first envelope reaches its end.
+The sound would abruptly end too early.
+To clean up the audio server, I instead use <code class="docutils literal notranslate"><span class="pre">DetectSilence</span></code>-<a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a>.
+It executes the cleanup, that is, the action <code class="docutils literal notranslate"><span class="pre">freeSelf</span></code> if the signal <code class="docutils literal notranslate"><span class="pre">sig</span></code> indicates silence for a small period of time, which is very handy.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/sounddesign/additive-synthesis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1-waveforms.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6.1. </span>Fundamental Waveforms</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../filters/filters.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Filters</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Benedikt Zönnchen<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
