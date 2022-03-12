@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -60,7 +60,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6. Additive Synthesis" href="additive-synthesis.html" />
+    <link rel="next" title="6. Additive Synthesis" href="additive-synthesis/additive-synthesis.html" />
     <link rel="prev" title="4. Playing Pattern" href="../supercollider/pattern.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -123,7 +123,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/ugens.html">
-   3. Unit Generators
+   3. Playing Synth
   </a>
  </li>
  <li class="toctree-l1">
@@ -143,15 +143,74 @@
    5. Terms
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="additive-synthesis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    6. Additive Synthesis
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filters.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="filters/filters.html">
    7. Filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subtractive-synthesis.html">
@@ -475,8 +534,8 @@ The wave is energy that deforms the medium, i.e., it transfers energy from one p
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is the sine wave</p>
-<div class="amsmath math notranslate nohighlight" id="equation-60c6954c-290f-46aa-95ae-67bcbcda6595">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-60c6954c-290f-46aa-95ae-67bcbcda6595" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-03e80b3b-d9d6-42eb-9b9e-46110fd89a89">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-03e80b3b-d9d6-42eb-9b9e-46110fd89a89" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the <em>period</em> <span class="math notranslate nohighlight">\(T\)</span>.
@@ -502,13 +561,13 @@ In combination we get a <em>pitch</em>.</p>
 <p>A1 and A3 have the same tone but A3 is two octaves higher thus its pitch is higher.
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by <span class="math notranslate nohighlight">\(2^2 = 4\)</span>.
 The mapping between frequency <span class="math notranslate nohighlight">\(f\)</span> and pitch <span class="math notranslate nohighlight">\(p\)</span> is a logarithmic one.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b43ce0e8-a7c8-40cd-9835-eb6463445104">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-b43ce0e8-a7c8-40cd-9835-eb6463445104" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0cec7b37-fa58-4053-b340-62eac3510a3a">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-0cec7b37-fa58-4053-b340-62eac3510a3a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     f(p) = 2^\frac{p-69}{12} \cdot 440
 \end{equation}\]</div>
 <p>Since the frequency doubles after 12 keys, we have to multiply the frequency of pitch <span class="math notranslate nohighlight">\(p\)</span> by <span class="math notranslate nohighlight">\(2^{\frac{1}{12}}\)</span> to get <span class="math notranslate nohighlight">\(p+1\)</span>. In other words</p>
-<div class="amsmath math notranslate nohighlight" id="equation-929f2f19-c9c5-46d2-ac1a-75de8601fc78">
-<span class="eqno">(5.3)<a class="headerlink" href="#equation-929f2f19-c9c5-46d2-ac1a-75de8601fc78" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-adc6392b-db94-4db3-80c5-69aab8ef082b">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-adc6392b-db94-4db3-80c5-69aab8ef082b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \frac{f(p+1)}{f(p)} = 2^{\frac{1}{12}}.
 \end{equation}\]</div>
 <p>Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.</p>
@@ -572,13 +631,13 @@ For example, a complete concert orchestra and a thunder have roughly the power o
 <p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meters.
 The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53d29d5c-ae9c-4193-b90d-3be24f6bfefb">
-<span class="eqno">(5.4)<a class="headerlink" href="#equation-53d29d5c-ae9c-4193-b90d-3be24f6bfefb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-691eb6af-74f5-4919-b4a5-05180183dd49">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-691eb6af-74f5-4919-b4a5-05180183dd49" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48e0bdff-efeb-453f-8437-b004da04f006">
-<span class="eqno">(5.5)<a class="headerlink" href="#equation-48e0bdff-efeb-453f-8437-b004da04f006" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbf4181d-1028-4ec7-9f27-16b6cb4e597e">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-cbf4181d-1028-4ec7-9f27-16b6cb4e597e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>At that intensity we start suffering.</p>
@@ -599,8 +658,8 @@ It is convenient to start with</p>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
 <p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa08878e-3f34-449d-8c2e-3b94c099a401">
-<span class="eqno">(5.6)<a class="headerlink" href="#equation-fa08878e-3f34-449d-8c2e-3b94c099a401" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37d5e235-281f-4479-b733-cfe3a11cf768">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-37d5e235-281f-4479-b733-cfe3a11cf768" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -667,9 +726,9 @@ There are infinitely many different <span class="math notranslate nohighlight">\
 <li><p><a class="reference internal" href="fm.html#sec-fm"><span class="std std-ref">frequency modulation (FM)</span></a>, and</p></li>
 <li><p>resonance</p></li>
 </ol>
-<p>However, this captures only the perspective of <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
+<p>However, this captures only the perspective of <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
 Manipulating a very rich signal already composed of many harmonics is another way to achieve different timbres.
-This is called <a class="reference internal" href="subtractive-synthesis.html#sec-subtractive-synthesis"><span class="std std-ref">subtractive synthesis</span></a> and makes use of <a class="reference internal" href="filters.html#sec-filters"><span class="std std-ref">filters</span></a>.</p>
+This is called <a class="reference internal" href="subtractive-synthesis.html#sec-subtractive-synthesis"><span class="std std-ref">subtractive synthesis</span></a> and makes use of <a class="reference internal" href="filters/filters.html#sec-filters"><span class="std std-ref">filters</span></a>.</p>
 </div>
 <div class="section" id="envelopes">
 <span id="sec-envelope"></span><h2><span class="section-number">5.11. </span>Envelopes<a class="headerlink" href="#envelopes" title="Permalink to this headline">¶</a></h2>
@@ -693,7 +752,7 @@ If there is only one envelope that controls the amplitude of every involved part
 <p>The envelopes greatly influence the resulting sound.
 If we want to recreate the sound of a real instrument we have to match at least its global envelope.
 A piano has a very short attack (like a sixth of a second), a short decay followed by a varying sustain (depending on the pianist) and a rather short release.</p>
-<p>The follow code models the sound of a piano combining a <a class="reference internal" href="additive-synthesis.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> wave, a low pass filter to eliminate the harshness and an envelope with three stages (attack, decay, release).
+<p>The follow code models the sound of a piano combining a <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> wave, a low pass filter to eliminate the harshness and an envelope with three stages (attack, decay, release).
 There is no sustain because we assume the pianist does not use the sustain pedal after hitting midi note 69.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(({</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">atk</span><span class="p">,</span> <span class="nx">dec</span><span class="p">,</span> <span class="nx">rel</span><span class="p">;</span>
@@ -772,7 +831,7 @@ If legato is large, events will overlap.</p>
             <p class="prev-next-title"><span class="section-number">4. </span>Playing Pattern</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="additive-synthesis.html" title="next page">
+    <a class='right-next' id="next-link" href="additive-synthesis/additive-synthesis.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">6. </span>Additive Synthesis</p>

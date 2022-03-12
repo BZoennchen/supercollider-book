@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -123,7 +123,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/ugens.html">
-   3. Unit Generators
+   3. Playing Synth
   </a>
  </li>
  <li class="toctree-l1">
@@ -143,15 +143,74 @@
    5. Terms
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="additive-synthesis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    6. Additive Synthesis
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filters.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="filters/filters.html">
    7. Filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subtractive-synthesis.html">
@@ -412,19 +471,19 @@ As a consequence of the success of FM synthesis, the company sold millions of FM
 <div class="section" id="introduction">
 <h2><span class="section-number">11.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15192447-f356-44b2-b955-8daf7c88e344">
-<span class="eqno">(11.1)<a class="headerlink" href="#equation-15192447-f356-44b2-b955-8daf7c88e344" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a2996fe8-c359-405f-bcec-db6b49cc30a6">
+<span class="eqno">(11.1)<a class="headerlink" href="#equation-a2996fe8-c359-405f-bcec-db6b49cc30a6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b05fdbe1-c01a-4a2c-a18e-b75d683864e6">
-<span class="eqno">(11.2)<a class="headerlink" href="#equation-b05fdbe1-c01a-4a2c-a18e-b75d683864e6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-277aa071-c1e1-4fc4-ba80-de12ace9eb1a">
+<span class="eqno">(11.2)<a class="headerlink" href="#equation-277aa071-c1e1-4fc4-ba80-de12ace9eb1a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc05fc2b-b36d-4904-82cd-09d57d05177e">
-<span class="eqno">(11.3)<a class="headerlink" href="#equation-fc05fc2b-b36d-4904-82cd-09d57d05177e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb07158f-5ed7-466e-877d-f003f3ed5e27">
+<span class="eqno">(11.3)<a class="headerlink" href="#equation-fb07158f-5ed7-466e-877d-f003f3ed5e27" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -596,8 +655,8 @@ The larger the index, the larger the bandwidth.</p>
 <div class="section" id="summary">
 <h2><span class="section-number">11.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9252384d-dd1a-4803-b8e7-51003b316264">
-<span class="eqno">(11.4)<a class="headerlink" href="#equation-9252384d-dd1a-4803-b8e7-51003b316264" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-122229e7-d09b-4f06-996f-7f6b4fa5ca88">
+<span class="eqno">(11.4)<a class="headerlink" href="#equation-122229e7-d09b-4f06-996f-7f6b4fa5ca88" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </div>

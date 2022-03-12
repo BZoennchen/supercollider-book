@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -121,7 +121,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/ugens.html">
-   3. Unit Generators
+   3. Playing Synth
   </a>
  </li>
  <li class="toctree-l1">
@@ -141,15 +141,74 @@
    5. Terms
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="additive-synthesis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    6. Additive Synthesis
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="additive-synthesis/2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="filters.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="filters/filters.html">
    7. Filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subtractive-synthesis.html">
@@ -368,13 +427,13 @@ Therefore, the fundamental frequency is in some way related to the displacement 
 <p>So what shall we do?
 Admit defeat and concede?
 Well, yes and no!
-We can not emulate a drum by recreating each of its harmonics, for example by using <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>, that would be impossible because it would be too computational expensive.
+We can not emulate a drum by recreating each of its harmonics, for example by using <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>, that would be impossible because it would be too computational expensive.
 What we need is noise!</p>
 </div>
 <div class="section" id="noise">
 <h2><span class="section-number">9.2. </span>Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h2>
 <p>If we define richness by the number of sine waves that are represented in a sound, then arguable the richest is pure noise.
-In section <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">Additive Synthesis</span></a> we have noticed that the greater the number of enharmonic spectral elements there were, the more the sound approaches noise.
+In section <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">Additive Synthesis</span></a> we have noticed that the greater the number of enharmonic spectral elements there were, the more the sound approaches noise.
 In other words, if add sine waves, each with a random frequency, we will eventually and up with noise – the richest signal possible.</p>
 <p>Noise is often defined as all possible frequencies having equal representation.
 We can also define it as a wave with no pattern or maybe as a series of numbers of which we can not recognize its pattern.</p>
@@ -433,7 +492,7 @@ It generates a high frequency stream of 1, -1 with equal probability.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>We can create noise using <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
+<p>We can create noise using <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
 Let us use 1000 oscillators, that is, <code class="docutils literal notranslate"><span class="pre">UGens</span></code>.
 For pink noise we need an exponential distribution of frequencies while for white noise a linear distribution is required.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -476,7 +535,7 @@ The result sounds like a stormy night:</p>
 <div class="section" id="bells">
 <h2><span class="section-number">9.3. </span>Bells<a class="headerlink" href="#bells" title="Permalink to this headline">¶</a></h2>
 <p>Very different from string and wind instruments, bells consists of many inharmonic ‘partials’.
-In the section <a class="reference internal" href="additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>, we already constructed the sound of a bell using the sum of multiple sine waves <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>:</p>
+In the section <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>, we already constructed the sound of a bell using the sum of multiple sine waves <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\bell_additive</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">inharmonics</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">partials</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>

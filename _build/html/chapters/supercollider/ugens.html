@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. Unit Generators &#8212; Algorithmic Composition</title>
+    <title>3. Playing Synth &#8212; Algorithmic Composition</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -123,7 +123,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. Unit Generators
+   3. Playing Synth
   </a>
  </li>
  <li class="toctree-l1">
@@ -143,15 +143,74 @@
    5. Terms
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/additive-synthesis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sounddesign/additive-synthesis/additive-synthesis.html">
    6. Additive Synthesis
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/additive-synthesis/1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/additive-synthesis/2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/filters.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sounddesign/filters/filters.html">
    7. Filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
@@ -279,9 +338,26 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amplitude">
-   3.1. Amplitude
+  <a class="reference internal nav-link" href="#definitions">
+   3.1. Definitions
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sever-vs-client">
+   3.2. Sever vs Client
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#special-ugens">
+   3.3. Special UGens
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amplitude">
+     3.3.1. Amplitude
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -293,7 +369,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Unit Generators</h1>
+                <h1>Playing Synth</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -304,9 +380,26 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#amplitude">
-   3.1. Amplitude
+  <a class="reference internal nav-link" href="#definitions">
+   3.1. Definitions
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sever-vs-client">
+   3.2. Sever vs Client
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#special-ugens">
+   3.3. Special UGens
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amplitude">
+     3.3.1. Amplitude
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -317,15 +410,26 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="unit-generators">
-<span id="sec-ugens"></span><h1><span class="section-number">3. </span>Unit Generators<a class="headerlink" href="#unit-generators" title="Permalink to this headline">¶</a></h1>
-<p>In <a class="reference internal" href="basics.html#sec-basics"><span class="std std-ref">Basics</span></a> we already talked about <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> and <code class="docutils literal notranslate"><span class="pre">Synths</span></code>.
-Let us recall.
-A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> encapsulates the client-side representation of a synth definition and provides methods for creating new <code class="docutils literal notranslate"><span class="pre">Synths</span></code> on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.
-The normal workflow goes as follows:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="playing-synth">
+<span id="sec-ugens"></span><h1><span class="section-number">3. </span>Playing Synth<a class="headerlink" href="#playing-synth" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="definitions">
+<h2><span class="section-number">3.1. </span>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<p>In section <a class="reference internal" href="basics.html#sec-basics"><span class="std std-ref">Basics</span></a>, we already talked about <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> and <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.
+Let us recall.</p>
+<div class="definition admonition" id="def-synth-def">
+<p class="admonition-title">SynthDef</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> factory executed on the audio server.</p>
+</div>
+<div class="definition admonition" id="def-synth">
+<p class="admonition-title">Synth</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Synth</span></code> is a representation of a synth executed in the audio server.
+It is the object that generates sound.</p>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, constructed on the client-side, encapsulates the server-side representation of a synth definition and provides methods for creating new <code class="docutils literal notranslate"><span class="pre">Synth</span></code> on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.</p>
+<p>The normal workflow goes as follows:</p>
 <ol class="simple">
-<li><p>define (all) our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> via <code class="docutils literal notranslate"><span class="pre">sclang</span></code></p></li>
-<li><p>we them (all) it to the audio sever <strong>scsynth</strong></p></li>
+<li><p>define (all) your <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> via <code class="docutils literal notranslate"><span class="pre">sclang</span></code></p></li>
+<li><p>add them (all) it to the audio sever <strong>scsynth</strong></p></li>
 <li><p>create a synth on the server</p></li>
 <li><p>remove the synth from the server</p></li>
 </ol>
@@ -353,25 +457,26 @@ The normal workflow goes as follows:</p>
 If you want to perform, it is good practice to add all your synth definition beforehand.</p>
 <p>In the last executable line, the server <strong>scsynth</strong> executes a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> defined by a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> identified by its name <code class="docutils literal notranslate"><span class="pre">\sine_beep</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;sine_beep&quot;</span></code>.
 After 0.01 + 0.4 seconds our envelope ends and garbage collection is triggered.
-The done action tells the server to remove the played synth.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> consists of so called <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> (unit generators).
-A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> represents a directed signal graph where each node is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and each edge is the signal output of one <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and the signal input of another <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">doneAction</span></code> tells the server to remove the played synth.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> consists of so called <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> (unit generators).
+It represents a directed signal graph where each node is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and each edge is the signal output of one <code class="docutils literal notranslate"><span class="pre">UGen</span></code> and the signal input of another <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.
 The graph can be drawn as a <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>.</p>
 <div class="figure align-default" id="fig-sfg-example">
 <a class="reference internal image-reference" href="../../_images/sfg-example.png"><img alt="../../_images/sfg-example.png" src="../../_images/sfg-example.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">SFG of the example above which consist of three <code class="docutils literal notranslate"><span class="pre">UGen</span></code>. The envelope converts the mono signal into a stereo signal.</span><a class="headerlink" href="#fig-sfg-example" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">SFG of the example above which consist of three <code class="docutils literal notranslate"><span class="pre">UGen</span></code>. The envelope converts the mono signal into a stereo signal.
+<code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> is our source.</span><a class="headerlink" href="#fig-sfg-example" title="Permalink to this image">¶</a></p>
 </div>
 <p>There are osillators, called <em>sources</em> that have no signal input.
 They build the starting points!</p>
-<div class="admonition-ugen admonition" id="def-ugen">
+<div class="definition admonition" id="def-ugen">
 <p class="admonition-title">UGen</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">UGen</span></code> represent calculations with a signal.
-They are the basic building blocks of synth definitions on the server, and are used to generate or process both audio and control signals.</p>
+They are the basic building blocks of a <code class="docutils literal notranslate"><span class="pre">SythDef</span></code>, and are used to generate or process both <em>audio</em> and <em>control signals</em>.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">UGens</span></code> are used to analyse, synthesize, and process signals at audio <code class="docutils literal notranslate"><span class="pre">ar</span></code> and control <code class="docutils literal notranslate"><span class="pre">kr</span></code> (or initialization only <code class="docutils literal notranslate"><span class="pre">ir</span></code>) rate.
 The audio rate is much higher than the control rate.</p>
 <div class="remark admonition" id="remark-control-rate">
-<p class="admonition-title">Control Rate</p>
+<p class="admonition-title">Usage of Control Rate</p>
 <p>If precision is not important (e.g. in case of <a class="reference internal" href="../sounddesign/terms.html#sec-lfo"><span class="std std-ref">low frequency oscillators (LFOs)</span></a>) one should use the control rate <code class="docutils literal notranslate"><span class="pre">kr</span></code> to save CPU resources.</p>
 </div>
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> provides us with over 250 different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are client-side representations of the unit generators.
@@ -387,10 +492,13 @@ They can be categorized into:</p>
 <li><p>control: envelopes, trigger, counters, gates, lags, decays</p></li>
 <li><p>spectral</p></li>
 </ul>
-<div class="important admonition">
+<div class="remark admonition">
 <p class="admonition-title">UGen execution</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">UGen</span></code> is executed on the server!</p>
 </div>
+</div>
+<div class="section" id="sever-vs-client">
+<h2><span class="section-number">3.2. </span>Sever vs Client<a class="headerlink" href="#sever-vs-client" title="Permalink to this headline">¶</a></h2>
 <p>To understand <code class="docutils literal notranslate"><span class="pre">UGens</span></code> we have to understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is executed when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server.
 Playing the synth by creating a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> executes only the server-side code!</p>
@@ -418,8 +526,11 @@ Since <code class="docutils literal notranslate"><span class="pre">rrand</span><
 Therefore, if we want a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> that generates a random sound whenever it is created we need server-side randomness using a suitable <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</p>
 <p>In the following, I discuss certain <code class="docutils literal notranslate"><span class="pre">UGens</span></code> which I had difficulties to understand.
 For all the well documented <code class="docutils literal notranslate"><span class="pre">UGens</span></code> such as <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Saw.html">Saw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFTri.html">LFTri</a>, I refer to the <a class="reference external" href="https://doc.sccode.org/Guides/Tour_of_UGens.html">official documentation</a>.</p>
+</div>
+<div class="section" id="special-ugens">
+<h2><span class="section-number">3.3. </span>Special UGens<a class="headerlink" href="#special-ugens" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="amplitude">
-<h2><span class="section-number">3.1. </span>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.3.1. </span>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h3>
 <p>In the description of the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://doc.sccode.org/Classes/Amplitude.html">Amplitude</a> we find the following statement:</p>
 <blockquote>
 <div><p>Tracks the peak amplitude of a signal.</p>
@@ -447,8 +558,8 @@ For example, we say that the following signal</p>
 <p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">¶</a></p>
 </div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3392387f-9d28-4f99-b4ed-ff79d29d402d">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-3392387f-9d28-4f99-b4ed-ff79d29d402d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6a2084ef-09f1-478b-a82b-33b3a314a84f">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-6a2084ef-09f1-478b-a82b-33b3a314a84f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -492,6 +603,7 @@ Here we cut the noisy sound if its amplitude measured by <code class="docutils l
 </div>
 <p>As longas <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.2</span></code> is true, it returns (on the server-side) not true but 1.
 Otherwise the expression is evaluated to 0.</p>
+</div>
 </div>
 </div>
 

@@ -1,13 +1,30 @@
 (sec-ugens)=
-# Unit Generators
+# Playing Synth
 
-In [Basics](sec-basics) we already talked about ``SynthDefs`` and ``Synths``.
+## Definitions
+
+In section [Basics](sec-basics), we already talked about ``SynthDef`` and ``Synth``.
 Let us recall.
-A ``SynthDef`` encapsulates the client-side representation of a synth definition and provides methods for creating new ``Synths`` on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.
+
+```{admonition} SynthDef
+:name: def-synth-def
+:class: definition
+A ``SynthDef`` is a ``Synth`` factory executed on the audio server.
+```
+
+```{admonition} Synth
+:name: def-synth
+:class: definition
+A ``Synth`` is a representation of a synth executed in the audio server.
+It is the object that generates sound.
+```
+
+A ``SynthDef``, constructed on the client-side, encapsulates the server-side representation of a synth definition and provides methods for creating new ``Synth`` on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.
+
 The normal workflow goes as follows:
 
-1. define (all) our ``SynthDef`` via ``sclang``
-2. we them (all) it to the audio sever **scsynth**
+1. define (all) your ``SynthDef`` via ``sclang``
+2. add them (all) it to the audio sever **scsynth**
 3. create a synth on the server
 4. remove the synth from the server
 
@@ -37,10 +54,10 @@ If you want to perform, it is good practice to add all your synth definition bef
 
 In the last executable line, the server **scsynth** executes a ``Synth`` defined by a ``SynthDef`` identified by its name ``\sine_beep`` or ``"sine_beep"``.
 After 0.01 + 0.4 seconds our envelope ends and garbage collection is triggered.
-The done action tells the server to remove the played synth.
+The ``doneAction`` tells the server to remove the played synth.
 
-The ``SynthDef`` consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
-A ``SynthDef`` represents a directed signal graph where each node is a ``UGen`` and each edge is the signal output of one ``UGen`` and the signal input of another ``UGen``.
+A ``SynthDef`` consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
+It represents a directed signal graph where each node is a ``UGen`` and each edge is the signal output of one ``UGen`` and the signal input of another ``UGen``.
 The graph can be drawn as a [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph).
 
 ```{figure} ../../figs/supercollider/ugens/sfg-example.png
@@ -49,6 +66,7 @@ width: 800px
 name: fig-sfg-example
 ---
 SFG of the example above which consist of three ``UGen``. The envelope converts the mono signal into a stereo signal.
+``SinOsc`` is our source.
 ```
 
 There are osillators, called *sources* that have no signal input.
@@ -56,14 +74,15 @@ They build the starting points!
 
 ```{admonition} UGen
 :name: def-ugen
+:class: definition
 A ``UGen`` represent calculations with a signal.
-They are the basic building blocks of synth definitions on the server, and are used to generate or process both audio and control signals.
+They are the basic building blocks of a ``SythDef``, and are used to generate or process both *audio* and *control signals*.
 ```
 
 ``UGens`` are used to analyse, synthesize, and process signals at audio ``ar`` and control ``kr`` (or initialization only ``ir``) rate.
 The audio rate is much higher than the control rate.
 
-```{admonition} Control Rate
+```{admonition} Usage of Control Rate
 :name: remark-control-rate
 :class: remark
 If precision is not important (e.g. in case of [low frequency oscillators (LFOs)](sec-lfo)) one should use the control rate ``kr`` to save CPU resources.
@@ -83,9 +102,11 @@ They can be categorized into:
 + spectral
 
 ```{admonition} UGen execution
-:class: important
+:class: remark
 A ``UGen`` is executed on the server!
 ```
+
+## Sever vs Client
 
 To understand ``UGens`` we have to understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a ``SynthDef`` is executed when we add the ``SynthDef`` to the server.
@@ -119,7 +140,9 @@ Therefore, if we want a ``Synth`` that generates a random sound whenever it is c
 In the following, I discuss certain ``UGens`` which I had difficulties to understand.
 For all the well documented ``UGens`` such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html), [Saw](https://doc.sccode.org/Classes/Saw.html), [LFTri](https://doc.sccode.org/Classes/LFTri.html), I refer to the [official documentation](https://doc.sccode.org/Guides/Tour_of_UGens.html).
 
-## Amplitude
+## Special UGens
+
+### Amplitude
 
 In the description of the ``UGen`` called [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) we find the following statement:
 

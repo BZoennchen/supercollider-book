@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -58,7 +58,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Unit Generators" href="ugens.html" />
+    <link rel="next" title="3. Playing Synth" href="ugens.html" />
     <link rel="prev" title="1. The Ecosystem" href="ecosystem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -121,7 +121,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="ugens.html">
-   3. Unit Generators
+   3. Playing Synth
   </a>
  </li>
  <li class="toctree-l1">
@@ -141,15 +141,74 @@
    5. Terms
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/additive-synthesis.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sounddesign/additive-synthesis/additive-synthesis.html">
    6. Additive Synthesis
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/additive-synthesis/1-waveforms.html">
+     6.1. Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/additive-synthesis/2-example.html">
+     6.2. Example
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/filters.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sounddesign/filters/filters.html">
    7. Filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/1-phase-shifting.html">
+     7.1. Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/2-phase-and-frequency.html">
+     7.2. Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/3-frequency-filters.html">
+     7.3. Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/4-simpler-filters.html">
+     7.4. Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/5-resonance.html">
+     7.5. Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/6-control-filters.html">
+     7.6. Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/filters/7-delays.html">
+     7.7. Delays
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
@@ -496,7 +555,7 @@ Let’s write some <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 <p>To execute multiple lines we have to enclose the code in brackets <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code> and we have to evaluate the code using <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> on Mac and <code class="docutils literal notranslate"><span class="pre">CTRL</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> on Windows.</p>
-<div class="hint admonition" id="hint-code-execution">
+<div class="remark admonition" id="remark-code-execution">
 <p class="admonition-title">Code Execution </p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> to evaluate a single line of code and use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> to evaluate a code block.</p>
 </div>
@@ -520,14 +579,14 @@ For example, we could also use the following syntax:</p>
 </div>
 <p>A very useful key combination is <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">d</span></code>.
 It will open the documentation of the code your cursor is at.</p>
-<div class="hint admonition" id="hint-lookup-documentation">
+<div class="remark admonition" id="remark-lookup-documentation">
 <p class="admonition-title">Lookup Documentation</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">d</span></code> to look at the documentation of the class or method your cursor is at.</p>
 </div>
 </div>
 <div class="section" id="execution-of-c-code">
 <h3><span class="section-number">2.1.2. </span>Execution of C++ Code<a class="headerlink" href="#execution-of-c-code" title="Permalink to this headline">¶</a></h3>
-<div class="hint admonition" id="hint-lookup-source-code">
+<div class="remark admonition" id="remark-lookup-source-code">
 <p class="admonition-title">Lookup Source Code</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> to look at the actual implementation of the class or method your cursor is at.</p>
 </div>
@@ -588,7 +647,7 @@ This means that all operands have the same priority which might lead to unexpect
 </pre></div>
 </div>
 <p>gives <code class="docutils literal notranslate"><span class="pre">(4</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">*</span> <span class="pre">5</span> <span class="pre">=</span> <span class="pre">40</span></code> instead of <code class="docutils literal notranslate"><span class="pre">4</span> <span class="pre">+</span> <span class="pre">(4</span> <span class="pre">*</span> <span class="pre">5)</span> <span class="pre">=</span> <span class="pre">24</span></code>.</p>
-<div class="important admonition" id="important-order-of-execution">
+<div class="attention admonition" id="attention-order-of-execution">
 <p class="admonition-title">Order of Execution </p>
 <p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> uses a <em>strictly left to right order of execution</em>.</p>
 </div>
@@ -600,7 +659,7 @@ This means that all operands have the same priority which might lead to unexpect
 In <a class="reference external" href="https://supercollider.github.io/">(SC)</a> there are some special pre-defined variables.
 Each <strong>single character variable</strong> <code class="docutils literal notranslate"><span class="pre">[a-z]</span></code> is pre-defined and globally available.
 They are called <em>Interpreter variables</em>.</p>
-<div class="important admonition" id="important-local-server-variable">
+<div class="attention admonition" id="attention-local-server-variable">
 <p class="admonition-title">The Local Server Variable </p>
 <p>By default, the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> holds a reference to the local audio server.</p>
 </div>
@@ -1021,7 +1080,7 @@ In fact <code class="docutils literal notranslate"><span class="pre">play()</spa
 <li><p>adds it to the server and</p></li>
 <li><p>executes it.</p></li>
 </ol>
-<div class="warning admonition" id="hint-protect-your-ears">
+<div class="attention admonition" id="attention-protect-your-ears">
 <p class="admonition-title">Protect your ears!</p>
 <p><a class="reference external" href="https://supercollider.github.io/">SC</a> will not protect you from any wrongdoing.
 It will play the sound you defined and if this sound can hurt your ears you have to be sure to protect them.
@@ -1041,7 +1100,7 @@ We have to boot the real-time audio server <strong>scsynth</strong> fist, by:</p
 <span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
 </pre></div>
 </div>
-<div class="hint admonition" id="hint-sound-termination">
+<div class="attention admonition" id="attention-sound-termination">
 <p class="admonition-title">Sound termination</p>
 <p>To terminate all sound press <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code>. <strong>This might be the most important shortcut of all.</strong></p>
 </div>
@@ -1200,7 +1259,7 @@ However, we can use the <a class="reference internal" href="ugens.html#sec-ugens
     <a class='right-next' id="next-link" href="ugens.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Unit Generators</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Playing Synth</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
