@@ -246,6 +246,16 @@ x;
 
 As their name indicates, variables can be reassigned and we can give them any new value (dynamic types) at any time.
 
+````{admonition} Exponential Operator
+:name: sc-exponential
+:class: sc
+Like ``Python``, ``sclang`` supports the exponential operator ``**``.
+
+```isc
+2**4 // 16.0
+```
+````
+
 ## Arrays
 
 A signal is basically a sequence of numbers.
