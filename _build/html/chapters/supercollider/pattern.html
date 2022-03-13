@@ -926,22 +926,38 @@ If you are interested in the exact computation, have a look at the source code o
 <h3><span class="section-number">4.3.3. </span>Custom Instrument<a class="headerlink" href="#custom-instrument" title="Permalink to this headline">¶</a></h3>
 <p>Of course, we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., synth.
 To use all the nice predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments and we have to name them as intended.</p>
-<p>For example, the frequency should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called <code class="docutils literal notranslate"><span class="pre">gate</span></code> and the amplitude should be defined by <code class="docutils literal notranslate"><span class="pre">amp</span></code>.</p>
+<p>For the rest of this section we work with the following synth:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\saw</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="nx">gate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\snare</span><span class="p">,{</span><span class="kd">arg</span> <span class="nx">hcutoff</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">,</span> <span class="nx">lcutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">1.4</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">hat</span><span class="p">,</span> <span class="nx">bass</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">).</span><span class="kd">kr</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="p">{</span><span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">()}</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="nb">HPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">hat</span><span class="p">,</span> <span class="nb">XLine</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">lcutoff</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="nx">lcutoff</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">hat</span><span class="p">,</span> <span class="nx">hcutoff</span><span class="p">);</span>
+    <span class="nx">bass</span> <span class="o">=</span> <span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">XLine</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">))</span><span class="o">*</span><span class="mf">0.2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hat</span> <span class="o">+</span> <span class="nx">bass</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\saw</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="nx">gate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
     <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span>
-        <span class="nb">Env</span><span class="p">.</span><span class="nx">asr</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="kc">sustainLevel:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="mf">0.1</span><span class="p">),</span> 
+        <span class="nb">Env</span><span class="p">.</span><span class="nx">asr</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="kc">sustainLevel:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="mf">1.4</span><span class="p">),</span> 
         <span class="kc">gate:</span> <span class="nx">gate</span><span class="p">,</span> 
         <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="nx">freq</span><span class="p">,</span> <span class="nx">freq</span><span class="o">*</span><span class="mf">1.004</span><span class="p">]),</span> <span class="nb">XLine</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">freq</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
-	<span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="nx">freq</span><span class="p">,</span> <span class="nx">freq</span><span class="o">*</span><span class="mf">1.004</span><span class="p">]),</span> <span class="nb">XLine</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">freq</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">90</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">freq</span><span class="o">/</span><span class="mi">10</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
     <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
-<span class="p">(</span>
+<span class="nb">Synth</span><span class="p">(</span><span class="ss">\snare</span><span class="p">)</span>
+<span class="o">~</span><span class="nx">snare</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\saw</span><span class="p">)</span>
+<span class="o">~</span><span class="nx">snare</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example, the frequency should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called <code class="docutils literal notranslate"><span class="pre">gate</span></code> and the amplitude should be defined by <code class="docutils literal notranslate"><span class="pre">amp</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\saw</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">);</span>
 <span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
@@ -1124,6 +1140,35 @@ We can generate the same piece using only one <code class="docutils literal notr
     <span class="ss">\amp</span><span class="p">,</span> <span class="nb">Pkey</span><span class="p">(</span><span class="ss">\freq</span><span class="p">).</span><span class="nx">linexp</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="p">);</span>
 <span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also play multiple <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> in parallel.
+We can imagine that each <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> represents one musician in our assemble.
+<a class="reference external" href="http://doc.sccode.org/Classes/Ppar.html">Ppar</a> is a pattern that allows us to play multiple <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> in parallel.
+In this example I use a fixed <code class="docutils literal notranslate"><span class="pre">dur</span></code> and <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> to adjust the actual duration.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">melody</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nb">Scale</span><span class="p">.</span><span class="nx">minor</span><span class="p">,</span>
+    <span class="ss">\octave</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span>
+        <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span>
+    <span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.2</span>
+<span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rythm</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\snare</span><span class="p">,</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span>
+    <span class="ss">\amp</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span>
+        <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> 
+        <span class="mf">0.8</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span>
+    <span class="p">],</span> <span class="kc">inf</span><span class="p">)</span><span class="o">*</span><span class="mf">0.2</span>
+<span class="p">);</span>
+
+<span class="nb">Ppar</span><span class="p">([</span><span class="nx">rythm</span><span class="p">,</span> <span class="nx">melody</span><span class="p">],</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>

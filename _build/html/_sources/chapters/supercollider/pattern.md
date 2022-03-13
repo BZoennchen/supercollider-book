@@ -450,22 +450,42 @@ Both of the following code lines generate a sound of equal amplitude.
 Of course, we can use our own ``SynthDef``, i.e., synth.
 To use all the nice predefined parameters, our ``SynthDef`` has to use the correct arguments and we have to name them as intended.
 
-For example, the frequency should be called ``freq``, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called ``gate`` and the amplitude should be defined by ``amp``.
+For the rest of this section we work with the following synth:
 
 ```isc
 (
-SynthDef(\saw, {
-    arg freq = 600, amp = 0.8, gate = 1;
+SynthDef(\snare,{arg hcutoff = 9000, lcutoff = 5000, amp = 1.4;
+    var env, hat, bass, sig, cutoff = 5000;
+    env = Env.perc(0.01, 0.15).kr(doneAction: Done.freeSelf);
+    hat = {PinkNoise.ar()}!2;
+    hat = HPF.ar(hat, XLine.ar(lcutoff/4, lcutoff, 0.2));
+    hat = LPF.ar(hat, hcutoff);
+    bass = LFTri.ar(XLine.kr(150, 10, 0.21))*0.2;
+    sig = (hat + bass) * env * amp;
+    Out.ar(0, sig);
+}).add;
+
+SynthDef(\saw, {arg freq = 600, amp = 0.8, gate = 1;
     var sig, env;
     env = EnvGen.kr(
-        Env.asr(attackTime: 0.01, sustainLevel: 1.0, releaseTime: 0.1), 
+        Env.asr(attackTime: 0.01, sustainLevel: 1.0, releaseTime: 1.4), 
         gate: gate, 
         doneAction: Done.freeSelf);
-	sig = LPF.ar(LFSaw.ar([freq, freq*1.004]), XLine.ar(freq*2, freq/4, 0.2));
-	sig = sig * env * amp;
+	sig = LPF.ar(LFSaw.ar([freq, freq*1.004]), XLine.ar(freq*2, freq/4, 0.2) + LFNoise2.kr(90).bipolar(freq/10));
+    sig = sig * env * amp;
     Out.ar(0, sig);
 }).add;
 )
+
+Synth(\snare)
+~snare = Synth(\saw)
+~snare.set(\gate, 0)
+```
+
+
+For example, the frequency should be called ``freq``, if we want to be able to sustain the sound we should use a sustaining envelope with a gate argument called ``gate`` and the amplitude should be defined by ``amp``.
+
+```isc
 
 (
 var event = (\instrument: \saw, \dur: 0.2, \freq: 300);
@@ -676,6 +696,37 @@ p = Pbind(
     \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
 );
 q = p.play;
+)
+```
+
+We can also play multiple ``Pbinds`` in parallel.
+We can imagine that each ``Pbind`` represents one musician in our assemble.
+[Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple ``Pbinds`` in parallel.
+In this example I use a fixed ``dur`` and [Rest](http://doc.sccode.org/Classes/Rest.html) to adjust the actual duration.
+
+```isc
+(
+var melody = Pbind(
+    \instrument, \saw,
+    \scale, Scale.minor,
+    \octave, 5,
+    \degree, Pseq([
+        3, 4, 3, \r,
+        1, \r, 6, \r,
+    ], inf),
+    \dur, 1/4,
+    \sustain, 0.2
+);
+var rythm = Pbind(
+    \instrument, \snare,
+    \dur, 1/8,
+    \amp, Pseq([
+        0.9, 1.2, \r, \r, 
+        0.8, \r, 1.3, \r,
+    ], inf)*0.2
+);
+
+Ppar([rythm, melody], inf).play;
 )
 ```
 
