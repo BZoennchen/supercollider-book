@@ -1,6 +1,5 @@
 # Control Filters
 
-
 (sec-lag)=
 ## Lag
 

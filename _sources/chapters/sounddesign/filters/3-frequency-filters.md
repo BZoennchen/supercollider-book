@@ -152,9 +152,9 @@ var freq = 440, amp = 0.25, bandwidth = 200;
 ```{figure} ../../../figs/sounddesign/filters/bpf-saw.png
 ---
 width: 800px
-name: fig-hpf-saw
+name: fig-bpf-saw
 ---
-A sawtooth wave (top) filtered by a modulated highpass filter (bottom).
+A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).
 ```
 
 

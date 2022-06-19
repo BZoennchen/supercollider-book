@@ -5,10 +5,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>11. Frequency Modulation (FM) &#8212; Algorithmic Composition</title>
+    <title>13. Frequency Modulation (FM) &#8212; Algorithmic Composition</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,10 +28,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,26 +39,26 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12. Drones" href="drones.html" />
-    <link rel="prev" title="10. Amplitude Modulation (AM)" href="am.html" />
+    <link rel="next" title="14. Drones" href="drones.html" />
+    <link rel="prev" title="12. Amplitude Modulation (AM)" href="am.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -69,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -78,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -98,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider
  </span>
@@ -122,13 +135,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/synths.html">
+   3. Synth &amp; SynthDefs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/ugens.html">
-   3. Playing Synth
+   4. UGens
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/pattern.html">
-   4. Playing Pattern
+   5. Playing Pattern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/live-coding.html">
+   6. Live Coding
   </a>
  </li>
 </ul>
@@ -140,12 +163,12 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="terms.html">
-   5. Terms
+   7. Terms
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
-   6. Additive Synthesis
+   8. Additive Synthesis
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -155,19 +178,19 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="additive-synthesis/1-waveforms.html">
-     6.1. Fundamental Waveforms
+     8.1. Fundamental Waveforms
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="additive-synthesis/2-example.html">
-     6.2. Example
+     8.2. Example
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="filters/filters.html">
-   7. Filters
+   9. Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -177,64 +200,64 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/1-phase-shifting.html">
-     7.1. Phase Shifting
+     9.1. Phase Shifting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/2-phase-and-frequency.html">
-     7.2. Phase &amp; Frequency
+     9.2. Phase &amp; Frequency
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/3-frequency-filters.html">
-     7.3. Frequency Filters
+     9.3. Frequency Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/4-simpler-filters.html">
-     7.4. Simpler Filters
+     9.4. Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/5-resonance.html">
-     7.5. Responses and Resonance
+     9.5. Responses and Resonance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/6-control-filters.html">
-     7.6. Control Filters
+     9.6. Control Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="filters/7-delays.html">
-     7.7. Delays
+     9.7. Delays
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="subtractive-synthesis.html">
-   8. Subtractive Synthesis
+   10. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="percussive-sound.html">
-   9. Percussive Sound
+   11. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   10. Amplitude Modulation (AM)
+   12. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   11. Frequency Modulation (FM)
+   13. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="drones.html">
-   12. Drones
+   14. Drones
   </a>
  </li>
 </ul>
@@ -246,7 +269,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
-   13. Bibliography
+   15. Bibliography
   </a>
  </li>
 </ul>
@@ -258,23 +281,28 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/jump-right-in.html">
-   14. Building Sounds
+   16. Building Sounds
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/distributions.html">
-   15. Random distributions
+   17. Random distributions
   </a>
  </li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -282,109 +310,164 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/sounddesign/fm.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/sounddesign/fm.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   11.1. Introduction
+   13.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vibrato">
-   11.2. Vibrato
+   13.2. Vibrato
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sirens">
-   11.3. Sirens
+   13.3. Sirens
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#harmonic-relation">
-   11.4. Harmonic Relation
+   13.4. Harmonic Relation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#side-band-amplitudes">
-   11.5. Side Band Amplitudes
+   13.5. Side Band Amplitudes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bandwidth">
-   11.6. Bandwidth
+   13.6. Bandwidth
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   11.7. Summary
+   13.7. Summary
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example">
-   11.8. Example
+   13.8. Example
   </a>
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Frequency Modulation (FM)</h1>
@@ -399,42 +482,42 @@
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
-   11.1. Introduction
+   13.1. Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vibrato">
-   11.2. Vibrato
+   13.2. Vibrato
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sirens">
-   11.3. Sirens
+   13.3. Sirens
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#harmonic-relation">
-   11.4. Harmonic Relation
+   13.4. Harmonic Relation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#side-band-amplitudes">
-   11.5. Side Band Amplitudes
+   13.5. Side Band Amplitudes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bandwidth">
-   11.6. Bandwidth
+   13.6. Bandwidth
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   11.7. Summary
+   13.7. Summary
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#example">
-   11.8. Example
+   13.8. Example
   </a>
  </li>
 </ul>
@@ -443,11 +526,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="frequency-modulation-fm">
-<span id="sec-fm"></span><h1><span class="section-number">11. </span>Frequency Modulation (FM)<a class="headerlink" href="#frequency-modulation-fm" title="Permalink to this headline">¶</a></h1>
+<span id="sec-fm"></span><h1><span class="section-number">13. </span>Frequency Modulation (FM)<a class="headerlink" href="#frequency-modulation-fm" title="Permalink to this headline">#</a></h1>
 <p>FM is the most common encoding technique for public radio transmission (hence ‘FM’ radio) by using frequencies that are out of the limits of human hearing.
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.
 In other words, we change the frequency of a signal over time.</p>
@@ -469,21 +553,21 @@ He wanted to generate vibrato effects but noticed that when he increased the mod
 In desperation, Stanford turned to the Japanese manufacturer Yamaha.
 As a consequence of the success of FM synthesis, the company sold millions of FM synthesizers, organs and home keyboards.</p>
 <div class="section" id="introduction">
-<h2><span class="section-number">11.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bca5c39c-c36e-4a4f-bcff-49bd0ab9072a">
-<span class="eqno">(11.1)<a class="headerlink" href="#equation-bca5c39c-c36e-4a4f-bcff-49bd0ab9072a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3caba2ba-3fe6-4a11-a67f-9b27c962891f">
+<span class="eqno">(13.1)<a class="headerlink" href="#equation-3caba2ba-3fe6-4a11-a67f-9b27c962891f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4237b80-2068-4ba0-ab02-91d903cf1886">
-<span class="eqno">(11.2)<a class="headerlink" href="#equation-e4237b80-2068-4ba0-ab02-91d903cf1886" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bcb1ec1f-8650-41de-ab5a-048441c7bb6c">
+<span class="eqno">(13.2)<a class="headerlink" href="#equation-bcb1ec1f-8650-41de-ab5a-048441c7bb6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7276cb3-b074-4b61-b625-544e740e6ca9">
-<span class="eqno">(11.3)<a class="headerlink" href="#equation-a7276cb3-b074-4b61-b625-544e740e6ca9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54556134-e478-4012-b28b-c6322830f406">
+<span class="eqno">(13.3)<a class="headerlink" href="#equation-54556134-e478-4012-b28b-c6322830f406" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -494,7 +578,7 @@ We can also use different oscillators and modulate the frequency of the most out
 Above we only use two oscillators but as you will see, we already achieve a quite complex spectrum.</p>
 </div>
 <div class="section" id="vibrato">
-<h2><span class="section-number">11.2. </span>Vibrato<a class="headerlink" href="#vibrato" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.2. </span>Vibrato<a class="headerlink" href="#vibrato" title="Permalink to this headline">#</a></h2>
 <p>If the frequency of the modulator <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is small, than we achieve a so called vibrato effect.
 Try the following code snippet!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// another vibrato example</span>
@@ -530,7 +614,7 @@ Those small changes result in a vibration similar to the effect of a violinist m
 </div>
 </div>
 <div class="section" id="sirens">
-<h2><span class="section-number">11.3. </span>Sirens<a class="headerlink" href="#sirens" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.3. </span>Sirens<a class="headerlink" href="#sirens" title="Permalink to this headline">#</a></h2>
 <p>If we increase the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> further and further such that it approaches, or even exceeds the carrier frequency <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, we get a different effect.
 At some point, the modulation becomes a form of distortion within the individual cycle of the carrier waveform.
 To make the distortion more prominent, we have to increase the amplitude of the modulator – a portion of the carrier frequency <span class="math notranslate nohighlight">\(f_{\text{car}}\)</span> is a good starting point.</p>
@@ -549,7 +633,7 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 <p>In this case, the vibration becomes a wobbling effect or siren-type sound.</p>
 </div>
 <div class="section" id="harmonic-relation">
-<h2><span class="section-number">11.4. </span>Harmonic Relation<a class="headerlink" href="#harmonic-relation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.4. </span>Harmonic Relation<a class="headerlink" href="#harmonic-relation" title="Permalink to this headline">#</a></h2>
 <p>Let us look at this distortion by plotting <span class="math notranslate nohighlight">\(y(t)\)</span> for <span class="math notranslate nohighlight">\(f_{\text{car}} = f_{\text{mod}} = \beta = 200\)</span>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="p">({</span>
@@ -564,7 +648,7 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 </div>
 <div class="figure align-default" id="fig-fm-cycle-high-freq">
 <a class="reference internal image-reference" href="../../_images/fm-cycle-high-freq.png"><img alt="../../_images/fm-cycle-high-freq.png" src="../../_images/fm-cycle-high-freq.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11.1 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13.1 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
 </div>
 <p>If we look at the stethoscope we observe multiple side-bands, that is, there are multiple frequencies apart from the fundamental frequency (which is equals to the carrier frequency) present.
 How many frequencies are present?
@@ -575,7 +659,7 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 <p>with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p>
 <div class="figure align-default" id="fig-fm-side-band-frequencies">
 <a class="reference internal image-reference" href="../../_images/fm-side-band-frequencies.png"><img alt="../../_images/fm-side-band-frequencies.png" src="../../_images/fm-side-band-frequencies.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11.2 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13.2 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
 </div>
 <p>If we want to keep the same side band relation for different carrier frequencies, we have to compute the modulation frequency based on the carrier frequency.</p>
 <div class="remark admonition" id="remark-side-band-amplitude">
@@ -604,7 +688,7 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 </div>
 </div>
 <div class="section" id="side-band-amplitudes">
-<h2><span class="section-number">11.5. </span>Side Band Amplitudes<a class="headerlink" href="#side-band-amplitudes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.5. </span>Side Band Amplitudes<a class="headerlink" href="#side-band-amplitudes" title="Permalink to this headline">#</a></h2>
 <p>The question now is: what about the amplitudes of the side bands?
 We already observed what happens if the modulation frequency is low and we increase the modulator amplitude.
 For low amplitudes we achieved a gently vibrato effect but for large amplitudes this transforms into a siren-type sound.</p>
@@ -636,13 +720,13 @@ This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
 <p>The series is a converging series and especially in our case where <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> is not too large, the values of each term become very small very quick.</p>
 <div class="figure align-default" id="fig-bessel-function">
 <a class="reference internal image-reference" href="../../_images/bessel-function.png"><img alt="../../_images/bessel-function.png" src="../../_images/bessel-function.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11.3 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
-Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13.3 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
+Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">#</a></p>
 </div>
 <p>As we can see, <span class="math notranslate nohighlight">\(A_{ \text{sb},n^{\pm} }\)</span> depends only on <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> but oscillate for increasing <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>!</p>
 </div>
 <div class="section" id="bandwidth">
-<h2><span class="section-number">11.6. </span>Bandwidth<a class="headerlink" href="#bandwidth" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.6. </span>Bandwidth<a class="headerlink" href="#bandwidth" title="Permalink to this headline">#</a></h2>
 <p>We stated that there are infinite amount of side bands.
 In practice that is not the case.
 Furthermore, the amplitude of many of these side bands might be too low to be recognized by our ears.</p>
@@ -653,15 +737,15 @@ Furthermore, the amplitude of many of these side bands might be too low to be re
 The larger the index, the larger the bandwidth.</p>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">11.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.7. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40573a4f-6870-412a-b7f6-82f3eaaac773">
-<span class="eqno">(11.4)<a class="headerlink" href="#equation-40573a4f-6870-412a-b7f6-82f3eaaac773" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ae89c8d-4ae0-497f-a366-38fd422f70fb">
+<span class="eqno">(13.4)<a class="headerlink" href="#equation-2ae89c8d-4ae0-497f-a366-38fd422f70fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </div>
 <div class="section" id="example">
-<h2><span class="section-number">11.8. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">13.8. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
 <p>The following example is a FM synth heavily inspired by the <a class="reference external" href="https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured">tutorial</a> given by <a class="reference external" href="https://reflectives.bandcamp.com/track/ikaere">Alik Rustamoff</a>
 It uses the relations above but instead of using only one modulator we use three.
 In the code <code class="docutils literal notranslate"><span class="pre">f</span></code> is <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <code class="docutils literal notranslate"><span class="pre">modFreq1</span></code> is <span class="math notranslate nohighlight">\(f_\text{mod}\)</span>, <code class="docutils literal notranslate"><span class="pre">\ratio1</span></code> is <span class="math notranslate nohighlight">\(r_\text{mod}\)</span> and <code class="docutils literal notranslate"><span class="pre">\modIndex1</span></code> represents <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>.
@@ -757,42 +841,48 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="am.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">10. </span>Amplitude Modulation (AM)</p>
+            <p class="prev-next-title"><span class="section-number">12. </span>Amplitude Modulation (AM)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="drones.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Drones</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Drones</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Benedikt Zönnchen<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

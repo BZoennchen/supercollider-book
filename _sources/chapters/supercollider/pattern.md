@@ -1,15 +1,25 @@
+(sec-pattern)=
 # Playing Pattern
 
 [UGens](sec-ugens) are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 But having instruments is not enough, we also want to play them!
 We want to create rhythms, textures, and melodies.
 
-As mentioned in [The Ecosystem](sec-ecosystem), there are other software packages such as [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/) or [FoxDot](https://foxdot.org/) which are designed to play synths and samples.
-Each offers a distinct language and therefore a way of thinking.
-However, [SuperCollider (SC)](https://supercollider.github.io/) offers its own amazing and powerful interface to compose a musical piece.
-It uses so called [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html) and [Events](https://doc.sccode.org/Classes/Event.html).
+There are different ways to do this.
+First of all, as mentioned in [The Ecosystem](sec-ecosystem), there are other software packages such as [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/) or [FoxDot](https://foxdot.org/) which are designed to play synths and samples.
+[Sonic Pi](https://sonic-pi.net/) goes the imperative way combining iteration and threading in a single concept called ``live_loops``.
+These threaded loops can be sync with other loops and they follow a strickt timing concept.
+[FoxDot](https://foxdot.org/) uses the concept of players.
+Each player can play a synth on repeat and is synchronized to a clock.
+[TidalCycle](https://tidalcycles.org/) went the functional route.
+It also uses players but lets the user manipulate a signal in a functional way.
+Each of these tools offer a distinct language and therefore a way of thinking.
 
-I call this section *Playing Pattern* because, as we will see, we do not really care about ``Streams`` and ``Events`` if we understand the concept of ``Pattern``.
+However, [SuperCollider (SC)](https://supercollider.github.io/) offers its own amazing and powerful interface to compose a musical piece.
+Within the language we can use plain iteration and threading.
+Secondly we can use so called [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html) and [Events](https://doc.sccode.org/Classes/Event.html) to abstract most of the technical burden away!
+
+Later we will see how we can use the live programming interface to further enhance our ability to create rythms and melodic textures on the fly.
 
 ## The Instrument and its Artist
 
@@ -22,8 +32,11 @@ They translate our thoughts into actions that change the physical world around u
 However, this interaction is not a one-way street where we, the artist, enforce ideas onto the instrument.
 Instead, the instrument influences our ideas by limiting our space of possibilities.
 In fact, our brain does the same!
-It limits what we can perceive such that complexity can build up within our minds.
-And before we think about our brain, we use it.
+It limits what we can perceive such that structure can build up within our minds.
+Our brain is a complexity reducing organ that generates reality by differentiation and abstraction.
+The overwhelming stream of the concrete is filtered and enriched with meaning.
+But all this happens automatically.
+And before we start thinking about our brain, we use it.
 
 In the realm of (other) tools, it seems to be similar.
 Before we think about the being of a hammer, we use it.
@@ -32,17 +45,19 @@ Furthermore, a hammer is always connected to other things, for example, a nail o
 A tool or an instrument provides us with the means of expression. 
 It defines the space of possibilities.
 By limitations, it paradoxically opens up our imagination.
-Maybe we can even go so far as to say that it is in fact the instrument that uses us to express itself.
 
+I think limitation is one the most unterestimated requirements for artistic creation.
+If everything is possible nothing will be accomplished.
 Too much freedom can be a burden for the artist.
-Without boundaries, the language of the instrument can be too complicated.
+Without boundaries, the complexity of the concrete, the language of the instrument, can not be conquered.
 If we can create everything, we become unable to express anything.
 
 On the other hand, too strict limitations lead to repetition.
 If the space of possibilities is too narrow, the artist becomes superfluous.
+We encounter the great enemy of any creative process: boredom!
 
 Consequently, there is no clear optimal amount of limitations, i.e., space of possibilities.
-Changing the space can be a great source of inspiration.
+But changing the space from time to time can be a great source of inspiration.
 
 Therefore, to find out what space of possibilities you are looking for, I highly recommend that you check out all available tools and if none suits your needs you may want to build your own! 
 Building instruments to express ourselves is one of those wonderful acts a programmer can do!
@@ -61,7 +76,7 @@ Now let us talk about the space of possibilities that ``sclang`` offers.
 A [Stream](https://doc.sccode.org/Classes/Stream.html) is basically a series of elements that you can obtain in a **lazy** fashion.
 It is very similar to an ``Array`` with the difference that it is **lazy**.
 Laziness means that instead of holding all values of the ``Stream`` in-memory (like an ``Array`` does) values are generated on demand by a function.
-Therefore, a ``Stream`` can offer infinitely many values which are impossible for an ``Array``!
+Therefore, a ``Stream`` can offer infinitely many values which is impossible for an ``Array``!
 For example, we can define a function that gives us all integers.
 
 ```isc
@@ -177,6 +192,7 @@ A composition is a specific ``Pattern`` and a performance is a ``Stream`` of tha
 Playing a piano can be seen as a ``Stream`` of specific [Events](https://doc.sccode.org/Classes/Event.html).
 We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.
 
+(sec-playing-events)=
 ### Playing Events
 
 [Pbind](https://doc.sccode.org/Classes/Pbind.html) is an important ``Pattern``.
@@ -303,7 +319,7 @@ Let us look at the parameters determining the timing of an event.
 Let $t_e$ be the start time of the event $e$ (scheduled on our clock).
 Then $t_e + \Delta t_e$ is the end time of $e$, i.e., the start time of the next scheduled event.
 
-Furthermore, at $t_e + \Delta t_s$ the sustain ends and the decay of the sound begins.
+Furthermore, at $t_e + \Delta t_{e_s}$ the sustain ends and the decay of the sound begins.
 $\Delta t_e$ is equal to ``delta = dur * stretch`` and $\Delta t_{e_s}$ is equal to ``sustain``.
 The duration ``dur`` is stretched by a factor ``stretch``.
 Of course, the sound of the event $e$ can last longer than $\Delta t_e$, that is,
@@ -333,14 +349,18 @@ strumEndsTogether: false
 ``dur``, ``stretch``, ``delta`` and ``lag`` do not influence the sound generated by the event but influences the scheduling of events!
 ```
 
-We can set either ``sustain`` or ``legato`` but it does not really make sense to define them both because if we set ``sustain`` then ``legato`` has no effect.
+We can set either ``sustain`` or ``legato`` but it does not really make sense to define them both because if we set ``sustain``, then ``legato`` has no effect.
 This is not true for the duration ``dur``, since it is not only used to compute ``sustain``.
 
-```{admonition} Scheduling Influencer
+```{admonition} Sound Influencer
 :name: remark-sound-influencer
 :class: remark
 ``legato`` and ``sustain`` do not influence the scheduling but the sound generated by the event!
 ```
+
+What does ``lag`` mean?
+Well, ``lag`` ($\Delta t_l$) is a delay for the scheduler, i.e., scheduled events *lag* behind.
+The effect is that the sound generated by consecutive events will just start *lag* bps later.
 
 ```{figure} ../../figs/supercollider/pattern/event-timing.png
 ---
@@ -349,10 +369,6 @@ name: fig-event-timing
 ---
 Example of the timings of three scheduled events.
 ```
-
-What does ``lag`` mean?
-Well, ``lag`` ($\Delta t_l$) is a delay for the scheduler, i.e., scheduled events *lag* behind.
-The effect is that the sound generated by consecutive events will just start *lag* bps later.
 
 Let $e_1, \ldots, e_m$ be the $m$ scheduled events.
 Then for all $1 \leq i < m$
@@ -403,11 +419,11 @@ For the default of 12 ``stepsPerOctave`` (western music).
 ```isc
 (
 (\instrument: \default, \dur: 0.2, \amp: 0.5, 
-      \scale: [0, 3, 6, 8, 11, 14, 17], 
-      \degree: 1, 
-      \octave: 4,
-      \stepsPerOctave: 12,
-      \mtranspose: 3
+    \scale: [0, 3, 6, 8, 11, 14, 17], 
+    \degree: 1, 
+    \octave: 4,
+    \stepsPerOctave: 12,
+    \mtranspose: 3
 ).play
 )
 ```
@@ -515,7 +531,7 @@ event.play;
 )
 ```
 
-```{admonition} Difference between duration and sustain
+```{admonition} Difference between Duration and Sustain
 :name: remark-overlapping-sound
 :class: remark
 The duration ``dur`` is the elapsed time after the next event is scheduled while ``sustain`` is the time after the ``gate`` of the synth is triggered. If the sound sustains longer than ``dur`` we get overlapping sounds.
@@ -616,7 +632,7 @@ p = Pbind(
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.25,
     \sustain, 0.3,
-	\amp, Pfunc({arg event; min(1.0, event[\freq].linexp(100, 500, 1.0, 0.2)).postln;})
+    \amp, Pfunc({arg event; min(1.0, event[\freq].linexp(100, 500, 1.0, 0.2)).postln;})
 );
 q = p.play;
 )
@@ -633,7 +649,7 @@ p = Pbind(
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.25,
     \sustain, 0.3,
-	\amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
 );
 q = p.play;
 )
@@ -655,7 +671,7 @@ intro = Pbind(
     \freq, Pseq([440, 220, 330], 3),
     \dur, 0.25,
     \sustain, 0.3,
-	\amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
 );
 
 middle = Pbind(
@@ -663,7 +679,7 @@ middle = Pbind(
     \freq, Pseq([233, 321, 344], 3),
     \dur, 0.25,
     \sustain, 0.3,
-	\amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
+    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
 );
 
 outro = intro = Pbind(
@@ -732,6 +748,50 @@ Ppar([rythm, melody], inf).play;
 
 Later we will see that we can organize our piece by using multiple ``Pbind``.
 But for now, let's move on.
+
+## Dynamic Changes
+
+Ok, so we can define a pattern of events, i.e. a ``Pbind`` and play it.
+But would it not be nice to change the pattern while playing it?
+SuperCollider supports live programming via its powerful [Just In Time programming library (JITLib)](https://doc.sccode.org/Overviews/JITLib.html).
+I will discuss live programming in detail in section [Live Coding](sec-live-coding) but here I want to mention the [Pbindef](https://doc.sccode.org/Classes/Pbindef.html) class.
+
+``Pbindef`` keeps a reference to a ``Pbind`` in which single keys can be replaced.
+It plays on when the old stream ended and a new stream is set and schedules the changes to the beat.
+Basically this means that we can:
+
+1. change our pattern
+2. re-evaluate the code 
+
+and the change will appear soon after without ever stopping the pattern.
+The only difference to ``Pbind`` is that a ``Pbindef`` requires a unique name.
+Use the following ``Pbindef``, change the frequencies and re-evaluate the code.
+Listen what happens!
+
+```isc
+(
+Pbindef(\melody,
+    \instrument, \saw,
+    \freq, Pseq([440, 220, 330], inf),
+    \dur, 0.4,
+    \sustain, 0.1 
+).play;
+)
+```
+
+## Naming Conventions
+
+Behind the scenes SuperCollider's event player helps us transforming different values into other values.
+For example, we can play ``\midinote`` instead of ``\freq``.
+The player will convert the pitch to the correct frequency.
+
+However, we can only take advantage of this support if we name the arguments of the function defined in the ``SynthDef`` appropriately.
+
+```{admonition} Naming Conventions
+:name: attention-naming-convention
+:class: attention
+Always use the appropriate names, such as ``amp`` and ``freq`` for your ``SynthDef`` arguments!
+```
 
 ## Examples
 

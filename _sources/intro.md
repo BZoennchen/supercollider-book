@@ -6,7 +6,7 @@ I was immediately hooked!
 
 However, soon after experimenting with Sonic Pi, I wanted to write my own synth for which it is not really suitable.
 I wanted to learn more about actual algorithmic composition and sound design, doing what I may be best at: coding.
-Along the way I discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
+I searched the world wide web and discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
 
 Being creative by producing sound was the essential puzzle piece I was always looking for -- a strong connection between computer science and art.
 
@@ -16,80 +16,98 @@ From the bottom of my heart I am a computer scientist.
 But I may have to clarify my interpretation of the term.
 I mean computer scientist in the sense of studying 
 
-+ information as a resource (What is it and how can we create, manipulate and interpret it?) 
-+ computation (What can we compute? What does it mean to compute something?),
-+ formal languages (What can we express? What do we need to express it?), and
-+ algorithms and data structures
++ **information:** what is information and how we can create, manipulate and interpret it?
++ **computation:** what is computable and what do we mean by that?
++ **formal methods:** what can we express and what do we need to express it?
++ **algorithms** and **data structures:** what can we build?
 
-After school I did a practical training as software developer and after working for four years in the industry and finishing all requirements in one additional year, I started studying computer science.
+After school I did a practical training as software developer.
+I worked for 4 years in the industry.
+Then at a time of desperation I finished an additional year in school finally start studying computer science.
 I finished my Bachelor in 2013, my Master in 2017, and my PhD in 2021.
 In my PhD thesis I analysed different microscopic simulation models for pedestrian streams and developed algorithms to successfully simulate a large amount of pedestrians within a large area faster than real-time.
-During my time as PhD candidate I really enjoyed teaching.
+During my time as PhD candidate, I really enjoyed teaching.
 Today, I am a software developer for University who focuses on tools to support our education.
 Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.
 
-For other computer scientists interested in the topic of this book, it might be interesting to know which programming experience I have.
+For other computer scientists interested in the topic of this book, it might be interesting to know which programming experience I had at the time of writing it.
 I am very experienced in ``Java``.
 Furthermore, I developed an introductory course for ``Python``.
-I am also familiar with ``JavaScript`` and ``Scala``.
-Furthermore, I can read and understand ``C\C++`` code, but I am not very experienced in those languages.
+I am also familiar with ``JavaScript``, ``PHP``, and ``Scala`` and ``Go``.
+Furthermore, I can read and understand ``C\C++`` code, but I am not very experienced in it.
 I am familiar with GPU programming using ``OpenCL``.
+Currently, I try to learn some ``Rust``.
 
 From a musical perspective I know almost nothing.
-So this is a strong contrast to other great contributors such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
-However, I am a big music lover and I always wanted to make my own music and never thought that programming can lead to this goal.
+I have no education in music theory and I do not play an instrument.
+So this is a strong contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
+However, I am a big music lover and I always wanted to make my own music and never thought that programming could lead me to this goal.
 
 ## Notes on Technology
 
-In my opinion technology should not be trusted naively.
-Technology is not inherently good or bad -- it can be used for the good, the bad, the ugly and the beautiful.
-We have to rethink technology as something that, like nature, is not strictly separated from us.
-Technology shapes our way of communication, it opens up spaces of possibilities, but at the same time closes the door to preexisting ways of life.
-The introduction of cars influenced how we plan and build cities and, consequently, made the possession of a car mandatory in many areas.
-E-Mail changed our communication at the working place, it made the interaction with E-Mails mandatory.
+In my opinion, technology should not be trusted naively.
+Technology is neither inherently good nor bad -- it can be used for the good, the bad, the ugly, and the beautiful.
+We must rethink technology as something that, like nature, is not strictly separated from us.
+Technology shapes our way of communication; it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
 
-Technology has this dictating ability -- once established it dictates our way of communication.
-If we want to live within society, we can not escape technology.
-By not using or developing a new technology, we are dictated by others.
-We, as a collective, can only choose which technology should shape our communication and how we interact with it.
-On an individual level, we can only try to reduce or increase our dependence but at least we can be a conscious agent in the realm of technology.
+For example, the introduction of cars influenced how we plan and build cities and, consequently, made possessing a car mandatory in many areas.
+E-Mail changed our communication ethics at the workplace, it made the interaction with E-Mails mandatory.
+I see it as a privilege that my generation was one of the last growing up in an internet-free world.
+Today, children are confronted with a world of spectacle distractions.
 
-Neither do I advocate for the denial nor for the embracing of technology in general.
-Instead I advocate for an ongoing evaluation of all the different technologies.
+Massively widespread technology has this dictating ability -- once established, it dictates our way of communication.
+It shapes our mundane life, and if we want to live within society, we can not escape it.
+We live in an *age of disruption* where technology escapes any deep analysis because it evolves faster than we can blink.
+The danger is never to stop hustling.
+We need spaces that help us not to escape but to **really** engage with technology!
+To understand how it affects us, how it changes us, how it can help us and how it might destroy us.
+
+We get used to the internet, smartphones, social media, and other platform economies, and endless repetition of the trivial.
+As an individual, we seem powerless concerning new technologies.
+If there is a market, we most certainly have to get used to yet another technological phantasy.
+
+I neither advocate for the denial nor for embracing technology in general.
+Instead, I advocate for an ongoing evaluation of all the different technologies.
 Are they emancipatory?
-How do they change our way of thinking, feeling and communicating?
+How do they change our way of thinking, feeling, and communicating?
 Are they useful?
 What space do they open up?
-Do they offer artistic potentials?
+Do they offer artistic potential?
+What realities do they destroy?
+I advocate for a culture of conscious engagement -- a society of aware agents within the realm of technology.
+A potent society should have the power to reject technological advances in favor of cultural progress.
 
-I believe technology always opens up a space and the artist basically explores this space.
-Take pen and paper.
-We can imagine the infinite space of all drawings possible and it is the artist who discovers drawings and we, the audience, attach meaning to a piece of art.
-Therefore, for me digital art is as real as non-digital art and with respect to my caution regarding technology, it is the artist who has to explore the new spaces technicians open up. 
+I believe technology is always destructive as well as creative.
+It disrupts existing spaces and opens up new ones. 
+The artist's responsibility is to reveal and explore this process.
+Neither being prejudiced nor playing the devil's advocate but engaging with technology honestly.
+The digital is here to stay.
+So let us engage with it, honestly.
 
 >Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- J.D. Jarvis
 
 
 ## Why Writing a Book?
 
-I’m very excited and want to learn more about the topic. 
-This book is my attempt to do so, nothing more and nothing less (for now at least).
+I am very excited!
+I want to learn more about the *algorithmic composition*. 
+This book is my attempt to do so; nothing more and nothing less (for now at least).
 To really understand something, one has to pass through a grueling learning process.
-One such strategy that works for me is called the Feynman learning technique:
+One such strategy that works for me is called *the Feynman learning technique*.
+It consists of the following steps:
 
-1. Pretend to teach a concept you want to learn about to a student in the sixth grade.
-2. Identify gaps in your explanation. Go back to the source material to understand it better.
-3. Organize and simplify.
-4. Transmit (optional).
+1. pretend to teach a concept you want to learn about to a student in the sixth grade
+2. identify gaps in your explanation. Go back to the source material to understand it better
+3. organize and simplify
+4. transmit (optional)
 
-This book is my attempt to follow Feynman's technique imperfectly.
+This book is my attempt to follow *Feynman's technique* imperfectly.
 Maybe, in the end, someone else will find some useful ideas in this book.
-At the moment, I focus on [SuperCollider](https://supercollider.github.io/). 
+At the moment, I focus solely on [SuperCollider](https://supercollider.github.io/) and *sound design*. 
 
 ## Source Code
 
-The source code of the Jupyter-Book can be found here: [GitHub](https://github.com/BZoennchen/supercollider-book).
-
+The source code of the Jupyter-Book can be found inside one of [GitHub](https://github.com/BZoennchen/supercollider-book) repositories.
 The book is currently published using [GitHub-Pages](https://bzoennchen.github.io/supercollider-book/intro.html).
 
 ## The Nature of an Online-Book
@@ -109,7 +127,7 @@ Another thing I am looking forward to is combining the book with a Jupyter-Kerne
 
 I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
 The creators of my discoveries and the content of the materials I studied are silent contributors.
-Without the already existing material, I would not be able to learn SuperCollider or sound design in general. 
+Without the already existing material, I would not be able to learn either SuperCollider or sound design in general. 
 
 A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
 
