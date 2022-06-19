@@ -256,6 +256,7 @@ Like ``Python``, ``sclang`` supports the exponential operator ``**``.
 ```
 ````
 
+(sec-array)=
 ## Arrays
 
 A signal is basically a sequence of numbers.
@@ -842,3 +843,22 @@ SynthDef(\sineWave, {
 ```
 
 Each time we call ``Synth(\sineWave)`` we hear a different sound.
+
+(sec-mce)=
+## Multichannel expension
+
+When an [Array](sec-array) is given as an input to a unit generator it causes an array of multiple copies of that unit generator to be made, each with a different value from the input array.
+This behaviour is called multichannel expension.
+All but a few special unit generators perform multichannel expension.
+**Only** Arrays are expanded, no other type of collection, not even subclasses of Array.
+
+```isc
+{ Blip.ar(500, 8, 0.1) }.play // one channel
+
+// the array in the freq input causes an Array of 2 Blips to be created :
+{ Blip.ar([499, 600], 8, 0.1) }.play // two channels
+
+Blip.ar(500, 8, 0.1).postln // one unit generator created.
+
+Blip.ar([500, 601], 8, 0.1).postln // two unit generators created.
+```

@@ -1,64 +1,13 @@
 (sec-ugens)=
-# Playing Synth
+# UGens
 
-## Definitions
+The defining function of a ``SynthDef``, i.e. the [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph), consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
+They are the smallest building blocks of our sound generation architecture.
 
-In section [Basics](sec-basics), we already talked about ``SynthDef`` and ``Synth``.
-Let us recall.
+## Definition
 
-```{admonition} SynthDef
-:name: def-synth-def
-:class: definition
-A ``SynthDef`` is a ``Synth`` factory executed on the audio server.
-```
-
-```{admonition} Synth
-:name: def-synth
-:class: definition
-A ``Synth`` is a representation of a synth executed in the audio server.
-It is the object that generates sound.
-```
-
-A ``SynthDef``, constructed on the client-side, encapsulates the server-side representation of a synth definition and provides methods for creating new ``Synth`` on the server, writing itself (i.e. the definition / blueprint) to the disk, and streaming them to a server.
-
-The normal workflow goes as follows:
-
-1. define (all) your ``SynthDef`` via ``sclang``
-2. add them (all) it to the audio sever **scsynth**
-3. create a synth on the server
-4. remove the synth from the server
-
-```isc
-(
-// (1) define the SynthDef
-var synthdef = SynthDef(\sine_beep, {
-    arg freq = 440, amp = 0.5;
-    var sig, env;
-    env = Env([0,1,0], [0.01, 0.4], [5,-5]).ar(doneAction: Done.freeSelf);
-    sig = SinOsc.ar(freq: freq, mul: amp) * env!2;
-    Out.ar(0, sig);
-});
-
-// (2) add it to the audio server scsynth
-synthdef.add;
-)
-
-// (3) use it by creating Synth of the SynthDef
-Synth(\sine_beep, [freq: 200, amp: 0.4]);
-
-// (4) the synth removes itself because we specied doneAction: Done.freeSelf
-```
-
-If we put the last line within the namespace of the rest above, the evaluation will cause an error because adding a ``SynthDef`` to the server takes time and is an asynchronous non-blocking process.
-If you want to perform, it is good practice to add all your synth definition beforehand.
-
-In the last executable line, the server **scsynth** executes a ``Synth`` defined by a ``SynthDef`` identified by its name ``\sine_beep`` or ``"sine_beep"``.
-After 0.01 + 0.4 seconds our envelope ends and garbage collection is triggered.
-The ``doneAction`` tells the server to remove the played synth.
-
-A ``SynthDef`` consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
-It represents a directed signal graph where each node is a ``UGen`` and each edge is the signal output of one ``UGen`` and the signal input of another ``UGen``.
-The graph can be drawn as a [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph).
+A UGen is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as *side effects* such as wrting to the post window, accessing a buffer, or seinding a message over a network.
+The server can incorporate the UGen into a synthesis graph, passing data from one UGen to another.
 
 ```{figure} ../../figs/supercollider/ugens/sfg-example.png
 ---
@@ -69,8 +18,9 @@ SFG of the example above which consist of three ``UGen``. The envelope converts 
 ``SinOsc`` is our source.
 ```
 
+Each node of the graph represents a UGen.
 There are osillators, called *sources* that have no signal input.
-They build the starting points!
+They build the starting points, e.g. ``SinOsc``.
 
 ```{admonition} UGen
 :name: def-ugen
@@ -79,14 +29,42 @@ A ``UGen`` represent calculations with a signal.
 They are the basic building blocks of a ``SythDef``, and are used to generate or process both *audio* and *control signals*.
 ```
 
-``UGens`` are used to analyse, synthesize, and process signals at audio ``ar`` and control ``kr`` (or initialization only ``ir``) rate.
+When using ``sclang``, we need to have available a representation of each UGen which provides information about its inputs and outputs (the number, type etc.).
+These representations allow us to define synthesis graphs in ``sclang``, i.e. ``SynthDefs``.
+Therefore, each UGen also comes with a SC class; these classes are always derived from a base class, appropriately called ``UGen``.
+Later we will discuss how to write our own brand new unit generator.
+
+```{admonition} UGen execution
+:class: remark
+A ``UGen`` is executed on the server!
+```
+
+## Sample Rates
+
+``UGens`` are used to analyse, synthesize, and process signals at audio ``ar``, control ``kr`` or initialization only ``ir`` rate.
 The audio rate is much higher than the control rate.
+This is reflected in the code since it is rather easy to spot a UGen in SuperCollider code.
+We just have to look for the message ``.ar`` or ``.kr``.
+
+A unit generator runs at a specific rate, i.e. the rate it can spit out or process floating point numbers.
+If your machine runs at 44100 Hz sample rate, a ``SinOsc.ar`` will generate 44100 samples per second.
+Using ``kr`` will generate only 44100 / 64 = 700 samples per second.
 
 ```{admonition} Usage of Control Rate
 :name: remark-control-rate
 :class: remark
 If precision is not important (e.g. in case of [low frequency oscillators (LFOs)](sec-lfo)) one should use the control rate ``kr`` to save CPU resources.
 ```
+
+UGens are these incredibly fast generators of numbers.
+Some of these numbers become sound signals; others become control signals.
+We can use the ``.poll`` message to print 10 numbers per second to the post window:
+
+```isc
+{SinOsc.kr(1).poll}.play
+```
+
+## Categories
 
 [SuperCollider (SC)](https://supercollider.github.io/) provides us with over 250 different ``UGen``-classes which are client-side representations of the unit generators.
 They can be categorized into:
@@ -101,46 +79,14 @@ They can be categorized into:
 + control: envelopes, trigger, counters, gates, lags, decays
 + spectral
 
-```{admonition} UGen execution
-:class: remark
-A ``UGen`` is executed on the server!
-```
+Instead of discussing these different UGens by listing them all at one place, I try to explain them under practical motivation.
+For example, I will explain the [fundamental wavesforms](sec-fundamental-waveforms) in the context of [additive synthesis](sec-additive-synthesis).
+We will explore many different UGens discussing [filters](sec-filters), [subtractive synthesis](sec-subtractive-synthesis) and many more concepts.
 
-## Sever vs Client
-
-To understand ``UGens`` we have to understand the concept of client-side and server-side code evaluation.
-Only the client-side code of a ``SynthDef`` is executed when we add the ``SynthDef`` to the server.
-Playing the synth by creating a ``Synth`` executes only the server-side code!
-
-The relationship between server- and client-side code becomes more obvious if we compare server- and client-side randomness.
-
-```isc
-(
-SynthDef(\crndsine, {
-    var sig = SinOsc.ar(rrand(55, 75).midicps) * 0.25!2;
-    Out.ar(0, sig);
-}).add;
-)
-
-(
-SynthDef(\srndsine, {
-    var sig = SinOsc.ar(Rand(55, 75).round.midicps) * 0.25!2;
-    Out.ar(0, sig);
-}).add;
-)
-
-Synth(\crndsine);
-Synth(\srndsine);
-```
-
-Both ``SythDefs`` look similar but ``\crndsine`` uses a client-side random generator, where ``\srndsine`` uses a server-side one, that is, the ``UGen`` called ``Random``.
-Since ``rrand`` is evaluated when the we add the ``SynthDef``, each synth of this ``SynthDef`` will generate a randomly chosen sound which is the same for all synths.
-Therefore, if we want a ``Synth`` that generates a random sound whenever it is created we need server-side randomness using a suitable ``UGen``.
+## Special UGens
 
 In the following, I discuss certain ``UGens`` which I had difficulties to understand.
 For all the well documented ``UGens`` such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html), [Saw](https://doc.sccode.org/Classes/Saw.html), [LFTri](https://doc.sccode.org/Classes/LFTri.html), I refer to the [official documentation](https://doc.sccode.org/Guides/Tour_of_UGens.html).
-
-## Special UGens
 
 ### Amplitude
 

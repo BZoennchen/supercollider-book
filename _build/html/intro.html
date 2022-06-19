@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction &#8212; Algorithmic Composition</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,10 +28,10 @@
     <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -42,19 +39,19 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -66,7 +63,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +86,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +107,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Introduction
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider
  </span>
@@ -119,13 +132,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="chapters/supercollider/synths.html">
+   3. Synth &amp; SynthDefs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="chapters/supercollider/ugens.html">
-   3. Playing Synth
+   4. UGens
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/supercollider/pattern.html">
-   4. Playing Pattern
+   5. Playing Pattern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters/supercollider/live-coding.html">
+   6. Live Coding
   </a>
  </li>
 </ul>
@@ -137,12 +160,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/sounddesign/terms.html">
-   5. Terms
+   7. Terms
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="chapters/sounddesign/additive-synthesis/additive-synthesis.html">
-   6. Additive Synthesis
+   8. Additive Synthesis
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -152,19 +175,19 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/additive-synthesis/1-waveforms.html">
-     6.1. Fundamental Waveforms
+     8.1. Fundamental Waveforms
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/additive-synthesis/2-example.html">
-     6.2. Example
+     8.2. Example
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="chapters/sounddesign/filters/filters.html">
-   7. Filters
+   9. Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -174,64 +197,64 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/1-phase-shifting.html">
-     7.1. Phase Shifting
+     9.1. Phase Shifting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/2-phase-and-frequency.html">
-     7.2. Phase &amp; Frequency
+     9.2. Phase &amp; Frequency
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/3-frequency-filters.html">
-     7.3. Frequency Filters
+     9.3. Frequency Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/4-simpler-filters.html">
-     7.4. Simpler Filters
+     9.4. Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/5-resonance.html">
-     7.5. Responses and Resonance
+     9.5. Responses and Resonance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/6-control-filters.html">
-     7.6. Control Filters
+     9.6. Control Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapters/sounddesign/filters/7-delays.html">
-     7.7. Delays
+     9.7. Delays
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/sounddesign/subtractive-synthesis.html">
-   8. Subtractive Synthesis
+   10. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/sounddesign/percussive-sound.html">
-   9. Percussive Sound
+   11. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/sounddesign/am.html">
-   10. Amplitude Modulation (AM)
+   12. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/sounddesign/fm.html">
-   11. Frequency Modulation (FM)
+   13. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/sounddesign/drones.html">
-   12. Drones
+   14. Drones
   </a>
  </li>
 </ul>
@@ -243,7 +266,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/misc/bibliography.html">
-   13. Bibliography
+   15. Bibliography
   </a>
  </li>
 </ul>
@@ -255,23 +278,28 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/trash/jump-right-in.html">
-   14. Building Sounds
+   16. Building Sounds
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chapters/trash/distributions.html">
-   15. Random distributions
+   17. Random distributions
   </a>
  </li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -279,61 +307,117 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/intro.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#personal-background">
    Personal Background
@@ -366,12 +450,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Introduction</h1>
@@ -420,96 +503,114 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
 <p>I discovered the world of algorithmic composition and sound design using code in 2021.
 It all started when I watched an enthusiastic and really motivating presentation about <a class="reference external" href="https://github.com/sonic-pi-net/sonic-pi">Sonic Pi</a> by Sam Aaron.
 I was immediately hooked!</p>
 <p>However, soon after experimenting with Sonic Pi, I wanted to write my own synth for which it is not really suitable.
 I wanted to learn more about actual algorithmic composition and sound design, doing what I may be best at: coding.
-Along the way I discovered <a class="reference external" href="https://github.com/tidalcycles/Tidal">TidalCycle</a>, <a class="reference external" href="https://foxdot.org/">FoxDot</a> and, of course, <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a>.</p>
+I searched the world wide web and discovered <a class="reference external" href="https://github.com/tidalcycles/Tidal">TidalCycle</a>, <a class="reference external" href="https://foxdot.org/">FoxDot</a> and, of course, <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a>.</p>
 <p>Being creative by producing sound was the essential puzzle piece I was always looking for – a strong connection between computer science and art.</p>
 <div class="section" id="personal-background">
-<h2>Personal Background<a class="headerlink" href="#personal-background" title="Permalink to this headline">¶</a></h2>
+<h2>Personal Background<a class="headerlink" href="#personal-background" title="Permalink to this headline">#</a></h2>
 <p>From the bottom of my heart I am a computer scientist.
 But I may have to clarify my interpretation of the term.
 I mean computer scientist in the sense of studying</p>
 <ul class="simple">
-<li><p>information as a resource (What is it and how can we create, manipulate and interpret it?)</p></li>
-<li><p>computation (What can we compute? What does it mean to compute something?),</p></li>
-<li><p>formal languages (What can we express? What do we need to express it?), and</p></li>
-<li><p>algorithms and data structures</p></li>
+<li><p><strong>information:</strong> what is information and how we can create, manipulate and interpret it?</p></li>
+<li><p><strong>computation:</strong> what is computable and what do we mean by that?</p></li>
+<li><p><strong>formal methods:</strong> what can we express and what do we need to express it?</p></li>
+<li><p><strong>algorithms</strong> and <strong>data structures:</strong> what can we build?</p></li>
 </ul>
-<p>After school I did a practical training as software developer and after working for four years in the industry and finishing all requirements in one additional year, I started studying computer science.
+<p>After school I did a practical training as software developer.
+I worked for 4 years in the industry.
+Then at a time of desperation I finished an additional year in school finally start studying computer science.
 I finished my Bachelor in 2013, my Master in 2017, and my PhD in 2021.
 In my PhD thesis I analysed different microscopic simulation models for pedestrian streams and developed algorithms to successfully simulate a large amount of pedestrians within a large area faster than real-time.
-During my time as PhD candidate I really enjoyed teaching.
+During my time as PhD candidate, I really enjoyed teaching.
 Today, I am a software developer for University who focuses on tools to support our education.
 Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.</p>
-<p>For other computer scientists interested in the topic of this book, it might be interesting to know which programming experience I have.
+<p>For other computer scientists interested in the topic of this book, it might be interesting to know which programming experience I had at the time of writing it.
 I am very experienced in <code class="docutils literal notranslate"><span class="pre">Java</span></code>.
 Furthermore, I developed an introductory course for <code class="docutils literal notranslate"><span class="pre">Python</span></code>.
-I am also familiar with <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code> and <code class="docutils literal notranslate"><span class="pre">Scala</span></code>.
-Furthermore, I can read and understand <code class="docutils literal notranslate"><span class="pre">C\C++</span></code> code, but I am not very experienced in those languages.
-I am familiar with GPU programming using <code class="docutils literal notranslate"><span class="pre">OpenCL</span></code>.</p>
+I am also familiar with <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code>, <code class="docutils literal notranslate"><span class="pre">PHP</span></code>, and <code class="docutils literal notranslate"><span class="pre">Scala</span></code> and <code class="docutils literal notranslate"><span class="pre">Go</span></code>.
+Furthermore, I can read and understand <code class="docutils literal notranslate"><span class="pre">C\C++</span></code> code, but I am not very experienced in it.
+I am familiar with GPU programming using <code class="docutils literal notranslate"><span class="pre">OpenCL</span></code>.
+Currently, I try to learn some <code class="docutils literal notranslate"><span class="pre">Rust</span></code>.</p>
 <p>From a musical perspective I know almost nothing.
-So this is a strong contrast to other great contributors such as <a class="reference external" href="https://www.elifieldsteel.com/">Eli Fieldsteel</a>.
-However, I am a big music lover and I always wanted to make my own music and never thought that programming can lead to this goal.</p>
+I have no education in music theory and I do not play an instrument.
+So this is a strong contrast to other great contributors, such as <a class="reference external" href="https://www.elifieldsteel.com/">Eli Fieldsteel</a>.
+However, I am a big music lover and I always wanted to make my own music and never thought that programming could lead me to this goal.</p>
 </div>
 <div class="section" id="notes-on-technology">
-<h2>Notes on Technology<a class="headerlink" href="#notes-on-technology" title="Permalink to this headline">¶</a></h2>
-<p>In my opinion technology should not be trusted naively.
-Technology is not inherently good or bad – it can be used for the good, the bad, the ugly and the beautiful.
-We have to rethink technology as something that, like nature, is not strictly separated from us.
-Technology shapes our way of communication, it opens up spaces of possibilities, but at the same time closes the door to preexisting ways of life.
-The introduction of cars influenced how we plan and build cities and, consequently, made the possession of a car mandatory in many areas.
-E-Mail changed our communication at the working place, it made the interaction with E-Mails mandatory.</p>
-<p>Technology has this dictating ability – once established it dictates our way of communication.
-If we want to live within society, we can not escape technology.
-By not using or developing a new technology, we are dictated by others.
-We, as a collective, can only choose which technology should shape our communication and how we interact with it.
-On an individual level, we can only try to reduce or increase our dependence but at least we can be a conscious agent in the realm of technology.</p>
-<p>Neither do I advocate for the denial nor for the embracing of technology in general.
-Instead I advocate for an ongoing evaluation of all the different technologies.
+<h2>Notes on Technology<a class="headerlink" href="#notes-on-technology" title="Permalink to this headline">#</a></h2>
+<p>In my opinion, technology should not be trusted naively.
+Technology is neither inherently good nor bad – it can be used for the good, the bad, the ugly, and the beautiful.
+We must rethink technology as something that, like nature, is not strictly separated from us.
+Technology shapes our way of communication; it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.</p>
+<p>For example, the introduction of cars influenced how we plan and build cities and, consequently, made possessing a car mandatory in many areas.
+E-Mail changed our communication ethics at the workplace, it made the interaction with E-Mails mandatory.
+I see it as a privilege that my generation was one of the last growing up in an internet-free world.
+Today, children are confronted with a world of spectacle distractions.</p>
+<p>Massively widespread technology has this dictating ability – once established, it dictates our way of communication.
+It shapes our mundane life, and if we want to live within society, we can not escape it.
+We live in an <em>age of disruption</em> where technology escapes any deep analysis because it evolves faster than we can blink.
+The danger is never to stop hustling.
+We need spaces that help us not to escape but to <strong>really</strong> engage with technology!
+To understand how it affects us, how it changes us, how it can help us and how it might destroy us.</p>
+<p>We get used to the internet, smartphones, social media, and other platform economies, and endless repetition of the trivial.
+As an individual, we seem powerless concerning new technologies.
+If there is a market, we most certainly have to get used to yet another technological phantasy.</p>
+<p>I neither advocate for the denial nor for embracing technology in general.
+Instead, I advocate for an ongoing evaluation of all the different technologies.
 Are they emancipatory?
-How do they change our way of thinking, feeling and communicating?
+How do they change our way of thinking, feeling, and communicating?
 Are they useful?
 What space do they open up?
-Do they offer artistic potentials?</p>
-<p>I believe technology always opens up a space and the artist basically explores this space.
-Take pen and paper.
-We can imagine the infinite space of all drawings possible and it is the artist who discovers drawings and we, the audience, attach meaning to a piece of art.
-Therefore, for me digital art is as real as non-digital art and with respect to my caution regarding technology, it is the artist who has to explore the new spaces technicians open up.</p>
+Do they offer artistic potential?
+What realities do they destroy?
+I advocate for a culture of conscious engagement – a society of aware agents within the realm of technology.
+A potent society should have the power to reject technological advances in favor of cultural progress.</p>
+<p>I believe technology is always destructive as well as creative.
+It disrupts existing spaces and opens up new ones.
+The artist’s responsibility is to reveal and explore this process.
+Neither being prejudiced nor playing the devil’s advocate but engaging with technology honestly.
+The digital is here to stay.
+So let us engage with it, honestly.</p>
 <blockquote>
 <div><p>Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. – J.D. Jarvis</p>
 </div></blockquote>
 </div>
 <div class="section" id="why-writing-a-book">
-<h2>Why Writing a Book?<a class="headerlink" href="#why-writing-a-book" title="Permalink to this headline">¶</a></h2>
-<p>I’m very excited and want to learn more about the topic.
-This book is my attempt to do so, nothing more and nothing less (for now at least).
+<h2>Why Writing a Book?<a class="headerlink" href="#why-writing-a-book" title="Permalink to this headline">#</a></h2>
+<p>I am very excited!
+I want to learn more about the <em>algorithmic composition</em>.
+This book is my attempt to do so; nothing more and nothing less (for now at least).
 To really understand something, one has to pass through a grueling learning process.
-One such strategy that works for me is called the Feynman learning technique:</p>
+One such strategy that works for me is called <em>the Feynman learning technique</em>.
+It consists of the following steps:</p>
 <ol class="simple">
-<li><p>Pretend to teach a concept you want to learn about to a student in the sixth grade.</p></li>
-<li><p>Identify gaps in your explanation. Go back to the source material to understand it better.</p></li>
-<li><p>Organize and simplify.</p></li>
-<li><p>Transmit (optional).</p></li>
+<li><p>pretend to teach a concept you want to learn about to a student in the sixth grade</p></li>
+<li><p>identify gaps in your explanation. Go back to the source material to understand it better</p></li>
+<li><p>organize and simplify</p></li>
+<li><p>transmit (optional)</p></li>
 </ol>
-<p>This book is my attempt to follow Feynman’s technique imperfectly.
+<p>This book is my attempt to follow <em>Feynman’s technique</em> imperfectly.
 Maybe, in the end, someone else will find some useful ideas in this book.
-At the moment, I focus on <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a>.</p>
+At the moment, I focus solely on <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> and <em>sound design</em>.</p>
 </div>
 <div class="section" id="source-code">
-<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
-<p>The source code of the Jupyter-Book can be found here: <a class="reference external" href="https://github.com/BZoennchen/supercollider-book">GitHub</a>.</p>
-<p>The book is currently published using <a class="reference external" href="https://bzoennchen.github.io/supercollider-book/intro.html">GitHub-Pages</a>.</p>
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">#</a></h2>
+<p>The source code of the Jupyter-Book can be found inside one of <a class="reference external" href="https://github.com/BZoennchen/supercollider-book">GitHub</a> repositories.
+The book is currently published using <a class="reference external" href="https://bzoennchen.github.io/supercollider-book/intro.html">GitHub-Pages</a>.</p>
 </div>
 <div class="section" id="the-nature-of-an-online-book">
-<h2>The Nature of an Online-Book<a class="headerlink" href="#the-nature-of-an-online-book" title="Permalink to this headline">¶</a></h2>
+<h2>The Nature of an Online-Book<a class="headerlink" href="#the-nature-of-an-online-book" title="Permalink to this headline">#</a></h2>
 <p>I experiment with SuperCollider and other tools and I write this book all in my spare time.
 It is a hobby.
 Therefore, I will develop and update it over time.
@@ -520,10 +621,10 @@ Maybe this project will become a community effort to make SuperCollider, sound d
 <p>Another thing I am looking forward to is combining the book with a Jupyter-Kernel for SuperCollider such that the book becomes interactive.</p>
 </div>
 <div class="section" id="silent-contributors">
-<h2>Silent Contributors<a class="headerlink" href="#silent-contributors" title="Permalink to this headline">¶</a></h2>
+<h2>Silent Contributors<a class="headerlink" href="#silent-contributors" title="Permalink to this headline">#</a></h2>
 <p>I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
 The creators of my discoveries and the content of the materials I studied are silent contributors.
-Without the already existing material, I would not be able to learn SuperCollider or sound design in general.</p>
+Without the already existing material, I would not be able to learn either SuperCollider or sound design in general.</p>
 <p>A special thank goes to <a class="reference external" href="https://www.elifieldsteel.com/">Eli Fieldsteel</a>, who provides multiple excellent courses for <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> openly and for free via his <a class="reference external" href="https://www.youtube.com/user/elifieldsteel">YouTube-Channel</a>.</p>
 <p>In the following, I list all the material I looked into:</p>
 <ol class="simple">
@@ -571,8 +672,10 @@ Without the already existing material, I would not be able to learn SuperCollide
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
     <a class='right-next' id="next-link" href="chapters/supercollider/ecosystem.html" title="next page">
     <div class="prev-next-info">
@@ -582,24 +685,28 @@ Without the already existing material, I would not be able to learn SuperCollide
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Benedikt Zönnchen<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

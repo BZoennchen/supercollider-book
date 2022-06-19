@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2. Basics &#8212; Algorithmic Composition</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,10 +28,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -42,23 +39,23 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="../../_static/tabs.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Playing Synth" href="ugens.html" />
+    <link rel="next" title="3. Synth &amp; SynthDefs" href="synths.html" />
     <link rel="prev" title="1. The Ecosystem" href="ecosystem.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -67,7 +64,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Introduction
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider
  </span>
@@ -120,13 +133,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="synths.html">
+   3. Synth &amp; SynthDefs
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="ugens.html">
-   3. Playing Synth
+   4. UGens
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pattern.html">
-   4. Playing Pattern
+   5. Playing Pattern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="live-coding.html">
+   6. Live Coding
   </a>
  </li>
 </ul>
@@ -138,12 +161,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/terms.html">
-   5. Terms
+   7. Terms
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../sounddesign/additive-synthesis/additive-synthesis.html">
-   6. Additive Synthesis
+   8. Additive Synthesis
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -153,19 +176,19 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/additive-synthesis/1-waveforms.html">
-     6.1. Fundamental Waveforms
+     8.1. Fundamental Waveforms
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/additive-synthesis/2-example.html">
-     6.2. Example
+     8.2. Example
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../sounddesign/filters/filters.html">
-   7. Filters
+   9. Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -175,64 +198,64 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/1-phase-shifting.html">
-     7.1. Phase Shifting
+     9.1. Phase Shifting
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/2-phase-and-frequency.html">
-     7.2. Phase &amp; Frequency
+     9.2. Phase &amp; Frequency
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/3-frequency-filters.html">
-     7.3. Frequency Filters
+     9.3. Frequency Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/4-simpler-filters.html">
-     7.4. Simpler Filters
+     9.4. Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/5-resonance.html">
-     7.5. Responses and Resonance
+     9.5. Responses and Resonance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/6-control-filters.html">
-     7.6. Control Filters
+     9.6. Control Filters
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../sounddesign/filters/7-delays.html">
-     7.7. Delays
+     9.7. Delays
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   8. Subtractive Synthesis
+   10. Subtractive Synthesis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
-   9. Percussive Sound
+   11. Percussive Sound
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/am.html">
-   10. Amplitude Modulation (AM)
+   12. Amplitude Modulation (AM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/fm.html">
-   11. Frequency Modulation (FM)
+   13. Frequency Modulation (FM)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/drones.html">
-   12. Drones
+   14. Drones
   </a>
  </li>
 </ul>
@@ -244,7 +267,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
-   13. Bibliography
+   15. Bibliography
   </a>
  </li>
 </ul>
@@ -256,23 +279,28 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/jump-right-in.html">
-   14. Building Sounds
+   16. Building Sounds
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../trash/distributions.html">
-   15. Random distributions
+   17. Random distributions
   </a>
  </li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -280,61 +308,117 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/supercollider/basics.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/supercollider/basics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#code-execution">
    2.1. Code Execution
@@ -419,14 +503,18 @@
    2.9. Server-side and Client-side language
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multichannel-expension">
+   2.10. Multichannel expension
+  </a>
+ </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Basics</h1>
@@ -523,31 +611,37 @@
    2.9. Server-side and Client-side language
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multichannel-expension">
+   2.10. Multichannel expension
+  </a>
+ </li>
 </ul>
 
                         </nav>
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="basics">
-<span id="sec-basics"></span><h1><span class="section-number">2. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
+<span id="sec-basics"></span><h1><span class="section-number">2. </span>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h1>
 <p>Before we go into the details I have to say that, coming from programming languages such as <code class="docutils literal notranslate"><span class="pre">Java</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">Python</span></code>, the syntax of <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is not the most beautiful.
 However, this first expression hides the fact that a lot of decisions regarding syntax make sense at a second glance.
 So don’t be scared by the first impression.</p>
 <p>In this section, I will give a starting point such that the reader can start experimenting with SuperCollider.
 By only reading this section and <a class="reference internal" href="ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a> you have a good building ground to start your discovery with the SuperCollider platform.</p>
 <div class="section" id="code-execution">
-<h2><span class="section-number">2.1. </span>Code Execution<a class="headerlink" href="#code-execution" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Code Execution<a class="headerlink" href="#code-execution" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference internal" href="ecosystem.html#sec-scide"><span class="std std-ref">SuperCollider IDE</span></a> (SCIDE) is build for interaction.
 If you are familiar with the concept of Notebooks, for example, Jupyter-Notebooks or Mathematica-Notebooks, you already know what I mean.
 The idea is that you can execute code while developing.
 Instead of writing a complete program, you are constantly stimulated to run small code snippets.
 In live coding, this is embraced even more but it is also good practice if you learn and explore SuperCollider in general.</p>
 <div class="section" id="triggering-the-evaluation">
-<h3><span class="section-number">2.1.1. </span>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.1. </span>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">#</a></h3>
 <p>Let’s start!
 Let’s write some <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code and execute it via the REPL (Read–Eval–Print Loop).</p>
 <p>To execute the following line press <code class="docutils literal notranslate"><span class="pre">SHIFT</span></code> + <code class="docutils literal notranslate"><span class="pre">RETURN</span></code> while your cursor is at the code line.</p>
@@ -585,7 +679,7 @@ It will open the documentation of the code your cursor is at.</p>
 </div>
 </div>
 <div class="section" id="execution-of-c-code">
-<h3><span class="section-number">2.1.2. </span>Execution of C++ Code<a class="headerlink" href="#execution-of-c-code" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.2. </span>Execution of C++ Code<a class="headerlink" href="#execution-of-c-code" title="Permalink to this headline">#</a></h3>
 <div class="remark admonition" id="remark-lookup-source-code">
 <p class="admonition-title">Lookup Source Code</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> to look at the actual implementation of the class or method your cursor is at.</p>
@@ -640,7 +734,7 @@ This interaction between <code class="docutils literal notranslate"><span class=
 As long as we do not write our own <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">primitives</a> we can ignore the <code class="docutils literal notranslate"><span class="pre">C++</span></code> interaction.</p>
 </div>
 <div class="section" id="order-of-execution">
-<h3><span class="section-number">2.1.3. </span>Order of Execution<a class="headerlink" href="#order-of-execution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.3. </span>Order of Execution<a class="headerlink" href="#order-of-execution" title="Permalink to this headline">#</a></h3>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the code is strictly evaluated from left to the right.
 This means that all operands have the same priority which might lead to unexpected results.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span>
@@ -654,7 +748,7 @@ This means that all operands have the same priority which might lead to unexpect
 </div>
 </div>
 <div class="section" id="variables-and-scope">
-<h2><span class="section-number">2.2. </span>Variables and Scope<a class="headerlink" href="#variables-and-scope" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Variables and Scope<a class="headerlink" href="#variables-and-scope" title="Permalink to this headline">#</a></h2>
 <p>Here we encounter the first inconvenience.
 In <a class="reference external" href="https://supercollider.github.io/">(SC)</a> there are some special pre-defined variables.
 Each <strong>single character variable</strong> <code class="docutils literal notranslate"><span class="pre">[a-z]</span></code> is pre-defined and globally available.
@@ -734,11 +828,11 @@ These variables are called <em>Environment variables</em>.</p>
 </div>
 </div>
 <div class="section" id="arrays">
-<h2><span class="section-number">2.3. </span>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h2>
+<span id="sec-array"></span><h2><span class="section-number">2.3. </span>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h2>
 <p>A signal is basically a sequence of numbers.
 This sequence can be realized by an <code class="docutils literal notranslate"><span class="pre">Array</span></code>.</p>
 <div class="section" id="creation">
-<h3><span class="section-number">2.3.1. </span>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">#</a></h3>
 <p>To create a new <code class="docutils literal notranslate"><span class="pre">Array</span></code> the class offers many factory methods.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="kc">maxSize:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [  ]</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// [ 0.0, 0.5, 1.0 ]</span>
@@ -774,7 +868,7 @@ This sequence can be realized by an <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="concatenation">
-<h3><span class="section-number">2.3.2. </span>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.2. </span>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">#</a></h3>
 <p>First, we can concatenate by creating a new array and copying all elements:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">++</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6 ]</span>
 </pre></div>
@@ -786,7 +880,7 @@ This sequence can be realized by an <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="section" id="access-of-elements">
-<h3><span class="section-number">2.3.3. </span>Access of Elements<a class="headerlink" href="#access-of-elements" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span>Access of Elements<a class="headerlink" href="#access-of-elements" title="Permalink to this headline">#</a></h3>
 <p>We can access any element by <code class="docutils literal notranslate"><span class="pre">.at(index)</span></code> or by the shorthand <code class="docutils literal notranslate"><span class="pre">&#64;index</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
@@ -813,7 +907,7 @@ Similar to <code class="docutils literal notranslate"><span class="pre">numpy</s
 Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is implemented accordingly.</p>
 </div>
 <div class="section" id="manipulation">
-<h3><span class="section-number">2.3.4. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.4. </span>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h3>
 <p><strong>Multiplying</strong> an array with a number, will result in a new array for which each element is multiplied by the number.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
@@ -847,7 +941,7 @@ Therefore, an <code class="docutils literal notranslate"><span class="pre">Array
 </div>
 </div>
 <div class="section" id="functions">
-<h2><span class="section-number">2.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> functions are first-class objects which means that a function can be an argument of another function.
 The language drives the programmer to make use of this fact in various ways.</p>
 <p>To define a function, we encapsulate its content by curly brackets, and to execute it, we call <code class="docutils literal notranslate"><span class="pre">value</span></code> on it:</p>
@@ -960,7 +1054,7 @@ Furthermore, there is another rather strange shortcut:</p>
 </div>
 </div>
 <div class="section" id="basic-control-structures">
-<h2><span class="section-number">2.5. </span>Basic Control Structures<a class="headerlink" href="#basic-control-structures" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Basic Control Structures<a class="headerlink" href="#basic-control-structures" title="Permalink to this headline">#</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, control sequences are functions.
 They expect one or multiple functions that are executed conditionally.
 We already saw the <code class="docutils literal notranslate"><span class="pre">if</span></code>-Functions which expect one boolean expression (a predicate) and two functions.</p>
@@ -981,7 +1075,7 @@ For example:</p>
 <p>A little more flexible is the <code class="docutils literal notranslate"><span class="pre">forBy</span></code>-function for which <code class="docutils literal notranslate"><span class="pre">for</span></code> is a special case.
 It allows us to define an additional <code class="docutils literal notranslate"><span class="pre">stepValue</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">forBy</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">.</span><span class="nx">postln</span><span class="p">;})</span> <span class="c1">// 0 2 4 6 8</span>
+<span class="k">forBy</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">.</span><span class="nx">postln</span><span class="p">;})</span> <span class="c1">// 0 2 4 6 8</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -997,7 +1091,7 @@ The test checks for equality <code class="docutils literal notranslate"><span cl
 To be more flexible and to use different predicates one can use the <code class="docutils literal notranslate"><span class="pre">case</span></code>-function which is as efficient as <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements.</p>
 </div>
 <div class="section" id="classes-and-objects">
-<h2><span class="section-number">2.6. </span>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">#</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
@@ -1078,7 +1172,7 @@ Therefore, <code class="docutils literal notranslate"><span class="pre">+</span>
 The best way to learn more about it is to look into the source code pressing <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">CMD</span></code>.</p>
 </div>
 <div class="section" id="a-first-sine-wave">
-<h2><span class="section-number">2.7. </span>A First Sine Wave<a class="headerlink" href="#a-first-sine-wave" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.7. </span>A First Sine Wave<a class="headerlink" href="#a-first-sine-wave" title="Permalink to this headline">#</a></h2>
 <p>Let us create the most simple sound possible: the sound of a sine wave.
 First, we define a function that returns a so-called unit generator <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> that starts when we call <code class="docutils literal notranslate"><span class="pre">play()</span></code>.
 In fact <code class="docutils literal notranslate"><span class="pre">play()</span></code> is shorthand too and</p>
@@ -1148,7 +1242,7 @@ For example we can increase <code class="docutils literal notranslate"><span cla
 For complex synth, we will define our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.</p>
 </div>
 <div class="section" id="a-first-synthdef">
-<h2><span class="section-number">2.8. </span>A First SynthDef<a class="headerlink" href="#a-first-synthdef" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8. </span>A First SynthDef<a class="headerlink" href="#a-first-synthdef" title="Permalink to this headline">#</a></h2>
 <p>Instead of using <code class="docutils literal notranslate"><span class="pre">play()</span></code> we can instead implement our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
 This gives us much more control over sound creation.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -1198,7 +1292,7 @@ This call will create the file <code class="docutils literal notranslate"><span 
 If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> in the <code class="docutils literal notranslate"><span class="pre">snythdefs</span></code> directory are added to the server automatically.</p>
 </div>
 <div class="section" id="server-side-and-client-side-language">
-<h2><span class="section-number">2.9. </span>Server-side and Client-side language<a class="headerlink" href="#server-side-and-client-side-language" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.9. </span>Server-side and Client-side language<a class="headerlink" href="#server-side-and-client-side-language" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> are static!
 This means that the dynamics of a sound can only be influenced by <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> and the arguments of the <strong>UGen Graph Function</strong>.
 Those arguments can only be arguments of <a class="reference internal" href="ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a>!
@@ -1229,6 +1323,23 @@ However, we can use the <a class="reference internal" href="ugens.html#sec-ugens
 </div>
 <p>Each time we call <code class="docutils literal notranslate"><span class="pre">Synth(\sineWave)</span></code> we hear a different sound.</p>
 </div>
+<div class="section" id="multichannel-expension">
+<span id="sec-mce"></span><h2><span class="section-number">2.10. </span>Multichannel expension<a class="headerlink" href="#multichannel-expension" title="Permalink to this headline">#</a></h2>
+<p>When an <a class="reference internal" href="#sec-array"><span class="std std-ref">Array</span></a> is given as an input to a unit generator it causes an array of multiple copies of that unit generator to be made, each with a different value from the input array.
+This behaviour is called multichannel expension.
+All but a few special unit generators perform multichannel expension.
+<strong>Only</strong> Arrays are expanded, no other type of collection, not even subclasses of Array.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// one channel</span>
+
+<span class="c1">// the array in the freq input causes an Array of 2 Blips to be created :</span>
+<span class="p">{</span> <span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="mi">499</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// two channels</span>
+
+<span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// one unit generator created.</span>
+
+<span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">601</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// two unit generators created.</span>
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1253,9 +1364,11 @@ However, we can use the <a class="reference internal" href="ugens.html#sec-ugens
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="ecosystem.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1263,32 +1376,36 @@ However, we can use the <a class="reference internal" href="ugens.html#sec-ugens
             <p class="prev-next-title"><span class="section-number">1. </span>The Ecosystem</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ugens.html" title="next page">
+    <a class='right-next' id="next-link" href="synths.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Playing Synth</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Synth &amp; SynthDefs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Benedikt Zönnchen<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

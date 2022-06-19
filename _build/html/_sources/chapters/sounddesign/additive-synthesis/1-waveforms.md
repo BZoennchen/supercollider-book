@@ -1,3 +1,4 @@
+(sec-fundamental-waveforms)=
 # Fundamental Waveforms
 
 Jean-Baptise Joseph Fourier discovered that every function that is 
