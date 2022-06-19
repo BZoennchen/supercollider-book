@@ -2,18 +2,18 @@
 # Live Coding
 
 [SuperCollider](https://supercollider.github.io/) supports live programming via its powerful [Just In Time programming library (JITLib)](https://doc.sccode.org/Overviews/JITLib.html).
-It allows the use dynamic modification and interconnection of proxies.
-Quoting its own documentation:
+It allows the use of dynamic modification and interconnection of proxies.
+Quoting its documentation:
 
 >Just in time programming (or: conversational programming, live coding, on-the fly-programming, interactive programming) is a paradigm that includes the programming actively in the program's operation. Here, a program is not taken as a tool that is made first to be productive later, but instead as a dynamic construction process of description and conversation. Writing code becomes an intergral part of musical or experimental practice.
 
-In a live programming environment we often want to use something before it is actually there, so that we can setup our setting in a non-linear way.
-For this reason the JITLib of SuperCollider offers us different ways to define proxies.
+In a live programming environment, we often want to use something before it is there to set up our setting in a non-linear way.
+For this reason, the JITLib of SuperCollider offers us different ways to define proxies.
 A proxy is a placeholder that is often used to operate on something that does not yet exist.
 For example, an *OutputProxy* is used to represent multiple outputs of a UGen, even if only one UGen is created eventually.
 
-Proxies can be redefined, making them extremely flexible and dynamic to work with.
-They can refer to functions, pattern or tasks and they can work at either audio ``ar`` or control ``kr`` rate.
+Proxies can be redefined, making them highly flexible and dynamic.
+They can refer to functions, patterns, or tasks and work at either audio ``ar`` or control ``kr`` rate.
 
 ## Node Proxy
 
@@ -21,7 +21,7 @@ NodeProxy objects (usually synth or event streams) can be replaced with other sy
 This replacement can be crossfaded automatically by setting up a ``fadeTime``.
 Furthermore, the replacement time can be quantized.
 
-A node proxy is a placeholder for something **playing on a server** that writes to a limited number of busses (e.g. a synth or an event stream).
+A node proxy is a placeholder for something **playing on a server** that writes to a limited number of busses (e.g., a synth or an event stream).
 After booting the server via ``s.boot``, we can create a new [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) object and ``play`` it.
 
 ```isc
@@ -31,8 +31,8 @@ a.source = { SinOsc.ar([350, 351.3], 0, 0.2) };
 a.source = { Pulse.ar([350, 351.3] / 4, 0.4) * 0.2 }; // replace the synth
 ```
 
-[Ndef](https://doc.sccode.org/Classes/Ndef.html) is a node proxy definition, i.e. a handy way to define a new node proxy.
-``Ndef`` registers synths by key, that is, all accesses to the registered synths go through the ``Ndef`` class via that key.
+[Ndef](https://doc.sccode.org/Classes/Ndef.html) is a node proxy definition, i.e., a handy way to define a new node proxy.
+``Ndef`` registers synths by key, i.e., all accesses to the registered synths go through the ``Ndef`` class via that key.
 
 ```isc
 Ndef(\a).play; // play to the hardware output
@@ -45,7 +45,7 @@ Behind every ``Ndef`` there is one single instance of [ProxySpace](https://doc.s
 This proxy space keeps default values for the proxies that can be set.
 
 Sometimes I will use node proxy definitions because they offer a neat ``gui`` to play around with.
-The gui generator automatically introduces a slide for each controlable argument.
+The GUI generator automatically introduces a slide for each controllable argument.
 We can even specify the range of the argument using a [Spec](https://doc.sccode.org/Classes/Spec.html):
 
 ```isc
@@ -60,13 +60,13 @@ That is quite nice to experiment with!
 
 ## Proxy Space
 
-A proxy space is an [Environments](https://doc.sccode.org/Classes/Environment.html), i.e. a collection of things that can be accessed by name.
+A proxy space is an [Environments](https://doc.sccode.org/Classes/Environment.html), i.e., a collection of things that can be accessed by name.
 However, each *environmental variable* of a proxy space is a node proxy -- it returns placeholders on demand!
-Threfore, a proxy space hides some of the functionality of JITLib.
+Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
-Using a proxy space frees us from dealing with ``Ndef`` or ``NodeProxy`` explicitly but we have to deal with it implicitely instead!
+Using a proxy space frees us from dealing with ``Ndef`` or ``NodeProxy`` explicitly, but we have to deal with it implicitly instead!
 
-When we start the SuperCollider IDE it automatically creates an environment that can be evaluated by the following line:
+When we start the SuperCollider IDE, it automatically creates an environment that can be evaluated by the following line:
 
 ```isc
 currentEnvironment;
@@ -74,7 +74,7 @@ currentEnvironment;
 
 If this is your first evaluated command, the environment should be empty.
 This environment contains variables, more specifically *environment variables*.
-These variables can be defined by something preceeded by a tilde:
+Something preceded by a tilde can define these variables:
 
 ```isc
 ~number = 100;
@@ -93,8 +93,8 @@ and an assignment like ``~number = 100;`` stands for
 currentEnvironment.put(\number, 100);
 ```
 
-To switch to proxy space we first have to boot the server. 
-Then we can push the new environment which replaces the current one.
+To switch to proxy space, we first have to boot the server. 
+Then we can push the new environment, which replaces the current one.
 The following line suffice:
 
 ```isc
@@ -111,9 +111,9 @@ instead.
 
 If we re-evaluate ``currentEnvironment``, we can see that we are indeed in an empty proxy space.
 There are no "classical" environment variables within the proxy space.
-If access a variable as before (with the tilde ``~``), it becomes a proxy instead, i.e. a placeholder for something.
-We can still us *global variables*, that is single letters except of ``s``.
-If we need more variables, we can fix this problem but let us for now move on.
+If access a variable as before (with the tilde ``~``), it becomes a proxy instead, i.e., a placeholder for something.
+We can still use *global variables*, that is, single letters except for ``s``.
+If we need more variables, we can fix this problem but let us move on for now.
 
 ```isc
 ~sound = {Resonz.ar(Pulse.ar(5), Array.exprand(4, 120, 2500), 0.005).sum!2};
@@ -122,17 +122,17 @@ If we need more variables, we can fix this problem but let us for now move on.
 ```
 
 We can stop it and modify it on the fly by changing the function.
-Since there is (client-side) randomness at play, each time we re-evaluate the function, the sound changes.
-To achieve a smoother transition between changes, we can define a fade time.
+Since there is (client-side) randomness at play, the sound changes each time we re-evaluate the function.
+To achieve a smoother transition between changes, we can define fade time.
 
-We can also define a fade time for the whole proxy space which will then be used as the default fade time if nothing else is specified.
+We can also define a fade time for the whole proxy space, which will then be used as the default fade time if nothing else is specified.
 
 ```isc
 p.fadeTime = 3.0;
 ```
 
-We can play around with the proxy, manipulate its function and values but one thing we can not change!
-We can not change the number of output busses required by the running proxy.
+We can play around with the proxy and manipulate its function and values, but we can not change one thing!
+We can not change the number of output buses the running proxy requires.
 Changing a mono signal into a stereo one is not possible on-the-fly.
 
 ```{admonition} Bus Changes
@@ -157,10 +157,10 @@ and the sound disappear after executing the third line.
 Playing an empty proxy will set its number of output busses to two (stereo).
 
 Proxies can be played ``play(fadeTime: 2)``, stopped ``stop(2)``, paused ``pause`` and resumed ``resume``.
-The latter two methods do not offer a fade time parameter and for ``play`` the fade time has to be explicitly named.
+The latter two methods do not offer a fade time parameter, and for ``play``, the fade time has to be explicitly named.
 One can not play a paused proxy and can not resume a stopped one.
 
-If we specify arguments using named controls, we can set these arguments without touching the proxy.
+We can set these arguments without touching the proxy if we specify arguments using named controls.
 
 ```isc
 ~sine = {SinOsc.ar(\freq.kr(333))*0.3!2};
@@ -171,7 +171,7 @@ If we specify arguments using named controls, we can set these arguments without
 ~sine.gui; // we can make use of the same gui
 ```
 
-Using ``set`` will change the value immediately while ``xset`` makes use of the ``fadeTime`` to crossfade between the current and the new value.
+Using ``set`` will change the value immediately while ``xset``uses the ``fadeTime`` to crossfade between the current and the new value.
 Of course, we can combine multiple proxies by building a signal-flow graph on the fly.
 
 ```isc
@@ -182,4 +182,4 @@ Of course, we can combine multiple proxies by building a signal-flow graph on th
 
 The output of one proxy can be the input of multiple other proxies.
 The combination JITLib and the proxy space offers extreme versatility and makes live coding easier and very flexible.
-It gets more interesting when used with [pattern](sec-pattern) and one has multiple ``Pbinds`` sounding together.
+It gets more interesting when used with [pattern](sec-pattern), and one has multiple ``Pbinds`` sounding together.

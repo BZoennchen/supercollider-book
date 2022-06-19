@@ -1,13 +1,14 @@
 (sec-ugens)=
-# UGens
+# Unit Generators
 
 The defining function of a ``SynthDef``, i.e. the [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph), consists of so called [UGens](https://doc.sccode.org/Classes/UGen.html) (unit generators).
-They are the smallest building blocks of our sound generation architecture.
+It is a *unit genertor graph function*.
+Unit generators are the smallest building blocks of our sound generation architecture.
 
 ## Definition
 
-A UGen is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as *side effects* such as wrting to the post window, accessing a buffer, or seinding a message over a network.
-The server can incorporate the UGen into a synthesis graph, passing data from one UGen to another.
+A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as *side effects* such as wrting to the post window, accessing a buffer, or seinding a message over a network.
+The server can incorporate the unit generators into a synthesis graph, passing data from one unit generator to another.
 
 ```{figure} ../../figs/supercollider/ugens/sfg-example.png
 ---
@@ -18,32 +19,32 @@ SFG of the example above which consist of three ``UGen``. The envelope converts 
 ``SinOsc`` is our source.
 ```
 
-Each node of the graph represents a UGen.
+Each node of the graph represents a unit generator.
 There are osillators, called *sources* that have no signal input.
 They build the starting points, e.g. ``SinOsc``.
 
-```{admonition} UGen
+```{admonition} Unit Generator (UGen)
 :name: def-ugen
 :class: definition
-A ``UGen`` represent calculations with a signal.
-They are the basic building blocks of a ``SythDef``, and are used to generate or process both *audio* and *control signals*.
+A *unit generator* ``UGen`` represent calculations with a signal.
+They are the basic building blocks of a synth definition, and are used to generate or process both *audio* and *control signals*.
 ```
 
 When using ``sclang``, we need to have available a representation of each UGen which provides information about its inputs and outputs (the number, type etc.).
 These representations allow us to define synthesis graphs in ``sclang``, i.e. ``SynthDefs``.
-Therefore, each UGen also comes with a SC class; these classes are always derived from a base class, appropriately called ``UGen``.
+Therefore, each unit generator also comes with a SC class; these classes are always derived from a base class, appropriately called ``UGen``.
 Later we will discuss how to write our own brand new unit generator.
 
-```{admonition} UGen execution
+```{admonition} Unit Generator Execution
 :class: remark
-A ``UGen`` is executed on the server!
+A unit generator, i.e. an instance of ``UGen``, is executed on the server!
 ```
 
 ## Sample Rates
 
 ``UGens`` are used to analyse, synthesize, and process signals at audio ``ar``, control ``kr`` or initialization only ``ir`` rate.
 The audio rate is much higher than the control rate.
-This is reflected in the code since it is rather easy to spot a UGen in SuperCollider code.
+This is reflected in the code since it is rather easy to spot a unit generator in SuperCollider code.
 We just have to look for the message ``.ar`` or ``.kr``.
 
 A unit generator runs at a specific rate, i.e. the rate it can spit out or process floating point numbers.
@@ -83,7 +84,33 @@ Instead of discussing these different UGens by listing them all at one place, I 
 For example, I will explain the [fundamental wavesforms](sec-fundamental-waveforms) in the context of [additive synthesis](sec-additive-synthesis).
 We will explore many different UGens discussing [filters](sec-filters), [subtractive synthesis](sec-subtractive-synthesis) and many more concepts.
 
-## Special UGens
+(sec-mce)=
+## Multichannel Expension
+
+When an [array](sec-array) is given as an input to a *unit generator* it causes an array of multiple copies of that unit generator to be made, each with a different value from the input array.
+This behaviour is called multichannel expension.
+All but a few special unit generators perform multichannel expension.
+**Only** arrays are expanded, no other type of collection, not even subclasses of Array.
+
+```isc
+{ Blip.ar(500, 8, 0.1) }.play // one channel
+
+// the array in the freq input causes an Array of 2 Blips to be created :
+{ Blip.ar([499, 600], 8, 0.1) }.play // two channels
+
+Blip.ar(500, 8, 0.1).postln // one unit generator created.
+
+Blip.ar([500, 601], 8, 0.1).postln // two unit generators created.
+```
+
+
+
+
+
+
+
+
+## Special Unit Generators
 
 In the following, I discuss certain ``UGens`` which I had difficulties to understand.
 For all the well documented ``UGens`` such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html), [Saw](https://doc.sccode.org/Classes/Saw.html), [LFTri](https://doc.sccode.org/Classes/LFTri.html), I refer to the [official documentation](https://doc.sccode.org/Guides/Tour_of_UGens.html).
