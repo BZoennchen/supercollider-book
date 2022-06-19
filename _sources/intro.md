@@ -1,47 +1,62 @@
 # Introduction
 
-I discovered the world of algorithmic composition and sound design using code in 2021.
-It all started when I watched an enthusiastic and really motivating presentation about [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi) by Sam Aaron.
-I was immediately hooked!
+I discovered the world of algorithmic composition and sound design using code in late 2021.
+It all started when I watched an energetic and really motivated Sam Aaron presenting his [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi).
+I was immediately hooked, especially given the context: educational live programming for kids!
 
-However, soon after experimenting with Sonic Pi, I wanted to write my own synth for which it is not really suitable.
-I wanted to learn more about actual algorithmic composition and sound design, doing what I may be best at: coding.
-I searched the world wide web and discovered [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider](https://supercollider.github.io/).
+I started experimenting with Sonic Pi.
+However, soon after playing around with it, I wanted to write my own synths for which it is unsuitable.
+Sonic Pi is perfectly suitable for sequencing your synth and samples but not so much for creating new exciting instruments.
+You create your synth and samples beforehand and then use Sonic Pi to play with them.
 
-Being creative by producing sound was the essential puzzle piece I was always looking for -- a strong connection between computer science and art.
+I digged deeper and discovered other interesting tools such as [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider (SC)](https://supercollider.github.io/).
+I am surprised that I never heard about SC, even if it matured a long time ago, and there seems to be no natural alternative.
+Compared to Sonic Pi, SuperCollider has a much steeper learning curve.
+The language has some awful-looking syntax; it is less accessible, but at the same time, SuperCollider is much more extensible and powerful.
+
+I fell in love with SC.
+The language offers fascinating concepts that keep you thinking about signal-flow processing.
+SC supports features well known in modern languages such as ``Python``and rather old languages.
+The IDE feels pretty modern and supportive.
+The documentation is decent, and the community is healthy.
+SC is a powerhouse for discovering new exciting sounds.
+It can be a driving force for learning sound design on a deep level.
+
+It is time for me to learn more about *algorithmic compositions* and *sound design*.
+What better way to get started than doing what I may be best at: coding.
+Being creative by producing sound was the essential puzzle I was always looking for -- a strong connection between computer science and art.
 
 ## Personal Background
 
-From the bottom of my heart I am a computer scientist.
+From the bottom of my heart, I am a computer scientist.
 But I may have to clarify my interpretation of the term.
-I mean computer scientist in the sense of studying 
+I mean computer scientist in the sense of studying. 
 
-+ **information:** what is information and how we can create, manipulate and interpret it?
-+ **computation:** what is computable and what do we mean by that?
-+ **formal methods:** what can we express and what do we need to express it?
++ **information:** what is information, and how can we create, manipulate and interpret it?
++ **computation:** what is computable, and what do we mean by that?
++ **formal methods:** what can we express, and what do we need to express it?
 + **algorithms** and **data structures:** what can we build?
 
-After school I did a practical training as software developer.
-I worked for 4 years in the industry.
-Then at a time of desperation I finished an additional year in school finally start studying computer science.
-I finished my Bachelor in 2013, my Master in 2017, and my PhD in 2021.
-In my PhD thesis I analysed different microscopic simulation models for pedestrian streams and developed algorithms to successfully simulate a large amount of pedestrians within a large area faster than real-time.
-During my time as PhD candidate, I really enjoyed teaching.
-Today, I am a software developer for University who focuses on tools to support our education.
+After school, I did practical training as a software developer.
+I worked for four years in the industry.
+Then, in desperation, I finished an additional year in school and finally started studying computer science.
+I finished my Bachelor's degree in 2013, my Master's in 2017, and my Ph.D. in 2021.
+In my Ph.D. thesis, I analyzed different microscopic simulation models for pedestrian streams and developed algorithms to simulate many pedestrians in a large area faster than in real-time.
+During my time as a Ph.D. candidate, I enjoyed teaching.
+Today, I am a software developer for University that focuses on tools to support our education.
 Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.
 
 For other computer scientists interested in the topic of this book, it might be interesting to know which programming experience I had at the time of writing it.
 I am very experienced in ``Java``.
 Furthermore, I developed an introductory course for ``Python``.
-I am also familiar with ``JavaScript``, ``PHP``, and ``Scala`` and ``Go``.
+I am also familiar with ``JavaScript``, ``PHP``, ``Scala``, and ``Go``.
 Furthermore, I can read and understand ``C\C++`` code, but I am not very experienced in it.
 I am familiar with GPU programming using ``OpenCL``.
-Currently, I try to learn some ``Rust``.
+Currently, I am trying to learn some ``Rust``.
 
-From a musical perspective I know almost nothing.
-I have no education in music theory and I do not play an instrument.
-So this is a strong contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
-However, I am a big music lover and I always wanted to make my own music and never thought that programming could lead me to this goal.
+I am not a musician. I have no music theory education and do not play an instrument.
+So this is a solid contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
+However, I am a big music lover, and I have always wanted to make my own music and never thought programming could lead me to this goal.
 
 ## Notes on Technology
 
@@ -92,7 +107,7 @@ So let us engage with it, honestly.
 I am very excited!
 I want to learn more about the *algorithmic composition*. 
 This book is my attempt to do so; nothing more and nothing less (for now at least).
-To really understand something, one has to pass through a grueling learning process.
+To understand something, one has to pass through a grueling learning process.
 One such strategy that works for me is called *the Feynman learning technique*.
 It consists of the following steps:
 
@@ -102,8 +117,8 @@ It consists of the following steps:
 4. transmit (optional)
 
 This book is my attempt to follow *Feynman's technique* imperfectly.
-Maybe, in the end, someone else will find some useful ideas in this book.
-At the moment, I focus solely on [SuperCollider](https://supercollider.github.io/) and *sound design*. 
+In the end, someone else might find valuable ideas in this book.
+Currently, I focus solely on [SuperCollider](https://supercollider.github.io/) and *sound design*. 
 
 ## Source Code
 
@@ -112,14 +127,14 @@ The book is currently published using [GitHub-Pages](https://bzoennchen.github.i
 
 ## The Nature of an Online-Book
 
-I experiment with SuperCollider and other tools and I write this book all in my spare time. 
+I experiment with SuperCollider and other tools and write this book in my spare time. 
 It is a hobby. 
 Therefore, I will develop and update it over time.
-It is only a skeleton at its current state, and I will add new chapters and edit old ones. 
+It is only a skeleton in its current state, and I will add new chapters and edit old ones. 
 Therefore, do not expect anything professional.
 
 In the future, you might be interested in extending the book with your content. 
-Maybe this project will become a community effort to make SuperCollider, sound design, other tools and techniques more accessible.
+Maybe this project will become a community effort to make SuperCollider, sound design, and other tools and techniques more accessible.
 
 Another thing I am looking forward to is combining the book with a Jupyter-Kernel for SuperCollider such that the book becomes interactive.
 
@@ -127,7 +142,7 @@ Another thing I am looking forward to is combining the book with a Jupyter-Kerne
 
 I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
 The creators of my discoveries and the content of the materials I studied are silent contributors.
-Without the already existing material, I would not be able to learn either SuperCollider or sound design in general. 
+Without the already existing material, I would not be able to learn either SuperCollider or sound design. 
 
 A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
 
