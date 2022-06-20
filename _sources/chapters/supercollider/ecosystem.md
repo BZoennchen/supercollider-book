@@ -34,7 +34,7 @@ I encourage readers interested in live coding to check them all out!
 (sec-audio-sever)=
 ## The Audio Server
 
-The real-time audio server forms the core of the platform.
+The real-time audio server *scsynth* forms the core of the platform.
 The server uses synth definitions, i.e., ``SynthDefs`` as templates for creating synth nodes.
 Those synth instances can then be executed.
 The user can trigger and influence the execution via [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) messages.
@@ -64,7 +64,7 @@ One hast to get used to its aged syntax.
 (sec-scide)=
 ## The Development Environment
 
-The [SuperCollider (SC)](https://supercollider.github.io/) Integrated Development Environment (IDE) is a Qt-based cross-platform application.
+The [SuperCollider (SC)](https://supercollider.github.io/) integrated development environment (IDE) is a Qt-based cross-platform application.
 Code can be executed in a notebook-like manner, i.e., interactively using the REPL (Read–Eval–Print Loop).
 
 ```{figure} ../../figs/supercollider/ecosystem/ide.png
