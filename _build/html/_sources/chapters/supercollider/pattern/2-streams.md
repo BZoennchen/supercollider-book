@@ -1,3 +1,4 @@
+(sec-stream)=
 # Streams
 
 A [Stream](https://doc.sccode.org/Classes/Stream.html) is a series of elements that you can obtain one after another in a **lazy** fashion.

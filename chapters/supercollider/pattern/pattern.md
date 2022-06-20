@@ -1,4 +1,4 @@
-(sec-pattern)=
+(sec-playing-pattern)=
 # Playing Patterns
 
 [UGens](sec-ugens) are the basic building blocks for our synth, i.e., instruments, i.e., sound.

@@ -1,4 +1,4 @@
-# Composing
+# Event Player
 
 Let us have a look at a first, very simple composition.
 We finally make use of [Pbind](https://doc.sccode.org/Classes/Pbind.html) to construct a *discreate musical event simulation*.

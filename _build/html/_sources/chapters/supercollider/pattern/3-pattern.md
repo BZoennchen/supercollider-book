@@ -1,3 +1,4 @@
+(sec-pattern)=
 # Pattern
 
 [Pattern](https://doc.sccode.org/Classes/Pattern.html) is an abstract class that is the base for the patterns library. 
