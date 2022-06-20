@@ -1,3 +1,4 @@
+(sec-functions)=
 # Functions
 
 In ``sclang``, functions are first-class objects, meaning a function can be an argument of another function.

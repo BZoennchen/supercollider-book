@@ -76,6 +76,7 @@ They are split into partial events:
 Event.partialEvents.postln;
 ```
 
+(sec-default-instrument)=
 ## The Default Instrument
 
 The ``instrument`` is a ``default`` instrument that is built into SuperCollider.
