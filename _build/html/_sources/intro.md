@@ -26,7 +26,7 @@ It is time for me to learn more about *algorithmic compositions* and *sound desi
 What better way to get started than doing what I may be best at: coding.
 Being creative by producing sound was the essential puzzle I was always looking for -- a strong connection between computer science and art.
 
-## Personal Background
+## About the Author
 
 From the bottom of my heart, I am a computer scientist.
 But I may have to clarify my interpretation of the term.
@@ -102,7 +102,7 @@ So let us engage with it, honestly.
 >Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- J.D. Jarvis
 
 
-## Why Writing a Book?
+## Why Writing an Online-Book?
 
 I am very excited!
 I want to learn more about the *algorithmic composition*. 
@@ -120,13 +120,6 @@ This book is my attempt to follow *Feynman's technique* imperfectly.
 In the end, someone else might find valuable ideas in this book.
 Currently, I focus solely on [SuperCollider](https://supercollider.github.io/) and *sound design*. 
 
-## Source Code
-
-The source code of the Jupyter-Book can be found inside one of [GitHub](https://github.com/BZoennchen/supercollider-book) repositories.
-The book is currently published using [GitHub-Pages](https://bzoennchen.github.io/supercollider-book/intro.html).
-
-## The Nature of an Online-Book
-
 I experiment with SuperCollider and other tools and write this book in my spare time. 
 It is a hobby. 
 Therefore, I will develop and update it over time.
@@ -137,6 +130,9 @@ In the future, you might be interested in extending the book with your content.
 Maybe this project will become a community effort to make SuperCollider, sound design, and other tools and techniques more accessible.
 
 Another thing I am looking forward to is combining the book with a Jupyter-Kernel for SuperCollider such that the book becomes interactive.
+
+The source code of the Jupyter-Book can be found inside one of [GitHub](https://github.com/BZoennchen/supercollider-book) repositories.
+The book is currently published using [GitHub-Pages](https://bzoennchen.github.io/supercollider-book/intro.html).
 
 ## Silent Contributors
 

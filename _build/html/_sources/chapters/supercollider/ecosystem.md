@@ -32,7 +32,7 @@ In my opinion, [SuperCollider (SC)](https://supercollider.github.io/) is the mos
 I encourage readers interested in live coding to check them all out!
 
 (sec-audio-sever)=
-## The Audio Server (SCSynth)
+## The Audio Server
 
 The real-time audio server forms the core of the platform.
 The server uses synth definitions, i.e., ``SynthDefs`` as templates for creating synth nodes.
@@ -50,7 +50,7 @@ The composer
 
 All those steps are done via the client-side interpreted programming language ``sclang``.
 
-## Tha Language (SCLang)
+## Tha Language
 
 The interpreted programming language ``sclang`` is an objective-oriented programming language.
 It is similar to ``Smalltalk`` or ``Ruby`` with syntax similar to ``C`` or ``JavaScript``.
@@ -62,7 +62,7 @@ Its strength lies in opening up the possibility of dealing, creating, manipulati
 One hast to get used to its aged syntax.
 
 (sec-scide)=
-## The Development Environment (SCIDE)
+## The Development Environment
 
 The [SuperCollider (SC)](https://supercollider.github.io/) Integrated Development Environment (IDE) is a Qt-based cross-platform application.
 Code can be executed in a notebook-like manner, i.e., interactively using the REPL (Read–Eval–Print Loop).
