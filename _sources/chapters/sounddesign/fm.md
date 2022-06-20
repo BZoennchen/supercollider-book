@@ -1,11 +1,12 @@
 (sec-fm)=
-# Frequency Modulation (FM)
+# Frequency Modulation
 
-FM is the most common encoding technique for public radio transmission (hence 'FM' radio) by using frequencies that are out of the limits of human hearing.
+FM is the most common encoding technique for public radio transmission (hence *FM radio*).
+It uses frequencies that are out of the limits of human hearing.
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.
 In other words, we change the frequency of a signal over time.
 
-FM for sound design was discovered by John Chowning by accident in the mid-60s.
+Frequency modulation in sound design was accidently discovered by John Chowning in the mid-60s.
 He wanted to generate vibrato effects but noticed that when he increased the modulating frequency, a new complex sound appears.
 
 ```isc
@@ -23,9 +24,9 @@ He wanted to generate vibrato effects but noticed that when he increased the mod
 
 Chowning pushed for commercial use but none of the American manufacturers saw the potential of FM.
 In desperation, Stanford turned to the Japanese manufacturer Yamaha.
-As a consequence of the success of FM synthesis, the company sold millions of FM synthesizers, organs and home keyboards.
+As a consequence of the success of *FM synthesis*, the company sold millions of FM synthesizers, organs and home keyboards.
 
-## Introduction
+## Theory
 
 Let us start with the very basic equation of a sine wave.
 
@@ -34,13 +35,13 @@ y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}
 
 where $t$ is the time, $f(t)$ is the frequency and $A$ the (maximal) amplitude.
-$f(t)$ is not a constant but a function over time which looks like the following
+For frequency modulation, $f(t)$ is not a constant but a function over time which looks like the following
 
 \begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}
 
-In summary we get
+In summary, we get
 
 \begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
@@ -48,16 +49,16 @@ y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot
 
 which looks very intimidating but don't worry and just experiment with it!
 
-$f_\text{car}$ is called carrier frequency, $f_{\text{mod}}$ modulator frequency and $A_{\text{car}}$, $A_{\text{mod}}$ are the respective amplitudes.
+$f_\text{car}$ is called *carrier frequency*, $f_{\text{mod}}$ *modulator frequency* and $A_{\text{car}}$, $A_{\text{mod}}$ are the respective *amplitudes*.
 Those numbers and their relation influence the generated sound fundamentally.
 We can also use different oscillators and modulate the frequency of the most outer oscillator by multiple modulators!
 
 FM is a very powerful technique to generate a rich spectrum in a very computational efficient way.
 Above we only use two oscillators but as you will see, we already achieve a quite complex spectrum.
 
-## Vibrato
+## Vibrato & Sirens
 
-If the frequency of the modulator $f_{\text{mod}}$ is small, than we achieve a so called vibrato effect.
+If the frequency of the modulator $f_{\text{mod}}$ is small, than we achieve a so called *vibrato effect*.
 Try the following code snippet!
 
 ```isc
@@ -74,20 +75,20 @@ Ndef(\fm_low_mod, {
 Ndef(\fm_low_mod).gui;
 ```
 
-Here we use 
+In this example we use 
 
 $$f_{\text{mod}} = f_\text{car} \cdot 10^{-2}$$
 
-such that the $f_{\text{mod}}$ is two magnitudes smaller than the carrier frequency.
+such that the *modulator frequency* $f_{\text{mod}}$ is two magnitudes smaller than the *carrier frequency*.
 The effect is a cyclical squeezing and stretching of the carrier waveform.
-It is astonishing how sensitive the human hearing is.
-We recognize the low frequency within the overall sine wave, that is, we hear the slowly changing wave shape even if the change is very small.
-Those small changes result in a vibration similar to the effect of a violinist moving her or his finger positioned on the string in slightly different positions.
+It is astonishing how sensitive human hearing is.
+We recognize the low frequency within the overall sine wave, i.e., we hear the slowly changing wave shape even if the change is very small.
+Those small changes result in a vibration similar to the effect of a violinist moving her or his finger on the string in slightly different positions.
 
 ```{admonition} Vibrato
 :name: remark-vibrato-ugen
 :class: remark
-There is a ``UGen`` called [Vibrato](https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html) to introduce vibrato after a decay time.
+There is a ``UGen`` called [Vibrato](https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html) to introduce vibrato after a delay time.
 ```
 
 The following sounds similar to the first example above.
@@ -95,10 +96,8 @@ The following sounds similar to the first example above.
 ```isc
 // vibrato with 10 Hz wobble, starting after 2 second and ramping up over 1 second
 // the amplitude is 5 percent of the frequency i.e. 300 * 0.05.
-({SinOsc.ar(Vibrato.kr(freq: 300, rate: 10, decay: 2, depth: 0.05, onset: 1));}.play;)
+({SinOsc.ar(Vibrato.kr(freq: 300, rate: 10, delay: 2, depth: 0.05, onset: 1));}.play;)
 ```
-
-## Sirens
 
 If we increase the modulation frequency $f_{\text{mod}}$ further and further such that it approaches, or even exceeds the carrier frequency $f_\text{car}$, we get a different effect.
 At some point, the modulation becomes a form of distortion within the individual cycle of the carrier waveform.
@@ -121,7 +120,7 @@ In this case, the vibration becomes a wobbling effect or siren-type sound.
 
 ## Harmonic Relation
 
-Let us look at this distortion by plotting $y(t)$ for $f_{\text{car}} = f_{\text{mod}} = \beta = 200$:
+Let us look at this distortion by plotting $y(t)$ for $f_{\text{car}} = f_{\text{mod}} = A_{\text{mod}} = \beta = 200$:
 
 ```isc
 (
@@ -143,10 +142,10 @@ name: fig-fm-cycle-high-freq
 One cycle of $y(t)$ for a high frequency modulation frequency.
 ```
 
-If we look at the stethoscope we observe multiple side-bands, that is, there are multiple frequencies apart from the fundamental frequency (which is equals to the carrier frequency) present.
+If we look at the stethoscope, we observe multiple sidebands, i.e., there are numerous frequencies apart from the fundamental frequency (which is equal to the carrier frequency) present.
 How many frequencies are present?
-Well, in theory infinite amount!
-Fortunately, there is a formula for the frequencies $f_{\text{sb},n^{\pm}}$ of the side-bands
+Well, in theory, an infinite amount!
+Fortunately, there is a formula for the frequencies $f_{\text{sb},n^{\pm}}$ of the sidebands
 
 $$f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},$$
 
@@ -160,12 +159,13 @@ name: fig-fm-side-band-frequencies
 Snapshot of the stethoscope using a logarithmic frequency scale ($x$-axis).
 ```
 
-If we want to keep the same side band relation for different carrier frequencies, we have to compute the modulation frequency based on the carrier frequency.
+If we want to keep the same sideband relation for different carrier frequencies, we have to compute the *modulation frequency* based on the *carrier frequency*.
+In other words, we have to correlate these two frequencies.
 
-```{admonition} Side Band Frequencies
+```{admonition} Sideband Frequencies
 :name: remark-side-band-amplitude
 :class: remark
-A linear relation between $f_\text{car}$ and $f_\text{mod}$ keeps the side bands similar.
+A linear relation between $f_\text{car}$ and $f_\text{mod}$ keeps the sidebands similar.
 ```
 
 Therefore, it is useful to introduce a ratio:
@@ -191,19 +191,19 @@ Ndef(\fm_low_mod, {
 Ndef(\fm_low_mod).gui;
 ```
 
-## Side Band Amplitudes
+## Sideband Amplitudes
 
-The question now is: what about the amplitudes of the side bands?
+The question is now: what about the amplitudes of the sidebands?
 We already observed what happens if the modulation frequency is low and we increase the modulator amplitude.
-For low amplitudes we achieved a gently vibrato effect but for large amplitudes this transforms into a siren-type sound.
+We achieved a gentle vibrato effect for low amplitudes, but for large amplitudes, this transforms into a siren-type sound.
 
-For high modulation frequencies we can transfer this phenomena.
-The amplitude of the modulator will determine the amplitude of the side bands.
-This implies that we can not control the amplitude of each individual side band.
+For high modulation frequencies, we can transfer this phenomenon.
+The amplitude of the modulator will determine the amplitude of the sidebands.
+This implies that we can not control the amplitude of each individual sideband.
 We can only control their amplitudes as a whole!
 
-Also, the amplitude of the modulator is not solely responsible for this effect but the relationship between it and the modulation frequency $f_{\text{mod}}$!
-The so called *modulation index* gives us this relationship.
+Also, the *modulator's amplitude* is not solely responsible for this effect, but the relationship between it and the *modulation frequency* $f_{\text{mod}}$.
+The so-called *modulation index* gives us this relationship.
 It is equal to the ratio of frequency deviation of $y(t)$ and the modulation frequency $f_{\text{mod}}$:
 
 $$\beta(t) = A_{\text{mod}} \frac{d \sin(2\pi f_{\text{mod}} \cdot t)}{dt} \cdot f_{\text{mod}}^{-1}$$
@@ -222,7 +222,7 @@ and fix $\beta_{\text{max}}$ as we desire.
 ```{admonition} Modulation Index
 :name: important-side-band-amplitude
 :class: remark
-The *modulation index*  $\beta_{\text{max}}$, that is,ratio of the modulation amplitude and the modulator frequency dertermines approximatly the amplitudes of the side bands as a whole.
+The *modulation index*  $\beta_{\text{max}}$, i.e., ratio of the modulation amplitude and the modulator frequency dertermines approximatly the amplitudes of the sidebands as a whole.
 ```
 
 Ok, but wait, we still have no formula for the amplitude of each pair of sidebands with frequency $f_{\text{sb},n^{\pm}}$.
@@ -241,15 +241,14 @@ Plot of Bessel function of the first kind, $J_n(x)$, for integer orders $n = 0, 
 Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, [link](https://commons.wikimedia.org/w/index.php?curid=3564725).
 ```
 
-As we can see, $A_{ \text{sb},n^{\pm} }$ depends only on $\beta_\text{max}$ but oscillate for increasing $\beta_\text{max}$!
+As we can see, $A_{ \text{sb},n^{\pm} }$ depend only on $\beta_\text{max}$ but oscillate for increasing $\beta_\text{max}$!
 
 ## Bandwidth
 
-We stated that there are infinite amount of side bands.
-In practice that is not the case.
-Furthermore, the amplitude of many of these side bands might be too low to be recognized by our ears.
-
-As a rule of thump, the following formula gives an approximation of the bandwidth (where all side bands are contained in) of the signal:
+We stated that there are an infinite amount of sidebands.
+In practice, that is not the case.
+Furthermore, the amplitude of many of these sidebands might be too low to be recognized by our ears.
+As a rule of thump, the following formula gives an approximation of the bandwidth of the signal:
 
 $$2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).$$
 
@@ -266,8 +265,8 @@ f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = 
 
 ## Example
 
-The following example is a FM synth heavily inspired by the [tutorial](https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured) given by [Alik Rustamoff](https://reflectives.bandcamp.com/track/ikaere) 
-It uses the relations above but instead of using only one modulator we use three.
+The following example is an FM synth heavily inspired by the [tutorial](https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured) given by [Alik Rustamoff](https://reflectives.bandcamp.com/track/ikaere).
+It uses the relations above, but instead of using only one modulator, we use three.
 In the code ``f`` is $f_\text{car}$, ``modFreq1`` is $f_\text{mod}$, ``\ratio1`` is $r_\text{mod}$ and ``\modIndex1`` represents $\beta_\text{max}$.
 Furthermore, we added some naturalization (distortion and more) to achieve a more gentle result.
 
@@ -275,7 +274,10 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
 (
 SynthDef(\fm, {
     var sig, f, car, env;
-    var modFreq1, modFreq2, modFreq3, mod1, mod2, mod3, ampmod1, ampmod2, ampmod3;
+    var modFreq1, modFreq2, modFreq3;
+    var mod1, mod2, mod3;
+    var ampmod1, ampmod2, ampmod3;
+
 
     // noisy envelope
     env = EnvGen.ar(Env.perc(
@@ -322,6 +324,7 @@ SynthDef(\fm, {
     // add some envelope
     sig = car * env;
     sig = HPF.ar(sig, f);
+    sig = LPF.ar(sig, f);
     Out.ar(0, sig);
 }).add;
 )
@@ -331,11 +334,14 @@ Let us play the synth:
 
 ```isc
 (
-Pbind(
+Pbindef(\melody3,
     \instrument, \fm,
     \dur, Pshuf(2.pow((-4..1)), inf),
-	\degree, Pshuf([0, 2, 5, 6, 8, 11], inf),
-	\octave, Pdup(Prand([2,3,4], inf), Pseq([3,4,5], inf)),
+    \degree, Pshuf([0, 2, 5, 6, 8, 11], inf),
+    \octave, Pdup(Prand([2,3,4], inf), Pseq([3,4,5], inf)),
+    \ratio1, Prand([1,2,3,4], inf),
+    \ratio2, Prand([3,4,5], inf),
+    \amp, 1.0
 ).play;
 )
 ```

@@ -1,7 +1,7 @@
 # Frequency Filters
 
 Frequency filters are the filters we mean if we talk about filters in general.
-They attune the a band of frequencies of a signal.
+They attune the band of frequencies of a signal.
 
 As Butterworth stated:
 
@@ -13,10 +13,11 @@ In practice, a frequency filter decreases the power/gain of high frequncies.
 (sec-lowpass-filter)=
 ## Lowpass Filter
 
-A lowpass filter filters frequency **above** its *cutoff frequency*.
+A *lowpass filter* filters frequency **above** its *cutoff frequency*.
 It could also be called highfrequency filter.
-Lowpass filters are used to attunate high harmonics and make sound *darker* or *smoother* in [timbre](sec-timbre).
-A lowpass filter is often combined with resonant because (with the respective cutoff frequency) lowpass filters leave the *fundamental* of the signal intact, and so they do not usually effect the perceived and subjective pitch.
+Lowpass filters are used to attenuate high harmonics and make sound *darker* or *smoother* in [timbre](sec-timbre).
+A lowpass filter is often combined with a resonant because (with the respective cutoff frequency) lowpass filters leave the *fundamentals* of the signal intact.
+So they do not usually affect the perceived and subjective pitch.
 
 ```{figure} ../../../figs/sounddesign/filters/lpf-graph.png
 ---
@@ -31,7 +32,7 @@ This makes sense intuitively because it requires more power to keep the vibratio
 
 With [LPF](https://doc.sccode.org/Classes/LPF.html) ``sclang`` offers a *second-order Butterworth lowpass filter*.
 Compared to a *first-order low pass filter*, a second-order low pass filter has two stages.
-In principle the gain in amplitude over frequncies has a steeper slope.
+In principle, the gain in amplitude over frequencies has a steeper slope.
 
 ```{admonition} Second-order Butterworth Lowpass Filter 
 :name: remark-second-order-lowpass-filter
@@ -71,8 +72,8 @@ We can observer that the maximum amplitude of the filtered signal decreases with
 
 ## Highpass Filter
 
-A lowpass filter filters frequency **below** its *cutoff frequency*.
-Lowpass filters are excellent to clean up woofy signals and tighten up arrangements.
+A *highpass filter* filters frequency **below** its *cutoff frequency*.
+Highpass filters are excellent to clean up woofy signals and tighten up arrangements.
 They can make the sound more clear which can be especially useful for your *lead instrument*.
 
 ```{figure} ../../../figs/sounddesign/filters/hpf-graph.png
@@ -89,7 +90,7 @@ The effect is less obvious, at least with my headphones.
 {HPF.ar(Saw.ar(440)*0.25, MouseX.kr(40, 5000))}.play
 ```
 
-And if we look at a plot using a modulated highpass filter (here we increase the the cutoff frequency over time),
+If we look at a plot using a modulated highpass filter (here we increase the the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.
 
 ```isc
 (
@@ -109,18 +110,15 @@ name: fig-hpf-saw
 A sawtooth wave (top) filtered by a modulated highpass filter (bottom).
 ```
 
-we observe that the sawtooth wave becomes sharper.
-
-
 ## Bandpass Filter
 
-A bandpass filter filters frequency **outside** of its band defined by its *center frequency* and *bandwidth*.
-It is a combination of lowpass and highpass filter.
+A *bandpass filter* filters frequency **outside** of its band defined by its *center frequency* and *bandwidth*.
+It is a combination of a lowpass and highpass filter.
 
 ```{admonition} Combining filters
 :name: attention-scombining-filters
 :class: attention
-Combining a lowpass and a highpass filter will not necessarily achieve the same effect because of consecutive applied phase shifts by the filters.
+Combining a lowpass and a highpass filter will not necessarily achieve the same effect because they both apply a phase shift.
 ```
 
 ```{figure} ../../../figs/sounddesign/filters/bpf-graph.png
@@ -133,7 +131,7 @@ The gain over frequency of a signal filtered by a bandpass filter.
 
 ``sclang`` offers us the [UGen](def-ugen) called [BPF](https://doc.sccode.org/Classes/BPF.html).
 It is a second-order Butterworth bandpass filter.
-Instead of defining the *bandwith* we define ``rq`` which is equal to *bandwidth / center frequency* thus *bandwidth* = ``rq`` * *center frequency*.
+Instead of defining the *bandwith*, we define ``rq`` which is equal to *bandwidth / center frequency* thus *bandwidth* = ``rq`` * *center frequency*.
 
 Let us plot the effect of a modulated bandpass filter.
 Here we only change the *center frequency* from 220 Hz to 880 Hz.
@@ -158,7 +156,7 @@ A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).
 ```
 
 
-Let's listen in:
+Let's have a listen:
 
 ```isc
 {BPF.ar(Saw.ar(440)*0.25, MouseX.kr(40, 2000), MouseY.kr(2.0, 0.01))}.play

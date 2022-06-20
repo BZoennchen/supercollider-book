@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frequency Modulation (FM) &#8212; Algorithmic Composition</title>
+    <title>Frequency Modulation &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Drones" href="drones.html" />
-    <link rel="prev" title="Amplitude Modulation (AM)" href="am.html" />
+    <link rel="prev" title="Amplitude Modulation" href="am.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -136,7 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/synths.html">
-   Synth &amp; SynthDefs
+   Synthesizers
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,11 +161,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="terms.html">
-   Terms
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -182,8 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="additive-synthesis/2-example.html">
-     Example
+    <a class="reference internal" href="additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
     </a>
    </li>
   </ul>
@@ -247,17 +242,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   Amplitude Modulation (AM)
+   Amplitude Modulation
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Frequency Modulation (FM)
+   Frequency Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="drones.html">
    Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="terms.html">
+   Terms
   </a>
  </li>
 </ul>
@@ -422,18 +422,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+  <a class="reference internal nav-link" href="#theory">
+   Theory
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vibrato">
-   Vibrato
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sirens">
-   Sirens
+  <a class="reference internal nav-link" href="#vibrato-sirens">
+   Vibrato &amp; Sirens
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -442,8 +437,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#side-band-amplitudes">
-   Side Band Amplitudes
+  <a class="reference internal nav-link" href="#sideband-amplitudes">
+   Sideband Amplitudes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -470,7 +465,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Frequency Modulation (FM)</h1>
+                <h1>Frequency Modulation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -481,18 +476,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   Introduction
+  <a class="reference internal nav-link" href="#theory">
+   Theory
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vibrato">
-   Vibrato
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sirens">
-   Sirens
+  <a class="reference internal nav-link" href="#vibrato-sirens">
+   Vibrato &amp; Sirens
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -501,8 +491,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#side-band-amplitudes">
-   Side Band Amplitudes
+  <a class="reference internal nav-link" href="#sideband-amplitudes">
+   Sideband Amplitudes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -530,12 +520,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="frequency-modulation-fm">
-<span id="sec-fm"></span><h1>Frequency Modulation (FM)<a class="headerlink" href="#frequency-modulation-fm" title="Permalink to this headline">#</a></h1>
-<p>FM is the most common encoding technique for public radio transmission (hence ‘FM’ radio) by using frequencies that are out of the limits of human hearing.
+  <div class="tex2jax_ignore mathjax_ignore section" id="frequency-modulation">
+<span id="sec-fm"></span><h1>Frequency Modulation<a class="headerlink" href="#frequency-modulation" title="Permalink to this headline">#</a></h1>
+<p>FM is the most common encoding technique for public radio transmission (hence <em>FM radio</em>).
+It uses frequencies that are out of the limits of human hearing.
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.
 In other words, we change the frequency of a signal over time.</p>
-<p>FM for sound design was discovered by John Chowning by accident in the mid-60s.
+<p>Frequency modulation in sound design was accidently discovered by John Chowning in the mid-60s.
 He wanted to generate vibrato effects but noticed that when he increased the modulating frequency, a new complex sound appears.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// vibrato example using a low modulation frequency</span>
 <span class="p">({</span>
@@ -551,35 +542,35 @@ He wanted to generate vibrato effects but noticed that when he increased the mod
 </div>
 <p>Chowning pushed for commercial use but none of the American manufacturers saw the potential of FM.
 In desperation, Stanford turned to the Japanese manufacturer Yamaha.
-As a consequence of the success of FM synthesis, the company sold millions of FM synthesizers, organs and home keyboards.</p>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+As a consequence of the success of <em>FM synthesis</em>, the company sold millions of FM synthesizers, organs and home keyboards.</p>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b71069d9-d0e6-4701-8eac-02fb9613a33a">
-<span class="eqno">(45)<a class="headerlink" href="#equation-b71069d9-d0e6-4701-8eac-02fb9613a33a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2351c3d1-3c50-40fa-b0f6-4543a7bf945c">
+<span class="eqno">(39)<a class="headerlink" href="#equation-2351c3d1-3c50-40fa-b0f6-4543a7bf945c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
-<span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-477c61c8-acfb-471a-a1f0-ca87bba09b9c">
-<span class="eqno">(46)<a class="headerlink" href="#equation-477c61c8-acfb-471a-a1f0-ca87bba09b9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f62faf54-dbb2-4bb3-9b18-eecb0414d611">
+<span class="eqno">(40)<a class="headerlink" href="#equation-f62faf54-dbb2-4bb3-9b18-eecb0414d611" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
-<p>In summary we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf610ecb-5b21-4d88-b54a-65874f2ec88d">
-<span class="eqno">(47)<a class="headerlink" href="#equation-bf610ecb-5b21-4d88-b54a-65874f2ec88d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>In summary, we get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-87f4c112-e3cb-44b7-a83f-12a1cf0dc314">
+<span class="eqno">(41)<a class="headerlink" href="#equation-87f4c112-e3cb-44b7-a83f-12a1cf0dc314" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
-<p><span class="math notranslate nohighlight">\(f_\text{car}\)</span> is called carrier frequency, <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> modulator frequency and <span class="math notranslate nohighlight">\(A_{\text{car}}\)</span>, <span class="math notranslate nohighlight">\(A_{\text{mod}}\)</span> are the respective amplitudes.
+<p><span class="math notranslate nohighlight">\(f_\text{car}\)</span> is called <em>carrier frequency</em>, <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> <em>modulator frequency</em> and <span class="math notranslate nohighlight">\(A_{\text{car}}\)</span>, <span class="math notranslate nohighlight">\(A_{\text{mod}}\)</span> are the respective <em>amplitudes</em>.
 Those numbers and their relation influence the generated sound fundamentally.
 We can also use different oscillators and modulate the frequency of the most outer oscillator by multiple modulators!</p>
 <p>FM is a very powerful technique to generate a rich spectrum in a very computational efficient way.
 Above we only use two oscillators but as you will see, we already achieve a quite complex spectrum.</p>
 </div>
-<div class="section" id="vibrato">
-<h2>Vibrato<a class="headerlink" href="#vibrato" title="Permalink to this headline">#</a></h2>
-<p>If the frequency of the modulator <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is small, than we achieve a so called vibrato effect.
+<div class="section" id="vibrato-sirens">
+<h2>Vibrato &amp; Sirens<a class="headerlink" href="#vibrato-sirens" title="Permalink to this headline">#</a></h2>
+<p>If the frequency of the modulator <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is small, than we achieve a so called <em>vibrato effect</em>.
 Try the following code snippet!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// another vibrato example</span>
 <span class="p">(</span>
@@ -594,27 +585,24 @@ Try the following code snippet!</p>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Here we use</p>
+<p>In this example we use</p>
 <div class="math notranslate nohighlight">
 \[f_{\text{mod}} = f_\text{car} \cdot 10^{-2}\]</div>
-<p>such that the <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is two magnitudes smaller than the carrier frequency.
+<p>such that the <em>modulator frequency</em> <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is two magnitudes smaller than the <em>carrier frequency</em>.
 The effect is a cyclical squeezing and stretching of the carrier waveform.
-It is astonishing how sensitive the human hearing is.
-We recognize the low frequency within the overall sine wave, that is, we hear the slowly changing wave shape even if the change is very small.
-Those small changes result in a vibration similar to the effect of a violinist moving her or his finger positioned on the string in slightly different positions.</p>
+It is astonishing how sensitive human hearing is.
+We recognize the low frequency within the overall sine wave, i.e., we hear the slowly changing wave shape even if the change is very small.
+Those small changes result in a vibration similar to the effect of a violinist moving her or his finger on the string in slightly different positions.</p>
 <div class="remark admonition" id="remark-vibrato-ugen">
 <p class="admonition-title">Vibrato</p>
-<p>There is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html">Vibrato</a> to introduce vibrato after a decay time.</p>
+<p>There is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html">Vibrato</a> to introduce vibrato after a delay time.</p>
 </div>
 <p>The following sounds similar to the first example above.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// vibrato with 10 Hz wobble, starting after 2 second and ramping up over 1 second</span>
 <span class="c1">// the amplitude is 5 percent of the frequency i.e. 300 * 0.05.</span>
-<span class="p">({</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Vibrato</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="kc">freq:</span> <span class="mi">300</span><span class="p">,</span> <span class="kc">rate:</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">decay:</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">depth:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="kc">onset:</span> <span class="mi">1</span><span class="p">));}.</span><span class="nx">play</span><span class="p">;)</span>
+<span class="p">({</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Vibrato</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="kc">freq:</span> <span class="mi">300</span><span class="p">,</span> <span class="kc">rate:</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">delay:</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">depth:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="kc">onset:</span> <span class="mi">1</span><span class="p">));}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sirens">
-<h2>Sirens<a class="headerlink" href="#sirens" title="Permalink to this headline">#</a></h2>
 <p>If we increase the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> further and further such that it approaches, or even exceeds the carrier frequency <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, we get a different effect.
 At some point, the modulation becomes a form of distortion within the individual cycle of the carrier waveform.
 To make the distortion more prominent, we have to increase the amplitude of the modulator – a portion of the carrier frequency <span class="math notranslate nohighlight">\(f_{\text{car}}\)</span> is a good starting point.</p>
@@ -634,7 +622,7 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 </div>
 <div class="section" id="harmonic-relation">
 <h2>Harmonic Relation<a class="headerlink" href="#harmonic-relation" title="Permalink to this headline">#</a></h2>
-<p>Let us look at this distortion by plotting <span class="math notranslate nohighlight">\(y(t)\)</span> for <span class="math notranslate nohighlight">\(f_{\text{car}} = f_{\text{mod}} = \beta = 200\)</span>:</p>
+<p>Let us look at this distortion by plotting <span class="math notranslate nohighlight">\(y(t)\)</span> for <span class="math notranslate nohighlight">\(f_{\text{car}} = f_{\text{mod}} = A_{\text{mod}} = \beta = 200\)</span>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
     <span class="p">({</span>
     <span class="kd">var</span> <span class="nx">freq</span><span class="p">,</span> <span class="nx">mod</span><span class="p">,</span> <span class="nx">sig</span><span class="p">;</span>
@@ -648,23 +636,24 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 </div>
 <div class="figure align-default" id="fig-fm-cycle-high-freq">
 <a class="reference internal image-reference" href="../../_images/fm-cycle-high-freq.png"><img alt="../../_images/fm-cycle-high-freq.png" src="../../_images/fm-cycle-high-freq.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
 </div>
-<p>If we look at the stethoscope we observe multiple side-bands, that is, there are multiple frequencies apart from the fundamental frequency (which is equals to the carrier frequency) present.
+<p>If we look at the stethoscope, we observe multiple sidebands, i.e., there are numerous frequencies apart from the fundamental frequency (which is equal to the carrier frequency) present.
 How many frequencies are present?
-Well, in theory infinite amount!
-Fortunately, there is a formula for the frequencies <span class="math notranslate nohighlight">\(f_{\text{sb},n^{\pm}}\)</span> of the side-bands</p>
+Well, in theory, an infinite amount!
+Fortunately, there is a formula for the frequencies <span class="math notranslate nohighlight">\(f_{\text{sb},n^{\pm}}\)</span> of the sidebands</p>
 <div class="math notranslate nohighlight">
 \[f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},\]</div>
 <p>with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p>
 <div class="figure align-default" id="fig-fm-side-band-frequencies">
 <a class="reference internal image-reference" href="../../_images/fm-side-band-frequencies.png"><img alt="../../_images/fm-side-band-frequencies.png" src="../../_images/fm-side-band-frequencies.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
 </div>
-<p>If we want to keep the same side band relation for different carrier frequencies, we have to compute the modulation frequency based on the carrier frequency.</p>
+<p>If we want to keep the same sideband relation for different carrier frequencies, we have to compute the <em>modulation frequency</em> based on the <em>carrier frequency</em>.
+In other words, we have to correlate these two frequencies.</p>
 <div class="remark admonition" id="remark-side-band-amplitude">
-<p class="admonition-title">Side Band Frequencies</p>
-<p>A linear relation between <span class="math notranslate nohighlight">\(f_\text{car}\)</span> and <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> keeps the side bands similar.</p>
+<p class="admonition-title">Sideband Frequencies</p>
+<p>A linear relation between <span class="math notranslate nohighlight">\(f_\text{car}\)</span> and <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> keeps the sidebands similar.</p>
 </div>
 <p>Therefore, it is useful to introduce a ratio:</p>
 <div class="math notranslate nohighlight">
@@ -687,17 +676,17 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 </pre></div>
 </div>
 </div>
-<div class="section" id="side-band-amplitudes">
-<h2>Side Band Amplitudes<a class="headerlink" href="#side-band-amplitudes" title="Permalink to this headline">#</a></h2>
-<p>The question now is: what about the amplitudes of the side bands?
+<div class="section" id="sideband-amplitudes">
+<h2>Sideband Amplitudes<a class="headerlink" href="#sideband-amplitudes" title="Permalink to this headline">#</a></h2>
+<p>The question is now: what about the amplitudes of the sidebands?
 We already observed what happens if the modulation frequency is low and we increase the modulator amplitude.
-For low amplitudes we achieved a gently vibrato effect but for large amplitudes this transforms into a siren-type sound.</p>
-<p>For high modulation frequencies we can transfer this phenomena.
-The amplitude of the modulator will determine the amplitude of the side bands.
-This implies that we can not control the amplitude of each individual side band.
+We achieved a gentle vibrato effect for low amplitudes, but for large amplitudes, this transforms into a siren-type sound.</p>
+<p>For high modulation frequencies, we can transfer this phenomenon.
+The amplitude of the modulator will determine the amplitude of the sidebands.
+This implies that we can not control the amplitude of each individual sideband.
 We can only control their amplitudes as a whole!</p>
-<p>Also, the amplitude of the modulator is not solely responsible for this effect but the relationship between it and the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span>!
-The so called <em>modulation index</em> gives us this relationship.
+<p>Also, the <em>modulator’s amplitude</em> is not solely responsible for this effect, but the relationship between it and the <em>modulation frequency</em> <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span>.
+The so-called <em>modulation index</em> gives us this relationship.
 It is equal to the ratio of frequency deviation of <span class="math notranslate nohighlight">\(y(t)\)</span> and the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\beta(t) = A_{\text{mod}} \frac{d \sin(2\pi f_{\text{mod}} \cdot t)}{dt} \cdot f_{\text{mod}}^{-1}\]</div>
@@ -711,7 +700,7 @@ However, if we also want the same tone, we also have to adapt <span class="math 
 <p>and fix <span class="math notranslate nohighlight">\(\beta_{\text{max}}\)</span> as we desire.</p>
 <div class="remark admonition" id="important-side-band-amplitude">
 <p class="admonition-title">Modulation Index</p>
-<p>The <em>modulation index</em>  <span class="math notranslate nohighlight">\(\beta_{\text{max}}\)</span>, that is,ratio of the modulation amplitude and the modulator frequency dertermines approximatly the amplitudes of the side bands as a whole.</p>
+<p>The <em>modulation index</em>  <span class="math notranslate nohighlight">\(\beta_{\text{max}}\)</span>, i.e., ratio of the modulation amplitude and the modulator frequency dertermines approximatly the amplitudes of the sidebands as a whole.</p>
 </div>
 <p>Ok, but wait, we still have no formula for the amplitude of each pair of sidebands with frequency <span class="math notranslate nohighlight">\(f_{\text{sb},n^{\pm}}\)</span>.
 This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
@@ -720,17 +709,17 @@ This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
 <p>The series is a converging series and especially in our case where <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> is not too large, the values of each term become very small very quick.</p>
 <div class="figure align-default" id="fig-bessel-function">
 <a class="reference internal image-reference" href="../../_images/bessel-function.png"><img alt="../../_images/bessel-function.png" src="../../_images/bessel-function.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
 Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">#</a></p>
 </div>
-<p>As we can see, <span class="math notranslate nohighlight">\(A_{ \text{sb},n^{\pm} }\)</span> depends only on <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> but oscillate for increasing <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>!</p>
+<p>As we can see, <span class="math notranslate nohighlight">\(A_{ \text{sb},n^{\pm} }\)</span> depend only on <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> but oscillate for increasing <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>!</p>
 </div>
 <div class="section" id="bandwidth">
 <h2>Bandwidth<a class="headerlink" href="#bandwidth" title="Permalink to this headline">#</a></h2>
-<p>We stated that there are infinite amount of side bands.
-In practice that is not the case.
-Furthermore, the amplitude of many of these side bands might be too low to be recognized by our ears.</p>
-<p>As a rule of thump, the following formula gives an approximation of the bandwidth (where all side bands are contained in) of the signal:</p>
+<p>We stated that there are an infinite amount of sidebands.
+In practice, that is not the case.
+Furthermore, the amplitude of many of these sidebands might be too low to be recognized by our ears.
+As a rule of thump, the following formula gives an approximation of the bandwidth of the signal:</p>
 <div class="math notranslate nohighlight">
 \[2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).\]</div>
 <p>Again the <em>modulation index</em> will determine the bandwidth.
@@ -739,21 +728,24 @@ The larger the index, the larger the bandwidth.</p>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cf3258e-66fe-4439-bf60-e9dd8ed8c780">
-<span class="eqno">(48)<a class="headerlink" href="#equation-9cf3258e-66fe-4439-bf60-e9dd8ed8c780" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc5e7e49-0562-4722-9654-3f541855ca3d">
+<span class="eqno">(42)<a class="headerlink" href="#equation-cc5e7e49-0562-4722-9654-3f541855ca3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
-<p>The following example is a FM synth heavily inspired by the <a class="reference external" href="https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured">tutorial</a> given by <a class="reference external" href="https://reflectives.bandcamp.com/track/ikaere">Alik Rustamoff</a>
-It uses the relations above but instead of using only one modulator we use three.
+<p>The following example is an FM synth heavily inspired by the <a class="reference external" href="https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured">tutorial</a> given by <a class="reference external" href="https://reflectives.bandcamp.com/track/ikaere">Alik Rustamoff</a>.
+It uses the relations above, but instead of using only one modulator, we use three.
 In the code <code class="docutils literal notranslate"><span class="pre">f</span></code> is <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <code class="docutils literal notranslate"><span class="pre">modFreq1</span></code> is <span class="math notranslate nohighlight">\(f_\text{mod}\)</span>, <code class="docutils literal notranslate"><span class="pre">\ratio1</span></code> is <span class="math notranslate nohighlight">\(r_\text{mod}\)</span> and <code class="docutils literal notranslate"><span class="pre">\modIndex1</span></code> represents <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>.
 Furthermore, we added some naturalization (distortion and more) to achieve a more gentle result.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\fm</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">,</span> <span class="nx">car</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">modFreq1</span><span class="p">,</span> <span class="nx">modFreq2</span><span class="p">,</span> <span class="nx">modFreq3</span><span class="p">,</span> <span class="nx">mod1</span><span class="p">,</span> <span class="nx">mod2</span><span class="p">,</span> <span class="nx">mod3</span><span class="p">,</span> <span class="nx">ampmod1</span><span class="p">,</span> <span class="nx">ampmod2</span><span class="p">,</span> <span class="nx">ampmod3</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">modFreq1</span><span class="p">,</span> <span class="nx">modFreq2</span><span class="p">,</span> <span class="nx">modFreq3</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">mod1</span><span class="p">,</span> <span class="nx">mod2</span><span class="p">,</span> <span class="nx">mod3</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">ampmod1</span><span class="p">,</span> <span class="nx">ampmod2</span><span class="p">,</span> <span class="nx">ampmod3</span><span class="p">;</span>
+
 
     <span class="c1">// noisy envelope</span>
     <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
@@ -800,6 +792,7 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
     <span class="c1">// add some envelope</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nx">car</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nb">HPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">);</span>
     <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
@@ -807,11 +800,14 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
 </div>
 <p>Let us play the synth:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Pbind</span><span class="p">(</span>
+<span class="nb">Pbindef</span><span class="p">(</span><span class="ss">\melody3</span><span class="p">,</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\fm</span><span class="p">,</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nx">pow</span><span class="p">((</span><span class="o">-</span><span class="mi">4</span><span class="p">..</span><span class="mi">1</span><span class="p">)),</span> <span class="kc">inf</span><span class="p">),</span>
-	<span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-	<span class="ss">\octave</span><span class="p">,</span> <span class="nb">Pdup</span><span class="p">(</span><span class="nb">Prand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">)),</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\octave</span><span class="p">,</span> <span class="nb">Pdup</span><span class="p">(</span><span class="nb">Prand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">)),</span>
+    <span class="ss">\ratio1</span><span class="p">,</span> <span class="nb">Prand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\ratio2</span><span class="p">,</span> <span class="nb">Prand</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\amp</span><span class="p">,</span> <span class="mf">1.0</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
@@ -850,7 +846,7 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Amplitude Modulation (AM)</p>
+            <p class="prev-next-title">Amplitude Modulation</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="drones.html" title="next page">

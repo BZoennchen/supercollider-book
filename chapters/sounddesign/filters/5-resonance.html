@@ -134,7 +134,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../supercollider/synths.html">
-   Synth &amp; SynthDefs
+   Synthesizers
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,11 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -180,8 +175,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../additive-synthesis/2-example.html">
-     Example
+    <a class="reference internal" href="../additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
     </a>
    </li>
   </ul>
@@ -245,17 +240,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../am.html">
-   Amplitude Modulation (AM)
+   Amplitude Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../fm.html">
-   Frequency Modulation (FM)
+   Frequency Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../drones.html">
    Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../terms.html">
+   Terms
   </a>
  </li>
 </ul>
@@ -447,14 +447,14 @@ What happens to musical objects such as a string when we do not play/pluck them 
 In other words: how does such an object interact with vibrations of other objects?</p>
 <p>What we observe in that case is <strong>resonance</strong>!
 If the musical object is excited by frequencies that coincide with its natural resonant frequencies, then it will vibrate in sympathy with the source oscillator.
-Otherwise it will approximately ‘stand still’.
+Otherwise it will approximately stand still.
 How a musical instrument resonate has a great effect on the color of its sound (<a class="reference internal" href="../terms.html#sec-timbre"><span class="std std-ref">timbre</span></a>).</p>
 <p>Resonance filters boost certain frequencies, making the harmonics at those frequencies louder than they were in the input signal.
 The effect sounds like resonance.
 Therefore, resonance filters emulate resonance.</p>
 <p>Which frequencies are boosted?
 For most resonance filters, the frequencies near the cutoff frequency are boosted.
-In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the <a class="reference internal" href="../../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a> resonance filter start with an <code class="docutils literal notranslate"><span class="pre">R</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> is the resonance low pass filter.</p>
+In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the <a class="reference internal" href="../../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a> realizing a resonance filter start with an <code class="docutils literal notranslate"><span class="pre">R</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> is the <em>resonance low pass filter</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
 <span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>

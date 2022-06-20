@@ -1,5 +1,5 @@
 (sec-synths)=
-# Synth & SynthDefs
+# Synthesizers
 
 The concept of synth definitions and synth is central to SuperCollider.
 Everything is built around this fundamental concept.
