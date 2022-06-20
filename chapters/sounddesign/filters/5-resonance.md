@@ -27,7 +27,7 @@ In other words: how does such an object interact with vibrations of other object
 
 What we observe in that case is **resonance**!
 If the musical object is excited by frequencies that coincide with its natural resonant frequencies, then it will vibrate in sympathy with the source oscillator.
-Otherwise it will approximately 'stand still'. 
+Otherwise it will approximately stand still. 
 How a musical instrument resonate has a great effect on the color of its sound ([timbre](sec-timbre)).
 
 Resonance filters boost certain frequencies, making the harmonics at those frequencies louder than they were in the input signal.
@@ -36,7 +36,7 @@ Therefore, resonance filters emulate resonance.
 
 Which frequencies are boosted?
 For most resonance filters, the frequencies near the cutoff frequency are boosted.
-In ``sclang`` the [UGens](def-ugen) resonance filter start with an ``R``, for example, ``RLPF`` is the resonance low pass filter.
+In ``sclang`` the [UGens](def-ugen) realizing a resonance filter start with an ``R``, for example, ``RLPF`` is the *resonance low pass filter*.
 
 ```isc
 (

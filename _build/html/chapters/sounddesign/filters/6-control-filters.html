@@ -134,7 +134,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../supercollider/synths.html">
-   Synth &amp; SynthDefs
+   Synthesizers
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,11 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -180,8 +175,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../additive-synthesis/2-example.html">
-     Example
+    <a class="reference internal" href="../additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
     </a>
    </li>
   </ul>
@@ -245,17 +240,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../am.html">
-   Amplitude Modulation (AM)
+   Amplitude Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../fm.html">
-   Frequency Modulation (FM)
+   Frequency Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../drones.html">
    Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../terms.html">
+   Terms
   </a>
  </li>
 </ul>
@@ -472,7 +472,7 @@ title="Print to PDF"
 <h1>Control Filters<a class="headerlink" href="#control-filters" title="Permalink to this headline">#</a></h1>
 <div class="section" id="lag">
 <span id="sec-lag"></span><h2>Lag<a class="headerlink" href="#lag" title="Permalink to this headline">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Lag</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> but it has a more meaningful parameter, called <code class="docutils literal notranslate"><span class="pre">lagTime</span></code>.
+<p>The <a class="reference external" href="http://doc.sccode.org/Classes/Lag.html">Lag</a> unit generator is similar to <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> but it has a more meaningful parameter, called <code class="docutils literal notranslate"><span class="pre">lagTime</span></code>.
 I do not yet fully understand what it means but basically it is the time frame for which the signal should be smoothen.</p>
 <p>The following code plots a the signal of a noise generator which generates a random value every <code class="docutils literal notranslate"><span class="pre">1/freq</span></code> seconds.
 We smoothen the noise by a <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and by <code class="docutils literal notranslate"><span class="pre">Lag</span></code>.
@@ -487,26 +487,27 @@ Our frequency is 10 Hz and our <code class="docutils literal notranslate"><span 
 <p>This gives us the following plot.</p>
 <div class="figure align-default" id="fig-lag-and-onepole">
 <a class="reference internal image-reference" href="../../../_images/lag-and-onepole.png"><img alt="../../../_images/lag-and-onepole.png" src="../../../_images/lag-and-onepole.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-lag-and-onepole" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-lag-and-onepole" title="Permalink to this image">#</a></p>
 </div>
-<p>Since <code class="docutils literal notranslate"><span class="pre">Lag</span></code> is often used to smoothen changing parameters, for example in a performance, SC supports a syntactical shorthand:</p>
+<p>Since <code class="docutils literal notranslate"><span class="pre">Lag</span></code> is often used to smoothen changing parameters, for example in a performance, SuperCollider offers us a syntactical shorthand:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Let us try to the 440 Hz part of a signal consisting of 440 and 40 Hz.</p>
+<p>Let us try to lag a signal consisting of 440 and 40 Hz.
+As we increase the <code class="docutils literal notranslate"><span class="pre">lagTime</span></code> we have to boost the amplitude of the signal.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">+</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">40</span><span class="p">)</span>
 <span class="p">{</span><span class="mf">3.8</span><span class="o">*</span><span class="nb">Lag</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">+</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="kc">lagTime:</span> <span class="mi">300</span><span class="o">/</span><span class="mi">440</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default" id="fig-lag-filtering">
 <a class="reference internal image-reference" href="../../../_images/lag-filtering.png"><img alt="../../../_images/lag-filtering.png" src="../../../_images/lag-filtering.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">A signal consisting of 440 HZ and 40 Hz partial (left) filtered by <code class="docutils literal notranslate"><span class="pre">Lag</span></code> (right).</span><a class="headerlink" href="#fig-lag-filtering" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">A signal consisting of 440 HZ and 40 Hz partial (left) filtered by <code class="docutils literal notranslate"><span class="pre">Lag</span></code> (right).</span><a class="headerlink" href="#fig-lag-filtering" title="Permalink to this image">#</a></p>
 </div>
-<p>As we increase the <code class="docutils literal notranslate"><span class="pre">lagTime</span></code> we have to boost the amplitude of the signal.</p>
 </div>
 <div class="section" id="varlag">
 <span id="sec-varlag"></span><h2>VarLag<a class="headerlink" href="#varlag" title="Permalink to this headline">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">VarLag</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">Lag</span></code> but with other curve shapes than exponential but it works only on control rate signals <code class="docutils literal notranslate"><span class="pre">kr</span></code>!
+<p><a class="reference external" href="http://doc.sccode.org/Classes/VarLag.html">VarLag</a> is similar to <code class="docutils literal notranslate"><span class="pre">Lag</span></code> but with other curve shapes than exponential.
+However <code class="docutils literal notranslate"><span class="pre">VarLag</span></code> only works at control rate <code class="docutils literal notranslate"><span class="pre">kr</span></code>!
 Compare the different shapes of the lag:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -522,7 +523,7 @@ Compare the different shapes of the lag:</p>
 </div>
 <div class="figure align-default" id="fig-var-lag">
 <a class="reference internal image-reference" href="../../../_images/var-lag.png"><img alt="../../../_images/var-lag.png" src="../../../_images/var-lag.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-var-lag" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-var-lag" title="Permalink to this image">#</a></p>
 </div>
 </div>
 </div>

@@ -1,7 +1,8 @@
 # Phase & Frequency
 
-If we speak of filters we often man low pass or high pass filters, that is, filters that filter frequencies above or below some cutoff frequency.
-For example the low pass filter ``LPF`` in ``sclang`` is a 2nd order Butterworth lowpass filter.
+If we speak of filters, we often refer to *low pass* or *high pass filters*. 
+They filter frequencies above or below some *cutoff frequency*.
+For example, the low pass filter ``LPF`` in ``sclang`` is a *2nd order Butterworth lowpass filter*.
 
 ```{figure} ../../../figs/sounddesign/filters/butterworth-filter.png
 ---
@@ -12,16 +13,16 @@ Effect of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC 
 ```
 
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not completely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
+Well, that is not entirely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
 The top plot of {numref}`Fig. {number} <fig-butterworth-filter>` shows the reduction in amplitude.
 
-The second effect of the filter is a shift in phase, compare the bottom plot of {numref}`Fig. {number} <fig-butterworth-filter>`.
-This effect is important if we want to combine multiple filters because they interact!
-In other words: we can not just combine a high pass and low pass filter to get the same result of a band pass filter!
+The second effect of the filter is a phase shift; compare the bottom plot of {numref}`Fig. {number} <fig-butterworth-filter>`.
+This effect is crucial if we combine multiple filters because they interact!
+In other words: we can not just combine a high pass and low pass filter to get the same result as a band pass filter!
 
-The following code is an example for a band pass filter.
-First we use a low pass and high pass filter, then a band pass filter.
+The following code is an example of a band pass filter.
+First, we use a low pass and high pass filter; then a band pass filter.
 The results sound very similar but not identical.
 
 ```isc
@@ -42,7 +43,6 @@ The results sound very similar but not identical.
 ```
 
 For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter ``BRF``.
-
 The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.
 
 ```isc

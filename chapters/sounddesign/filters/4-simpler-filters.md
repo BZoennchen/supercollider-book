@@ -13,7 +13,6 @@ If
 
 the result is the difference quotient divided by sample rate.
 All values of $\text{out}$ are almost zero except at the parts which are not differentiable.
-
 To achieve this effect we can use the [OneZero](sec-onezero)-filter.
 
 ```isc
@@ -51,7 +50,7 @@ with $-1 \leq \alpha \leq 1$.
 $\text{in}[i]$ is actually the $i$-th sample of the discrete input signal.
 Therefore, ``OneZero`` as well as ``OnePole`` depend on the sample rate / audio rate!
 
-Let us use $\alpha = -0.5$ and we a differentiator!
+Let us use $\alpha = -0.5$ and we achieve differentiation!
 Let $y(t)$ be our signal, then we basically compute
 
 \begin{equation}
@@ -175,7 +174,7 @@ The exponential decay is depicted in {numref}`Fig. {number} <fig-lag-and-onepole
 ``OnePole`` is a [lowpass filter](sec-lowpass-filter).
 ```
 
-Compare. for example, the following similar sounding signals of a [sawtooth wave](sec-sawtooth-wave), first filtered by the low-pass filter ``LPF`` and then filtered by ``OnePole`` using a large $\alpha$:
+Compare, for example, the following similar sounding signals of a [sawtooth wave](sec-sawtooth-wave), first filtered by the low-pass filter ``LPF`` and then filtered by ``OnePole`` using a large $\alpha$:
 
 ```isc
 {LPF.ar(Saw.ar(440), 400) * 0.25;}.play

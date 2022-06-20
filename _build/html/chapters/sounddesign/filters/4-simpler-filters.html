@@ -136,7 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../supercollider/synths.html">
-   Synth &amp; SynthDefs
+   Synthesizers
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,11 +161,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -182,8 +177,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../additive-synthesis/2-example.html">
-     Example
+    <a class="reference internal" href="../additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
     </a>
    </li>
   </ul>
@@ -247,17 +242,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../am.html">
-   Amplitude Modulation (AM)
+   Amplitude Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../fm.html">
-   Frequency Modulation (FM)
+   Frequency Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../drones.html">
    Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../terms.html">
+   Terms
   </a>
  </li>
 </ul>
@@ -475,22 +475,22 @@ title="Print to PDF"
 <p>A signal can also be filtered by smoothening it.
 For example, let <span class="math notranslate nohighlight">\(\text{in}[0], \ldots, \text{in}[n]\)</span> be the discrete (input) signal of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a> and <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> be the filtered (output) signal.
 If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7aeee10b-2c50-4986-ba55-9e49ba7c8600">
-<span class="eqno">(24)<a class="headerlink" href="#equation-7aeee10b-2c50-4986-ba55-9e49ba7c8600" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-318d3d9d-53b1-46d1-a594-d69f8135bb20">
+<span class="eqno">(18)<a class="headerlink" href="#equation-318d3d9d-53b1-46d1-a594-d69f8135bb20" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{split}
     \text{out}[0] &amp;\leftarrow 0.5 \cdot \text{in}[0]\\
     \text{out}[i] &amp;\leftarrow 0.5 \cdot \text{in}[i] - 0.5 \cdot \text{in}[i-1]
     \end{split}
 \end{equation}\]</div>
 <p>the result is the difference quotient divided by sample rate.
-All values of <span class="math notranslate nohighlight">\(\text{out}\)</span> are almost zero except at the parts which are not differentiable.</p>
-<p>To achieve this effect we can use the <a class="reference internal" href="#sec-onezero"><span class="std std-ref">OneZero</span></a>-filter.</p>
+All values of <span class="math notranslate nohighlight">\(\text{out}\)</span> are almost zero except at the parts which are not differentiable.
+To achieve this effect we can use the <a class="reference internal" href="#sec-onezero"><span class="std std-ref">OneZero</span></a>-filter.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{[</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="nb">OneZero</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)]}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default" id="fig-canceled-saw-onezero-filter">
 <a class="reference internal image-reference" href="../../../_images/canceled-saw-onezero-filter.png"><img alt="../../../_images/canceled-saw-onezero-filter.png" src="../../../_images/canceled-saw-onezero-filter.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Canceling a sawtooth wave by applying a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-filter. You can see peaks at values where the sawtooth is not differentiable.</span><a class="headerlink" href="#fig-canceled-saw-onezero-filter" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">Canceling a sawtooth wave by applying a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-filter. You can see peaks at values where the sawtooth is not differentiable.</span><a class="headerlink" href="#fig-canceled-saw-onezero-filter" title="Permalink to this image">#</a></p>
 </div>
 <p>This works so well because the rate of change of a sawtooth wave is constant almost everywhere.</p>
 <p>The integral of one phase of a sine wave is zero.
@@ -502,36 +502,36 @@ Consequently, by averaging the discrete signal to accomplish the respective sum 
 I had a hard time understanding what this filter actually does to its input signal <span class="math notranslate nohighlight">\(\text{in}\)</span>, since the documentation is very minimal.
 But I think I could reverse engineer its behaviour.</p>
 <p>The documentation states that a one zero filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f009d89e-5179-475c-9898-dbb6d9b8981f">
-<span class="eqno">(25)<a class="headerlink" href="#equation-f009d89e-5179-475c-9898-dbb6d9b8981f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0591238-0f50-4029-800e-2ad3da8dfba8">
+<span class="eqno">(19)<a class="headerlink" href="#equation-d0591238-0f50-4029-800e-2ad3da8dfba8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{in}[i-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 <span class="math notranslate nohighlight">\(\text{in}[i]\)</span> is actually the <span class="math notranslate nohighlight">\(i\)</span>-th sample of the discrete input signal.
 Therefore, <code class="docutils literal notranslate"><span class="pre">OneZero</span></code> as well as <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> depend on the sample rate / audio rate!</p>
-<p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we a differentiator!
+<p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we achieve differentiation!
 Let <span class="math notranslate nohighlight">\(y(t)\)</span> be our signal, then we basically compute</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d61775d-7c80-4418-8f01-2ab94e22a82e">
-<span class="eqno">(26)<a class="headerlink" href="#equation-7d61775d-7c80-4418-8f01-2ab94e22a82e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6253f88-3c5a-4f25-82e6-4a82e1ed0688">
+<span class="eqno">(20)<a class="headerlink" href="#equation-a6253f88-3c5a-4f25-82e6-4a82e1ed0688" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2}.
 \end{equation}\]</div>
 <p>To compute the difference quotient, we have to figure out what <span class="math notranslate nohighlight">\(h\)</span> is.
 In other words, what is the time between <span class="math notranslate nohighlight">\(\text{in}[i]\)</span> and <span class="math notranslate nohighlight">\(\text{in}[i-1]\)</span>.
 The answer is <span class="math notranslate nohighlight">\(1/a_\text{rate}\)</span> where <span class="math notranslate nohighlight">\(a_\text{rate}\)</span> is the audio rate.</p>
 <p>To compute the difference quotient we use the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7dbe9747-f349-4370-8672-209f50f22c2a">
-<span class="eqno">(27)<a class="headerlink" href="#equation-7dbe9747-f349-4370-8672-209f50f22c2a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bf1bb027-d7fc-4102-a88d-1e52a475f118">
+<span class="eqno">(21)<a class="headerlink" href="#equation-bf1bb027-d7fc-4102-a88d-1e52a475f118" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
 \end{equation}\]</div>
 <p>Using the discrete input signal <span class="math notranslate nohighlight">\(\text{in}\)</span> gives us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-82c658f3-1ff1-40b0-8867-8327f1d659a0">
-<span class="eqno">(28)<a class="headerlink" href="#equation-82c658f3-1ff1-40b0-8867-8327f1d659a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8eaeb844-c9ed-46dc-9cd1-31e1685246b4">
+<span class="eqno">(22)<a class="headerlink" href="#equation-8eaeb844-c9ed-46dc-9cd1-31e1685246b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}\]</div>
 <p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb8585ec-1b56-4f1c-a1b5-1ca8f091ee51">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eb8585ec-1b56-4f1c-a1b5-1ca8f091ee51" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6636d211-1c86-4343-99f5-b3398e05e250">
+<span class="eqno">(23)<a class="headerlink" href="#equation-6636d211-1c86-4343-99f5-b3398e05e250" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot f \cdot t)}{dt} = 2 \pi \cdot f \cdot \cos(2\pi \cdot f \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -545,7 +545,7 @@ Remember</p>
 </div>
 <div class="figure align-default" id="fig-all-sin-deviation">
 <a class="reference internal image-reference" href="../../../_images/sin_deviation.png"><img alt="../../../_images/sin_deviation.png" src="../../../_images/sin_deviation.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">At the top the cosine generated by the bottom signal and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</span><a class="headerlink" href="#fig-all-sin-deviation" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">At the top the cosine generated by the bottom signal and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>-<code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</span><a class="headerlink" href="#fig-all-sin-deviation" title="Permalink to this image">#</a></p>
 </div>
 <div class="sc admonition">
 <p class="admonition-title">Slope UGen</p>
@@ -562,24 +562,24 @@ Remember</p>
 <p>Another <code class="docutils literal notranslate"><span class="pre">UGen</span></code> I have a hard time get my head around is <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 The documentation states that a one pole filter implements the formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[    \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]\]</div>
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[    \text{out}[i] \leftarrow (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffa41a24-921b-478b-94f9-acdabd9c7b7a">
-<span class="eqno">(31)<a class="headerlink" href="#equation-ffa41a24-921b-478b-94f9-acdabd9c7b7a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e436611e-d909-4f08-9535-4f8edfcbe13c">
+<span class="eqno">(25)<a class="headerlink" href="#equation-e436611e-d909-4f08-9535-4f8edfcbe13c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \text{out}[0] \leftarrow (1 - |\alpha|) \cdot \text{in}[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
-Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(30)</a>:</p>
+Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(24)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole2">
-<span class="eqno">(32)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">#</a></span>\[    \text{out}[i] \leftarrow \text{in}[i] + \alpha \cdot (\text{out}[i-1] - \text{in}[i])\]</div>
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">#</a></span>\[    \text{out}[i] \leftarrow \text{in}[i] + \alpha \cdot (\text{out}[i-1] - \text{in}[i])\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole3">
-<span class="eqno">(33)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    \text{out}[i] \leftarrow \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])\]</div>
+<span class="eqno">(27)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    \text{out}[i] \leftarrow \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(\text{in}[0], \ldots \text{in}[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f602b5b-badd-4073-b248-8c46b653dc69">
-<span class="eqno">(34)<a class="headerlink" href="#equation-7f602b5b-badd-4073-b248-8c46b653dc69" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d4275724-ea89-413f-bb04-e20c7d209603">
+<span class="eqno">(28)<a class="headerlink" href="#equation-d4275724-ea89-413f-bb04-e20c7d209603" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[2] &amp; \leftarrow \text{out}[1] + \beta \cdot (\text{in}[2] - \text{out}[1]) \\
   &amp; = \text{in}[2] \cdot \beta + \text{in}[1] \cdot (\beta - \beta^2) + \text{in}[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -588,20 +588,20 @@ If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span 
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1ccf7b8-fdff-49c5-affb-2d407d7e3b80">
-<span class="eqno">(35)<a class="headerlink" href="#equation-f1ccf7b8-fdff-49c5-affb-2d407d7e3b80" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-88c781b0-28f0-41a6-988a-5505f7584eab">
+<span class="eqno">(29)<a class="headerlink" href="#equation-88c781b0-28f0-41a6-988a-5505f7584eab" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \text{out}[i] \leftarrow (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot \text{in}[k].
 \end{split}
 \end{equation}\]</div>
 <p>The change from one filter output to the next is proportional to the difference between the previous output and the next input.
 Therefore, the signal is smoothen exponentially, which matches the exponential decay seen in the continuous-time system.
-The exponential decay is depicted in <a class="reference internal" href="6-control-filters.html#fig-lag-and-onepole"><span class="std std-numref">Fig. 27</span></a>.</p>
+The exponential decay is depicted in <a class="reference internal" href="6-control-filters.html#fig-lag-and-onepole"><span class="std std-numref">Fig. 25</span></a>.</p>
 <div class="remark admonition" id="remark-one-pole-lowpass">
 <p class="admonition-title">OnePole</p>
 <p><code class="docutils literal notranslate"><span class="pre">OnePole</span></code> is a <a class="reference internal" href="3-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">lowpass filter</span></a>.</p>
 </div>
-<p>Compare. for example, the following similar sounding signals of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>, first filtered by the low-pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> and then filtered by <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> using a large <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<p>Compare, for example, the following similar sounding signals of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>, first filtered by the low-pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> and then filtered by <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> using a large <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span> <span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span>
 <span class="p">{</span><span class="nb">OnePole</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span> <span class="kc">coef:</span> <span class="mf">0.98</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span>
 </pre></div>

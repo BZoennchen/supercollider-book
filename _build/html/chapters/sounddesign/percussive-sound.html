@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Amplitude Modulation (AM)" href="am.html" />
+    <link rel="next" title="Amplitude Modulation" href="am.html" />
     <link rel="prev" title="Subtractive Synthesis" href="subtractive-synthesis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -134,7 +134,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/synths.html">
-   Synth &amp; SynthDefs
+   Synthesizers
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,11 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="terms.html">
-   Terms
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -180,8 +175,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="additive-synthesis/2-example.html">
-     Example
+    <a class="reference internal" href="additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
     </a>
    </li>
   </ul>
@@ -245,17 +240,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="am.html">
-   Amplitude Modulation (AM)
+   Amplitude Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="fm.html">
-   Frequency Modulation (FM)
+   Frequency Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="drones.html">
    Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="terms.html">
+   Terms
   </a>
  </li>
 </ul>
@@ -428,11 +428,60 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#noise">
    Noise
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#white-noise">
+     White Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pink-noise">
+     Pink Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#brown-noise">
+     Brown Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clip-noise">
+     Clip Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gray-noise">
+     Gray Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reconstruction-of-noises">
+     Reconstruction of Noises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bells">
-   Bells
+  <a class="reference internal nav-link" href="#examples">
+   Examples
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drums">
+     Drums
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-stormy-night">
+     A Stormy Night
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bells">
+     Bells
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -462,11 +511,60 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#noise">
    Noise
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#white-noise">
+     White Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pink-noise">
+     Pink Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#brown-noise">
+     Brown Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clip-noise">
+     Clip Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gray-noise">
+     Gray Noise
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reconstruction-of-noises">
+     Reconstruction of Noises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bells">
-   Bells
+  <a class="reference internal nav-link" href="#examples">
+   Examples
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drums">
+     Drums
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-stormy-night">
+     A Stormy Night
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bells">
+     Bells
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -481,24 +579,24 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="percussive-sound">
 <h1>Percussive Sound<a class="headerlink" href="#percussive-sound" title="Permalink to this headline">#</a></h1>
 <p>A vibrating string is one of the main examples of a harmonic oscillator.
-Many many instruments can be modelled by using and manipulating the harmonic series.</p>
-<div class="section" id="the-physics-of-a-drum">
-<h2>The Physics of a Drum<a class="headerlink" href="#the-physics-of-a-drum" title="Permalink to this headline">#</a></h2>
-<p>However, there is an important class of musical oscillators that do not fit the simple harmonic model.
-These ‘non-harmonic’ oscillators are just as important as their harmonic cousins, but they do not conform to the same set of rules.
+Many many instruments can be modelled by using and manipulating the harmonic series.
+However, there is an important class of musical oscillators that do not fit the simple harmonic model.
+These <em>non-harmonic</em> or <em>inharmonic</em> oscillators are just as important as their harmonic cousins, but they do not conform to the same set of rules.
 Examples of these include drums, timpani, and many of the ethnic instruments now used as sound effects to spice up western music.
 So why do these sound different and, more importantly, how can we imitate them?</p>
+<div class="section" id="the-physics-of-a-drum">
+<h2>The Physics of a Drum<a class="headerlink" href="#the-physics-of-a-drum" title="Permalink to this headline">#</a></h2>
 <p>Imagine a drum skin fixed at all points around its circumference.
 Let’s assume a perfect world in which the tension at all points on the surface of the skin is equal.
 This drum skin or membrane can be interpreted as an oscillator.</p>
 <p>The most important difference (with respect to the acoustic nature) between a string and a membrane is that a membrane is a two-dimensional object while the string is one-dimensional!
 It is a surface rather than a line.</p>
 <p>Let us imagine we hit the circular membrane at its center.
-Clearly, at the points where the membrane is fixed it can not move up and down, that is, it can not oscillate.
+Clearly, at the points where the membrane is fixed it can not move up and down, i.e., it can not oscillate there.
 If we look at a perpendicular slice (we reduce the dimension to one) of the membrane we would see a very similar motion compared to a string.</p>
 <p>However, we can not just placing our finger one-third of the way from the center to the rim to create an overtone of exactly three times the frequency of the fundamental.
 It is not that simple!
-Instead the so called <em>Bessel function</em> tells us that the first zero point is 42.6 percent of the distance from the center to the rim.
+Instead, the so called <em>Bessel function</em> tells us that the first zero point is 42.6 percent of the distance from the center to the rim.
 The next odd harmonic of the vibrating string has five equally spaced sections, and oscillates at exactly five times the fundamental frequency.
 The equivalence for the circular drum skin has zero points at 27.8 percent and 63.8 percent of distance from the center to the rim, and it oscillates at a frequency 3.6 times that of the fundamental.</p>
 <p>If, for some reason, we do not hit the drum exactly in the center – how dare we are – it vibrates in completely different ways.
@@ -517,65 +615,60 @@ What we need is noise!</p>
 <div class="section" id="noise">
 <h2>Noise<a class="headerlink" href="#noise" title="Permalink to this headline">#</a></h2>
 <p>If we define richness by the number of sine waves that are represented in a sound, then arguable the richest is pure noise.
+Interestingly this corresponds to the <em>theory of information</em> where a random message will eliminate the most amount of uncertainty thus has a high <em>entropy</em>.
 In section <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">Additive Synthesis</span></a> we have noticed that the greater the number of enharmonic spectral elements there were, the more the sound approaches noise.
-In other words, if add sine waves, each with a random frequency, we will eventually and up with noise – the richest signal possible.</p>
+In other words, if add more and more sine waves, each with a random frequency, we will eventually and up with noise – the richest signal possible.</p>
 <p>Noise is often defined as all possible frequencies having equal representation.
 We can also define it as a wave with no pattern or maybe as a series of numbers of which we can not recognize its pattern.</p>
-<p>In a more general sense, noise is a random signal having intensity at a wide range of frequencies.
-For example, <em>white noise</em> has equal intensity at different frequencies, giving it a constant power spectral density.
+<p>In a more general sense, noise is a random signal having intensity at a wide range of frequencies.</p>
+<div class="section" id="white-noise">
+<h3>White Noise<a class="headerlink" href="#white-noise" title="Permalink to this headline">#</a></h3>
+<p><em>White noise</em> has equal intensity at different frequencies, giving it a constant power spectral density.
 Let us listen to <em>white noise</em> using <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Note that we can not define the frequency since noise consist of a wide range of frequencies.
-This sounds similar to a FM radio while searching for a channel.</p>
+<em>White noise</em> sounds similar to a FM radio while searching for a channel.</p>
 <div class="figure align-default" id="fig-whitenoise">
 <a class="reference internal image-reference" href="../../_images/whitenoise.png"><img alt="../../_images/whitenoise.png" src="../../_images/whitenoise.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">A plot of <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code> over a duration of 2 milliseconds.</span><a class="headerlink" href="#fig-whitenoise" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">A plot of <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code> over a duration of 2 milliseconds.</span><a class="headerlink" href="#fig-whitenoise" title="Permalink to this image">#</a></p>
 </div>
-<p>If we look at the frequency analyser, we can see almost a line, that is, all frequency have roughly equal power.
-Therefore, the sound is kind of harsh.</p>
+<p>If we look at the frequency analyser, we can see almost a line, i.e., all frequency have roughly equal power.
+Compared to other noises, the sound is rather of harsh because of the power in high frequencies.</p>
+</div>
+<div class="section" id="pink-noise">
+<h3>Pink Noise<a class="headerlink" href="#pink-noise" title="Permalink to this headline">#</a></h3>
 <p>To achieve a softer sound we can use <code class="docutils literal notranslate"><span class="pre">PinkNoise</span></code>.
-Pink noise is exponentially biased towards lower frequencies.
+<em>Pink noise</em> is exponentially biased towards lower frequencies.
 It has equal energy per octave band (musical octaves are exponential).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>For <em>pink noise</em> the spectrum falls off in power by 3 dB per octave.
-It sounds more natural and full than white noise because it corresponds with the way we hear musical octaves.
-White noise appears brighter and thinner.</p>
+It sounds more natural and full than <em>white noise</em> because it corresponds with the way we hear musical octaves.
+White noise appears brighter and thinner.
+Pink noise appears in nature at many places.</p>
+</div>
+<div class="section" id="brown-noise">
+<h3>Brown Noise<a class="headerlink" href="#brown-noise" title="Permalink to this headline">#</a></h3>
 <p>The spectrum of <em>brown noise</em> <code class="docutils literal notranslate"><span class="pre">BrownNoise</span></code> falls even faster, that is, 6 dB in power per octave.</p>
+</div>
+<div class="section" id="clip-noise">
+<h3>Clip Noise<a class="headerlink" href="#clip-noise" title="Permalink to this headline">#</a></h3>
 <p>The so called <em>clip noise</em> <code class="docutils literal notranslate"><span class="pre">ClipNoise</span></code> is even a little more harsh than <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>.
 It generates a high frequency stream of 1, -1 with equal probability.</p>
 <div class="figure align-default" id="fig-clipnoise">
 <a class="reference internal image-reference" href="../../_images/clipnoise.png"><img alt="../../_images/clipnoise.png" src="../../_images/clipnoise.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">A plot of <code class="docutils literal notranslate"><span class="pre">ClipNoise</span></code> over a duration of 2 milliseconds.</span><a class="headerlink" href="#fig-clipnoise" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">A plot of <code class="docutils literal notranslate"><span class="pre">ClipNoise</span></code> over a duration of 2 milliseconds.</span><a class="headerlink" href="#fig-clipnoise" title="Permalink to this image">#</a></p>
 </div>
+</div>
+<div class="section" id="gray-noise">
+<h3>Gray Noise<a class="headerlink" href="#gray-noise" title="Permalink to this headline">#</a></h3>
 <p>The last available noise offered by the default <strong>sclang</strong> is <code class="docutils literal notranslate"><span class="pre">GrayNoise</span></code> which sounds very deep, like a heavy rain.</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">GraySound</span></code> combined with a low frequency <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> controlled by an percussive envelope, we already achieve a quite convincing sound of a drum:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\drum</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span><span class="p">),</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">140</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">GrayNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.15</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">sig</span><span class="p">;</span>	
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
-<span class="p">)</span>
-</pre></div>
 </div>
-<p>Compare this to the <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\drum</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span><span class="p">),</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">140</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.15</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">sig</span><span class="p">;</span>	
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
+<div class="section" id="reconstruction-of-noises">
+<h3>Reconstruction of Noises<a class="headerlink" href="#reconstruction-of-noises" title="Permalink to this headline">#</a></h3>
 <p>We can create noise using <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
 Let us use 1000 oscillators, that is, <code class="docutils literal notranslate"><span class="pre">UGens</span></code>.
 For pink noise we need an exponential distribution of frequencies while for white noise a linear distribution is required.</p>
@@ -599,11 +692,52 @@ For pink noise we need an exponential distribution of frequencies while for whit
 </div>
 <p>On my machine, the CPU is at 20 percent.
 Using <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code> or <code class="docutils literal notranslate"><span class="pre">PinkNoise</span></code> leads to almost no CPU workload.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<div class="section" id="drums">
+<h3>Drums<a class="headerlink" href="#drums" title="Permalink to this headline">#</a></h3>
+<p>To generate a drum like sound we start with two components:</p>
+<ol class="simple">
+<li><p>a noise generator, and</p></li>
+<li><p>a sine wave.</p></li>
+</ol>
+<p>The noise generator approximates the complex sound of the wobbling drum membrane while the sine wave adds the typical <em>base of impact</em>.
+Using <em>gray noise</em> combined with a low frequency <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> controlled by an percussive envelope, we already achieve a quite convincing sound of a drum:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\drum1</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span><span class="p">),</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">140</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">GrayNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.15</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">sig</span><span class="p">;</span>	
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Changing the noise generator leads to a different timbre.
+For example, compare this to the <code class="docutils literal notranslate"><span class="pre">WhiteNoise</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\drum2</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="p">,</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span><span class="p">),</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">140</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.15</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nx">sig</span><span class="p">;</span>	
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="a-stormy-night">
+<h3>A Stormy Night<a class="headerlink" href="#a-stormy-night" title="Permalink to this headline">#</a></h3>
 <p>The natural way to work with noise is to apply filters.
-In the following, I use a resonant low pass filter <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> to filter pink noise.
+In the following, I use a resonant low pass filter <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> to filter <em>pink noise</em>.
 The cutoff frequency and the quality of the resonance is controlled via <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> at a low frequency.
 The result sounds like a stormy night:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// Storm simulation</span>
+<span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\breeze</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cut</span><span class="p">,</span> <span class="nx">res</span><span class="p">;</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">;</span>
@@ -617,8 +751,8 @@ The result sounds like a stormy night:</p>
 </div>
 </div>
 <div class="section" id="bells">
-<h2>Bells<a class="headerlink" href="#bells" title="Permalink to this headline">#</a></h2>
-<p>Very different from string and wind instruments, bells consists of many inharmonic ‘partials’.
+<h3>Bells<a class="headerlink" href="#bells" title="Permalink to this headline">#</a></h3>
+<p>Very different from string and wind instruments, bells consists of many inharmonic partials.
 In the section <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>, we already constructed the sound of a bell using the sum of multiple sine waves <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\bell_additive</span><span class="p">,</span> <span class="p">{</span>
@@ -639,7 +773,7 @@ In the section <a class="reference internal" href="additive-synthesis/additive-s
 </pre></div>
 </div>
 <p>We can achieve the same by resonating our noise.
-<code class="docutils literal notranslate"><span class="pre">Klang</span></code> is an <code class="docutils literal notranslate"><span class="pre">UGen</span></code> that imitates the resonant parts of a body or space.
+<a class="reference external" href="http://doc.sccode.org/Classes/Klang.html">Klang</a> is an <code class="docutils literal notranslate"><span class="pre">UGen</span></code> that imitates the resonant parts of a body or space.
 It allows us to specify a set of frequencies to be filtered  and <strong>resonated</strong>, matching amplitudes, and decay rates.
 This is part of <em>physical modelling</em> where we try not to replicate the sound directly but indirectly by modelling the bodies that generate it.</p>
 <p>Hitting a bell will result in a burst of noise.
@@ -664,6 +798,7 @@ Ndef(\bell_physical, {
 </pre></div>
 </div>
 <p>Both versions sound quite similar.</p>
+</div>
 </div>
 </div>
 
@@ -704,7 +839,7 @@ Ndef(\bell_physical, {
     <a class='right-next' id="next-link" href="am.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Amplitude Modulation (AM)</p>
+        <p class="prev-next-title">Amplitude Modulation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -1,20 +1,20 @@
 (sec-am)=
-# Amplitude Modulation (AM)
+# Amplitude Modulation
 
-If we modulate (change a value over time) the amplitude of a audible signal we call this *amplitude modulation* (AM).
-As we will see it the frequency range of the modulation has a great effect on the result.
-But first, let's do some simple math.
+If we modulate (change a value over time) the amplitude of an audible signal, we call this *amplitude modulation* (AM).
+As we will see, the frequency range of the modulation has a significant effect on the result.
+But first, let's start with some simple math.
 
 ## Theory
 
-Within this section I use the the cosine function instead of the sine because the math becomes a little simpler.
+I use the cosine function in this section instead of the sine because the math becomes a little simpler.
 Our basic waveform might be a simple cosine with an amplitude $A(t)$ and a frequency $f$:
 
 \begin{equation}
 y(t) = A(t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}
 
-In AM the amplitude is itself a function over time $A(t)!
+In AM the amplitude $A(t)$ is itself a function over time.
 Let us assume
 
 \begin{equation}
@@ -43,11 +43,11 @@ y(t) = \ & A_\text{car} \cdot \cos(2 \pi f_\text{car} t) \ + \\
 \end{split}
 \end{equation}
 
-This looks complicated but if we look at the Fourier transformation of $y(t)$ we can identify three frequencies within the spectrum:
+This looks complicated but if we look at the Fourier transformation of $y(t)$, we can identify three frequencies within the spectrum:
 
 1. the carrier frequency $f_\text{car}$ with an amplitude $A_\text{car}$,
-2. the sum of the carrier and modulation frequency $f_\text{car} + f_\text{mod}$ with an amplitude of $1/2 A_\text{mod}$ and
-3. the difference of the carrier and modulation frequency $f_\text{car} - f_\text{mod}$ with an amplitude of $1/2 A_\text{mod}$.
+2. the sum of the carrier and modulation frequency $f_\text{car} + f_\text{mod}$ with an amplitude of $1/2 \cdot A_\text{mod}$ and
+3. the difference of the carrier and modulation frequency $f_\text{car} - f_\text{mod}$ with an amplitude of $1/2 \cdot A_\text{mod}$.
 
 ## Effect
 
@@ -96,7 +96,7 @@ I use $A_\text{car} = A_\text{mod} = 1$ and $f_\text{car} = 400$ Hz, $f_\text{mo
 
 ## Techniques
 
-In our example above we used a fixed modulation frequency, that is, if we change the carrier frequency it stays constant.
+In our example above, we used a fixed modulation frequency, i.e., if we change the carrier frequency it stays constant.
 
 ### Direct Current
 
@@ -104,7 +104,7 @@ If we use, for example, $f_\text{car} = f_\text{mod} = 100$ Hz we achieve freque
 Zero means no oscillation which results in an offset ($y$-axis) of the signal.
 We call this a DC (direct current).
 
-The following code generates a plot such that you can observe this effect.
+The following code generates a plot, such that you can observe this effect.
 
 ```isc
 ({
@@ -118,7 +118,7 @@ The following code generates a plot such that you can observe this effect.
 ```
 
 The result is depicted in {numref}`Fig. {number} <fig-am-dc-effect>`.
-All values $y(t)$ are shifted up, that is, in positive $y$-'direction'.
+All values $y(t)$ are shifted up, that is, in positive $y$-direction.
 
 ```{figure} ../../figs/sounddesign/am-dc-effect.png
 ---
@@ -152,16 +152,16 @@ name: fig-am-avoided-dc-effect
 We can avoid DC (direct current) by using ``LeacDC``.
 ```
 
-### Clangorous Sound
+### Clangoros Sound
 
 If we play different notes by changing the carrier frequency without changing the modulation frequency, we get a non-harmonic clangorous sound.
-The relationship between the frequency remains fixed offset such that for a high carrier / center frequency, the sum and difference frequencies are closer to the center frequency compared to low center frequencies.
+The relationship between the frequency remains a fixed offset, such that for a high carrier/center frequency, the sum and difference frequencies are closer to the center frequency compared to low center frequencies.
 
-For almost all carrier frequencies there are no harmonics present in the signal.
+For almost all carrier frequencies, there are no harmonics present in the signal.
 This leads to a rather clangorous sound.
 This can be used to create aggressive and conventionally 'unmusical' sounds that change dramatically as one plays up and down the keyboard.
 
-We can control the amount of clangour by raising or lowering the level of the modulator $A_\text{mod}$.
+We can control the amount of clangor by raising or lowering the level of the modulator $A_\text{mod}$.
 
 ### Harmonic and Inharmonic Timbres
 
@@ -220,7 +220,7 @@ For example, this gives us:
 
 ### Unipolar Amplitude Modulation
 
-We speak of unipolar if the modulation signal either stays positive or negative over time.
+We speak of *unipolar* if the modulation signal either stays positive or negative over time.
 For example:
 
 ```isc

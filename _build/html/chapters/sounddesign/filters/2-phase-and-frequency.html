@@ -134,7 +134,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../supercollider/synths.html">
-   Synth &amp; SynthDefs
+   Synthesizers
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,11 +159,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -180,8 +175,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../additive-synthesis/2-example.html">
-     Example
+    <a class="reference internal" href="../additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
     </a>
    </li>
   </ul>
@@ -245,17 +240,22 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../am.html">
-   Amplitude Modulation (AM)
+   Amplitude Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../fm.html">
-   Frequency Modulation (FM)
+   Frequency Modulation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../drones.html">
    Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../terms.html">
+   Terms
   </a>
  </li>
 </ul>
@@ -423,21 +423,22 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="phase-frequency">
 <h1>Phase &amp; Frequency<a class="headerlink" href="#phase-frequency" title="Permalink to this headline">#</a></h1>
-<p>If we speak of filters we often man low pass or high pass filters, that is, filters that filter frequencies above or below some cutoff frequency.
-For example the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is a 2nd order Butterworth lowpass filter.</p>
+<p>If we speak of filters, we often refer to <em>low pass</em> or <em>high pass filters</em>.
+They filter frequencies above or below some <em>cutoff frequency</em>.
+For example, the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is a <em>2nd order Butterworth lowpass filter</em>.</p>
 <div class="figure align-default" id="fig-butterworth-filter">
 <a class="reference internal image-reference" href="../../../_images/butterworth-filter.png"><img alt="../../../_images/butterworth-filter.png" src="../../../_images/butterworth-filter.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Effect of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Effect of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
 </div>
 <p>The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not completely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
+Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 18</span></a> shows the reduction in amplitude.</p>
-<p>The second effect of the filter is a shift in phase, compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 18</span></a>.
-This effect is important if we want to combine multiple filters because they interact!
-In other words: we can not just combine a high pass and low pass filter to get the same result of a band pass filter!</p>
-<p>The following code is an example for a band pass filter.
-First we use a low pass and high pass filter, then a band pass filter.
+The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 16</span></a> shows the reduction in amplitude.</p>
+<p>The second effect of the filter is a phase shift; compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 16</span></a>.
+This effect is crucial if we combine multiple filters because they interact!
+In other words: we can not just combine a high pass and low pass filter to get the same result as a band pass filter!</p>
+<p>The following code is an example of a band pass filter.
+First, we use a low pass and high pass filter; then a band pass filter.
 The results sound very similar but not identical.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
@@ -455,8 +456,8 @@ The results sound very similar but not identical.</p>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
 </div>
-<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.</p>
-<p>The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
+<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.
+The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
