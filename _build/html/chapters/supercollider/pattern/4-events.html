@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musical Event &#8212; Algorithmic Composition</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Composing" href="5-composing.html" />
+    <link rel="prev" title="Pattern" href="3-pattern.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ecosystem.html">
+   The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../basics/basics.html">
+   Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/1-code-execution.html">
+     Code Execution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/2-variables.html">
+     Variables and Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/3-arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/4-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/5-control-structures.html">
+     Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/6-classes.html">
+     Classes and Objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../basics/7-playing.html">
+     Playing Sound
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../synths.html">
+   Synthesizers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ugens.html">
+   Unit Generators
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider II
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="pattern.html">
+   Playing Patterns
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-the-instrument.html">
+     The Instrument and its Artist
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-streams.html">
+     Streams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-pattern.html">
+     Pattern
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Musical Event
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-composing.html">
+     Composing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../live-coding.html">
+   Live Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ugens2.html">
+   Unit Generator Library
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/additive-synthesis/additive-synthesis.html">
+   Additive Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html">
+     Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/filters/filters.html">
+   Filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">
+     Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/2-phase-and-frequency.html">
+     Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">
+     Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/4-simpler-filters.html">
+     Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/5-resonance.html">
+     Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/6-control-filters.html">
+     Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/7-delays.html">
+     Delays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/subtractive-synthesis.html">
+   Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/percussive-sound.html">
+   Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/am.html">
+   Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/fm.html">
+   Frequency Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/drones.html">
+   Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/terms.html">
+   Terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/jump-right-in.html">
+   Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/distributions.html">
+   Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/supercollider/pattern/4-events.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-default-instrument">
+   The Default Instrument
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#value-conversions">
+   Value Conversions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timing">
+     Timing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pitch">
+     Pitch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amplitude">
+     Amplitude
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#custom-instrument">
+   Custom Instrument
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Musical Event</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-default-instrument">
+   The Default Instrument
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#value-conversions">
+   Value Conversions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#timing">
+     Timing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pitch">
+     Pitch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amplitude">
+     Amplitude
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#custom-instrument">
+   Custom Instrument
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="musical-event">
+<span id="sec-playing-events"></span><h1>Musical Event<a class="headerlink" href="#musical-event" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> is an important <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
+It models the process of playing an instrument by discrete events in time, realizing a discrete event simulation (DES).
+Its <code class="docutils literal notranslate"><span class="pre">Stream</span></code>, streams (musical) <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.</p>
+<div class="remark admonition" id="remark-pbind">
+<p class="admonition-title">Combining Streams</p>
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> combines several <em>value streams</em> into <em>one event stream</em>.</p>
+</div>
+<p>We define a duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, the frequency <code class="docutils literal notranslate"><span class="pre">freq</span></code> or note <code class="docutils literal notranslate"><span class="pre">note</span></code> and the <code class="docutils literal notranslate"><span class="pre">instrument</span></code> we wanna play, i.e., the synth.
+A <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> can then be played by calling <code class="docutils literal notranslate"><span class="pre">play</span></code> on it.
+The method returns an <a class="reference external" href="https://doc.sccode.org/Classes/EventStreamPlayer.html">EventStreamPlayer</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Events</span></code> extend <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environments</a>.
+<code class="docutils literal notranslate"><span class="pre">Environments</span></code> manage namespaces.
+They are similar to hash maps, hash tables, or a <code class="docutils literal notranslate"><span class="pre">Python</span></code> dictionary, i.e., a collection where you can access its elements by name.
+For example, calling a function will create a new local function environment.
+Environments map names to variables and functions.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Environment</span><span class="p">.</span><span class="nx">make</span><span class="p">({</span>
+    <span class="o">~</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">b</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">c</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">add</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;};</span>
+<span class="p">});</span>
+<span class="nx">env</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="nx">env</span><span class="p">[</span><span class="ss">\a</span><span class="p">];</span> <span class="c1">// 100</span>
+<span class="nx">env</span><span class="p">[</span><span class="ss">\add</span><span class="p">].(</span><span class="mi">3</span><span class="p">,</span><span class="mi">13</span><span class="p">);</span> <span class="c1">// 16</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we define an <code class="docutils literal notranslate"><span class="pre">Environment</span></code> with three variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> and a function <code class="docutils literal notranslate"><span class="pre">add</span></code>.
+<code class="docutils literal notranslate"><span class="pre">~a</span></code> is in fact an abbreviation for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.at(\a)</span></code> and <code class="docutils literal notranslate"> <span class="pre">~a</span> <span class="pre">=</span> <span class="pre">100</span></code> for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.put(\a,</span> <span class="pre">100)</span></code>.
+As you can see we already worked with <code class="docutils literal notranslate"><span class="pre">Environments</span></code> without knowing them.</p>
+<p>We are not so much interested in <code class="docutils literal notranslate"><span class="pre">Environments</span></code> but <code class="docutils literal notranslate"><span class="pre">Events</span></code> and they can be defined using a far more compact syntax, i.e., we just use round brackets:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">);</span>
+<span class="nx">event</span><span class="p">[</span><span class="ss">\dur</span><span class="p">].</span><span class="nx">postln</span><span class="p">;</span> <span class="c1">// 1</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>What is going on here?
+We actually can hear a sound!
+Well, if you look at the post window, you can see all the predefined variables/symbols of the <code class="docutils literal notranslate"><span class="pre">Environment</span></code>/<code class="docutils literal notranslate"><span class="pre">Event</span></code>.
+In my case, this is equal to:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;instrument&#39;</span><span class="o">:</span> <span class="k">default</span><span class="p">,</span> 
+<span class="s1">&#39;msgFunc&#39;</span><span class="o">:</span> <span class="nx">a</span> <span class="nb">Function</span><span class="p">,</span> 
+<span class="s1">&#39;dur&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> 
+<span class="s1">&#39;amp&#39;</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> 
+<span class="s1">&#39;server&#39;</span><span class="o">:</span> <span class="nx">localhost</span><span class="p">,</span> 
+<span class="s1">&#39;sustain&#39;</span><span class="o">:</span> <span class="mf">0.8</span><span class="p">,</span> 
+<span class="s1">&#39;isPlaying&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+<span class="s1">&#39;freq&#39;</span><span class="o">:</span> <span class="mf">600.0</span><span class="p">,</span> 
+<span class="s1">&#39;hasGate&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+<span class="s1">&#39;id&#39;</span><span class="o">:</span> <span class="p">[</span> <span class="mi">1869</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Everything we have to define to play a sound, such as, <code class="docutils literal notranslate"><span class="pre">amp</span></code>, <code class="docutils literal notranslate"><span class="pre">instrument</span></code>, <code class="docutils literal notranslate"><span class="pre">server</span></code> is predefined.
+The method <code class="docutils literal notranslate"><span class="pre">play</span></code> uses predefined values if they are missing in the event we want to play.
+The predefined values are stored in class variables, i.e., variables that are shared by all events.
+They are split into partial events:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Event</span><span class="p">.</span><span class="nx">partialEvents</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="the-default-instrument">
+<h2>The Default Instrument<a class="headerlink" href="#the-default-instrument" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">instrument</span></code> is a <code class="docutils literal notranslate"><span class="pre">default</span></code> instrument that is built into SuperCollider.
+We can find it in the source code of the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class.
+Let us have a look:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">{</span> 
+    <span class="kd">arg</span> <span class="nx">out</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nx">pan</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">gate</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">z</span><span class="p">;</span>
+    <span class="nx">z</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+        <span class="nb">Mix</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="nb">VarSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)],</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)),</span>
+        <span class="nb">XLine</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Rand</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">),</span> <span class="nb">Rand</span><span class="p">(</span><span class="mi">2500</span><span class="p">,</span><span class="mi">3200</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span> <span class="o">*</span> <span class="nb">Linen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nx">gate</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nb">OffsetOut</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nb">Pan2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">z</span><span class="p">,</span> <span class="nx">pan</span><span class="p">,</span> <span class="nx">amp</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It is a filtered randomly distorted <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> with a percussive envelope.
+The cutoff frequency of the low pass filter decreases over the time span of 1 second and is initialized with random values.</p>
+</div>
+<div class="section" id="value-conversions">
+<span id="sec-value-conversion"></span><h2>Value Conversions<a class="headerlink" href="#value-conversions" title="Permalink to this headline">#</a></h2>
+<p>In the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class, we can also find the code that actually <code class="docutils literal notranslate"><span class="pre">plays</span></code> an event.
+The method of interest is called <code class="docutils literal notranslate"><span class="pre">makeParentEvents</span></code>.
+It is very lengthy, and you do not have to understand it.
+But if you are interested in what is precisely happening, it is a good starting point.
+Furthermore, it gives us information about all the default values.
+These values are also discussed in the official <a class="reference external" href="https://doc.sccode.org/Tutorials/A-Practical-Guide/PG_07_Value_Conversions.html">pattern guide</a>.</p>
+<p>SuperCollider provides the specification of the different parameters that influence the scheduling and the play of a single synth.
+But it provides different ways to express the same thing and converts it to a specific item.
+For example, a synth only knows frequencies, but you do not have to think in terms of frequencies.
+Instead, you can think in terms of midi notes, and the event player will transform your midi note into the respective frequency.
+Of course, defining midi note and simultaneously frequency does not really make sense.
+SuperCollider will always take the most substantial value, i.e., frequency over the midi note.</p>
+<div class="section" id="timing">
+<h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">#</a></h3>
+<p>First of all, time is measured in beats per second (bps), and events are scheduled on a specific <a class="reference external" href="https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html">TempoClock</a> that runs at a particular bps.
+The default clock runs at 60 beats per second.
+We will discuss later how we can change this.</p>
+<p>Let us look at the parameters determining the timing of an event.
+Let <span class="math notranslate nohighlight">\(t_e\)</span> be the start time of the event <span class="math notranslate nohighlight">\(e\)</span> (scheduled on our clock).
+Then <span class="math notranslate nohighlight">\(t_e + \Delta t_e\)</span> is the end time of <span class="math notranslate nohighlight">\(e\)</span>, i.e., the start time of the next scheduled event.</p>
+<p>Furthermore, at <span class="math notranslate nohighlight">\(t_e + \Delta t_{e_s}\)</span> the sustain ends and the decay of the sound begins.
+<span class="math notranslate nohighlight">\(\Delta t_e\)</span> is equal to <code class="docutils literal notranslate"><span class="pre">delta</span> <span class="pre">=</span> <span class="pre">dur</span> <span class="pre">*</span> <span class="pre">stretch</span></code> and <span class="math notranslate nohighlight">\(\Delta t_{e_s}\)</span> is equal to <code class="docutils literal notranslate"><span class="pre">sustain</span></code>.
+The duration <code class="docutils literal notranslate"><span class="pre">dur</span></code> is stretched by a factor <code class="docutils literal notranslate"><span class="pre">stretch</span></code>.
+Of course, the sound of the event <span class="math notranslate nohighlight">\(e\)</span> can last longer than <span class="math notranslate nohighlight">\(\Delta t_e\)</span>, i.e.,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \Delta t_{e_s} &gt;\Delta t_e
+\end{equation*}\]</div>
+<p>is feasible.
+We have the following parameters with their respective default values:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kc">tempo:</span> <span class="kc">nil</span><span class="p">,</span>
+<span class="kc">dur:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="kc">stretch:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="kc">legato:</span> <span class="mf">0.8</span><span class="p">,</span>
+<span class="kc">sustain:</span> <span class="p">{</span> <span class="o">~</span><span class="nx">dur</span> <span class="o">*</span> <span class="o">~</span><span class="nx">legato</span> <span class="o">*</span> <span class="o">~</span><span class="nx">stretch</span> <span class="p">},</span>
+<span class="kc">lag:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="kc">strum:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="kc">strumEndsTogether:</span> <span class="kc">false</span>
+</pre></div>
+</div>
+<div class="remark admonition" id="remark-scheduling-influencer">
+<p class="admonition-title">Scheduling Influencer</p>
+<p><code class="docutils literal notranslate"><span class="pre">dur</span></code>, <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, <code class="docutils literal notranslate"><span class="pre">delta</span></code> and <code class="docutils literal notranslate"><span class="pre">lag</span></code> do not influence the sound generated by the event but influences the scheduling of events!</p>
+</div>
+<p>We can set either <code class="docutils literal notranslate"><span class="pre">sustain</span></code> or <code class="docutils literal notranslate"><span class="pre">legato</span></code> but it does not really make sense to define them both because if we set <code class="docutils literal notranslate"><span class="pre">sustain</span></code>, then <code class="docutils literal notranslate"><span class="pre">legato</span></code> has no effect.
+This is not true for the duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, since it is not only used to compute <code class="docutils literal notranslate"><span class="pre">sustain</span></code>.</p>
+<div class="remark admonition" id="remark-sound-influencer">
+<p class="admonition-title">Sound Influencer</p>
+<p><code class="docutils literal notranslate"><span class="pre">legato</span></code> and <code class="docutils literal notranslate"><span class="pre">sustain</span></code> do not influence the scheduling but the sound generated by the event!</p>
+</div>
+<p>What does <code class="docutils literal notranslate"><span class="pre">lag</span></code> mean?
+Well, <code class="docutils literal notranslate"><span class="pre">lag</span></code> (<span class="math notranslate nohighlight">\(\Delta t_l\)</span>) is a delay for the scheduler, i.e., scheduled events <em>lag</em> behind.
+The effect is that the sound generated by consecutive events will just start <em>lag</em> bps later.</p>
+<div class="figure align-default" id="fig-event-timing">
+<a class="reference internal image-reference" href="../../../_images/event-timing.png"><img alt="../../../_images/event-timing.png" src="../../../_images/event-timing.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the timings of three scheduled events.</span><a class="headerlink" href="#fig-event-timing" title="Permalink to this image">#</a></p>
+</div>
+<p>Let <span class="math notranslate nohighlight">\(e_1, \ldots, e_m\)</span> be the <span class="math notranslate nohighlight">\(m\)</span> scheduled events.
+Then for all <span class="math notranslate nohighlight">\(1 \leq i &lt; m\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    t_{e_{i+1}} = t_{e_i} + \Delta t_{e_i} = t_l + \Delta t_{e_1} + \ldots + \Delta t_{e_{i}}
+\end{equation*}\]</div>
+<p>holds.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">//2-second pause before the event is played</span>
+<span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span> <span class="ss">\lag</span><span class="o">:</span> <span class="mi">2</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We will see the effect of the different timing parameters later on when we actually play a stream of events.</p>
+</div>
+<div class="section" id="pitch">
+<h3>Pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">#</a></h3>
+<p>As already mentioned, we do not have to work with frequencies.
+In fact, there are many ways to define the pitch of the event, i.e., the played synth, and many of them are more relevant for musicians who are used to them.
+I am not entirely familiar with all the concepts, so I will not provide a complete picture.</p>
+<p>One of the concepts is the so-called midi notes.
+This system assigns ascending numbers to the keys of a piano.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="ss">\midinote</span><span class="o">:</span> <span class="mi">60</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The function/message <code class="docutils literal notranslate"><span class="pre">midicps</span></code> transforms a midi note into its frequency.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">60</span><span class="p">.</span><span class="nx">midicps</span> <span class="c1">// 261.6255653006</span>
+<span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">60</span><span class="p">.</span><span class="nx">midicps</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We can also work with a scale and construct from it a note using its degree and its octave.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="ss">\scale</span><span class="o">:</span> <span class="nb">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span> <span class="ss">\degree</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">\octave</span><span class="o">:</span> <span class="mi">4</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> defines how many <code class="docutils literal notranslate"><span class="pre">note</span></code> units map onto the octave.
+It supports non-12ET temperaments.
+For the default of 12 <code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> (western music).</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> 
+    <span class="ss">\scale</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">],</span> 
+    <span class="ss">\degree</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="ss">\octave</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="ss">\stepsPerOctave</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="ss">\mtranspose</span><span class="o">:</span> <span class="mi">3</span>
+<span class="p">).</span><span class="nx">play</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>we can compute the midi note by the following formula</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="ss">\stepsPerOctave</span> <span class="o">*</span> <span class="ss">\octave</span> <span class="o">+</span> <span class="ss">\scale</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="ss">\degree</span> <span class="o">+</span> <span class="ss">\mtranspose</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    12 \cdot 4 + 11 = 59
+\end{equation*}\]</div>
+<p>This does not work if we introduce other values for <code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> or manipulate the <code class="docutils literal notranslate"><span class="pre">octaveRatio</span></code>.
+If you are interested in the exact computation, have a look at the source code of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class.</p>
+</div>
+<div class="section" id="amplitude">
+<h3>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">#</a></h3>
+<p>The amplitude can be defined by either <code class="docutils literal notranslate"><span class="pre">amp</span></code> or <code class="docutils literal notranslate"><span class="pre">db</span></code> (decibel).
+<code class="docutils literal notranslate"><span class="pre">amp</span></code> has a higher prioritization.</p>
+<p>Both of the following code lines generate a sound of equal amplitude.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="nx">dbamp</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span> <span class="ss">\db</span><span class="o">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="remark admonition" id="remark-amp-in-db">
+<p class="admonition-title">Amplitude in Decibel</p>
+<p><code class="docutils literal notranslate"><span class="pre">\db:</span> <span class="pre">0</span></code> equals <code class="docutils literal notranslate"><span class="pre">\amp:</span> <span class="pre">1.0</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="custom-instrument">
+<h2>Custom Instrument<a class="headerlink" href="#custom-instrument" title="Permalink to this headline">#</a></h2>
+<p>Of course, we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., custom instrument.
+To use all the excellent predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments, and we have to name them as intended.
+For the rest of this section, we work with the following synth:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\snare</span><span class="p">,{</span><span class="kd">arg</span> <span class="nx">hcutoff</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">,</span> <span class="nx">lcutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">1.4</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">hat</span><span class="p">,</span> <span class="nx">bass</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">).</span><span class="kd">kr</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="p">{</span><span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">()}</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="nb">HPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">hat</span><span class="p">,</span> <span class="nb">XLine</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">lcutoff</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="nx">lcutoff</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">hat</span><span class="p">,</span> <span class="nx">hcutoff</span><span class="p">);</span>
+    <span class="nx">bass</span> <span class="o">=</span> <span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">XLine</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">))</span><span class="o">*</span><span class="mf">0.2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hat</span> <span class="o">+</span> <span class="nx">bass</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\saw</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="nx">gate</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span>
+        <span class="nb">Env</span><span class="p">.</span><span class="nx">asr</span><span class="p">(</span><span class="kc">attackTime:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="kc">sustainLevel:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="kc">releaseTime:</span> <span class="mf">1.4</span><span class="p">),</span> 
+        <span class="kc">gate:</span> <span class="nx">gate</span><span class="p">,</span> 
+        <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="nx">freq</span><span class="p">,</span> <span class="nx">freq</span><span class="o">*</span><span class="mf">1.004</span><span class="p">]),</span> <span class="nb">XLine</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nx">freq</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">90</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">freq</span><span class="o">/</span><span class="mi">10</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="nb">Synth</span><span class="p">(</span><span class="ss">\snare</span><span class="p">)</span>
+<span class="o">~</span><span class="nx">snare</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\saw</span><span class="p">)</span>
+<span class="o">~</span><span class="nx">snare</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the frequency argument should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, the amplitude argument should be called <code class="docutils literal notranslate"><span class="pre">amp,</span> </code> and the gate should be called <code class="docutils literal notranslate"><span class="pre">gate</span></code>.
+This is crucial.
+Otherwise, we can not make use of the full potential of SuperCollider’s pattern library.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\saw</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">);</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>First, we add a very simple synth, then we play it for a duration of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> beats per second (bps).</p>
+<p>If we look closely, we can observe that there is a <code class="docutils literal notranslate"><span class="pre">sustain</span></code> argument that is set to 80 percent of the duration, i.e. to <code class="docutils literal notranslate"><span class="pre">0.16</span></code> beats per seconds.
+This is because the default values of our arguments are defined as follows.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kc">dur:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="kc">stretch:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="kc">legato:</span> <span class="mf">0.8</span><span class="p">,</span>
+<span class="kc">sustain:</span> <span class="p">{</span> <span class="o">~</span><span class="nx">dur</span> <span class="o">*</span> <span class="o">~</span><span class="nx">legato</span> <span class="o">*</span> <span class="o">~</span><span class="nx">stretch</span> <span class="p">},</span>
+</pre></div>
+</div>
+<p>As already mentioned, <code class="docutils literal notranslate"><span class="pre">sustain</span></code> is the time after the <code class="docutils literal notranslate"><span class="pre">gate</span></code> within our synth is triggered!
+We can change this default behavior by setting our own <code class="docutils literal notranslate"><span class="pre">sustain</span></code> value which overrides <code class="docutils literal notranslate"><span class="pre">legato</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\saw</span><span class="p">,</span> <span class="ss">\sustain</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">);</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="remark admonition" id="remark-overlapping-sound">
+<p class="admonition-title">Difference between Duration and Sustain</p>
+<p>The duration <code class="docutils literal notranslate"><span class="pre">dur</span></code> is the elapsed time after the next event is scheduled while <code class="docutils literal notranslate"><span class="pre">sustain</span></code> is the time after the <code class="docutils literal notranslate"><span class="pre">gate</span></code> of the synth is triggered. If the sound sustains longer than <code class="docutils literal notranslate"><span class="pre">dur</span></code> we get overlapping sounds.</p>
+</div>
+<p>This seems to make the <code class="docutils literal notranslate"><span class="pre">dur</span></code> argument irrelevant.
+However, we need <code class="docutils literal notranslate"><span class="pre">dur</span></code> if we not only play one event but a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of events!
+Remember, <code class="docutils literal notranslate"><span class="pre">dur</span></code> influences the scheduler of our musical events.
+We can see the effect if we play a stream of events.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/supercollider/pattern"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="3-pattern.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Pattern</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="5-composing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Composing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

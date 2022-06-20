@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables and Scope &#8212; Algorithmic Composition</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Arrays" href="3-arrays.html" />
+    <link rel="prev" title="Code Execution" href="1-code-execution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider I
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ecosystem.html">
+   The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="basics.html">
+   Basics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-code-execution.html">
+     Code Execution
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Variables and Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-control-structures.html">
+     Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-classes.html">
+     Classes and Objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-playing.html">
+     Playing Sound
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../synths.html">
+   Synthesizers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ugens.html">
+   Unit Generators
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider II
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pattern/pattern.html">
+   Playing Patterns
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/1-the-instrument.html">
+     The Instrument and its Artist
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/2-streams.html">
+     Streams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/3-pattern.html">
+     Pattern
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/4-events.html">
+     Musical Event
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/5-composing.html">
+     Composing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../live-coding.html">
+   Live Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ugens2.html">
+   Unit Generator Library
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/additive-synthesis/additive-synthesis.html">
+   Additive Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html">
+     Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/filters/filters.html">
+   Filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">
+     Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/2-phase-and-frequency.html">
+     Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">
+     Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/4-simpler-filters.html">
+     Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/5-resonance.html">
+     Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/6-control-filters.html">
+     Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/7-delays.html">
+     Delays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/subtractive-synthesis.html">
+   Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/percussive-sound.html">
+   Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/am.html">
+   Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/fm.html">
+   Frequency Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/drones.html">
+   Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/terms.html">
+   Terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/jump-right-in.html">
+   Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/distributions.html">
+   Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/supercollider/basics/2-variables.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Variables and Scope</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="variables-and-scope">
+<h1>Variables and Scope<a class="headerlink" href="#variables-and-scope" title="Permalink to this headline">#</a></h1>
+<p>Here we encounter the first inconvenience.
+In <a class="reference external" href="https://supercollider.github.io/">(SC)</a>, there are some special pre-defined variables.
+Each <strong>single character variable</strong> <code class="docutils literal notranslate"><span class="pre">[a-z]</span></code> is pre-defined and globally available.
+They are called <em>interpreter variables</em> or <em>global variables</em>.</p>
+<div class="attention admonition" id="attention-local-server-variable">
+<p class="admonition-title">The Local Server Variable </p>
+<p>By default, the variable <code class="docutils literal notranslate"><span class="pre">s</span></code> holds a reference to the local audio server.</p>
+</div>
+<p>If you come from a modern programming language, this is strange.
+However, it is often helpful for prototyping in <a class="reference external" href="https://supercollider.github.io/">(SC)</a>.
+<code class="docutils literal notranslate"><span class="pre">s</span></code> is a very special <em>global variable</em> because it holds a reference to the default local server.
+Therefore, to start/boot the <a class="reference internal" href="../ecosystem.html#sec-audio-sever"><span class="std std-ref">audio server</span></a>, we evaluate:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>No one stops you from overwriting <code class="docutils literal notranslate"><span class="pre">s</span></code>, but I would not recommend it.
+As already mentioned, to define a code block, we use round brackets.
+We can use <code class="docutils literal notranslate"><span class="pre">x</span></code> before defining it because it is already defined for us.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Evaluating</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>results in an error because <code class="docutils literal notranslate"><span class="pre">number</span></code> is undefined.
+The code evaluation works similar to the cell evaluation in a <code class="docutils literal notranslate"><span class="pre">Python</span></code> Jupyter notebook, but variables (except for the single character) are <em>local</em>.
+<em>Local</em> and <em>global variables</em> are not saved in the current <em>environment</em>.
+You can print out this environment by just accessing it:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">currentEnvironment</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The following code does not work without round brackets</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">number</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>because <code class="docutils literal notranslate"><span class="pre">number</span></code> is <em>locally</em> defined within the scope of a single line!
+If we use brackets</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">number</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">number</span></code> is <em>local</em> within the brackets.
+Note that we have to execute the whole block; otherwise <code class="docutils literal notranslate"><span class="pre">number</span></code> is still <em>local</em> within one line.</p>
+<p>To define our own <em>global</em> variable, we have to use <code class="docutils literal notranslate"><span class="pre">~</span></code> in front of the variable name, for example:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">number</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="o">~</span><span class="nx">number</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>works just fine.
+These variables are called <em>environment variables</em> and they are stored in <code class="docutils literal notranslate"><span class="pre">currentEnvironment</span></code>.</p>
+<p>We can also use single character <em>local</em> variables. The following code returns <code class="docutils literal notranslate"><span class="pre">13</span></code></p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">(</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>but the code below returns <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="p">(</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">x</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In summary, there are three types of variables:</p>
+<ol class="simple">
+<li><p>(global) single character <em>interpreter variables</em>, e.g., <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>(global) <em>environment variables</em>, e.g. <code class="docutils literal notranslate"><span class="pre">~number</span></code></p></li>
+<li><p>(local) <em>local variables</em> <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">variable</span> <span class="pre">=</span> <span class="pre">10;</span></code></p></li>
+</ol>
+<p>As their name indicates, variables can be reassigned, and due to the dynamic type system, we can give them any new value at any time.</p>
+<div class="sc admonition" id="sc-exponential">
+<p class="admonition-title">Exponential Operator</p>
+<p>Like <code class="docutils literal notranslate"><span class="pre">Python</span></code>, <code class="docutils literal notranslate"><span class="pre">sclang</span></code> supports the exponential operator <code class="docutils literal notranslate"><span class="pre">**</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="mi">4</span> <span class="c1">// 16.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/supercollider/basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="1-code-execution.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Code Execution</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-arrays.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Arrays</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

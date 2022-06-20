@@ -120,7 +120,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  SuperCollider
+  SuperCollider I
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -129,10 +129,52 @@ const thebe_selector_output = ".output, .cell_output"
    The Ecosystem
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../supercollider/basics.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../supercollider/basics/basics.html">
    Basics
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/1-code-execution.html">
+     Code Execution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/2-variables.html">
+     Variables and Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/3-arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/4-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/5-control-structures.html">
+     Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/6-classes.html">
+     Classes and Objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/basics/7-playing.html">
+     Playing Sound
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/synths.html">
@@ -144,14 +186,58 @@ const thebe_selector_output = ".output, .cell_output"
    Unit Generators
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../supercollider/pattern.html">
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider II
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../supercollider/pattern/pattern.html">
    Playing Patterns
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/pattern/1-the-instrument.html">
+     The Instrument and its Artist
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/pattern/2-streams.html">
+     Streams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/pattern/3-pattern.html">
+     Pattern
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/pattern/4-events.html">
+     Musical Event
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/pattern/5-composing.html">
+     Composing
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../supercollider/live-coding.html">
    Live Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../supercollider/ugens2.html">
+   Unit Generator Library
   </a>
  </li>
 </ul>
@@ -165,8 +251,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="additive-synthesis/additive-synthesis.html">
    Additive Synthesis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -187,8 +273,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="filters/filters.html">
    Filters
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -543,29 +629,29 @@ But first, let’s start with some simple math.</p>
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>I use the cosine function in this section instead of the sine because the math becomes a little simpler.
 Our basic waveform might be a simple cosine with an amplitude <span class="math notranslate nohighlight">\(A(t)\)</span> and a frequency <span class="math notranslate nohighlight">\(f\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29f63faf-0a0c-44b3-aa73-a387845ae83c">
-<span class="eqno">(30)<a class="headerlink" href="#equation-29f63faf-0a0c-44b3-aa73-a387845ae83c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0eaddfc1-c2dd-469f-9768-38eb71698b80">
+<span class="eqno">(30)<a class="headerlink" href="#equation-0eaddfc1-c2dd-469f-9768-38eb71698b80" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A(t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>In AM the amplitude <span class="math notranslate nohighlight">\(A(t)\)</span> is itself a function over time.
 Let us assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4614b228-d805-47c4-b871-e41c633f8aa8">
-<span class="eqno">(31)<a class="headerlink" href="#equation-4614b228-d805-47c4-b871-e41c633f8aa8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e7bb69a-6994-4238-9c86-19ae5d47b814">
+<span class="eqno">(31)<a class="headerlink" href="#equation-4e7bb69a-6994-4238-9c86-19ae5d47b814" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A(t) = A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t)
 \end{equation}\]</div>
 <p>then our audio signal is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8a2f638-b93b-4053-9ac9-1a5371cecf04">
-<span class="eqno">(32)<a class="headerlink" href="#equation-f8a2f638-b93b-4053-9ac9-1a5371cecf04" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2011b9f-8f10-4d64-af7e-c445d76ce965">
+<span class="eqno">(32)<a class="headerlink" href="#equation-d2011b9f-8f10-4d64-af7e-c445d76ce965" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \left[A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \right] \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>which we can rewrite as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-97972f03-64bc-4393-ac04-980d09cdf52b">
-<span class="eqno">(33)<a class="headerlink" href="#equation-97972f03-64bc-4393-ac04-980d09cdf52b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6fdde4cf-7283-4010-9a53-93e6981a15af">
+<span class="eqno">(33)<a class="headerlink" href="#equation-6fdde4cf-7283-4010-9a53-93e6981a15af" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_\text{car} \cdot \cos(2 \pi f_\text{car} t) + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>We can now use the cosine rule for multiplication, which gives us</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d315168b-a410-4457-8eb6-da2d07667034">
-<span class="eqno">(34)<a class="headerlink" href="#equation-d315168b-a410-4457-8eb6-da2d07667034" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-93997215-0315-448d-81b7-1629f7c48d70">
+<span class="eqno">(34)<a class="headerlink" href="#equation-93997215-0315-448d-81b7-1629f7c48d70" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y(t) = \ &amp; A_\text{car} \cdot \cos(2 \pi f_\text{car} t) \ + \\
 \ &amp; \frac{1}{2} A_\text{mod} \cdot \cos(2 \pi (f_\text{car} + f_\text{mod}) t) \ + \\
@@ -671,13 +757,13 @@ This can be used to create aggressive and conventionally ‘unmusical’ sounds 
 <div class="section" id="harmonic-and-inharmonic-timbres">
 <h3>Harmonic and Inharmonic Timbres<a class="headerlink" href="#harmonic-and-inharmonic-timbres" title="Permalink to this headline">#</a></h3>
 <p>Let us introduce a ratio <span class="math notranslate nohighlight">\(r\)</span> between the carrier frequency and the modulation frequency such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1677a2a4-bb9a-4e8d-9364-926c5a3881c4">
-<span class="eqno">(35)<a class="headerlink" href="#equation-1677a2a4-bb9a-4e8d-9364-926c5a3881c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de3aa9bf-165f-499e-8146-932810f930c7">
+<span class="eqno">(35)<a class="headerlink" href="#equation-de3aa9bf-165f-499e-8146-932810f930c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = r \cdot f_\text{car}.
 \end{equation}\]</div>
 <p>which results in frequencies <span class="math notranslate nohighlight">\(f_\text{car}\)</span> and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25b18436-d08b-4371-bfca-99a93e424287">
-<span class="eqno">(36)<a class="headerlink" href="#equation-25b18436-d08b-4371-bfca-99a93e424287" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-723061cf-1d4a-47d0-92f8-898850c92db1">
+<span class="eqno">(36)<a class="headerlink" href="#equation-723061cf-1d4a-47d0-92f8-898850c92db1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{car} \pm f_\text{mod} = f_\text{car} \pm r \cdot f_\text{car} = (1 \pm r) \cdot f_\text{car}.
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(r\)</span> should be smaller or equals than <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -703,8 +789,8 @@ f_\text{car} \pm f_\text{mod} = f_\text{car} \pm r \cdot f_\text{car} = (1 \pm r
 In general the relationship is inharmonic and we increase the inharmonicity we use a ratio which is far away from a whole number!</p>
 <p>Remember the frequencies the signal has are <span class="math notranslate nohighlight">\((1 \pm r) \cdot f_\text{car}\)</span> and <span class="math notranslate nohighlight">\(f_\text{car}\)</span>.
 So the coefficients in order they are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cfeddb08-08f1-48cc-8557-25ea463894bf">
-<span class="eqno">(37)<a class="headerlink" href="#equation-cfeddb08-08f1-48cc-8557-25ea463894bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-32e85e73-0a3b-4141-a34a-79b29eec383f">
+<span class="eqno">(37)<a class="headerlink" href="#equation-32e85e73-0a3b-4141-a34a-79b29eec383f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (1 - r), 1, (1 + r).
 \end{equation}\]</div>
 <p>For example, this gives us:</p>
@@ -735,8 +821,8 @@ For example:</p>
 <h3>Complex Amplitude Modulation<a class="headerlink" href="#complex-amplitude-modulation" title="Permalink to this headline">#</a></h3>
 <p>Instead of using sine waves we can also use other signals, for example we could use for one or both of the signals (carrier and modulator) a sawtooth wave.
 If the carrier signal consist of frequencies equal to <span class="math notranslate nohighlight">\(f_{\text{car},1}, \ldots, f_{\text{car},n}\)</span> and the modulator consists of frequencies <span class="math notranslate nohighlight">\(f_{\text{mod},1}, \ldots, f_{\text{mod},m}\)</span>, then the resulting signal will consist of frequencies:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6b3a2bdb-fa05-4be3-85b1-2c38c3a87b9f">
-<span class="eqno">(38)<a class="headerlink" href="#equation-6b3a2bdb-fa05-4be3-85b1-2c38c3a87b9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e8a1b77-21d4-4fbe-a666-d6af6baac976">
+<span class="eqno">(38)<a class="headerlink" href="#equation-7e8a1b77-21d4-4fbe-a666-d6af6baac976" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}
 \end{equation}\]</div>
 <p>thus it consists of <span class="math notranslate nohighlight">\(n \cdot m\)</span> frequencies (if nothing cancels out).

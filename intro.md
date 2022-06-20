@@ -26,11 +26,15 @@ It is time for me to learn more about *algorithmic compositions* and *sound desi
 What better way to get started than doing what I may be best at: coding.
 Being creative by producing sound was the essential puzzle I was always looking for -- a strong connection between computer science and art.
 
-## About the Author
+## Who is Speaking?
 
+>One’s stories persuade one’s audience that one is a particular kind of person. When one is one’s own audience, the telling amounts to having a self. -- Leslie Ervine, Even Better Than the Real Thing
+
+Who am I?
+Is there anything like *The Self*, without others?
 From the bottom of my heart, I am a computer scientist.
 But I may have to clarify my interpretation of the term.
-I mean computer scientist in the sense of studying. 
+I mean computer scientist in the sense of studying different aspects of computation:
 
 + **information:** what is information, and how can we create, manipulate and interpret it?
 + **computation:** what is computable, and what do we mean by that?
@@ -54,9 +58,25 @@ Furthermore, I can read and understand ``C\C++`` code, but I am not very experie
 I am familiar with GPU programming using ``OpenCL``.
 Currently, I am trying to learn some ``Rust``.
 
-I am not a musician. I have no music theory education and do not play an instrument.
+I have no music theory education and do not play an instrument.
 So this is a solid contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
 However, I am a big music lover, and I have always wanted to make my own music and never thought programming could lead me to this goal.
+
+I am neither a professional musician nor a "professional" artist.
+However, I strongly believe that every human being is capable of creating a whole universe of meaning.
+We are storytellers thrown (*geworfen*) into a world that changes depending on our mood.
+We can not change our being (*Dasein*), but we can choose how we want to deal with it.
+Do we reject our surroundings, becoming alienated in the process?
+Do we revolt against our fundamental condition of confusion?
+Do we make the place where we live our home?
+
+Music gives me peace.
+It gracefully touches my soul.
+It reminds me that something in this world expresses *The Concrete*.
+Something that escapes our calculating minds; something unexplainable.
+Music sets me free.
+Coding sets me free.
+Coding music is the ultimate freedom.
 
 ## Notes on Technology
 
@@ -80,12 +100,16 @@ To understand how it affects us, how it changes us, how it can help us and how i
 We get used to the internet, smartphones, social media, and other platform economies, and endless repetition of the trivial.
 As an individual, we seem powerless concerning new technologies.
 If there is a market, we most certainly have to get used to yet another technological phantasy.
+Is it *The Public* that wants to transfer another big chunk of reality into a *Metaverse*;
+a virtual world based on a business ontology and governed by a corporate dictatorship?
 
 I neither advocate for the denial nor for embracing technology in general.
 Instead, I advocate for an ongoing evaluation of all the different technologies.
 Are they emancipatory?
 How do they change our way of thinking, feeling, and communicating?
 Are they useful?
+Who is controlling them?
+What are they intended to accomplish?
 What space do they open up?
 Do they offer artistic potential?
 What realities do they destroy?
@@ -95,12 +119,11 @@ A potent society should have the power to reject technological advances in favor
 I believe technology is always destructive as well as creative.
 It disrupts existing spaces and opens up new ones. 
 The artist's responsibility is to reveal and explore this process.
-Neither being prejudiced nor playing the devil's advocate but engaging with technology honestly.
+Neither being prejudiced nor playing the devil's advocate but engaging with technology and its masters honestly.
 The digital is here to stay.
-So let us engage with it, honestly.
+So let us engage with it; let us be cirtical and, if necessary, fight back.
 
 >Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- J.D. Jarvis
-
 
 ## Why Writing an Online-Book?
 
@@ -125,6 +148,13 @@ It is a hobby.
 Therefore, I will develop and update it over time.
 It is only a skeleton in its current state, and I will add new chapters and edit old ones. 
 Therefore, do not expect anything professional.
+
+To me, the *community of algorithmic composers* seems to be quite *egalitarian*, open and social.
+As a left-leaning person, I enjoy such contra commercial trends.
+I hope my work has value and will be helpful.
+At the same time, I do not want to surrender to the *capitalist logic*.
+Even if we lack an alternative and this is no longer even an issue, my hope shall be a reminder that we can still revolt against the *Capitalist Realism*.
+Therefore, I will share everything without exception.
 
 In the future, you might be interested in extending the book with your content. 
 Maybe this project will become a community effort to make SuperCollider, sound design, and other tools and techniques more accessible.

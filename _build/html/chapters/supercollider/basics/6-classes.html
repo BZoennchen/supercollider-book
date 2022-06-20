@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes and Objects &#8212; Algorithmic Composition</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Playing Sound" href="7-playing.html" />
+    <link rel="prev" title="Control Structures" href="5-control-structures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider I
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ecosystem.html">
+   The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="basics.html">
+   Basics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-code-execution.html">
+     Code Execution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-variables.html">
+     Variables and Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-control-structures.html">
+     Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Classes and Objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-playing.html">
+     Playing Sound
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../synths.html">
+   Synthesizers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ugens.html">
+   Unit Generators
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider II
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pattern/pattern.html">
+   Playing Patterns
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/1-the-instrument.html">
+     The Instrument and its Artist
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/2-streams.html">
+     Streams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/3-pattern.html">
+     Pattern
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/4-events.html">
+     Musical Event
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/5-composing.html">
+     Composing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../live-coding.html">
+   Live Coding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ugens2.html">
+   Unit Generator Library
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/additive-synthesis/additive-synthesis.html">
+   Additive Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html">
+     Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/filters/filters.html">
+   Filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">
+     Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/2-phase-and-frequency.html">
+     Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">
+     Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/4-simpler-filters.html">
+     Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/5-resonance.html">
+     Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/6-control-filters.html">
+     Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/7-delays.html">
+     Delays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/subtractive-synthesis.html">
+   Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/percussive-sound.html">
+   Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/am.html">
+   Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/fm.html">
+   Frequency Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/drones.html">
+   Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/terms.html">
+   Terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/jump-right-in.html">
+   Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/distributions.html">
+   Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/supercollider/basics/6-classes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Classes and Objects</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="classes-and-objects">
+<h1>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">#</a></h1>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>However, we can omit the <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Classes can contain class methods (static methods) and object methods.
+A class method starts with an <code class="docutils literal notranslate"><span class="pre">*</span></code>.
+For example, I implemented a new class <code class="docutils literal notranslate"><span class="pre">Utils</span></code> which offers a <em>class-method</em> <code class="docutils literal notranslate"><span class="pre">initUtils</span></code> that initializes all the useful analyzing tools depicted in <a class="reference internal" href="../ecosystem.html#fig-ide-tools"><span class="std std-numref">Fig. 2</span></a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Utils</span> <span class="p">{</span>
+    <span class="o">*</span><span class="nx">initTools</span> <span class="p">{</span>
+        <span class="kd">arg</span> <span class="nx">activateLimiter</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="c1">// reboot all</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">killAll</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">numBuffers</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">memSize</span> <span class="o">=</span> <span class="mi">8192</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
+        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">waitForBoot</span><span class="p">(</span><span class="kc">onComplete:</span> <span class="p">{</span>
+            <span class="c1">// re-initialize tools</span>
+            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">makeWindow</span><span class="p">;</span>
+            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">meter</span><span class="p">;</span>
+            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
+            <span class="nb">FreqScope</span><span class="p">.</span><span class="k">new</span><span class="p">;</span>
+            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">plotTree</span><span class="p">;</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="nx">activateLimiter</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nb">StageLimiter</span><span class="p">.</span><span class="nx">activate</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Another significant difference between functions and methods is that for methods, the return value has to be marked by a <code class="docutils literal notranslate"><span class="pre">^</span></code>.
+The following code depicts the object-method <code class="docutils literal notranslate"><span class="pre">reverse</span></code> of <code class="docutils literal notranslate"><span class="pre">ArrayedCollection</span></code> which is the super-class of <code class="docutils literal notranslate"><span class="pre">Array</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">reverse</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nb">this</span><span class="p">.</span><span class="nx">copy</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">size1</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">halfsize</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="kc">div:</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">halfsize</span><span class="p">.</span><span class="k">do</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">size1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="o">^</span><span class="nx">res</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>First the original array <code class="docutils literal notranslate"><span class="pre">this</span></code> is copied.
+Then elements are swapped accordingly.
+And finally the copy <code class="docutils literal notranslate"><span class="pre">res</span></code> is returned.
+The expression <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">div:</span> <span class="pre">2;</span></code> is equivialent to <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">/</span> <span class="pre">2;</span></code> or <code class="docutils literal notranslate"><span class="pre">res.size.div(2);</span></code>.</p>
+<p>Let us look at another example, i.e., the class <code class="docutils literal notranslate"><span class="pre">Complex</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Complex</span> <span class="o">:</span> <span class="nb">Number</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="o">&lt;&gt;</span><span class="nx">real</span><span class="p">,</span> <span class="o">&lt;&gt;</span><span class="nx">imag</span><span class="p">;</span>
+
+    <span class="o">*</span><span class="k">new</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">real</span><span class="p">,</span> <span class="nx">imag</span><span class="p">;</span>
+        <span class="o">^</span><span class="kr">super</span><span class="p">.</span><span class="nx">newCopyArgs</span><span class="p">(</span><span class="nx">real</span><span class="p">,</span> <span class="nx">imag</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">+</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">aNumber</span><span class="p">,</span> <span class="nx">adverb</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">,</span> <span class="p">{</span>
+            <span class="o">^</span><span class="nb">Complex</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="nx">real</span> <span class="o">+</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">real</span><span class="p">,</span> <span class="nx">imag</span> <span class="o">+</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">imag</span><span class="p">)</span>
+        <span class="p">},{</span>
+            <span class="o">^</span><span class="nx">aNumber</span><span class="p">.</span><span class="nx">performBinaryOpOnComplex</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="nb">this</span><span class="p">,</span> <span class="nx">adverb</span><span class="p">)</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">...</span>
+</pre></div>
+</div>
+<p>The class has two attributes  <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">img</span></code> indicated by the ugly <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> and initialized by the constructor.
+Furthermore, it has a method <code class="docutils literal notranslate"><span class="pre">+</span></code> which takes one non-optional and one optional argument.
+<code class="docutils literal notranslate"><span class="pre">aNumber</span></code> is another complex number and <code class="docutils literal notranslate"><span class="pre">adverb</span></code> is a modifier that modifies the plus operation if <code class="docutils literal notranslate"><span class="pre">aNumber</span></code> is not a number.
+If we ignore the second argument, the <code class="docutils literal notranslate"><span class="pre">+</span></code> method returns a new complex number by adding two complex numbers together.
+Therefore, <code class="docutils literal notranslate"><span class="pre">+</span></code> is a <em>pure function</em>.</p>
+<p>I may come back to object-oriented programming with <code class="docutils literal notranslate"><span class="pre">sclang</span></code> but for now we do not really need it.
+The best way to learn more about it is to look into the source code pressing <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">CMD</span></code>.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/supercollider/basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="5-control-structures.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Control Structures</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="7-playing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Playing Sound</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
