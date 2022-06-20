@@ -759,6 +759,20 @@ Let us combine <code class="docutils literal notranslate"><span class="pre">Tdef
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>The same can be accomplished using a <a class="reference external" href="https://doc.sccode.org/Classes/TaskProxy.html">TaskProxy</a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">melody</span> <span class="o">=</span> <span class="nb">TaskProxy</span><span class="p">();</span>
+<span class="o">~</span><span class="nx">melody</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">(</span>
+<span class="o">~</span><span class="nx">melody</span><span class="p">.</span><span class="nx">source</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">notes</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">asStream</span><span class="p">;</span>
+    <span class="nx">loop</span><span class="p">{</span>
+        <span class="nb">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="nx">notes</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
+        <span class="mf">0.25</span><span class="p">.</span><span class="nx">wait</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 
