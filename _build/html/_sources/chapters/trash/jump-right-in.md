@@ -116,3 +116,20 @@ SynthDef.new(\melo,{
 }).add;
 )
 ```
+
+
+```isc
+(
+{
+	var noise0 = LFNoise0.kr(1/3) * 4;
+	var saw = Saw.ar([32,33]) * 0.2;
+	var in = LocalIn.ar(2) * 7.5;
+	var center = 2**noise0*300;
+	//var center = 120;
+	var bpf = BPF.ar(in+saw, center, rq: 0.1).distort;
+	
+	LocalOut.ar(a=CombN.ar(bpf,2,2,40));
+	a;
+}.play
+)
+```
