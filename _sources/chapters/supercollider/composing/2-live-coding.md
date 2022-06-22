@@ -227,8 +227,7 @@ Tdef(\melody, {
 The same can be accomplished using a [TaskProxy](https://doc.sccode.org/Classes/TaskProxy.html).
 
 ```isc
-~melody = TaskProxy();
-~melody.play;
+~melody = TaskProxy().play;
 (
 ~melody.source = {
     var notes = Pseq([65, 70, 55, 63, 55, 70], inf).asStream;

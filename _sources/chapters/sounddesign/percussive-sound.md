@@ -76,6 +76,7 @@ A plot of ``WhiteNoise`` over a duration of 2 milliseconds.
 If we look at the frequency analyser, we can see almost a line, i.e., all frequency have roughly equal power.
 Compared to other noises, the sound is rather of harsh because of the power in high frequencies.
 
+(sec-pink-noise)=
 ### Pink Noise
 
 To achieve a softer sound we can use ``PinkNoise``.
