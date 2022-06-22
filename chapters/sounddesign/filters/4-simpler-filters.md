@@ -171,7 +171,7 @@ The exponential decay is depicted in {numref}`Fig. {number} <fig-lag-and-onepole
 ```{admonition} OnePole
 :name: remark-one-pole-lowpass
 :class: remark
-``OnePole`` is a [lowpass filter](sec-lowpass-filter).
+``OnePole`` is a first-oder [lowpass filter](sec-lowpass-filter).
 ```
 
 Compare, for example, the following similar sounding signals of a [sawtooth wave](sec-sawtooth-wave), first filtered by the low-pass filter ``LPF`` and then filtered by ``OnePole`` using a large $\alpha$:

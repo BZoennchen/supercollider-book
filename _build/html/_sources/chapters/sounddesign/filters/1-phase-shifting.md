@@ -78,7 +78,7 @@ Some frequencies might get a bit louder, some might be reinforced, a few doubled
 Cancelation is equivalent to filtering!
 So our examples of using two oscillators, one shifted by $\pi$ can be seen as filtering one oscillator by the other.
 The second one acts as a filter.
-This filter is called [Comb Filter](sec-comb-filter).
+This filter is called [Comb Filter](sec-comb-allpass-filter).
 In ``sclang``, this filter is called ``DelayX`` where ``X`` stands for different interpolation techniques.
 Note that ``CombX`` is a delay line **with feedback** (a little confusing).
 
