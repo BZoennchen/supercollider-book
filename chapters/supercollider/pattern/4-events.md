@@ -11,7 +11,7 @@ Its ``Stream``, streams (musical) [Events](https://doc.sccode.org/Classes/Event.
 [Pbind](https://doc.sccode.org/Classes/Pbind.html) combines several *value streams* into *one event stream*.
 ```
 
-We define a duration ``dur``, the frequency ``freq`` or note ``note`` and the ``instrument`` we wanna play, i.e., the synth.
+We define a duration ``dur``, the frequency ``freq``, note ``note`` or ``midinote`` and the ``instrument`` we wanna play, i.e., the synth.
 A ``Pbind`` can then be played by calling ``play`` on it.
 The method returns an [EventStreamPlayer](https://doc.sccode.org/Classes/EventStreamPlayer.html).
 
@@ -35,23 +35,25 @@ env[\add].(3,13); // 16
 )
 ```
 
-Here we define an ``Environment`` with three variables ``a``, ``b``, ``c`` and a function ``add``.
+Here we define an *environment* with three variables ``a``, ``b``, ``c`` and a function ``add``.
 ``~a`` is in fact an abbreviation for ``currentEnvironment.at(\a)`` and `` ~a = 100`` for ``currentEnvironment.put(\a, 100)``.
-As you can see we already worked with ``Environments`` without knowing them.
+As you can see we already worked with *environments* without knowing them.
 
-We are not so much interested in ``Environments`` but ``Events`` and they can be defined using a far more compact syntax, i.e., we just use round brackets:
+We are not so much interested in *environments* but their subclass ``Event``.
+*Events* can be defined using a far more compact syntax.
+We just use round brackets:
 
 ```isc
 (
-var event = (\dur: 1, \freq: 600);
+var event = (\dur: 1, \freq: 600); // define an event
 event[\dur].postln; // 1
-event.play;
+event.play; // play the event
 )
 ```
 
 What is going on here?
 We actually can hear a sound!
-Well, if you look at the post window, you can see all the predefined variables/symbols of the ``Environment``/``Event``.
+Well, if you look at the post window, you can see all the predefined variables/symbols of the *environment/event*.
 In my case, this is equal to:
 
 ```isc
@@ -68,7 +70,7 @@ In my case, this is equal to:
 ```
 
 Everything we have to define to play a sound, such as, ``amp``, ``instrument``, ``server`` is predefined.
-The method ``play`` uses predefined values if they are missing in the event we want to play.
+The ``play`` method uses predefined values if they are missing in the event we want to play.
 The predefined values are stored in class variables, i.e., variables that are shared by all events.
 They are split into partial events:
 
@@ -79,24 +81,33 @@ Event.partialEvents.postln;
 (sec-default-instrument)=
 ## The Default Instrument
 
-The ``instrument`` is a ``default`` instrument that is built into SuperCollider.
+The ``instrument`` is a *default* instrument called ``\default`` that is built into SuperCollider.
 We can find it in the source code of the [Event](https://doc.sccode.org/Classes/Event.html) class.
 Let us have a look:
 
 ```isc
-SynthDef(\default, { 
+SynthDef(\default, {
     arg out=0, freq=440, amp=0.1, pan=0, gate=1;
     var z;
     z = LPF.ar(
-        Mix.new(VarSaw.ar(freq + [0, Rand(-0.4,0.0), Rand(0.0,0.4)], 0, 0.3, 0.3)),
-        XLine.kr(Rand(4000,5000), Rand(2500,3200), 1)
-    ) * Linen.kr(gate, 0.01, 0.7, 0.3, 2);
+        Mix.new(
+            VarSaw.ar(
+                freq + [0, Rand(-0.4,0.0), Rand(0.0,0.4)], // freq
+                0, // iphase
+                0.3, // width
+                0.3) // mul
+        ),
+        XLine.kr(Rand(4000,5000), Rand(2500,3200), 1) // cutoff
+    ) * Linen.kr(gate, 0.01, 0.7, 0.3, 2); // * envelope
     OffsetOut.ar(out, Pan2.ar(z, pan, amp));
 }
 ```
 
-It is a filtered randomly distorted [sawtooth wave](sec-sawtooth-wave) with a percussive envelope.
-The cutoff frequency of the low pass filter decreases over the time span of 1 second and is initialized with random values.
+It is a filtered randomly distorted [sawtooth wave](sec-sawtooth-wave) with variable duty multiplied by a percussive envelope.
+Two slightly detuned waves are generated and mixed a single channel which is then panned into both speakers.
+
+The cutoff frequency of the [low pass filter](sec-lowpass-filter) decreases over the time span of 1 second and is initialized with random values.
+By decreasing the cutoff frequency over time, high frequencies die out faster which is natural.
 
 (sec-value-conversion)=
 ## Value Conversions
@@ -113,7 +124,7 @@ But it provides different ways to express the same thing and converts it to a sp
 For example, a synth only knows frequencies, but you do not have to think in terms of frequencies.
 Instead, you can think in terms of midi notes, and the event player will transform your midi note into the respective frequency.
 Of course, defining midi note and simultaneously frequency does not really make sense.
-SuperCollider will always take the most substantial value, i.e., frequency over the midi note.
+SuperCollider will always take the most substantial value, e.g., frequency over the midi note.
 
 ### Timing
 

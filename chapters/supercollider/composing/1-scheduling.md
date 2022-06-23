@@ -1,3 +1,4 @@
+(sec-scheduling)=
 # Scheduling
 
 ## Clocks

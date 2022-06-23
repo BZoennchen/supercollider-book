@@ -1,5 +1,23 @@
 # Introduction
 
+In its early state, *cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and self-expression, but that dream was quickly overturned in favor of making money.
+Watching the unstoppable force of the hyper-capitalist sector bringing down the fruits and spoils of open collaboration and transparency was heartbreaking to me.
+I was too young to be part of the *The Early Days* and could only dive into leftover pieces, such as the *Gaming Culture* which has dissolved as well.
+Today we realized that this tech explosion brought us an even higher degree of monetarization and commercialization.
+Now it is our dreams, feelings, moments, culture, and intimacy that is sold.
+
+The capitalist's logic poisons art.
+It drives us into a state of endless consumption over creation.
+There might be some short period in which something genuinely creative can emerge, but soon after, it will be transformed into a product that has no more symbolic, cultural, or ritual value.
+
+To me, the *community of algorithmic composers* seems to be quite *egalitarian*, open and transparent.
+It appears as a *counter-culture*.
+Since it is such a niche, it is not yet stripped of its cultural connection.
+As a left-leaning person, I enjoy such contra commercial trends.
+Consequently, I got not only interested because of the matter but also because of its community.
+I hope, at some day, my has value, will be helpful, and bring not money but joy and communal interest in the matter and its community.
+Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against the *Capitalist Realism*.
+
 I discovered the world of algorithmic composition and sound design using code in late 2021.
 It all started when I watched an energetic and really motivated Sam Aaron presenting his [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi).
 I was immediately hooked, especially given the context: educational live programming for kids!
@@ -86,13 +104,18 @@ We must rethink technology as something that, like nature, is not strictly separ
 Technology shapes our way of communication; it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
 
 For example, the introduction of cars influenced how we plan and build cities and, consequently, made possessing a car mandatory in many areas.
-E-Mail changed our communication ethics at the workplace, it made the interaction with E-Mails mandatory.
+Email changed our communication ethics at the workplace; it made the interaction with emails mandatory.
 I see it as a privilege that my generation was one of the last growing up in an internet-free world.
 Today, children are confronted with a world of spectacle distractions.
 
 Massively widespread technology has this dictating ability -- once established, it dictates our way of communication.
 It shapes our mundane life, and if we want to live within society, we can not escape it.
 We live in an *age of disruption* where technology escapes any deep analysis because it evolves faster than we can blink.
+People are so busy and constantly trying to keep up with all of these news feeds that are poking at them, so it is hard for them to apply any narrative to their experiences.
+They do not know what is going on.
+They are just moving through their day moment to moment, and that is a disorienting place to be.
+Time slips away without any deep satisfaction; another day went to *Instagram*.
+
 The danger is never to stop hustling.
 We need spaces that help us not to escape but to **really** engage with technology!
 To understand how it affects us, how it changes us, how it can help us and how it might destroy us.
@@ -104,24 +127,80 @@ Is it *The Public* that wants to transfer another big chunk of reality into a *M
 a virtual world based on a business ontology and governed by a corporate dictatorship?
 
 I neither advocate for the denial nor for embracing technology in general.
-Instead, I advocate for an ongoing evaluation of all the different technologies.
-Are they emancipatory?
-How do they change our way of thinking, feeling, and communicating?
-Are they useful?
-Who is controlling them?
-What are they intended to accomplish?
-What space do they open up?
-Do they offer artistic potential?
-What realities do they destroy?
+I love technology.
+I think digital technology is powerful and could likely solve the majority of humanities problems; 
+from climate change to income distribution, sensor-based agricultural practice, food, and education.
+Digital technology can be amazing, but when all decisions about how to deploy and use it are in the hands of business people, then we have a problem.
+These people implement a hazardous form of technological-driven society with the economy at its absolute center: a form of *digital/computational capitalism* where algorithms produce money instead of value.
+
+We are no longer in a free market.
+We are not in a place where the people have the same access to tools and technology.
+They are no longer the masters.
+When a young person has an idea, they automatically go to a money person because they think that is the only way to get their product developed.
+Developers and entrepreneurs often start with a genuine belief to make the world a better place.
+They believe their contribution will help the world in some way and be empowering not just to them and their investors but to some industry or consumer base.
+But then they take money from problematic angles forcing them into specific actions.
+At the stock market, business becomes gamified, i.e., companies are no longer concerned about their product.
+Their mind is occupied with winning; 
+*Bezos* versus *Sergey Brin* versus *Mark Zuckerberg*.
+
+We have to ask:
+
+>Are we programmers, or are we programmed?
+
+*Meta's* customer is not the little girl using it to make friends.
+No, it is the company that is buying the little girl's *social graph*.
+Who is *Uber's* customer?
+It is not the driver that it should be.
+It is not the passenger, which it could be.
+It is the shareholder, the investor.
+*Uber* does not care about creating a decent, sustainable taxi industry.
+
+We have to critically analyze what each technology does, implying that we disregard the *neutral point of view*.
+Technology can never be neutral, it is always based on some value and meaning, and if we use a particular technology, we have to know what these values and intentions are.
+Does this technology empower the right people?
+Is it emancipatory?
+How does it change our way of thinking, feeling, and communicating?
+Is it helpful for us?
+Who is controlling it?
+What does it intend to accomplish?
+Does it really work as intended?
+What spaces does it open up?
+Does it offer artistic potential?
+What realities does it destroy?
 I advocate for a culture of conscious engagement -- a society of aware agents within the realm of technology.
 A potent society should have the power to reject technological advances in favor of cultural progress.
+
+To understand technology, we have to understand ourselves.
+We have to know how we can be manipulated, what is good for us, and what we need.
+For example, we now that non-virtual social interactions are important.
+It is calming and reassuring for human organisms to look into someone else's eyes, so to literally move into sync with another person.
+Today we have so much communication without synchronization.
+The communication is shallow and abstract.
+We end up feeling empty and more exhausted.
+
+>The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- Mark Fisher
+
+We live between emails, calendars, and *Zoom*-Meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and making love to our respective others.
+At the same time, there is always a *fear of missing out*.
+Can I get in on this thing before it is completely gone?
+
+What makes me optimistic about your use of technology are young people.
+Even though we have an increase in suicide rates, probably due to the use of social media, I also observe more caution towards technology.
+Young people seem to use technology much more appropriately because they are less fascinated by it.
+They understand those big tech companies are not interested in improving their lives but in using them as vehicles.
 
 I believe technology is always destructive as well as creative.
 It disrupts existing spaces and opens up new ones. 
 The artist's responsibility is to reveal and explore this process.
 Neither being prejudiced nor playing the devil's advocate but engaging with technology and its masters honestly.
-The digital is here to stay.
-So let us engage with it; let us be cirtical and, if necessary, fight back.
+The artifacts of our past are not given circumstances of nature but are invented by people.
+We must disregard our automatic acceptance of how things are because it leads to a sense of helplessness about changing any of them.
+Echoing the words of *Mark Fisher*: I am not worried about a zombie apocalypse, but I am worried that it is easier for people to imagine a zombie apocalypse than to visualize what life will be like in like 10 or 20 years from now.
+I am concerned that we have already given up, that we lack the imagination and courage to engage in the way that we really should be, and we will resort to reactions and easy but unreal solutions.
+
+The digital is a critical factor in driving our pacification while we are looking into the abyss right in front of us.
+So let us engage with it; let us be critical; let us fight back; let us sing a new song of technological empowering of the people all around the world; let us reimagine our *cyberculture*.
 
 >Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- J.D. Jarvis
 
@@ -146,15 +225,8 @@ Currently, I focus solely on [SuperCollider](https://supercollider.github.io/) a
 I experiment with SuperCollider and other tools and write this book in my spare time. 
 It is a hobby. 
 Therefore, I will develop and update it over time.
-It is only a skeleton in its current state, and I will add new chapters and edit old ones. 
+In its current state it is only a skeleton, and I will add new chapters and edit old ones. 
 Therefore, do not expect anything professional.
-
-To me, the *community of algorithmic composers* seems to be quite *egalitarian*, open and social.
-As a left-leaning person, I enjoy such contra commercial trends.
-I hope my work has value and will be helpful.
-At the same time, I do not want to surrender to the *capitalist logic*.
-Even if we lack an alternative and this is no longer even an issue, my hope shall be a reminder that we can still revolt against the *Capitalist Realism*.
-Therefore, I will share everything without exception.
 
 In the future, you might be interested in extending the book with your content. 
 Maybe this project will become a community effort to make SuperCollider, sound design, and other tools and techniques more accessible.

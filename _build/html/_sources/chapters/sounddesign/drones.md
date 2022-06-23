@@ -1,6 +1,49 @@
 # Drones
 
-In this section we try to create an ambient drone sound.
+In this section, we try to create an ambient drone sound.
+Drones are great building blocks.
+They can stand on their own or be part of the background texture of our sound.
+They can be stale or slowly moving using modulation at control rate.
+Due to multichannel expansion and *unit generator argument modulation* SuperCollider is a powerful tool for creating all kinds of drones.
+I find it much more challenging to create an exciting melody than to construct interesting drones.
+
+A fundamental building block of drones is the *beating effect*.
+If we combine two *waveforms* of slightly detuned frequency, we can clearly hear the difference in frequency.
+The result is a *beating effect*.
+Take, for example, two slightly detune [sine waves](sec-sine-wave):
+
+```isc
+{SinOsc.ar(90 * [1, 1.01]) * 0.8}.play;
+```
+
+The frequency difference is $1\%$.
+We hear a *beating* of frequency $0.9$ Hz.
+Ok, this drone becomes boring pretty fast, but it is still astonishing how easy it is to create a basic drone.
+Let's try multiple detuned harmonics using a combination of [sawtooth waves](sec-sawtooth-wave).
+A *resonance low pass filter* is used to filter out high frequencies and add additional movement to the sound.
+[Balance2](https://doc.sccode.org/Classes/Balance2.html) is similar to a panning ([Pan2](https://doc.sccode.org/Classes/Pan2.html)) but for a *stereo signal*.
+We let the stereo signal move from left to right.
+
+```isc
+(
+SynthDef(\drone_saws, {
+    arg freq = 75;
+    var sig, detuner;
+    sig = Array.fill(4, {arg i;
+        RLPF.ar(
+        in: LFSaw.ar(freq * (i+1+LFNoise1.kr(0.1).bipolar(0.05)) * [1.0, 1.01]).distort, 
+            req: freq*2,
+            rq: SinOsc.kr(0.5).range(0.8, 1.0),
+            mul: SinOsc.kr(0.11).range(0.7, 1.0) * (i+1).reciprocal
+        );
+    }).sum * 5.0;
+    sig = Balance2.ar(sig[0], sig[1], pos: LFNoise1.kr(0.1).bipolar(0.9));
+    Out.ar(0, sig);
+}).add;
+)
+Synth(\drone_saws, [\freq, 80])
+```
+
 Our basic wave front will be a [sawtooth wave](sec-sawtooth-wave).
 The drone has a long attack and decay.
 In fact, we start without an envelope.

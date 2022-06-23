@@ -626,7 +626,7 @@ Its <code class="docutils literal notranslate"><span class="pre">Stream</span></
 <p class="admonition-title">Combining Streams</p>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> combines several <em>value streams</em> into <em>one event stream</em>.</p>
 </div>
-<p>We define a duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, the frequency <code class="docutils literal notranslate"><span class="pre">freq</span></code> or note <code class="docutils literal notranslate"><span class="pre">note</span></code> and the <code class="docutils literal notranslate"><span class="pre">instrument</span></code> we wanna play, i.e., the synth.
+<p>We define a duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, the frequency <code class="docutils literal notranslate"><span class="pre">freq</span></code>, note <code class="docutils literal notranslate"><span class="pre">note</span></code> or <code class="docutils literal notranslate"><span class="pre">midinote</span></code> and the <code class="docutils literal notranslate"><span class="pre">instrument</span></code> we wanna play, i.e., the synth.
 A <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> can then be played by calling <code class="docutils literal notranslate"><span class="pre">play</span></code> on it.
 The method returns an <a class="reference external" href="https://doc.sccode.org/Classes/EventStreamPlayer.html">EventStreamPlayer</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Events</span></code> extend <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environments</a>.
@@ -647,20 +647,22 @@ Environments map names to variables and functions.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Here we define an <code class="docutils literal notranslate"><span class="pre">Environment</span></code> with three variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> and a function <code class="docutils literal notranslate"><span class="pre">add</span></code>.
+<p>Here we define an <em>environment</em> with three variables <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code> and a function <code class="docutils literal notranslate"><span class="pre">add</span></code>.
 <code class="docutils literal notranslate"><span class="pre">~a</span></code> is in fact an abbreviation for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.at(\a)</span></code> and <code class="docutils literal notranslate"> <span class="pre">~a</span> <span class="pre">=</span> <span class="pre">100</span></code> for <code class="docutils literal notranslate"><span class="pre">currentEnvironment.put(\a,</span> <span class="pre">100)</span></code>.
-As you can see we already worked with <code class="docutils literal notranslate"><span class="pre">Environments</span></code> without knowing them.</p>
-<p>We are not so much interested in <code class="docutils literal notranslate"><span class="pre">Environments</span></code> but <code class="docutils literal notranslate"><span class="pre">Events</span></code> and they can be defined using a far more compact syntax, i.e., we just use round brackets:</p>
+As you can see we already worked with <em>environments</em> without knowing them.</p>
+<p>We are not so much interested in <em>environments</em> but their subclass <code class="docutils literal notranslate"><span class="pre">Event</span></code>.
+<em>Events</em> can be defined using a far more compact syntax.
+We just use round brackets:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">);</span> <span class="c1">// define an event</span>
 <span class="nx">event</span><span class="p">[</span><span class="ss">\dur</span><span class="p">].</span><span class="nx">postln</span><span class="p">;</span> <span class="c1">// 1</span>
-<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span> <span class="c1">// play the event</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>What is going on here?
 We actually can hear a sound!
-Well, if you look at the post window, you can see all the predefined variables/symbols of the <code class="docutils literal notranslate"><span class="pre">Environment</span></code>/<code class="docutils literal notranslate"><span class="pre">Event</span></code>.
+Well, if you look at the post window, you can see all the predefined variables/symbols of the <em>environment/event</em>.
 In my case, this is equal to:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;instrument&#39;</span><span class="o">:</span> <span class="k">default</span><span class="p">,</span> 
 <span class="s1">&#39;msgFunc&#39;</span><span class="o">:</span> <span class="nx">a</span> <span class="nb">Function</span><span class="p">,</span> 
@@ -675,7 +677,7 @@ In my case, this is equal to:</p>
 </pre></div>
 </div>
 <p>Everything we have to define to play a sound, such as, <code class="docutils literal notranslate"><span class="pre">amp</span></code>, <code class="docutils literal notranslate"><span class="pre">instrument</span></code>, <code class="docutils literal notranslate"><span class="pre">server</span></code> is predefined.
-The method <code class="docutils literal notranslate"><span class="pre">play</span></code> uses predefined values if they are missing in the event we want to play.
+The <code class="docutils literal notranslate"><span class="pre">play</span></code> method uses predefined values if they are missing in the event we want to play.
 The predefined values are stored in class variables, i.e., variables that are shared by all events.
 They are split into partial events:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Event</span><span class="p">.</span><span class="nx">partialEvents</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
@@ -683,22 +685,30 @@ They are split into partial events:</p>
 </div>
 <div class="section" id="the-default-instrument">
 <span id="sec-default-instrument"></span><h2>The Default Instrument<a class="headerlink" href="#the-default-instrument" title="Permalink to this headline">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">instrument</span></code> is a <code class="docutils literal notranslate"><span class="pre">default</span></code> instrument that is built into SuperCollider.
+<p>The <code class="docutils literal notranslate"><span class="pre">instrument</span></code> is a <em>default</em> instrument called <code class="docutils literal notranslate"><span class="pre">\default</span></code> that is built into SuperCollider.
 We can find it in the source code of the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class.
 Let us have a look:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">{</span> 
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">arg</span> <span class="nx">out</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="nx">pan</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">gate</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">z</span><span class="p">;</span>
     <span class="nx">z</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
-        <span class="nb">Mix</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="nb">VarSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)],</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)),</span>
-        <span class="nb">XLine</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Rand</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">),</span> <span class="nb">Rand</span><span class="p">(</span><span class="mi">2500</span><span class="p">,</span><span class="mi">3200</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="p">)</span> <span class="o">*</span> <span class="nb">Linen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nx">gate</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="nb">Mix</span><span class="p">.</span><span class="k">new</span><span class="p">(</span>
+            <span class="nb">VarSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+                <span class="nx">freq</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)],</span> <span class="c1">// freq</span>
+                <span class="mi">0</span><span class="p">,</span> <span class="c1">// iphase</span>
+                <span class="mf">0.3</span><span class="p">,</span> <span class="c1">// width</span>
+                <span class="mf">0.3</span><span class="p">)</span> <span class="c1">// mul</span>
+        <span class="p">),</span>
+        <span class="nb">XLine</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Rand</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">),</span> <span class="nb">Rand</span><span class="p">(</span><span class="mi">2500</span><span class="p">,</span><span class="mi">3200</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// cutoff</span>
+    <span class="p">)</span> <span class="o">*</span> <span class="nb">Linen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nx">gate</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// * envelope</span>
     <span class="nb">OffsetOut</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nb">Pan2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">z</span><span class="p">,</span> <span class="nx">pan</span><span class="p">,</span> <span class="nx">amp</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>It is a filtered randomly distorted <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> with a percussive envelope.
-The cutoff frequency of the low pass filter decreases over the time span of 1 second and is initialized with random values.</p>
+<p>It is a filtered randomly distorted <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> with variable duty multiplied by a percussive envelope.
+Two slightly detuned waves are generated and mixed a single channel which is then panned into both speakers.</p>
+<p>The cutoff frequency of the <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">low pass filter</span></a> decreases over the time span of 1 second and is initialized with random values.
+By decreasing the cutoff frequency over time, high frequencies die out faster which is natural.</p>
 </div>
 <div class="section" id="value-conversions">
 <span id="sec-value-conversion"></span><h2>Value Conversions<a class="headerlink" href="#value-conversions" title="Permalink to this headline">#</a></h2>
@@ -713,7 +723,7 @@ But it provides different ways to express the same thing and converts it to a sp
 For example, a synth only knows frequencies, but you do not have to think in terms of frequencies.
 Instead, you can think in terms of midi notes, and the event player will transform your midi note into the respective frequency.
 Of course, defining midi note and simultaneously frequency does not really make sense.
-SuperCollider will always take the most substantial value, i.e., frequency over the midi note.</p>
+SuperCollider will always take the most substantial value, e.g., frequency over the midi note.</p>
 <div class="section" id="timing">
 <h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">#</a></h3>
 <p>First of all, time is measured in beats per second (bps), and events are scheduled on a specific <a class="reference external" href="https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html">TempoClock</a> that runs at a particular bps.

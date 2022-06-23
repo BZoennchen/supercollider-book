@@ -66,9 +66,135 @@ For this reason, they are useful even though do not seem to differ much from *co
 }.play)
 ```
 
-## Pluck
+## Plucking
 
-TODO!
+The [Pluck](https://doc.sccode.org/Classes/Pluck.html) *unit generator* realizes a *Karplus-Strong string synthesis* which is a method of [physical modeling synthesis]() that loops a short waveform through a filtered *delay line* to simulate the sound of a hammered or plucked string or some types of percussion.
+The generator consists of a [OnePole](sec-onepole) lowpass filter and a *delay line*.
+
+In the following, I tried to recreate the *pluck* using basic *unit generators*.
+I use two synth definitions, one for the *pluck* and the other for the *impulse* generation.
+The *impulse signal* is fed into the *pluck* by using SuperCollider's bus system.
+Evaluate each block one at a time from top to bottom.
+
+```isc
+// reconstrucktion of Pluck
+(
+SynthDef(\pluck,{
+    arg in, out;
+    var sig, dsig, local;
+
+    local = LocalIn.ar(2);
+    sig = In.ar(in, 2);
+    sig = sig + local;
+
+    local = OnePole.ar(DelayN.ar(sig, 0.01, 0.002), 0.3);
+    sig = OnePole.ar(sig, 0.3);
+    LocalOut.ar(local);
+
+    Out.ar(out, local + sig);
+}).add;
+)
+
+// Impulses
+(
+SynthDef(\impulse, {
+    arg out;
+    var sig = WhiteNoise.ar(0.6) * Impulse.ar(2!2);
+    Out.ar(out, sig);
+}).add;
+)
+
+(
+~impulses = Group(s, \addToHead);
+~synths = Group(s, \addToTail);
+)
+
+(
+~impulse = Synth(\impulse, [\out, 4], ~impulses);
+~pluck = Synth(\pluck, [\in, 4, \out, 0], ~synths);
+)
+```
+
+```{figure} ../../../figs/sounddesign/filters/pluck.png
+---
+width: 800px
+name: fig-pluck
+---
+Signal-flow graph of the construction above.
+```
+
+Using [Pluck]() instread, generates a slightly different sound:
+
+```isc
+({
+Pluck.ar(
+    in: WhiteNoise.ar(0.1!2), 
+    trig: Impulse.kr(2), 
+    maxdelaytime: 0.002, 
+    delaytime: 0.002, 
+    decaytime: 10, 
+    coef: 0.3)
+}.play)
+```
+
+## Reverberation
+
+SuperCollider offers out of the box *reverberation unit generators*: [FreeVerb](https://doc.sccode.org/Classes/FreeVerb.html), [FreeVerb2](https://doc.sccode.org/Classes/FreeVerb2.html), and [GVerb](https://doc.sccode.org/Classes/GVerb.html).
+
+In this example, I use *grains* sampled from a single sine wave that changes its frequency whenever the envelope is triggered.
+
+```isc
+(
+SynthDef(\sin_grain, {
+    arg out = 0;
+    var n = 10, sig, env, trigger, freqs;
+    trigger = Dust.kr(5);
+    env = EnvGen.ar(Env.sine(0.02), trigger);
+    freqs = Dseq(Array.exprand(n, 100, 5000), inf);
+
+    sig = SinOsc.ar(Demand.kr(trigger, 0 ,freqs)) * env * \amp.kr(0.2);
+    sig = Splay.ar(sig);
+    Out.ar(out, sig);
+}).add;
+)
+
+(
+SynthDef(\gverb, {
+    arg in, out=0;
+    var sig = GVerb.ar(
+        in: In.ar(in, 1), // mono input
+        roomsize: 15, // in square meters
+        revtime: 3, // in seconds
+        damping: 0.13, // 0 => complete damping, 1 no damping
+        inputbw: 0.13, // damping control but on the input
+        spread: 15,
+        drylevel: 1,
+        earlyreflevel: 0.3,
+        taillevel: 0.1,
+        maxroomsize: 300);
+    Out.ar(out, sig!2);
+}).add;
+)
+
+(
+SynthDef(\fverb, {
+    arg in, out=0;
+    var sig = FreeVerb.ar(
+        in: In.ar(in, 1), 
+        mix: 0.33,
+        room: 0.7, 
+        damp: 0.7);
+    Out.ar(out, sig!2);
+}).add;
+)
+
+(
+~gverb = Synth(\gverb, [\in, 4, \out, 0]);
+//~fverb = Synth(\fverb, [\in, 4, \out, 0]);
+~grains = Synth(\sin_grain, [\out, 4]);
+)
+```
+
 
 ## Ideal Reverberation
 

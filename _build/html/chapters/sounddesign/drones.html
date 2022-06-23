@@ -53,6 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Terms" href="terms.html" />
@@ -526,8 +528,46 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="drones">
 <h1>Drones<a class="headerlink" href="#drones" title="Permalink to this headline">#</a></h1>
-<p>In this section we try to create an ambient drone sound.
-Our basic wave front will be a <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>.
+<p>In this section, we try to create an ambient drone sound.
+Drones are great building blocks.
+They can stand on their own or be part of the background texture of our sound.
+They can be stale or slowly moving using modulation at control rate.
+Due to multichannel expansion and <em>unit generator argument modulation</em> SuperCollider is a powerful tool for creating all kinds of drones.
+I find it much more challenging to create an exciting melody than to construct interesting drones.</p>
+<p>A fundamental building block of drones is the <em>beating effect</em>.
+If we combine two <em>waveforms</em> of slightly detuned frequency, we can clearly hear the difference in frequency.
+The result is a <em>beating effect</em>.
+Take, for example, two slightly detune <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sine-wave"><span class="std std-ref">sine waves</span></a>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">90</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The frequency difference is <span class="math notranslate nohighlight">\(1\%\)</span>.
+We hear a <em>beating</em> of frequency <span class="math notranslate nohighlight">\(0.9\)</span> Hz.
+Ok, this drone becomes boring pretty fast, but it is still astonishing how easy it is to create a basic drone.
+Let’s try multiple detuned harmonics using a combination of <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a>.
+A <em>resonance low pass filter</em> is used to filter out high frequencies and add additional movement to the sound.
+<a class="reference external" href="https://doc.sccode.org/Classes/Balance2.html">Balance2</a> is similar to a panning (<a class="reference external" href="https://doc.sccode.org/Classes/Pan2.html">Pan2</a>) but for a <em>stereo signal</em>.
+We let the stereo signal move from left to right.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\drone_saws</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">detuner</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
+        <span class="nb">RLPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+        <span class="k">in</span><span class="o">:</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span> <span class="o">*</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="mf">0.05</span><span class="p">))</span> <span class="o">*</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">]).</span><span class="nx">distort</span><span class="p">,</span> 
+            <span class="kc">req:</span> <span class="nx">freq</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+            <span class="kc">rq:</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
+            <span class="kc">mul:</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.11</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">).</span><span class="nx">reciprocal</span>
+        <span class="p">);</span>
+    <span class="p">}).</span><span class="nx">sum</span> <span class="o">*</span> <span class="mf">5.0</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Balance2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">sig</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="kc">pos:</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="mf">0.9</span><span class="p">));</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+<span class="nb">Synth</span><span class="p">(</span><span class="ss">\drone_saws</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">80</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Our basic wave front will be a <a class="reference internal" href="additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>.
 The drone has a long attack and decay.
 In fact, we start without an envelope.
 This time we will use the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to define our drone synth.</p>
