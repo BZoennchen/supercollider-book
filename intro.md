@@ -171,6 +171,8 @@ What realities does it destroy?
 I advocate for a culture of conscious engagement -- a society of aware agents within the realm of technology.
 A potent society should have the power to reject technological advances in favor of cultural progress.
 
+>We might be in a collective state of existential crisis but we are to busy to notice it.
+
 To understand technology, we have to understand ourselves.
 We have to know how we can be manipulated, what is good for us, and what we need.
 For example, we now that non-virtual social interactions are important.
