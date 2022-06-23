@@ -526,8 +526,8 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="streams">
 <span id="sec-stream"></span><h1>Streams<a class="headerlink" href="#streams" title="Permalink to this headline">#</a></h1>
-<p>A <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> is a series of elements that you can obtain one after another in a <strong>lazy</strong> fashion.
-It is very similar to an <a class="reference external" href="https://doc.sccode.org/Classes/Array.html">Array</a> with the difference that it is <strong>lazy</strong>.
+<p>A <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> is a series of elements that you can obtain one after another in a <em>lazy</em> fashion.
+It is very similar to an <a class="reference external" href="https://doc.sccode.org/Classes/Array.html">Array</a> with the difference that it is <em>lazy</em>.
 <em>Laziness</em> means that instead of holding all values of the stream in memory (like an array does), values are generated on demand by a function.
 Therefore, a stream can, in principle, offer infinitely many values, which is impossible for an array!
 For example, we can define a function that gives us all integers.</p>
@@ -538,7 +538,7 @@ For example, we can define a function that gives us all integers.</p>
 </div>
 <p>If we evaluate the last line multiple times, we get 1, 2, 3, and so on.
 <code class="docutils literal notranslate"><span class="pre">f</span></code> represents an infinite stream of values.
-We can use <a class="reference external" href="https://doc.sccode.org/Classes/FuncStream.html">FuncStream</a> to create a stream of integers.
+We can use <a class="reference external" href="https://doc.sccode.org/Classes/FuncStream.html">FuncStream</a> to create a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> of integers, i.e. an object that understands certain messages.
 Then we can call <code class="docutils literal notranslate"><span class="pre">next</span></code> on the stream to get the next value.
 If a stream runs out of values, it returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -553,10 +553,18 @@ If a stream runs out of values, it returns <code class="docutils literal notrans
 </div>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> everything is an <a class="reference external" href="https://doc.sccode.org/Classes/Object.html">Object</a> and the class <code class="docutils literal notranslate"><span class="pre">Object</span></code> defines <code class="docutils literal notranslate"><span class="pre">next</span></code> to return the object itself.
 Therefore, every object is a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> that streams itself.
-Consequently, almost everything can be viewed as a stream.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// a number is a stream returning itself</span>
-<span class="mi">5</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>  <span class="c1">// 5</span>
+Consequently, almost everything can be viewed as a stream.
+A <code class="docutils literal notranslate"><span class="pre">5</span></code> is a stream returning <code class="docutils literal notranslate"><span class="pre">5</span></code>.
+Calling <code class="docutils literal notranslate"><span class="pre">next</span></code> on an array will return itself.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>  <span class="c1">// 5</span>
+<span class="s2">&quot;hello&quot;</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// &quot;hello&quot;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">].</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// [1,2,3,4]</span>
+<span class="nb">SinOsc</span><span class="p">().</span><span class="nx">next</span> <span class="c1">// SinOsc</span>
 </pre></div>
+</div>
+<div class="remark admonition" id="remark-everything-streams">
+<p class="admonition-title">Everything is a Stream</p>
+<p>In Supercollider’s <code class="docutils literal notranslate"><span class="pre">sclang</span></code> everything is a stream.</p>
 </div>
 </div>
 

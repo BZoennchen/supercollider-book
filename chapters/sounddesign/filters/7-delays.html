@@ -535,8 +535,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pluck">
-   Pluck
+  <a class="reference internal nav-link" href="#plucking">
+   Plucking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reverberation">
+   Reverberation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -574,8 +579,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pluck">
-   Pluck
+  <a class="reference internal nav-link" href="#plucking">
+   Plucking
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reverberation">
+   Reverberation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -649,9 +659,124 @@ For this reason, they are useful even though do not seem to differ much from <em
 </pre></div>
 </div>
 </div>
-<div class="section" id="pluck">
-<h2>Pluck<a class="headerlink" href="#pluck" title="Permalink to this headline">#</a></h2>
-<p>TODO!</p>
+<div class="section" id="plucking">
+<h2>Plucking<a class="headerlink" href="#plucking" title="Permalink to this headline">#</a></h2>
+<p>The <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> <em>unit generator</em> realizes a <em>Karplus-Strong string synthesis</em> which is a method of <span class="xref myst">physical modeling synthesis</span> that loops a short waveform through a filtered <em>delay line</em> to simulate the sound of a hammered or plucked string or some types of percussion.
+The generator consists of a <a class="reference internal" href="4-simpler-filters.html#sec-onepole"><span class="std std-ref">OnePole</span></a> lowpass filter and a <em>delay line</em>.</p>
+<p>In the following, I tried to recreate the <em>pluck</em> using basic <em>unit generators</em>.
+I use two synth definitions, one for the <em>pluck</em> and the other for the <em>impulse</em> generation.
+The <em>impulse signal</em> is fed into the <em>pluck</em> by using SuperCollider’s bus system.
+Evaluate each block one at a time from top to bottom.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// reconstrucktion of Pluck</span>
+<span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\pluck</span><span class="p">,{</span>
+    <span class="kd">arg</span> <span class="k">in</span><span class="p">,</span> <span class="nx">out</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">dsig</span><span class="p">,</span> <span class="nx">local</span><span class="p">;</span>
+
+    <span class="nx">local</span> <span class="o">=</span> <span class="nb">LocalIn</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">In</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="k">in</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">local</span><span class="p">;</span>
+
+    <span class="nx">local</span> <span class="o">=</span> <span class="nb">OnePole</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">DelayN</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">),</span> <span class="mf">0.3</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">OnePole</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">);</span>
+    <span class="nb">LocalOut</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">local</span><span class="p">);</span>
+
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nx">local</span> <span class="o">+</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="c1">// Impulses</span>
+<span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\impulse</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">out</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Impulse</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">2</span><span class="o">!</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+<span class="o">~</span><span class="nx">impulses</span> <span class="o">=</span> <span class="nb">Group</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="ss">\addToHead</span><span class="p">);</span>
+<span class="o">~</span><span class="nx">synths</span> <span class="o">=</span> <span class="nb">Group</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="ss">\addToTail</span><span class="p">);</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+<span class="o">~</span><span class="nx">impulse</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\impulse</span><span class="p">,</span> <span class="p">[</span><span class="ss">\out</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="o">~</span><span class="nx">impulses</span><span class="p">);</span>
+<span class="o">~</span><span class="nx">pluck</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\pluck</span><span class="p">,</span> <span class="p">[</span><span class="ss">\in</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">\out</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">~</span><span class="nx">synths</span><span class="p">);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="fig-pluck">
+<a class="reference internal image-reference" href="../../../_images/pluck.png"><img alt="../../../_images/pluck.png" src="../../../_images/pluck.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Signal-flow graph of the construction above.</span><a class="headerlink" href="#fig-pluck" title="Permalink to this image">#</a></p>
+</div>
+<p>Using <span class="xref myst">Pluck</span> instread, generates a slightly different sound:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+<span class="nb">Pluck</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+    <span class="k">in</span><span class="o">:</span> <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.1</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> 
+    <span class="kc">trig:</span> <span class="nb">Impulse</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> 
+    <span class="kc">maxdelaytime:</span> <span class="mf">0.002</span><span class="p">,</span> 
+    <span class="kc">delaytime:</span> <span class="mf">0.002</span><span class="p">,</span> 
+    <span class="kc">decaytime:</span> <span class="mi">10</span><span class="p">,</span> 
+    <span class="kc">coef:</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reverberation">
+<h2>Reverberation<a class="headerlink" href="#reverberation" title="Permalink to this headline">#</a></h2>
+<p>SuperCollider offers out of the box <em>reverberation unit generators</em>: <a class="reference external" href="https://doc.sccode.org/Classes/FreeVerb.html">FreeVerb</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FreeVerb2.html">FreeVerb2</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/GVerb.html">GVerb</a>.</p>
+<p>In this example, I use <em>grains</em> sampled from a single sine wave that changes its frequency whenever the envelope is triggered.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\sin_grain</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">trigger</span><span class="p">,</span> <span class="nx">freqs</span><span class="p">;</span>
+    <span class="nx">trigger</span> <span class="o">=</span> <span class="nb">Dust</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">sine</span><span class="p">(</span><span class="mf">0.02</span><span class="p">),</span> <span class="nx">trigger</span><span class="p">);</span>
+    <span class="nx">freqs</span> <span class="o">=</span> <span class="nb">Dseq</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">exprand</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5000</span><span class="p">),</span> <span class="kc">inf</span><span class="p">);</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Demand</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nx">trigger</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span><span class="nx">freqs</span><span class="p">))</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.2</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Splay</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">);</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\gverb</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="k">in</span><span class="p">,</span> <span class="nx">out</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">GVerb</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+        <span class="k">in</span><span class="o">:</span> <span class="nb">In</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="k">in</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1">// mono input</span>
+        <span class="kc">roomsize:</span> <span class="mi">15</span><span class="p">,</span> <span class="c1">// in square meters</span>
+        <span class="kc">revtime:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// in seconds</span>
+        <span class="kc">damping:</span> <span class="mf">0.13</span><span class="p">,</span> <span class="c1">// 0 =&gt; complete damping, 1 no damping</span>
+        <span class="kc">inputbw:</span> <span class="mf">0.13</span><span class="p">,</span> <span class="c1">// damping control but on the input</span>
+        <span class="kc">spread:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="kc">drylevel:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="kc">earlyreflevel:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="kc">taillevel:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="kc">maxroomsize:</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nx">sig</span><span class="o">!</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\fverb</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="k">in</span><span class="p">,</span> <span class="nx">out</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">FreeVerb</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+        <span class="k">in</span><span class="o">:</span> <span class="nb">In</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="k">in</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> 
+        <span class="kc">mix:</span> <span class="mf">0.33</span><span class="p">,</span>
+        <span class="kc">room:</span> <span class="mf">0.7</span><span class="p">,</span> 
+        <span class="kc">damp:</span> <span class="mf">0.7</span><span class="p">);</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nx">sig</span><span class="o">!</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
+<span class="o">~</span><span class="nx">gverb</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\gverb</span><span class="p">,</span> <span class="p">[</span><span class="ss">\in</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">\out</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
+<span class="c1">//~fverb = Synth(\fverb, [\in, 4, \out, 0]);</span>
+<span class="o">~</span><span class="nx">grains</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\sin_grain</span><span class="p">,</span> <span class="p">[</span><span class="ss">\out</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="ideal-reverberation">
 <h2>Ideal Reverberation<a class="headerlink" href="#ideal-reverberation" title="Permalink to this headline">#</a></h2>
@@ -679,7 +804,7 @@ Therefore, we perceive multiple sound cues within a period smaller than 50 ms as
 Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.</p>
 <div class="figure align-default" id="fig-reverberation">
 <a class="reference internal image-reference" href="../../../_images/reverberation.png"><img alt="../../../_images/reverberation.png" src="../../../_images/reverberation.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Ideal reverberation profile (according to D. Griesinger).
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Ideal reverberation profile (according to D. Griesinger).
 Time <span class="math notranslate nohighlight">\(t\)</span> is measured in milliseconds.</span><a class="headerlink" href="#fig-reverberation" title="Permalink to this image">#</a></p>
 </div>
 <p>In <em>The Theory and Practice of Perceptual Modeling – How to use Electronic Reverberation to Add Depth and Envelopment Without Reducing Clarity</em> David Griesinger gives an excellent description of an <em>ideal reverberation profile for recording</em>.

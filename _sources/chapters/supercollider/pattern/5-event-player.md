@@ -1,3 +1,4 @@
+(sec-event-player)=
 # Event Player
 
 Let us have a look at a first, very simple composition.

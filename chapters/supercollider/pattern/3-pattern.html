@@ -528,17 +528,25 @@ title="Print to PDF"
 <span id="sec-pattern"></span><h1>Pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is an abstract class that is the base for the patterns library.
 The classes of the pattern library form a rich and concise score language for music.
-Patterns are the <em>stateless</em> blueprint of streams.
-Calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> on a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> transforms it into a <code class="docutils literal notranslate"><span class="pre">Stream</span></code>.
+Patterns are the <em>stateless</em> blueprint of streams.</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> on a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> transforms it into a <code class="docutils literal notranslate"><span class="pre">Stream</span></code>.
 As already mentioned, all simple objects respond to this interface, by returning themselves.
 Consequently, most objects are <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> that define a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> representing an infinite sequence of that object.</p>
 <div class="remark admonition" id="remark-pattern-and-streams">
 <p class="admonition-title">Pattern and Streams</p>
-<p>Similar to classes and objects, a <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is the blueprint for a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a>.</p>
+<p>Similar to classes and objects, a <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is the <em>stateless blueprint</em> for a <em>stateful</em> <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a>.</p>
 </div>
+<p>The difference between <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> and (its) <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> becomes clear if we think in musical terms.
+A composition is a specific <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> and a performance is a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of that pattern.
+Playing a piano can be seen as a stream of specific <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.
+We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.</p>
 <p>The incredible power of patterns lies in their ability to combine them.
 Similar to unit generators, they are very flexible.
-Let us look at a non-trivial example:</p>
+Let us look at a non-trivial example, where we combine multiple <a class="reference external" href="https://doc.sccode.org/Classes/Prand.html">Prand</a> with a <a class="reference external" href="https://doc.sccode.org/Classes/Pseq.html">Pseq</a> multiplied by <code class="docutils literal notranslate"><span class="pre">10</span></code>.
+<code class="docutils literal notranslate"><span class="pre">Prand</span></code> expects an <em>array</em> of values and picks one of the elements at random whenever <code class="docutils literal notranslate"><span class="pre">next</span></code> is called.
+<code class="docutils literal notranslate"><span class="pre">Pseq</span></code> on the other hand, also expects an <em>array</em> and picks each element in consecutive order.
+<em>Pattern</em> can be configured such that the <em>stream</em> repeats a certain amount of time.
+We can also configure them to repeat an infinite <code class="docutils literal notranslate"><span class="pre">inf</span></code> amount of times.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">(</span><span class="kc">list:</span> <span class="p">[</span><span class="nb">Prand</span><span class="p">((</span><span class="mi">5</span><span class="p">..</span><span class="mi">7</span><span class="p">)),</span> <span class="nb">Prand</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">4</span><span class="p">))],</span> <span class="kc">repeats:</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">asStream</span><span class="p">();</span>
 <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 50 and 70</span>
@@ -548,16 +556,32 @@ Let us look at a non-trivial example:</p>
 <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// nil</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Pseq</span></code> transforms an <code class="docutils literal notranslate"><span class="pre">Array</span></code> into a <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
-<code class="docutils literal notranslate"><span class="pre">Prand</span></code> chooses from an array a random element.
-In the above example, we combine both patterns.
-<code class="docutils literal notranslate"><span class="pre">Pseq</span></code> gets an array consisting of two <code class="docutils literal notranslate"><span class="pre">Prand</span></code>patterns.
-By using the parameter <code class="docutils literal notranslate"><span class="pre">repeats:</span> <span class="pre">2</span></code>, we configure <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> to go over <code class="docutils literal notranslate"><span class="pre">list</span></code> twice.</p>
-<p>Calling <code class="docutils literal notranslate"><span class="pre">next</span></code> on a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> defined by a pattern consisting of pattern will lead to a recursive evaluation.
-<code class="docutils literal notranslate"><span class="pre">next</span></code> is called as long as the return value is another <code class="docutils literal notranslate"><span class="pre">Stream</span></code>.
-Let us look at another example.
-In the following, we generate three melodies noted by midi notes, randomly (but weighted) chosen and transformed into frequencies.</p>
+<p>By using the parameter <code class="docutils literal notranslate"><span class="pre">repeats:</span> <span class="pre">2</span></code>, we configure <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> to go over <code class="docutils literal notranslate"><span class="pre">list</span></code> twice.
+By multiplining the pattern by <code class="docutils literal notranslate"><span class="pre">10</span></code> a new pattern is created.
+The resulting stream is the same but each number is multiplied by <code class="docutils literal notranslate"><span class="pre">10</span></code>.
+Calling <code class="docutils literal notranslate"><span class="pre">q.next</span></code> will evaluate <code class="docutils literal notranslate"><span class="pre">next</span></code> until the resulting object streams itself.
+In the example above, <code class="docutils literal notranslate"><span class="pre">next</span></code> is called three times.
+First on a stream generated by <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> then on a stream generated by <code class="docutils literal notranslate"><span class="pre">Prand</span></code> and then on a number.</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">next</span></code> on a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> defined by a pattern, will lead to a recursive evaluation.
+<code class="docutils literal notranslate"><span class="pre">next</span></code> is called as long as the return value is another <em>non-trivial stream</em>.</p>
+<p>Let us look at another example.
+Here we use a <a class="reference external" href="https://doc.sccode.org/Classes/Task.html">Task</a> to trigger the <code class="docutils literal notranslate"><span class="pre">\beep</span></code> synth continuously.
+We will discuss <em>tasks</em>, <em>routines</em>, and more in section <a class="reference internal" href="../composing/1-scheduling.html#sec-scheduling"><span class="std std-ref">Scheduling</span></a>.
+We generate three melodies noted by midi notes, randomly (but weighted) chosen and transformed into frequencies.
+A note is played, and the task waits for <code class="docutils literal notranslate"><span class="pre">0.25</span></code> seconds before it continues playing.
+The <em>pattern</em> consists of a <a class="reference external" href="https://doc.sccode.org/Classes/Pwrand.html">Pwrand</a> (similar to <code class="docutils literal notranslate"><span class="pre">Prand</span></code> but weighted) initialized with three <em>sequence patterns</em>.
+Each <em>sequence</em> represents a fixed melody.
+Combining fixed sequences with a random choice generates an overall spontaneous melody that is not entirely chaotic.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">sine</span><span class="p">(</span><span class="kc">dur:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="kc">level:</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)).</span><span class="kd">ar</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">200</span> <span class="o">*</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">]));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
 <span class="kd">var</span> <span class="nx">mel1</span><span class="p">,</span> <span class="nx">mel2</span><span class="p">,</span> <span class="nx">mel3</span><span class="p">;</span>
 <span class="nx">mel1</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">]);</span>
 <span class="nx">mel2</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">77</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">61</span><span class="p">]);</span>
@@ -565,19 +589,23 @@ In the following, we generate three melodies noted by midi notes, randomly (but 
 <span class="nx">p</span> <span class="o">=</span> <span class="nb">Pwrand</span><span class="p">([</span><span class="nx">mel1</span><span class="p">,</span> <span class="nx">mel2</span><span class="p">,</span> <span class="nx">mel3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nx">normalizeSum</span><span class="p">,</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">midicps</span><span class="p">;</span>
 <span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">asStream</span><span class="p">;</span>
 
-<span class="mi">10</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
-    <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-<span class="p">})</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nb">Task</span><span class="p">({</span>
+    <span class="nx">loop</span><span class="p">{</span>
+        <span class="nb">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">]);</span>
+        <span class="mf">0.25</span><span class="p">.</span><span class="nx">wait</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">t</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Why are patterns useful?
+<p>Why are patterns so useful?
 Well, they can be combined, and all regular math functions can manipulate them if they return numbers.
-In the above example, we multiply the <code class="docutils literal notranslate"><span class="pre">Pseq</span></code>-pattern by 10 (calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> returns a <code class="docutils literal notranslate"><span class="pre">BinaryOpStream</span></code>).
+In our first example, we multiplied the <code class="docutils literal notranslate"><span class="pre">Pseq</span></code>-pattern by <code class="docutils literal notranslate"><span class="pre">10</span></code> (calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> returns a <code class="docutils literal notranslate"><span class="pre">BinaryOpStream</span></code>).
 Patterns are compelling for building complex <code class="docutils literal notranslate"><span class="pre">Streams</span></code>.
-Therefore, they offer us a very comfortable way of building melodies without dealing with threads directly.
-The pattern library abstracts the task of thread creation, synchronization, joining, termination, and clean up away.</p>
-<p>Let us look at the following example.
+Therefore, they offer us a very comfortable way of building melodies without dealing with threads directly; more on that in section <a class="reference internal" href="5-event-player.html#sec-event-player"><span class="std std-ref">Event Player</span></a>.
+The pattern library abstracts away the thread creation, synchronization, joining, termination, and clean-up task – one of the most challenging problems in computer programming.</p>
+<p>Let us look at the following <em>pattern-free</em> example.
 Instead of using a pattern, we create an infinite loop.
 Within the loop, we play a random midi note and sleep for <code class="docutils literal notranslate"><span class="pre">0.2</span></code> seconds.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// playing sound without using any pattern or stream</span>
@@ -593,12 +621,10 @@ Within the loop, we play a random midi note and sleep for <code class="docutils 
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>This example, seems to work just fine.
-But when our piece becomes more complicated and we use and manipulate multiple parameters of our synth, the code becomes hard to read and to interact with.</p>
-<p>The difference between <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> and (its) <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> becomes clear if we think in musical terms.
-A composition is a specific <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> and a performance is a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of that pattern.
-Playing a piano can be seen as a stream of specific <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.
-We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.</p>
+<p>This example seems to work just fine, and it looks pretty similar to our second example.
+When our piece becomes more complicated and we use and manipulate multiple parameters of our synth, the code becomes hard to read and interact with.
+For example, we might want to play notes with different durations, i.e., schedule musical events at non-equidistant times.
+We will see how we can replace threading by modeling a composition by a <em>discrete musical event simulation</em>.</p>
 </div>
 
     <script type="text/x-thebe-config">
