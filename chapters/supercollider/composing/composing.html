@@ -53,6 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Scheduling" href="1-scheduling.html" />
@@ -526,14 +528,38 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="composing">
 <h1>Composing<a class="headerlink" href="#composing" title="Permalink to this headline">#</a></h1>
-<p>The process of composing, and deciding how to go about it, can be one of the most challenging things about SuperCollider.
+<blockquote>
+<div><p>[The mechanical engine] might act upon other things besides numbers, were objects found whose mutual fundamental relations could be expressed by those of the abstract science of operations, and which should be also susceptible of adaptations to the action of the operating notation and mechanism of the engine. […] Supposing, for instance, that the fundamental relations of pitched sounds in the science of harmony and of musical composition were susceptible of such expression and adaptations, the engine might compose elaborate and scientific pieces of music of any degree of complexity or extent. – <em>Ada Lovelace</em></p>
+</div></blockquote>
+<p>This quote from one of the famous <em>Ada Lovelace</em>, one of the first programmers, shows that the foundations of <em>algorithmic/artificial composing</em> are over a thousand years old.
+Around 1026 the music theoretician and Benedictine <em>Guido d’Arezzo</em> developed one of the first techniques to construct melodies semi-automatically by parsing Latin text into chords.
+He mapped each vowel contained in the Latin text to a specific pitch determined by a table.
+His method supplied three choices for each vowel such that for a text with <span class="math notranslate nohighlight">\(n\)</span> vowels, there were <span class="math notranslate nohighlight">\(3^n\)</span> possible outcomes.
+<em>Guido’s</em> intention was to ease his students from the burden of an unlimited space of possibilities;
+giving the freedom by structure.
+There was still a lot of room for personal taste.
+Even in those early days, algorithms were employed to limit and explore the space of possible melodies.
+It also shows that composing was a compelling task in the past.</p>
+<p>This has not fundamentally changed, even if we have more tools than ever at our hands.
+The process of composing, and deciding how to go about it, can be one of the most challenging things about SuperCollider.
 The jump from modifying simple examples to producing a full-scale piece can be tough because there is no single or best way to do things.
 We run into the <em>burden of freedom</em>.
-SuperCollider offers very different ways to accomplish composition.
-It is the responsibility of the artist to find their own coding style.
-In contrast to <em>digital audio workstations (DAWs)</em> such as <em>Reason</em> or <em>Ableton</em>, SC does not present the user with a <em>preferred</em> way of working.
-This can be not very clear, but it is an inevitable side effect of the flexibility and freedom SuperCollider provides.
-Many different approaches are feasible to generate and assemble a composition.
+However, <em>artifical systems</em> might not be creative by themselves but they can help us to</p>
+<ol class="simple">
+<li><p>explore the conceptual space</p></li>
+<li><p>combine familiar concept, and</p></li>
+<li><p>transform ideas to create something new.</p></li>
+</ol>
+<p>As the composer <em>Herbert Brün</em> put it:</p>
+<blockquote>
+<div><p>Whereas the human mind, conscious of its conceived purpose, approaches even an artificial system with a selective attitude and so becomes aware of only the preconceived implications of the system, the computers would show the total of available content. Revealing far more than only the tendencies of the human mind, this nonselective picture of the mind-created system should be of significant importance. – <em>Herbert Brün</em> (1970)</p>
+</div></blockquote>
+<p>SuperCollider can be used to build this kind of <em>artificial system</em>.
+It provides us not only with a context in which we can compose music but is general and powerful enough to construct a new one.
+However, with great power comes great responsibility.
+In contrast to <em>digital audio workstations (DAWs)</em> such as <em>Reason</em> or <em>Ableton</em>, SuperCollider does not force the user into a <em>preferred</em> way of working; such compulsion can be liberating.
+Instead, SC offers very different ways to accomplish the artits goal and it is his or her responsibility to find their own style.</p>
+<p>Many different approaches are feasible to generate and assemble a composition.
 Consequently, showing an extensive list of different techniques is impossible and undesirable.
 But I will try to give you some starting points.</p>
 <div class="toctree-wrapper compound">
