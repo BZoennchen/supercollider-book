@@ -8,24 +8,18 @@ To execute it, we call ``value`` on it:
 
 ```isc
 (
-var func = {
+~func = {
   var x = 10;
   x;
 };
-func.value();   // returns 10
+~func.value();   // returns 10
 )
 ```
 
 We can omit ``value`` to call a function:
 
 ```isc
-(
-var func = {
-  var x = 10;
-  x;
-};
-func.();   // returns 10
-)
+~func.();   // returns 10
 ```
 
 This looks a little bit weird, but it works just fine.

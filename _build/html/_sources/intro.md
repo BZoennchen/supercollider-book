@@ -1,5 +1,7 @@
 # Introduction
 
+>I got reconnect properly with computers [...] I didn't have to use someone else's idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. -- *Jonny Greenwood*
+
 In its early state, *cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and self-expression, but that dream was quickly overturned in favor of making money.
 Watching the unstoppable force of the hyper-capitalist sector bringing down the fruits and spoils of open collaboration and transparency was heartbreaking to me.
 I was too young to be part of the *The Early Days* and could only dive into leftover pieces, such as the *Gaming Culture* which has dissolved as well.
@@ -46,7 +48,7 @@ Being creative by producing sound was the essential puzzle I was always looking 
 
 ## Who is Speaking?
 
->One’s stories persuade one’s audience that one is a particular kind of person. When one is one’s own audience, the telling amounts to having a self. -- Leslie Ervine, Even Better Than the Real Thing
+>One’s stories persuade one’s audience that one is a particular kind of person. When one is one’s own audience, the telling amounts to having a self. -- *Leslie Ervine*, Even Better Than the Real Thing
 
 Who am I?
 Is there anything like *The Self*, without others?
@@ -97,6 +99,8 @@ Coding sets me free.
 Coding music is the ultimate freedom.
 
 ## Notes on Technology
+
+>We might be in a collective state of existential crisis, but we are to busy to notice it.
 
 In my opinion, technology should not be trusted naively.
 Technology is neither inherently good nor bad -- it can be used for the good, the bad, the ugly, and the beautiful.
@@ -171,8 +175,6 @@ What realities does it destroy?
 I advocate for a culture of conscious engagement -- a society of aware agents within the realm of technology.
 A potent society should have the power to reject technological advances in favor of cultural progress.
 
->We might be in a collective state of existential crisis but we are to busy to notice it.
-
 To understand technology, we have to understand ourselves.
 We have to know how we can be manipulated, what is good for us, and what we need.
 For example, we now that non-virtual social interactions are important.
@@ -181,7 +183,7 @@ Today we have so much communication without synchronization.
 The communication is shallow and abstract.
 We end up feeling empty and more exhausted.
 
->The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- Mark Fisher
+>The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- *Mark Fisher*
 
 We live between emails, calendars, and *Zoom*-Meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and making love to our respective others.
 At the same time, there is always a *fear of missing out*.
@@ -204,7 +206,7 @@ I am concerned that we have already given up, that we lack the imagination and c
 The digital is a critical factor in driving our pacification while we are looking into the abyss right in front of us.
 So let us engage with it; let us be critical; let us fight back; let us sing a new song of technological empowering of the people all around the world; let us reimagine our *cyberculture*.
 
->Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- J.D. Jarvis
+>Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- *J.D. Jarvis*
 
 ## Why Writing an Online-Book?
 

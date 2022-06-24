@@ -3,7 +3,9 @@
 Learning something now almost always includes learning a new language.
 In this reference section, I explain common terms.
 
-## Sound Waves
+## Physics
+
+### Sound Waves
 
 In nature, *sound* is produced by a vibrating object.
 These vibrations cause air molecules to oscillate.
@@ -22,100 +24,7 @@ On a larger scale, this change in air pressure is a mechanical wave that travels
 Overall, we can think of sound as a mechanical wave that propagates from one place through the medium of transportation.
 The wave is energy that deforms the medium, i.e., it transfers energy from one place to the other.
 
-## Signal
-
-A *signal* is a function that conveys information about a phenomena.
-
-## Waveform
-
-The *waveform* of a *signal* is the shape of its graph as a function of time, independent of its time and magnitude scales and of any displacement in time.
-Waveforms can be *periodic* or *aperiodic*.
-A periodic waveform can be *simple* (e.g. a single sine wave) or *complex* and an aperiodic waveform can be *continuous* (e.g. noise) or *transient* (e.g. impulse).
-
-The simplest and most fundamental waveform is the sine wave
-
-\begin{equation}
-    y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
-\end{equation}
-
-where the *frequency* $f$ is the inverse of the *period* $T$.
-The period $T$ is the time at which the waveform repeats itself and the frequency $f = 1/T$ is measured in hertz (Hz = circles per second).
-$A$ is the amplitude and $\phi$ the phase of the waveform.
-
-The *frequency* of a waveform determines the perceived *pitch* of the sound it produces.
-The higher the frequency the higher the pitch.
-Pitch is perceived on a logarithmic scale, that is, two frequencies are perceived similarly if they differ by a power of 2.
-440 Hz is one octave above 220 Hz but we perceive it as the same *tone*.
-To increase the pitch by $n$ octaves, we have to multiply the frequency by $2^n$.
-
-The *amplitude* of a waveform determines the perceived loudness of the sound.
-The higher the amplitude the louder the sound. 
-
-## Midi Notes
-
-Midi notes are just numbers on a piano.
-We simply number the different keys in an ascending order from left to right.
-The note A0 corresponds to the midi note 21, A2 corresponds to 33 and so on.
-The key pattern of a piano repeats itself.
-Twelve keys form an octave C, C# D, D#, E, F, F#, G, G#, A, A#, B.
-The letter gives us the *tone* while number tells us in which octave we are.
-In combination we get a *pitch*.
-
-A1 and A3 have the same tone but A3 is two octaves higher thus its pitch is higher.
-Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by $2^2 = 4$.
-The mapping between frequency $f$ and pitch $p$ is a logarithmic one.
-
-\begin{equation}
-    f(p) = 2^\frac{p-69}{12} \cdot 440
-\end{equation}
-
-Since the frequency doubles after 12 keys, we have to multiply the frequency of pitch $p$ by $2^{\frac{1}{12}}$ to get $p+1$. In other words
-
-\begin{equation}
-    \frac{f(p+1)}{f(p)} = 2^{\frac{1}{12}}.
-\end{equation}
-
-Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.
-
-## Cent
-
-An octave is divided into 1200 *cents*.
-Therefore, one semitone is 100 cents.
-Notable, pitch differences can be perceived in a range from 10 to 25 cents, depending on the listeners hearing and musical education or exposer.
-In terms of a center frequency $f$, 10 cents are 
-
-\begin{equation*}
-    f \cdot 2 \cdot \frac{10}{1200} = f \cdot \frac{1}{60}
-\end{equation*}
-
-hertz, and 25 cents are translated to 
-
-\begin{equation*}
-    f \cdot 2 \cdot \frac{25}{1200} = f \cdot \frac{1}{24}
-\end{equation*}
-
-Compare the sound of the following signals.
-Can you hear the difference?
-
-```isc
-(
-{
-    var sig, freq = 440;
-    sig = SinOsc.ar(freq!2);
-    sig * 0.25;
-}.play;
-)
-
-(
-{
-    var sig, freq = 440 * (1 + 24.reciprocal);
-    sig = SinOsc.ar(freq!2);
-    sig * 0.25;
-}.play;
-)
-```
-
-## Hearing Range
+### Hearing Range
 
 The *hearing range* is the range of frequency that a being can perceive.
 The hearing range of humans is 20 Hz to 20kHz where cats go up to 75kHz and bats up to 200kHz.
@@ -128,7 +37,7 @@ Experimenting with low frequencies can be very fun!
 ({ LFTri.ar(10!2) * 0.25; }.play;)
 ```
 
-## Sound Power
+### Sound Power
 
 The *sound power* is a physical measure.
 It is the energy per unit of time emitted by a sound source in all directions.
@@ -136,7 +45,7 @@ The sound power is measured in watt (W) and it is surprisingly small.
 For example, a complete concert orchestra and a thunder have roughly the power of only 1 watt.
 
 (sec-intensity)=
-## Sound Intensity
+### Sound Intensity
 
 *Sound intensity* is sound power per unit area, i.e. watt per square meters.
 The sound we can perceive can have a surprisingly small intensity.
@@ -205,7 +114,7 @@ should be approximately perceived half the level of
 {SinOsc.ar(400!2)}.play
 ```
 
-## Loudness
+### Loudness
 
 *Loudness* is a subjective perception of sound intensity.
 It depends on the duration and frequency of a sound, the age and other subjective properties of the lister.
@@ -213,8 +122,39 @@ We perceive short lasting sounds and sounds with a low frequency less loud than 
 Therefore, the sound intensity can be the same but the loudness can be very different.
 It is measured in phons.
 
+## Sound Design
+
+### Signal
+
+A *signal* is a function that conveys information about a phenomena.
+
+### Waveform
+
+The *waveform* of a *signal* is the shape of its graph as a function of time, independent of its time and magnitude scales and of any displacement in time.
+Waveforms can be *periodic* or *aperiodic*.
+A periodic waveform can be *simple* (e.g. a single sine wave) or *complex* and an aperiodic waveform can be *continuous* (e.g. noise) or *transient* (e.g. impulse).
+
+The simplest and most fundamental waveform is the sine wave
+
+\begin{equation}
+    y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
+\end{equation}
+
+where the *frequency* $f$ is the inverse of the *period* $T$.
+The period $T$ is the time at which the waveform repeats itself and the frequency $f = 1/T$ is measured in hertz (Hz = circles per second).
+$A$ is the amplitude and $\phi$ the phase of the waveform.
+
+The *frequency* of a waveform determines the perceived *pitch* of the sound it produces.
+The higher the frequency the higher the pitch.
+Pitch is perceived on a logarithmic scale, that is, two frequencies are perceived similarly if they differ by a power of 2.
+440 Hz is one octave above 220 Hz but we perceive it as the same *tone*.
+To increase the pitch by $n$ octaves, we have to multiply the frequency by $2^n$.
+
+The *amplitude* of a waveform determines the perceived loudness of the sound.
+The higher the amplitude the louder the sound. 
+
 (sec-timbre)=
-## Timbre
+### Timbre
 
 There is no measure of timbre.
 It is generally very hard to define it formally.
@@ -259,7 +199,7 @@ Manipulating a very rich signal already composed of many harmonics is another wa
 This is called [subtractive synthesis](sec-subtractive-synthesis) and makes use of [filters](sec-filters).
 
 (sec-envelope)=
-## Envelopes
+### Envelopes
 
 Envelopes partly form the timbre of an instrument.
 They control the amplitude of a waveforms over time thus describe how a sound changes over time.
@@ -311,21 +251,8 @@ Env(levels: [0, 1, 0.5, 0], times: [0.01, 0.07, 0.3]).plot
 
 Compared to that, a violin has a long attack -- the sound ramps up if the violinist accelerates the motion of his or her arm.
 
-(sec-lfo)=
-## Low Frequency Oscillator
-
-A low frequency oscillator (LFO) is, as its name suggests, an oscillator that oscillates with a low frequency, that is, a frequency that is below the audible frequency.
-LFO's are often used to control some argument of another oscillator, for example, to control its amplitude.
-
-(sec-rm)=
-## Ring Modulation
-
-Ring modulation (RM) is often used as a synonym for [amplitude modulation (AM)](sec-am).
-Sometimes the term RM is used when the modulator is bipolar (the amplitude becomes positive as well as negative) and AM refers to a unipolar amplitude modulation.
-However, I stick to the term [amplitude modulation (AM)](sec-am) to refer to both.
-
 (sec-legato)=
-## Legato
+### Legato
 
 With respect to the piano, legato means that a series of notes are played without a gap of silence.
 Before the pianist hits the next combination of keys when he or she sustains the previous keys.
@@ -342,3 +269,218 @@ Instead of specifying ``\sustain`` we can specify ``\legato`` that is translated
 
 Therefore, legato in this context is a fraction of an event's duration for which a synth should sustain.
 If legato is large, events will overlap.
+
+## Synthesis
+
+(sec-lfo)=
+### Low Frequency Oscillator
+
+A low frequency oscillator (LFO) is, as its name suggests, an oscillator that oscillates with a low frequency, that is, a frequency that is below the audible frequency.
+LFO's are often used to control some argument of another oscillator, for example, to control its amplitude.
+
+(sec-rm)=
+### Ring Modulation
+
+Ring modulation (RM) is often used as a synonym for [amplitude modulation (AM)](sec-am).
+Sometimes the term RM is used when the modulator is bipolar (the amplitude becomes positive as well as negative) and AM refers to a unipolar amplitude modulation.
+However, I stick to the term [amplitude modulation (AM)](sec-am) to refer to both.
+
+## Music Theory
+
+>I was lucky enough to be shown a Penderecki score and played polymorphia by a tutor. It was just really exciting. I didn't know you are allowed to do that. I didn't know you could be that free and you can just think of 48 musicians as being able to do anything. -- *Johnny Greenwood*
+
+Since mankind makes music since the beginning of time, *music theory* is a historical and cultural matured topic.
+Therefore, there are numerous terms, often for the same thing, which makes it hard to start diving into it.
+To understand the literature one has to learn a lot of termonology.
+
+Classical as well as popular music is guided by the *Western music tradition* and we sometimes forget that these rules are only one set of our vast space of possibilities.
+Interestingly, the rules to apply to generate well-received music changed over the centuries.
+They tend to open up from a narrow perspective starting from the *Pythagoreanism* to *Schoneberg's* serialism and  *Penderecki's* experimentals compositions that are radical explorations of timbre.
+
+(sec-cent)=
+### Octave & Cent
+
+An *octave* is the interval between one musical pitch and another double its frequency.
+Doubeling the frequency does not change the *note* but its *pitch*.
+The octave relationship is a natural phenomenon that ahs been referred to as the *basic miracle of music*. 
+The interval between the first and second harmonics of the *harmonic* series is an octave.
+
+*Twelve-tone equal temperament* divides the octave into 12 *semitones* of 100 *cents* each.
+In this case, an octave is divided into 1200 *cents*.
+Notable, pitch differences can be perceived in a range from 10 to 25 cents, depending on the listeners hearing and musical education or exposer.
+In terms of a center frequency $f$, 10 cents are 
+
+\begin{equation*}
+    f \cdot 2 \cdot \frac{10}{1200} = f \cdot \frac{1}{60}
+\end{equation*}
+
+hertz, and 25 cents translate to
+
+\begin{equation*}
+    f \cdot 2 \cdot \frac{25}{1200} = f \cdot \frac{1}{24}.
+\end{equation*}
+
+Compare the sound of the following signals.
+Can you hear the difference?
+
+```isc
+(
+{
+    var sig, freq = 440;
+    sig = SinOsc.ar(freq!2);
+    sig * 0.25;
+}.play;
+)
+
+(
+{
+    var sig, freq = 440 * (1 + 24.reciprocal);
+    sig = SinOsc.ar(freq!2);
+    sig * 0.25;
+}.play;
+)
+```
+
+### Scales, Octaves and Degrees
+
+A *musical scale (Tonleiter)* is an ordered set of pitches, together with a formula for specifying their frequencies.
+Each individual pitch of a scale is called a *degree (Tonstufe)*.
+Most musical traditions use *octave intervals* to associate pitches that serve the same musical function (inison) such that a scale is completely defined by one *octave* because of *octave equivalence*.
+In that case, any *degree* is a member of a class that it shares with the same degree in all other octaves.
+*Degrees* of a scale are sometimes called *pitch classes*.
+
+The *chromatic scale*, which translates to *colorful scale*, consists of all twelve keys A, (A#, Bb), B, C, (C#, Db), D, (D#, Eb), E, F, (F#, Gb), G, (G#, Ab) on an equally tempered piano, i.e., if the frequency of degree $d_i$ is $f_i$ then
+
+$$f_{i+1} = f_{i} \cdot 2^{1/12}$$
+
+for all $i$.
+Note that, for example, C# (C raised by a semitone) and Db (D lowered by a semitone) are represented by the same keys on the piano.
+In that case, consecutive degrees are apart 100 [cents](sec-cent).
+Compare the following code that plays the *chromatic scale*.
+
+```isc
+(
+Pbindef(\melody,
+    \instrument, \default,
+    \scale, Scale.chromatic,
+    \degree, Pseq((0..11), inf),
+    \octave, 3,
+    \dur, 0.25,
+    \amp, 1
+).play;
+)
+```
+
+We can also print out the *cents* for each degree.
+
+```isc
+Scale.chromatic.cents;
+```
+
+Western music's prototype of all scale system is the *diatonic scale*.
+It is also known as the *major scale*.
+
+```isc
+Scale.major.cents;
+```
+
+Instead of twelve, it has only seven pitches per octave, named with the seven letters C, D, E, F, A, and B corresponding to the seven *degrees* of this scale.
+In German, it's C, D, E, F, A, H.
+It contains two-interval sizes, the *half step* (*semitone*) and the *whole step* where a *whole step* (*whole tone*) contains exactly two *half steps*.
+The *interval order* 
+
+$$(2,2,1,2,2,2,1)$$
+
+of the diatonic scale is the sequence of whole and half steps in the scale.
+It is reflected by the piano keys but hidden by the notation of a note sheet.
+The group $(2,2,1)$ is followed by $(2,2,2,1)$.
+The unique order of whole and half steps provide a crucial asymmetry that our hearing exploits in order to orient ourselves.
+
+The *minor scale* uses the standard *diatonic interval order* but starts on degree 6 (counting from one).
+
+$$(2,1,2,2,1,2,2)$$
+
+```{admonition} Counting in sclang
+:name: attention-sc-counting
+:class: attention
+Note that in ``sclang``, we start counting from zero!
+```
+
+### Modes and Transpositions
+
+Starting a scale from other than degree 1 or 6 produces additional scales that share the diatonic interval order.
+These variations are called *modes*.
+Its initial degree is called *final* because typically, music in a mode would end on that note.
+Major and minor scales are synonyms for *Ionian* and *Aeolian modes* -- a quite elaborate naming convention.
+
+Nowadays, apart from *Ionian* and *Aeolian*, modes are no longer in broadly in use.
+Instead, composers use *transpositions*.
+If a scale starts on any chromatic degree other than C, it is said to be *transposed*.
+The diatonic scale can be transposed to any chromatic degree so long as the diatonic interval order is preserved.
+The degree to which the diatonic scale is transposed is called the *key*.
+For example, the diatonic scale transposed to G by the introduction of F# is the *key of G*.
+The untransposed diatonic scale is the *key of C*.
+In SuperCollider, we can transpose by adding degree to ``\degree`` or by using ``\mtransposes`` in the ``Pbind``.
+
+```isc
+(
+Pbindef(\melody,
+    \instrument, \default,
+    \scale, Scale.major,
+    \degree, Pseq((0..7), inf),
+    \octave, 3,
+    \mtranspose, 3, // key of D#
+    \dur, 0.25,
+    \amp, 1
+).play;
+)
+```
+
+Let us consider the degrees/tones of *major scale* (key of C) with respect to the chromatic scale.
+
+$$C_\text{major} = (1, 3, 5, 6, 8, 10, 12, 1) = (\text{C, D, E, F, G, A, B, C}).$$
+
+Transposing the scale by 7 semitones upwards gives us
+
+$$G_\text{major} = (1, 3, 5, 7, 8, 10 ,12, 1) = (\text{C, D, E, F#, G, A, B, C})$$
+
+and transposing it by 7 semitones downwards gives results in
+
+$$F_\text{major} = (1, 3, 5, 6, 8, 10, 11, 1) = (\text{C, D, E, F, G, A, Bb, C}).$$
+
+Transposing again and again by seven semitones will add additional sharps and flats.
+Therefore, consecutive transposes (by seven) sound similar.
+We also call that seven semitone interval a **perfect fifth**, which corresponds to a pair of pitches with a frequency ratio of 3:2, or very nearly so.
+Adding seven semitones gives us the ratio 
+
+$$2^{7/12} \approx 1.498 \approx 1.5 = 3/2.$$
+
+Simple or close to simple ratios sound pleasing, while complex ratios sound unharmonic and can provide tension.
+
+
+
+### Midi Notes
+
+Midi notes are just numbers on a piano.
+We simply number the different keys in an ascending order from left to right.
+The note A0 corresponds to the midi note 21, A2 corresponds to 33 and so on.
+The key pattern of a piano repeats itself.
+Twelve keys form an octave C, C# D, D#, E, F, F#, G, G#, A, A#, B.
+The letter gives us the *tone* while number tells us in which octave we are.
+In combination we get a *pitch*.
+
+A1 and A3 have the same tone but A3 is two octaves higher thus its pitch is higher.
+Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by $2^2 = 4$.
+The mapping between frequency $f$ and pitch $p$ is a logarithmic one.
+
+\begin{equation}
+    f(p) = 2^\frac{p-69}{12} \cdot 440
+\end{equation}
+
+Since the frequency doubles after 12 keys, we have to multiply the frequency of pitch $p$ by $2^{\frac{1}{12}}$ to get $p+1$. In other words
+
+\begin{equation}
+    \frac{f(p+1)}{f(p)} = 2^{\frac{1}{12}}.
+\end{equation}
+
+Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.
