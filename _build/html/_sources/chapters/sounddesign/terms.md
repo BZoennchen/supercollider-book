@@ -295,7 +295,7 @@ To understand the literature one has to learn a lot of termonology.
 
 Classical as well as popular music is guided by the *Western music tradition* and we sometimes forget that these rules are only one set of our vast space of possibilities.
 Interestingly, the rules to apply to generate well-received music changed over the centuries.
-They tend to open up from a narrow perspective starting from the *Pythagoreanism* to *Schoneberg's* serialism and  *Penderecki's* experimentals compositions that are radical explorations of timbre.
+They tend to open up from a narrow perspective starting from *Pythagoreanism* to the *Gregorian mode* (early middle ages until 1600), the *major-minor-tonality* (1700-1900), *Schoneberg's* *atonality* and *serialism* (1900-1940) and *Penderecki's* experimentals compositions that are radical explorations of timbre.
 
 (sec-cent)=
 ### Octave & Cent
