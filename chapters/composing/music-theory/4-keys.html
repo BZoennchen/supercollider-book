@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../sounddesign/filters/filters.html">
-   Filters
+   Subtractive Synthesis / Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -332,11 +332,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../sounddesign/subtractive-synthesis.html">
-   Subtractive Synthesis
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../sounddesign/percussive-sound.html">
@@ -582,13 +577,13 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="keys">
 <span id="sec-keys"></span><h1>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">#</a></h1>
-<p>Nowadays, apart from <em>Ionian</em> (<em>major</em>) and <em>Aeolian</em> (<em>minor</em>), modes are no longer in broadly in use.
-Instead, composers use <em>transpositions</em>.
-If a scale starts on any chromatic degree other than C, it is said to be <em>transposed</em>.
-The diatonic scale can be transposed to any chromatic degree so long as the diatonic interval order is preserved.
+<p>Nowadays, apart from <em>Ionian</em> (<em>major</em>) and <em>Aeolian</em> (<em>natural minor</em>), modes are no longer in broadly in use.
+Since the introduction equally tempered piano, composers use <em>transpositions</em>, instead.</p>
+<p>If a scale starts on any chromatic degree/note other than C, it is said to be <em>transposed</em>.
+The diatonic scale can be transposed to any chromatic degree so long as the <em><a class="reference internal" href="2-scales.html#sec-diatonic-scale"><span class="std std-ref">diatonic interval order</span></a></em> is preserved.
 The degree to which the diatonic scale is transposed is called the <em>key</em>.</p>
 <p>For example, the diatonic scale transposed to G by the introduction of F# is the <em>key of G</em>.
-We also say that we play a certain piece in the <em>G major key</em> or the <em>key of G major</em>.
+We also say that we play a certain piece in the <em>G major key</em> or the <em>key of G major</em> or just <em>G major</em>.
 The untransposed diatonic scale is the <em>key of C</em>.</p>
 <p>In SuperCollider, we can transpose by adding degree to <code class="docutils literal notranslate"><span class="pre">\degree</span></code> or by using <code class="docutils literal notranslate"><span class="pre">\mtransposes</span></code> in the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -617,7 +612,7 @@ The untransposed diatonic scale is the <em>key of C</em>.</p>
 Consecutive transposes (by seven) sound similar.</p>
 <p>The following code generates all <em>major</em> scales by trasposing by seven semitones:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-    <span class="o">~</span><span class="nx">translate</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">degree</span><span class="p">;</span>
+<span class="o">~</span><span class="nx">translate</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">degree</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">degree</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">majorIntervals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>

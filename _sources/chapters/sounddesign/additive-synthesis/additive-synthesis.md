@@ -13,6 +13,9 @@ In contrast, *additive synthesis* gives us granular and independent control over
 We can directly control the power of each frequency of the final result over time ([amplitude modulation](sec-am)).
 In fact, we can also change and detune frequencies over time ([frequency modulation](sec-fm)).
 
+Additive synthesis is suitable for various types of sound, but it suites very well for xylophones, bells, and other metallic instruments, typically inharmonic sounds.
+Using harmonic waveforms, such as a [sawtooth wave](sec-sawtooth-wave), [square wave](sec-square-wave), or [triangle wave](sec-triangle-wave), would not be useful here as those are harmonic waveforms (as we know from the section above).
+
 The following code we generate an approximation of the [sawtooth wave](sec-sawtooth-wave) using 12 harmonics by using *additive synthesis*.
 We put all odd harmonics in the left and all even harmonics in the right channel.
 Additionally, each harmonic has its distinct randomized envelope.

@@ -1,14 +1,15 @@
 (sec-keys)=
 # Keys
 
-Nowadays, apart from *Ionian* (*major*) and *Aeolian* (*minor*), modes are no longer in broadly in use.
-Instead, composers use *transpositions*.
-If a scale starts on any chromatic degree other than C, it is said to be *transposed*.
-The diatonic scale can be transposed to any chromatic degree so long as the diatonic interval order is preserved.
+Nowadays, apart from *Ionian* (*major*) and *Aeolian* (*natural minor*), modes are no longer in broadly in use.
+Since the introduction equally tempered piano, composers use *transpositions*, instead.
+
+If a scale starts on any chromatic degree/note other than C, it is said to be *transposed*.
+The diatonic scale can be transposed to any chromatic degree so long as the *[diatonic interval order](sec-diatonic-scale)* is preserved.
 The degree to which the diatonic scale is transposed is called the *key*.
 
 For example, the diatonic scale transposed to G by the introduction of F# is the *key of G*.
-We also say that we play a certain piece in the *G major key* or the *key of G major*.
+We also say that we play a certain piece in the *G major key* or the *key of G major* or just *G major*.
 The untransposed diatonic scale is the *key of C*.
 
 In SuperCollider, we can transpose by adding degree to ``\degree`` or by using ``\mtransposes`` in the ``Pbind``.
@@ -46,7 +47,7 @@ The following code generates all *major* scales by trasposing by seven semitones
 
 ```isc
 (
-    ~translate = {arg degree;
+~translate = {arg degree;
     var result = Array.fill(7, '');
     var sum = degree;
     var majorIntervals = [2, 2, 1, 2, 2, 2];

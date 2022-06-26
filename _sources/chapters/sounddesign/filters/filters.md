@@ -1,5 +1,5 @@
 (sec-filters)=
-# Filters
+# Subtractive Synthesis / Filters
 
 The fundamental understanding of filters might be that they make parts of the signal quieter -- which is wrong.
 They do far more than attenuate some frequencies.
