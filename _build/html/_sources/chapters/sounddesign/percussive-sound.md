@@ -226,13 +226,11 @@ Ndef(\bell_additive, {
 )
 ```
 
-We can achieve the same by resonating our noise.
-[Klang](http://doc.sccode.org/Classes/Klang.html) is an ``UGen`` that imitates the resonant parts of a body or space.
-It allows us to specify a set of frequencies to be filtered  and **resonated**, matching amplitudes, and decay rates.
+We can achieve the same by using a special *unit generator* that is built to generate the sum of sine waves.
+[Klang](http://doc.sccode.org/Classes/Klang.html) is a bank of sine oscillators that takes arrays of frequencies, amplitudes and phase as arguments.
+It allows us to specify a set of frequencies to be filtered and **resonated**, matching amplitudes, and decay rates.
 This is part of *physical modelling* where we try not to replicate the sound directly but indirectly by modelling the bodies that generate it.
 
-Hitting a bell will result in a burst of noise.
-The bell filters the noise and resonates according to its body and body parts.
 
 ```isc
 (
@@ -241,12 +239,12 @@ Ndef(\bell_physical, {
     var envBurst, burstLength = 0.0001;
 
     envBurst = EnvGen.kr(Env.perc(attackTime: 0, releaseTime: burstLength), gate: Impulse.kr(1));
-    sigBurst = PinkNoise.ar() * envBurst;
+    sigBurst = PinkNoise.ar() * envBurst; // scale factor multipied by all frequencies at init time
 
     freqSpecs = `[
         {rrand(100, 1200)}.dup(totalHarm),                         // freqs
         {rrand(0.3, 1.0)}.dup(totalHarm).normalizeSum.round(0.01), // amps
-        {rrand(2.0, 4.0)}.dup(totalHarm)];                         // ring times
+        {rrand(1.0, 3.0)}.dup(totalHarm)];                         // ring times (decaying)
 
     sig = Klank.ar(freqSpecs, sigBurst) * totalHarm.reciprocal;
     sig;

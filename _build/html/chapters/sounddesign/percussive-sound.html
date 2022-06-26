@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Amplitude Modulation" href="am.html" />
-    <link rel="prev" title="Subtractive Synthesis" href="subtractive-synthesis.html" />
+    <link rel="prev" title="Delays" href="filters/7-delays.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="filters/filters.html">
-   Filters
+   Subtractive Synthesis / Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -330,11 +330,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="subtractive-synthesis.html">
-   Subtractive Synthesis
-  </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
@@ -929,24 +924,22 @@ In the section <a class="reference internal" href="additive-synthesis/additive-s
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>We can achieve the same by resonating our noise.
-<a class="reference external" href="http://doc.sccode.org/Classes/Klang.html">Klang</a> is an <code class="docutils literal notranslate"><span class="pre">UGen</span></code> that imitates the resonant parts of a body or space.
-It allows us to specify a set of frequencies to be filtered  and <strong>resonated</strong>, matching amplitudes, and decay rates.
+<p>We can achieve the same by using a special <em>unit generator</em> that is built to generate the sum of sine waves.
+<a class="reference external" href="http://doc.sccode.org/Classes/Klang.html">Klang</a> is a bank of sine oscillators that takes arrays of frequencies, amplitudes and phase as arguments.
+It allows us to specify a set of frequencies to be filtered and <strong>resonated</strong>, matching amplitudes, and decay rates.
 This is part of <em>physical modelling</em> where we try not to replicate the sound directly but indirectly by modelling the bodies that generate it.</p>
-<p>Hitting a bell will result in a burst of noise.
-The bell filters the noise and resonates according to its body and body parts.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span>(
 Ndef(\bell_physical, {
     var chime, freqSpecs, sig, sigBurst, totalHarm = 10;
     var envBurst, burstLength = 0.0001;
 
     envBurst = EnvGen.kr(Env.perc(attackTime: 0, releaseTime: burstLength), gate: Impulse.kr(1));
-    sigBurst = PinkNoise.ar() * envBurst;
+    sigBurst = PinkNoise.ar() * envBurst; // scale factor multipied by all frequencies at init time
 
     freqSpecs = `[
         {rrand(100, 1200)}.dup(totalHarm),                         // freqs
         {rrand(0.3, 1.0)}.dup(totalHarm).normalizeSum.round(0.01), // amps
-        {rrand(2.0, 4.0)}.dup(totalHarm)];                         // ring times
+        {rrand(1.0, 3.0)}.dup(totalHarm)];                         // ring times (decaying)
 
     sig = Klank.ar(freqSpecs, sigBurst) * totalHarm.reciprocal;
     sig;
@@ -986,11 +979,11 @@ Ndef(\bell_physical, {
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="subtractive-synthesis.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="filters/7-delays.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Subtractive Synthesis</p>
+            <p class="prev-next-title">Delays</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="am.html" title="next page">

@@ -17,7 +17,7 @@ At its core, music is about the relation of numbers, i.e., *ratios*, related to 
 *Music theory* is the science of these relationships in relation to the cultural, social, and emotional interpreting creature that lived during different centuries at different places.
 It is the study of theoretical aspects as well as practices and possibilities of music and its notation in a cultural and historical context.
 In its essence, it studies the cognition and perception of human beings; 
-our cognition and perception;
+our *aestehtic experiences*.
 
 Music theory developed historically a long time ago and has matured since then.
 Consequently, there are numerous terms, often for the same thing, which makes it hard to start diving into it.
@@ -27,14 +27,14 @@ To understand the literature and communicate effectively, one must learn the mus
 However, this does not mean that we have to adapt techniques or rules that emerged from the study of music.
 It is easy to see that contrains can be helpful to explore the space of possibilities but innovation often relys on breaking out of the ordinary.
 There is no hard limit, nothing is forbidden, everything is permitted.
-A good example to observe the dissolution and evolution of musical rules is Western music tradition*.
+A good example to observe the dissolution and evolution of musical rules is the *Western music tradition*.
 Classical as well as popular music is guided by this tradition but we sometimes forget that these rules constrain us to only one specific set of our vast space of possibilities.
-Importantly, these rules of generating well-received music changed over the centuries.
-They tend to open up from a narrow perspective starting from *Pythagoreanism* (600 BC) to the *Gregorian mode* (early middle ages until 1600), the *major-minor-tonality* (1700-1900), *Schoneberg's* *atonality* and *serialism* (1900-1940) and *Penderecki's* experimentals compositions that are radical explorations of timbre.
+Importantly, these rules of generating well-received music, changed over the centuries.
+They tend to open up from a narrow perspective starting from *Pythagoreanism* (600 BC) to the *Gregorian mode* (early middle ages until 1600), the *major-minor-tonality* (1700-1900), *Schoneberg's* *atonality* and *serialism* (1900-1940) and *Penderecki's* (1933-2020) experimentals compositions that are radical explorations of timbre.
 
 In summary, music theory provides us with terminology to effectively convey and absorb musical ideas and concepts.
 It provides knowledge about the relation of numbers and how these relations may affect the listener.
 But it can also be limiting if taken too literally.
 For example, it has the musician and its (analog) instrument in mind.
-Therefore, until recently, its literature does not provide us with musical aspects that can not be realized by musicians that are constrained by their physical as well as mental ability to play an instrument.
+Therefore, until recently, its literature does not provide us with musical aspects that can not be realized by musicians that are constrained by their physical as well as mental ability to play an instrument -- a piano with 48 keys per octave is just not practical.
 Consequently, music theory is a valuable subject to grasp, but it should never be taken as definitive truth.

@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="filters/filters.html">
-   Filters
+   Subtractive Synthesis / Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -332,11 +332,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="subtractive-synthesis.html">
-   Subtractive Synthesis
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="percussive-sound.html">
@@ -813,13 +808,13 @@ For example, a complete concert orchestra and a thunder have roughly the power o
 <p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meters.
 The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af5f8ec6-3edc-4f26-8fc1-4cc2571e362c">
-<span class="eqno">(43)<a class="headerlink" href="#equation-af5f8ec6-3edc-4f26-8fc1-4cc2571e362c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-28ea3013-a672-4dae-8dd4-aceae895b9c1">
+<span class="eqno">(43)<a class="headerlink" href="#equation-28ea3013-a672-4dae-8dd4-aceae895b9c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e96d0c4-4aa4-4628-badc-af85305ecbe5">
-<span class="eqno">(44)<a class="headerlink" href="#equation-1e96d0c4-4aa4-4628-badc-af85305ecbe5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4e09f0f2-a9aa-4707-bff0-b22dcf607681">
+<span class="eqno">(44)<a class="headerlink" href="#equation-4e09f0f2-a9aa-4707-bff0-b22dcf607681" title="Permalink to this equation">#</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>At that intensity we start suffering.</p>
@@ -840,8 +835,8 @@ It is convenient to start with</p>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
 <p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48cb98cc-65b7-4391-9109-a963943e4568">
-<span class="eqno">(45)<a class="headerlink" href="#equation-48cb98cc-65b7-4391-9109-a963943e4568" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5961f25f-e9ab-45b0-87f8-eafb3b5b6746">
+<span class="eqno">(45)<a class="headerlink" href="#equation-5961f25f-e9ab-45b0-87f8-eafb3b5b6746" title="Permalink to this equation">#</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -886,8 +881,8 @@ It is measured in phons.</p>
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is the sine wave</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a343cafc-888c-4086-a29f-d0ce8fd65d6f">
-<span class="eqno">(46)<a class="headerlink" href="#equation-a343cafc-888c-4086-a29f-d0ce8fd65d6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b8cd7e4a-356a-4a4d-a84e-5537e06066c4">
+<span class="eqno">(46)<a class="headerlink" href="#equation-b8cd7e4a-356a-4a4d-a84e-5537e06066c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the <em>period</em> <span class="math notranslate nohighlight">\(T\)</span>.
@@ -938,7 +933,7 @@ There are infinitely many different <span class="math notranslate nohighlight">\
 </ol>
 <p>However, this captures only the perspective of <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
 Manipulating a very rich signal already composed of many harmonics is another way to achieve different timbres.
-This is called <a class="reference internal" href="subtractive-synthesis.html#sec-subtractive-synthesis"><span class="std std-ref">subtractive synthesis</span></a> and makes use of <a class="reference internal" href="filters/filters.html#sec-filters"><span class="std std-ref">filters</span></a>.</p>
+This is called <span class="xref myst">subtractive synthesis</span> and makes use of <a class="reference internal" href="filters/filters.html#sec-filters"><span class="std std-ref">filters</span></a>.</p>
 </div>
 <div class="section" id="envelopes">
 <span id="sec-envelope"></span><h3>Envelopes<a class="headerlink" href="#envelopes" title="Permalink to this headline">#</a></h3>

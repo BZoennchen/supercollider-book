@@ -286,7 +286,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../sounddesign/filters/filters.html">
-   Filters
+   Subtractive Synthesis / Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -330,11 +330,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../sounddesign/subtractive-synthesis.html">
-   Subtractive Synthesis
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../sounddesign/percussive-sound.html">
@@ -581,10 +576,23 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="modes">
 <span id="sec-modes"></span><h1>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">#</a></h1>
 <p>Starting a scale from other than degree 1 or 6 produces additional scales that share the diatonic interval order.
-These variations are called <em>modes</em>.
-We also get the different modes by shifting the <em>interval order</em> of the <em>diatonic scale</em>.
-Its initial degree is called <em>final</em> because typically, music in a mode would end on that note.
-Major and minor scales are synonyms for <em>Ionian</em> and <em>Aeolian modes</em> – a quite elaborate naming convention.</p>
+These variations are called <em>modes</em>.</p>
+<p>We also get the different modes by shifting the <em>interval order</em> of the <em>diatonic scale</em>.
+In SuperCollider we can achieve this by <em>array rotation</em> using <code class="docutils literal notranslate"><span class="pre">rotate</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">majorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>                <span class="c1">// major interval order</span>
+<span class="o">~</span><span class="nx">minorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>                <span class="c1">// (nat.) minor interval order</span>
+<span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">)</span>             <span class="c1">// major degrees</span>
+<span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">minorIntervalOrder</span><span class="p">)</span>             <span class="c1">// (nat.) minor degrees</span>
+<span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1">// (nat.) minor degrees (by rotation)</span>
+</pre></div>
+</div>
+<p>Major and minor scales are synonyms for <em>Ionian</em> and <em>Aeolian modes</em> – a quite elaborate naming convention.</p>
+<p>The initial degree of a mode is called <em>final</em> because typically, music in a mode would end on that note.
+For example, the <em>final</em> of the <em>Aeolian mode</em> is 6.
+Since in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we count from zero, and there are 7 degrees, we get <code class="docutils literal notranslate"><span class="pre">7-5==2</span></code>.</p>
+<p>Note that we have to change the <em>interval order</em>!
+Adding a fixed number of semitones/half steps does not suffice.
+If we do so, we change the <em>key</em>, i.e., achieve another transformation called <a class="reference internal" href="4-keys.html#sec-keys"><span class="std std-ref">transposition</span></a>.</p>
 </div>
 
     <script type="text/x-thebe-config">

@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../sounddesign/filters/filters.html">
-   Filters
+   Subtractive Synthesis / Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -332,11 +332,6 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../sounddesign/subtractive-synthesis.html">
-   Subtractive Synthesis
-  </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../sounddesign/percussive-sound.html">
@@ -667,7 +662,7 @@ There are 12 keys on a pianos keyboard within one octave, this means that if we 
 <p>This is a quite boring sound.
 A way to enrich it, is to add slightly detuned copies of the sinewave which change their frequency over time.
 The noise oscillators <code class="docutils literal notranslate"><span class="pre">LFNoiseX.ar(freq:</span> <span class="pre">freq)</span></code> generate a juggeling signal which changes its amplitude inbetween the <span class="math notranslate nohighlight">\([-1;1]\)</span> uniformly distributed.
-Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 42</span></a>.</p>
+Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 43</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{[</span>
     <span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
@@ -679,7 +674,7 @@ Between the changes, the amplitude stays constant (0), is interpolated linearly 
 </div>
 <div class="figure align-default" id="fig-plot-lfnoisex">
 <a class="reference internal image-reference" href="../../_images/plot-LFNoiseX.png"><img alt="../../_images/plot-LFNoiseX.png" src="../../_images/plot-LFNoiseX.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
 </div>
 <p>So let us create <span class="math notranslate nohighlight">\(n\)</span> number of detuned sinewaves and adding them to the fundamental:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
