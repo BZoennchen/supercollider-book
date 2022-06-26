@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scales &#8212; Algorithmic Composition</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Modes" href="3-modes.html" />
+    <link rel="prev" title="Intervals" href="1-intervals.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Algorithmic Composition</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider I
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ecosystem.html">
+   The Ecosystem
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../supercollider/basics/basics.html">
+   Basics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/1-code-execution.html">
+     Code Execution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/2-variables.html">
+     Variables and Scope
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/3-arrays.html">
+     Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/4-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/5-control-structures.html">
+     Control Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/6-classes.html">
+     Classes and Objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/basics/7-playing.html">
+     Playing Sound
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/synths.html">
+   Synthesizers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ugens.html">
+   Unit Generators
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  SuperCollider II
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../supercollider/pattern/pattern.html">
+   Playing Patterns
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/pattern/1-the-instrument.html">
+     The Instrument and its Artist
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/pattern/2-streams.html">
+     Streams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/pattern/3-pattern.html">
+     Pattern
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/pattern/4-events.html">
+     Musical Event
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/pattern/5-event-player.html">
+     Event Player
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../supercollider/composing/composing.html">
+   Composing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/composing/1-scheduling.html">
+     Scheduling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/composing/2-live-coding.html">
+     Live Coding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../supercollider/ugens2.html">
+   Unit Generator Library
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sound Design
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/additive-synthesis/additive-synthesis.html">
+   Additive Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html">
+     Fundamental Waveforms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-sine-sum.html">
+     A Sum of Sines
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../sounddesign/filters/filters.html">
+   Filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">
+     Phase Shifting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/2-phase-and-frequency.html">
+     Phase &amp; Frequency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">
+     Frequency Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/4-simpler-filters.html">
+     Simpler Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/5-resonance.html">
+     Responses and Resonance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/6-control-filters.html">
+     Control Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/filters/7-delays.html">
+     Delays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/subtractive-synthesis.html">
+   Subtractive Synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/percussive-sound.html">
+   Percussive Sound
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/am.html">
+   Amplitude Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/fm.html">
+   Frequency Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/drones.html">
+   Drones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../sounddesign/terms.html">
+   Terms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Composing
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="music-theory.html">
+   Music Theory
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-intervals.html">
+     Intervals
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Scales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-modes.html">
+     Modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-keys.html">
+     Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-tuning.html">
+     Tuning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-chords.html">
+     Chords
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7-midinotes.html">
+     Midi Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Trash
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/jump-right-in.html">
+   Building Sounds
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../trash/distributions.html">
+   Random distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/composing/music-theory/2-scales.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chromatic-scale">
+   Chromatic Scale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diatonic-scale-major-scale">
+   Diatonic Scale (Major Scale)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minor-scales">
+   Minor Scales
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Scales</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chromatic-scale">
+   Chromatic Scale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diatonic-scale-major-scale">
+   Diatonic Scale (Major Scale)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minor-scales">
+   Minor Scales
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="scales">
+<span id="sec-scales"></span><h1>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">#</a></h1>
+<p>A <em>musical scale (Tonleiter)</em> is an ordered set of pitches, together with a formula for specifying their frequencies.
+Each individual pitch of a scale is called a <em>degree (Tonstufe)</em>.</p>
+<p>Most musical traditions use <em>octave intervals</em> to associate pitches that serve the same musical function (inison) such that a scale is completely defined by one <em>octave</em> because of <em>octave equivalence</em>.
+In that case, any <em>degree</em> is a member of a class that it shares with the same degree in all other octaves.
+<em>Degrees</em> of a scale are sometimes called <em>pitch classes</em>.</p>
+<div class="remark admonition" id="remark-interval-vs-pitches">
+<p class="admonition-title">Intervals and Pitches </p>
+<p>The actual pitches within a scale are less important than their relation, i.e. the <em>interval</em> between pitches/frequencies.</p>
+</div>
+<div class="figure align-default" id="fig-piano-keys">
+<a class="reference internal image-reference" href="../../../_images/piano-keys.png"><img alt="../../../_images/piano-keys.png" src="../../../_images/piano-keys.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">The notes of an octave mapped on piano keys.
+Each consecutive <em>interval</em> is equal to <span class="math notranslate nohighlight">\(\sqrt[12]{2}\)</span>.
+The white keys give us the C major scale (diatonic scale).
+Above one can see the number of semitones of each interval of the major scale.</span><a class="headerlink" href="#fig-piano-keys" title="Permalink to this image">#</a></p>
+</div>
+<div class="section" id="chromatic-scale">
+<h2>Chromatic Scale<a class="headerlink" href="#chromatic-scale" title="Permalink to this headline">#</a></h2>
+<p>The <em>chromatic scale</em>, which translates to <em>colorful scale</em>, consists of all twelve keys we know from a piano:</p>
+<div class="math notranslate nohighlight">
+\[\text{C, C#, D, D#, E, F, F#, G, G#, A, A#, B}.\]</div>
+<p>On an equally tempered piano, i.e., if the frequency of degree <span class="math notranslate nohighlight">\(d_i\)</span> is <span class="math notranslate nohighlight">\(f_i\)</span> then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e7b1fae-23a6-417d-b79e-fa896734112a">
+<span class="eqno">(50)<a class="headerlink" href="#equation-1e7b1fae-23a6-417d-b79e-fa896734112a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    f_{i+1} = f_{i} \cdot 2^{1/12}
+\end{equation}\]</div>
+<p>for all <span class="math notranslate nohighlight">\(i\)</span>.
+Note that, for example, C# (C raised by a semitone) and Db (D lowered by a semitone) are represented by the same keys on the piano.
+In that case, consecutive degrees are apart 100 <a class="reference internal" href="1-intervals.html#sec-intervals"><span class="std std-ref">cents</span></a>.
+Compare the following code that plays the <em>chromatic scale</em>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nb">Scale</span><span class="p">.</span><span class="nx">chromatic</span><span class="p">,</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">11</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\octave</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="ss">\amp</span><span class="p">,</span> <span class="mi">1</span>
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also print out the <em>cents</em> for each degree.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Scale</span><span class="p">.</span><span class="nx">chromatic</span><span class="p">.</span><span class="nx">cents</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="diatonic-scale-major-scale">
+<h2>Diatonic Scale (Major Scale)<a class="headerlink" href="#diatonic-scale-major-scale" title="Permalink to this headline">#</a></h2>
+<p>Western music’s prototype of all scale system is the <em>diatonic scale</em>.
+It is also known as the <em>major scale</em>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">.</span><span class="nx">cents</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Instead of twelve, it has only seven pitches per octave, named with the seven letters C, D, E, F, A, and B corresponding to the seven <em>degrees</em> of this scale.
+In German, it’s C, D, E, F, A, H.
+The diatonic scale contains two-interval sizes, the <em>half step</em> (<em>semitone</em>) and the <em>whole step</em> where a <em>whole step</em> (<em>whole tone</em>) contains exactly two <em>half steps</em>.
+A half step is equal to 100 and a whole step to 200 cents.</p>
+<p>The <em>interval order</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-42d1aefc-fe3e-4787-b3a3-87e7bb240ab1">
+<span class="eqno">(51)<a class="headerlink" href="#equation-42d1aefc-fe3e-4787-b3a3-87e7bb240ab1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    (2,2,1,2,2,2,1)_{\text{major}}
+\end{equation}\]</div>
+<p>of the diatonic scale is the sequence of whole and half steps in the scale.
+It is reflected by the piano keys but hidden by the notation of a note sheet.
+The group <span class="math notranslate nohighlight">\((2,2,1)\)</span> is followed by <span class="math notranslate nohighlight">\((2,2,2,1)\)</span>.
+The unique order of whole and half steps provide a crucial asymmetry that our hearing exploits in order to orient ourselves.</p>
+</div>
+<div class="section" id="minor-scales">
+<h2>Minor Scales<a class="headerlink" href="#minor-scales" title="Permalink to this headline">#</a></h2>
+<p>The <em>minor scale</em>, also known as <em>natural minor scale</em>, uses the standard <em>diatonic interval order</em> but starts on degree 6 (counting from one).
+The natural minor is also known as the <em>Aolian <a class="reference internal" href="3-modes.html#sec-modes"><span class="std std-ref">mode</span></a></em>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3aada728-7a3a-499d-8236-66126bb7aba2">
+<span class="eqno">(52)<a class="headerlink" href="#equation-3aada728-7a3a-499d-8236-66126bb7aba2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    (2,1,2,2,1,2,2)_\text{nat. minor}
+\end{equation}\]</div>
+<p>This gives us: C, D, Eb, F, G, Ab, Bb.</p>
+<div class="attention admonition" id="attention-sc-counting">
+<p class="admonition-title">Counting in sclang</p>
+<p>Note that in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we start counting from zero!</p>
+</div>
+<p>There is also the <em>harmonic minor scale</em> for which the seventh note is raised by one semitone.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2476800b-bfc0-42c1-a50c-01ea1d8b771f">
+<span class="eqno">(53)<a class="headerlink" href="#equation-2476800b-bfc0-42c1-a50c-01ea1d8b771f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    (2,1,2,2,1,3,1)_\text{ham. minor}
+\end{equation}\]</div>
+<p>This gives us: C, D, Eb, F, G, Ab, B.</p>
+<p>The last variation is the <em>melodic minor scale</em> for which the sith and seventh notes are always raised.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-616227a5-8fd7-48e5-9bf8-6fa99bf6a0f5">
+<span class="eqno">(54)<a class="headerlink" href="#equation-616227a5-8fd7-48e5-9bf8-6fa99bf6a0f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    (2,1,2,2,2,2,1)_\text{mel. minor}
+\end{equation}\]</div>
+<p>This gives us: C, D, Eb, F, G, A, B.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters/composing/music-theory"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="1-intervals.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Intervals</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-modes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Modes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
