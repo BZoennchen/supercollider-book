@@ -132,6 +132,9 @@ a virtual world based on a business ontology and governed by a corporate dictato
 
 I neither advocate for the denial nor for embracing technology in general.
 I love technology.
+
+>It certainly is not a matter of condemning the industrial and technological fate of humanity. Rather, it is a case of reinventing this fate. -- *Bernard Stiegler*
+
 I think digital technology is powerful and could likely solve the majority of humanities problems; 
 from climate change to income distribution, sensor-based agricultural practice, food, and education.
 Digital technology can be amazing, but when all decisions about how to deploy and use it are in the hands of business people, then we have a problem.
