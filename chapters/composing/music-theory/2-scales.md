@@ -61,6 +61,14 @@ We can also print out the *cents* for each degree.
 Scale.chromatic.cents;
 ```
 
+```{figure} ../../../figs/composing/chromatic-scale.png
+---
+width: 600px
+name: fig-chromatic-scale
+---
+The chromatic scale on a note sheet.
+```
+
 ## Diatonic Scale (Major Scale)
 
 Western music's prototype of all scale system is the *diatonic scale*.
