@@ -17,8 +17,8 @@ It appears as a *counter-culture*.
 Since it is such a niche, it is not yet stripped of its cultural connection.
 As a left-leaning person, I enjoy such contra commercial trends.
 Consequently, I got not only interested because of the matter but also because of its community.
-I hope, at some day, my has value, will be helpful, and bring not money but joy and communal interest in the matter and its community.
-Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against the *Capitalist Realism*.
+I hope, at some day, my project will be helpful, and bring not money but joy and communal interest in the matter and its community.
+Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against *Capitalist Realism*.
 
 I discovered the world of algorithmic composition and sound design using code in late 2021.
 It all started when I watched an energetic and really motivated Sam Aaron presenting his [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi).
@@ -26,17 +26,17 @@ I was immediately hooked, especially given the context: educational live program
 
 I started experimenting with Sonic Pi.
 However, soon after playing around with it, I wanted to write my own synths for which it is unsuitable.
-Sonic Pi is perfectly suitable for sequencing your synth and samples but not so much for creating new exciting instruments.
+Sonic Pi is perfectly appropriate for sequencing your synth and samples but not so much for creating new exciting instruments.
 You create your synth and samples beforehand and then use Sonic Pi to play with them.
 
 I digged deeper and discovered other interesting tools such as [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider (SC)](https://supercollider.github.io/).
-I am surprised that I never heard about SC, even if it matured a long time ago, and there seems to be no natural alternative.
+I am surprised that I never heard about SC before, even if it matured a long time ago, and there seems to be no natural alternative.
 Compared to Sonic Pi, SuperCollider has a much steeper learning curve.
 The language has some awful-looking syntax; it is less accessible, but at the same time, SuperCollider is much more extensible and powerful.
 
 I fell in love with SC.
 The language offers fascinating concepts that keep you thinking about signal-flow processing.
-SC supports features well known in modern languages such as ``Python``and rather old languages.
+SC supports features well known in modern languages, such as ``Python``, and rather old languages.
 The IDE feels pretty modern and supportive.
 The documentation is decent, and the community is healthy.
 SC is a powerhouse for discovering new exciting sounds.
@@ -70,7 +70,7 @@ During my time as a Ph.D. candidate, I enjoyed teaching.
 Today, I am a software developer for University that focuses on tools to support our education.
 Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.
 
-For other computer scientists interested in the topic of this book, it might be interesting to know which programming experience I had at the time of writing it.
+For other computer scientists interested in the topic of this book, it might be valuable to know which programming experience I had at the time of writing it.
 I am very experienced in ``Java``.
 Furthermore, I developed an introductory course for ``Python``.
 I am also familiar with ``JavaScript``, ``PHP``, ``Scala``, and ``Go``.
@@ -96,7 +96,7 @@ It reminds me that something in this world expresses *The Concrete*.
 Something that escapes our calculating minds; something unexplainable.
 Music sets me free.
 Coding sets me free.
-Coding music is the ultimate freedom.
+Thus, for me, coding music is the ultimate freedom.
 
 ## Notes on Technology
 
@@ -117,7 +117,8 @@ It shapes our mundane life, and if we want to live within society, we can not es
 We live in an *age of disruption* where technology escapes any deep analysis because it evolves faster than we can blink.
 People are so busy and constantly trying to keep up with all of these news feeds that are poking at them, so it is hard for them to apply any narrative to their experiences.
 They do not know what is going on.
-They are just moving through their day moment to moment, and that is a disorienting place to be.
+They are just moving through their day, moment to moment.
+It is a disorienting place to be.
 Time slips away without any deep satisfaction; another day went to *Instagram*.
 
 The danger is never to stop hustling.
@@ -126,7 +127,7 @@ To understand how it affects us, how it changes us, how it can help us and how i
 
 We get used to the internet, smartphones, social media, and other platform economies, and endless repetition of the trivial.
 As an individual, we seem powerless concerning new technologies.
-If there is a market, we most certainly have to get used to yet another technological phantasy.
+If there is a market (built buy the creation of desire, i.e., marketing), we most certainly have to get used to yet another technological phantasy.
 Is it *The Public* that wants to transfer another big chunk of reality into a *Metaverse*;
 a virtual world based on a business ontology and governed by a corporate dictatorship?
 
@@ -145,7 +146,7 @@ We are not in a place where the people have the same access to tools and technol
 They are no longer the masters.
 When a young person has an idea, they automatically go to a money person because they think that is the only way to get their product developed.
 Developers and entrepreneurs often start with a genuine belief to make the world a better place.
-They believe their contribution will help the world in some way and be empowering not just to them and their investors but to some industry or consumer base.
+They believe their contribution will help the world in some way and be empowering, not just to them and their investors, but to some industry or consumer base.
 But then they take money from problematic angles forcing them into specific actions.
 At the stock market, business becomes gamified, i.e., companies are no longer concerned about their product.
 Their mind is occupied with winning; 
@@ -164,7 +165,7 @@ It is the shareholder, the investor.
 *Uber* does not care about creating a decent, sustainable taxi industry.
 
 We have to critically analyze what each technology does, implying that we disregard the *neutral point of view*.
-Technology can never be neutral, it is always based on some value and meaning, and if we use a particular technology, we have to know what these values and intentions are.
+Technology can never be neutral, it is always based on some value and intention, and if we use a particular technology, we have to know what these values and intentions are.
 Does this technology empower the right people?
 Is it emancipatory?
 How does it change our way of thinking, feeling, and communicating?
@@ -180,7 +181,7 @@ A potent society should have the power to reject technological advances in favor
 
 To understand technology, we have to understand ourselves.
 We have to know how we can be manipulated, what is good for us, and what we need.
-For example, we now that non-virtual social interactions are important.
+For example, we know that non-virtual social interactions are important.
 It is calming and reassuring for human organisms to look into someone else's eyes, so to literally move into sync with another person.
 Today we have so much communication without synchronization.
 The communication is shallow and abstract.
@@ -189,10 +190,10 @@ We end up feeling empty and more exhausted.
 >The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- *Mark Fisher*
 
 We live between emails, calendars, and *Zoom*-Meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and making love to our respective others.
-At the same time, there is always a *fear of missing out*.
+At the same time, there is always a *fear of missing out*:
 Can I get in on this thing before it is completely gone?
 
-What makes me optimistic about your use of technology are young people.
+What makes me optimistic about our use of technology are young people.
 Even though we have an increase in suicide rates, probably due to the use of social media, I also observe more caution towards technology.
 Young people seem to use technology much more appropriately because they are less fascinated by it.
 They understand those big tech companies are not interested in improving their lives but in using them as vehicles.
@@ -200,6 +201,7 @@ They understand those big tech companies are not interested in improving their l
 I believe technology is always destructive as well as creative.
 It disrupts existing spaces and opens up new ones. 
 The artist's responsibility is to reveal and explore this process.
+She is the one who create aesthetic symbols -- a horizon of a possible future.
 Neither being prejudiced nor playing the devil's advocate but engaging with technology and its masters honestly.
 The artifacts of our past are not given circumstances of nature but are invented by people.
 We must disregard our automatic acceptance of how things are because it leads to a sense of helplessness about changing any of them.
