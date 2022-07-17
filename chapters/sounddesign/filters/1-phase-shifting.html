@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Phase &amp; Frequency" href="2-phase-and-frequency.html" />
-    <link rel="prev" title="Subtractive Synthesis / Filters" href="filters.html" />
+    <link rel="prev" title="Subtractive Synthesis" href="filters.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -265,11 +265,43 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
-   Additive Synthesis
+  <a class="reference internal" href="../math/intro.html">
+   Mathematical Foundation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/sampling.html">
+     Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/complex.html">
+     Complex Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/fourier.html">
+     Spectral Analysis and Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/convolution.html">
+     Convolution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
+   Additive Synthesis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -288,10 +320,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="filters.html">
-   Subtractive Synthesis / Filters
+   Subtractive Synthesis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -334,11 +366,6 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../percussive-sound.html">
-   Percussive Sound
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../am.html">
    Amplitude Modulation
   </a>
@@ -348,10 +375,27 @@ const thebe_selector_output = ".output, .cell_output"
    Frequency Modulation
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../drones.html">
-   Drones
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../cookbook/intro.html">
+   Cookbook
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cookbook/drones.html">
+     Drones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cookbook/percussive-sound.html">
+     Percussive Sound
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../terms.html">
@@ -369,8 +413,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../composing/music-theory/music-theory.html">
    Music Theory
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -582,17 +626,17 @@ As we will see we can filter a signal by using a simple oscillator.
 Therefore, the term <em>filter</em> is a very general term.</p>
 <p>Let us combine two sine waves.
 First two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87acba86-0a47-4bf1-9bb4-873a63aad56b">
-<span class="eqno">(13)<a class="headerlink" href="#equation-87acba86-0a47-4bf1-9bb4-873a63aad56b" title="Permalink to this equation">#</a></span>\[\begin{equation}
-y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t),
+<div class="amsmath math notranslate nohighlight" id="equation-fefe49e9-a801-4e7d-8cef-aec40fb6f704">
+<span class="eqno">(37)<a class="headerlink" href="#equation-fefe49e9-a801-4e7d-8cef-aec40fb6f704" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t) = 2 \sin(2\pi \omega t),
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase-shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00f14dbe-727b-41bd-a3b3-dce15ca1a62b">
-<span class="eqno">(14)<a class="headerlink" href="#equation-00f14dbe-727b-41bd-a3b3-dce15ca1a62b" title="Permalink to this equation">#</a></span>\[\begin{equation}
-y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0.
+<div class="amsmath math notranslate nohighlight" id="equation-254348a5-a4db-44ed-af34-7bddc2016709">
+<span class="eqno">(38)<a class="headerlink" href="#equation-254348a5-a4db-44ed-af34-7bddc2016709" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t + \pi) = \sin(2\pi \omega t) - \sin(2\pi \omega t + \pi) = 0.
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
@@ -603,8 +647,8 @@ Of course, we can not hear any difference between a sine wave and shifted sine w
 Only in combination, the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7cff86b9-5c76-42b0-9df8-c364a9f94a28">
-<span class="eqno">(15)<a class="headerlink" href="#equation-7cff86b9-5c76-42b0-9df8-c364a9f94a28" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ec3af9b6-bb4f-441f-a6ab-3571bab15ecc">
+<span class="eqno">(39)<a class="headerlink" href="#equation-ec3af9b6-bb4f-441f-a6ab-3571bab15ecc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -618,18 +662,18 @@ For an oscillator with a frequency of <span class="math notranslate nohighlight"
 </pre></div>
 </div>
 <p>We clearly hear some differences, and if we do the math, we can see why!
-As before, the fundamentals of frequency <span class="math notranslate nohighlight">\(f\)</span> Hz cancel each other out.
-However, the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, i.e., its amplitude is doubled.
-This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.</p>
+As before, the fundamentals of frequency <span class="math notranslate nohighlight">\(\omega\)</span> Hz cancel each other out.
+However, the next harmonic with frequency <span class="math notranslate nohighlight">\(2\omega\)</span> Hz is reinforced, i.e., its amplitude is doubled.
+This is because after <span class="math notranslate nohighlight">\(1/(2\omega)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2\omega)/(2\omega) = 1\)</span> cycle.</p>
 <p>In the fact, the amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4580593-3be2-411d-bad4-543ef248a2ee">
-<span class="eqno">(16)<a class="headerlink" href="#equation-e4580593-3be2-411d-bad4-543ef248a2ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\frac{2nf}{2f} = n 
+<div class="amsmath math notranslate nohighlight" id="equation-55f2b2ef-498b-4254-b91a-f8a8221dba5a">
+<span class="eqno">(40)<a class="headerlink" href="#equation-55f2b2ef-498b-4254-b91a-f8a8221dba5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\frac{2n\omega}{2\omega} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-27e95c27-1dd3-4607-81c1-6f50953b666c">
-<span class="eqno">(17)<a class="headerlink" href="#equation-27e95c27-1dd3-4607-81c1-6f50953b666c" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
+<div class="amsmath math notranslate nohighlight" id="equation-35dea1f7-4cf6-4e7d-a364-70a1a436880a">
+<span class="eqno">(41)<a class="headerlink" href="#equation-35dea1f7-4cf6-4e7d-a364-70a1a436880a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\frac{n\omega}{2\omega} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
 <p>This dual character (canceling or doubling) can be much more complex.
@@ -691,7 +735,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">CombX</sp
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Subtractive Synthesis / Filters</p>
+            <p class="prev-next-title">Subtractive Synthesis</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="2-phase-and-frequency.html" title="next page">

@@ -1,19 +1,30 @@
 # Simpler Filters
 
-A signal can also be filtered by smoothening it.
-For example, let $\text{in}[0], \ldots, \text{in}[n]$ be the discrete (input) signal of a [sawtooth waves](sec-sawtooth-wave) and $\text{out}[0], \ldots \text{out}[n]$ be the filtered (output) signal.
+Mathematically filters realize a *convolution* in the time domain.
+In case of a digital signal this translate to a *discrete convolution*.
+A convolution is an operation on two functions $y$ and $k$ that produce a third function $(y * k)$ that expresses how the sahpe of one is modified by the other. The discrete convolution is defined by the following formula:
+
+\begin{equation}
+    (y * k)[i] = \sum\limits_{j=-\infty}^{\infty} y[i-j] \cdot k[j],
+\end{equation}
+
+$y$ is our signal and $k$ the *kernel* that is specific for the filter. 
+
+For example, let $y[0], \ldots, y[n]$ be the discrete (input) signal of a [sawtooth waves](sec-sawtooth-wave) and $z[0], \ldots z[n]$ be the filtered (output) signal.
 If 
 
 \begin{equation}
     \begin{split}
-    \text{out}[0] &\leftarrow 0.5 \cdot \text{in}[0]\\
-    \text{out}[i] &\leftarrow 0.5 \cdot \text{in}[i] - 0.5 \cdot \text{in}[i-1]
+    z[0] &\leftarrow 0.5 \cdot y[0]\\
+    z[i] &\leftarrow 0.5 \cdot y[i] - 0.5 \cdot y[i-1]
     \end{split}
 \end{equation}
 
 the result is the difference quotient divided by sample rate.
-All values of $\text{out}$ are almost zero except at the parts which are not differentiable.
-To achieve this effect we can use the [OneZero](sec-onezero)-filter.
+The same can be realized by the convolution $(y * k)$ with $k[0] = k[1] = -0.5$ and $k[j] = 0$ for all other $j$.
+
+If we apply this to a signal $y$ that has a constant *difference quotient*, all values of the output $z$ are almost zero except at the parts where the signal jumps from 1 to -1.
+We can use the [OneZero](sec-onezero)-filter to achieve this effect.
 
 ```isc
 {[LFSaw.ar(10), OneZero.ar(LFSaw.ar(10), -0.5)]}.plot(2/10)
@@ -27,7 +38,7 @@ name: fig-canceled-saw-onezero-filter
 Canceling a sawtooth wave by applying a ``OneZero``-filter. You can see peaks at values where the sawtooth is not differentiable.
 ```
 
-This works so well because the rate of change of a sawtooth wave is constant almost everywhere.
+This cancelation works so well because the rate of change of a sawtooth wave is constant almost everywhere.
 
 The integral of one phase of a sine wave is zero.
 Consequently, by averaging the discrete signal to accomplish the respective sum will cancel out the sine wave, i.e., a specific frequency.
@@ -77,7 +88,7 @@ To test this result, let us compute the cosine using ``SinOsc`` and a ``OneZero`
 Remember
 
 \begin{equation}
-    \frac{d\sin(2\pi \cdot f \cdot t)}{dt} = 2 \pi \cdot f \cdot \cos(2\pi \cdot f \cdot t) 
+    \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}
 
 ```isc

@@ -1,14 +1,14 @@
 (sec-intervals)=
 # Intervals
 
-Let $f_1 > f_2$ be some arbitrary frequencies, then the *ratio*
+Let $\omega_1 > \omega_2$ be some arbitrary frequencies, then the *ratio*
 
 \begin{equation}
-    \frac{f_1}{f_2}
+    \frac{\omega_1}{\omega_2}
 \end{equation}
 
-is the *interval* between $f_1$ and $f_2$.
-We often notate an interval as $f_1$:$f_2$.
+is the *interval* between $\omega_1$ and $\omega_2$.
+We often notate an interval as $\omega_1$:$\omega_2$.
 The interval between two frequencies, i.e., notes, gives a sound quality.
 Relating multiple intervals by, for example, playing two times three different notes in sequence, gives the resulting sound another quality.
 It may evoke happiness, fear, darkness, melancholy, or tension.
@@ -25,10 +25,10 @@ Notable, pitch can be perceived in a range which is approximately the same for e
 If we assume the *Twelve-tone Equal Temperament* as a ginven, an *octave* is divided into 12 *semitones* of 100 *cents* each.
 Thus, an *octave* is divided into 1200 *cents*.
 In a range from 10 to 25 *cents*, depending on the listeners hearing and musical education or exposer, pitch differences can be perceived.
-In terms of a center frequency $f$, this gives us an interval defined by
+In terms of a center frequency $\omega$, this gives us an interval defined by
 
 \begin{equation}
-    f \cdot \lambda,
+    \omega \cdot \lambda,
 \end{equation}
 
 with $\lambda \in [-\epsilon;\epsilon]$ and

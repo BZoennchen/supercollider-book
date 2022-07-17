@@ -146,3 +146,16 @@ returns ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
 :class: attention
 ``sclang`` uses a *strictly left to right order of execution*.
 ```
+
+Especially in within control structures this can lead to bugs that are hard to find. 
+The following code prints ``'ho'`` the the post window.
+
+```isc
+(
+if(true || false && false,{
+    "hi".postln;
+}, {
+    "ho".postln;
+})
+)
+```

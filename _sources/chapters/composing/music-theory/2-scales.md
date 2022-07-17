@@ -33,10 +33,10 @@ The *chromatic scale*, which translates to *colorful scale*, consists of all twe
 $$\text{C, C#, D, D#, E, F, F#, G, G#, A, A#, B}.$$
 
 It is an extension of the [diatonic scale](sec-diatonic-scale).
-On an equally tempered piano, i.e., if the frequency of degree $d_i$ is $f_i$ then
+On an equally tempered piano, i.e., if the frequency of degree $d_i$ is $\omega_i$ then
 
 \begin{equation}
-    f_{i+1} = f_{i} \cdot 2^{1/12}
+    \omega_{i+1} = \omega_{i} \cdot 2^{1/12}
 \end{equation}
 
 for all $i$.
@@ -192,13 +192,13 @@ Let us first define a function that translates an order to degrees:
 ```isc
 (
 ~intervalToDegrees = {arg array;
-	var result = array.copy;
-	var sum = 0;
-	result[0] = 0;
-	for(0, array.size-2, {arg i;
-		result[i+1] = result[i]+array[i];
-	});
-	result;
+    var result = array.copy;
+    var sum = 0;
+    result[0] = 0;
+    for(0, array.size-2, {arg i;
+        result[i+1] = result[i]+array[i];
+    });
+    result;
 }
 )
 ```

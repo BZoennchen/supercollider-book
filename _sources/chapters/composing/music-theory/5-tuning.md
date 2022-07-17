@@ -17,8 +17,8 @@ However, the standard pitch has not always been 440 Hz, and there is still a lot
 This development is a comparatively recent development in the musical community, and the agreement is still fragile among musicians {cite}`loy:2006`.
 
 Interstingly, if we look at the intervals between harmonics we spot *simple ratios* for 12-TET.
-From the fundamental $f$ to the first overtone $2f$ we get the ratio $2/1$.
-From the first $2f$ to the second overtone $3f$ we get another simple ratio, i.e., $3/2$ following the intervals $4/3$, $5/4$ and $6/5$.
+From the fundamental $\omega$ to the first overtone $2\omega$ we get the ratio $2/1$.
+From the first $2\omega$ to the second overtone $3\omega$ we get another simple ratio, i.e., $3/2$ following the intervals $4/3$, $5/4$ and $6/5$.
 In general the $i$-th interval is equal to 
 
 \begin{equation}
