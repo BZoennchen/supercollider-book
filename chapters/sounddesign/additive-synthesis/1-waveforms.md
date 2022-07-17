@@ -6,7 +6,7 @@ Jean-Baptise Joseph Fourier discovered that every function that is
 1. **piecewise continuous** and
 2. **bounded**
 
-can be represented as a Fourier series.
+can be represented as a Fourier series, see [Spectral Analysis and Synthesis](sec-fourier).
 In theory, the Fourier series of many functions consists of infinitely many terms. Still, since our hardware resources are finite, we can only generate an approximation of the real thing.
 I call functions with these properties *signals*.
 

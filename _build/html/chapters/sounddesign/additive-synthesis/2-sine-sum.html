@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Subtractive Synthesis / Filters" href="../filters/filters.html" />
+    <link rel="next" title="Subtractive Synthesis" href="../filters/filters.html" />
     <link rel="prev" title="Fundamental Waveforms" href="1-waveforms.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -264,12 +264,44 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../math/intro.html">
+   Mathematical Foundation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/sampling.html">
+     Sampling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/complex.html">
+     Complex Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/fourier.html">
+     Spectral Analysis and Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/convolution.html">
+     Convolution
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="additive-synthesis.html">
    Additive Synthesis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -288,10 +320,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../filters/filters.html">
-   Subtractive Synthesis / Filters
+   Subtractive Synthesis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -334,11 +366,6 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../percussive-sound.html">
-   Percussive Sound
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../am.html">
    Amplitude Modulation
   </a>
@@ -348,10 +375,27 @@ const thebe_selector_output = ".output, .cell_output"
    Frequency Modulation
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../drones.html">
-   Drones
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../cookbook/intro.html">
+   Cookbook
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cookbook/drones.html">
+     Drones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cookbook/percussive-sound.html">
+     Percussive Sound
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../terms.html">
@@ -369,8 +413,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../composing/music-theory/music-theory.html">
    Music Theory
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -649,7 +693,7 @@ title="Print to PDF"
 <p>Let us recreate the <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without using the <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code> or <code class="docutils literal notranslate"><span class="pre">Saw</span></code> unit generator.
 Instead, we use a bunch of <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> oscillators.
 The following code generates the sound of the Fourier series approximation.
-I implemented Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(5)</a>.
+I implemented Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(29)</a>.
 You can change <code class="docutils literal notranslate"><span class="pre">n</span></code> to increase the number of harmonics.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
@@ -692,7 +736,7 @@ By introducing imperfections, the sound becomes more gentle.
 It is a balance between order and chaos.
 In summary, for a real violin</p>
 <ol class="simple">
-<li><p>the amplitudes of the harmonics deviate from Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(5)</a>,</p></li>
+<li><p>the amplitudes of the harmonics deviate from Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(29)</a>,</p></li>
 <li><p>they slightly deviate over time – each in a different way,</p></li>
 <li><p>and their power (amplitude) is a unique function of time.</p></li>
 </ol>
@@ -819,16 +863,16 @@ First, I have rewritten the series such that the sum is the most outer operation
 Secondly, I generate for each frequency one independent envelope with a random attack and release.
 Thirdly, I use a neat trick to decrease the envelope for high frequencies faster: I take power</p>
 <div class="math notranslate nohighlight" id="equation-eq-env-amplified">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-env-amplified" title="Permalink to this equation">#</a></span>\[    x \leftarrow x^{1 + \frac{k-1}{3}}\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-eq-env-amplified" title="Permalink to this equation">#</a></span>\[    x \leftarrow x^{1 + \frac{k-1}{3}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> is a value of the envelope (a series of numbers) of the <span class="math notranslate nohighlight">\(k^\text{th}\)</span>-harmonic.
 Compare the following two plots.</p>
 <div class="figure align-default" id="fig-add-synth-env-2">
 <a class="reference internal image-reference" href="../../../_images/add-synth-env_2.png"><img alt="../../../_images/add-synth-env_2.png" src="../../../_images/add-synth-env_2.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(12)</a> for <span class="math notranslate nohighlight">\(k = 2\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-2" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(36)</a> for <span class="math notranslate nohighlight">\(k = 2\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-2" title="Permalink to this image">#</a></p>
 </div>
 <div class="figure align-default" id="fig-add-synth-env-10">
 <a class="reference internal image-reference" href="../../../_images/add-synth-env_10.png"><img alt="../../../_images/add-synth-env_10.png" src="../../../_images/add-synth-env_10.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(12)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(36)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">#</a></p>
 </div>
 <p>Fourthly, I removed the <code class="docutils literal notranslate"><span class="pre">doneAction:</span> <span class="pre">Done.freeSelf</span></code> from the envelopes because this would shut down the synth as soon as the first envelope reached its end.
 The sound would abruptly end too early.
@@ -888,7 +932,7 @@ It executes the cleanup, that is, the action <code class="docutils literal notra
     <a class='right-next' id="next-link" href="../filters/filters.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Subtractive Synthesis / Filters</p>
+        <p class="prev-next-title">Subtractive Synthesis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

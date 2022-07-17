@@ -1,3 +1,4 @@
+(sec-resonance)=
 # Responses and Resonance
 
 To bring dynamic into the sound by a filter, we can do the obvious: change the cuttoff frequency over time!

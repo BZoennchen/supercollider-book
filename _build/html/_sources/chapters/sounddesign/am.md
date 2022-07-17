@@ -2,8 +2,12 @@
 # Amplitude Modulation
 
 If we modulate (change a value over time) the amplitude of an audible signal, we call this *amplitude modulation* (AM).
+We often speak of *amplitude modulation* when we modulate the amplitude within a value between 0 and 1 and use the term *ring modulation* if the modulator can also be negative.
+I put *amplitude* and [ring modulation](sec-rm) in the same basket.
+
 As we will see, the frequency range of the modulation has a significant effect on the result.
-But first, let's start with some simple math.
+If it is low, e.g., in the range of 20 Hz, we call it [low-frequency modulation](sec-lfo).
+But first, let's start with some math to understand better what is happening.
 
 ## Theory
 
@@ -24,7 +28,7 @@ A(t) = A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t)
 then our audio signal is defined by
 
 \begin{equation}
-y(t) = \left[A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \right] \cdot \cos(2 \pi f_\text{car} t)
+y(t) = \left(A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \right) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}
 
 which we can rewrite as
@@ -51,7 +55,7 @@ This looks complicated but if we look at the Fourier transformation of $y(t)$, w
 
 ## Effect
 
-If the modulation frequency is low, that is, in the range of $0$ and $20$ Hz, we can recognize a amplitude modulation by the change of amplitude in $y(t)$.
+If the modulation frequency is low, that is, in the range of $0$ and $20$ Hz, we can recognize an amplitude modulation by the change of amplitude in $y(t)$.
 However, if we choose a modulation frequency in the range of audible frequencies, we no longer really modulate the amplitude of the signal $y(t)$ but the frequencies of the signal.
 
 For example, if we use $A_\text{car} = A_\text{mod} = 1$ and $f_\text{car} = 400$ Hz, $f_\text{mod} = 250$ Hz, the signal consists of three frequencies:
@@ -158,8 +162,8 @@ If we play different notes by changing the carrier frequency without changing th
 The relationship between the frequency remains a fixed offset, such that for a high carrier/center frequency, the sum and difference frequencies are closer to the center frequency compared to low center frequencies.
 
 For almost all carrier frequencies, there are no harmonics present in the signal.
-This leads to a rather clangorous sound.
-This can be used to create aggressive and conventionally 'unmusical' sounds that change dramatically as one plays up and down the keyboard.
+This inharmonicity leads to a rather clangorous sound.
+It can be used to create aggressive and conventionally 'unmusical' sounds that change dramatically as one plays up and down the keyboard.
 
 We can control the amount of clangor by raising or lowering the level of the modulator $A_\text{mod}$.
 
@@ -198,8 +202,8 @@ Ndef(\am, {
 )
 ```
 
-If the ratio is an integer we get a harmonic relationship but this is a special case!
-In general the relationship is inharmonic and we increase the inharmonicity we use a ratio which is far away from a whole number!
+We get a harmonic relationship if the ratio is an integer, but this is a special case!
+In general, the relationship is inharmonic, and we increase the inharmonicity if we use a ratio far away from a whole number!
 
 Remember the frequencies the signal has are $(1 \pm r) \cdot f_\text{car}$ and $f_\text{car}$.
 So the coefficients in order they are:
@@ -240,10 +244,10 @@ Instead of using sine waves we can also use other signals, for example we could 
 If the carrier signal consist of frequencies equal to $f_{\text{car},1}, \ldots, f_{\text{car},n}$ and the modulator consists of frequencies $f_{\text{mod},1}, \ldots, f_{\text{mod},m}$, then the resulting signal will consist of frequencies:
 
 \begin{equation}
-f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}
+f_{\text{car},1}, \ldots , f_{\text{car},n}, f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}
 \end{equation}
 
-thus it consists of $n \cdot m$ frequencies (if nothing cancels out).
+thus it consists of $(n+1) \cdot m$ frequencies (if nothing cancels out).
 Consequently, AM can generate complex signals with a rich frequency spectrum in a computational inexpensive way.
 
 ```isc

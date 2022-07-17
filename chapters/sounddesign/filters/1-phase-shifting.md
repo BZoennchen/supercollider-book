@@ -8,7 +8,7 @@ Let us combine two sine waves.
 First two identical ones
 
 \begin{equation}
-y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t),
+y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t) = 2 \sin(2\pi \omega t),
 \end{equation}
 
 ```isc
@@ -18,7 +18,7 @@ y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t),
 and then two where the second one is phase-shifted by $\pi$ that is
 
 \begin{equation}
-y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0.
+y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t + \pi) = \sin(2\pi \omega t) - \sin(2\pi \omega t + \pi) = 0.
 \end{equation}
 
 ```isc
@@ -54,20 +54,20 @@ Compare this to the sound of a regular sawtooth wave:
 ```
 
 We clearly hear some differences, and if we do the math, we can see why!
-As before, the fundamentals of frequency $f$ Hz cancel each other out.
-However, the next harmonic with frequency $2f$ Hz is reinforced, i.e., its amplitude is doubled.
-This is because after $1/(2f)$ seconds this harmonic has gone through $(2f)/(2f) = 1$ cycle.
+As before, the fundamentals of frequency $\omega$ Hz cancel each other out.
+However, the next harmonic with frequency $2\omega$ Hz is reinforced, i.e., its amplitude is doubled.
+This is because after $1/(2\omega)$ seconds this harmonic has gone through $(2\omega)/(2\omega) = 1$ cycle.
 
 In the fact, the amplitude of each even harmonic is reinforced since
 
 \begin{equation}
-\frac{2nf}{2f} = n 
+\frac{2n\omega}{2\omega} = n 
 \end{equation}
 
 is a whole number but each odd harmonic gets canceled out since
 
 \begin{equation}
-\frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2}
+\frac{n\omega}{2\omega} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}
 
 where $n$ is an odd number and $k \in \mathbb{N}_0$ (one odd harmonic starts at the beginning of a cycle while the second one half way through).

@@ -65,7 +65,7 @@ Let us listen to *white noise* using ``WhiteNoise``.
 Note that we can not define the frequency since noise consist of a wide range of frequencies.
 *White noise* sounds similar to a FM radio while searching for a channel.
 
-```{figure} ../../figs/sounddesign/whitenoise.png
+```{figure} ../../../figs/sounddesign/whitenoise.png
 ---
 width: 600px
 name: fig-whitenoise
@@ -101,7 +101,7 @@ The spectrum of *brown noise* ``BrownNoise`` falls even faster, that is, 6 dB in
 The so called *clip noise* ``ClipNoise`` is even a little more harsh than ``WhiteNoise``.
 It generates a high frequency stream of 1, -1 with equal probability.
 
-```{figure} ../../figs/sounddesign/clipnoise.png
+```{figure} ../../../figs/sounddesign/clipnoise.png
 ---
 width: 600px
 name: fig-clipnoise
@@ -133,8 +133,8 @@ Ndef(\pink_noise, {
 (
 Ndef(\white_noise, {
     var sig;
-	sig = (Mix.fill(1000, {SinOsc.ar(rrand(1.0, 20000))})*0.001)!2;
-	sig
+    sig = (Mix.fill(1000, {SinOsc.ar(rrand(1.0, 20000))})*0.001)!2;
+    sig
 }).play;
 )
 ```
@@ -146,10 +146,27 @@ Using ``WhiteNoise`` or ``PinkNoise`` leads to almost no CPU workload.
 
 ### Drums
 
-To generate a drum like sound we start with two components:
+To generate a drum like sound we start with the following components:
 
-1. a noise generator, and
-2. a sine wave.
+1. a noise generator,
+2. a sine wave,
+3. a percussive envelope, and
+4. additional filters (optional)
+
+Let's start with a ``WhiteNoise`` and let us control the release and a low pass filter by the position of our mouse cursor.
+
+```isc
+(fork{
+    loop{
+    {
+        var env = Env.perc(0.00001, MouseY.kr(1, 0.1, 1)).ar(doneAction:Done.freeSelf);
+        var sig = LPF.ar(WhiteNoise.ar(1), MouseX.kr(200,20000, 1));
+        sig * env;
+    }.play;
+    0.5.wait;
+    }
+})
+```
 
 The noise generator approximates the complex sound of the wobbling drum membrane while the sine wave adds the typical *base of impact*.
 Using *gray noise* combined with a low frequency ``SinOsc`` controlled by an percussive envelope, we already achieve a quite convincing sound of a drum:

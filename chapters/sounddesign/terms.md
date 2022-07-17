@@ -134,7 +134,7 @@ The *waveform* of a *signal* is the shape of its graph as a function of time, in
 Waveforms can be *periodic* or *aperiodic*.
 A periodic waveform can be *simple* (e.g. a single sine wave) or *complex* and an aperiodic waveform can be *continuous* (e.g. noise) or *transient* (e.g. impulse).
 
-The simplest and most fundamental waveform is the sine wave
+The simplest and most fundamental waveform is a **sinusoid**
 
 \begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
