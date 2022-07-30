@@ -206,7 +206,17 @@ Therefore, we get
 \end{split}
 ```
 
-for the sine function and 
+for the sine function.
+
+```{figure} ../../../figs/sounddesign/math/taylor_sin.png
+---
+width: 800px
+name: fig-taylor-sine
+---
+*Taylor series* that approximates $\sin(x)$ at $x=0$ using $1, 2, 3, 4, 5$ terms.
+```
+
+And we get 
 
 ```{math}
 :label: eq:taylor:cos
@@ -219,12 +229,12 @@ for the sine function and
 
 for the cosine function.
 
-```{figure} ../../../figs/sounddesign/math/taylor_sin.png
+```{figure} ../../../figs/sounddesign/math/taylor_cos.png
 ---
-width: 400px
-name: fig-taylor-sine
+width: 800px
+name: fig-taylor-cos
 ---
-*Taylor series* that approximates $\sin(x)$ at $x=0$ using $1, 2, 3, 4, 5$ terms.
+*Taylor series* that approximates $\cos(x)$ at $x=0$ using $1, 2, 3, 4, 5$ terms.
 ```
 
 Furthermore, the natural exponential function has a quite nice form too
@@ -242,7 +252,7 @@ Note that we donte $e^x$ by $\text{exp}(x)$.
 
 ```{figure} ../../../figs/sounddesign/math/taylor_exp.png
 ---
-width: 400px
+width: 300px
 name: fig-taylor-exp
 ---
 *Taylor series* that approximates $e^x$ at $x=0$ using $1, 2, 3, 4, 5$ terms.

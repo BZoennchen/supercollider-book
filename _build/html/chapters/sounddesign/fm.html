@@ -742,19 +742,19 @@ As a consequence of the success of <em>FM synthesis</em>, the company sold milli
 <div class="section" id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9f3677d-842c-4be3-b9d7-b134fe7c5a84">
-<span class="eqno">(64)<a class="headerlink" href="#equation-c9f3677d-842c-4be3-b9d7-b134fe7c5a84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-abb24936-d720-4dc1-a720-efaa69405e6b">
+<span class="eqno">(65)<a class="headerlink" href="#equation-abb24936-d720-4dc1-a720-efaa69405e6b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a910097a-0e9a-4cfc-a66d-d8842f83951a">
-<span class="eqno">(65)<a class="headerlink" href="#equation-a910097a-0e9a-4cfc-a66d-d8842f83951a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-229f5e80-4331-417b-a829-800f1a94ebcc">
+<span class="eqno">(66)<a class="headerlink" href="#equation-229f5e80-4331-417b-a829-800f1a94ebcc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3f32c49-cca8-44bc-b434-da0b2dd43c36">
-<span class="eqno">(66)<a class="headerlink" href="#equation-e3f32c49-cca8-44bc-b434-da0b2dd43c36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af86c501-ecae-4723-9be1-caa51ed06949">
+<span class="eqno">(67)<a class="headerlink" href="#equation-af86c501-ecae-4723-9be1-caa51ed06949" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -832,7 +832,7 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 </div>
 <div class="figure align-default" id="fig-fm-cycle-high-freq">
 <a class="reference internal image-reference" href="../../_images/fm-cycle-high-freq.png"><img alt="../../_images/fm-cycle-high-freq.png" src="../../_images/fm-cycle-high-freq.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 40 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
 </div>
 <p>If we look at the stethoscope, we observe multiple sidebands, i.e., there are numerous frequencies apart from the fundamental frequency (which is equal to the carrier frequency) present.
 How many frequencies are present?
@@ -843,7 +843,7 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 <p>with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p>
 <div class="figure align-default" id="fig-fm-side-band-frequencies">
 <a class="reference internal image-reference" href="../../_images/fm-side-band-frequencies.png"><img alt="../../_images/fm-side-band-frequencies.png" src="../../_images/fm-side-band-frequencies.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 41 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
 </div>
 <p>If we want to keep the same sideband relation for different carrier frequencies, we have to compute the <em>modulation frequency</em> based on the <em>carrier frequency</em>.
 In other words, we have to correlate these two frequencies.</p>
@@ -905,7 +905,7 @@ This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
 <p>The series is a converging series and especially in our case where <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> is not too large, the values of each term become very small very quick.</p>
 <div class="figure align-default" id="fig-bessel-function">
 <a class="reference internal image-reference" href="../../_images/bessel-function.png"><img alt="../../_images/bessel-function.png" src="../../_images/bessel-function.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
+<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
 Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">#</a></p>
 </div>
 <p>As we can see, <span class="math notranslate nohighlight">\(A_{ \text{sb},n^{\pm} }\)</span> depend only on <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> but oscillate for increasing <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>!</p>
@@ -924,8 +924,8 @@ The larger the index, the larger the bandwidth.</p>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f79224e-4b70-4bd9-8060-56eb4bf8a160">
-<span class="eqno">(67)<a class="headerlink" href="#equation-1f79224e-4b70-4bd9-8060-56eb4bf8a160" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4db18911-4ebc-4f27-9829-7aedd58df11f">
+<span class="eqno">(68)<a class="headerlink" href="#equation-4db18911-4ebc-4f27-9829-7aedd58df11f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </div>

@@ -1,4 +1,4 @@
-#from pygments.lexers.asm import CppLexer
+from pygments.lexers.asm import CppLexer
 from pygments.lexers.supercollider import SuperColliderLexer
 from pygments.token import Name, Keyword
 
