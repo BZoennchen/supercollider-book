@@ -13,9 +13,12 @@ kernelspec:
 (sec-fourier)=
 # Spectral Analysis and Synthesis
 
-How can we compute the pitch of a played piano key by analysing the signal genereated by the piano and how can we recreate that sound?
-Spectral Analysis and synthesis gives us the answer.
-Instead of representing sound in the time domain, we can go into the frequency domain.
+Given the signal $y(t)$ of a played piano key, how can we compute the pitch and how can we recreate that sound?
+Spectral analysis and synthesis gives us the answer.
+It combines two representations of sound:
+
+1. Inverse Fourier transform: a signal in the time domain $y(t)$
+2. Fourier transform: a signal in the frequency domain $Y(f)$
 
 ## Fourier Synthesis
 
