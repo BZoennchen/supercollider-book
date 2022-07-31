@@ -785,23 +785,34 @@ For example, the (periodic) <a class="reference internal" href="../additive-synt
 </div>
 <p>In <em>Fourier analysis</em> we decompose functions depending on space or <strong>time</strong> into functions depending on spatial frequency or <strong>temporal frequency</strong>.
 It provides a way to measure the strengths of individual components of a harmonic signal.
-It starts with a time domain signal <span class="math notranslate nohighlight">\(x(t)\)</span> and interprets it as a kind of recipe describing the spectral components and their strength that must be combined in order to preduce the corresponding frequency domain signal <span class="math notranslate nohighlight">\(X(f)\)</span>.</p>
+It starts with a time domain signal <span class="math notranslate nohighlight">\(y(t)\)</span> and interprets it as a kind of recipe describing the spectral components and their strength that must be combined in order to preduce the corresponding frequency domain signal <span class="math notranslate nohighlight">\(Y(f)\)</span>.</p>
 </div>
 <div class="section" id="fourier-transform">
 <h2>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this headline">#</a></h2>
 <p>The <em>Fourier transform</em> is the combination of <em>Fourier analysis</em> and <em>Fourier synthesis</em>.
 Together they are called a <em>transform pair</em> because (ideally) the spectrum of a wave created by <em>Fourier synthesis</em> may be perfectly analyzed by <em>Fourier analysis</em>, and vice versa, with no loss of information.
-A transform is just a way to represent the same information in an equivalent form.</p>
+A transform is just a way to represent the same information in an equivalent form.
+I call the tuple <span class="math notranslate nohighlight">\((y(t), Y(f))\)</span> the <em>Fourier transform</em>.
+However, sometimes we refer to <span class="math notranslate nohighlight">\(Y(f)\)</span> as the <em>Fourier transform</em>.</p>
 </div>
 <div class="section" id="similarity-of-periodic-functions">
 <h2>Similarity of Periodic Functions<a class="headerlink" href="#similarity-of-periodic-functions" title="Permalink to this headline">#</a></h2>
-<p>In the following I use <span class="math notranslate nohighlight">\(\omega = 2\pi \cdot f\)</span>.
-Let us assume Fourier is right, i.e. we can reconstruct any <em>piecewise continuous</em> and <em>bounded</em> function <span class="math notranslate nohighlight">\(y(t)\)</span> by an infinite sum of <em>sine</em> and <em>cosine</em> waves, i.e.</p>
+<p>Let us assume Fourier is right, i.e. we can reconstruct any <em>piecewise continuous</em> and <em>bounded</em> function <span class="math notranslate nohighlight">\(y(t)\)</span> by an infinite sum of <em>sine</em> and <em>cosine</em> waves, i.e.</p>
 <div class="math notranslate nohighlight">
-\[y(t) = \sum_{k=1}^\infty A_k \sin(\omega_k t + \alpha_k) + B_i \sin(\omega_k t + \beta_k)\]</div>
+\[y(t) = \sum_{k=1}^\infty A_k \sin(2\pi \cdot (f_k t - \alpha_k)) + B_k \sin(2\pi (f_k t - \beta_k))\]</div>
 <p>Computing <em>sinusoidals</em> that are similar to <span class="math notranslate nohighlight">\(y(t)\)</span> seems to be a good idea.
 Functions are similar if their product result in a positive function.
 In other words, if the integral of their product is positive.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="c1">// generate the y(t) * sin(2*pi*u)</span>
+<span class="p">{[</span>
+    <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> 
+    <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="o">*</span><span class="nx">pi</span><span class="p">),</span>
+    <span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">]}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <div class="figure align-default" id="fig-sin-product">
 <a class="reference internal image-reference" href="../../../_images/sin_product.jpeg"><img alt="../../../_images/sin_product.jpeg" src="../../../_images/sin_product.jpeg" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Product <span class="math notranslate nohighlight">\(y(t) \cdot \sin(2\pi t)\)</span> for different <span class="math notranslate nohighlight">\(y(t)\)</span>.</span><a class="headerlink" href="#fig-sin-product" title="Permalink to this image">#</a></p>
@@ -812,6 +823,14 @@ In other words, if the integral of their product is positive.</p>
 <p>and let</p>
 <div class="math notranslate nohighlight">
 \[g_k(t) = y(t) \cdot \sin(2\pi \cdot k \cdot t).\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sines</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);});</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">Mix</span><span class="p">(</span><span class="nx">sines</span><span class="p">);</span>
+    <span class="p">[</span><span class="nx">y</span><span class="p">]</span><span class="o">++</span><span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">y</span><span class="o">*</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)});</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <div class="figure align-default" id="fig-saw-analysis">
 <a class="reference internal image-reference" href="../../../_images/saw_analysis.jpeg"><img alt="../../../_images/saw_analysis.jpeg" src="../../../_images/saw_analysis.jpeg" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Multiplying functions: <span class="math notranslate nohighlight">\(y(t)\)</span> in the upper left corner. In blue <span class="math notranslate nohighlight">\(\sin(2\pi \cdot k \cdot t)\)</span>, in orange the product <span class="math notranslate nohighlight">\(g_k(t)\)</span> and in green the integral <span class="math notranslate nohighlight">\(\int_{0}^t g_k(t) dt\)</span>.</span><a class="headerlink" href="#fig-saw-analysis" title="Permalink to this image">#</a></p>
@@ -845,6 +864,24 @@ In other words, if the integral of their product is positive.</p>
 &amp;= \int_{-\infty}^\infty h_{i,j}(t) dt
 \end{split}\end{split}\]</div>
 <p>holds.</p>
+<div class="theorem admonition" id="theorem-perp-sine">
+<p class="admonition-title">Perpendicular Functions</p>
+<p>For all <span class="math notranslate nohighlight">\(i,j \in \mathbb{N}\)</span> with <span class="math notranslate nohighlight">\(i \neq j\)</span></p>
+<div class="math notranslate nohighlight">
+\[\int_0^1 \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt = \int_{-\infty}^\infty \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt= 0\]</div>
+<p>holds. We say that <span class="math notranslate nohighlight">\(\sin(2\pi i \cdot t)\)</span> is <em>perpendicular</em> to <span class="math notranslate nohighlight">\(\sin(2\pi j \cdot t)\)</span>.</p>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span> <span class="c1">// generate sin(2*pi*i*x) * sin(2*pi*j*x)</span>
+    <span class="kd">var</span> <span class="nx">sines</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);});</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">Mix</span><span class="p">(</span><span class="nx">sines</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">indices</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">col</span><span class="p">;</span> <span class="p">[</span><span class="nx">row</span><span class="p">,</span><span class="nx">col</span><span class="p">];}).</span><span class="nx">flatten</span><span class="p">;</span>
+    <span class="nx">indices</span><span class="p">.</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">index</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">index</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">});</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <div class="figure align-default" id="fig-sine-perp">
 <a class="reference internal image-reference" href="../../../_images/sine_perp.jpeg"><img alt="../../../_images/sine_perp.jpeg" src="../../../_images/sine_perp.jpeg" style="width: 800px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text"><span class="math notranslate nohighlight">\(\sin(2\pi i \cdot t )\)</span> in blue, <span class="math notranslate nohighlight">\(\sin(2\pi j \cdot t)\)</span> in orange and <span class="math notranslate nohighlight">\(h_{i,j}(t)\)</span> in green.</span><a class="headerlink" href="#fig-sine-perp" title="Permalink to this image">#</a></p>
@@ -857,9 +894,40 @@ If two vectors <span class="math notranslate nohighlight">\(\mathbf{a}, \mathbf{
 <p>is zero.
 Their inner product is large if they are similar.
 We can define the inner product of two functions <span class="math notranslate nohighlight">\(h: \mathbb{R} \rightarrow \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(g: \mathbb{R} \rightarrow \mathbb{R}\)</span> in a similar fashion.
-The sum changes to an integral:</p>
+The sum changes to an integral.</p>
+<div class="definition admonition" id="def-scalar-product">
+<p class="admonition-title">Inner Product of Two Functions</p>
+<p>Let <span class="math notranslate nohighlight">\(h: \mathbb{R} \rightarrow \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(g: \mathbb{R} \rightarrow \mathbb{R}\)</span> then</p>
 <div class="math notranslate nohighlight" id="equation-eq-inner-product">
 <span class="eqno">(22)<a class="headerlink" href="#equation-eq-inner-product" title="Permalink to this equation">#</a></span>\[    &lt;h,g&gt; := \int_{t \in \mathbb{R}} h(t)g(t) dt\]</div>
+<p>is the inner product of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.</p>
+</div>
+<p>We can reformulate the problem of similarity using an optimization problem.
+Let us start with an analog signal first.
+And let us consider the basis for all possible audio signals, i.e., the <strong>sinusoid</strong> which is a function <span class="math notranslate nohighlight">\(\sin_{f,\phi} : \mathbb{R} \rightarrow \mathbb{R}\)</span> defined by</p>
+<div class="math notranslate nohighlight" id="equation-eq-sinusoid">
+<span class="eqno">(23)<a class="headerlink" href="#equation-eq-sinusoid" title="Permalink to this equation">#</a></span>\[    \sin_{f,\phi}(t) = A \cdot \sin(2\pi(f t - \phi))\]</div>
+<p>for <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span>.
+As we know, the parameter <span class="math notranslate nohighlight">\(A\)</span> corresponds to the <strong>amplitude</strong>, the parameter <span class="math notranslate nohighlight">\(f\)</span> to the <strong>frequency</strong> (measured in Hz), and the parameter <span class="math notranslate nohighlight">\(\phi\)</span> to the <strong>phase</strong> (measured in normalized radians with 1 corresponding to an angle of 360 degrees).</p>
+<p>In the <em>Fourier analysis</em>, we consider prototype oscillations that are normalized with regard to their power (average energy) by setting <span class="math notranslate nohighlight">\(A = \sqrt{2}\)</span>.
+Thus for each frequency parameter <span class="math notranslate nohighlight">\(f\)</span> and phase parameter <span class="math notranslate nohighlight">\(\phi\)</span> we obtain a sinusoid <span class="math notranslate nohighlight">\(\cos_{f,\phi}: \mathbb{R} \rightarrow \mathbb{R}\)</span> given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-sinusoid-norm">
+<span class="eqno">(24)<a class="headerlink" href="#equation-eq-sinusoid-norm" title="Permalink to this equation">#</a></span>\[    \cos_{f,\phi}(t) = \sqrt{2} \cos(2\pi(f t - \phi)) = \sin_{f,\phi+1/2}(t)\]</div>
+<p>for <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span>.
+Note that we get the same function for all <span class="math notranslate nohighlight">\(\phi + k\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>.</p>
+<p>To model a signal <span class="math notranslate nohighlight">\(y(t)\)</span> by <span class="math notranslate nohighlight">\(\cos_{f,\phi}(t)\)</span>, we want to find the best parameters <span class="math notranslate nohighlight">\(f, \phi\)</span> such that we get the <em>best approximation</em> of <span class="math notranslate nohighlight">\(y(t)\)</span>.
+In other words, we are searching for <span class="math notranslate nohighlight">\(f, \phi\)</span> such that <span class="math notranslate nohighlight">\(y(t)\)</span> and <span class="math notranslate nohighlight">\(\cos_{f,\phi}(t)\)</span> are <em>most similar</em>.</p>
+<p>For a fixed frequency <span class="math notranslate nohighlight">\(f \in \mathbb{R}\)</span>, we define</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-max">
+<span class="eqno">(25)<a class="headerlink" href="#equation-eq-fourier-max" title="Permalink to this equation">#</a></span>\[    d_f := \max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} y(t) \cos_{f, \phi}(t) dt \right) = \max\limits_{\phi \in [0;1)} &lt;y,\cos_{f, \phi}&gt; \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-maxarg">
+<span class="eqno">(26)<a class="headerlink" href="#equation-eq-fourier-maxarg" title="Permalink to this equation">#</a></span>\[    \phi_f := \arg\max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} y(t) \cos_{f, \phi}(t) dt \right) = \arg\max\limits_{\phi \in [0;1)} &lt;y,\cos_{f, \phi}&gt; \]</div>
+<p>where <span class="math notranslate nohighlight">\(d_f\)</span> is the magnitude coefficient expressing the intensity of frequency <span class="math notranslate nohighlight">\(f\)</span> within the signal <span class="math notranslate nohighlight">\(y(t).\)</span>
+Additionally, the phase coefficient <span class="math notranslate nohighlight">\(\phi_f \in [0;1)\)</span> tells us how the sinusoid of frequency <span class="math notranslate nohighlight">\(f\)</span> needs to be displaced in time to best fit the signal <span class="math notranslate nohighlight">\(f\)</span>.
+In the example above we knew that for all frequencies <span class="math notranslate nohighlight">\(\phi = 0.5\)</span> holds.
+Furthermore, we knew all the frequencies <span class="math notranslate nohighlight">\(f\)</span> such that <span class="math notranslate nohighlight">\(&lt;y,\cos_{f, \phi}&gt; = 0.\)</span>
+If we would have used <span class="math notranslate nohighlight">\(A = \sqrt{2}\)</span> instead of <span class="math notranslate nohighlight">\(A = 1\)</span>, the coefficient would have been <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{2}k}\)</span> instead of <span class="math notranslate nohighlight">\(\frac{1}{2k}\)</span>.</p>
+<p>The <strong>Fourier transform</strong> <span class="math notranslate nohighlight">\((y(t), Y(f))\)</span> is a tuple conistent of a function <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{R}\)</span> and the collection <span class="math notranslate nohighlight">\(Y(f)\)</span> of all coefficients <span class="math notranslate nohighlight">\(d_f\)</span> and <span class="math notranslate nohighlight">\(\phi_f\)</span> for <span class="math notranslate nohighlight">\(f \in \mathbb{R}\)</span>.</p>
 </div>
 <div class="section" id="todo">
 <h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">#</a></h2>
@@ -877,20 +945,6 @@ Instead of representing the sound by a signal, i.e., amplitudes <span class="mat
 <p>While the signal displays the information across time, the Fourier transform displays the information across frequencies.
 The signal tells us when certain notes are played in time, but hides the information about frequencies.
 In contrast, the Fourier transform of music displays which notes (frequencies) are played, but hides the information about when the notes are played.</p>
-<p>Let us start with an analog signal first.
-And let us consider the basis for all possible audio signals, i.e., the <strong>sinusoid</strong> which is a function <span class="math notranslate nohighlight">\(y : \mathbb{R} \rightarrow \mathbb{R}\)</span> defined by</p>
-<div class="math notranslate nohighlight" id="equation-eq-sinusoid">
-<span class="eqno">(23)<a class="headerlink" href="#equation-eq-sinusoid" title="Permalink to this equation">#</a></span>\[    y(t) = A \cdot \sin(2\pi(f t - \phi))\]</div>
-<p>for <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span>.
-As we know, the parameter <span class="math notranslate nohighlight">\(A\)</span> corresponds to the <strong>amplitude</strong>, the parameter <span class="math notranslate nohighlight">\(f\)</span> to the <strong>frequency</strong> (measured in Hz), and the parameter <span class="math notranslate nohighlight">\(\phi\)</span> to the <strong>phase</strong> (measured in normalized radians with 1 corresponding to an angle of 360 degrees).</p>
-<p>In the <em>Fourier analysis</em>, we consider prototype oscillations that are normalized with regard to their power (average energy) by setting <span class="math notranslate nohighlight">\(A = \sqrt{2}\)</span>.
-Thus for each frequency parameter <span class="math notranslate nohighlight">\(f\)</span> and phase parameter <span class="math notranslate nohighlight">\(\phi\)</span> we obtain a sinusoid <span class="math notranslate nohighlight">\(\cos_{f,\phi}: \mathbb{R} \rightarrow \mathbb{R}\)</span> given by</p>
-<div class="math notranslate nohighlight" id="equation-eq-sinusoid-norm">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eq-sinusoid-norm" title="Permalink to this equation">#</a></span>\[    \cos_{f,\phi}(t) = \sqrt{2} \cos(2\pi(f t - \phi))\]</div>
-<p>for <span class="math notranslate nohighlight">\(t \in \mathbb{R}\)</span>.
-Note that we get the same function for all <span class="math notranslate nohighlight">\(\phi + k\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span>.</p>
-<p>To model a signal <span class="math notranslate nohighlight">\(f(t)\)</span> by <span class="math notranslate nohighlight">\(\cos_{f,\phi}(t)\)</span> we want to find the best parameters <span class="math notranslate nohighlight">\(f, \phi\)</span> such that we get the <em>best approximation</em> of <span class="math notranslate nohighlight">\(f(t)\)</span>.
-In other words, we are searching for <span class="math notranslate nohighlight">\(f, \phi\)</span> such that <span class="math notranslate nohighlight">\(g(t)\)</span> and <span class="math notranslate nohighlight">\(\cos_{f,\phi}(t)\)</span> are <em>most similar</em>.</p>
 <p>For example,</p>
 <div class="math notranslate nohighlight">
 \[\int_{0}^1 \cos_{1,0}(t)\cos_{1,0.5}(t) dt = -1\]</div>
@@ -902,13 +956,6 @@ In other words, we are searching for <span class="math notranslate nohighlight">
 \[\int_{0}^1 \cos_{1,0}(t)\cos_{1,0}(t) dt = 1.\]</div>
 <p>If the term perpendicular is defined via the inner product one can say that <span class="math notranslate nohighlight">\(\cos_{1,0}\)</span> is perpendicular to <span class="math notranslate nohighlight">\(\cos_{1,0.25}\)</span>.
 Furthermore, <span class="math notranslate nohighlight">\(\cos_{1,0}\)</span> and <span class="math notranslate nohighlight">\(\cos_{1,0.5}\)</span> are very similar but they point in the opposite direction.</p>
-<p>For a fixed frequency <span class="math notranslate nohighlight">\(f \in \mathbb{R}\)</span>, we define</p>
-<div class="math notranslate nohighlight" id="equation-eq-fourier-max">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eq-fourier-max" title="Permalink to this equation">#</a></span>\[    d_f := \max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} f(t) \cos_{f, \phi}(t) dt \right)\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-fourier-maxarg">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eq-fourier-maxarg" title="Permalink to this equation">#</a></span>\[    \phi_f := \arg\max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} f(t) \cos_{f, \phi}(t) dt \right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(d_f\)</span> is the magnitude coefficient expressing the intensity of frequency <span class="math notranslate nohighlight">\(f\)</span> within the signal <span class="math notranslate nohighlight">\(f\)</span>.
-Additionally, the phase coefficient <span class="math notranslate nohighlight">\(\phi_f in [0;1)\)</span> tells us how the sinusoid of frequency <span class="math notranslate nohighlight">\(f\)</span> needs to be displaced in time to best fit the signal <span class="math notranslate nohighlight">\(f\)</span>. The <strong>Fourier transform</strong> of a function <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span> is defined to be the collection of all coefficients <span class="math notranslate nohighlight">\(d_f\)</span> and <span class="math notranslate nohighlight">\(\phi_f\)</span> for <span class="math notranslate nohighlight">\(f \in \mathbb{R}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test</span>
