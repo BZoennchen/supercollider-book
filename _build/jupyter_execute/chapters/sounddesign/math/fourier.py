@@ -61,24 +61,36 @@
 # 
 # In *Fourier analysis* we decompose functions depending on space or **time** into functions depending on spatial frequency or **temporal frequency**.
 # It provides a way to measure the strengths of individual components of a harmonic signal.
-# It starts with a time domain signal $x(t)$ and interprets it as a kind of recipe describing the spectral components and their strength that must be combined in order to preduce the corresponding frequency domain signal $X(f)$.
+# It starts with a time domain signal $y(t)$ and interprets it as a kind of recipe describing the spectral components and their strength that must be combined in order to preduce the corresponding frequency domain signal $Y(f)$.
 # 
 # ## Fourier Transform
 # 
 # The *Fourier transform* is the combination of *Fourier analysis* and *Fourier synthesis*.
 # Together they are called a *transform pair* because (ideally) the spectrum of a wave created by *Fourier synthesis* may be perfectly analyzed by *Fourier analysis*, and vice versa, with no loss of information.
 # A transform is just a way to represent the same information in an equivalent form.
+# I call the tuple $(y(t), Y(f))$ the *Fourier transform*.
+# However, sometimes we refer to $Y(f)$ as the *Fourier transform*.
 # 
 # ## Similarity of Periodic Functions
 # 
-# In the following I use $\omega = 2\pi \cdot f$.
 # Let us assume Fourier is right, i.e. we can reconstruct any *piecewise continuous* and *bounded* function $y(t)$ by an infinite sum of *sine* and *cosine* waves, i.e.
 # 
-# $$y(t) = \sum_{k=1}^\infty A_k \sin(\omega_k t + \alpha_k) + B_i \sin(\omega_k t + \beta_k)$$
+# $$y(t) = \sum_{k=1}^\infty A_k \sin(2\pi \cdot (f_k t - \alpha_k)) + B_k \sin(2\pi (f_k t - \beta_k))$$
 # 
 # Computing *sinusoidals* that are similar to $y(t)$ seems to be a good idea.
 # Functions are similar if their product result in a positive function.
 # In other words, if the integral of their product is positive.
+# 
+# ```isc
+# ( // generate the y(t) * sin(2*pi*u)
+# {[
+#     SinOsc.ar(1) * SinOsc.ar(1), 
+#     LFSaw.ar(1) * SinOsc.ar(1),
+#     SinOsc.ar(1) * SinOsc.ar(1,0.5*pi),
+#     LFTri.ar(0.5)*(-1)*SinOsc.ar(1)
+# ]}.plot(1)
+# )
+# ```
 # 
 # ```{figure} ../../../figs/sounddesign/math/sin_product.jpeg
 # ---
@@ -95,6 +107,15 @@
 # and let 
 # 
 # $$g_k(t) = y(t) \cdot \sin(2\pi \cdot k \cdot t).$$
+# 
+# ```isc
+# ({
+#     var sines = Array.fill(8, {arg i; 1/(i+1) * SinOsc.ar(i+1);});
+#     var y = Mix(sines);
+#     [y]++Array.fill(8, {arg i; y*SinOsc.ar(i+1)});
+# }.plot(1)
+# )
+# ```
 # 
 # ```{figure} ../../../figs/sounddesign/math/saw_analysis.jpeg
 # ---
@@ -147,6 +168,29 @@
 # 
 # holds.
 # 
+# ```{admonition} Perpendicular Functions
+# :name: theorem-perp-sine
+# :class: theorem
+# 
+# For all $i,j \in \mathbb{N}$ with $i \neq j$ 
+# 
+# $$\int_0^1 \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt = \int_{-\infty}^\infty \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt= 0$$
+# 
+# holds. We say that $\sin(2\pi i \cdot t)$ is *perpendicular* to $\sin(2\pi j \cdot t)$.
+# ```
+# 
+# ```isc
+# ({ // generate sin(2*pi*i*x) * sin(2*pi*j*x)
+#     var sines = Array.fill(3, {arg i; 1/(i+1) * SinOsc.ar(i+1);});
+#     var y = Mix(sines);
+#     var indices = Array.fill2D(3, 3, {arg row, col; [row,col];}).flatten;
+#     indices.collect({arg index; var i = index[0], j = index[1];
+#         SinOsc.ar(i+1)*SinOsc.ar(j+1)
+#     });
+# }.plot(1)
+# )
+# ```
+# 
 # ```{figure} ../../../figs/sounddesign/math/sine_perp.jpeg
 # ---
 # width: 800px
@@ -165,12 +209,66 @@
 # is zero.
 # Their inner product is large if they are similar.
 # We can define the inner product of two functions $h: \mathbb{R} \rightarrow \mathbb{R}$ and $g: \mathbb{R} \rightarrow \mathbb{R}$ in a similar fashion.
-# The sum changes to an integral:
+# The sum changes to an integral.
+# 
+# ````{admonition} Inner Product of Two Functions
+# :name: def-scalar-product
+# :class: definition
+# 
+# Let $h: \mathbb{R} \rightarrow \mathbb{R}$ and $g: \mathbb{R} \rightarrow \mathbb{R}$ then 
 # 
 # ```{math}
 # :label: eq:inner:product
 #     <h,g> := \int_{t \in \mathbb{R}} h(t)g(t) dt
 # ```
+# is the inner product of $h$ and $g$.
+# ````
+# 
+# We can reformulate the problem of similarity using an optimization problem.
+# Let us start with an analog signal first.
+# And let us consider the basis for all possible audio signals, i.e., the **sinusoid** which is a function $\sin_{f,\phi} : \mathbb{R} \rightarrow \mathbb{R}$ defined by 
+# 
+# ```{math}
+# :label: eq:sinusoid
+#     \sin_{f,\phi}(t) = A \cdot \sin(2\pi(f t - \phi))
+# ```
+# 
+# for $t \in \mathbb{R}$.
+# As we know, the parameter $A$ corresponds to the **amplitude**, the parameter $f$ to the **frequency** (measured in Hz), and the parameter $\phi$ to the **phase** (measured in normalized radians with 1 corresponding to an angle of 360 degrees).
+# 
+# In the *Fourier analysis*, we consider prototype oscillations that are normalized with regard to their power (average energy) by setting $A = \sqrt{2}$.
+# Thus for each frequency parameter $f$ and phase parameter $\phi$ we obtain a sinusoid $\cos_{f,\phi}: \mathbb{R} \rightarrow \mathbb{R}$ given by
+# 
+# ```{math}
+# :label: eq:sinusoid:norm
+#     \cos_{f,\phi}(t) = \sqrt{2} \cos(2\pi(f t - \phi)) = \sin_{f,\phi+1/2}(t)
+# ```
+# 
+# for $t \in \mathbb{R}$.
+# Note that we get the same function for all $\phi + k$ with $k \in \mathbb{Z}$.
+# 
+# To model a signal $y(t)$ by $\cos_{f,\phi}(t)$, we want to find the best parameters $f, \phi$ such that we get the *best approximation* of $y(t)$.
+# In other words, we are searching for $f, \phi$ such that $y(t)$ and $\cos_{f,\phi}(t)$ are *most similar*.
+# 
+# For a fixed frequency $f \in \mathbb{R}$, we define
+# 
+# ```{math}
+# :label: eq:fourier:max
+#     d_f := \max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} y(t) \cos_{f, \phi}(t) dt \right) = \max\limits_{\phi \in [0;1)} <y,\cos_{f, \phi}> 
+# ```
+# 
+# ```{math}
+# :label: eq:fourier:maxarg
+#     \phi_f := \arg\max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} y(t) \cos_{f, \phi}(t) dt \right) = \arg\max\limits_{\phi \in [0;1)} <y,\cos_{f, \phi}> 
+# ```
+# 
+# where $d_f$ is the magnitude coefficient expressing the intensity of frequency $f$ within the signal $y(t).$
+# Additionally, the phase coefficient $\phi_f \in [0;1)$ tells us how the sinusoid of frequency $f$ needs to be displaced in time to best fit the signal $f$.
+# In the example above we knew that for all frequencies $\phi = 0.5$ holds.
+# Furthermore, we knew all the frequencies $f$ such that $<y,\cos_{f, \phi}> = 0.$
+# If we would have used $A = \sqrt{2}$ instead of $A = 1$, the coefficient would have been $\frac{1}{\sqrt{2}k}$ instead of $\frac{1}{2k}$.
+# 
+# The **Fourier transform** $(y(t), Y(f))$ is a tuple conistent of a function $y: \mathbb{R} \rightarrow \mathbb{R}$ and the collection $Y(f)$ of all coefficients $d_f$ and $\phi_f$ for $f \in \mathbb{R}$.
 # 
 # ## TODO
 # 
@@ -197,30 +295,9 @@
 # The signal tells us when certain notes are played in time, but hides the information about frequencies.
 # In contrast, the Fourier transform of music displays which notes (frequencies) are played, but hides the information about when the notes are played.
 # 
-# Let us start with an analog signal first.
-# And let us consider the basis for all possible audio signals, i.e., the **sinusoid** which is a function $y : \mathbb{R} \rightarrow \mathbb{R}$ defined by 
 # 
-# ```{math}
-# :label: eq:sinusoid
-#     y(t) = A \cdot \sin(2\pi(f t - \phi))
-# ```
 # 
-# for $t \in \mathbb{R}$.
-# As we know, the parameter $A$ corresponds to the **amplitude**, the parameter $f$ to the **frequency** (measured in Hz), and the parameter $\phi$ to the **phase** (measured in normalized radians with 1 corresponding to an angle of 360 degrees).
 # 
-# In the *Fourier analysis*, we consider prototype oscillations that are normalized with regard to their power (average energy) by setting $A = \sqrt{2}$.
-# Thus for each frequency parameter $f$ and phase parameter $\phi$ we obtain a sinusoid $\cos_{f,\phi}: \mathbb{R} \rightarrow \mathbb{R}$ given by
-# 
-# ```{math}
-# :label: eq:sinusoid:norm
-#     \cos_{f,\phi}(t) = \sqrt{2} \cos(2\pi(f t - \phi))
-# ```
-# 
-# for $t \in \mathbb{R}$.
-# Note that we get the same function for all $\phi + k$ with $k \in \mathbb{Z}$.
-# 
-# To model a signal $f(t)$ by $\cos_{f,\phi}(t)$ we want to find the best parameters $f, \phi$ such that we get the *best approximation* of $f(t)$.
-# In other words, we are searching for $f, \phi$ such that $g(t)$ and $\cos_{f,\phi}(t)$ are *most similar*.
 # 
 # 
 # 
@@ -238,21 +315,6 @@
 # 
 # If the term perpendicular is defined via the inner product one can say that $\cos_{1,0}$ is perpendicular to $\cos_{1,0.25}$.
 # Furthermore, $\cos_{1,0}$ and $\cos_{1,0.5}$ are very similar but they point in the opposite direction.
-# 
-# For a fixed frequency $f \in \mathbb{R}$, we define
-# 
-# ```{math}
-# :label: eq:fourier:max
-#     d_f := \max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} f(t) \cos_{f, \phi}(t) dt \right)
-# ```
-# 
-# ```{math}
-# :label: eq:fourier:maxarg
-#     \phi_f := \arg\max\limits_{\phi \in [0;1)} \left( \int_{t \in \mathbb{R}} f(t) \cos_{f, \phi}(t) dt \right)
-# ```
-# 
-# where $d_f$ is the magnitude coefficient expressing the intensity of frequency $f$ within the signal $f$.
-# Additionally, the phase coefficient $\phi_f in [0;1)$ tells us how the sinusoid of frequency $f$ needs to be displaced in time to best fit the signal $f$. The **Fourier transform** of a function $f: \mathbb{R} \rightarrow \mathbb{R}$ is defined to be the collection of all coefficients $d_f$ and $\phi_f$ for $f \in \mathbb{R}$.
 
 # In[1]:
 
