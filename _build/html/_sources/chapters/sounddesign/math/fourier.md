@@ -17,8 +17,8 @@ Given the signal $y(t)$ of a played piano key, how can we compute the pitch and 
 Spectral analysis and synthesis gives us the answer.
 It combines two representations of sound:
 
-1. Inverse Fourier transform: a signal in the time domain $y(t)$
-2. Fourier transform: a signal in the frequency domain $Y(f)$
+1. **Inverse Fourier transform**: a signal in the time domain $y(t)$
+2. **Fourier transform**: a signal in the frequency domain $Y(f)$
 
 ## Fourier Synthesis
 

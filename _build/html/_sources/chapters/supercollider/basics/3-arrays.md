@@ -4,6 +4,7 @@
 A signal is a sequence of numbers.
 An array can realize this sequence.
 Therefore, it is no surprise that ``sclang`` offers a rich interface to create, manipulate and combine arrays.
+Thinking about multidimensional arrays can be both mind bending and mind expanding.
 
 ## Creation
 
@@ -132,4 +133,73 @@ We can **duplicate** an array ``k`` times by using ``!k``:
 
 ```isc
 5!2!3 // [ [ 5, 5 ], [ 5, 5 ], [ 5, 5 ] ]
+```
+
+(sec-array-adverbs)=
+## Adverbs
+
+``J`` and ``APL`` are programming languages that are made for processing arrays of data and are able to express complex notions of iterations implicitely.
+``J`` is a purely functional programming language that was developed around 1990 and is based on ``APL`` (**A** **P**rogramming **L**anguage).
+Since ``J`` specializes in array (and matrix) operations, it is especially useful to solve mathematical and statistical problems.
+``J`` is capable of the MIMD (multiple instruction, multiple data) paradigm.
+
+In ``Python``, we realise such operations using ``numpy`` arrays.
+
+``sclang`` borrows some of the concepts of ``J``.
+One of them is the *adverbs*-concept.
+Adverbs are a third argument passed to binary operations that modifies how they iterate over sequencable collections or streams.
+
+When we normally add two arrays we add componentwise wrapping around if the arrays do not have the same number of elements.
+
+```isc
+[1, 2, 3, 4] + [10, 20, 30] // gives [11, 22, 33, 14]
+```
+
+Using adverbs can change this behaviour.
+Adverbs are symbols and they follow a ``.`` (dot) after the binary operator.
+Adverbs can be applied to **all** binary operators.
+
+The **short adverb** ``s`` avoids the wrapping and returns an array that has only as many elements as the shorter one.
+
+```isc
+[1, 2, 3, 4] +.s [10, 30] // gives [11, 32]
+```
+
+This also works for multiplication.
+
+```isc
+[1, 2, 3, 4] *.s [10, 30] // gives [10, 60]
+```
+
+The **fold adverb** ``f`` uses folded indexing instead of wrapped.
+
+```isc
+[1, 2, 3, 4, 5, 6] +.f [10, 20, 30] // gives [ 11, 22, 33, 24, 15, 26 ]
+```
+
+The **table adverb** ``t`` makes an array of arrays where each item in the first array is added to the whle second array and the resulting arrays are collected.
+
+```isc
+[10, 20, 30, 40, 50] +.t [1, 2, 3]
+// gives [[11, 12, 13],[21, 22, 23],[31, 32, 33],[41, 42, 43],[51, 52, 53]]
+```
+
+The **flat table adverb** ``x`` is like table, except that the result is a flat array.
+
+```isc
+[10, 20, 30, 40, 50] +.x [1, 2, 3]
+// gives [11, 12, 13, 21, 22, 23, 31, 32, 33, 41, 42, 43, 51, 52, 53]
+```
+
+This adverb is also defined for [Streams](sec-stream).
+
+```isc
+p = (Pseq([10, 20]) +.x Pseq([1, 2, 3])).asStream;
+Array.fill(7, { p.next });
+```
+
+gives
+
+```
+[ 11, 12, 13, 21, 22, 23, nil ]
 ```

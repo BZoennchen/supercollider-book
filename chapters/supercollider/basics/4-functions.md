@@ -3,6 +3,9 @@
 
 In ``sclang``, functions are first-class objects, meaning a function can be an argument of another function.
 The language drives the programmer to use this fact in various ways.
+
+## Definition
+
 To define a function, we encapsulate its content by curly brackets.
 To execute it, we call ``value`` on it:
 
@@ -57,6 +60,8 @@ func.(11).postln;
 It is important to understand, that the function ``{rand(20);}`` is evaluated each time we call ``func.value(11);``.
 Again, we can either write ``rand(20);`` or ``20.rand;``.
 
+## Closures
+
 If we want the ``func`` to return the same randomly chosen value each time it is called, we can use a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming))
 In short, a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)) is a function combined with a set of variables that are neither defined within the function nor are arguments of the functions.
 
@@ -98,6 +103,8 @@ func.(11, val).postln;
 
 but since functions are first-class objects it is often convenient to use a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)).
 
+## Arguments
+
 Let's look at another example:
 
 ```isc
@@ -122,4 +129,19 @@ var add = {|a = 5, b|
 };
 add.(b: 11) // returns 16
 )
+```
+
+## Compositions
+
+In ``sclang`` the mathematical operation of composing functions, i.e., $f \circ g$ is approxiated by the ``<>`` operator.
+
+```isc
+f = {arg x; x*x};
+g = {arg x; 2*x};
+
+f.(5); // 25
+g.(5); // 10
+
+h = f <> g;
+h.(5); // f(g(5)) = (2*5)^2 = 10 * 10 = 100
 ```

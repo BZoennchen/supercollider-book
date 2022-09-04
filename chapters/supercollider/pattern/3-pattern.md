@@ -114,3 +114,16 @@ This example seems to work just fine, and it looks pretty similar to our second 
 When our piece becomes more complicated and we use and manipulate multiple parameters of our synth, the code becomes hard to read and interact with.
 For example, we might want to play notes with different durations, i.e., schedule musical events at non-equidistant times.
 We will see how we can replace threading by modeling a composition by a *discrete musical event simulation*.
+
+Like functions, patterns support many mathematical operations including composition.
+
+```isc
+(
+a = Pfunc { arg x; x * 2 };
+b = Pfunc { arg x; if(x > 5) { 0 } { 1 } };
+c = Pseq((0..6));
+z = b <> a <> c;
+q = z.asStream;
+Array.fill(8, {q.next}); // gives us [ 1, 1, 1, 0, 0, 0, 0, nil ]
+)
+```

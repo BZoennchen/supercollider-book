@@ -4,13 +4,13 @@
 
 In its early state, *cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and self-expression, but that dream was quickly overturned in favor of making money.
 Watching the unstoppable force of the hyper-capitalist sector bringing down the fruits and spoils of open collaboration and transparency was heartbreaking to me.
-I was too young to be part of the *The Early Days* and could only dive into leftover pieces, such as the *Gaming Culture* which has dissolved as well.
+I was too young to be part of *The Early Days* and could only dive into leftover pieces, such as the *Gaming Culture* which has dissolved into a market as well.
 Today we realized that this tech explosion brought us an even higher degree of monetarization and commercialization.
 Now it is our dreams, feelings, moments, culture, and intimacy that is sold.
 
 The capitalist's logic poisons art.
 It drives us into a state of endless consumption over creation.
-There might be some short period in which something genuinely creative can emerge, but soon after, it will be transformed into a product that has no more symbolic, cultural, or ritual value.
+There might be some short period in which something genuinely creative can emerge, but soon after, its singularity will be destroyed by its assimilation into a sellable thus quantifyable product.
 
 To me, the *community of algorithmic composers* seems to be quite *egalitarian*, open and transparent.
 It appears as a *counter-culture*.
@@ -104,18 +104,21 @@ Thus, for me, coding music is the ultimate freedom.
 
 In my opinion, technology should not be trusted naively.
 Technology is neither inherently good nor bad -- it can be used for the good, the bad, the ugly, and the beautiful.
+In addition, it is neither inherently progressive nor repressive.
 We must rethink technology as something that, like nature, is not strictly separated from us.
-Technology shapes our way of communication; it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
+Technology shapes our way of communication and our material realities; it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
 
-For example, the introduction of cars influenced how we plan and build cities and, consequently, made possessing a car mandatory in many areas.
+For example, the introduction of cars influenced how we plan and build cities and, consequently, possessing a car became mandatory in many areas.
 Email changed our communication ethics at the workplace; it made the interaction with emails mandatory.
 I see it as a privilege that my generation was one of the last growing up in an internet-free world.
 Today, children are confronted with a world of spectacle distractions.
+Their desires and their attention is channeled into the profit making fungus.
 
 Massively widespread technology has this dictating ability -- once established, it dictates our way of communication.
 It shapes our mundane life, and if we want to live within society, we can not escape it.
 We live in an *age of disruption* where technology escapes any deep analysis because it evolves faster than we can blink.
-People are so busy and constantly trying to keep up with all of these news feeds that are poking at them, so it is hard for them to apply any narrative to their experiences.
+Every-day people are busy.
+They are constantly trying to keep up with all the news feeds poking at them, and it becomes hard to apply any narrative to their experiences.
 They do not know what is going on.
 They are just moving through their day, moment to moment.
 It is a disorienting place to be.
@@ -137,9 +140,9 @@ I love technology.
 >It certainly is not a matter of condemning the industrial and technological fate of humanity. Rather, it is a case of reinventing this fate. -- *Bernard Stiegler*
 
 I think digital technology is powerful and could likely solve the majority of humanities problems; 
-from climate change to income distribution, sensor-based agricultural practice, food, and education.
+from climate change to income distribution, sensor-based agricultural practice, food, education and the abolishment of racialization, gender discrimination, ableism and classism.
 Digital technology can be amazing, but when all decisions about how to deploy and use it are in the hands of business people, then we have a problem.
-These people implement a hazardous form of technological-driven society with the economy at its absolute center: a form of *digital/computational capitalism* where algorithms produce money instead of value.
+These people implement a hazardous form of technological-driven society with the economy at its absolute center: a form of *digital / computational capitalism* where algorithms produce money instead of value.
 
 We are no longer in a free market.
 We are not in a place where the people have the same access to tools and technology.
@@ -164,8 +167,15 @@ It is not the passenger, which it could be.
 It is the shareholder, the investor.
 *Uber* does not care about creating a decent, sustainable taxi industry.
 
-We have to critically analyze what each technology does, implying that we disregard the *neutral point of view*.
-Technology can never be neutral, it is always based on some value and intention, and if we use a particular technology, we have to know what these values and intentions are.
+We must critically analyze what each technology does, implying that we disregard the *neutral point of view*.
+However, I do not advocate for returning to some naturalistic past, i.e., some lost authenticity.
+It would bring only disappointment because such authenticity was never there in the first place.
+Nature is a beautiful beast; it is the real that hunts us; it is us.
+*Going back to nature* in the sense that we withdraw from working on landscapes, bodies and psychic systems are unfounded from a naturalistic ontological perspective.
+There is no reason why we should not challenge its normative power, especially if constructed power structures are disguised as *natural*!
+
+While technology is not inherently good or bad, it can never be neutral.
+It is always based on some value and intention, and if we use a particular technology, we have to know what these values and intentions are.
 Does this technology empower the right people?
 Is it emancipatory?
 How does it change our way of thinking, feeling, and communicating?
@@ -189,14 +199,14 @@ We end up feeling empty and more exhausted.
 
 >The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- *Mark Fisher*
 
-We live between emails, calendars, and *Zoom*-Meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and making love to our respective others.
+We live between emails, calendars, and *Zoom*-Meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and giving love to others.
 At the same time, there is always a *fear of missing out*:
 Can I get in on this thing before it is completely gone?
 
 What makes me optimistic about our use of technology are young people.
 Even though we have an increase in suicide rates, probably due to the use of social media, I also observe more caution towards technology.
 Young people seem to use technology much more appropriately because they are less fascinated by it.
-They understand those big tech companies are not interested in improving their lives but in using them as vehicles.
+They seem to understand that these big tech companies are not interested in improving their lives but in using them as vehicles.
 
 I believe technology is always destructive as well as creative.
 It disrupts existing spaces and opens up new ones. 
@@ -204,14 +214,17 @@ The artist's responsibility is to reveal and explore this process.
 She is the one who create aesthetic symbols -- a horizon of a possible future.
 Neither being prejudiced nor playing the devil's advocate but engaging with technology and its masters honestly.
 The artifacts of our past are not given circumstances of nature but are invented by people.
-We must disregard our automatic acceptance of how things are because it leads to a sense of helplessness about changing any of them.
-Echoing the words of *Mark Fisher*: I am not worried about a zombie apocalypse, but I am worried that it is easier for people to imagine a zombie apocalypse than to visualize what life will be like in like 10 or 20 years from now.
-I am concerned that we have already given up, that we lack the imagination and courage to engage in the way that we really should be, and we will resort to reactions and easy but unreal solutions.
+We must disregard our automatic acceptance of how things are because it leads to a sense of helplessness about changing anything.
+There is neither time for the bitter sweet melancholia nor the illusion that small local changes suffice.
+Echoing the words of *Mark Fisher*: I am not worried about a zombie apocalypse, but I am worried that it is easier for people to imagine a zombie apocalypse than to visualize what life will be like in 10 or 20 years from now.
+I am concerned that we have already given up, that we lack the imagination and courage to engage in the way that we really should be, and we will resort to reactions and seemingly easy but unreal solutions.
 
 The digital is a critical factor in driving our pacification while we are looking into the abyss right in front of us.
-So let us engage with it; let us be critical; let us fight back; let us sing a new song of technological empowering of the people all around the world; let us reimagine our *cyberculture*.
+So let us engage with it; let us be critical; let us fight back; let us sing a new song of technological empowerment of the people all around the world; let us reimagine our *cyberculture*.
 
->Digital is not here to put an end to anything. Rather it is here to expand all things, to combine and to make more things attainable. For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- *J.D. Jarvis*
+>Digital is not here to put an end to anything.
+Rather it is here to expand all things, to combine and to make more things attainable.
+For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- *J.D. Jarvis*
 
 ## Why Writing an Online-Book?
 
