@@ -766,12 +766,13 @@ Note however, that you can do everything also with the two other methods.
 It is just a stylistic choice.</p>
 <div class="definition admonition" id="def-proxy-space">
 <p class="admonition-title">Proxy Space</p>
-<p>A proxy space is an <a class="reference internal" href="../basics/8-environments.html#sec-environments"><span class="std std-ref">Environments</span></a> consisting only of node proxies (instead of normal variables).</p>
+<p>A proxy space is an <a class="reference internal" href="../basics/8-environments.html#sec-environments"><span class="std std-ref">Environments</span></a> consisting of node proxies only (instead of normal variables).</p>
 </div>
-<p>The advatange to use <code class="docutils literal notranslate"><span class="pre">ProxySpace</span></code> is a shorter and often more clean syntax.
-The downside is that we can no longer use <em>environment variables</em> for client side code.</p>
+<p>The advatange to use <code class="docutils literal notranslate"><span class="pre">ProxySpace</span></code> is a shorter and often cleaner syntax.
+The downside is that we can no longer use <em>environment variables</em> for client side code.
+Note however that we can still use <em>global variables</em>, e.g. <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">c,</span> <span class="pre">d,</span> <span class="pre">...</span></code>.</p>
 <p>A proxy space is an <a class="reference internal" href="../basics/8-environments.html#sec-environments"><span class="std std-ref">Environments</span></a>, i.e., a collection of things that can be accessed by name.
-However, each <em>environmental variable</em> of a proxy space is a node proxy – it returns placeholders on demand!
+However, each <em>environment variable</em> of a proxy space is a node proxy – it returns placeholders on demand!
 Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
 Using a proxy space frees us from dealing with <code class="docutils literal notranslate"><span class="pre">Ndef</span></code> or <code class="docutils literal notranslate"><span class="pre">NodeProxy</span></code> explicitly, but we have to deal with it implicitly instead!</p>
@@ -812,7 +813,7 @@ To achieve a smoother transition between changes, we can define a <code class="d
 Changing a mono signal into a stereo signal on-the-fly is impossible.</p>
 <div class="attention admonition" id="attention-proxy-bus-changes">
 <p class="admonition-title">Bus Changes</p>
-<p>You can not change the required busses of a running proxy.</p>
+<p>You can not change the number of required busses of a running proxy.</p>
 </div>
 <p>If we execute the following code line, the audio server warns us of our mistake</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">monosine</span> <span class="o">=</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span><span class="o">*</span><span class="mf">0.3</span><span class="p">};</span>
@@ -823,7 +824,10 @@ Changing a mono signal into a stereo signal on-the-fly is impossible.</p>
 <p>by providing us the following message:</p>
 <p><code class="docutils literal notranslate"><span class="pre">NodeProxy.audio(localhost,</span> <span class="pre">1):</span> <span class="pre">wrapped</span> <span class="pre">channels</span> <span class="pre">from</span> <span class="pre">2</span> <span class="pre">to</span> <span class="pre">1</span> <span class="pre">channels</span></code></p>
 <p>The sound disappears after executing the third line.</p>
+<div class="remark admonition" id="attention-proxy-number-of-channels">
+<p class="admonition-title">Number of Channels</p>
 <p>Playing an empty proxy will set its number of output busses to two (stereo) by default.</p>
+</div>
 <p>Node proxies can be played <code class="docutils literal notranslate"><span class="pre">play(fadeTime:</span> <span class="pre">2)</span></code>, stopped <code class="docutils literal notranslate"><span class="pre">stop(2)</span></code>, paused <code class="docutils literal notranslate"><span class="pre">pause</span></code> and resumed <code class="docutils literal notranslate"><span class="pre">resume</span></code>.
 The latter two methods do not offer a fade time parameter, and for <code class="docutils literal notranslate"><span class="pre">play</span></code>, the fade time has to be explicitly named.
 One can not play a paused proxy and one can not resume a stopped proxy.</p>
@@ -857,7 +861,7 @@ One can not play a paused proxy and one can not resume a stopped proxy.</p>
 <p>As you can see, the output of one proxy can be used as an argument of multiple other proxies.
 Note that we do not <code class="docutils literal notranslate"><span class="pre">play</span></code> the <code class="docutils literal notranslate"><span class="pre">~amp</span></code> proxy because this would route the signal to the output.</p>
 <p>We can use syntactical sugger to do the same in an even more modular and clean way by using either <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;&gt;&gt;.[argname]</span> <span class="pre">target</span></code> or <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">&lt;&lt;&gt;.[argname]</span> <span class="pre">source</span></code> and normal arguments.
-This operation is inspired by the binary composition operator <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> defined on functions, streams and patterns.</p>
+This operation is inspired by the binary composition operator <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> defined on <a class="reference internal" href="../basics/4-functions.html#sec-function-composition"><span class="std std-ref">functions</span></a>, streams and patterns.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sine</span> <span class="o">=</span> <span class="p">{</span><span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">350</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.003</span><span class="p">]};</span>
 <span class="o">~</span><span class="nx">tri</span> <span class="o">=</span> <span class="p">{</span><span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span> <span class="o">*</span> <span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">350</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.003</span><span class="p">]};</span>
 <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
@@ -871,7 +875,7 @@ This operation is inspired by the binary composition operator <code class="docut
 </div>
 <div class="attention admonition" id="attention-node-proxy-composition">
 <p class="admonition-title">Bus Changes</p>
-<p>The composition operator <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&gt;</span></code> does only work for node proxies, i.e., not for constant values.
+<p>The composition operator <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&gt;</span></code> does only work for node proxies, i.e., it does not work for constant values.
 The following will <strong>not</strong> work:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">tri</span> <span class="o">&lt;&lt;&gt;</span><span class="p">.</span><span class="nx">amp</span> <span class="mf">0.5</span><span class="p">;</span>
 </pre></div>
@@ -880,7 +884,7 @@ The following will <strong>not</strong> work:</p>
 <p>The advantages of modularity is that one can repatch control and audio rate signals on the fly and, as we saw, one signal can be easily patched to multiple node proxies at once.</p>
 <p>Let us try to simulate a global clock by using the <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a> unit generator.
 Furthermore, let us try to trigger certain sounds at specific beats.
-Listen and experiment with the following code:</p>
+Listen to and experiment with the following code:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">n</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span> <span class="c1">// 1/16 beat</span>
 <span class="nx">b</span> <span class="o">=</span> <span class="mf">60.0</span><span class="p">;</span> <span class="c1">// bpm</span>
 
@@ -927,14 +931,14 @@ For example, one might want to add a reverb effect to a percussive sawtooth sign
 By indexing the <em>environment variable</em>, i.e. our node proxy, we can use the slots of the proxy to chain singals together.</p>
 <p>Assining multiple <a class="reference internal" href="../ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> to multiple slots will add all these signals consecutively together.
 We do not have to use consecutive slot numbers.
-It is in fact good practice to leave gaps between occupied slots such that we can bring in another effect between two already established synths.</p>
+It is in fact a good practice to leave gaps between occupied slots such that we can bring in another effect between two already established synths.</p>
 <p>These lines result in a sound produced of a sine and sawtooth wave added together.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">300</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">};</span>
 <span class="o">~</span><span class="nx">out</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">};</span>
 <span class="o">~</span><span class="nx">out</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>If we set the <code class="docutils literal notranslate"><span class="pre">\freq</span></code> argument for the node proxy it will set it for all its slots.</p>
+<p>If we set the <code class="docutils literal notranslate"><span class="pre">\freq</span></code> argument for the node proxy it will be set for all its slots.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">out</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1">// changes \freq for all slots</span>
 </pre></div>
 </div>
@@ -942,10 +946,10 @@ It is in fact good practice to leave gaps between occupied slots such that we ca
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">out</span><span class="p">[</span><span class="mi">10</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span> <span class="c1">// error!</span>
 </pre></div>
 </div>
-<p>Adding signals together seems to be not very useful.
+<p>Adding signals together by using slots seems not very useful.
 However, the story does not end here.
 Slots become much more useful if we combine them with <a class="reference external" href="https://depts.washington.edu/dxscdoc/Help/Reference/NodeProxy_roles.html">NodeProxy roles</a>.</p>
-<p>Similar to <a class="reference internal" href="../basics/3-arrays.html#sec-array-adverbs"><span class="std std-ref">adverbs</span></a>, which I discuss as part of the <a class="reference internal" href="../basics/3-arrays.html#sec-array"><span class="std std-ref">Array</span></a> section, roles allow to specify how a source, i.e. a synth, for a <a class="reference external" href="https://doc.sccode.org/Classes/NodeProxy.html">NodeProxy</a> is being used.
+<p>Similar to <a class="reference internal" href="../basics/3-arrays.html#sec-array-adverbs"><span class="std std-ref">adverbs</span></a>, which I discuss as part of the <a class="reference internal" href="../basics/3-arrays.html#sec-array"><span class="std std-ref">Array</span></a> section, roles allow us to specify how a source, i.e. a synth, for a <a class="reference external" href="https://doc.sccode.org/Classes/NodeProxy.html">NodeProxy</a> is being used.
 A specific role is associated by a specific symbol and a new proxy source object.
 For example, instead of adding signals together, the <code class="docutils literal notranslate"><span class="pre">\filter</span></code> and <code class="docutils literal notranslate"><span class="pre">filterIn</span></code> use the signal (coming from the slots with smaller indices) as input for a filter.
 The filter can be any unit generator graph.
@@ -974,9 +978,9 @@ In the folling I tried to recreate the sound of a firework:</p>
 <span class="o">~</span><span class="nx">out</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">Dust</span></code> generates random impulses such that the density of that impulses approximate the frequency, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
+<p><code class="docutils literal notranslate"><span class="pre">Dust</span></code> generates random impulses such that the density of that impulses approximate its frequency arguement, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
 <code class="docutils literal notranslate"><span class="pre">Ringz</span></code> models resonates at a frequency of <code class="docutils literal notranslate"><span class="pre">300</span></code> herz.
-Then we add reverb effect to give the sound some spacial depth.
+We add a reverb effect to give the sound some spacial depth.
 The low pass filter has no effect since the cutoff frequency is very high.</p>
 <p>Let us now introduce modulation for the resonance frequency and the cutoff filter to introduce even more spatial differences such that we get the feeling the firework happens around us in multiple streets.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">randFreq</span> <span class="o">=</span> <span class="p">{</span><span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">)};</span>
@@ -987,7 +991,8 @@ The low pass filter has no effect since the cutoff frequency is very high.</p>
 </pre></div>
 </div>
 <p>The change in cutoff resonance and cutoff frequency happens continuously.</p>
-<p>In combination, JITLib and the proxy space offer extreme versatility and make live coding easier and very flexible.
+<p>In combination, JITLib and the proxy space offer extreme versatility.
+They make live coding easier and very flexible.
 It gets more interesting when used with <a class="reference internal" href="../pattern/3-pattern.html#sec-pattern"><span class="std std-ref">pattern</span></a>, and one has multiple <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> sounding together.</p>
 </section>
 <section id="synthdefs-and-pbinds">
@@ -1016,7 +1021,7 @@ Now bind the synth to a proxy node.</p>
 <span class="o">~</span><span class="nx">test_beep</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Most of the time you will not use synths in this way but combine them with an <a class="reference internal" href="../pattern/5-event-player.html#sec-event-player"><span class="std std-ref">event player</span></a>, i.e., <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a>).</p>
+<p>Most of the time you will not use synths in this way but combine them with an <a class="reference internal" href="../pattern/5-event-player.html#sec-event-player"><span class="std std-ref">event player</span></a>, i.e., <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a>.</p>
 <p>Let us create a gated more useful synth definition.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
@@ -1042,7 +1047,8 @@ Now bind the synth to a proxy node.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that if you set an argument for the proxy node it will use it and you can not override it by re-evaluating the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>.</p>
+<p>Note that if you set an argument for the proxy node it will be used regardless of the argument with the same name of the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>.
+You can not override it by re-evaluating the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">test_beep</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -1054,8 +1060,8 @@ Now bind the synth to a proxy node.</p>
 <section id="synchronization">
 <h2>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline">#</a></h2>
 <p>In our second routing example we synchronzed our envelopes and <code class="docutils literal notranslate"><span class="pre">TChoose</span></code> unit generator by a global clock realized by an <code class="docutils literal notranslate"><span class="pre">Impulse</span></code> unit generator.
-As you saw, this opens up jet anaother coding style.
-A more straightforward way is to use <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> synchronized by a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempoClock</a>.</p>
+As you saw, this opens up jet another coding style.
+A more straightforward way is to use <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> synchronized by a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempoClock</a> which I describe in section <a class="reference internal" href="../scheduling/2-clocks.html#sec-clocks"><span class="std std-ref">Clocks</span></a>.</p>
 </section>
 </section>
 

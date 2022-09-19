@@ -867,9 +867,9 @@ I think, using <code class="docutils literal notranslate"><span class="pre">Pkey
     <span class="ss">\amp</span><span class="p">,</span> <span class="nb">Pkey</span><span class="p">(</span><span class="ss">\freq</span><span class="p">).</span><span class="nx">linexp</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="p">);</span>
 
-<span class="nx">outro</span> <span class="o">=</span> <span class="nx">intro</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
+<span class="nx">outro</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
-    <span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">430</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
     <span class="ss">\amp</span><span class="p">,</span> <span class="nb">Pkey</span><span class="p">(</span><span class="ss">\freq</span><span class="p">).</span><span class="nx">linexp</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
@@ -888,7 +888,7 @@ We can generate the same piece using only one <code class="docutils literal notr
 	<span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span>
 		<span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> 
 		<span class="nb">Pseq</span><span class="p">([</span><span class="mi">233</span><span class="p">,</span> <span class="mi">321</span><span class="p">,</span> <span class="mi">344</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
-		<span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+		<span class="nb">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">430</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
 	<span class="p">],</span> <span class="kc">repeats:</span> <span class="mi">2</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
@@ -901,7 +901,8 @@ We can generate the same piece using only one <code class="docutils literal notr
 <p>We can also play multiple <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> in parallel.
 We can imagine that each <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> represents one musician in our assemble.
 <a class="reference external" href="http://doc.sccode.org/Classes/Ppar.html">Ppar</a> is a pattern that allows us to play multiple <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> in parallel.
-In this example I use a fixed <code class="docutils literal notranslate"><span class="pre">dur</span></code> and <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> to adjust the actual duration.</p>
+In this example I use a fixed <code class="docutils literal notranslate"><span class="pre">dur</span></code> and <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> to adjust the actual duration.
+You can use any symbol to create a <code class="docutils literal notranslate"><span class="pre">Rest</span></code> (i.e. do nothing).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">melody</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
@@ -914,6 +915,7 @@ In this example I use a fixed <code class="docutils literal notranslate"><span c
     <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.2</span>
 <span class="p">);</span>
+
 <span class="kd">var</span> <span class="nx">rythm</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\snare</span><span class="p">,</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span>
@@ -924,6 +926,41 @@ In this example I use a fixed <code class="docutils literal notranslate"><span c
 <span class="p">);</span>
 
 <span class="nb">Ppar</span><span class="p">([</span><span class="nx">rythm</span><span class="p">,</span> <span class="nx">melody</span><span class="p">],</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Another way to sequence <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> and <code class="docutils literal notranslate"><span class="pre">Pattern</span></code> is to use <a class="reference external" href="https://doc.sccode.org/Classes/Pspawner.html">Pspawner</a>.
+It allows you to play patterns in parallel or in sequence, via a callback function.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">melody</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nb">Scale</span><span class="p">.</span><span class="nx">minor</span><span class="p">,</span>
+    <span class="ss">\octave</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span>
+        <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span>
+    <span class="p">]),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span>
+    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.2</span>
+<span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rythm</span> <span class="o">=</span> <span class="nb">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\snare</span><span class="p">,</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">,</span>
+    <span class="ss">\amp</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">([</span>
+        <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> 
+        <span class="mf">0.8</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="ss">\r</span><span class="p">,</span>
+    <span class="p">])</span><span class="o">*</span><span class="mf">0.2</span>
+<span class="p">);</span>
+
+<span class="nb">Pspawner</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">sp</span><span class="p">;</span>
+	<span class="mi">3</span><span class="p">.</span><span class="k">do</span> <span class="p">{</span>
+		<span class="nx">sp</span><span class="p">.</span><span class="nx">par</span><span class="p">(</span><span class="nx">melody</span><span class="p">);</span>
+		<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
+		<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
+	<span class="p">};</span>
+	<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
+	<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">melody</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>

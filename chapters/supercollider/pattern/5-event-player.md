@@ -139,9 +139,9 @@ middle = Pbind(
     \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
 );
 
-outro = intro = Pbind(
+outro = Pbind(
     \instrument, \saw,
-    \freq, Pseq([440, 220, 330], 3),
+    \freq, Pseq([440, 320, 430], 3),
     \dur, 0.25,
     \sustain, 0.3,
     \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
@@ -162,7 +162,7 @@ p = Pbind(
 	\freq, Pseq([
 		Pseq([440, 220, 330], 3), 
 		Pseq([233, 321, 344], 3),
-		Pseq([440, 220, 330], 3)
+		Pseq([440, 320, 430], 3)
 	], repeats: 2),
     \dur, 0.25,
     \sustain, 0.3,
@@ -176,6 +176,7 @@ We can also play multiple ``Pbinds`` in parallel.
 We can imagine that each ``Pbind`` represents one musician in our assemble.
 [Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple ``Pbinds`` in parallel.
 In this example I use a fixed ``dur`` and [Rest](http://doc.sccode.org/Classes/Rest.html) to adjust the actual duration.
+You can use any symbol to create a ``Rest`` (i.e. do nothing).
 
 ```isc
 (
@@ -190,6 +191,7 @@ var melody = Pbind(
     \dur, 1/4,
     \sustain, 0.2
 );
+
 var rythm = Pbind(
     \instrument, \snare,
     \dur, 1/8,
@@ -200,6 +202,43 @@ var rythm = Pbind(
 );
 
 Ppar([rythm, melody], inf).play;
+)
+```
+
+Another way to sequence ``Pbinds`` and ``Pattern`` is to use [Pspawner](https://doc.sccode.org/Classes/Pspawner.html).
+It allows you to play patterns in parallel or in sequence, via a callback function.
+
+```isc
+(
+var melody = Pbind(
+    \instrument, \saw,
+    \scale, Scale.minor,
+    \octave, 5,
+    \degree, Pseq([
+        3, 4, 3, \r,
+        1, \r, 6, \r,
+    ]),
+    \dur, 1/4,
+    \sustain, 0.2
+);
+var rythm = Pbind(
+    \instrument, \snare,
+    \dur, 1/8,
+    \amp, Pseq([
+        0.9, 1.2, \r, \r, 
+        0.8, \r, 1.3, \r,
+    ])*0.2
+);
+
+Pspawner({ arg sp;
+	3.do {
+		sp.par(melody);
+		sp.seq(rythm);
+		sp.seq(rythm);
+	};
+	sp.seq(rythm);
+	sp.seq(melody);
+}).play;
 )
 ```
 

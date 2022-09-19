@@ -131,6 +131,7 @@ add.(b: 11) // returns 16
 )
 ```
 
+(sec-function-composition)=
 ## Compositions
 
 In ``sclang`` the mathematical operation of composing functions, i.e., $f \circ g$ is approxiated by the ``<>`` operator.

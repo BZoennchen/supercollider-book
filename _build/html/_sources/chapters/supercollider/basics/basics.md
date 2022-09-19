@@ -1,6 +1,8 @@
 (sec-basics)=
 # Basics
 
+>Without music, life would be a mistake. -- Nietzsche
+
 In this section, I will give a starting point so the reader can start experimenting with SuperCollider.
 Before you move on, you should understand the content of this whole chapter -- it lies the ground for further discussions.
 At the same time, I assume that the reader has some experience in some other programming language.

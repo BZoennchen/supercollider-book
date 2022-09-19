@@ -6,9 +6,19 @@
 
 Mathematicians to this day argue about the fundamental nature of math.
 Do we humans invent it, or do we discover it?
-Platonists and realists say that numbers are real, mind-independent things, implying that they were *discovered*.
+*Platonists* and realists say that numbers are real, mind-independent things, implying that they were *discovered*.
 Conceptualists say that numbers exist but are just mind-dependent ideas; nominalists say that numbers do not exist.
 The latter two positions would imply that numbers are *invented*.
+
+*Kant* suggested that the prerequisite of our experiences is a pure concept of the understanding (*Verstand*).
+A *Kantian* category is a characteristic of the appearance of any object in general, before it has been experienced (*a priori*).
+Without it, cognition is impossible because we would not be able to find any structures within the data.
+In his view, neither pure reason nor pure experience suffice;
+we need both.
+He thought that this is an *a priori truth* that we can only understand by using exclusively *a priori methods*, i.e., *pure reason*.
+From that perspective, numbers can not come from *pure experience* which is a truth we understand by *pure reason*.
+Numbers emerge from our *understanding* of the difference between one and many things;
+an experience that requires *a priori categories*.
 
 The difficulty in grasping that question is that we are thrown into math, as *Heidegger* would say.
 Teachers tell us what it is and how it works.
@@ -17,12 +27,13 @@ Math, similar to language, is like a virus or parasite that circulates through t
 It is closed and gets irritated by new observations such that it extends or adapts itself (through us).
 
 Because it happens within us, animals, and even plants -- yes, there is a plant that can count -- it is part of whatever there is.
-But I don't think we need some platonic space of perfect ideas that are hidden somewhere and forever.
+In that sense I agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes.
+Furthermore, I don't think we need some *Platonic* space of perfect ideas that is hidden somewhere and forever.
 Such meta concepts are shortcuts for something we do not understand yet.
-The platonic worldview is mystical and religious.
+The *Platonic* worldview is mystical and religious.
 It introduces something extra, something godly that we do not need.
-And it devalues life as something to overcome instead of embrace.
-Call me impulsive, but I despise the platonic worldview more and more.
+And it devalues life as something to overcome instead of something to embrace.
+Call me impulsive, but I despise it more and more.
 
 Only because we have never experienced a perfect circle does not mean we can not imagine one.
 I have never experienced a pink elephant, but I can perfectly picture one.
@@ -35,18 +46,28 @@ But we found a model called circle that models circle-like objects that we perce
 $$K = \{(\cos(\phi), \sin(\phi)) : \phi \in [0;2\pi]\}$$
 
 However, this perception is most undoubtedly incorrect and definitively subjective.
-The abstraction is an objectified version we often silently agree on because our experiences endorse it.
-Platon believed that these abstractions are more accurate than what we perceive, i.e., through the perception of a chair shines the idea of it.
+The abstraction is an objectified version that we often silently agree on because our experiences endorse it.
+*Platon* believed that these abstractions are more accurate than what we perceive, i.e., through the perception of a chair shines the idea of it.
 And the idea is perfect.
 I think it is the other way around, and instead of perfect and imperfect, I use the terms *concrete* and *abstract*.
-The chair is *concrete*, but our perception of it has nothing to do with it except it enables us to deal with it.
-Our perception is the first *abstraction*.
+The chair is *concrete*, but our perception of it has nothing to do with it with the exception that it enables us to deal with it.
+Our perception is the first *abstraction* born out of *Kant's* understanding -- we are able to perceive it as one thing.
 The *second-order abstraction* of it, e.g., using the word *chair*, is a silent agreement of a set of perceptions we call *chair*.
 For the number 1, this is similar.
 
-Therefore, mathematics is a product of our perception.
-And suppose we assume that our perception is realized by reality (our biochemical body).
-In that case, mathematics is real, invented (similar to language), and discovered (it helps us with reality) but might have nothing to do with what we perceive as our reality.
+It is no surprise that the *Greeks* had troubles with defining negative numbers because of a lack of experience.
+Since they focused mostly on geometry, negative numbers were never an issue.
+The invention of money made negative numbers a necessity thus they were invented and discovered.
+I think this is an argument for *Kant's* assumption because if negative numbers came from within, there is no reason why the *Greeks* had trouble with finding them.
+
+This does not mean we have to experience negative numbers to find them.
+*Einstein* came up with his theory by virtually thinking about it. 
+Back then, there was no way to experience it.
+But I would argue that he had lived through everything to make his *leap of understanding*.
+Similar to thinking about pink elephants, he knew $A$ and $B$ and was able to connect both.
+
+To conclude, in my opinion, mathematics is a product of our *perception* and *understinding*.
+And if we assume that our perception is realized by reality (our biochemical body), than mathematics is real, invented (similar to language), and discovered (it helps us with reality) but might have nothing to do with what is behind our perception, i.e., reality as it is (if there is such thing).
 
 ## Why do we need Math?
 

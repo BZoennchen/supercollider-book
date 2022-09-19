@@ -1,9 +1,11 @@
 # Complex Numbers
 
 The history of mathematics is a history of discoveries and inventions.
-The greeks focused on geometry and introduced natural and rational numbers.
-Because of their fascianation with geometry, they did not come up with negative numbers.
-A negative length makes no sense thus reality had to change before the mind was ready to see the concept of negative numbers.
+The greeks focused on geometry and introduced natural as well as rational numbers.
+Interestingly, they had trouble to come up with negative numbers because their experienced was lacking its necessity and they were really into with Euclidean geometry; 
+an area where negative numbers make no sense.
+What deos a negative length mean?
+However, the world was evolving and eventuelly negative numbers were introduced out of necessity.
 
 To solve $2x = 4$ we rely on natural numbers.
 We need negative numbers to solve $2x+4$, rational numbers for $4x = 2$ and real numbers for $x^2 = 2$.
@@ -23,10 +25,19 @@ We introduce a special symbol $i$ which is defined by
 i^2 := -1.
 ```
 
-Complex numbers are invented but they are also discovered because everything works out, i.e. they have all the rich mathematical properties we want to be helpful.
+Complex numbers are invented but they are also discovered because everything works out, i.e. they have all the rich mathematical properties we desire and require.
 Let us solve Eq. {eq}`eq:complex:ex1`:
 
 $$x^2 = -2 = 2 i^2 \iff x = \sqrt{2i^2} = \sqrt{2} \sqrt{i^2} = \sqrt{2}i$$
+
+``sclang`` provides a class called [Complex](https://doc.sccode.org/Classes/Complex.html).
+Objects of that class represent complex numbers.
+Let us solve Eq. {eq}`eq:complex:ex1` with ``sclang``:
+
+```isc
+n = Complex(real: -2, imag: 0) // -2
+x = sqrt(n)                    // i*sqrt(2)
+```
 
 To make complex numbers useful they have to work with real numbers.
 For example what is $i + 3$ where $i$ is a complex number and $3$ a real number.
@@ -43,7 +54,7 @@ z = a + bi,
 with $i = \sqrt{-1}$, is the sum of a *real number* $a = \textbf{Re}(z) \in \mathbb{R}$ and an *imaginary number* $b = \textbf{Im}(z)$. 
 ```
 
-Therefore a complex number $z$ has two parts: a real and imaginary part.
+Therefore a complex number $z$ has two parts: a real ``real`` and imaginary ``imag`` part.
 Note that squaring an imaginary number gives a real number, i.e. $(bi)^2 = -1b^2 = -b^2$.
 Furthermore, we get $0 = 0 + 0i$, $bi = 0 + bi$, $a = a + 0i$.
 
@@ -60,15 +71,29 @@ The conjugation $\overline{z}$ of a complex number $z = a + bi$ is the negation 
 \end{equation}
 ```
 
+```isc
+n = Complex(real: 2, imag: 9)
+n.conjugate // Complex(real: 2, imag: -9)
+n.conjugate * n // Complex(real: 85, imag: 0)
+```
+
 Multiplying a complex number $z = a + bi$ by its conjugate gives a real number:
 
 $$z \cdot \overline{z} = (a + bi) \cdot (a - bi) = a^2 - (bi)^2 = a^2 + b^2.$$
 
-## Complex Plane
-
 We can use this fact to evaluate the division of two complex numbers $z_1 = a + bi, z_2 = c + di$:
 
 $$\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{ac-adi+bic+bdi^2}{c^2+d^2} = \frac{(ac+bd) + (bc-ad)i}{c^2+d^2}.$$
+
+Zum Beispiel:
+
+$$\frac{2 + i}{3 + 2i} = \frac{(2 + i)(3-2i)}{(3 + 2i)(3-2i)} = \frac{6 -4i + 3i -2i^2}{3^2 + 2^2} = \frac{8 -i}{13}.$$
+
+```isc
+Complex(2, 1) / Complex(3, 2)
+```
+
+## Complex Plane
 
 We can represent a complex number $z = a + bi$ by a point $p_z = (a, b)$ in the Cartesian plane which we then call complex plane.
 
@@ -109,8 +134,18 @@ r^2 = a^2 + b^2 = z \cdot \overline{z}
 and $\phi$ using 
 
 \begin{equation}
-\phi = \cos^{-1}(a/r)
+\phi = \cos^{-1}(a/r).
 \end{equation}
+
+```isc
+(
+var theta = 0.25*pi;
+var z = Complex(cos(theta), sin(theta));
+theta.postln;      // 0.78539816339745
+z.postln;          // Complex( 0.70710678118655, 0.70710678118655 )
+z.asPolar.postln;  // Polar( 1.0, 0.78539816339745 )
+)
+```
 
 What happens geometrically if we multiply two complex numbers?
 If one of the numbers is a real number, we just scale the magnitude.
@@ -158,7 +193,7 @@ $$\frac{1}{i} \cdot \frac{1}{i} = (-i)(-i) = -1.$$
 
 From the rule of products of complex numbers follows *de Moivre's Theorem*.
 
-```{admonition} de Moivre's Theorem 
+```{admonition} De Moivre's Theorem 
 :name: theorem-de-moivre
 :class: theorem
 Let $z = r \cdot (\cos(\phi) + i \sin(\phi))$ a *complex number* then
@@ -287,9 +322,18 @@ holds. This relation is called *Euler's formula*.
 
 ````
 
+```isc
+exp(Complex(0, pi/3)) == Polar(1, pi/3).asComplex // true
+```
+
 We can immidiatly follow that
 
 $$e^{i\pi} = \cos(\pi) + i \sin(\pi) = -1 + i0 = -1$$
+
+```isc
+exp(Complex(0, pi)) + 1 < 0.00001  // true
+exp(Complex(0, pi)) + 1 > -0.00001 // true
+```
 
 Therefore, the most beautiful of all times, called *Euler's identity* emerges
 

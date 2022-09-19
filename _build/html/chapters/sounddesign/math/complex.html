@@ -722,9 +722,11 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="complex-numbers">
 <h1>Complex Numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">#</a></h1>
 <p>The history of mathematics is a history of discoveries and inventions.
-The greeks focused on geometry and introduced natural and rational numbers.
-Because of their fascianation with geometry, they did not come up with negative numbers.
-A negative length makes no sense thus reality had to change before the mind was ready to see the concept of negative numbers.</p>
+The greeks focused on geometry and introduced natural as well as rational numbers.
+Interestingly, they had trouble to come up with negative numbers because their experienced was lacking its necessity and they were really into with Euclidean geometry;
+an area where negative numbers make no sense.
+What deos a negative length mean?
+However, the world was evolving and eventuelly negative numbers were introduced out of necessity.</p>
 <p>To solve <span class="math notranslate nohighlight">\(2x = 4\)</span> we rely on natural numbers.
 We need negative numbers to solve <span class="math notranslate nohighlight">\(2x+4\)</span>, rational numbers for <span class="math notranslate nohighlight">\(4x = 2\)</span> and real numbers for <span class="math notranslate nohighlight">\(x^2 = 2\)</span>.
 How do we solve</p>
@@ -735,22 +737,29 @@ They extend real numbers by defintion.
 We introduce a special symbol <span class="math notranslate nohighlight">\(i\)</span> which is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-complex-i">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-complex-i" title="Permalink to this equation">#</a></span>\[i^2 := -1.\]</div>
-<p>Complex numbers are invented but they are also discovered because everything works out, i.e. they have all the rich mathematical properties we want to be helpful.
+<p>Complex numbers are invented but they are also discovered because everything works out, i.e. they have all the rich mathematical properties we desire and require.
 Let us solve Eq. <a class="reference internal" href="#equation-eq-complex-ex1">(2)</a>:</p>
 <div class="math notranslate nohighlight">
 \[x^2 = -2 = 2 i^2 \iff x = \sqrt{2i^2} = \sqrt{2} \sqrt{i^2} = \sqrt{2}i\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> provides a class called <a class="reference external" href="https://doc.sccode.org/Classes/Complex.html">Complex</a>.
+Objects of that class represent complex numbers.
+Let us solve Eq. <a class="reference internal" href="#equation-eq-complex-ex1">(2)</a> with <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">n</span> <span class="o">=</span> <span class="nb">Complex</span><span class="p">(</span><span class="kc">real:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="kc">imag:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// -2</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">sqrt</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>                    <span class="c1">// i*sqrt(2)</span>
+</pre></div>
+</div>
 <p>To make complex numbers useful they have to work with real numbers.
 For example what is <span class="math notranslate nohighlight">\(i + 3\)</span> where <span class="math notranslate nohighlight">\(i\)</span> is a complex number and <span class="math notranslate nohighlight">\(3\)</span> a real number.</p>
 <div class="definition admonition" id="def-complex-number">
 <p class="admonition-title">Complex Numbers </p>
 <p>A <em>complex number</em> <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a9d9110-0806-4235-acc0-f7ee61d7317b">
-<span class="eqno">(4)<a class="headerlink" href="#equation-7a9d9110-0806-4235-acc0-f7ee61d7317b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a808e07f-c747-48c2-8389-97a9dd2cf652">
+<span class="eqno">(4)<a class="headerlink" href="#equation-a808e07f-c747-48c2-8389-97a9dd2cf652" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z = a + bi,
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span>, is the sum of a <em>real number</em> <span class="math notranslate nohighlight">\(a = \textbf{Re}(z) \in \mathbb{R}\)</span> and an <em>imaginary number</em> <span class="math notranslate nohighlight">\(b = \textbf{Im}(z)\)</span>.</p>
 </div>
-<p>Therefore a complex number <span class="math notranslate nohighlight">\(z\)</span> has two parts: a real and imaginary part.
+<p>Therefore a complex number <span class="math notranslate nohighlight">\(z\)</span> has two parts: a real <code class="docutils literal notranslate"><span class="pre">real</span></code> and imaginary <code class="docutils literal notranslate"><span class="pre">imag</span></code> part.
 Note that squaring an imaginary number gives a real number, i.e. <span class="math notranslate nohighlight">\((bi)^2 = -1b^2 = -b^2\)</span>.
 Furthermore, we get <span class="math notranslate nohighlight">\(0 = 0 + 0i\)</span>, <span class="math notranslate nohighlight">\(bi = 0 + bi\)</span>, <span class="math notranslate nohighlight">\(a = a + 0i\)</span>.</p>
 <p>Equality, addition, multiplication and negation works as expected.
@@ -758,19 +767,30 @@ There is a special operation called <em>complex conjugation</em>.</p>
 <div class="definition admonition" id="def-complex-conjugate">
 <p class="admonition-title">Complex Conjugation </p>
 <p>The conjugation <span class="math notranslate nohighlight">\(\overline{z}\)</span> of a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> is the negation of its imaginary part, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80538dea-dcd3-484d-81f4-b53dfdc1e569">
-<span class="eqno">(5)<a class="headerlink" href="#equation-80538dea-dcd3-484d-81f4-b53dfdc1e569" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77680a8a-21bb-4940-9dea-96a2c8b29597">
+<span class="eqno">(5)<a class="headerlink" href="#equation-77680a8a-21bb-4940-9dea-96a2c8b29597" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \overline{z} = \overline{a + bi} = \overline{a} + \overline{bi} = a - bi.
 \end{equation}\]</div>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">n</span> <span class="o">=</span> <span class="nb">Complex</span><span class="p">(</span><span class="kc">real:</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">imag:</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">conjugate</span> <span class="c1">// Complex(real: 2, imag: -9)</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">conjugate</span> <span class="o">*</span> <span class="nx">n</span> <span class="c1">// Complex(real: 85, imag: 0)</span>
+</pre></div>
 </div>
 <p>Multiplying a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> by its conjugate gives a real number:</p>
 <div class="math notranslate nohighlight">
 \[z \cdot \overline{z} = (a + bi) \cdot (a - bi) = a^2 - (bi)^2 = a^2 + b^2.\]</div>
-<section id="complex-plane">
-<h2>Complex Plane<a class="headerlink" href="#complex-plane" title="Permalink to this headline">#</a></h2>
 <p>We can use this fact to evaluate the division of two complex numbers <span class="math notranslate nohighlight">\(z_1 = a + bi, z_2 = c + di\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{ac-adi+bic+bdi^2}{c^2+d^2} = \frac{(ac+bd) + (bc-ad)i}{c^2+d^2}.\]</div>
+<p>Zum Beispiel:</p>
+<div class="math notranslate nohighlight">
+\[\frac{2 + i}{3 + 2i} = \frac{(2 + i)(3-2i)}{(3 + 2i)(3-2i)} = \frac{6 -4i + 3i -2i^2}{3^2 + 2^2} = \frac{8 -i}{13}.\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">Complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="complex-plane">
+<h2>Complex Plane<a class="headerlink" href="#complex-plane" title="Permalink to this headline">#</a></h2>
 <p>We can represent a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> by a point <span class="math notranslate nohighlight">\(p_z = (a, b)\)</span> in the Cartesian plane which we then call complex plane.</p>
 <figure class="align-default" id="fig-complex-plane">
 <a class="reference internal image-reference" href="../../../_images/complex-plane.png"><img alt="../../../_images/complex-plane.png" src="../../../_images/complex-plane.png" style="width: 500px;" /></a>
@@ -780,16 +800,16 @@ There is a special operation called <em>complex conjugation</em>.</p>
 </figure>
 <p>This gives us another representation using the angle <span class="math notranslate nohighlight">\(\phi\)</span> and the magnitude <span class="math notranslate nohighlight">\(r\)</span> of the vector <span class="math notranslate nohighlight">\((a, b)\)</span>.
 We have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-131415c0-234f-416d-a79a-41e5f14a9d1e">
-<span class="eqno">(6)<a class="headerlink" href="#equation-131415c0-234f-416d-a79a-41e5f14a9d1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-01067a07-e78f-4716-a66e-f2284d0d58ef">
+<span class="eqno">(6)<a class="headerlink" href="#equation-01067a07-e78f-4716-a66e-f2284d0d58ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 a &amp;= r \cdot \cos(\phi)\\
 bi &amp;= r \cdot i\sin(\phi)
 \end{split}
 \end{equation}\]</div>
 <p>thus</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de68cdba-258f-48ec-9f60-3babe81df60e">
-<span class="eqno">(7)<a class="headerlink" href="#equation-de68cdba-258f-48ec-9f60-3babe81df60e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39ed5977-7a7c-4cc4-ae35-f56c02221f22">
+<span class="eqno">(7)<a class="headerlink" href="#equation-39ed5977-7a7c-4cc4-ae35-f56c02221f22" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 z &amp;= a + bi\\
   &amp;= (r \cdot \cos(\phi)) + (r \cdot i \sin(\phi))\\
@@ -797,15 +817,24 @@ z &amp;= a + bi\\
 \end{split}
 \end{equation}\]</div>
 <p>Given <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> we can compute <span class="math notranslate nohighlight">\(r\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c51c786-b24e-41b6-afc8-f9e6279af6fb">
-<span class="eqno">(8)<a class="headerlink" href="#equation-1c51c786-b24e-41b6-afc8-f9e6279af6fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a18b778a-2dd8-4225-ab09-6d4041159ad4">
+<span class="eqno">(8)<a class="headerlink" href="#equation-a18b778a-2dd8-4225-ab09-6d4041159ad4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 r^2 = a^2 + b^2 = z \cdot \overline{z}
 \end{equation}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\phi\)</span> using</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43b28af0-4ff0-4e17-a99e-aa24dd59c815">
-<span class="eqno">(9)<a class="headerlink" href="#equation-43b28af0-4ff0-4e17-a99e-aa24dd59c815" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\phi = \cos^{-1}(a/r)
+<div class="amsmath math notranslate nohighlight" id="equation-8db7a7e3-6655-4fe9-b1c2-4ebd00155b18">
+<span class="eqno">(9)<a class="headerlink" href="#equation-8db7a7e3-6655-4fe9-b1c2-4ebd00155b18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\phi = \cos^{-1}(a/r).
 \end{equation}\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">theta</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="nx">pi</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="nb">Complex</span><span class="p">(</span><span class="nx">cos</span><span class="p">(</span><span class="nx">theta</span><span class="p">),</span> <span class="nx">sin</span><span class="p">(</span><span class="nx">theta</span><span class="p">));</span>
+<span class="nx">theta</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>      <span class="c1">// 0.78539816339745</span>
+<span class="nx">z</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>          <span class="c1">// Complex( 0.70710678118655, 0.70710678118655 )</span>
+<span class="nx">z</span><span class="p">.</span><span class="nx">asPolar</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>  <span class="c1">// Polar( 1.0, 0.78539816339745 )</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>What happens geometrically if we multiply two complex numbers?
 If one of the numbers is a real number, we just scale the magnitude.
 Let <span class="math notranslate nohighlight">\(z_1 = r_1 \cdot (\cos(\alpha) + i \sin(\alpha))\)</span> and <span class="math notranslate nohighlight">\(z_2 = r_2 \cdot (\cos(\beta) + i \sin(\beta))\)</span> then</p>
@@ -841,10 +870,10 @@ Since <span class="math notranslate nohighlight">\(-i = 1 \cdot (a \cos(90) - i\
 \[\frac{1}{i} \cdot \frac{1}{i} = (-i)(-i) = -1.\]</div>
 <p>From the rule of products of complex numbers follows <em>de Moivre’s Theorem</em>.</p>
 <div class="theorem admonition" id="theorem-de-moivre">
-<p class="admonition-title">de Moivre’s Theorem </p>
+<p class="admonition-title">De Moivre’s Theorem </p>
 <p>Let <span class="math notranslate nohighlight">\(z = r \cdot (\cos(\phi) + i \sin(\phi))\)</span> a <em>complex number</em> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-352e4f1c-0452-44ce-80cd-802d1fccc7bd">
-<span class="eqno">(11)<a class="headerlink" href="#equation-352e4f1c-0452-44ce-80cd-802d1fccc7bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0a01122-f8f6-419a-b9c2-df6cca21cc22">
+<span class="eqno">(11)<a class="headerlink" href="#equation-f0a01122-f8f6-419a-b9c2-df6cca21cc22" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z^n = r^n (\cos(n\phi) + i \sin(n\phi)).
 \end{equation}\]</div>
 </div>
@@ -857,8 +886,8 @@ To arrive at the formula we first have to do some work.</p>
 <div class="definition admonition" id="def-taylor-series">
 <p class="admonition-title">Taylor Sries </p>
 <p>Let <span class="math notranslate nohighlight">\(f\)</span> be a real or comlex-valued function that infinitely differentiable at real or complex number <span class="math notranslate nohighlight">\(z\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb51ad39-0c3d-438e-9e98-bb06d3b62d92">
-<span class="eqno">(12)<a class="headerlink" href="#equation-bb51ad39-0c3d-438e-9e98-bb06d3b62d92" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c9cf247c-5f79-4e75-8f2b-524771028fb0">
+<span class="eqno">(12)<a class="headerlink" href="#equation-c9cf247c-5f79-4e75-8f2b-524771028fb0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 T_{f(z)}(x) &amp;= f(z) + \frac{f'(z)}{1!}(x-z) + \frac{f''(z)}{2!}(x-z)^2 + \frac{f'''(z)}{3!}(x-z) + \ldots \\
 &amp;= \sum\limits_{k=0}^{\infty} \frac{f^{(k)}(z)}{k!}(x-z)
@@ -931,19 +960,26 @@ e^{\phi i} &amp;= T_{e^0}(\phi i) = \sum\limits_{k=0}^{\infty} \frac{(\phi i)^k}
 <span class="eqno">(16)<a class="headerlink" href="#equation-eq-euler" title="Permalink to this equation">#</a></span>\[e^{i\phi} = \cos(\phi) + i \sin(\phi)\]</div>
 <p>holds. This relation is called <em>Euler’s formula</em>.</p>
 </div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">exp</span><span class="p">(</span><span class="nb">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="nb">Polar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">).</span><span class="nx">asComplex</span> <span class="c1">// true</span>
+</pre></div>
+</div>
 <p>We can immidiatly follow that</p>
 <div class="math notranslate nohighlight">
 \[e^{i\pi} = \cos(\pi) + i \sin(\pi) = -1 + i0 = -1\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">exp</span><span class="p">(</span><span class="nb">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pi</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mf">0.00001</span>  <span class="c1">// true</span>
+<span class="nx">exp</span><span class="p">(</span><span class="nb">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pi</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">0.00001</span> <span class="c1">// true</span>
+</pre></div>
+</div>
 <p>Therefore, the most beautiful of all times, called <em>Euler’s identity</em> emerges</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6507eed1-b984-4cd8-9593-3654a5c638c7">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6507eed1-b984-4cd8-9593-3654a5c638c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7851843b-b04a-470c-a6b3-303acadd5efb">
+<span class="eqno">(17)<a class="headerlink" href="#equation-7851843b-b04a-470c-a6b3-303acadd5efb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 e^{i\pi} + 1 = 0.
 \end{equation}\]</div>
 <div class="definition admonition" id="def-phasor">
 <p class="admonition-title">Phasor</p>
 <p>A <em>phasor</em> is the polar representation of any complex variable.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b315d958-8fef-4de5-8b28-d35f5c936894">
-<span class="eqno">(18)<a class="headerlink" href="#equation-b315d958-8fef-4de5-8b28-d35f5c936894" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-80701d5f-96bf-433d-be4e-7fc60d9d0a0f">
+<span class="eqno">(18)<a class="headerlink" href="#equation-80701d5f-96bf-433d-be4e-7fc60d9d0a0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z = r e^{i\phi},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r, \phi \in \mathbb{R}\)</span>.</p>
@@ -953,16 +989,16 @@ We start with</p>
 <div class="math notranslate nohighlight">
 \[(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\pi} + e^{-i\pi}.\]</div>
 <p>Therefore, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0290b420-973e-41cc-92e9-3fa20bd7b5eb">
-<span class="eqno">(19)<a class="headerlink" href="#equation-0290b420-973e-41cc-92e9-3fa20bd7b5eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1c81df2a-2b5d-41cb-ac28-a7b396a13599">
+<span class="eqno">(19)<a class="headerlink" href="#equation-1c81df2a-2b5d-41cb-ac28-a7b396a13599" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cos(\phi) = \frac{e^{i\pi} + e^{-i\pi}}{2}.
 \end{equation}\]</div>
 <p>For the sine we start with</p>
 <div class="math notranslate nohighlight">
 \[(\cos(\phi) + i\sin(\phi)) - (\cos(\phi) - i\sin(\phi)) = 2i \sin(\phi) = e^{i\pi} - e^{-i\pi}.\]</div>
 <p>Therefore, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9399509-0757-44e8-b0c4-fafac1105e21">
-<span class="eqno">(20)<a class="headerlink" href="#equation-d9399509-0757-44e8-b0c4-fafac1105e21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c7eccbcd-59c0-47fa-ac5e-1ef6d4be8568">
+<span class="eqno">(20)<a class="headerlink" href="#equation-c7eccbcd-59c0-47fa-ac5e-1ef6d4be8568" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sin(\phi) = \frac{e^{i\pi} - e^{-i\pi}}{2i} = -i\frac{e^{i\pi} - e^{-i\pi}}{2}.
 \end{equation}\]</div>
 </section>
