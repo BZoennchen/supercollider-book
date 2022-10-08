@@ -4,13 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Musical Event &#8212; Algorithmic Composition</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,8 +18,12 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -29,33 +31,30 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../../_static/tabs.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Event Player" href="5-event-player.html" />
@@ -67,21 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -90,10 +75,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -111,15 +95,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../../intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   SuperCollider I
  </span>
@@ -193,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   SuperCollider II
  </span>
@@ -306,7 +289,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Sound Design
  </span>
@@ -451,7 +434,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Composing
  </span>
@@ -510,7 +493,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -522,7 +505,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Trash
  </span>
@@ -541,17 +524,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -559,117 +537,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/chapters/supercollider/pattern/4-events.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/supercollider/pattern/4-events.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-default-instrument">
    The Default Instrument
@@ -704,11 +626,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Musical Event</h1>
@@ -759,12 +682,11 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="musical-event">
-<span id="sec-playing-events"></span><h1>Musical Event<a class="headerlink" href="#musical-event" title="Permalink to this headline">#</a></h1>
+  <div class="section" id="musical-event">
+<span id="sec-playing-events"></span><h1>Musical Event<a class="headerlink" href="#musical-event" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> is an important <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
 It models the process of playing an instrument by discrete events in time, realizing a discrete event simulation (DES).
 Its <code class="docutils literal notranslate"><span class="pre">Stream</span></code>, streams (musical) <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.</p>
@@ -829,8 +751,8 @@ They are split into partial events:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Event</span><span class="p">.</span><span class="nx">partialEvents</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 </pre></div>
 </div>
-<section id="the-default-instrument">
-<span id="sec-default-instrument"></span><h2>The Default Instrument<a class="headerlink" href="#the-default-instrument" title="Permalink to this headline">#</a></h2>
+<div class="section" id="the-default-instrument">
+<span id="sec-default-instrument"></span><h2>The Default Instrument<a class="headerlink" href="#the-default-instrument" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">instrument</span></code> is a <em>default</em> instrument called <code class="docutils literal notranslate"><span class="pre">\default</span></code> that is built into SuperCollider.
 We can find it in the source code of the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class.
 Let us have a look:</p>
@@ -855,9 +777,9 @@ Let us have a look:</p>
 Two slightly detuned waves are generated and mixed a single channel which is then panned into both speakers.</p>
 <p>The cutoff frequency of the <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">low pass filter</span></a> decreases over the time span of 1 second and is initialized with random values.
 By decreasing the cutoff frequency over time, high frequencies die out faster which is natural.</p>
-</section>
-<section id="value-conversions">
-<span id="sec-value-conversion"></span><h2>Value Conversions<a class="headerlink" href="#value-conversions" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="value-conversions">
+<span id="sec-value-conversion"></span><h2>Value Conversions<a class="headerlink" href="#value-conversions" title="Permalink to this headline">¶</a></h2>
 <p>In the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class, we can also find the code that actually <code class="docutils literal notranslate"><span class="pre">plays</span></code> an event.
 The method of interest is called <code class="docutils literal notranslate"><span class="pre">makeParentEvents</span></code>.
 It is very lengthy, and you do not have to understand it.
@@ -870,8 +792,8 @@ For example, a synth only knows frequencies, but you do not have to think in ter
 Instead, you can think in terms of midi notes, and the event player will transform your midi note into the respective frequency.
 Of course, defining midi note and simultaneously frequency does not really make sense.
 SuperCollider will always take the most substantial value, e.g., frequency over the midi note.</p>
-<section id="timing">
-<h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">#</a></h3>
+<div class="section" id="timing">
+<h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">¶</a></h3>
 <p>First of all, time is measured in beats per second (bps), and events are scheduled on a specific <a class="reference external" href="https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html">TempoClock</a> that runs at a particular bps.
 The default clock runs at 60 beats per second.
 We will discuss later how we can change this.</p>
@@ -911,12 +833,10 @@ This is not true for the duration <code class="docutils literal notranslate"><sp
 <p>What does <code class="docutils literal notranslate"><span class="pre">lag</span></code> mean?
 Well, <code class="docutils literal notranslate"><span class="pre">lag</span></code> (<span class="math notranslate nohighlight">\(\Delta t_l\)</span>) is a delay for the scheduler, i.e., scheduled events <em>lag</em> behind.
 The effect is that the sound generated by consecutive events will just start <em>lag</em> bps later.</p>
-<figure class="align-default" id="fig-event-timing">
+<div class="figure align-default" id="fig-event-timing">
 <a class="reference internal image-reference" href="../../../_images/event-timing.png"><img alt="../../../_images/event-timing.png" src="../../../_images/event-timing.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the timings of three scheduled events.</span><a class="headerlink" href="#fig-event-timing" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the timings of three scheduled events.</span><a class="headerlink" href="#fig-event-timing" title="Permalink to this image">¶</a></p>
+</div>
 <p>Let <span class="math notranslate nohighlight">\(e_1, \ldots, e_m\)</span> be the <span class="math notranslate nohighlight">\(m\)</span> scheduled events.
 Then for all <span class="math notranslate nohighlight">\(1 \leq i &lt; m\)</span></p>
 <div class="amsmath math notranslate nohighlight">
@@ -929,9 +849,9 @@ Then for all <span class="math notranslate nohighlight">\(1 \leq i &lt; m\)</spa
 </pre></div>
 </div>
 <p>We will see the effect of the different timing parameters later on when we actually play a stream of events.</p>
-</section>
-<section id="pitch">
-<h3>Pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="pitch">
+<h3>Pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">¶</a></h3>
 <p>As already mentioned, we do not have to work with frequencies.
 In fact, there are many ways to define the pitch of the event, i.e., the played synth, and many of them are more relevant for musicians who are used to them.
 I am not entirely familiar with all the concepts, so I will not provide a complete picture.</p>
@@ -974,9 +894,9 @@ For the default of 12 <code class="docutils literal notranslate"><span class="pr
 \end{equation*}\]</div>
 <p>This does not work if we introduce other values for <code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> or manipulate the <code class="docutils literal notranslate"><span class="pre">octaveRatio</span></code>.
 If you are interested in the exact computation, have a look at the source code of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class.</p>
-</section>
-<section id="amplitude">
-<h3>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="amplitude">
+<h3>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h3>
 <p>The amplitude can be defined by either <code class="docutils literal notranslate"><span class="pre">amp</span></code> or <code class="docutils literal notranslate"><span class="pre">db</span></code> (decibel).
 <code class="docutils literal notranslate"><span class="pre">amp</span></code> has a higher prioritization.</p>
 <p>Both of the following code lines generate a sound of equal amplitude.</p>
@@ -988,10 +908,10 @@ If you are interested in the exact computation, have a look at the source code o
 <p class="admonition-title">Amplitude in Decibel</p>
 <p><code class="docutils literal notranslate"><span class="pre">\db:</span> <span class="pre">0</span></code> equals <code class="docutils literal notranslate"><span class="pre">\amp:</span> <span class="pre">1.0</span></code>.</p>
 </div>
-</section>
-</section>
-<section id="custom-instrument">
-<h2>Custom Instrument<a class="headerlink" href="#custom-instrument" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="custom-instrument">
+<h2>Custom Instrument<a class="headerlink" href="#custom-instrument" title="Permalink to this headline">¶</a></h2>
 <p>Of course, we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., custom instrument.
 To use all the excellent predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments, and we have to name them as intended.
 For the rest of this section, we work with the following synth:</p>
@@ -1058,8 +978,8 @@ We can change this default behavior by setting our own <code class="docutils lit
 However, we need <code class="docutils literal notranslate"><span class="pre">dur</span></code> if we not only play one event but a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of events!
 Remember, <code class="docutils literal notranslate"><span class="pre">dur</span></code> influences the scheduler of our musical events.
 We can see the effect if we play a stream of events.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1083,11 +1003,9 @@ We can see the effect if we play a stream of events.</p>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="3-pattern.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1103,28 +1021,24 @@ We can see the effect if we play a stream of events.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Benedikt Zönnchen<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Benedikt Zönnchen<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
