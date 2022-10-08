@@ -1,6 +1,8 @@
 (sec-synths)=
 # Synthesizers
 
+>I got reconnect properly with computers [...] I didn't have to use someone else's idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. -- *Jonny Greenwood*
+
 The concept of synth definitions and synth is central to SuperCollider.
 Everything is built around this fundamental concept.
 It can be confusing for beginners because there is a big difference between a synth as we know it from the real world and an instance of ``Synth``.

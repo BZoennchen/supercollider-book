@@ -8,14 +8,15 @@ It is just a stylistic choice.
 ```{admonition} Proxy Space
 :name: def-proxy-space
 :class: definition
-A proxy space is an [Environments](sec-environments) consisting only of node proxies (instead of normal variables).
+A proxy space is an [Environments](sec-environments) consisting of node proxies only (instead of normal variables).
 ```
 
-The advatange to use ``ProxySpace`` is a shorter and often more clean syntax.
+The advatange to use ``ProxySpace`` is a shorter and often cleaner syntax.
 The downside is that we can no longer use *environment variables* for client side code.
+Note however that we can still use *global variables*, e.g. ``a, b, c, d, ...``.
 
 A proxy space is an [Environments](sec-environments), i.e., a collection of things that can be accessed by name.
-However, each *environmental variable* of a proxy space is a node proxy -- it returns placeholders on demand!
+However, each *environment variable* of a proxy space is a node proxy -- it returns placeholders on demand!
 Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
 Using a proxy space frees us from dealing with ``Ndef`` or ``NodeProxy`` explicitly, but we have to deal with it implicitly instead!
@@ -69,7 +70,7 @@ Changing a mono signal into a stereo signal on-the-fly is impossible.
 ```{admonition} Bus Changes
 :name: attention-proxy-bus-changes
 :class: attention
-You can not change the required busses of a running proxy.
+You can not change the number of required busses of a running proxy.
 ```
 
 If we execute the following code line, the audio server warns us of our mistake
@@ -86,7 +87,11 @@ by providing us the following message:
 
 The sound disappears after executing the third line.
 
+```{admonition} Number of Channels
+:name: attention-proxy-number-of-channels
+:class: remark
 Playing an empty proxy will set its number of output busses to two (stereo) by default.
+```
 
 Node proxies can be played ``play(fadeTime: 2)``, stopped ``stop(2)``, paused ``pause`` and resumed ``resume``.
 The latter two methods do not offer a fade time parameter, and for ``play``, the fade time has to be explicitly named.
@@ -129,7 +134,7 @@ As you can see, the output of one proxy can be used as an argument of multiple o
 Note that we do not ``play`` the ``~amp`` proxy because this would route the signal to the output.
 
 We can use syntactical sugger to do the same in an even more modular and clean way by using either ``source <>>.[argname] target`` or ``target <<>.[argname] source`` and normal arguments.
-This operation is inspired by the binary composition operator ``<>`` defined on functions, streams and patterns.
+This operation is inspired by the binary composition operator ``<>`` defined on [functions](sec-function-composition), streams and patterns.
 
 ```isc
 ~sine = {\amp.kr(0.25) * SinOsc.ar(350)*[1.0,1.003]};
@@ -146,7 +151,7 @@ This operation is inspired by the binary composition operator ``<>`` defined on 
 ````{admonition} Bus Changes
 :name: attention-node-proxy-composition
 :class: attention
-The composition operator ``<<>`` does only work for node proxies, i.e., not for constant values. 
+The composition operator ``<<>`` does only work for node proxies, i.e., it does not work for constant values. 
 The following will **not** work:
 
 ```isc
@@ -159,7 +164,7 @@ The advantages of modularity is that one can repatch control and audio rate sign
 
 Let us try to simulate a global clock by using the [Impulse](https://doc.sccode.org/Classes/Impulse.html) unit generator.
 Furthermore, let us try to trigger certain sounds at specific beats.
-Listen and experiment with the following code:
+Listen to and experiment with the following code:
 
 ```isc
 n = 16; // 1/16 beat
@@ -209,7 +214,7 @@ By indexing the *environment variable*, i.e. our node proxy, we can use the slot
 
 Assining multiple [UGens](sec-ugens) to multiple slots will add all these signals consecutively together.
 We do not have to use consecutive slot numbers.
-It is in fact good practice to leave gaps between occupied slots such that we can bring in another effect between two already established synths.
+It is in fact a good practice to leave gaps between occupied slots such that we can bring in another effect between two already established synths.
 
 These lines result in a sound produced of a sine and sawtooth wave added together.
 
@@ -219,7 +224,7 @@ These lines result in a sound produced of a sine and sawtooth wave added togethe
 ~out.play;
 ```
 
-If we set the ``\freq`` argument for the node proxy it will set it for all its slots.
+If we set the ``\freq`` argument for the node proxy it will be set for all its slots.
 
 ```isc
 ~out.set(\freq, 300) // changes \freq for all slots
@@ -231,11 +236,11 @@ The following will **not** work.
 ~out[10].set(\freq, 300) // error!
 ```
 
-Adding signals together seems to be not very useful.
+Adding signals together by using slots seems not very useful.
 However, the story does not end here.
 Slots become much more useful if we combine them with [NodeProxy roles](https://depts.washington.edu/dxscdoc/Help/Reference/NodeProxy_roles.html).
 
-Similar to [adverbs](sec-array-adverbs), which I discuss as part of the [Array](sec-array) section, roles allow to specify how a source, i.e. a synth, for a [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) is being used.
+Similar to [adverbs](sec-array-adverbs), which I discuss as part of the [Array](sec-array) section, roles allow us to specify how a source, i.e. a synth, for a [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) is being used.
 A specific role is associated by a specific symbol and a new proxy source object.
 For example, instead of adding signals together, the ``\filter`` and ``filterIn`` use the signal (coming from the slots with smaller indices) as input for a filter.
 The filter can be any unit generator graph.
@@ -271,9 +276,9 @@ In the folling I tried to recreate the sound of a firework:
 ~out.play;
 ```
 
-``Dust`` generates random impulses such that the density of that impulses approximate the frequency, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
+``Dust`` generates random impulses such that the density of that impulses approximate its frequency arguement, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
 ``Ringz`` models resonates at a frequency of ``300`` herz.
-Then we add reverb effect to give the sound some spacial depth.
+We add a reverb effect to give the sound some spacial depth.
 The low pass filter has no effect since the cutoff frequency is very high.
 
 Let us now introduce modulation for the resonance frequency and the cutoff filter to introduce even more spatial differences such that we get the feeling the firework happens around us in multiple streets.
@@ -288,7 +293,8 @@ Let us now introduce modulation for the resonance frequency and the cutoff filte
 
 The change in cutoff resonance and cutoff frequency happens continuously.
 
-In combination, JITLib and the proxy space offer extreme versatility and make live coding easier and very flexible.
+In combination, JITLib and the proxy space offer extreme versatility.
+They make live coding easier and very flexible.
 It gets more interesting when used with [pattern](sec-pattern), and one has multiple ``Pbinds`` sounding together.
 
 ## SynthDefs and Pbinds
@@ -323,7 +329,7 @@ The following does **not** work:
 ~test_beep.set(\freq, 200);
 ```
 
-Most of the time you will not use synths in this way but combine them with an [event player](sec-event-player), i.e., [Pbind](https://doc.sccode.org/Classes/Pbind.html)).
+Most of the time you will not use synths in this way but combine them with an [event player](sec-event-player), i.e., [Pbind](https://doc.sccode.org/Classes/Pbind.html).
 
 Let us create a gated more useful synth definition.
 
@@ -354,7 +360,8 @@ Now we use a ``Pbind`` to play a melody.
 )
 ```
 
-Note that if you set an argument for the proxy node it will use it and you can not override it by re-evaluating the ``Pbind``.
+Note that if you set an argument for the proxy node it will be used regardless of the argument with the same name of the ``Pbind``.
+You can not override it by re-evaluating the ``Pbind``.
 
 ```isc
 ~test_beep.set(\freq, 200);
@@ -369,5 +376,5 @@ You can get rid of the 'parent' argument by setting it to ``nill``.
 ## Synchronization
 
 In our second routing example we synchronzed our envelopes and ``TChoose`` unit generator by a global clock realized by an ``Impulse`` unit generator.
-As you saw, this opens up jet anaother coding style.
-A more straightforward way is to use ``Pbinds`` synchronized by a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html).
+As you saw, this opens up jet another coding style.
+A more straightforward way is to use ``Pbinds`` synchronized by a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html) which I describe in section [Clocks](sec-clocks).

@@ -1,24 +1,40 @@
 # Introduction
 
->I got reconnect properly with computers [...] I didn't have to use someone else's idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. -- *Jonny Greenwood*
+>What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' ... Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
 
-In its early state, *cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and self-expression, but that dream was quickly overturned in favor of making money.
-Watching the unstoppable force of the hyper-capitalist sector bringing down the fruits and spoils of open collaboration and transparency was heartbreaking to me.
-I was too young to be part of *The Early Days* and could only dive into leftover pieces, such as the *Gaming Culture* which has dissolved into a market as well.
-Today we realized that this tech explosion brought us an even higher degree of monetarization and commercialization.
-Now it is our dreams, feelings, moments, culture, and intimacy that is sold.
+## Why it Matters
 
-The capitalist's logic poisons art.
-It drives us into a state of endless consumption over creation.
+In its early state, *cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and self-expression;
+a last stand against the *Last Man*, a Nietzschian might say.
+However, that fruitful dream was quickly sold.
+Watching the unstoppable force of the hyper-capitalist sector bringing down the fruits and spoils of open and wild collaboration and transparency was heartbreaking to me.
+I was too young to be part of *The Early Days* and could only dive into leftover artefacts, such as the *Gaming Culture* which nowadays has dissolved into a large market as well.
+Today we realize that this tech explosion brought us an even higher degree of monetarization and commercialization.
+Now it is our dreams, feelings, moments, culture, and intimacy that is open for sale.
+
+The capitalist's logic poisons art. 
+It drives us into a cycle of endless consumption over creation.
 There might be some short period in which something genuinely creative can emerge, but soon after, its singularity will be destroyed by its assimilation into a sellable thus quantifyable product.
+Money is indifferent, thats the beauty and horror of it.
 
-To me, the *community of algorithmic composers* seems to be quite *egalitarian*, open and transparent.
-It appears as a *counter-culture*.
-Since it is such a niche, it is not yet stripped of its cultural connection.
-As a left-leaning person, I enjoy such contra commercial trends.
+For me, life itself in all its difference and in its creative will towards difference is a delicious good.
+It can not be understood by science;
+its meaning can not be articulated.
+Today we struggle with a *Symbolic Misery* because the mystical aspect of our life has no more place in a *Control Society*.
+Many of us feel empty, haunted by *Lost Futures* while the *Rage Against the Machine* seems now unimaginable.
+Is it time to give up?
+Let it play out and see where we land?
+We could try to find meaning in *Hedonic Nihilism* but that seems just not enough.
+As long there is life, there is a *Will to Live*.
+It is our last stand against complete assimilation, an undestructable sparkle of hope.
+
+To me, the *community of algorithmic composing* and *live coding* is a project to resist this assimilation;
+not because it is a *counter-culture* that is defined by its negation but because its community strides towards the affirmation of differences.
 Consequently, I got not only interested because of the matter but also because of its community.
-I hope, at some day, my project will be helpful, and bring not money but joy and communal interest in the matter and its community.
+I hope, at some day, my project will be helpful to strengthen the effort.
 Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against *Capitalist Realism*.
+
+## How I Started
 
 I discovered the world of algorithmic composition and sound design using code in late 2021.
 It all started when I watched an energetic and really motivated Sam Aaron presenting his [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi).
@@ -51,7 +67,12 @@ Being creative by producing sound was the essential puzzle I was always looking 
 >One’s stories persuade one’s audience that one is a particular kind of person. When one is one’s own audience, the telling amounts to having a self. -- *Leslie Ervine*, Even Better Than the Real Thing
 
 Who am I?
-Is there anything like *The Self*, without others?
+Any description of oneself is doomed because it is a disection of the whole.
+It is a typical modern thing to do: categorization.
+It is insufficient and in its worst manifestations, discriminatory.
+So take this with a grain of salt.
+I can only feed your biased imagination.
+
 From the bottom of my heart, I am a computer scientist.
 But I may have to clarify my interpretation of the term.
 I mean computer scientist in the sense of studying different aspects of computation:

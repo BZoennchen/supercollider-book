@@ -1,3 +1,4 @@
+(sec-clocks)=
 # Clocks
 
 A *clock* is a timed scheduler.

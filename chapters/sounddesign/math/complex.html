@@ -4,13 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Complex Numbers &#8212; Algorithmic Composition</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,8 +18,12 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -29,33 +31,30 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../../_static/tabs.js"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Spectral Analysis and Synthesis" href="fourier.html" />
@@ -67,21 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -90,10 +75,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -111,15 +95,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../../intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
  <span class="caption-text">
   SuperCollider I
  </span>
@@ -193,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   SuperCollider II
  </span>
@@ -306,7 +289,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Sound Design
  </span>
@@ -451,7 +434,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Composing
  </span>
@@ -510,7 +493,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Appendix
  </span>
@@ -522,7 +505,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Trash
  </span>
@@ -541,17 +524,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -559,117 +537,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/chapters/sounddesign/math/complex.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/chapters/sounddesign/math/complex.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#complex-plane">
    Complex Plane
@@ -682,11 +604,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Complex Numbers</h1>
@@ -715,81 +638,98 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="complex-numbers">
-<h1>Complex Numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">#</a></h1>
+  <div class="section" id="complex-numbers">
+<h1>Complex Numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">¶</a></h1>
 <p>The history of mathematics is a history of discoveries and inventions.
-The greeks focused on geometry and introduced natural and rational numbers.
-Because of their fascianation with geometry, they did not come up with negative numbers.
-A negative length makes no sense thus reality had to change before the mind was ready to see the concept of negative numbers.</p>
+The greeks focused on geometry and introduced natural as well as rational numbers.
+Interestingly, they had trouble to come up with negative numbers because their experienced was lacking its necessity and they were really into with Euclidean geometry;
+an area where negative numbers make no sense.
+What deos a negative length mean?
+However, the world was evolving and eventuelly negative numbers were introduced out of necessity.</p>
 <p>To solve <span class="math notranslate nohighlight">\(2x = 4\)</span> we rely on natural numbers.
 We need negative numbers to solve <span class="math notranslate nohighlight">\(2x+4\)</span>, rational numbers for <span class="math notranslate nohighlight">\(4x = 2\)</span> and real numbers for <span class="math notranslate nohighlight">\(x^2 = 2\)</span>.
 How do we solve</p>
 <div class="math notranslate nohighlight" id="equation-eq-complex-ex1">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-complex-ex1" title="Permalink to this equation">#</a></span>\[x^2 + 2 = 0?\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-complex-ex1" title="Permalink to this equation">¶</a></span>\[x^2 + 2 = 0?\]</div>
 <p>Well we need <em>complex numbers</em>.
 They extend real numbers by defintion.
 We introduce a special symbol <span class="math notranslate nohighlight">\(i\)</span> which is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-complex-i">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-complex-i" title="Permalink to this equation">#</a></span>\[i^2 := -1.\]</div>
-<p>Complex numbers are invented but they are also discovered because everything works out, i.e. they have all the rich mathematical properties we want to be helpful.
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-complex-i" title="Permalink to this equation">¶</a></span>\[i^2 := -1.\]</div>
+<p>Complex numbers are invented but they are also discovered because everything works out, i.e. they have all the rich mathematical properties we desire and require.
 Let us solve Eq. <a class="reference internal" href="#equation-eq-complex-ex1">(2)</a>:</p>
 <div class="math notranslate nohighlight">
 \[x^2 = -2 = 2 i^2 \iff x = \sqrt{2i^2} = \sqrt{2} \sqrt{i^2} = \sqrt{2}i\]</div>
+<p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> provides a class called <a class="reference external" href="https://doc.sccode.org/Classes/Complex.html">Complex</a>.
+Objects of that class represent complex numbers.
+Let us solve Eq. <a class="reference internal" href="#equation-eq-complex-ex1">(2)</a> with <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">n</span> <span class="o">=</span> <span class="nb">Complex</span><span class="p">(</span><span class="kc">real:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="kc">imag:</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// -2</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">sqrt</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>                    <span class="c1">// i*sqrt(2)</span>
+</pre></div>
+</div>
 <p>To make complex numbers useful they have to work with real numbers.
 For example what is <span class="math notranslate nohighlight">\(i + 3\)</span> where <span class="math notranslate nohighlight">\(i\)</span> is a complex number and <span class="math notranslate nohighlight">\(3\)</span> a real number.</p>
 <div class="definition admonition" id="def-complex-number">
-<p class="admonition-title">Complex Numbers </p>
+<p class="admonition-title">Complex Numbers</p>
 <p>A <em>complex number</em> <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a9d9110-0806-4235-acc0-f7ee61d7317b">
-<span class="eqno">(4)<a class="headerlink" href="#equation-7a9d9110-0806-4235-acc0-f7ee61d7317b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9fc04454-f1b5-4735-8355-ef88d3f4407f">
+<span class="eqno">(4)<a class="headerlink" href="#equation-9fc04454-f1b5-4735-8355-ef88d3f4407f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z = a + bi,
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span>, is the sum of a <em>real number</em> <span class="math notranslate nohighlight">\(a = \textbf{Re}(z) \in \mathbb{R}\)</span> and an <em>imaginary number</em> <span class="math notranslate nohighlight">\(b = \textbf{Im}(z)\)</span>.</p>
 </div>
-<p>Therefore a complex number <span class="math notranslate nohighlight">\(z\)</span> has two parts: a real and imaginary part.
+<p>Therefore a complex number <span class="math notranslate nohighlight">\(z\)</span> has two parts: a real <code class="docutils literal notranslate"><span class="pre">real</span></code> and imaginary <code class="docutils literal notranslate"><span class="pre">imag</span></code> part.
 Note that squaring an imaginary number gives a real number, i.e. <span class="math notranslate nohighlight">\((bi)^2 = -1b^2 = -b^2\)</span>.
 Furthermore, we get <span class="math notranslate nohighlight">\(0 = 0 + 0i\)</span>, <span class="math notranslate nohighlight">\(bi = 0 + bi\)</span>, <span class="math notranslate nohighlight">\(a = a + 0i\)</span>.</p>
 <p>Equality, addition, multiplication and negation works as expected.
 There is a special operation called <em>complex conjugation</em>.</p>
 <div class="definition admonition" id="def-complex-conjugate">
-<p class="admonition-title">Complex Conjugation </p>
+<p class="admonition-title">Complex Conjugation</p>
 <p>The conjugation <span class="math notranslate nohighlight">\(\overline{z}\)</span> of a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> is the negation of its imaginary part, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80538dea-dcd3-484d-81f4-b53dfdc1e569">
-<span class="eqno">(5)<a class="headerlink" href="#equation-80538dea-dcd3-484d-81f4-b53dfdc1e569" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-259fbc34-1e40-4e44-a324-00b7ab91290d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-259fbc34-1e40-4e44-a324-00b7ab91290d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \overline{z} = \overline{a + bi} = \overline{a} + \overline{bi} = a - bi.
 \end{equation}\]</div>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">n</span> <span class="o">=</span> <span class="nb">Complex</span><span class="p">(</span><span class="kc">real:</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">imag:</span> <span class="mi">9</span><span class="p">)</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">conjugate</span> <span class="c1">// Complex(real: 2, imag: -9)</span>
+<span class="nx">n</span><span class="p">.</span><span class="nx">conjugate</span> <span class="o">*</span> <span class="nx">n</span> <span class="c1">// Complex(real: 85, imag: 0)</span>
+</pre></div>
 </div>
 <p>Multiplying a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> by its conjugate gives a real number:</p>
 <div class="math notranslate nohighlight">
 \[z \cdot \overline{z} = (a + bi) \cdot (a - bi) = a^2 - (bi)^2 = a^2 + b^2.\]</div>
-<section id="complex-plane">
-<h2>Complex Plane<a class="headerlink" href="#complex-plane" title="Permalink to this headline">#</a></h2>
 <p>We can use this fact to evaluate the division of two complex numbers <span class="math notranslate nohighlight">\(z_1 = a + bi, z_2 = c + di\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{ac-adi+bic+bdi^2}{c^2+d^2} = \frac{(ac+bd) + (bc-ad)i}{c^2+d^2}.\]</div>
+<p>Zum Beispiel:</p>
+<div class="math notranslate nohighlight">
+\[\frac{2 + i}{3 + 2i} = \frac{(2 + i)(3-2i)}{(3 + 2i)(3-2i)} = \frac{6 -4i + 3i -2i^2}{3^2 + 2^2} = \frac{8 -i}{13}.\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">Complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="complex-plane">
+<h2>Complex Plane<a class="headerlink" href="#complex-plane" title="Permalink to this headline">¶</a></h2>
 <p>We can represent a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> by a point <span class="math notranslate nohighlight">\(p_z = (a, b)\)</span> in the Cartesian plane which we then call complex plane.</p>
-<figure class="align-default" id="fig-complex-plane">
+<div class="figure align-default" id="fig-complex-plane">
 <a class="reference internal image-reference" href="../../../_images/complex-plane.png"><img alt="../../../_images/complex-plane.png" src="../../../_images/complex-plane.png" style="width: 500px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Numbers on the complex plane.</span><a class="headerlink" href="#fig-complex-plane" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Numbers on the complex plane.</span><a class="headerlink" href="#fig-complex-plane" title="Permalink to this image">¶</a></p>
+</div>
 <p>This gives us another representation using the angle <span class="math notranslate nohighlight">\(\phi\)</span> and the magnitude <span class="math notranslate nohighlight">\(r\)</span> of the vector <span class="math notranslate nohighlight">\((a, b)\)</span>.
 We have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-131415c0-234f-416d-a79a-41e5f14a9d1e">
-<span class="eqno">(6)<a class="headerlink" href="#equation-131415c0-234f-416d-a79a-41e5f14a9d1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bea94f32-9894-41dd-85f5-92b88a28cce2">
+<span class="eqno">(6)<a class="headerlink" href="#equation-bea94f32-9894-41dd-85f5-92b88a28cce2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 a &amp;= r \cdot \cos(\phi)\\
 bi &amp;= r \cdot i\sin(\phi)
 \end{split}
 \end{equation}\]</div>
 <p>thus</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de68cdba-258f-48ec-9f60-3babe81df60e">
-<span class="eqno">(7)<a class="headerlink" href="#equation-de68cdba-258f-48ec-9f60-3babe81df60e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8077ad23-558f-481d-b5ac-8c8ac8830cfa">
+<span class="eqno">(7)<a class="headerlink" href="#equation-8077ad23-558f-481d-b5ac-8c8ac8830cfa" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 z &amp;= a + bi\\
   &amp;= (r \cdot \cos(\phi)) + (r \cdot i \sin(\phi))\\
@@ -797,20 +737,29 @@ z &amp;= a + bi\\
 \end{split}
 \end{equation}\]</div>
 <p>Given <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> we can compute <span class="math notranslate nohighlight">\(r\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c51c786-b24e-41b6-afc8-f9e6279af6fb">
-<span class="eqno">(8)<a class="headerlink" href="#equation-1c51c786-b24e-41b6-afc8-f9e6279af6fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0ec54c47-0678-4259-9275-229dad3bbb41">
+<span class="eqno">(8)<a class="headerlink" href="#equation-0ec54c47-0678-4259-9275-229dad3bbb41" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 r^2 = a^2 + b^2 = z \cdot \overline{z}
 \end{equation}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\phi\)</span> using</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43b28af0-4ff0-4e17-a99e-aa24dd59c815">
-<span class="eqno">(9)<a class="headerlink" href="#equation-43b28af0-4ff0-4e17-a99e-aa24dd59c815" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\phi = \cos^{-1}(a/r)
+<div class="amsmath math notranslate nohighlight" id="equation-f3f2609e-4262-4db9-9081-a90dc5914723">
+<span class="eqno">(9)<a class="headerlink" href="#equation-f3f2609e-4262-4db9-9081-a90dc5914723" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+\phi = \cos^{-1}(a/r).
 \end{equation}\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">theta</span> <span class="o">=</span> <span class="mf">0.25</span><span class="o">*</span><span class="nx">pi</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="nb">Complex</span><span class="p">(</span><span class="nx">cos</span><span class="p">(</span><span class="nx">theta</span><span class="p">),</span> <span class="nx">sin</span><span class="p">(</span><span class="nx">theta</span><span class="p">));</span>
+<span class="nx">theta</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>      <span class="c1">// 0.78539816339745</span>
+<span class="nx">z</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>          <span class="c1">// Complex( 0.70710678118655, 0.70710678118655 )</span>
+<span class="nx">z</span><span class="p">.</span><span class="nx">asPolar</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>  <span class="c1">// Polar( 1.0, 0.78539816339745 )</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>What happens geometrically if we multiply two complex numbers?
 If one of the numbers is a real number, we just scale the magnitude.
 Let <span class="math notranslate nohighlight">\(z_1 = r_1 \cdot (\cos(\alpha) + i \sin(\alpha))\)</span> and <span class="math notranslate nohighlight">\(z_2 = r_2 \cdot (\cos(\beta) + i \sin(\beta))\)</span> then</p>
 <div class="math notranslate nohighlight" id="equation-eq-complex-mul">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-complex-mul" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{split}
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-complex-mul" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
 z_1 \cdot z_2 &amp;= r_1 \cdot (\cos(\alpha) + i \sin(\alpha)) \cdot r_2 \cdot (\cos(\beta) + i \sin(\beta))\\
 &amp;= r_1r_2 \cdot (\cos(\alpha)\cos(\beta) + i\cos(\alpha)\sin(\beta) + i \sin(\alpha)\cos(\beta) + i^2 \sin(\alpha)\sin(\beta))\\
 &amp;= r_1r_2 \cdot [(\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)) + i (\cos(\alpha)\sin(\beta)+\sin(\alpha)\cos(\beta))] \\
@@ -829,7 +778,7 @@ z_1 \cdot z_2 &amp;= r_1 \cdot (\cos(\alpha) + i \sin(\alpha)) \cdot r_2 \cdot (
 <p>Eq. <a class="reference internal" href="#equation-eq-complex-mul">(10)</a> gives us some insights.
 Product of two complex numbers equates to scaling and rotating by magnitude and angle of the second number respectively.</p>
 <div class="theorem admonition" id="theorem-complex-multiplication">
-<p class="admonition-title">Product of Complex Numbers </p>
+<p class="admonition-title">Product of Complex Numbers</p>
 <p>The product of two complex numbers is the product of their magnitudes and the sum of their angles.</p>
 </div>
 <p>Since <span class="math notranslate nohighlight">\(i = 1 \cdot (a \cos(90) + i\sin(90))\)</span> holds, multiplying by <span class="math notranslate nohighlight">\(i\)</span> equates to a counterclock rotation by 90 degrees.
@@ -841,24 +790,24 @@ Since <span class="math notranslate nohighlight">\(-i = 1 \cdot (a \cos(90) - i\
 \[\frac{1}{i} \cdot \frac{1}{i} = (-i)(-i) = -1.\]</div>
 <p>From the rule of products of complex numbers follows <em>de Moivre’s Theorem</em>.</p>
 <div class="theorem admonition" id="theorem-de-moivre">
-<p class="admonition-title">de Moivre’s Theorem </p>
+<p class="admonition-title">De Moivre’s Theorem</p>
 <p>Let <span class="math notranslate nohighlight">\(z = r \cdot (\cos(\phi) + i \sin(\phi))\)</span> a <em>complex number</em> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-352e4f1c-0452-44ce-80cd-802d1fccc7bd">
-<span class="eqno">(11)<a class="headerlink" href="#equation-352e4f1c-0452-44ce-80cd-802d1fccc7bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d863ce12-d0a5-40b2-a37b-7ba7e38599a0">
+<span class="eqno">(11)<a class="headerlink" href="#equation-d863ce12-d0a5-40b2-a37b-7ba7e38599a0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z^n = r^n (\cos(n\phi) + i \sin(n\phi)).
 \end{equation}\]</div>
 </div>
-</section>
-<section id="euler-s-formula">
-<h2>Euler’s Formula<a class="headerlink" href="#euler-s-formula" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="euler-s-formula">
+<h2>Euler’s Formula<a class="headerlink" href="#euler-s-formula" title="Permalink to this headline">¶</a></h2>
 <p><em>Euler’s formula</em> or <em>Euler’s equation</em> is one of the most beautiful relationships one can think of.
 It connects <em>Euler’s number</em> <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span>.
 To arrive at the formula we first have to do some work.</p>
 <div class="definition admonition" id="def-taylor-series">
-<p class="admonition-title">Taylor Sries </p>
+<p class="admonition-title">Taylor Sries</p>
 <p>Let <span class="math notranslate nohighlight">\(f\)</span> be a real or comlex-valued function that infinitely differentiable at real or complex number <span class="math notranslate nohighlight">\(z\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb51ad39-0c3d-438e-9e98-bb06d3b62d92">
-<span class="eqno">(12)<a class="headerlink" href="#equation-bb51ad39-0c3d-438e-9e98-bb06d3b62d92" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ac0844e-af0c-47ca-b7f0-544622a28c0f">
+<span class="eqno">(12)<a class="headerlink" href="#equation-2ac0844e-af0c-47ca-b7f0-544622a28c0f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \begin{split}
 T_{f(z)}(x) &amp;= f(z) + \frac{f'(z)}{1!}(x-z) + \frac{f''(z)}{2!}(x-z)^2 + \frac{f'''(z)}{3!}(x-z) + \ldots \\
 &amp;= \sum\limits_{k=0}^{\infty} \frac{f^{(k)}(z)}{k!}(x-z)
@@ -873,46 +822,40 @@ We know that <span class="math notranslate nohighlight">\(\sin'(x) = \cos(x)\)</
 Furthermore <span class="math notranslate nohighlight">\(\sin(0) = 0\)</span> and <span class="math notranslate nohighlight">\(\cos(0) = 1\)</span>.
 Therefore, we get</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-sin">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eq-taylor-sin" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{split}
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-taylor-sin" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
 \sin(x) &amp;= T_{\sin(0)}(x) = \sum\limits_{k=0}^{\infty} \frac{\sin^{(k)}(0)}{k!}(x)\\
 &amp;= 0 + x - 0 - \frac{x^3}{3!} + 0 + \frac{x^5}{5!} - 0 - \frac{x^7}{7!} + \ldots \\
 &amp;= x - \frac{x^3}{3!} +  \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots
 \end{split}\end{split}\]</div>
 <p>for the sine function.</p>
-<figure class="align-default" id="fig-taylor-sine">
+<div class="figure align-default" id="fig-taylor-sine">
 <a class="reference internal image-reference" href="../../../_images/taylor_sin.png"><img alt="../../../_images/taylor_sin.png" src="../../../_images/taylor_sin.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>Taylor series</em> that approximates <span class="math notranslate nohighlight">\(\sin(x)\)</span> at <span class="math notranslate nohighlight">\(x=0\)</span> using <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5\)</span> terms.</span><a class="headerlink" href="#fig-taylor-sine" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text"><em>Taylor series</em> that approximates <span class="math notranslate nohighlight">\(\sin(x)\)</span> at <span class="math notranslate nohighlight">\(x=0\)</span> using <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5\)</span> terms.</span><a class="headerlink" href="#fig-taylor-sine" title="Permalink to this image">¶</a></p>
+</div>
 <p>And we get</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-cos">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eq-taylor-cos" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{split}
+<span class="eqno">(14)<a class="headerlink" href="#equation-eq-taylor-cos" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
 \cos(x) &amp;= T_{\cos(0)}(x) = \sum\limits_{k=0}^{\infty} \frac{\cos^{(k)}(0)}{k!}(x)\\
 &amp;= 1 - 0 - \frac{x^2}{2!} + 0 + \frac{x^4}{4!} - 0 - \frac{x^6}{6!} + \ldots \\
 &amp;= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \ldots
 \end{split}\end{split}\]</div>
 <p>for the cosine function.</p>
-<figure class="align-default" id="fig-taylor-cos">
+<div class="figure align-default" id="fig-taylor-cos">
 <a class="reference internal image-reference" href="../../../_images/taylor_cos.png"><img alt="../../../_images/taylor_cos.png" src="../../../_images/taylor_cos.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>Taylor series</em> that approximates <span class="math notranslate nohighlight">\(\cos(x)\)</span> at <span class="math notranslate nohighlight">\(x=0\)</span> using <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5\)</span> terms.</span><a class="headerlink" href="#fig-taylor-cos" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text"><em>Taylor series</em> that approximates <span class="math notranslate nohighlight">\(\cos(x)\)</span> at <span class="math notranslate nohighlight">\(x=0\)</span> using <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5\)</span> terms.</span><a class="headerlink" href="#fig-taylor-cos" title="Permalink to this image">¶</a></p>
+</div>
 <p>Furthermore, the natural exponential function has a quite nice form too</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-euler">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eq-taylor-euler" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{split}
+<span class="eqno">(15)<a class="headerlink" href="#equation-eq-taylor-euler" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
 e^x &amp;= T_{e^0}(x) = \sum\limits_{k=0}^{\infty} \frac{\text{exp}^{(k)}(0)}{k!}x^k \\
 &amp;= \sum\limits_{k=0}^{\infty} \frac{x^k}{k!}
 \end{split}\end{split}\]</div>
 <p>since <span class="math notranslate nohighlight">\(\text{exp}^{(k)}(x) = \text{exp}(x)\)</span> for all <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> and <span class="math notranslate nohighlight">\(e^0 = 1\)</span>.
 Note that we donte <span class="math notranslate nohighlight">\(e^x\)</span> by <span class="math notranslate nohighlight">\(\text{exp}(x)\)</span>.</p>
-<figure class="align-default" id="fig-taylor-exp">
+<div class="figure align-default" id="fig-taylor-exp">
 <a class="reference internal image-reference" href="../../../_images/taylor_exp.png"><img alt="../../../_images/taylor_exp.png" src="../../../_images/taylor_exp.png" style="width: 300px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Taylor series</em> that approximates <span class="math notranslate nohighlight">\(e^x\)</span> at <span class="math notranslate nohighlight">\(x=0\)</span> using <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5\)</span> terms.</span><a class="headerlink" href="#fig-taylor-exp" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text"><em>Taylor series</em> that approximates <span class="math notranslate nohighlight">\(e^x\)</span> at <span class="math notranslate nohighlight">\(x=0\)</span> using <span class="math notranslate nohighlight">\(1, 2, 3, 4, 5\)</span> terms.</span><a class="headerlink" href="#fig-taylor-exp" title="Permalink to this image">¶</a></p>
+</div>
 <p>What happens if we plug in an imaginary number like <span class="math notranslate nohighlight">\(\phi i\)</span>, with <span class="math notranslate nohighlight">\(\phi\in \mathbb{R}\)</span>?
 Well let’s see:</p>
 <div class="math notranslate nohighlight">
@@ -928,22 +871,29 @@ e^{\phi i} &amp;= T_{e^0}(\phi i) = \sum\limits_{k=0}^{\infty} \frac{(\phi i)^k}
 <p class="admonition-title">Euler’s Formula</p>
 <p>Let <span class="math notranslate nohighlight">\(i \phi\)</span> be an imaginary number then</p>
 <div class="math notranslate nohighlight" id="equation-eq-euler">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eq-euler" title="Permalink to this equation">#</a></span>\[e^{i\phi} = \cos(\phi) + i \sin(\phi)\]</div>
+<span class="eqno">(16)<a class="headerlink" href="#equation-eq-euler" title="Permalink to this equation">¶</a></span>\[e^{i\phi} = \cos(\phi) + i \sin(\phi)\]</div>
 <p>holds. This relation is called <em>Euler’s formula</em>.</p>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">exp</span><span class="p">(</span><span class="nb">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="nb">Polar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">).</span><span class="nx">asComplex</span> <span class="c1">// true</span>
+</pre></div>
 </div>
 <p>We can immidiatly follow that</p>
 <div class="math notranslate nohighlight">
 \[e^{i\pi} = \cos(\pi) + i \sin(\pi) = -1 + i0 = -1\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">exp</span><span class="p">(</span><span class="nb">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pi</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mf">0.00001</span>  <span class="c1">// true</span>
+<span class="nx">exp</span><span class="p">(</span><span class="nb">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pi</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">0.00001</span> <span class="c1">// true</span>
+</pre></div>
+</div>
 <p>Therefore, the most beautiful of all times, called <em>Euler’s identity</em> emerges</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6507eed1-b984-4cd8-9593-3654a5c638c7">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6507eed1-b984-4cd8-9593-3654a5c638c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e9955a9-e33d-459f-b11e-8045aee50039">
+<span class="eqno">(17)<a class="headerlink" href="#equation-6e9955a9-e33d-459f-b11e-8045aee50039" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 e^{i\pi} + 1 = 0.
 \end{equation}\]</div>
 <div class="definition admonition" id="def-phasor">
 <p class="admonition-title">Phasor</p>
 <p>A <em>phasor</em> is the polar representation of any complex variable.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b315d958-8fef-4de5-8b28-d35f5c936894">
-<span class="eqno">(18)<a class="headerlink" href="#equation-b315d958-8fef-4de5-8b28-d35f5c936894" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c5e99ee7-c289-4958-a8fa-877616381ec2">
+<span class="eqno">(18)<a class="headerlink" href="#equation-c5e99ee7-c289-4958-a8fa-877616381ec2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z = r e^{i\phi},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r, \phi \in \mathbb{R}\)</span>.</p>
@@ -953,20 +903,20 @@ We start with</p>
 <div class="math notranslate nohighlight">
 \[(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\pi} + e^{-i\pi}.\]</div>
 <p>Therefore, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0290b420-973e-41cc-92e9-3fa20bd7b5eb">
-<span class="eqno">(19)<a class="headerlink" href="#equation-0290b420-973e-41cc-92e9-3fa20bd7b5eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-67677712-1e1d-4523-81ff-43c15b5c773e">
+<span class="eqno">(19)<a class="headerlink" href="#equation-67677712-1e1d-4523-81ff-43c15b5c773e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \cos(\phi) = \frac{e^{i\pi} + e^{-i\pi}}{2}.
 \end{equation}\]</div>
 <p>For the sine we start with</p>
 <div class="math notranslate nohighlight">
 \[(\cos(\phi) + i\sin(\phi)) - (\cos(\phi) - i\sin(\phi)) = 2i \sin(\phi) = e^{i\pi} - e^{-i\pi}.\]</div>
 <p>Therefore, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9399509-0757-44e8-b0c4-fafac1105e21">
-<span class="eqno">(20)<a class="headerlink" href="#equation-d9399509-0757-44e8-b0c4-fafac1105e21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-14343b7d-63b3-42ed-beb7-8b17f920321c">
+<span class="eqno">(20)<a class="headerlink" href="#equation-14343b7d-63b3-42ed-beb7-8b17f920321c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \sin(\phi) = \frac{e^{i\pi} - e^{-i\pi}}{2i} = -i\frac{e^{i\pi} - e^{-i\pi}}{2}.
 \end{equation}\]</div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -990,11 +940,9 @@ We start with</p>
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="sampling.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1010,28 +958,24 @@ We start with</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Benedikt Zönnchen<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By Benedikt Zönnchen<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
