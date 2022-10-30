@@ -1,38 +1,111 @@
 # Introduction
 
->What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' ... Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
+>What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' [...] Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
 
-## Why it Matters
+## Why it Matters -- A Romantic Argument
 
-In its early state, *cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and self-expression;
+In its early state, *Cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and collective expressions;
 a last stand against the *Last Man*, a Nietzschian might say.
 However, that fruitful dream was quickly sold.
-Watching the unstoppable force of the hyper-capitalist sector bringing down the fruits and spoils of open and wild collaboration and transparency was heartbreaking to me.
-I was too young to be part of *The Early Days* and could only dive into leftover artefacts, such as the *Gaming Culture* which nowadays has dissolved into a large market as well.
+While visionaries kept dreaming, the capital was already in place to establish a new market.
+Instead of a democratic digital space, *cyberspace* was altered by the rules of the old exploitative business models we naively believed we could escape from.
+I was too young to witness this downfall firsthand and could only dive into leftover artifacts, such as the *Gaming Culture* which nowadays has mostly dissolved into a large market as well.
+
+Looking at New York, around 1975, one can observe that many radical left-wing artists resigned by retreating from politics and collective activism to a state of cool and ironic detachment.
+They were in a mood of disillusion and did no longer try to change the decaying city of New York – they just experienced it. Artists fled into a hyper-individualistic dream world.
+Instead of changing material realities, i.e., what is outside, they believed they should try to change what was inside people’s heads.
+And the way to do that was through self-expression and not collective action. But by doing so, they became alienating for those who wanted to act collectively.
+Furthermore, they and the people that experienced their art were beginning to lose touch with the reality of power.
+
+>It was the mood of the era, and the revolution was deferred indefinitely.
+And while we were dozing, the money crept in.
+
+Politicians also resigned from politics, letting the financial sector overtake many parts of government management.
+The system changed from a system of negotiations between different peers to the control system of the market in which negotiations were superfluous.
+The old idea of using politics to change the world was replaced by the new idea that you could run the world as a stable system.
+
 Today we realize that this tech explosion brought us an even higher degree of monetarization and commercialization.
-Now it is our dreams, feelings, moments, culture, and intimacy that is open for sale.
+Now our dreams, feelings, moments, culture, and intimacy are open for sale.
+Andrew Dominik articulates this uncanny realization through his character Jackie in *Killing Them Softly*:
 
-The capitalist's logic poisons art. 
-It drives us into a cycle of endless consumption over creation.
-There might be some short period in which something genuinely creative can emerge, but soon after, its singularity will be destroyed by its assimilation into a sellable thus quantifyable product.
-Money is indifferent, thats the beauty and horror of it.
+>I'm living in America, and in America, you're on your own. America's not a country. It's just a business. Now fucking pay me.
 
-For me, life itself in all its difference and in its creative will towards difference is a delicious good.
-It can not be understood by science;
-its meaning can not be articulated.
-Today we struggle with a *Symbolic Misery* because the mystical aspect of our life has no more place in a *Control Society*.
+Of course, this dog-eat-dog mentality was successfully exported a long time ago, and many firmly believe it is an essential human characteristic.
+
+Grown from a world of money making commodities, art can never be seen as innocent.
+Even if its creators could deprive themselves of that world entirely, the audience can not.
+Money, as a stand-in for divine-like comparability, poisons art.
+And capitalism drives us into a cycle of endless consumption and repetitive cloning.
+Most of us can no longer create, can no longer bring out what's inside but consume what's in front.
+Sure, there might be some short period in which something genuinely creative can emerge.
+Still, soon after, its singularity will be destroyed by its assimilation into a sellable, thus quantifiable product.
+Money is indifferent; that's the beauty and horror of it.
+
+In that sense, it is the opposite of life itself which is all about differentiation -- bodies, cells, planets, cultures, and their environment.
+Our *being there* (*Dasein*) can not be dissected, and it can not be understood by science because any attempt can only happen while being there;
+It is like time for which any articulation of what it is can only happen in time.
+We need time to explain time, and we need *Dasein* to grasp *Dasein*.
+Science has to be blind to the *Dasein*; it has to look at specifics with a particular perspective.
+
+Today many people live in a *Symbolic Misery* because the mystical aspect of their life has no more place in a *Control Society*.
+They can choose, but only from a set of pretty similar possibilities.
+Nothing radical is in sight.
+The horizon of what is sensible has narrowed down.
+We are self-regulatory and self-controlling;
+there is no longer the need to point guns at our heads.
 Many of us feel empty, haunted by *Lost Futures* while the *Rage Against the Machine* seems now unimaginable.
+
 Is it time to give up?
 Let it play out and see where we land?
-We could try to find meaning in *Hedonic Nihilism* but that seems just not enough.
-As long there is life, there is a *Will to Live*.
-It is our last stand against complete assimilation, an undestructable sparkle of hope.
+We could try to find the last joy in *Hedonic Nihilism*, but that seems just not enough.
+However, as long there is life, there is a *Will to Live*.
+As long there is *Dasein* there is something mystical.
+It is our last stand against complete assimilation, an indestructible sparkle of hope.
 
-To me, the *community of algorithmic composing* and *live coding* is a project to resist this assimilation;
-not because it is a *counter-culture* that is defined by its negation but because its community strides towards the affirmation of differences.
-Consequently, I got not only interested because of the matter but also because of its community.
-I hope, at some day, my project will be helpful to strengthen the effort.
 Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against *Capitalist Realism*.
+The story politicians tell the everyday person no longer reflects the reality they live in.
+Reality and our model of reality no longer fit together.
+This discrepancy triggers a strange feeling.
+We function daily as we only know to function, but deep down, we know that it makes no sense.
+Our state of mind is similar to that of the people of the collapsing *Soviet Union*.
+Their system was broken long before it collapsed, and everyone knew it, but at the same time, everyone acted like everything was working as intended because no one could imagine it any other way.
+We, too, know that what our leaders say is fiction, but we also act as if it is real.
+
+Is brutal exploitation of one another the only way to build and keep a society for some worth living in?
+In the face of climate, ecological and economic disasters, we can no longer assume that endless material growth is a feasible economic strategy.
+It never was, but now it is clear that it is no longer feasible in the short run -- the stability of the current system is just a fantasy.
+However, we still act as if it is feasible.
+Like the people of the late *Soviet Union*, we are acting as if everything is going according to plan even though the climate catastrophe is realistically unavoidable.
+From this perspective, *Capitalist Realism* is not *The End of History* but a sign of a failing system that is on the brink of collapse.
+
+One very old alternative that is getting more and more traction, is fascism.
+By telling the tales of genetic inferiority, fascism is one way to justify inequality and the annihilation of billions of people, facing the fact that endless material growth is impossible and many areas will become uninhabitable.
+Right-wing forces are on the rise.
+They can give the people, beaten down and affected by their *Symbolic Misery*, some short term relief.
+They can give easy answers to very complex questions.
+However, these forces act like a drug: they kick in, but soon after, their effect fades away, and you need an ever higher dose to get the same impact.
+Therefore, I stand by Carl Sagan and hope their violent and aggressive story is not enough.
+
+>The old appeals to racial, sexual, and religious chauvinism and to rabid nationalist fervor are beginning not to work.
+A new consciousness is developing which sees the Earth as a single organism and recognizes that an organism at war with itself is doomed. We are one planet. -- Carl Sagan
+
+The phenomenon of someone like Trump might signify our desperate desire to find a story that makes sense of our realities.
+People are thirsty.
+There may never be a better time for a good story teller.
+If there is only darkness at the horizon, lighting a candle can move the world.
+And art can be a place to start constructing or contributing to a new ideal to strive towards.
+
+Disaster will arrive in our lifetime, but we still shall live our lives in such a way that we welcome the demon forcing us to live it over and over again because we once experienced a moment of unimaginable, undescribable, and non-reproducible quality and beauty.
+If we can not live in dignity, we might learn the art of dying.
+This pessimistic viewpoint sounds bleak.
+But I think it is important to accept the possibility of this reality and to come to peace with it.
+Not to flee reality but instead to be in it, more than ever, and to take on that fight -- to bring dignity and love into a dying world.
+
+Even though computers and networks have turned on many people, these technologies have the potential to emancipate the citizen of our planet by being a tool to build genuine connections.
+A musical performance constructs a timely space where one can experience such collective connections.
+Therefore, to me, the *community of algorithmic composing* and *live coding* is a project to resist the looming assimilation and to find joy in a time of misery and despair;
+not because it is a *counter-culture* defined by its negation but because its community strides towards affirming differences of the living being while acting collectively.
+I hope that someday this little project will strengthen the effort.
 
 ## How I Started
 
