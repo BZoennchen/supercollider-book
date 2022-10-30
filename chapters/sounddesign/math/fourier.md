@@ -54,16 +54,14 @@ can be constructed by an infinite sum
     y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).
 ```
 
-In fact, we can extend Fourier's result to functions that are  
+In fact, by using an infinite period, we can extend Fourier's result to functions that are  
 
 1. **piecewise continuous** and
 2. **bounded**
 
-by using an infinite period!
-
 ## Fourier Analysis
 
-Fourier also observed that the process works in reverse.
+*Fourier* also observed that the process works in reverse.
 
 ```{admonition} Fourier Theorem (Analysis)
 :name: theorem-fourier-analysis
@@ -73,7 +71,7 @@ Any periodic vibration, no matter how complicated it seems, can be observed to b
 
 In *Fourier analysis* we decompose functions depending on space or **time** into functions depending on spatial frequency or **temporal frequency**.
 It provides a way to measure the strengths of individual components of a harmonic signal.
-It starts with a time domain signal $y(t)$ and interprets it as a kind of recipe describing the spectral components and their strength that must be combined in order to preduce the corresponding frequency domain signal $Y(f)$.
+It starts with a time domain signal $y(t)$ and interprets it as a kind of recipe describing the spectral components and their strength that must be combined in order to produce the corresponding frequency domain signal $Y(f)$.
 
 ## Fourier Transform
 
@@ -81,15 +79,15 @@ The *Fourier transform* is the combination of *Fourier analysis* and *Fourier sy
 Together they are called a *transform pair* because (ideally) the spectrum of a wave created by *Fourier synthesis* may be perfectly analyzed by *Fourier analysis*, and vice versa, with no loss of information.
 A transform is just a way to represent the same information in an equivalent form.
 I call the tuple $(y(t), Y(f))$ the *Fourier transform*.
-However, sometimes we refer to $Y(f)$ as the *Fourier transform*.
+However, sometimes we alse refer to $Y(f)$ as the *Fourier transform*.
 
 ## Similarity of Periodic Functions
 
-Let us assume Fourier is right, i.e. we can reconstruct any *piecewise continuous* and *bounded* function $y(t)$ by an infinite sum of *sine* and *cosine* waves, i.e.
+Let us assume *Fourier* is right, i.e. we can reconstruct any *piecewise continuous* and *bounded* function $y(t)$ by an infinite sum of *sine* and *cosine* waves, i.e.
 
 $$y(t) = \sum_{k=1}^\infty A_k \sin(2\pi \cdot (f_k t - \alpha_k)) + B_k \sin(2\pi (f_k t - \beta_k))$$
 
-Computing *sinusoidals* that are similar to $y(t)$ seems to be a good idea.
+Computing *sinusoidals* that are similar to $y(t)$ seems to be a good starting point.
 Functions are similar if their product result in a positive function.
 In other words, if the integral of their product is positive.
 
@@ -276,7 +274,8 @@ For a fixed frequency $f \in \mathbb{R}$, we define
 
 where $d_f$ is the magnitude coefficient expressing the intensity of frequency $f$ within the signal $y(t).$
 Additionally, the phase coefficient $\phi_f \in [0;1)$ tells us how the sinusoid of frequency $f$ needs to be displaced in time to best fit the signal $f$.
-In the example above we knew that for all frequencies $\phi = 0.5$ holds.
+
+For the example above we knew that for all frequencies $\phi = 0.5$ holds.
 Furthermore, we knew all the frequencies $f$ such that $<y,\cos_{f, \phi}> = 0.$
 If we would have used $A = \sqrt{2}$ instead of $A = 1$, the coefficient would have been $\frac{1}{\sqrt{2}k}$ instead of $\frac{1}{2k}$.
 
