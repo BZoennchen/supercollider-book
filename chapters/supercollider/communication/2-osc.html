@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Clocks &#8212; Algorithmic Composition</title>
+    <title>Open Sound Control &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,10 +54,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Routines &amp; Tasks" href="3-routines-tasks.html" />
-    <link rel="prev" title="The Entanglement of Time" href="1-connecting-times.html" />
+    <link rel="next" title="Unit Generator Library" href="../ugens2.html" />
+    <link rel="prev" title="Musical Instrument Digital Interface" href="1-midi.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -271,50 +273,50 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="scheduling.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../scheduling/scheduling.html">
    Scheduling
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="1-connecting-times.html">
-     The Entanglement of Time
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Clocks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3-routines-tasks.html">
-     Routines &amp; Tasks
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../communication/communication.html">
-   Communication
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../communication/1-midi.html">
-     Musical Instrument Digital Interface
+    <a class="reference internal" href="../scheduling/1-connecting-times.html">
+     The Entanglement of Time
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../communication/2-osc.html">
+    <a class="reference internal" href="../scheduling/2-clocks.html">
+     Clocks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scheduling/3-routines-tasks.html">
+     Routines &amp; Tasks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="communication.html">
+   Communication
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-midi.html">
+     Musical Instrument Digital Interface
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Open Sound Control
     </a>
    </li>
@@ -631,7 +633,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/chapters/supercollider/scheduling/2-clocks.md"
+        <a href="../../../_sources/chapters/supercollider/communication/2-osc.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -668,23 +670,70 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#receiving-messages">
+   Receiving Messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sending-messages">
+   Sending Messages
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Clocks</h1>
+                <h1>Open Sound Control</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#receiving-messages">
+   Receiving Messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sending-messages">
+   Sending Messages
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -692,83 +741,125 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="clocks">
-<span id="sec-clocks"></span><h1>Clocks<a class="headerlink" href="#clocks" title="Permalink to this headline">#</a></h1>
-<p>A <em>clock</em> is a timed scheduler.
-It gives the user the ability to schedule certain events at a specific time.
-If a clock is started, it ticks endlessly in the background.
-There are three different types of clocks:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://doc.sccode.org/Classes/SystemClock.html">SystemClock</a>,</p></li>
-<li><p><a class="reference external" href="https://doc.sccode.org/Classes/AppClock.html">AppClock</a>, and</p></li>
-<li><p><a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempClock</a>.</p></li>
-</ul>
-<p>A <code class="docutils literal notranslate"><span class="pre">SystemClock</span></code> is more accurate than <code class="docutils literal notranslate"><span class="pre">AppClock</span></code>, but it cannot call GUI primitives.
-<code class="docutils literal notranslate"><span class="pre">TempoClock</span></code>, on the other hand, does not work in seconds but in beats per second (bps).
-It is the clock that is supposed to be used to schedule musical events.</p>
-<p>Let us define <code class="docutils literal notranslate"><span class="pre">TempoClock</span></code> that runs at 120 bpm, i.e., 2 beats per seconds, and lets post <code class="docutils literal notranslate"><span class="pre">'Hello!'</span></code> at every beat:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="open-sound-control">
+<h1>Open Sound Control<a class="headerlink" href="#open-sound-control" title="Permalink to this headline">#</a></h1>
+<p>Open Sound Control (OSC) is a protocol for networking sound synthesizers, computers, and other multimedia devices for musical performance or show control purposes.</p>
+<p>OSC is ingrained into SuperCollider.
+It is its core element.
+In fact, whenever we interact with the real-time audio server <strong>scsynth</strong>, for example, when we add a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server, SuperCollider translates all the code into OSC messages.</p>
+<p>Since OSC is a network protocol, the audio server could run on some other machine in our network.
+This opens up sheer endless collaborative possibilities.
+Via OSC we build connections to musicians, artists, devices and other software systems.
+As long as the instance undestands OSC, we can integrate it into our performance.</p>
+<section id="receiving-messages">
+<h2>Receiving Messages<a class="headerlink" href="#receiving-messages" title="Permalink to this headline">#</a></h2>
+<p>In the following, I use a <a class="reference external" href="https://processing.org/">Processing</a> sketch, which sends the position of a square, i.e., its <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates as OSC messages to the port.</p>
+<figure class="align-default" id="fig-processing-xy-input">
+<a class="reference internal image-reference" href="../../../_images/processing-xy-input.png"><img alt="../../../_images/processing-xy-input.png" src="../../../_images/processing-xy-input.png" style="width: 400px;" /></a>
+</figure>
+<p>You can download the sketch <a class="reference external" href="http://www.doc.gold.ac.uk/~mas01rf/WekinatorDownloads/wekinator_examples/all_source_zips/Simple_MouseXY_2Inputs.zip">here</a>.
+It was created by <a class="reference external" href="https://researchers.arts.ac.uk/1594-rebecca-fiebrink/">Rebecca Fiebrink</a> to use it as an example for her incredible project of Creative Computing, i.e., making machine learning techniques more accessible for artists.
+We will later use her <a class="reference external" href="http://www.wekinator.org/">Wekinator</a> in combination with SuperCollider.</p>
+<p>We can see that messages are sent to <code class="docutils literal notranslate"><span class="pre">/wek/inputs</span></code> and port <code class="docutils literal notranslate"><span class="pre">6448</span></code>.
+If we do not specify a port, SuperCollider listens at</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">NetAddr</span><span class="p">.</span><span class="nx">langPort</span><span class="p">;</span> <span class="c1">// default is 57120</span>
+</pre></div>
+</div>
+<p>If we start the <a class="reference external" href="https://processing.org/">Processing</a> sketch and run the following code</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-
-<span class="c1">// return 1 to continuously re-schedule the function.</span>
-<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Hello&#39;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="mi">1</span><span class="p">});</span> 
+<span class="nb">OSCdef</span><span class="p">(</span>
+    <span class="ss">\getCoords</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;/wek/inputs&#39;</span><span class="p">,</span>
+    <span class="kc">recvPort:</span> <span class="mi">6448</span>
+<span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">TempoClock</span></code> keeps track of time and allows tasks to be scheduled at some point in time in the future (<code class="docutils literal notranslate"><span class="pre">sched</span></code>, <code class="docutils literal notranslate"><span class="pre">schedAbs</span></code> or <code class="docutils literal notranslate"><span class="pre">play</span></code>).
-When the time at which a task was scheduled is up, the task is awoken, i.e., its <code class="docutils literal notranslate"><span class="pre">awake</span></code> method is evaluated.
-In case of a <a class="reference internal" href="../basics/4-functions.html#sec-functions"><span class="std std-ref">Function</span></a>, <code class="docutils literal notranslate"><span class="pre">awake</span></code> calls <code class="docutils literal notranslate"><span class="pre">value</span></code> and in case of a <a class="reference external" href="https://doc.sccode.org/Classes/Routine.html">Routine</a> it calls <code class="docutils literal notranslate"><span class="pre">next</span></code>.
-If the value returned by the function is a number, the task is automatically <strong>re-scheduled</strong> at the time equal to its last scheduled time plus the return value (in beats).</p>
-<p>Let us play some melody using a <em>clock</em>:</p>
+<p>We can see messages like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">/</span><span class="n">wek</span><span class="o">/</span><span class="n">inputs</span><span class="p">,</span> <span class="mf">248.0</span><span class="p">,</span> <span class="mf">185.0</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>in the post window.
+We receive an <a class="reference internal" href="../basics/3-arrays.html#sec-array"><span class="std std-ref">Array</span></a> of values.
+The first value is the <code class="docutils literal notranslate"><span class="pre">path</span></code> of the receiver, the second is the <span class="math notranslate nohighlight">\(x\)</span> and the third the <span class="math notranslate nohighlight">\(y\)</span> coordinate of our square in the sketch.
+Let’s create a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> such that we can manipulate the arguments of a playing synth by moving our rectangle around:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">().</span><span class="kd">ar</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">));</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.7</span><span class="p">);</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\fireworks</span><span class="p">,{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Dust</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="ss">\density</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="ss">\density</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Ringz</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">freq:</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="kc">decaytime:</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">FreeVerb</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="k">in</span><span class="o">:</span> <span class="nx">sig</span><span class="p">,</span> <span class="kc">freq:</span> <span class="ss">\cutofffreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">21000</span><span class="p">));</span>
     <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
+<span class="o">~</span><span class="nx">fireworks</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\test</span><span class="p">);</span>
+
 <span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="nb">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">).</span><span class="nx">midicps</span><span class="p">]);</span> <span class="mi">1</span><span class="p">})</span>
+<span class="nb">OSCdef</span><span class="p">(</span>
+    <span class="ss">\getCoords</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span>
+        <span class="nx">x</span> <span class="o">=</span> <span class="nx">val</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="nx">y</span> <span class="o">=</span> <span class="nx">val</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="o">~</span><span class="nx">fireworks</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\density</span><span class="p">,</span> <span class="nx">x</span><span class="p">.</span><span class="nx">linlin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">650</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+        <span class="o">~</span><span class="nx">fireworks</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">y</span><span class="p">.</span><span class="nx">linlin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;/wek/inputs&#39;</span><span class="p">,</span>
+    <span class="kc">recvPort:</span> <span class="mi">6448</span>
+<span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Using a <em>gated</em> envelope makes it difficult to use a plain scheduler since we have to set the gate of the synth to <code class="docutils literal notranslate"><span class="pre">0</span></code> manually, i.e. by another scheduled function.
-For example, the <code class="docutils literal notranslate"><span class="pre">default</span></code> instrument is consists of a gated envelople.
-The following ugly code plays it buy using a <code class="docutils literal notranslate"><span class="pre">TempClock</span></code>.</p>
+<p>Ok, nice but that is nothing special.
+We could get the same effect by using the <a class="reference external" href="https://doc.sccode.org/Classes/MouseX.html">MouseX</a> and <a class="reference external" href="https://doc.sccode.org/Classes/MouseY.html">MouseY</a> ugens without using any explicit OSC communication.
+However, this example shows, how OSC opens up the space of possiblities because suddenly we are communicating with another program running in the network.</p>
+</section>
+<section id="sending-messages">
+<h2>Sending Messages<a class="headerlink" href="#sending-messages" title="Permalink to this headline">#</a></h2>
+<p>Using OSC we can send messages from the client to the server, the server to the client and the client to the client itself.
+First we have to declare a <a class="reference external" href="https://doc.sccode.org/Classes/NetAddr.html">NetAddr</a> of the receiver.
+Let’s send a message from the client to the client.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">;</span>
+<span class="nb">OSCdef</span><span class="p">(</span><span class="ss">\self</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span><span class="s1">&#39;/self&#39;</span><span class="p">);</span>
+<span class="p">)</span>
 
-<span class="c1">// schedule the synth</span>
-<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">).</span><span class="nx">midicps</span><span class="p">]);</span> <span class="mi">1</span><span class="p">});</span>
+<span class="o">~</span><span class="nx">me</span> <span class="o">=</span> <span class="nb">NetAddr</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="nb">NetAddr</span><span class="p">.</span><span class="nx">langPort</span><span class="p">);</span>
+<span class="o">~</span><span class="nx">me</span><span class="p">.</span><span class="nx">sendMsg</span><span class="p">(</span><span class="s1">&#39;\self&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>After executing this code you should see the sent message</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">/</span><span class="bp">self</span><span class="p">,</span> <span class="mi">42</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>in the post window.
+Of course, the sender can be anyone in the network!</p>
+<p>To send OSC messages from the server to the client we use the <a class="reference external" href="https://doc.sccode.org/Classes/SendReply.html">SendReply</a> ugen.
+In the following I use a very simple synth that sends its amplitude back to the client 30 times a second.
+Again, we are listening via <a class="reference external" href="https://doc.sccode.org/Classes/OSCdef.html">OSCdef</a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nb">SendReply</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Impulse</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="s1">&#39;/amp&#39;</span><span class="p">,</span> <span class="nx">amp</span><span class="p">);</span>
+    <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.2</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
 
-<span class="c1">// and ~dur beats afterwards its termination</span>
-<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="o">~</span><span class="nx">dur</span><span class="p">,</span> <span class="p">{</span><span class="o">~</span><span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="mi">1</span><span class="p">});</span>
+<span class="p">(</span>
+<span class="nb">OSCdef</span><span class="p">(</span><span class="ss">\self</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span><span class="s1">&#39;/amp&#39;</span><span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>But as we know from section <a class="reference internal" href="../pattern/pattern.html#sec-playing-pattern"><span class="std std-ref">Playing Pattern</span></a>, we can use a <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> to play an event pattern.
-In fact we can play it on a specific clock!</p>
-<p>The following code should generate the same result.
-Play around with the <code class="docutils literal notranslate"><span class="pre">tempo</span></code> of the <code class="docutils literal notranslate"><span class="pre">TempClock</span></code> and listen how the sound changes.
-You can change the <code class="docutils literal notranslate"><span class="pre">tempo</span></code> by evaluating the last line.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-
-<span class="nb">Pbind</span><span class="p">(</span> 
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pwhite</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">midicps</span><span class="p">,</span>
-<span class="p">).</span><span class="nx">play</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
-<span class="p">)</span>
-
-<span class="nx">t</span><span class="p">.</span><span class="nx">tempo</span> <span class="o">=</span> <span class="mi">5</span>
+<p>You should see the following kind of messages in the post window.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">/</span><span class="n">amp</span><span class="p">,</span> <span class="mi">1083</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.60563856363297</span> <span class="p">]</span>
 </pre></div>
 </div>
+<p>Note that the fourth value in the array is the actual amplitude.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -784,7 +875,7 @@ You can change the <code class="docutils literal notranslate"><span class="pre">
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./chapters/supercollider/scheduling"
+            path: "./chapters/supercollider/communication"
         },
         predefinedOutput: true
     }
@@ -798,17 +889,17 @@ You can change the <code class="docutils literal notranslate"><span class="pre">
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="1-connecting-times.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="1-midi.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Entanglement of Time</p>
+            <p class="prev-next-title">Musical Instrument Digital Interface</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3-routines-tasks.html" title="next page">
+    <a class='right-next' id="next-link" href="../ugens2.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Routines &amp; Tasks</p>
+        <p class="prev-next-title">Unit Generator Library</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
