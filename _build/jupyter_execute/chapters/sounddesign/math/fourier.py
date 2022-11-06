@@ -411,7 +411,7 @@
 # 
 # The *discrete Foruier series* $y_N[n]$ in *exponential form* of a periodic and discrete function $y[n]$ is defined by
 # 
-# $$y_N[n] = \sum\limits_{k=0}^{N-1} c[k] \cdot e^{ikn\frac{2\pi}{N}}, \quad n \in \mathbb{Z},$$
+# $$y_N[n] = \sum\limits_{k=0}^{N-1} c[k] \cdot e^{\frac{i2\pi k}{N}n}, \quad n \in \mathbb{Z},$$
 # 
 # which are harmonics of a fundamental frequency $1/N$, for some positive integer $N$ (the period of the signal).
 # ````
