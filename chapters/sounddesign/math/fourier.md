@@ -53,6 +53,46 @@ But why is that?
 Well, it is all about computation speed!
 The *FFT* reduces the time complexity of the *Discrete Fourier Transformation (DFT)* from $\mathcal{O}(n^2)$ to $\mathcal{O}(n\log(n))$ which makes the computation of the *DFT* fast thus applicable for many areas and purposes.
 
+```{code-cell} python3
+:tags: [hide-input]
+import numpy as np
+import scipy.integrate as integrate
+import scipy.special as special
+from scipy.integrate import quad
+import matplotlib.pyplot as plt
+import scipy.special
+import seaborn as sns
+from scipy.integrate import cumtrapz
+
+dpi = 300
+transparent = True
+PI = np.pi
+TWO_PI = 2*PI
+NUM = 44000
+show = False
+
+sns.set_theme('talk')
+sns.set_style("whitegrid")
+
+def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig=None, **kargs):
+    if not ax or not fig:
+        fig, ax = plt.subplots()
+    ax.plot(x, y, **kargs)
+    ax.set_xlabel('Time')
+    ax.set_ylabel('Amplitude')
+    ax.set_title(title)
+    if xlim:
+        ax.set_xlim(xlim)
+    if ylim:
+        ax.set_ylim(ylim)
+    if show:
+        plt.show()
+    if filename != None:
+        fig.savefig(filename, bbox_inches='tight',
+                    transparent=transparent, pad_inches=0, dpi=dpi)
+    return fig, ax
+```
+
 ## Fourier Series
 
 The process of constructing a periodic function by a *Foruier series* is called *Fourier synthesis*.
@@ -128,12 +168,41 @@ The integrals of the other products are zero.
 )
 ```
 
-```{figure} ../../../figs/sounddesign/math/sin_product.jpeg
----
-width: 800px
-name: fig-sin-product
----
-Product $y(t) \cdot \sin(2\pi t)$ for different $y(t)$.
+```{code-cell} python3
+:tags: [hide-input]
+N = 10000
+x = np.linspace(-1, 1, N)
+y = lambda x: np.sin(x)*np.sin(x)
+
+fig, ax = plt.subplots(2,2,figsize=(20,10))
+
+# sin, sin^2
+ax[0,0].set_xticks(np.arange(-1, 1+0.01, 0.5))
+ax[0,0].set_xticklabels([])
+ax[0,0].plot(x, np.sin(2*np.pi*x), label=r'$\sin(2\pi t)$')
+ax[0,0].plot(x, np.sin(2*np.pi*x)*np.sin(2*np.pi*x), label=r'$\sin(2\pi t)^2$')
+ax[0,0].legend()
+
+ax[0,1].set_xticks(np.arange(-1, 1+0.01, 0.5))
+ax[0,1].set_xticklabels([])
+saw = lambda x: 2 * (x - np.floor(1/2 + x))
+ax[0,1].plot(x, saw(x), label=r'$y_{saw}(t)$')
+ax[0,1].plot(x, np.sin(2*np.pi*x)*saw(x), label=r'$y_{saw}(t) \cdot \sin(2\pi t)$')
+ax[0,1].legend()
+
+ax[1,0].set_xticks(np.arange(-1, 1+0.01, 0.5))
+ax[1,0].set_xticklabels([r'$-1$', r'$-0.5$', r'$0$', r'$0.5$', r'$1$'])
+ax[1,0].plot(x, np.cos(2*np.pi*x), label=r'$\cos(2\pi t)$')
+ax[1,0].plot(x, np.sin(2*np.pi*x)*np.cos(2*np.pi*x), label=r'$\cos(2\pi t) \cdot \sin(2\pi t)$')
+ax[1,0].legend()
+
+ax[1,1].set_xticks(np.arange(-1, 1+0.01, 0.5))
+ax[1,1].set_xticklabels([r'$-1$', r'$-0.5$', r'$0$', r'$0.5$', r'$1$'])
+saw = lambda x: np.abs(x)
+ax[1,1].plot(x, saw(x), label=r'$|x|$')
+ax[1,1].plot(x, np.sin(2*np.pi*x)*saw(x), label=r'$|x| \cdot \sin(2\pi t)$')
+ax[1,1].legend()
+txt = fig.suptitle(r'Product $y(t) \cdot \sin(2\pi t)$ for different $y(t)$.')
 ```
 
 Let's have a look at the sum of the first terms of the [sawtooth wave](sec-sawtooth-wave):
@@ -153,12 +222,34 @@ $$g_n(t) = y(t) \cdot \sin(2\pi \cdot n \cdot t).$$
 )
 ```
 
-```{figure} ../../../figs/sounddesign/math/saw_analysis.jpeg
----
-width: 800px
-name: fig-saw-analysis
----
-Multiplying functions: $y(t)$ in the upper left corner. In blue $\sin(2\pi \cdot f \cdot t)$, in orange the product $g_f(t)$ and in green the integral $\int_{0}^t g_f(t) dt$.
+```{code-cell} python3
+:tags: [hide-input]
+N = 100000
+n = 8
+def sawtooth_ap(t, n):
+    result = 0
+    for k in range(1, n+1, 1):
+        result += np.sin(TWO_PI * k * t) / k
+    return result
+        
+t = np.linspace(0, 1, N)
+amp = sawtooth_ap(t, n)
+k = int((n+1)**0.5)
+fig, ax = plt.subplots(k,k,figsize=(20,10))
+ax[0,0].plot(t, amp)
+
+index = 0
+for i in range(k):
+    for j in range(k):
+        if i < k-1:
+            ax[i,j].set_xticklabels([])
+        if i != 0 or j != 0:
+            index += 1
+            ax[i,j].plot(t, np.sin(TWO_PI * index * t))
+            y=amp*np.sin(TWO_PI * index * t)
+            ax[i,j].plot(t, y)
+            ax[i,j].plot(t, cumtrapz(y=y, x=t, initial=0))
+txt = fig.suptitle(r'Multiplying functions: $y(t)$ in the upper left corner. In blue $\sin(2\pi \cdot f \cdot t)$, in orange the product $g_f(t)$ and in green the integral $\int_{0}^t g_f(t) dt$.')
 ```
 
 We get
@@ -229,12 +320,28 @@ holds. We say that $\sin(2\pi i \cdot t)$ is *perpendicular* to $\sin(2\pi j \cd
 )
 ```
 
-```{figure} ../../../figs/sounddesign/math/sine_perp.jpeg
----
-width: 800px
-name: fig-sine-perp
----
-$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ in orange and $h_{i,j}(t)$ in green.
+```{code-cell} python3
+:tags: [hide-input]
+N = 100000
+n = 8
+        
+t = np.linspace(0, 1, N)
+k = int((n+1)**0.5)
+fig, ax = plt.subplots(k,k,figsize=(20,10))
+
+index = 0
+for i in range(1,k+1):
+    for j in range(1,k+1):
+        index += 1
+        alpha = 0
+        beta = 0
+        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (i * t - alpha)), label=f'$i={{{i}}}$', linestyle='--')
+        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (j * t - beta)), label=f'$j={{{j}}}$', linestyle='--')
+        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (j * t - beta)) * np.sin(TWO_PI * (i * t - alpha)))
+        if i < k:
+            ax[i-1,j-1].set_xticklabels([])
+        ax[i-1,j-1].set_title(f'$i={{{i}}}, j={{{j}}}$')
+txt = fig.suptitle(r'$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ in orange and $h_{i,j}(t)$ in green.')
 ```
 
 We say that these functions are **perpendicular** to each other because their scalar product (the integral of their product) is zero!
@@ -403,28 +510,123 @@ $$y[i], y[i+1], \ldots y[i+44099]$$
 When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as **aliasing** (different signals become indistinguishable to each other).
 In other words, the sample rate has to more than double the highest frequncy of the sampled signal to avoid aliasing.
 
-```{figure} ../../../figs/sounddesign/math/sampling.png
----
-width: 500px
-name: fig-complex-plane
----
-Discretized sine wave using a sample rate of 4 (green), 9 (orange), and 99 (blue).
+```{code-cell} python3
+:tags: [hide-input]
+x1 = np.linspace(0, 1, 10)
+y1 = np.sin(2*np.pi*x1)
+
+x2 = np.linspace(0, 1, 5)
+y2 = np.sin(2*np.pi*x2)
+
+x3 = np.linspace(0, 1, 100)
+y3 = np.sin(2*np.pi*x3)
+
+fig, ax = lineplot(x3, y3, marker = 'o', ms=3.0, linestyle = 'None')
+lineplot(x1, y1, fig=fig, ax=ax, marker = 'o', ms=5.0, linestyle = 'None')
+lineplot(x2, y2, ax= ax, fig=fig, marker = 'o', ms=7.0, linestyle = 'None')
+txt = fig.suptitle(r'Discretized sine wave using a sample rate of 4 (green), 9 (orange), and 99 (blue).')
 ```
 
 To deal with a **periodic** and **discrete** signal we switch from the *Fourier transform* to the *discrete Fourier transform*.
 Note that if we want to handle a **non-periodic** and **discrete** signal we apply the discrete-time Fourier transform*.
 
-````{admonition} Discrete Fourier Series (DFS) in its Exponential Form
+````{admonition} Discrete Fourier Series (DFS)
 :name: def-fourier-series-exp-discrete
 :class: definition
 
 The *discrete Foruier series* $y_N[n]$ in *exponential form* of a periodic and discrete function $y[n]$ is defined by
 
-$$y_N[n] = \sum\limits_{k=0}^{N-1} c[k] \cdot e^{\frac{i2\pi k}{N}n}, \quad n \in \mathbb{Z},$$
+$$y_N[n] = \sum\limits_{k=0}^{N-1} x[k] \cdot e^{i\frac{2\pi}{N}kn}, \quad n \in \mathbb{Z},$$
 
 which are harmonics of a fundamental frequency $1/N$, for some positive integer $N$ (the period of the signal).
 ````
 
-This looks very similar to the [Fourier series](def-fourier-series-exp) except that $e^{ikn\frac{2\pi}{N}}$ is not a function but a value!
+This looks very similar to the [Fourier series](def-fourier-series-exp) except that $e^{ikn\frac{2\pi}{N}}$ is a discrete instead of a continuous a function!
 Instead of a sum of functions, the *discrete Fourier Series* is a sum of discrete functions.
-Furthermore, there are only $N$ distinct coefficients $c[0], \ldots c[N-1]$.
+Furthermore, there are only $N$ distinct coefficients $c_0, \ldots c_{N-1}$.
+$y_n$ is periodic and so is $c_k$.
+
+````{admonition} Discrete Fourier Transform (DFT) and its inverse (IDFT)
+:name: def-fourier-transform
+:class: definition
+
+The *discrete Foruier transform (DFT)* transforms a sequence of $N$ *complex numbers* $y_N[0], \ldots, y_N[N-1]$ into another sequence of complex numbers $c[0], \ldots, c[N-1]$, which is defined by 
+
+$$c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk} = y[n] \cdot \left[ \cos\left( \frac{2\pi}{N}nk \right) -i \sin\left( \frac{2\pi}{N}nk \right) \right],$$
+
+where $c[k]$ for $k = 0, \ldots, N-1$ are the coefficients of the *[discrete Fourier series](def-fourier-series-exp-discrete)*.
+
+The DFT is an invertible, linear transformation.
+Its inverse is known as *inverse discrete Fourier transform (IDFT)* given by 
+
+$$y[n] = \frac{1}{N} \sum\limits_{k=0}^{N-1} c[k] \cdot e^{i\frac{2\pi}{N}kn}.$$
+
+````
+
+## Example
+
+Suppose the following signal 
+
+$$y(t) = \underbrace{5}_{\text{DC}} + \underbrace{2 \cos(2\pi t - \pi/2)}_{\text{1 Hz}} + \underbrace{3 \cdot \cos(4\pi t)}_{\text{2 Hz}}.$$
+
+Let's sample $y(t)$ at 4 times per second, i.e. a *sample rate* $f_s$ of 4 Hz from $t = 0$ to $t=3/2$.
+The values of the discrete samples are given by:
+
+$$y[n] = 5 + 2 \cos(\pi/3 n - \pi/2) + 3 \cos(\pi n)$$
+
+for $t = n / 4$.
+We get $y[0] = 8$, $y[1] = 4$, $y[2] = 8$, $y[3] = 0$, $y[4] = y[0]$, ...
+Clearly $N = 4$ since we have frequencies of 1 and 2 Hz and a sample frequency $f_s$ of 4 Hz.
+
+```{code-cell} python3
+:tags: [hide-input]
+y1 = lambda t: 2 * np.cos(2*np.pi*t - np.pi/2)
+y2 = lambda t: 3 * np.cos(4*np.pi*t)
+dc = lambda t: np.ones(len(t))*5
+y = lambda t: dc(t) + y1(t) + y2(t)
+
+t = np.linspace(0, 2, 1000)
+n = np.linspace(0, 1, 5)[:-1]
+y_n = y(n)
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, y(t), label=r'$y(t)$')
+ax.plot(t, y1(t), label=r'1 Hz', linestyle='--')
+ax.plot(t, y2(t), label=r'2 Hz', linestyle='--')
+ax.plot(t, dc(t), label=r'dc', linestyle='--')
+ax.scatter(n, y_n, label=r'$y[n]$', marker='o')
+fig = ax.legend()
+```
+
+```{code-cell} python3
+def dft(y, k):
+    N = len(y)
+    result = 0
+    for n in range(N):
+        result += y[n] * np.exp(-1j * 2*np.pi/N * n * k)
+    return result
+
+def idft(c, n):
+    N = len(c)
+    result = 0
+    for k in range(N):
+        result += c[k] * np.exp(1j * 2*np.pi/N * k * n)
+    return 1/N * result
+```
+
+```{code-cell} python3
+c_k = [dft(y_n, k) for k in range(len(y_n))]
+c_k
+```
+
+``c_k`` contains the values of our coefficients, i.e. $c[k]$ for $k = 0, 1, 2, 3$ **Hz**.
+
+Let's now apply the IDFT:
+
+```{code-cell} python3
+iy_n = [idft(c_k, n) for n in range(len(c_k))]
+iy_n
+```
+
+If we neglect the small numerical errors, we get the correct function values $y[n]$ for $n = 0, 1, 2, 3$ back again.
+The imaginary part of the complex numbers are approximately zero.
