@@ -355,8 +355,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="math/fourier.html">
-     Spectral Analysis and Synthesis
+    <a class="reference internal" href="math/fourier-series.html">
+     Fourier Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math/fourier-transform.html">
+     Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="math/dft.html">
+     Discrete Fourier Transform
     </a>
    </li>
    <li class="toctree-l2">
@@ -817,29 +827,29 @@ But first, let’s start with some math to understand better what is happening.<
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>I use the cosine function in this section instead of the sine because the math becomes a little simpler.
 Our basic waveform might be a simple cosine with an amplitude <span class="math notranslate nohighlight">\(A(t)\)</span> and a frequency <span class="math notranslate nohighlight">\(f\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cac875ae-f607-477e-8892-7e766eb6eb32">
-<span class="eqno">(54)<a class="headerlink" href="#equation-cac875ae-f607-477e-8892-7e766eb6eb32" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-82896ca6-3159-432b-a03e-7621f00a8900">
+<span class="eqno">(59)<a class="headerlink" href="#equation-82896ca6-3159-432b-a03e-7621f00a8900" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A(t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>In AM the amplitude <span class="math notranslate nohighlight">\(A(t)\)</span> is itself a function over time.
 Let us assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb212605-bc50-4226-9208-94e24803bcd5">
-<span class="eqno">(55)<a class="headerlink" href="#equation-eb212605-bc50-4226-9208-94e24803bcd5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c840137c-ee9f-43f3-bbdb-847d0f9fd19d">
+<span class="eqno">(60)<a class="headerlink" href="#equation-c840137c-ee9f-43f3-bbdb-847d0f9fd19d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A(t) = A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t)
 \end{equation}\]</div>
 <p>then our audio signal is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eea889eb-262b-4c0f-804b-c12b1f28c55e">
-<span class="eqno">(56)<a class="headerlink" href="#equation-eea889eb-262b-4c0f-804b-c12b1f28c55e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-34b318d2-81e2-4ade-958f-7123bf3c94ed">
+<span class="eqno">(61)<a class="headerlink" href="#equation-34b318d2-81e2-4ade-958f-7123bf3c94ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \left(A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \right) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>which we can rewrite as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-df5c4b4a-089c-472a-9e72-43ee9f98d222">
-<span class="eqno">(57)<a class="headerlink" href="#equation-df5c4b4a-089c-472a-9e72-43ee9f98d222" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d4163fb-e2d5-4e92-bd22-8308025daa91">
+<span class="eqno">(62)<a class="headerlink" href="#equation-8d4163fb-e2d5-4e92-bd22-8308025daa91" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_\text{car} \cdot \cos(2 \pi f_\text{car} t) + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>We can now use the cosine rule for multiplication, which gives us</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4cb00ef9-77a2-4222-9cc5-0edb6a32d0f5">
-<span class="eqno">(58)<a class="headerlink" href="#equation-4cb00ef9-77a2-4222-9cc5-0edb6a32d0f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7eee7fad-05a0-4718-a131-5fd61f06b5a5">
+<span class="eqno">(63)<a class="headerlink" href="#equation-7eee7fad-05a0-4718-a131-5fd61f06b5a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y(t) = \ &amp; A_\text{car} \cdot \cos(2 \pi f_\text{car} t) \ + \\
 \ &amp; \frac{1}{2} A_\text{mod} \cdot \cos(2 \pi (f_\text{car} + f_\text{mod}) t) \ + \\
@@ -861,7 +871,7 @@ However, if we choose a modulation frequency in the range of audible frequencies
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(400\)</span> Hz (center)</p></li>
 <li><p><span class="math notranslate nohighlight">\(400 + 250 = 650\)</span> Hz (sum) and</p></li>
-<li><p><span class="math notranslate nohighlight">\(400 - 250 = 150\)</span> Hz (difference), compare <a class="reference internal" href="#fig-am-frequencies"><span class="std std-numref">Fig. 34</span></a>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(400 - 250 = 150\)</span> Hz (difference), compare <a class="reference internal" href="#fig-am-frequencies"><span class="std std-numref">Fig. 36</span></a>.</p></li>
 </ol>
 <p>We can listen to this effect using the following code:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -887,7 +897,7 @@ However, if we choose a modulation frequency in the range of audible frequencies
 <figure class="align-default" id="fig-am-frequencies">
 <a class="reference internal image-reference" href="../../_images/am-frequencies.png"><img alt="../../_images/am-frequencies.png" src="../../_images/am-frequencies.png" style="width: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).
 I use <span class="math notranslate nohighlight">\(A_\text{car} = A_\text{mod} = 1\)</span> and <span class="math notranslate nohighlight">\(f_\text{car} = 400\)</span> Hz, <span class="math notranslate nohighlight">\(f_\text{mod} = 250\)</span> Hz.</span><a class="headerlink" href="#fig-am-frequencies" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -911,12 +921,12 @@ We call this a DC (direct current).</p>
 <span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The result is depicted in <a class="reference internal" href="#fig-am-dc-effect"><span class="std std-numref">Fig. 35</span></a>.
+<p>The result is depicted in <a class="reference internal" href="#fig-am-dc-effect"><span class="std std-numref">Fig. 37</span></a>.
 All values <span class="math notranslate nohighlight">\(y(t)\)</span> are shifted up, that is, in positive <span class="math notranslate nohighlight">\(y\)</span>-direction.</p>
 <figure class="align-default" id="fig-am-dc-effect">
 <a class="reference internal image-reference" href="../../_images/am-dc-effect.png"><img alt="../../_images/am-dc-effect.png" src="../../_images/am-dc-effect.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">DC (direct current) results in an offset of the signal.</span><a class="headerlink" href="#fig-am-dc-effect" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">DC (direct current) results in an offset of the signal.</span><a class="headerlink" href="#fig-am-dc-effect" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This effect can be avoided by using the <code class="docutils literal notranslate"><span class="pre">LeakDC</span></code> unit generator</p>
@@ -935,7 +945,7 @@ All values <span class="math notranslate nohighlight">\(y(t)\)</span> are shifte
 <figure class="align-default" id="fig-am-avoided-dc-effect">
 <a class="reference internal image-reference" href="../../_images/am-avoided-dc-effect.png"><img alt="../../_images/am-avoided-dc-effect.png" src="../../_images/am-avoided-dc-effect.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">We can avoid DC (direct current) by using <code class="docutils literal notranslate"><span class="pre">LeacDC</span></code>.</span><a class="headerlink" href="#fig-am-avoided-dc-effect" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">We can avoid DC (direct current) by using <code class="docutils literal notranslate"><span class="pre">LeacDC</span></code>.</span><a class="headerlink" href="#fig-am-avoided-dc-effect" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -951,13 +961,13 @@ It can be used to create aggressive and conventionally ‘unmusical’ sounds th
 <section id="harmonic-and-inharmonic-timbres">
 <h3>Harmonic and Inharmonic Timbres<a class="headerlink" href="#harmonic-and-inharmonic-timbres" title="Permalink to this headline">#</a></h3>
 <p>Let us introduce a ratio <span class="math notranslate nohighlight">\(r\)</span> between the carrier frequency and the modulation frequency such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-395ace82-ea08-4d59-b4c6-3b266a666958">
-<span class="eqno">(59)<a class="headerlink" href="#equation-395ace82-ea08-4d59-b4c6-3b266a666958" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3abde0f6-5c84-444f-bde8-2abc8b8c1b57">
+<span class="eqno">(64)<a class="headerlink" href="#equation-3abde0f6-5c84-444f-bde8-2abc8b8c1b57" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = r \cdot f_\text{car}.
 \end{equation}\]</div>
 <p>which results in frequencies <span class="math notranslate nohighlight">\(f_\text{car}\)</span> and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a598dc2-bd61-485b-9eda-72e2e39b67f6">
-<span class="eqno">(60)<a class="headerlink" href="#equation-6a598dc2-bd61-485b-9eda-72e2e39b67f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b475f357-ab78-49b1-b0ec-5ec2a83a6441">
+<span class="eqno">(65)<a class="headerlink" href="#equation-b475f357-ab78-49b1-b0ec-5ec2a83a6441" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{car} \pm f_\text{mod} = f_\text{car} \pm r \cdot f_\text{car} = (1 \pm r) \cdot f_\text{car}.
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(r\)</span> should be smaller or equals than <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -983,8 +993,8 @@ f_\text{car} \pm f_\text{mod} = f_\text{car} \pm r \cdot f_\text{car} = (1 \pm r
 In general, the relationship is inharmonic, and we increase the inharmonicity if we use a ratio far away from a whole number!</p>
 <p>Remember the frequencies the signal has are <span class="math notranslate nohighlight">\((1 \pm r) \cdot f_\text{car}\)</span> and <span class="math notranslate nohighlight">\(f_\text{car}\)</span>.
 So the coefficients in order they are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e6c1e4f-ee1f-491a-b84c-8270eed20f1e">
-<span class="eqno">(61)<a class="headerlink" href="#equation-4e6c1e4f-ee1f-491a-b84c-8270eed20f1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b91a578-1104-4e15-ae78-2a8e1907da97">
+<span class="eqno">(66)<a class="headerlink" href="#equation-7b91a578-1104-4e15-ae78-2a8e1907da97" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (1 - r), 1, (1 + r).
 \end{equation}\]</div>
 <p>For example, this gives us:</p>
@@ -1015,8 +1025,8 @@ For example:</p>
 <h3>Complex Amplitude Modulation<a class="headerlink" href="#complex-amplitude-modulation" title="Permalink to this headline">#</a></h3>
 <p>Instead of using sine waves we can also use other signals, for example we could use for one or both of the signals (carrier and modulator) a sawtooth wave.
 If the carrier signal consist of frequencies equal to <span class="math notranslate nohighlight">\(f_{\text{car},1}, \ldots, f_{\text{car},n}\)</span> and the modulator consists of frequencies <span class="math notranslate nohighlight">\(f_{\text{mod},1}, \ldots, f_{\text{mod},m}\)</span>, then the resulting signal will consist of frequencies:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa97b653-9423-4875-a2ce-10c96c514306">
-<span class="eqno">(62)<a class="headerlink" href="#equation-aa97b653-9423-4875-a2ce-10c96c514306" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-27a8748e-4d80-4aba-b0fb-4bc710bca219">
+<span class="eqno">(67)<a class="headerlink" href="#equation-27a8748e-4d80-4aba-b0fb-4bc710bca219" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_{\text{car},1}, \ldots , f_{\text{car},n}, f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}
 \end{equation}\]</div>
 <p>thus it consists of <span class="math notranslate nohighlight">\((n+1) \cdot m\)</span> frequencies (if nothing cancels out).

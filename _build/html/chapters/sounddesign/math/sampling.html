@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Complex Numbers" href="complex.html" />
@@ -353,8 +355,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="fourier.html">
-     Spectral Analysis and Synthesis
+    <a class="reference internal" href="fourier-series.html">
+     Fourier Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fourier-transform.html">
+     Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dft.html">
+     Discrete Fourier Transform
     </a>
    </li>
    <li class="toctree-l2">
@@ -609,6 +621,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/sampling.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -630,6 +671,23 @@ title="Fullscreen mode"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/math/sampling.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../../_sources/chapters/sounddesign/math/sampling.md"
    class="headerbtn"
@@ -668,12 +726,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss-of-information">
+   Loss of Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aliasing">
+   Aliasing
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -685,6 +772,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss-of-information">
+   Loss of Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aliasing">
+   Aliasing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -694,7 +799,152 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="sampling">
 <h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">#</a></h1>
-<p>TODO</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">special</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.special</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">cumtrapz</span>
+
+<span class="n">dpi</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">transparent</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">TWO_PI</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">PI</span>
+<span class="n">NUM</span> <span class="o">=</span> <span class="mi">44000</span>
+<span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="s1">&#39;paper&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">lineplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ax</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">fig</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">xlim</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ylim</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span>
+                    <span class="n">transparent</span><span class="o">=</span><span class="n">transparent</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On a computer we are dealing with digital signals, that is, discrete signals.
+Sampling is the technique to transform a continious function <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> into a discrete representation by <span class="math notranslate nohighlight">\(y_N: \mathbb{Z} \rightarrow \mathbb{C}\)</span>.</p>
+<section id="loss-of-information">
+<h2>Loss of Information<a class="headerlink" href="#loss-of-information" title="Permalink to this headline">#</a></h2>
+<p>Ok, thats in fact a lie, since we do represent all <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> because irrational numbers can not be represented by floating point numbers.
+Therefore, for complex number <span class="math notranslate nohighlight">\(z = a + ib\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[a, b \in \mathbb{Q}\]</div>
+<p>holds (most of the time).
+Sampling in the context of audio means that we use equidistant sample points.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x3</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">lineplot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">lineplot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">lineplot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Discretized sine wave using a sample rate of 4 (green), 9 (orange), and 99 (blue).&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/sampling_3_0.png" src="../../../_images/sampling_3_0.png" />
+</div>
+</div>
+<p>For example, let us assume our <em>sample rate</em> (also called sample frequency) <span class="math notranslate nohighlight">\(f_s = 2\)</span> Hz.
+And let us assume we want to sample a sine wave <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> of 6 Hz, i.e., <span class="math notranslate nohighlight">\(f = 6\)</span>.
+Then <span class="math notranslate nohighlight">\(y_N[0] \approx y(0), y_N[1] \approx y(0.5), y_N[2] \approx 1.0\)</span> and in general</p>
+<div class="math notranslate nohighlight">
+\[y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s)\]</div>
+<p>I indicate, that the value <span class="math notranslate nohighlight">\(y_N[n]\)</span> is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
+Therefore, we lose information, i.e. accuracy, on two ends:
+first of all in the <strong>time direction</strong> but also in the <strong>amplitude direction</strong>.</p>
+</section>
+<section id="aliasing">
+<h2>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this headline">#</a></h2>
+<p>Calling</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span> <span class="c1">// 44100 Hz</span>
+</pre></div>
+</div>
+<p>gives us the <em>sample rate</em> of our audio signals.
+On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
+Therefore, a audio signal <span class="math notranslate nohighlight">\(y: \mathbb{N} \rightarrow \mathbb{Q}\)</span> represents 1 seconds by 44100 samples (rational numbers)</p>
+<div class="math notranslate nohighlight">
+\[y[i], y[i+1], \ldots y[i+44099]\]</div>
+<p>When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as <strong>aliasing</strong> (different signals become indistinguishable to each other).
+This follows from the so called <em>Nyquist–Shannon sampling theorem</em>.</p>
+<div class="theorem admonition" id="theorem-sampling">
+<p class="admonition-title">Nyquist–Shannon Sampling Theorem</p>
+<p>If a function <span class="math notranslate nohighlight">\(y(t)\)</span> contains no frequencies higher than <span class="math notranslate nohighlight">\(f\)</span> hertz, it is completely determined by giving its ordinates at a series of points spaced <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds apart.</p>
+</div>
+<p>Aliasing can also generate frequencies that are not really there.
+The sample rate has to more than double the highest frequncy of the sampled signal to avoid aliasing.</p>
+<div class="definition admonition" id="def-aliasing">
+<p class="admonition-title">Aliasing</p>
+<p><em>Aliasing</em> is the effect that result from a two small <em>sample rate</em> by which different signals become indistinguishable to each other.</p>
+</div>
+<p>In the example above we can observe aliasing.
+We can see that a sample rate of 2 Hz is too low to capture <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> for <span class="math notranslate nohighlight">\(f = 2, 3, 6\)</span> Hz.
+All these sine waves appear to be a sine wave of 1 Hz.
+They are indistinguishable if we use a <em>sample rate</em> that low.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">f_s</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span>
+
+<span class="n">x_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f_s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">x_s</span><span class="p">)</span>
+
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">lineplot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;6 Hz&#39;</span><span class="p">)</span>
+<span class="n">lineplot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;3 Hz&#39;</span><span class="p">)</span>
+<span class="n">lineplot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;2 Hz&#39;</span><span class="p">)</span>
+<span class="n">lineplot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;1 Hz&#39;</span><span class="p">)</span>
+<span class="n">lineplot</span><span class="p">(</span><span class="n">x_s</span><span class="p">,</span> <span class="n">y_s</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sample points&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;The effect of aliasing.&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/sampling_5_0.png" src="../../../_images/sampling_5_0.png" />
+</div>
+</div>
+<p>The human ear is able to recognize frequencies up to round about 20000 Hz.
+Since we need double the <em>sample rate</em>, 44100 gives us a little room.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

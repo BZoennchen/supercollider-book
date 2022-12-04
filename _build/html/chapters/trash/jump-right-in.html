@@ -355,8 +355,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../sounddesign/math/fourier.html">
-     Spectral Analysis and Synthesis
+    <a class="reference internal" href="../sounddesign/math/fourier-series.html">
+     Fourier Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/math/fourier-transform.html">
+     Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sounddesign/math/dft.html">
+     Discrete Fourier Transform
     </a>
    </li>
    <li class="toctree-l2">
@@ -781,7 +791,7 @@ There are 12 keys on a pianos keyboard within one octave, this means that if we 
 <p>This is a quite boring sound.
 A way to enrich it, is to add slightly detuned copies of the sinewave which change their frequency over time.
 The noise oscillators <code class="docutils literal notranslate"><span class="pre">LFNoiseX.ar(freq:</span> <span class="pre">freq)</span></code> generate a juggeling signal which changes its amplitude inbetween the <span class="math notranslate nohighlight">\([-1;1]\)</span> uniformly distributed.
-Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 47</span></a>.</p>
+Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 49</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{[</span>
     <span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
@@ -794,7 +804,7 @@ Between the changes, the amplitude stays constant (0), is interpolated linearly 
 <figure class="align-default" id="fig-plot-lfnoisex">
 <a class="reference internal image-reference" href="../../_images/plot-LFNoiseX.png"><img alt="../../_images/plot-LFNoiseX.png" src="../../_images/plot-LFNoiseX.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>So let us create <span class="math notranslate nohighlight">\(n\)</span> number of detuned sinewaves and adding them to the fundamental:</p>
