@@ -6,14 +6,14 @@
 
 Mathematicians to this day argue about the fundamental nature of math.
 Do we humans invent it, or do we discover it?
-*Platonists* and realists say that numbers are real, mind-independent things, implying that they were *discovered*.
+*Platonists* and realists claim that numbers are real, mind-independent things, implying that they were *discovered*.
 Conceptualists say that numbers exist but are just mind-dependent ideas; nominalists say that numbers do not exist.
 The latter two positions would imply that numbers are *invented*.
 
-*Kant* suggested that the prerequisite of our experiences is a pure concept of the understanding (*Verstand*).
+*Kant* suggested that the prerequisite of our experiences is a pure concept of understanding (*Verstand*).
 A *Kantian* category is a characteristic of the appearance of any object in general, before it has been experienced (*a priori*).
-Without it, cognition is impossible because we would not be able to find any structures within the data.
-In his view, neither pure reason nor pure experience suffice;
+*Kant* believed that without it, cognition is impossible because we would not be able to find any structures within the data.
+In his view, neither *pure reason* nor *pure experience* suffice;
 we need both.
 He thought that this is an *a priori truth* that we can only understand by using exclusively *a priori methods*, i.e., *pure reason*.
 From that perspective, numbers can not come from *pure experience* which is a truth we understand by *pure reason*.
@@ -28,7 +28,7 @@ It is closed and gets irritated by new observations such that it extends or adap
 
 Because it happens within us, animals, and even plants -- yes, there is a plant that can count -- it is part of whatever there is.
 In that sense I agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes.
-Furthermore, I don't think we need some *Platonic* space of perfect ideas that is hidden somewhere and forever.
+Furthermore, I don't think we need some eternal *Platonic* space of perfect ideas that is hidden somewhere.
 Such meta concepts are shortcuts for something we do not understand yet.
 The *Platonic* worldview is mystical and religious.
 It introduces something extra, something godly that we do not need.
@@ -47,13 +47,13 @@ $$K = \{(\cos(\phi), \sin(\phi)) : \phi \in [0;2\pi]\}$$
 
 However, this perception is most undoubtedly incorrect and definitively subjective.
 The abstraction is an objectified version that we often silently agree on because our experiences endorse it.
-*Platon* believed that these abstractions are more accurate than what we perceive, i.e., through the perception of a chair shines the idea of it.
-And the idea is perfect.
+*Platon* believed that these abstractions are more accurate than what we perceive.
+He thought that the perception of a chair is an obscuration of the perfect idea that shines through it.
 I think it is the other way around, and instead of perfect and imperfect, I use the terms *concrete* and *abstract*.
 The chair is *concrete*, but our perception of it has nothing to do with it with the exception that it enables us to deal with it.
 Our perception is the first *abstraction* born out of *Kant's* understanding -- we are able to perceive it as one thing.
 The *second-order abstraction* of it, e.g., using the word *chair*, is a silent agreement of a set of perceptions we call *chair*.
-For the number 1, this is similar.
+For a number, e.g. the number one, this is similar.
 
 It is no surprise that the *Greeks* had troubles with defining negative numbers because of a lack of experience.
 Since they focused mostly on geometry, negative numbers were never an issue.
@@ -73,11 +73,11 @@ And if we assume that our perception is realized by reality (our biochemical bod
 
 Do we need the math of signal processing to design and make a sound?
 Well, I suppose we don't.
-As musicians, we are perfectly able to create great compositions without knowing what *complex numbers* or the *Fourier transformation* is.
+As musicians, we are perfectly able to create great compositions without knowing what *complex numbers* or the *Fourier transform* is.
 We do not really care about sample rates or the *Nyquist sample theorem*.
-And we don't really have to because there are many tools that help in our creative process while hiding all the complicated mathematical backgrounds.
+And we don't really have to because there are many tools that help us in our creative process while hiding all the complicated mathematical backgrounds.
 
-However, tools can be a burden.
+However, tools can be a burden too.
 Recently I heard about a new artificial intelligence that can generate beautiful images by using a textual description.
 The user types in her imagination of a landscape, and the artificial intelligence generates different versions of it.
 One can even specify certain artists to achieve a particular style.
@@ -94,8 +94,8 @@ But the artist has mastered it; he has a certain degree of control over the inst
 In the example above, the artist has very little control; she is highly dependent on the suggestions of the machine.
 She is guiding the machine but can no longer take over control.
 
-That is why I like [SuperCollider](https://supercollider.github.io/): it offers a lot of control; it does not hide too much of the concrete.
-Of course, there is always a tradeoff between the abstract and the concrete.
+That is why I like [SuperCollider](https://supercollider.github.io/): it offers a lot of control; it does not hide too much of the *concrete*.
+Of course, there is always a tradeoff between the *abstract* and the *concrete*.
 We are never entirely concrete because some abstraction will always separate us from the real thing: the digital machine.
 
 The question is: how close do we want to get? How much control do we want to have? How much effort do we want to put in?

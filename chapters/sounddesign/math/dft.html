@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sampling &#8212; Algorithmic Composition</title>
+    <title>Discrete Fourier Transform &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -58,8 +58,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Complex Numbers" href="complex.html" />
-    <link rel="prev" title="Mathematical Foundation" href="intro.html" />
+    <link rel="next" title="Convolution" href="convolution.html" />
+    <link rel="prev" title="Fourier Transform" href="fourier-transform.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -344,8 +344,8 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sampling.html">
      Sampling
     </a>
    </li>
@@ -364,8 +364,8 @@ const thebe_selector_output = ".output, .cell_output"
      Fourier Transform
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dft.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Discrete Fourier Transform
     </a>
    </li>
@@ -629,7 +629,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/sampling.md"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/dft.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -672,7 +672,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/chapters/sounddesign/math/sampling.ipynb"
+        <a href="../../../_sources/chapters/sounddesign/math/dft.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -689,7 +689,7 @@ title="Download notebook file"
       </li>
       
       <li>
-        <a href="../../../_sources/chapters/sounddesign/math/sampling.md"
+        <a href="../../../_sources/chapters/sounddesign/math/dft.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -749,13 +749,35 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loss-of-information">
-   Loss of Information
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aliasing">
-   Aliasing
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dft">
+     DFT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#idft">
+     IDFT
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-fourier-transform">
+   Fast Fourier Transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fft-in-supercollider">
+   FFT in SuperCollider
   </a>
  </li>
 </ul>
@@ -767,7 +789,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Sampling</h1>
+                <h1>Discrete Fourier Transform</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -778,13 +800,35 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loss-of-information">
-   Loss of Information
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aliasing">
-   Aliasing
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dft">
+     DFT
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#idft">
+     IDFT
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fast-fourier-transform">
+   Fast Fourier Transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fft-in-supercollider">
+   FFT in SuperCollider
   </a>
  </li>
 </ul>
@@ -797,8 +841,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="sampling">
-<h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="discrete-fourier-transform">
+<h1>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -841,109 +885,214 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>On a computer we are dealing with digital signals, that is, discrete signals.
-Sampling is the technique to transform a continious function <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> into a discrete representation by <span class="math notranslate nohighlight">\(y_N: \mathbb{Z} \rightarrow \mathbb{C}\)</span>.</p>
-<section id="loss-of-information">
-<h2>Loss of Information<a class="headerlink" href="#loss-of-information" title="Permalink to this headline">#</a></h2>
-<p>Ok, thats in fact a lie, since we do represent all <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> because irrational numbers can not be represented by floating point numbers.
-Therefore, for complex number <span class="math notranslate nohighlight">\(z = a + ib\)</span>,</p>
+<p>Up to this point, we considered continuous signals <span class="math notranslate nohighlight">\(y(t)\)</span>.
+In section <a class="reference internal" href="fourier-series.html#sec-fourier"><span class="std std-ref">Fourier Series</span></a>, we started with <strong>continuous periodic fuctions</strong>.
+We generalized this concept to <strong>continuous aperiodic fuctions</strong> in section <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier Transform</span></a>.
+That’s all fine but on a computer we are not dealing with continuous functions.
+On a computer, audio is digitalized.
+That is, we are dealing with <strong>discrete signals</strong>.</p>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
+<p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal we switch from the <em><a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
+If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
+For audio signals the DTFT is not that relevant.</p>
+<div class="definition admonition" id="def-fourier-series-exp-discrete">
+<p class="admonition-title">Discrete Fourier Series (DFS)</p>
+<p>The <em>discrete Foruier series</em> <span class="math notranslate nohighlight">\(y: \mathbb{Z} \rightarrow \mathbb{C}\)</span> in <em>exponential form</em> of a periodic and discrete function <span class="math notranslate nohighlight">\(y[n]\)</span> is defined by</p>
 <div class="math notranslate nohighlight">
-\[a, b \in \mathbb{Q}\]</div>
-<p>holds (most of the time).
-Sampling in the context of audio means that we use equidistant sample points.</p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span>
-
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
-
-<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x3</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">lineplot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">lineplot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">lineplot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Discretized sine wave using a sample rate of 4 (green), 9 (orange), and 99 (blue).&#39;</span><span class="p">);</span>
-</pre></div>
+\[y[n] = \sum\limits_{k=0}^{N-1} c^*[k] \cdot e^{i\frac{2\pi}{N}kn}, \quad n \in \mathbb{Z},\]</div>
+<p>which are harmonics of a fundamental frequency <span class="math notranslate nohighlight">\(1/N\)</span>, for some positive integer <span class="math notranslate nohighlight">\(N\)</span> (the period of the signal).</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/sampling_3_0.png" src="../../../_images/sampling_3_0.png" />
-</div>
-</div>
-<p>For example, let us assume our <em>sample rate</em> (also called sample frequency) <span class="math notranslate nohighlight">\(f_s = 2\)</span> Hz.
-And let us assume we want to sample a sine wave <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> of 6 Hz, i.e., <span class="math notranslate nohighlight">\(f = 6\)</span>.
-Then <span class="math notranslate nohighlight">\(y_N[0] \approx y(0), y_N[1] \approx y(0.5), y_N[2] \approx 1.0\)</span> and in general</p>
+<p>This looks very similar to the <a class="reference internal" href="fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> except that <span class="math notranslate nohighlight">\(e^{ikn\frac{2\pi}{N}}\)</span> is a discrete instead of a continuous function.
+Instead of a sum of continuous functions, the <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier Series</span></a></em> is a sum of discrete functions.
+Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</span> distinct coefficients <span class="math notranslate nohighlight">\(c^*[0], \ldots, c^*[N-1]\)</span>.
+<span class="math notranslate nohighlight">\(y[n]\)</span> is periodic and so is <span class="math notranslate nohighlight">\(c^*[k]\)</span>.</p>
+<div class="definition admonition" id="def-discrete-fourier-transform">
+<p class="admonition-title">Discrete Fourier Transform (DFT)</p>
+<p>The <em>discrete Foruier transform (DFT)</em> transforms of a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span> into another sequence of complex numbers <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span>, such that</p>
 <div class="math notranslate nohighlight">
-\[y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s)\]</div>
-<p>I indicate, that the value <span class="math notranslate nohighlight">\(y_N[n]\)</span> is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
-Therefore, we lose information, i.e. accuracy, on two ends:
-first of all in the <strong>time direction</strong> but also in the <strong>amplitude direction</strong>.</p>
+\[c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},\]</div>
+<p>where <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, N-1\)</span> are the coefficients of the <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
+</div>
+<p>Similar to the <em><a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> there is an inverse transformation.</p>
+<div class="definition admonition" id="def-inverse-discrete-fourier-transform">
+<p class="admonition-title">Inverse Discrete Fourier Transform (IDFT)</p>
+<p>The <em>inverse discrete Fourier transform IDFT</em> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span> into another sequence of complex numbers  <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span>, such that</p>
+<div class="math notranslate nohighlight">
+\[y[n] = \frac{1}{N} \sum\limits_{k=0}^{N-1} c[k] \cdot e^{i\frac{2\pi}{N}kn},\]</div>
+<p>where <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, N-1\)</span> are the coefficients of the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.</p>
+</div>
+<p>Note that the <em><a class="reference internal" href="#def-inverse-discrete-fourier-transform"><span class="std std-ref">inverse discrete Fourier transform  IDFT</span></a></em> is a specific examle of a <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
 </section>
-<section id="aliasing">
-<h2>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this headline">#</a></h2>
-<p>Calling</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span> <span class="c1">// 44100 Hz</span>
-</pre></div>
-</div>
-<p>gives us the <em>sample rate</em> of our audio signals.
-On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
-Therefore, a audio signal <span class="math notranslate nohighlight">\(y: \mathbb{N} \rightarrow \mathbb{Q}\)</span> represents 1 seconds by 44100 samples (rational numbers)</p>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<p>Suppose the following signal is given</p>
 <div class="math notranslate nohighlight">
-\[y[i], y[i+1], \ldots y[i+44099]\]</div>
-<p>When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as <strong>aliasing</strong> (different signals become indistinguishable to each other).
-This follows from the so called <em>Nyquist–Shannon sampling theorem</em>.</p>
-<div class="theorem admonition" id="theorem-sampling">
-<p class="admonition-title">Nyquist–Shannon Sampling Theorem</p>
-<p>If a function <span class="math notranslate nohighlight">\(y(t)\)</span> contains no frequencies higher than <span class="math notranslate nohighlight">\(f\)</span> hertz, it is completely determined by giving its ordinates at a series of points spaced <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds apart.</p>
-</div>
-<p>Aliasing can also generate frequencies that are not really there.
-The sample rate has to more than double the highest frequncy of the sampled signal to avoid aliasing.</p>
-<div class="definition admonition" id="def-aliasing">
-<p class="admonition-title">Aliasing</p>
-<p><em>Aliasing</em> is the effect that result from a two small <em>sample rate</em> by which different signals become indistinguishable to each other.</p>
-</div>
-<p>In the example above we can observe aliasing.
-We can see that a sample rate of 2 Hz is too low to capture <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> for <span class="math notranslate nohighlight">\(f = 2, 3, 6\)</span> Hz.
-All these sine waves appear to be a sine wave of 1 Hz.
-They are indistinguishable if we use a <em>sample rate</em> that low.</p>
+\[y(t) = \underbrace{5}_{\text{DC}} + \underbrace{2 \cos(2\pi t - \pi/2)}_{\text{1 Hz}} + \underbrace{3 \cdot \cos(4\pi t)}_{\text{2 Hz}}.\]</div>
+<p>Let’s sample <span class="math notranslate nohighlight">\(y(t)\)</span> at 4 times per second, i.e. a <em>sample rate</em> <span class="math notranslate nohighlight">\(f_s\)</span> of 4 Hz from <span class="math notranslate nohighlight">\(t = 0\)</span> to <span class="math notranslate nohighlight">\(t=3/2\)</span>.
+The values of the discrete samples are given by:</p>
+<div class="math notranslate nohighlight">
+\[y[n] = 5 + 2 \cos(\pi/3 n - \pi/2) + 3 \cos(\pi n)\]</div>
+<p>for <span class="math notranslate nohighlight">\(t = n / 4\)</span>.
+We get <span class="math notranslate nohighlight">\(y[0] = 8\)</span>, <span class="math notranslate nohighlight">\(y[1] = 4\)</span>, <span class="math notranslate nohighlight">\(y[2] = 8\)</span>, <span class="math notranslate nohighlight">\(y[3] = 0\)</span>, <span class="math notranslate nohighlight">\(y[4] = y[0]\)</span>, …
+Clearly <span class="math notranslate nohighlight">\(N = 4\)</span> since we have frequencies of 1 and 2 Hz and a sample frequency <span class="math notranslate nohighlight">\(f_s\)</span> of 4 Hz.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">f_s</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">x1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">dc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">dc</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">y1</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">y2</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
-<span class="n">x_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">f_s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">x_s</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y_n</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
-
-<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
-
-<span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">y4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">x2</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">lineplot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;6 Hz&#39;</span><span class="p">)</span>
-<span class="n">lineplot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;3 Hz&#39;</span><span class="p">)</span>
-<span class="n">lineplot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;2 Hz&#39;</span><span class="p">)</span>
-<span class="n">lineplot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;1 Hz&#39;</span><span class="p">)</span>
-<span class="n">lineplot</span><span class="p">(</span><span class="n">x_s</span><span class="p">,</span> <span class="n">y_s</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sample points&#39;</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;The effect of aliasing.&#39;</span><span class="p">);</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$y(t)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y1</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;1 Hz&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y2</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;2 Hz&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dc</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;dc&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">y_n</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$y[n]$&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/sampling_5_0.png" src="../../../_images/sampling_5_0.png" />
+<img alt="../../../_images/dft_3_0.png" src="../../../_images/dft_3_0.png" />
 </div>
 </div>
-<p>The human ear is able to recognize frequencies up to round about 20000 Hz.
-Since we need double the <em>sample rate</em>, 44100 gives us a little room.</p>
+<p>Let us implement the <em>DFT</em> and <em>IDFT</em> using <code class="docutils literal notranslate"><span class="pre">Python</span></code>.
+The following code is inefficient but suffice for our purposes.</p>
+<section id="dft">
+<h3>DFT<a class="headerlink" href="#dft" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_k</span> <span class="o">=</span> <span class="p">[</span><span class="n">dft</span><span class="p">(</span><span class="n">y_n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_n</span><span class="p">))]</span>
+<span class="n">c_k</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(20+0j),
+ -4.000000000000001j,
+ (12+1.4695761589768238e-15j),
+ (-8.881784197001252e-16+3.999999999999997j)]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">c_k</span></code> contains the values of our coefficients, i.e. <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, 1, 2, 3\)</span> <strong>Hz</strong>, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[c[0] = 20, c[1] = -4i, c[2] = 8, c[3] = +4i.\]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">c_k</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$|c[n]|$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mf">20.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;f (Hz)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$|c[n]|$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/dft_8_0.png" src="../../../_images/dft_8_0.png" />
+</div>
+</div>
+<p>Since we have 4 samples, i.e., <span class="math notranslate nohighlight">\(N=4\)</span>, we have to divide by 4 to compute the respective amplitudes.
+Since <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function we already know that</p>
+<div class="math notranslate nohighlight">
+\[c[n] = \overline{c[N-n]}.\]</div>
+<p>and the amplitude is given by</p>
+<div class="math notranslate nohighlight">
+\[\frac{2}{N} \cdot c[n], \text{ if there is another } c[N-n] \]</div>
+<p>otherwise it is</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{N} \cdot c[n]\]</div>
+<p>Furthermore, because of <em><a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a></em> we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
+In general, all <span class="math notranslate nohighlight">\(c[n]\)</span> with <span class="math notranslate nohighlight">\(n &gt; \frac{N}{2}\)</span> are <strong>invalid</strong> because of <em><a class="reference internal" href="sampling.html#def-aliasing"><span class="std std-ref">aliasing</span></a></em>.
+Therefore, <span class="math notranslate nohighlight">\(c[3] = 4i\)</span> is ‘’incorrect’’.
+We can not distinguish the sinosoid of frequency <span class="math notranslate nohighlight">\(1\)</span> from the sinosoid of frequency <span class="math notranslate nohighlight">\(3 = 1 + f_s\)</span>.
+Therefore,</p>
+<div class="math notranslate nohighlight">
+\[c[1] = 2 \cdot 4i = 8i.\]</div>
+<p>In summary,</p>
+<div class="math notranslate nohighlight">
+\[A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_3 = \frac{1}{4} c[2] = \frac{12}{4} = 3\]</div>
+<p>Now you might wonder what happened to the <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> <span class="math notranslate nohighlight">\(c[1] = -4i\)</span>?
+Remember, multiplying by <span class="math notranslate nohighlight">\(i\)</span> equates to a counterclockwise rotation by 90 degrees.
+The ‘’cosine-part’’ of the complex number represents the real part.
+Therefore, the <strong>phase</strong> of the cosine with the fundamental frequency is shifted by <span class="math notranslate nohighlight">\(-\pi/2\)</span>.
+Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
+</section>
+<section id="idft">
+<h3>IDFT<a class="headerlink" href="#idft" title="Permalink to this headline">#</a></h3>
+<p>Let’s now apply the IDFT:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">idft</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iy_n</span> <span class="o">=</span> <span class="p">[</span><span class="n">idft</span><span class="p">(</span><span class="n">c_k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c_k</span><span class="p">))]</span>
+<span class="n">iy_n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(8-6.661338147750939e-16j),
+ (3.999999999999999-2.288475490443916e-17j),
+ (8+6.661338147750939e-16j),
+ (7.771561172376096e-16+1.247531554051792e-15j)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we neglect the small numerical errors, we get the correct function values <span class="math notranslate nohighlight">\(y[n]\)</span> for <span class="math notranslate nohighlight">\(n = 0, 1, 2, 3\)</span> back again.
+The imaginary part of the complex numbers are approximately zero because <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function.</p>
+</section>
+</section>
+<section id="fast-fourier-transform">
+<h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h2>
+<p>TODO</p>
+</section>
+<section id="fft-in-supercollider">
+<h2>FFT in SuperCollider<a class="headerlink" href="#fft-in-supercollider" title="Permalink to this headline">#</a></h2>
+<p>TODO</p>
+<p>To compute the DFT and IDFT in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> we use the FFT and IFFT respectively.
+For that purpose SC offers us a <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generator, respectively.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="k">in</span><span class="p">,</span> <span class="nx">chain</span><span class="p">,</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="k">in</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span>
+    <span class="nx">chain</span> <span class="o">=</span> <span class="nb">FFT</span><span class="p">(</span><span class="nb">LocalBuf</span><span class="p">(</span><span class="mi">2048</span><span class="p">),</span> <span class="k">in</span><span class="p">);</span>
+    <span class="nb">IFFT</span><span class="p">(</span><span class="nx">chain</span><span class="p">)</span> <span class="c1">// inverse FFT</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -974,17 +1123,17 @@ Since we need double the <em>sample rate</em>, 44100 gives us a little room.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="fourier-transform.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Mathematical Foundation</p>
+            <p class="prev-next-title">Fourier Transform</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="complex.html" title="next page">
+    <a class='right-next' id="next-link" href="convolution.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Complex Numbers</p>
+        <p class="prev-next-title">Convolution</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
