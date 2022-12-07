@@ -703,11 +703,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approximation-of-the-sawtooth-wave">
-   Approximation of the Sawtooth Wave
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-a-global-envelope">
    Adding a Global Envelope
   </a>
@@ -720,6 +715,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#individual-envelopes">
    Individual Envelopes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changing-the-power-distribution">
+   Changing the Power Distribution
   </a>
  </li>
 </ul>
@@ -742,11 +742,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#approximation-of-the-sawtooth-wave">
-   Approximation of the Sawtooth Wave
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-a-global-envelope">
    Adding a Global Envelope
   </a>
@@ -761,6 +756,11 @@ title="Print to PDF"
    Individual Envelopes
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changing-the-power-distribution">
+   Changing the Power Distribution
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -773,15 +773,14 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="a-sum-of-sines">
 <h1>A Sum of Sines<a class="headerlink" href="#a-sum-of-sines" title="Permalink to this headline">#</a></h1>
-<section id="approximation-of-the-sawtooth-wave">
-<h2>Approximation of the Sawtooth Wave<a class="headerlink" href="#approximation-of-the-sawtooth-wave" title="Permalink to this headline">#</a></h2>
-<p>Let us recreate the <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without using the <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code> or <code class="docutils literal notranslate"><span class="pre">Saw</span></code> unit generator.
+<p>Let us recreate or approximate  the <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without using the <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code> or <code class="docutils literal notranslate"><span class="pre">Saw</span></code> unit generator.
 Instead, we use a bunch of <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> oscillators.
-The following code generates the sound of the Fourier series approximation.
+This gives us full control over the amplitude of each frequency, i.e. full control over the power distribution.</p>
+<p>The following code generates the sound of the Fourier series approximation.
 I implemented Eq. <a class="reference internal" href="1-waveforms.html#equation-eq-saw-fourier-n">(33)</a>.
-You can change <code class="docutils literal notranslate"><span class="pre">n</span></code> to increase the number of harmonics.</p>
+You can change <code class="docutils literal notranslate"><span class="pre">n</span></code> to increase the number of harmonics that are present in the sound.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\saw_approx</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nx">harmonics</span><span class="p">;</span>
     <span class="nx">harmonics</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">geom</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
@@ -825,14 +824,13 @@ In summary, for a real violin</p>
 <li><p>they slightly deviate over time – each in a different way,</p></li>
 <li><p>and their power (amplitude) is a unique function of time.</p></li>
 </ol>
-</section>
 <section id="adding-a-global-envelope">
 <h2>Adding a Global Envelope<a class="headerlink" href="#adding-a-global-envelope" title="Permalink to this headline">#</a></h2>
 <p>Let is first try a percussive envelope:
 The sound is quite boring because nothing changes over time.
 There is no dynamic thus our ears lose interest immediately.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\saw_approx</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">harmonics</span><span class="p">;</span>
 
     <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
@@ -881,7 +879,7 @@ It is hard to explain what exactly happens with our <code class="docutils litera
 The detune changes over time.
 The updated version of <code class="docutils literal notranslate"><span class="pre">\sine_sum</span></code> looks like the following:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\saw_approx</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">harmonics</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">detuneFreq</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.015</span><span class="p">;</span>
@@ -917,7 +915,7 @@ What about <code class="docutils literal notranslate"><span class="pre">n</span>
 We could, for example, imitate nature and decrease the amplitudes of high frequencies faster than those of low frequencies.
 We could introduce randomness such that only the <em>expected decrease in amplitude</em> behaves like that.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\saw_approx</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nx">harmonics</span><span class="p">;</span>
 
     <span class="nx">harmonics</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">geom</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -970,14 +968,52 @@ It executes the cleanup, that is, the action <code class="docutils literal notra
 <p>Let’s finally create a discrete musical event simulation:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nb">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\sine_sum</span><span class="p">,</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="nb">Prand</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\rel</span><span class="p">,</span> <span class="nb">Pkey</span><span class="p">(</span><span class="ss">\dur</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw_approx</span><span class="p">,</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nx">pow</span><span class="p">((</span><span class="o">-</span><span class="mi">4</span><span class="p">..</span><span class="mi">1</span><span class="p">)),</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\rel</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span>
     <span class="ss">\detune</span><span class="p">,</span> <span class="nb">Pwhite</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\detuneFreq</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span>
-    <span class="ss">\midi</span><span class="p">,</span> <span class="nb">Prand</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">89</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\amp</span><span class="p">,</span> <span class="nb">Pkey</span><span class="p">(</span><span class="ss">\midi</span><span class="p">).</span><span class="nx">linlin</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">).</span><span class="nx">reciprocal</span>
+    <span class="ss">\detuneFreq</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="ss">\amp</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="ss">\octave</span><span class="p">,</span> <span class="nb">Pdup</span><span class="p">(</span><span class="nb">Prand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">)),</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="changing-the-power-distribution">
+<h2>Changing the Power Distribution<a class="headerlink" href="#changing-the-power-distribution" title="Permalink to this headline">#</a></h2>
+<p>The amplitudes of each <em>harmonic overtone</em> still mirrows the amplitude of its counterpart in a sawtooth wave.
+We can further individualize the sound by changing this.
+We can easily choose individual <strong>frequencies</strong>, <strong>amplitudes</strong> and <strong>phases</strong>.</p>
+<p>In the following I use, aside from the fundamental, the 3., 5., 6., 7., 8. and 9-th <em>harmonics</em>.
+You can play the pattern while changing the amplitudes and the number of each harmonic to alter the sound.
+You can also add addtional harmonics.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\sine_sum</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">harmonics</span><span class="p">,</span> <span class="nx">amps</span><span class="p">,</span> <span class="nx">phases</span><span class="p">;</span>
+
+    <span class="nx">harmonics</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">];</span>
+    <span class="nx">phases</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="nx">pi</span><span class="p">;</span>
+    <span class="nx">amps</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">].</span><span class="nx">normalizeSum</span><span class="p">();</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">harmonics</span><span class="p">.</span><span class="nx">collect</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">index</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+            <span class="kc">attackTime:</span> <span class="ss">\attk</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">),</span>
+            <span class="kc">releaseTime:</span> <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">1.1</span><span class="p">),</span>
+            <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">))</span>
+        <span class="p">);</span>
+
+        <span class="kd">var</span> <span class="nx">vibrato</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\detuneFreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="ss">\detune</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.015</span><span class="p">));</span>
+        <span class="kd">var</span> <span class="nx">harmonicFreq</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span> <span class="o">*</span> <span class="nx">vibrato</span> <span class="o">*</span> <span class="nx">abs</span><span class="p">(</span><span class="nx">k</span><span class="p">);</span>
+        <span class="nx">amps</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">harmonicFreq</span><span class="p">,</span> <span class="nx">phases</span><span class="p">[</span><span class="nx">index</span><span class="p">])</span> <span class="o">/</span> <span class="nx">k</span> <span class="o">*</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">((</span><span class="nx">abs</span><span class="p">(</span><span class="nx">k</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">));</span>
+    <span class="p">}).</span><span class="nx">sum</span><span class="p">;</span>
+
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">1500</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+    <span class="nb">DetectSilence</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>

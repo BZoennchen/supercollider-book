@@ -1,16 +1,16 @@
 # A Sum of Sines
 
-## Approximation of the Sawtooth Wave
-
-Let us recreate the [sawtooth wave](sec-square-wave) without using the ``LFSaw`` or ``Saw`` unit generator.
+Let us recreate or approximate  the [sawtooth wave](sec-square-wave) without using the ``LFSaw`` or ``Saw`` unit generator.
 Instead, we use a bunch of ``SinOsc`` oscillators.
+This gives us full control over the amplitude of each frequency, i.e. full control over the power distribution.
+
 The following code generates the sound of the Fourier series approximation.
 I implemented Eq. {eq}`eq:saw:fourier:n`.
-You can change ``n`` to increase the number of harmonics.
+You can change ``n`` to increase the number of harmonics that are present in the sound.
 
 ```isc
 (
-Ndef(\sine_sum, {
+Ndef(\saw_approx, {
     var sig, amp=0.5, n=10, harmonics;
     harmonics = Array.geom(n, 1, -1) * Array.series(n, 1, 1);
 
@@ -67,7 +67,7 @@ There is no dynamic thus our ears lose interest immediately.
 
 ```isc
 (
-Ndef(\sine_sum, {
+Ndef(\saw_approx, {
     var sig, amp=0.5, n=20, env, harmonics;
 
     env = EnvGen.ar(Env.perc(
@@ -127,7 +127,7 @@ The updated version of ``\sine_sum`` looks like the following:
 
 ```isc
 (
-Ndef(\sine_sum, {
+Ndef(\saw_approx, {
     var sig, amp=0.5, n=20, env, harmonics;
     var detuneFreq = 5;
     var detune = 0.015;
@@ -165,7 +165,7 @@ We could introduce randomness such that only the *expected decrease in amplitude
 
 ```isc
 (
-SynthDef(\sine_sum, {
+SynthDef(\saw_approx, {
     var sig, n=20, harmonics;
 
     harmonics = Array.geom(n, 1, -1) * Array.series(n, 1, 1);
@@ -230,13 +230,53 @@ Let's finally create a discrete musical event simulation:
 ```isc
 (
 Pbindef(\melody,
-    \instrument, \sine_sum,
-    \dur, Prand([5.0, 6.5, 7.5], inf),
-    \rel, Pkey(\dur)*2,
+    \instrument, \saw_approx,
+    \dur, Pshuf(2.pow((-4..1)), inf),
+    \rel, 6.0,
     \detune, Pwhite(0.001, 0.01, inf),
-    \detuneFreq, 40,
-    \midi, Prand([30, 40, 50, 60, 65, 70, 75, 77, 89], inf),
-    \amp, Pkey(\midi).linlin(30, 90, 1, 1.5).reciprocal
+    \detuneFreq, 20,
+    \amp, 0.3,
+    \octave, Pdup(Prand([2,3,4], inf), Pseq([3,4,5], inf)),
+    \degree, Pshuf([0, 2, 5, 6, 8, 11], inf),
 ).play;
+)
+```
+
+## Changing the Power Distribution
+
+The amplitudes of each *harmonic overtone* still mirrows the amplitude of its counterpart in a sawtooth wave.
+We can further individualize the sound by changing this.
+We can easily choose individual **frequencies**, **amplitudes** and **phases**.
+
+In the following I use, aside from the fundamental, the 3., 5., 6., 7., 8. and 9-th *harmonics*.
+You can play the pattern while changing the amplitudes and the number of each harmonic to alter the sound.
+You can also add addtional harmonics.
+
+```isc
+(
+SynthDef(\sine_sum, {
+    var sig, harmonics, amps, phases;
+
+    harmonics = [1, 3, 5, 6, 7, 8, 9];
+    phases = [0, 0, 0, 0.5, 0.25, 0, 0] * 2*pi;
+    amps = [0.5, 0.1, 0.2, 0.6, 0.6, 0.1, 0.1].normalizeSum();
+
+    sig = harmonics.collect({ arg k, index;
+        var env = EnvGen.ar(Env.perc(
+            attackTime: \attk.kr(0.01) * Rand(0.8,1.2),
+            releaseTime: \rel.kr(5.0) * Rand(0.9,1.1),
+            curve: \curve.kr(-4))
+        );
+
+        var vibrato = 1 + LFNoise1.ar(\detuneFreq.kr(5)!2).bipolar(\detune.kr(0.015));
+        var harmonicFreq = \freq.kr(220) * vibrato * abs(k);
+        amps[index] * SinOsc.ar(harmonicFreq, phases[index]) / k * env.pow(1+((abs(k)-1)/3));
+    }).sum;
+
+    sig = LPF.ar(sig, 1500);
+    sig = sig * \amp.kr(0.5);
+    DetectSilence.ar(sig, doneAction: Done.freeSelf);
+    Out.ar(0, sig);
+}).add;
 )
 ```

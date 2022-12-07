@@ -10,10 +10,11 @@ kernelspec:
   name: python3
 ---
 
+(sec-dft)=
 # Discrete Fourier Transform
 
 ```{code-cell} python3
-:tags: [hide-input]
+:tags: [remove-input]
 import numpy as np
 import scipy.integrate as integrate
 import scipy.special as special
@@ -123,7 +124,7 @@ We get $y[0] = 8$, $y[1] = 4$, $y[2] = 8$, $y[3] = 0$, $y[4] = y[0]$, ...
 Clearly $N = 4$ since we have frequencies of 1 and 2 Hz and a sample frequency $f_s$ of 4 Hz.
 
 ```{code-cell} python3
-:tags: [hide-input]
+:tags: [remove-input]
 y1 = lambda t: 2 * np.cos(2*np.pi*t - np.pi/2)
 y2 = lambda t: 3 * np.cos(4*np.pi*t)
 dc = lambda t: np.ones(len(t))*5
@@ -166,7 +167,7 @@ c_k
 $$c[0] = 20, c[1] = -4i, c[2] = 8, c[3] = +4i.$$
 
 ```{code-cell} python3
-:tags: [hide-input]
+:tags: [remove-input]
 fig, ax = plt.subplots(figsize=(3,3))
 f = np.array([0, 1, 2, 3])
 ax.scatter(f, np.abs(np.array(c_k)), label=r'$|c[n]|$')

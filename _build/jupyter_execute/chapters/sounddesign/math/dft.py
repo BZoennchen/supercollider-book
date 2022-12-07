@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# (sec-dft)=
 # # Discrete Fourier Transform
 
 # In[1]:
