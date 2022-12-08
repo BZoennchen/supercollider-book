@@ -354,12 +354,12 @@ e^{i\pi} + 1 = 0.
 Using Eq. {eq}`eq:euler` we can use the exponential function to represent our trigonometric functions.
 We start with
 
-$$(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\pi} + e^{-i\pi}.$$
+$$(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\phi} + e^{-i\phi}.$$
 
 Therefore, we get
 
 \begin{equation}
-\cos(\phi) = \frac{e^{i\pi} + e^{-i\pi}}{2}.
+\cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2}.
 \end{equation}
 
 For the sine we start with
@@ -369,7 +369,7 @@ $$(\cos(\phi) + i\sin(\phi)) - (\cos(\phi) - i\sin(\phi)) = 2i \sin(\phi) = e^{i
 Therefore, we get
 
 \begin{equation}
-\sin(\phi) = \frac{e^{i\pi} - e^{-i\pi}}{2i} = -i\frac{e^{i\pi} - e^{-i\pi}}{2}.
+\sin(\phi) = \frac{e^{i\phi} - e^{-i\phi}}{2i} = -i\frac{e^{i\phi} - e^{-i\phi}}{2}.
 \end{equation}
 
 (sec-phasors)=
