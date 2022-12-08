@@ -2,37 +2,82 @@
 
 >What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' [...] Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
 
-## Why it Matters -- A Romantic Argument
+## Losing the Future of a Fever Dream
 
-In its early state, *Cyberculture* promised a new kind of creative freedom, an innovative age of anarchistic collaboration and collective expressions;
-a last stand against the *Last Man*, a Nietzschian might say.
-However, that fruitful dream was quickly sold.
-While visionaries kept dreaming, the capital was already in place to establish a new market.
-Instead of a democratic digital space, *cyberspace* was altered by the rules of the old exploitative business models we naively believed we could escape from.
-I was too young to witness this downfall firsthand and could only dive into leftover artifacts, such as the *Gaming Culture* which nowadays has mostly dissolved into a large market as well.
+In its early state in the 1990, *cyberculture* hinted at an innovative utopia of anarchistic collaboration and collective expression, where ideas, knowledege and power are evenly distrubuted across a decentralized web;
+The internet felt like a gift to humanity.
+Its invention, however, was driven by destructive possibilities in the form of the fear of a nuclear Armageddon.
+In 1960 computational power residuated in large mainframe computers and their power became a critical indicator in the arms race between the U.S. and the Soviet Union.
+To improve their workload, sharing these resources via a network was key.
+At that time, computers haunted our popular imagination as bleak tools of the cold war, which embody the rigid organization and mechanical conformity that made the military-industrial complex possible.
+Many people were involved in building the network and finally the World Wide Web.
 
-Looking at New York, around 1975, one can observe that many radical left-wing artists resigned by retreating from politics and collective activism to a state of cool and ironic detachment.
-They were in a mood of disillusion and did no longer try to change the decaying city of New York – they just experienced it. Artists fled into a hyper-individualistic dream world.
-Instead of changing material realities, i.e., what is outside, they believed they should try to change what was inside people’s heads.
-And the way to do that was through self-expression and not collective action. But by doing so, they became alienating for those who wanted to act collectively.
-Furthermore, they and the people that experienced their art were beginning to lose touch with the reality of power.
+>There was no 'Eureka!' moment. It was not like the legendary apple falling on Newton's head [...]. 
+Inventing the World Wide Web involved my growing realisation that there was a power in arranging ideas in an unconstrained, weblike way. And that awareness came to me through preceisely that kind of process. -- Tim Berners-Lee
+
+Ideas can be as powerful as new technologies, especially if they fall on fruitful ground.
+The reaction to the cold war establishment in combination with a strong idea of the internet, led to an ironic transformation.
+In 1990 *cyberculture* became a *counterculture*, a rebellion against the very forces that initiated the invention of the internet.
+Thanks to their vision, counterculturalists and technologists alike joined together to reimagine computers as tools for personal liberation, the building of virtual and decidedly alternative communities, and the exploration of bold new social frontiers.
+Even though the internet was never really free from power concentrations, it gave us a powerful image of a possilbe future;
+a *fever dream* of an alternative structure of society.
+But what happened to this dream?
+
+Looking at the big cities in the U.S., around 1975, one can observe two groups of radical left-wing artists.
+The one who wanted to change material realities by collective activism and the one who wanted to change peoples minds.
+While the first group embraced bureaucracy, hierachies and organizations, the second believed in doing away with all of those things and turning instead to small-scale technologies, LSD, etc.
+This split was damaging because in a communal system built around shared consciousness people with charisma start to lead and cultural norms kick in.
+Distributing resources seem to rely on negotiation thus bureaucracy.
+The collective drive lost its strength and a mood of disillusion spread across artists.
+They did no longer try to change existing power structures and material realities but critiqued the status quo via personal expressions.  
 
 >It was the mood of the era, and the revolution was deferred indefinitely.
 And while we were dozing, the money crept in.
 
-Politicians also resigned from politics, letting the financial sector overtake many parts of government management.
-The system changed from a system of negotiations between different peers to the control system of the market in which negotiations were superfluous.
-The old idea of using politics to change the world was replaced by the new idea that you could run the world as a stable system.
+One might argue that the communalist movement led to a turning away from politics.
+It led us to the self as the basis of political change.
+The missing component that was maybe necessary to realize the *fever dream*, that is, the democratization of social, economic and ecological life, was the ability to negotiate.
+Instead the cultist disruption centered around giving power to 'the right' people.
+
+Can we make capitalism responsible for it? 
+Maybe, since this kind of disruption is far easier to achieve in a system relying on exploitation.
+
+We can clearly observe the cultist ethos in today's *Sillicon Valley*.
+Most representatives of the IT industry argue against regulation on the promise of a new satisfying sociaty. 
+
+>Do not stifle our creativity and we will build you new gadgets.
+
+It was and is all about exceptionally bright individuals, tribes and rebells.
+It was and is all about heroic stories of bootstrapped individuals pursuing conscious change.
+It was and is all about power to people instead of power to the people.
+Consider google, a company that treats its engineers quite well, offers flexible work spaces, has built a culture of collaboration and creativity that looks very communal
+(with the exception, of course, that workers do not own the company).
+However, around those engineers, low paid cafeteria workers who are making something very close to minimum wage, and often lack the ability to get proper health insurance, are exploited.
+That’s the kind of old communal mindset.
+Bring together a kind of elite, give them a shared mindset, the resources they need to live in that mindset, and you can surround them by troubled workers.
+Seemingly paradoxically, this elitism correlates with esoterism and cults because those people tend to believe to be special or at least to know something special which then can even lead to a kind of facism, i.e., the very thing those people should heavily oppose.
+
+There is no question that this setup led to innovation and an incredible diversity of consumer goods.
+However, did it led to a better society?
+Has the rise of information technology and the expansion of what was originally the military-industrial complex substantially improved our lives? 
+The distribution of material as well as intellectual goods -- the haves and the ahve nots -- are drifting apart and the middle class is melting.
 
 Today we realize that this tech explosion brought us an even higher degree of monetarization and commercialization.
-Now our dreams, feelings, moments, culture, and intimacy are open for sale.
+We innovated like crazy but we have not solved some of the problems of inequality and diversity that were core to the 1960.
+Furthermore, the psychological effect on the colonialization of our literal time might be more catastrophic than expected.
+Since we still live by a business ontology our dreams, feelings, moments, culture, and intimacy are now open for sale.
 Andrew Dominik articulates this uncanny realization through his character Jackie in *Killing Them Softly*:
 
 >I'm living in America, and in America, you're on your own. America's not a country. It's just a business. Now fucking pay me.
 
 Of course, this dog-eat-dog mentality was successfully exported a long time ago, and many firmly believe it is an essential human characteristic.
 
-Grown from a world of money making commodities, art can never be seen as innocent.
+We have proposals from *Ruth Benedict* and *Gregory Bateson* who suggest that we need to build multimedia environments in which people can find themselves by selecting images and sounds from around them such that they can fulfill their individual destinies, and thereby building a more democratic, less hierarchical, more egalitarian sort of society.
+We spot ideas from *Norbert Wiener*.
+At the same time, we can find a critique of hierarchy echoing *Margaret Mead* and *Erich Fromm* who pushed back publicly against facism and racism and openly advocating for a sexually diverse America.
+
+And what about art?
+I stand by the radical view that grown from a world of money making commodities, art can never be seen as innocent.
 Even if its creators could deprive themselves of that world entirely, the audience can not.
 Money, as a stand-in for divine-like comparability, poisons art.
 And capitalism drives us into a cycle of endless consumption and repetitive cloning.
@@ -47,29 +92,33 @@ It is like time for which any articulation of what it is can only happen in time
 We need time to explain time, and we need *Dasein* to grasp *Dasein*.
 Science has to be blind to the *Dasein*; it has to look at specifics with a particular perspective.
 
-Today many people live in a *Symbolic Misery* because the mystical aspect of their life has no more place in a *Control Society*.
+Today many people live in a *symbolic misery* because the mystical aspect of their life has no more place in a *control society*.
 They can choose, but only from a set of pretty similar possibilities.
 Nothing radical is in sight.
 The horizon of what is sensible has narrowed down.
 We are self-regulatory and self-controlling;
 there is no longer the need to point guns at our heads.
-Many of us feel empty, haunted by *Lost Futures* while the *Rage Against the Machine* seems now unimaginable.
+Many of us feel empty, haunted by *lost futures* while the *Rage Against the Machine* seems now unimaginable.
 
+Is it over?
+Is the end already baked into our current condition?
 Is it time to give up?
 Let it play out and see where we land?
-We could try to find the last joy in *Hedonic Nihilism*, but that seems just not enough.
-However, as long there is life, there is a *Will to Live*.
+We could try to find last joyful moments in *hedonic nihilism*, but that seems just not enough.
+However, as long there is life, there is a *will to live*.
 As long there is *Dasein* there is something mystical.
-It is our last stand against complete assimilation, an indestructible sparkle of hope.
+It is our last stand against complete assimilation, an *indestructible sparkle of hope*.
 
 Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against *Capitalist Realism*.
-The story politicians tell the everyday person no longer reflects the reality they live in.
-Reality and our model of reality no longer fit together.
+The story politicians tell the everyday person no longer seem to reflects the reality they live in.
+Reality and our model of reality no longer fit together:
+Google and the cafeteria workers, the danger of ecological, social and economic collapse due to climate change and the space exploring billionaires, more and more comfort yet more and more unsatisfaction, more and faster communication yet less social movement, more and more donations by billionaires yet more and more inequality, the phantasy of individualized high-tech underground car transporation systems yet no investments in public transportation, hungry people yet supermarkets packed with expensive stuff, homeless people yet the resources to build a home for anybody, and the list goes on and on.
+I am not saying that these problems are easy to solve, and they are boring.
+However, it does not seem to me that we even really trying.
+Instead we invent yet another gadget.
 This discrepancy triggers a strange feeling.
-We function daily as we only know to function, but deep down, we know that it makes no sense.
-Our state of mind is similar to that of the people of the collapsing *Soviet Union*.
-Their system was broken long before it collapsed, and everyone knew it, but at the same time, everyone acted like everything was working as intended because no one could imagine it any other way.
-We, too, know that what our leaders say is fiction, but we also act as if it is real.
+Something is completely off.
+My hope is that at some breaking point our model accomplishes a radical recalibration and a new horizon of possibilities arises.
 
 Is brutal exploitation of one another the only way to build and keep a society for some worth living in?
 In the face of climate, ecological and economic disasters, we can no longer assume that endless material growth is a feasible economic strategy.
@@ -102,9 +151,10 @@ But I think it is important to accept the possibility of this reality and to com
 Not to flee reality but instead to be in it, more than ever, and to take on that fight -- to bring dignity and love into a dying world.
 
 Even though computers and networks have turned on many people, these technologies have the potential to emancipate the citizen of our planet by being a tool to build genuine connections.
-A musical performance constructs a timely space where one can experience such collective connections.
-Therefore, to me, the *community of algorithmic composing* and *live coding* is a project to resist the looming assimilation and to find joy in a time of misery and despair;
-not because it is a *counter-culture* defined by its negation but because its community strides towards affirming differences of the living being while acting collectively.
+A musical performance constructs a timely space where one can experience collective connections.
+Computer music slipped out of commercialization, for this alone it is interesting.
+It is like being back in 1990, remembering the *fever dream* which might be the first step to finally realize it.
+Therefore, to me, the *community of algorithmic composing* and *live coding* is a project to resist the looming assimilation and to find joy in a time of misery and despair because its community strides towards affirming differences of the living being while acting collectively and inclusive.
 I hope that someday this little project will strengthen the effort.
 
 ## How I Started
