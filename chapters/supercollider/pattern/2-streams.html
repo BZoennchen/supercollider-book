@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -716,13 +721,13 @@ For example, we can define a function that gives us all integers.</p>
 </div>
 <p>If we evaluate the last line multiple times, we get 1, 2, 3, and so on.
 <code class="docutils literal notranslate"><span class="pre">f</span></code> represents an infinite stream of values.
-We can use <a class="reference external" href="https://doc.sccode.org/Classes/FuncStream.html">FuncStream</a> to create a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> of integers, i.e. an object that understands certain messages.
+We can use <a class="reference external" href="https://doc.sccode.org/Classes/FuncStream.html">FuncStream</a> to create a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> of integers, i.e., an object that understands certain messages.
 Then we can call <code class="docutils literal notranslate"><span class="pre">next</span></code> on the stream to get the next value.
-If a stream runs out of values, it returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+If a (finite) stream runs out of values, it returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="o">~</span><span class="nx">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="nx">f</span> <span class="o">=</span> <span class="p">{</span><span class="o">~</span><span class="nx">val</span> <span class="o">=</span> <span class="o">~</span><span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">~</span><span class="nx">val</span><span class="p">;};</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="nb">FuncStream</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="nc">FuncStream</span><span class="p">(</span><span class="nx">f</span><span class="p">);</span>
 <span class="p">)</span>
 <span class="nx">x</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// 1</span>
 <span class="nx">x</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// 2</span>
@@ -737,7 +742,7 @@ Calling <code class="docutils literal notranslate"><span class="pre">next</span>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>  <span class="c1">// 5</span>
 <span class="s2">&quot;hello&quot;</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// &quot;hello&quot;</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">].</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// [1,2,3,4]</span>
-<span class="nb">SinOsc</span><span class="p">().</span><span class="nx">next</span> <span class="c1">// SinOsc</span>
+<span class="nc">SinOsc</span><span class="p">().</span><span class="nx">next</span> <span class="c1">// SinOsc</span>
 </pre></div>
 </div>
 <div class="remark admonition" id="remark-everything-streams">

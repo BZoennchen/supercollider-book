@@ -16,7 +16,7 @@ Each player can play a synth repeatedly and is synchronized to a clock.
 It also uses players but lets the user manipulate a signal in a functional style.
 Each of these tools offers a distinct language and, therefore a way of thinking.
 
-However, [SuperCollider (SC)](https://supercollider.github.io/) offers its own excellent and powerful interface for composing a musical piece.
+However, [SuperCollider](https://supercollider.github.io/) offers its own excellent and powerful interface for composing a musical piece.
 Within the language, we can use plain iteration and threading.
 Secondly, we can use so-called [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html), and [Events](https://doc.sccode.org/Classes/Event.html) to abstract most of the technical burden away!
 

@@ -9,7 +9,7 @@ It can be confusing for beginners because there is a big difference between a sy
 
 ## Definition
 
-A synth in the real world is an instrument that can be played.
+In the real world a synth is an instrument that can be played.
 However, in ``sclang``, we distinguish between the instrument (as a potential/thing) and the played instrument (as a process).
 While the thing is an instance of ``SynthDef``, the process (an executed [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph)) is an instance of ``Synth``.
 
@@ -17,7 +17,7 @@ We do not introduce a new class for each new instrument.
 Instead, each instrument is represented by a function, more precisely by *a unit generator graph function* that realizes *a signal-flow-graph (SFG)*.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
-We generate synths calling the defining function with different arguments to do so.
+We generate synths by calling the defining function with different arguments to do so.
 
 ```{admonition} SynthDef
 :name: def-synth-def
@@ -27,11 +27,11 @@ The graph can be executed (as ``Synth``) on the audio server.
 ```
 
 From the perspective of a musician, a synth definition is a parameterizable description of a short piece of sound.
-A synth, on the other hand, is the process of playing that piece of sound with specific parameters (frequency, loudness, velocity, etc.).
+A synth, on the other hand, is the process of playing that piece of sound with specific possibly modulated arguments (frequency, loudness, velocity, etc.).
 From a software developer's perspective, a synth definition is a factory that generates synths following its internal description.
 
 A ``SynthDef`` object encapsulates the server-side representation of a synth definition and provides methods for creating new ``Synths`` objects on the server.
-Furthermore a ``SynthDef`` object can be serialized to the disk and streamed via the network to distant audio servers.
+Furthermore, a ``SynthDef`` object can be serialized to the disk and streamed via the network to distant audio servers.
 ``SynthDefs`` are nothing more than compact representations of signal-flow graphs written down in text.
 
 ```{admonition} Synth
@@ -123,6 +123,7 @@ To understand ``UGens`` we must understand the concept of client-side and server
 Only the client-side code of a ``SynthDef`` is executed when we add the ``SynthDef`` to the server.
 Playing the synth by creating a ``Synth`` executes only the server-side code!
 
+Some of the ``sclang`` code can only be excuted on the server (e.g. playing sound) while other parts can only be executed on the client (e.g. the definition of the signal-flow graph).
 The relationship between server- and client-side code becomes more evident if we compare server- and client-side randomness.
 
 ```isc
@@ -145,5 +146,7 @@ Synth(\srndsine);
 ```
 
 Both ``SythDefs`` look similar but ``\crndsine`` uses a client-side random generator, whereas ``\srndsine`` uses a server-side one, that is, the ``UGen`` called ``Random``.
-Since ``rrand`` is evaluated when we add the ``SynthDef``, each synth of this ``SynthDef`` will generate a randomly chosen sound which is the same for all synths.
-Therefore, if we want a ``Synth`` that generates a random sound whenever it is created, we need server-side randomness using a suitable ``UGen``.
+There is no such thing as a server-side ``rrand`` function!
+Its evaluation is part of the definition of the signal-flow graph.
+Since ``rrand`` is evaluated when we add the ``SynthDef``, each synth of this ``SynthDef`` will generate a randomly chosen sound which is the same for **all** synths constructed by this added ``SynthDef`` object.
+Therefore, if we want a ``Synth`` that generates a random sound whenever it is created, we need server-side randomness using a suitable ``UGen``, in this case, ``Rand``.

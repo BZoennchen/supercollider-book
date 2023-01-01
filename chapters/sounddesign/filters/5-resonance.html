@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -707,19 +712,19 @@ title="Print to PDF"
 <p>To bring dynamic into the sound by a filter, we can do the obvious: change the cuttoff frequency over time!
 Let us try this with a low pass filter:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\maxcutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\maxcutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
 
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">))</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">cuttoff</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="ss">\maxcutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cuttoff</span><span class="p">);</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">))</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoff</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="ss">\maxcutoff</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cuttoff</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Almost all physical objects resonate.
@@ -737,19 +742,19 @@ Therefore, resonance filters emulate resonance.</p>
 For most resonance filters, the frequencies near the cutoff frequency are boosted.
 In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the <a class="reference internal" href="../../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGens</span></a> realizing a resonance filter start with an <code class="docutils literal notranslate"><span class="pre">R</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">RLPF</span></code> is the <em>resonance low pass filter</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\maxcutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\bandwidth</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\maxcutoff</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\bandwidth</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">]);</span>
 
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">))</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">cuttoff</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="ss">\maxcutoff</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">RLPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cuttoff</span><span class="p">,</span> <span class="kc">rq:</span> <span class="ss">\bandwidth</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="nx">cuttoff</span><span class="p">);</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">))</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoff</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\modfreq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">)).</span><span class="nx">range</span><span class="p">(</span><span class="ss">\mincutoff</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="ss">\maxcutoff</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">RLPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">cuttoff</span><span class="p">,</span> <span class="na">rq:</span> <span class="ss">\bandwidth</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="nx">cuttoff</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\filtering</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Try different values especially for the bandwidth.

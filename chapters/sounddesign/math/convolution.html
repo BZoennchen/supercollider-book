@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Additive Synthesis" href="../additive-synthesis/additive-synthesis.html" />
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -678,12 +685,46 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-convolution">
+   Discrete Convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-convolution">
+   Continuous Convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   Examples
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -695,6 +736,29 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-convolution">
+   Discrete Convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-convolution">
+   Continuous Convolution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   Examples
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -704,7 +768,184 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="convolution">
 <h1>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">#</a></h1>
-<p>TODO</p>
+<p>Convolution is an operation that takes two functions and outputs a new function.
+In that sense, it is very similar to addition or multiplication.
+Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span> we can compute a new function</p>
+<div class="math notranslate nohighlight">
+\[y_3(t) = (y_1 \cdot y_2)(t) = y_1(t) \cdot y_2(t).\]</div>
+<p>The same is true for the convolution of these two functions:</p>
+<div class="math notranslate nohighlight">
+\[y_3(t) = (y_1 * y_2)(t).\]</div>
+<p>But what does the <em>convolution operator</em> <span class="math notranslate nohighlight">\(*\)</span> really do?</p>
+<section id="discrete-convolution">
+<h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
+<p>Let us start with two arrays of numbers which represent discrete functions <span class="math notranslate nohighlight">\(y_1, y_2\)</span>.</p>
+<p>We can use component-wise multiplication to generate a new function:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// [ -1, 6, -3, 12 ], y_1[k] * y_2[k]</span>
+</pre></div>
+</div>
+<p>In that case,</p>
+<div class="math notranslate nohighlight">
+\[y_3[k] = y_1[k] \cdot y_2[k].\]</div>
+<p>The convolution is defined very differently.
+The idea is to mirrow the second function and to compute the weighted sum of a sliding window.</p>
+<figure class="align-default" id="fig-array-conv">
+<a class="reference internal image-reference" href="../../../_images/array_conv.png"><img alt="../../../_images/array_conv.png" src="../../../_images/array_conv.png" style="width: 900px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Visualization of the computation of a convolution of two discrete signals (arrays of numbers).</span><a class="headerlink" href="#fig-array-conv" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Given <span class="math notranslate nohighlight">\(y_1 = [1,2,3,4]\)</span> and <span class="math notranslate nohighlight">\(y_2 = [ -1, 6, -3, 1]\)</span>, we use sliding window to compute the new function by a weighted sum.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{split}
+y[-3] &amp;= -1 \cdot 1 &amp;= -1 \\
+y[-2] &amp;= -1 \cdot 2 + 3 \cdot 1 &amp;= 1 \\
+y[-1] &amp;= -1 \cdot 3 + 3 \cdot 2 - 1 \cdot 1 &amp;= 2 \\
+y[+0] &amp;= -1 \cdot 4 + 3 \cdot 3 - 1 \cdot 2 + 3 \cdot 1 &amp;= 6 \\
+y[+1] &amp;= +3 \cdot 4 -1 \cdot 3 + 3 \cdot 2 &amp;= 15\\
+y[+2] &amp;= -1 \cdot 4 + 3 \cdot 3 &amp;= 5 \\
+y[+3] &amp;= +3 \cdot 4 &amp;= 12
+\end{split}
+\end{equation*}\]</div>
+<p>Interestingly, the lengths of the signals do not have to match, and the new length of the new signal is equal to the sum of the length of the original signals minus 2.</p>
+<p>The following <code class="docutils literal notranslate"><span class="pre">sclang</span></code> function computes the convolution of two discrete function:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">~</span><span class="nx">convolve</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">a_pad</span><span class="p">,</span> <span class="nx">b_pad</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="nx">val</span><span class="p">;</span>
+
+    <span class="nx">a_pad</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">++</span> <span class="nx">a</span><span class="p">;</span>
+    <span class="nx">b_pad</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">++</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">size</span><span class="o">+</span><span class="nx">b</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">val</span> <span class="o">=</span> <span class="p">(</span><span class="nx">a_pad</span> <span class="o">*</span> <span class="nx">b_pad</span><span class="p">).</span><span class="nx">sum</span><span class="p">;</span>
+        <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">++</span> <span class="p">[</span><span class="nx">val</span><span class="p">];</span>
+        <span class="nx">b_pad</span> <span class="o">=</span> <span class="nx">b_pad</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="p">)</span>
+
+<span class="o">~</span><span class="nx">convolve</span><span class="p">.([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="c1">// [ -1, 1, 2, 6, 15, 5, 12 ]</span>
+</pre></div>
+</div>
+<div class="definition admonition" id="def-discrete-convolution">
+<p class="admonition-title">Convolution of Discrete Signals</p>
+<p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fea5971c-3f73-4c3b-895e-c4a775dfe846">
+<span class="eqno">(30)<a class="headerlink" href="#equation-fea5971c-3f73-4c3b-895e-c4a775dfe846" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
+</div>
+<p>Since we are most interested in peridic functions, a more useful definition is given by the <em>circular discrete convolution</em>.
+In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be <span class="math notranslate nohighlight">\(N_2\)</span>-periodic.</p>
+<div class="definition admonition" id="def-circular-discrete-convolution">
+<p class="admonition-title">Circular Discrete Convolution</p>
+<p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1099c65f-eea0-440f-ba3b-2b17bbf7e1a4">
+<span class="eqno">(31)<a class="headerlink" href="#equation-1099c65f-eea0-440f-ba3b-2b17bbf7e1a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
+</div>
+<figure class="align-default" id="fig-array-conv-periodic">
+<a class="reference internal image-reference" href="../../../_images/array_conv_periodic.png"><img alt="../../../_images/array_conv_periodic.png" src="../../../_images/array_conv_periodic.png" style="width: 900px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Visualization of the computation of a convalution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.</span><a class="headerlink" href="#fig-array-conv-periodic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The circular convolution of a finite signal with a infinite periodic discrete function is an infinite periodic funciton.
+This in our code we do not construct an <code class="docutils literal notranslate"><span class="pre">Array</span></code> but a new function.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">~</span><span class="nx">cconvolve</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">func</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">n</span><span class="p">;</span>
+        <span class="p">(</span><span class="nx">a</span> <span class="o">*</span><span class="p">.</span><span class="nx">s</span> <span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">reverse</span><span class="p">.</span><span class="nx">rotate</span><span class="p">).</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">n</span><span class="p">)).</span><span class="nx">sum</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">func</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">f</span> <span class="o">=</span> <span class="o">~</span><span class="nx">cconvolve</span><span class="p">.([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">f</span><span class="p">.(</span><span class="nx">i</span><span class="p">);});</span>
+<span class="nx">y</span> <span class="c1">// [ 14, 6, 14, 6, 14, 6, 14, 6, 14, 6, 14, 6 ]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code is relatively short.
+<code class="docutils literal notranslate"><span class="pre">cconvolve</span></code> returns the function, i.e., <span class="math notranslate nohighlight">\(y\)</span>, based on the two arrays, but here we assume the second one is circular.
+Since our second array has a period of 2, the resulting signal <span class="math notranslate nohighlight">\(y\)</span> also has a period of 2.</p>
+<p>Note that the convolution is like multiplying two functions, but one is mirrored and shifted.
+<span class="math notranslate nohighlight">\((y_1 \cdot y_2)[n]\)</span> is positive if the two functions are either both positive or both negative at <span class="math notranslate nohighlight">\(n\)</span>.
+Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are periodic functions with DC = 0, <span class="math notranslate nohighlight">\((y_1 \cdot y_2)(t)\)</span> says something about their similarity, see section <a class="reference internal" href="fourier-series.html#sec-similarity-of-functions"><span class="std std-ref">Similarity of Periodic Functions</span></a>.</p>
+<p>Since the convolution is the sum of these similarity measures, it tells us something about the similarity of the two functions too.
+In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
+The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
+<p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cf63102c-1274-4181-b995-9aeb8d3cda0f">
+<span class="eqno">(32)<a class="headerlink" href="#equation-cf63102c-1274-4181-b995-9aeb8d3cda0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
+\end{equation}\]</div>
+</section>
+<section id="continuous-convolution">
+<h2>Continuous Convolution<a class="headerlink" href="#continuous-convolution" title="Permalink to this headline">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are continuous functions then the sum becomes an integral.</p>
+<div class="definition admonition" id="def-convolution">
+<p class="admonition-title">Convolution</p>
+<p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-91575317-3d3e-4d05-97cc-f9ef04e570d8">
+<span class="eqno">(33)<a class="headerlink" href="#equation-91575317-3d3e-4d05-97cc-f9ef04e570d8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+(y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
+\end{equation}\]</div>
+</div>
+<p>This looks intimidating but there is nothing to fear.
+Instead of a sum over an index <span class="math notranslate nohighlight">\(k\)</span> we have the integration over <span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(t\)</span> represents the shift of our second (mirrored) funciton.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<p>Imagine the function <span class="math notranslate nohighlight">\(y\)</span> which is 1 between 0 and 1 and zero elsewhere.
+<span class="math notranslate nohighlight">\(y\)</span> represents a square.
+Consequently, <span class="math notranslate nohighlight">\((y * y)\)</span> represents the overlapping area of two squares.
+Since the second square is mirrored at the y-axis, <span class="math notranslate nohighlight">\((y * y)(t) = 0\)</span> for <span class="math notranslate nohighlight">\(t=0\)</span>.
+However, if we increase <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\((y * y)\)</span> increases linearly until it reaches its maximum at <span class="math notranslate nohighlight">\((y * y)(1) = 1\)</span>.
+Then it decreases again.
+Therefore, <span class="math notranslate nohighlight">\((y * y)(t)\)</span> is a triangle!</p>
+<p>We can compute a discrete convolution on the audio server using the <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> unit generator.
+Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">sig</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFPulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Convolution</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="nx">n</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="fig-sc-convolution-pulse">
+<a class="reference internal image-reference" href="../../../_images/sc-convolution-pulse.png"><img alt="../../../_images/sc-convolution-pulse.png" src="../../../_images/sc-convolution-pulse.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Convoluting two pulse waves results in a triangle wave.</span><a class="headerlink" href="#fig-sc-convolution-pulse" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As you can see, we get the expected result!</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">kernel</span><span class="p">;</span>
+    <span class="nx">n</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">kernel</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Convolution</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">kernel</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="nx">n</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../../_images/sc-convolution-saw.png"><img alt="../../../_images/sc-convolution-saw.png" src="../../../_images/sc-convolution-saw.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

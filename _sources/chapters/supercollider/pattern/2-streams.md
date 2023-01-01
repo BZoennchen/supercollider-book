@@ -15,9 +15,9 @@ f.();
 
 If we evaluate the last line multiple times, we get 1, 2, 3, and so on.
 ``f`` represents an infinite stream of values.
-We can use [FuncStream](https://doc.sccode.org/Classes/FuncStream.html) to create a [Stream](https://doc.sccode.org/Classes/Stream.html) of integers, i.e. an object that understands certain messages.
+We can use [FuncStream](https://doc.sccode.org/Classes/FuncStream.html) to create a [Stream](https://doc.sccode.org/Classes/Stream.html) of integers, i.e., an object that understands certain messages.
 Then we can call ``next`` on the stream to get the next value.
-If a stream runs out of values, it returns ``nil``.
+If a (finite) stream runs out of values, it returns ``nil``.
 
 ```isc
 (

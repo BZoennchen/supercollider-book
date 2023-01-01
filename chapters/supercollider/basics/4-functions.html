@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -549,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -773,8 +778,10 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
 <span id="sec-functions"></span><h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h1>
-<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, functions are first-class objects, meaning a function can be an argument of another function.
-The language drives the programmer to use this fact in various ways.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, functions are first-class objects.
+Therefore, a function can be an argument of another function.
+The language drives the programmer to use this fact in various ways.
+For example, control structures in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> are functions.</p>
 <section id="definition">
 <h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
 <p>To define a function, we encapsulate its content by curly brackets.
@@ -795,7 +802,7 @@ To execute it, we call <code class="docutils literal notranslate"><span class="p
 <p>This looks a little bit weird, but it works just fine.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> there is no <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.
 We only have to call <code class="docutils literal notranslate"><span class="pre">func.value</span></code> for functions and not for methods of an object or class.
-A function always returns the content of the last evaluated statement, in this case, <code class="docutils literal notranslate"><span class="pre">x</span></code>.
+A function always returns the content of the last evaluated statement, in this case <code class="docutils literal notranslate"><span class="pre">x</span></code>.
 In my personal opinion, an additional keyword can make the code more readable.</p>
 <p>To see what I mean by making use of functions as first-class objects, we can look at the <a class="reference external" href="https://doc.sccode.org/Reference/Control-Structures.html">control structures</a>.
 <code class="docutils literal notranslate"><span class="pre">if</span></code> is in fact, a function that takes three arguments:</p>
@@ -825,7 +832,7 @@ Again, we can either write <code class="docutils literal notranslate"><span clas
 </section>
 <section id="closures">
 <h2>Closures<a class="headerlink" href="#closures" title="Permalink to this headline">#</a></h2>
-<p>If we want the <code class="docutils literal notranslate"><span class="pre">func</span></code> to return the same randomly chosen value each time it is called, we can use a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a>
+<p>If we want the <code class="docutils literal notranslate"><span class="pre">func</span></code> to return the same randomly chosen value each time it is called, we can use a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a>.
 In short, a <a class="reference external" href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">Closure</a> is a function combined with a set of variables that are neither defined within the function nor are arguments of the functions.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
@@ -870,8 +877,8 @@ In short, a <a class="reference external" href="https://en.wikipedia.org/wiki/Cl
     <span class="kd">arg</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span>
     <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="nx">add</span><span class="p">.(</span><span class="kc">a:</span> <span class="mi">6</span><span class="p">,</span> <span class="kc">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 17</span>
-<span class="nx">add</span><span class="p">.(</span><span class="kc">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 16</span>
+<span class="nx">add</span><span class="p">.(</span><span class="na">a:</span> <span class="mi">6</span><span class="p">,</span> <span class="na">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 17</span>
+<span class="nx">add</span><span class="p">.(</span><span class="na">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 16</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -882,7 +889,7 @@ Furthermore, there is another rather strange shortcut:</p>
 <span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">b</span><span class="o">|</span>
     <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
 <span class="p">};</span>
-<span class="nx">add</span><span class="p">.(</span><span class="kc">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 16</span>
+<span class="nx">add</span><span class="p">.(</span><span class="na">b:</span> <span class="mi">11</span><span class="p">)</span> <span class="c1">// returns 16</span>
 <span class="p">)</span>
 </pre></div>
 </div>

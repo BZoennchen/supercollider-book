@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
   </a>
@@ -773,11 +778,24 @@ title="Print to PDF"
 <span id="sec-ugens"></span><h1>Unit Generators<a class="headerlink" href="#unit-generators" title="Permalink to this headline">#</a></h1>
 <p>The defining function of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e. the <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>, consists of a network of so called <em>unit generators</em> (<a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a>).
 Unit generators are the smallest building blocks of our sound generation architecture.
-They are used for generatingad processing sigals with the SuperCollider synthesis audio server.</p>
+They are used for generating processing sigals with the SuperCollider synthesis audio server.</p>
 <section id="definition">
 <h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
-<p>A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as <em>side effects</em> such as wrting to the post window, accessing a buffer, or seinding a message over a network.
-The server can incorporate the unit generators into a synthesis graph, passing data from one unit generator to another.</p>
+<p>A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as <em>side effects</em> such as wrting to the post window, accessing a buffer, or seinding a message over a network.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">sfg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\sine</span><span class="p">,</span> <span class="nx">sfg</span><span class="p">).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The server can incorporate the unit generators into a synthesis graph, passing data from one unit generator to another.
+The <code class="docutils literal notranslate"><span class="pre">Ugen</span></code> classes, representing unit generators, can be seen as the server-side part of <code class="docutils literal notranslate"><span class="pre">sclang</span></code>.</p>
 <figure class="align-default" id="fig-sfg-example">
 <a class="reference internal image-reference" href="../../_images/sfg-example.png"><img alt="../../_images/sfg-example.png" src="../../_images/sfg-example.png" style="width: 800px;" /></a>
 <figcaption>
@@ -786,20 +804,20 @@ The server can incorporate the unit generators into a synthesis graph, passing d
 </figcaption>
 </figure>
 <p>Each node of the graph represents a unit generator.
-There are osillators, called <em>sources</em> that have no signal input.
-They build the starting points, e.g. <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>.</p>
+There are osillators, called <em>sources</em> (such as <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code>, <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code>) that have no signal input.
+They initialize the flow of numbers.</p>
 <div class="definition admonition" id="def-ugen">
 <p class="admonition-title">Unit Generator (UGen)</p>
 <p>A <em>unit generator</em> <code class="docutils literal notranslate"><span class="pre">UGen</span></code> represent calculations with a signal.
 They are the basic building blocks of a synth definition, and are used to generate or process both <em>audio</em> and <em>control signals</em>.</p>
 </div>
-<p>When using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we need to have available a representation of each UGen which provides information about its inputs and outputs (the number, type etc.).
+<p>When using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we need representations unit generators which provides information about its inputs and outputs (the number, type etc.).
 These representations allow us to define synthesis graphs in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code>.
 Therefore, each unit generator also comes with a SC class; these classes are always derived from a base class, appropriately called <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.
 Later we will discuss how to write our own brand new unit generator.</p>
 <div class="remark admonition">
 <p class="admonition-title">Unit Generator Execution</p>
-<p>A unit generator, i.e. an instance of <code class="docutils literal notranslate"><span class="pre">UGen</span></code>, is executed on the server!</p>
+<p>A unit generator, i.e., an instance of <code class="docutils literal notranslate"><span class="pre">UGen</span></code>, is executed on the server!</p>
 </div>
 <p>A <em>unit generator</em> is the signal-generating and -processing workhorse for the SuperCollider synthesis environment.
 They provide an efficient modular system for creating complicated <em>audio networks</em>, which we will refer to <em>unit generator graphs</em> or <em>unit generator graph function</em>.
@@ -825,13 +843,14 @@ Using <code class="docutils literal notranslate"><span class="pre">kr</span></co
 <p>UGens are these incredibly fast generators of numbers.
 Some of these numbers become sound signals; others become control signals.
 We can use the <code class="docutils literal notranslate"><span class="pre">.poll</span></code> message to print 10 numbers per second to the post window:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">poll</span><span class="p">}.</span><span class="nx">play</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">poll</span><span class="p">}.</span><span class="nx">play</span>
 </pre></div>
 </div>
+<p>I will talk more about sampling in section <a class="reference internal" href="../sounddesign/math/sampling.html#sec-sampling"><span class="std std-ref">Sampling</span></a>.</p>
 </section>
 <section id="categories">
 <h2>Categories<a class="headerlink" href="#categories" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> provides us with over 250 different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are client-side representations of the unit generators.
+<p><a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> provides us with over 250 different <code class="docutils literal notranslate"><span class="pre">UGen</span></code>-classes which are representations of the unit generators that will be executed on the server.
 They can be categorized into:</p>
 <ul class="simple">
 <li><p>sources (periodic, aperiodic)</p></li>
@@ -845,9 +864,9 @@ They can be categorized into:</p>
 <li><p>control (envelopes, trigger, counters, gates, lags, decays)</p></li>
 <li><p>spectral</p></li>
 </ul>
-<p>Instead of discussing these different UGens by listing them all at one place, I try to explain them under practical motivation.
+<p>Instead of discussing these different <code class="docutils literal notranslate"><span class="pre">UGens</span></code> by listing them all at one place, I try to explain them under practical motivation.
 For example, I will explain the <a class="reference internal" href="../sounddesign/additive-synthesis/1-waveforms.html#sec-fundamental-waveforms"><span class="std std-ref">fundamental wavesforms</span></a> in the context of <a class="reference internal" href="../sounddesign/additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
-We will explore many different UGens discussing <a class="reference internal" href="../sounddesign/filters/filters.html#sec-filters"><span class="std std-ref">filters</span></a>, <span class="xref myst">subtractive synthesis</span> and many more concepts.</p>
+We will explore many different <code class="docutils literal notranslate"><span class="pre">UGens</span></code> discussing <a class="reference internal" href="../sounddesign/filters/filters.html#sec-filters"><span class="std std-ref">filters</span></a>, <span class="xref myst">subtractive synthesis</span> and many more concepts.</p>
 </section>
 <section id="multichannel-expension">
 <span id="sec-mce"></span><h2>Multichannel Expension<a class="headerlink" href="#multichannel-expension" title="Permalink to this headline">#</a></h2>
@@ -855,14 +874,14 @@ We will explore many different UGens discussing <a class="reference internal" hr
 This behaviour is called multichannel expension.
 All but a few special unit generators perform multichannel expension.
 <strong>Only</strong> arrays are expanded, no other type of collection, not even subclasses of Array.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// one channel</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// one channel</span>
 
 <span class="c1">// the array in the freq input causes an Array of 2 Blips to be created :</span>
-<span class="p">{</span> <span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="mi">499</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// two channels</span>
+<span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">499</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// two channels</span>
 
-<span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// one unit generator created.</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// one unit generator created.</span>
 
-<span class="nb">Blip</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">601</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// two unit generators created.</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">601</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// two unit generators created.</span>
 </pre></div>
 </div>
 </section>

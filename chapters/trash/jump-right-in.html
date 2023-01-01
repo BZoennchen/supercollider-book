@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -549,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
   </a>
@@ -778,48 +783,48 @@ There are 12 keys on a pianos keyboard within one octave, this means that if we 
 <h2>Noise generation<a class="headerlink" href="#noise-generation" title="Permalink to this headline">#</a></h2>
 <p>Let us imagine we have a very basic sound of a simple sinewave.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\melo</span><span class="p">,{</span>
+<span class="nc">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\melo</span><span class="p">,{</span>
     <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">;</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
-<span class="nb">Synth</span><span class="p">(</span><span class="ss">\melo</span><span class="p">);</span>
+<span class="nc">Synth</span><span class="p">(</span><span class="ss">\melo</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>This is a quite boring sound.
 A way to enrich it, is to add slightly detuned copies of the sinewave which change their frequency over time.
 The noise oscillators <code class="docutils literal notranslate"><span class="pre">LFNoiseX.ar(freq:</span> <span class="pre">freq)</span></code> generate a juggeling signal which changes its amplitude inbetween the <span class="math notranslate nohighlight">\([-1;1]\)</span> uniformly distributed.
-Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 49</span></a>.</p>
+Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 53</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{[</span>
-    <span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-    <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-    <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="p">]}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="kc">bounds:</span> <span class="nb">Rect</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
+    <span class="nc">LFNoise0</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nc">LFNoise1</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="nc">LFNoise2</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">]}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="na">bounds:</span> <span class="nc">Rect</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">600</span><span class="p">))</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default" id="fig-plot-lfnoisex">
 <a class="reference internal image-reference" href="../../_images/plot-LFNoiseX.png"><img alt="../../_images/plot-LFNoiseX.png" src="../../_images/plot-LFNoiseX.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>So let us create <span class="math notranslate nohighlight">\(n\)</span> number of detuned sinewaves and adding them to the fundamental:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\melo</span><span class="p">,{</span>
+<span class="nc">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\melo</span><span class="p">,{</span>
     <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">freqsL</span><span class="p">,</span> <span class="nx">freqsR</span><span class="p">;</span>
-	<span class="nx">freqsL</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">({</span><span class="nb">Rand</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">detune</span><span class="p">).</span><span class="nx">midiratio</span><span class="p">;</span>
-	<span class="nx">freqsR</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">ar</span><span class="p">({</span><span class="nb">Rand</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">detune</span><span class="p">).</span><span class="nx">midiratio</span><span class="p">;</span>
+	<span class="nx">freqsL</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nc">LFNoise2</span><span class="p">.</span><span class="k">ar</span><span class="p">({</span><span class="nc">Rand</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">detune</span><span class="p">).</span><span class="nx">midiratio</span><span class="p">;</span>
+	<span class="nx">freqsR</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nc">LFNoise2</span><span class="p">.</span><span class="k">ar</span><span class="p">({</span><span class="nc">Rand</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">detune</span><span class="p">).</span><span class="nx">midiratio</span><span class="p">;</span>
 	<span class="nx">freqsR</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-	<span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freqsL</span><span class="p">).</span><span class="nx">sum</span><span class="p">,</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freqsR</span><span class="p">).</span><span class="nx">sum</span><span class="p">];</span>
-	<span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span> <span class="o">*</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freqsL</span><span class="p">).</span><span class="nx">sum</span><span class="p">,</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freqsR</span><span class="p">).</span><span class="nx">sum</span><span class="p">];</span>
+	<span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span> <span class="o">*</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
-<span class="nb">Synth</span><span class="p">(</span><span class="ss">\melo</span><span class="p">);</span>
+<span class="nc">Synth</span><span class="p">(</span><span class="ss">\melo</span><span class="p">);</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">{Rand(lo,</span> <span class="pre">hi)}!n</span></code> is a array containing <code class="docutils literal notranslate"><span class="pre">n</span></code> functions <code class="docutils literal notranslate"><span class="pre">{Rand(lo,</span> <span class="pre">hi)}</span></code> which are evaluated each time we execute the synth <code class="docutils literal notranslate"><span class="pre">\melo</span></code>.
@@ -828,41 +833,41 @@ Is a <code class="docutils literal notranslate"><span class="pre">UGen</span></c
 In this case we could also just multiply the noise by <code class="docutils literal notranslate"><span class="pre">detune</span></code>, since it is between [<code class="docutils literal notranslate"><span class="pre">-1</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>].</p>
 <p>To enrich a sound a good technique is to add detuned</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">();</span>
-<span class="nb">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\melo</span><span class="p">,{</span>
+<span class="nc">Array</span><span class="p">.</span><span class="k">new</span><span class="p">();</span>
+<span class="nc">SynthDef</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="ss">\melo</span><span class="p">,{</span>
 	<span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">atk</span> <span class="o">=</span> <span class="mf">0.002</span><span class="p">,</span> <span class="nx">sus</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">rel</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">detune</span> <span class="o">=</span> <span class="mf">0.015</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">sines</span><span class="p">,</span> <span class="nx">freqs</span><span class="p">;</span>
-	<span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">(</span><span class="kc">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="kc">times:</span> <span class="p">[</span><span class="nx">atk</span><span class="p">,</span><span class="nx">sus</span><span class="p">,</span><span class="nx">rel</span><span class="p">],</span> <span class="kc">curve:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">]),</span> <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+	<span class="nx">env</span> <span class="o">=</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Env</span><span class="p">(</span><span class="na">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="na">times:</span> <span class="p">[</span><span class="nx">atk</span><span class="p">,</span><span class="nx">sus</span><span class="p">,</span><span class="nx">rel</span><span class="p">],</span> <span class="na">curve:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">]),</span> <span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
 
-	<span class="nx">freqs</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nb">LFNoise2</span><span class="p">.</span><span class="kd">kr</span><span class="p">({</span><span class="nb">Rand</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">)}</span><span class="o">!</span><span class="mi">6</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">detune</span><span class="p">).</span><span class="nx">midiratio</span><span class="p">;</span>
-	<span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="kc">freq:</span> <span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+	<span class="nx">freqs</span> <span class="o">=</span> <span class="nx">freq</span> <span class="o">*</span> <span class="nc">LFNoise2</span><span class="p">.</span><span class="k">kr</span><span class="p">({</span><span class="nc">Rand</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.11</span><span class="p">)}</span><span class="o">!</span><span class="mi">6</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="nx">detune</span><span class="p">).</span><span class="nx">midiratio</span><span class="p">;</span>
+	<span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">freq:</span> <span class="nx">freq</span><span class="p">,</span> <span class="na">mul:</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
 
 	<span class="nx">sines</span> <span class="o">=</span> <span class="nx">freqs</span><span class="p">.</span><span class="nx">collect</span><span class="p">({</span>
 		<span class="kd">arg</span> <span class="nx">n</span><span class="p">;</span>
 		<span class="kd">var</span> <span class="nx">tmp</span><span class="p">;</span>
-		<span class="nx">tmp</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
-		<span class="nx">tmp</span> <span class="o">=</span> <span class="nb">Pan2</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">tmp</span><span class="p">,</span> <span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">));</span>
+		<span class="nx">tmp</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+		<span class="nx">tmp</span> <span class="o">=</span> <span class="nc">Pan2</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">tmp</span><span class="p">,</span> <span class="nc">Rand</span><span class="p">(</span><span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">));</span>
 		<span class="nx">tmp</span> <span class="o">=</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">tanh</span><span class="p">;</span>
 		<span class="nx">tmp</span><span class="p">;</span>
 	<span class="p">}).</span><span class="nx">sum</span><span class="p">;</span>
 
 	<span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nx">sines</span><span class="p">;</span>
 	<span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-	<span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span> <span class="o">*</span> <span class="mf">0.03</span><span class="p">);</span>
+	<span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span> <span class="o">*</span> <span class="mf">0.03</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">noise0</span> <span class="o">=</span> <span class="nb">LFNoise0</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">saw</span> <span class="o">=</span> <span class="nb">Saw</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="k">in</span> <span class="o">=</span> <span class="nb">LocalIn</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">7.5</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">noise0</span> <span class="o">=</span> <span class="nc">LFNoise0</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">saw</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">in</span> <span class="o">=</span> <span class="nc">LocalIn</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">7.5</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">center</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="nx">noise0</span><span class="o">*</span><span class="mi">300</span><span class="p">;</span>
 	<span class="c1">//var center = 120;</span>
-	<span class="kd">var</span> <span class="nx">bpf</span> <span class="o">=</span> <span class="nb">BPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="k">in</span><span class="o">+</span><span class="nx">saw</span><span class="p">,</span> <span class="nx">center</span><span class="p">,</span> <span class="kc">rq:</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">distort</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">bpf</span> <span class="o">=</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">in</span><span class="o">+</span><span class="nx">saw</span><span class="p">,</span> <span class="nx">center</span><span class="p">,</span> <span class="na">rq:</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">distort</span><span class="p">;</span>
 	
-	<span class="nb">LocalOut</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">a</span><span class="o">=</span><span class="nb">CombN</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">bpf</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">40</span><span class="p">));</span>
+	<span class="nc">LocalOut</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">a</span><span class="o">=</span><span class="nc">CombN</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">bpf</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">40</span><span class="p">));</span>
 	<span class="nx">a</span><span class="p">;</span>
 <span class="p">}.</span><span class="nx">play</span>
 <span class="p">)</span>

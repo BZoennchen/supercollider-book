@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -718,7 +723,7 @@ There are three different types of clocks:</p>
 It is the clock that is supposed to be used to schedule musical events.</p>
 <p>Let us define <code class="docutils literal notranslate"><span class="pre">TempoClock</span></code> that runs at 120 bpm, i.e., 2 beats per seconds, and lets post <code class="docutils literal notranslate"><span class="pre">'Hello!'</span></code> at every beat:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
 <span class="c1">// return 1 to continuously re-schedule the function.</span>
 <span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Hello&#39;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="mi">1</span><span class="p">});</span> 
@@ -731,17 +736,17 @@ In case of a <a class="reference internal" href="../basics/4-functions.html#sec-
 If the value returned by the function is a number, the task is automatically <strong>re-scheduled</strong> at the time equal to its last scheduled time plus the return value (in beats).</p>
 <p>Let us play some melody using a <em>clock</em>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">().</span><span class="kd">ar</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">));</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.7</span><span class="p">);</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">().</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.7</span><span class="p">);</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
 <span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="nb">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">).</span><span class="nx">midicps</span><span class="p">]);</span> <span class="mi">1</span><span class="p">})</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="nc">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">).</span><span class="nx">midicps</span><span class="p">]);</span> <span class="mi">1</span><span class="p">})</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -749,11 +754,11 @@ If the value returned by the function is a number, the task is automatically <st
 For example, the <code class="docutils literal notranslate"><span class="pre">default</span></code> instrument is consists of a gated envelople.
 The following ugly code plays it buy using a <code class="docutils literal notranslate"><span class="pre">TempClock</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">;</span>
 
 <span class="c1">// schedule the synth</span>
-<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">).</span><span class="nx">midicps</span><span class="p">]);</span> <span class="mi">1</span><span class="p">});</span>
+<span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">rrand</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">).</span><span class="nx">midicps</span><span class="p">]);</span> <span class="mi">1</span><span class="p">});</span>
 
 <span class="c1">// and ~dur beats afterwards its termination</span>
 <span class="nx">t</span><span class="p">.</span><span class="nx">sched</span><span class="p">(</span><span class="o">~</span><span class="nx">dur</span><span class="p">,</span> <span class="p">{</span><span class="o">~</span><span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="mi">1</span><span class="p">});</span>
@@ -766,13 +771,13 @@ In fact we can play it on a specific clock!</p>
 Play around with the <code class="docutils literal notranslate"><span class="pre">tempo</span></code> of the <code class="docutils literal notranslate"><span class="pre">TempClock</span></code> and listen how the sound changes.
 You can change the <code class="docutils literal notranslate"><span class="pre">tempo</span></code> by evaluating the last line.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 
-<span class="nb">Pbind</span><span class="p">(</span> 
+<span class="nc">Pbind</span><span class="p">(</span> 
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="ss">\freq</span><span class="p">,</span> <span class="nb">Pwhite</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">midicps</span><span class="p">,</span>
+    <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pwhite</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">midicps</span><span class="p">,</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">(</span><span class="nx">t</span><span class="p">);</span>
 <span class="p">)</span>
 

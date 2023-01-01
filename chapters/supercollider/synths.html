@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
   </a>
@@ -769,24 +774,24 @@ Everything is built around this fundamental concept.
 It can be confusing for beginners because there is a big difference between a synth as we know it from the real world and an instance of <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.</p>
 <section id="definition">
 <h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
-<p>A synth in the real world is an instrument that can be played.
+<p>In the real world a synth is an instrument that can be played.
 However, in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we distinguish between the instrument (as a potential/thing) and the played instrument (as a process).
 While the thing is an instance of <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, the process (an executed <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>) is an instance of <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.</p>
 <p>We do not introduce a new class for each new instrument.
 Instead, each instrument is represented by a function, more precisely by <em>a unit generator graph function</em> that realizes <em>a signal-flow-graph (SFG)</em>.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
-We generate synths calling the defining function with different arguments to do so.</p>
+We generate synths by calling the defining function with different arguments to do so.</p>
 <div class="definition admonition" id="def-synth-def">
 <p class="admonition-title">SynthDef</p>
 <p>An instance of <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> represents a factory of a parameterizable signal-flow-graph.
 The graph can be executed (as <code class="docutils literal notranslate"><span class="pre">Synth</span></code>) on the audio server.</p>
 </div>
 <p>From the perspective of a musician, a synth definition is a parameterizable description of a short piece of sound.
-A synth, on the other hand, is the process of playing that piece of sound with specific parameters (frequency, loudness, velocity, etc.).
+A synth, on the other hand, is the process of playing that piece of sound with specific possibly modulated arguments (frequency, loudness, velocity, etc.).
 From a software developer’s perspective, a synth definition is a factory that generates synths following its internal description.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object encapsulates the server-side representation of a synth definition and provides methods for creating new <code class="docutils literal notranslate"><span class="pre">Synths</span></code> objects on the server.
-Furthermore a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object can be serialized to the disk and streamed via the network to distant audio servers.
+Furthermore, a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object can be serialized to the disk and streamed via the network to distant audio servers.
 <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> are nothing more than compact representations of signal-flow graphs written down in text.</p>
 <div class="definition admonition" id="def-synth">
 <p class="admonition-title">Synth</p>
@@ -808,12 +813,12 @@ To generate sound, we have to tell the server to create a synth via one of its k
 </ol>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="c1">// (1) define the SynthDef</span>
-<span class="kd">var</span> <span class="nx">synthdef</span> <span class="o">=</span> <span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">{</span>
+<span class="kd">var</span> <span class="nx">synthdef</span> <span class="o">=</span> <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">arg</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]).</span><span class="kd">ar</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="kc">freq:</span> <span class="nx">freq</span><span class="p">,</span> <span class="kc">mul:</span> <span class="nx">amp</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">]).</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">freq:</span> <span class="nx">freq</span><span class="p">,</span> <span class="na">mul:</span> <span class="nx">amp</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="c1">// (2) add it to the audio server scsynth</span>
@@ -821,7 +826,7 @@ To generate sound, we have to tell the server to create a synth via one of its k
 <span class="p">)</span>
 
 <span class="c1">// (3) use it by creating Synth of the SynthDef</span>
-<span class="nb">Synth</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">[</span><span class="kc">freq:</span> <span class="mi">200</span><span class="p">,</span> <span class="kc">amp:</span> <span class="mf">0.4</span><span class="p">]);</span>
+<span class="nc">Synth</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">[</span><span class="na">freq:</span> <span class="mi">200</span><span class="p">,</span> <span class="na">amp:</span> <span class="mf">0.4</span><span class="p">]);</span>
 
 <span class="c1">// (4) the synth removes itself because we specied doneAction: Done.freeSelf</span>
 </pre></div>
@@ -864,28 +869,31 @@ If you restart <a class="reference external" href="https://supercollider.github.
 <p>To understand <code class="docutils literal notranslate"><span class="pre">UGens</span></code> we must understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is executed when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server.
 Playing the synth by creating a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> executes only the server-side code!</p>
-<p>The relationship between server- and client-side code becomes more evident if we compare server- and client-side randomness.</p>
+<p>Some of the <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code can only be excuted on the server (e.g. playing sound) while other parts can only be executed on the client (e.g. the definition of the signal-flow graph).
+The relationship between server- and client-side code becomes more evident if we compare server- and client-side randomness.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\crndsine</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">rrand</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">).</span><span class="nx">midicps</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\crndsine</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">rrand</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">).</span><span class="nx">midicps</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
 <span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\srndsine</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Rand</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">).</span><span class="nx">round</span><span class="p">.</span><span class="nx">midicps</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\srndsine</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Rand</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">).</span><span class="nx">round</span><span class="p">.</span><span class="nx">midicps</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
-<span class="nb">Synth</span><span class="p">(</span><span class="ss">\crndsine</span><span class="p">);</span>
-<span class="nb">Synth</span><span class="p">(</span><span class="ss">\srndsine</span><span class="p">);</span>
+<span class="nc">Synth</span><span class="p">(</span><span class="ss">\crndsine</span><span class="p">);</span>
+<span class="nc">Synth</span><span class="p">(</span><span class="ss">\srndsine</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Both <code class="docutils literal notranslate"><span class="pre">SythDefs</span></code> look similar but <code class="docutils literal notranslate"><span class="pre">\crndsine</span></code> uses a client-side random generator, whereas <code class="docutils literal notranslate"><span class="pre">\srndsine</span></code> uses a server-side one, that is, the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <code class="docutils literal notranslate"><span class="pre">Random</span></code>.
-Since <code class="docutils literal notranslate"><span class="pre">rrand</span></code> is evaluated when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, each synth of this <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> will generate a randomly chosen sound which is the same for all synths.
-Therefore, if we want a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> that generates a random sound whenever it is created, we need server-side randomness using a suitable <code class="docutils literal notranslate"><span class="pre">UGen</span></code>.</p>
+There is no such thing as a server-side <code class="docutils literal notranslate"><span class="pre">rrand</span></code> function!
+Its evaluation is part of the definition of the signal-flow graph.
+Since <code class="docutils literal notranslate"><span class="pre">rrand</span></code> is evaluated when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, each synth of this <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> will generate a randomly chosen sound which is the same for <strong>all</strong> synths constructed by this added <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object.
+Therefore, if we want a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> that generates a random sound whenever it is created, we need server-side randomness using a suitable <code class="docutils literal notranslate"><span class="pre">UGen</span></code>, in this case, <code class="docutils literal notranslate"><span class="pre">Rand</span></code>.</p>
 </section>
 </section>
 
