@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -705,34 +710,34 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="classes-and-objects">
 <h1>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">#</a></h1>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>However, we can omit the <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Classes can contain class methods (static methods) and object methods.
 A class method starts with an <code class="docutils literal notranslate"><span class="pre">*</span></code>.
 For example, I implemented a new class <code class="docutils literal notranslate"><span class="pre">Utils</span></code> which offers a <em>class-method</em> <code class="docutils literal notranslate"><span class="pre">initUtils</span></code> that initializes all the useful analyzing tools depicted in <a class="reference internal" href="../ecosystem.html#fig-ide-tools"><span class="std std-numref">Fig. 2</span></a>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Utils</span> <span class="p">{</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Utils</span> <span class="p">{</span>
     <span class="o">*</span><span class="nx">initTools</span> <span class="p">{</span>
         <span class="kd">arg</span> <span class="nx">activateLimiter</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
         <span class="c1">// reboot all</span>
-        <span class="nb">Server</span><span class="p">.</span><span class="nx">killAll</span><span class="p">;</span>
-        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">numBuffers</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span><span class="p">;</span>
-        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">memSize</span> <span class="o">=</span> <span class="mi">8192</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
-        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
-        <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">waitForBoot</span><span class="p">(</span><span class="kc">onComplete:</span> <span class="p">{</span>
+        <span class="nc">Server</span><span class="p">.</span><span class="nx">killAll</span><span class="p">;</span>
+        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">numBuffers</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span><span class="p">;</span>
+        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">memSize</span> <span class="o">=</span> <span class="mi">8192</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
+        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
+        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">waitForBoot</span><span class="p">(</span><span class="na">onComplete:</span> <span class="p">{</span>
             <span class="c1">// re-initialize tools</span>
-            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">makeWindow</span><span class="p">;</span>
-            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">meter</span><span class="p">;</span>
-            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
-            <span class="nb">FreqScope</span><span class="p">.</span><span class="k">new</span><span class="p">;</span>
-            <span class="nb">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">plotTree</span><span class="p">;</span>
+            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">makeWindow</span><span class="p">;</span>
+            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">meter</span><span class="p">;</span>
+            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
+            <span class="nc">FreqScope</span><span class="p">.</span><span class="k">new</span><span class="p">;</span>
+            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">plotTree</span><span class="p">;</span>
 
             <span class="k">if</span><span class="p">(</span><span class="nx">activateLimiter</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nb">StageLimiter</span><span class="p">.</span><span class="nx">activate</span><span class="p">;</span>
+                <span class="nc">StageLimiter</span><span class="p">.</span><span class="nx">activate</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">});</span>
     <span class="p">}</span>
@@ -745,7 +750,7 @@ The following code depicts the object-method <code class="docutils literal notra
     <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="nb">this</span><span class="p">.</span><span class="nx">copy</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">size1</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">halfsize</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="kc">div:</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">halfsize</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">size</span> <span class="na">div:</span> <span class="mi">2</span><span class="p">;</span>
     <span class="nx">halfsize</span><span class="p">.</span><span class="k">do</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
         <span class="nx">res</span><span class="p">.</span><span class="nx">swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">size1</span> <span class="o">-</span> <span class="nx">i</span><span class="p">);</span>
     <span class="p">});</span>
@@ -758,7 +763,7 @@ Then elements are swapped accordingly.
 And finally the copy <code class="docutils literal notranslate"><span class="pre">res</span></code> is returned.
 The expression <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">div:</span> <span class="pre">2;</span></code> is equivialent to <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">/</span> <span class="pre">2;</span></code> or <code class="docutils literal notranslate"><span class="pre">res.size.div(2);</span></code>.</p>
 <p>Let us look at another example, i.e., the class <code class="docutils literal notranslate"><span class="pre">Complex</span></code>:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Complex</span> <span class="o">:</span> <span class="nb">Number</span> <span class="p">{</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Complex</span> <span class="o">:</span> <span class="nc">Number</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="o">&lt;&gt;</span><span class="nx">real</span><span class="p">,</span> <span class="o">&lt;&gt;</span><span class="nx">imag</span><span class="p">;</span>
 
     <span class="o">*</span><span class="k">new</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">real</span><span class="p">,</span> <span class="nx">imag</span><span class="p">;</span>
@@ -767,7 +772,7 @@ The expression <code class="docutils literal notranslate"><span class="pre">res.
 
     <span class="o">+</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">aNumber</span><span class="p">,</span> <span class="nx">adverb</span><span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">isNumber</span><span class="p">,</span> <span class="p">{</span>
-            <span class="o">^</span><span class="nb">Complex</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="nx">real</span> <span class="o">+</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">real</span><span class="p">,</span> <span class="nx">imag</span> <span class="o">+</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">imag</span><span class="p">)</span>
+            <span class="o">^</span><span class="nc">Complex</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="nx">real</span> <span class="o">+</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">real</span><span class="p">,</span> <span class="nx">imag</span> <span class="o">+</span> <span class="nx">aNumber</span><span class="p">.</span><span class="nx">imag</span><span class="p">)</span>
         <span class="p">},{</span>
             <span class="o">^</span><span class="nx">aNumber</span><span class="p">.</span><span class="nx">performBinaryOpOnComplex</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="nb">this</span><span class="p">,</span> <span class="nx">adverb</span><span class="p">)</span>
         <span class="p">});</span>
@@ -775,7 +780,7 @@ The expression <code class="docutils literal notranslate"><span class="pre">res.
 <span class="p">...</span>
 </pre></div>
 </div>
-<p>The class has two attributes  <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">img</span></code> indicated by the ugly <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> and initialized by the constructor.
+<p>Objects of this class have two (object)-attributes <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">img</span></code> indicated by the ugly <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> and initialized by the constructor.
 Furthermore, it has a method <code class="docutils literal notranslate"><span class="pre">+</span></code> which takes one non-optional and one optional argument.
 <code class="docutils literal notranslate"><span class="pre">aNumber</span></code> is another complex number and <code class="docutils literal notranslate"><span class="pre">adverb</span></code> is a modifier that modifies the plus operation if <code class="docutils literal notranslate"><span class="pre">aNumber</span></code> is not a number.
 If we ignore the second argument, the <code class="docutils literal notranslate"><span class="pre">+</span></code> method returns a new complex number by adding two complex numbers together.

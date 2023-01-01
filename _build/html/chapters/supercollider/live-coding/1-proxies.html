@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -788,8 +793,8 @@ Synth proxies, i.e. nodes, operate server side.</p>
 <section id="definition-classes">
 <h2>Definition Classes<a class="headerlink" href="#definition-classes" title="Permalink to this headline">#</a></h2>
 <p>Definition-classes, such as <code class="docutils literal notranslate"><span class="pre">Pdef</span></code>, <code class="docutils literal notranslate"><span class="pre">Tdef</span></code> and <code class="docutils literal notranslate"><span class="pre">Ndef</span></code>, bind a symbol to an object in a specific way:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Pdef</span><span class="p">(</span><span class="ss">\name</span><span class="p">)</span>         <span class="c1">// returns the proxy</span>
-<span class="nb">Pdef</span><span class="p">(</span><span class="ss">\name</span><span class="p">,</span> <span class="nx">object</span><span class="p">)</span> <span class="c1">// sets the source and returns the proxy</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Pdef</span><span class="p">(</span><span class="ss">\name</span><span class="p">)</span>         <span class="c1">// returns the proxy</span>
+<span class="nc">Pdef</span><span class="p">(</span><span class="ss">\name</span><span class="p">,</span> <span class="nx">object</span><span class="p">)</span> <span class="c1">// sets the source and returns the proxy</span>
 </pre></div>
 </div>
 </section>
@@ -801,17 +806,17 @@ Synth proxies, i.e. nodes, operate server side.</p>
 </pre></div>
 </div>
 <p>is equivalent to</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">currentEnvironment</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="ss">\a</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kc">currentEnvironment</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="ss">\a</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The default <code class="docutils literal notranslate"><span class="pre">currentEnvironment</span></code> provides us with client side variables.
 Using</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">ProxySpace</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// s is a audio server</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">ProxySpace</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="c1">// s is a audio server</span>
 </pre></div>
 </div>
 <p>exchanges this client side ‘variable’ environment with a server side environment holding <a class="reference external" href="https://doc.sccode.org/Classes/NodeProxy.html">NodeProxies</a>.
 As a consequent</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">244</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;}</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">a</span> <span class="o">=</span> <span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">244</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;}</span>
 </pre></div>
 </div>
 <p>is no longer a standard <code class="docutils literal notranslate"><span class="pre">sclang</span></code> variable but a node proxy on the server!</p>

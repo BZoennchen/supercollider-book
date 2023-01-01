@@ -39,8 +39,9 @@ number = 10
 
 results in an error because ``number`` is undefined. 
 The code evaluation works similar to the cell evaluation in a ``Python`` Jupyter notebook, but variables (except for the single character) are *local*.
-*Local* and *global variables* are not saved in the current *environment*.
-You can print out this environment by just accessing it:
+*Local* and *global variables* are **not** saved in the current *environment*.
+Local variables only live inside their block and global/interpreter variables are constructed and saved prematurely.
+You can print out the *current environment* by just accessing it:
 
 ```isc
 currentEnvironment;

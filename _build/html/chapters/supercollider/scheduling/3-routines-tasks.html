@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -710,10 +715,10 @@ Within a routine, you use the <code class="docutils literal notranslate"><span c
 The next time you evaluate the routine, it picks up where it left off.
 In that sense, a routine is similar to a <a class="reference internal" href="../pattern/2-streams.html#sec-stream"><span class="std std-ref">stream</span></a> but it does not only return values but can do stuff, i.e., realize <em>sideeffects</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">r</span> <span class="o">=</span> <span class="nb">Routine</span><span class="p">({</span>
-    <span class="mi">1</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
-    <span class="mi">2</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
-    <span class="mi">3</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+<span class="nx">r</span> <span class="o">=</span> <span class="nc">Routine</span><span class="p">({</span>
+    <span class="mi">1</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
+    <span class="mi">2</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
+    <span class="mi">3</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
 <span class="p">});</span>
 <span class="nx">r</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="c1">// 1</span>
 <span class="nx">r</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span> <span class="c1">// 2</span>
@@ -725,13 +730,13 @@ In that sense, a routine is similar to a <a class="reference internal" href="../
 <p>Routines that return numeric values can be scheduled on a <em>clock</em>.
 If we <code class="docutils literal notranslate"><span class="pre">play</span></code> the routine, it will be automatically scheduled on the default clock.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">r</span> <span class="o">=</span> <span class="nb">Routine</span><span class="p">({</span>
+<span class="nx">r</span> <span class="o">=</span> <span class="nc">Routine</span><span class="p">({</span>
     <span class="s2">&quot;1&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-    <span class="mi">1</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+    <span class="mi">1</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
     <span class="s2">&quot;2&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-    <span class="mi">2</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+    <span class="mi">2</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
     <span class="s2">&quot;3&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-    <span class="mi">3</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+    <span class="mi">3</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
     <span class="s2">&quot;4&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 <span class="p">});</span>
 <span class="nx">r</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
@@ -744,13 +749,13 @@ If we <code class="docutils literal notranslate"><span class="pre">play</span></
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
     <span class="s2">&quot;1&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-    <span class="mi">1</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+    <span class="mi">1</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
     <span class="s2">&quot;2&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-    <span class="mi">2</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+    <span class="mi">2</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
     <span class="s2">&quot;3&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-    <span class="mi">3</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+    <span class="mi">3</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
     <span class="s2">&quot;4&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-<span class="p">}.</span><span class="nx">fork</span><span class="p">;</span>
+<span class="p">}.</span><span class="k">fork</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -763,21 +768,21 @@ Note that when the <em>task</em> reaches the line <code class="docutils literal 
 If you evaluate <code class="docutils literal notranslate"><span class="pre">t.resume(0)</span></code>, it will <em>resume</em>.
 The example uses the <em>gated</em> <a class="reference internal" href="../pattern/4-events.html#sec-default-instrument"><span class="std std-ref">default instrument</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">Task</span><span class="p">({</span>
-    <span class="nx">loop</span><span class="p">({</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nc">Task</span><span class="p">({</span>
+    <span class="k">loop</span><span class="p">({</span>
         <span class="mi">3</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
             <span class="nx">x</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
-            <span class="nx">x</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">76</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
-            <span class="mf">0.5</span><span class="p">.</span><span class="nx">wait</span><span class="p">;</span>
+            <span class="nx">x</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">76</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
+            <span class="mf">0.5</span><span class="p">.</span><span class="nb">wait</span><span class="p">;</span>
             <span class="nx">x</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
-            <span class="nx">x</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">73</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
-            <span class="mf">0.5</span><span class="p">.</span><span class="nx">wait</span><span class="p">;</span>
+            <span class="nx">x</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">73</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
+            <span class="mf">0.5</span><span class="p">.</span><span class="nb">wait</span><span class="p">;</span>
         <span class="p">});</span>
         <span class="s2">&quot;Waiting&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
-        <span class="kc">nil</span><span class="p">.</span><span class="nx">yield</span><span class="p">;</span>
+        <span class="kc">nil</span><span class="p">.</span><span class="nb">yield</span><span class="p">;</span>
         <span class="nx">x</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
-        <span class="nx">x</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
-        <span class="mi">1</span><span class="p">.</span><span class="nx">wait</span><span class="p">;</span>
+        <span class="nx">x</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>
+        <span class="mi">1</span><span class="p">.</span><span class="nb">wait</span><span class="p">;</span>
         <span class="nx">x</span><span class="p">.</span><span class="nx">release</span><span class="p">;</span>
     <span class="p">});</span>
 <span class="p">});</span>

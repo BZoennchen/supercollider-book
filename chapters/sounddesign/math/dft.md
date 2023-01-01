@@ -148,7 +148,34 @@ The following code is inefficient but suffice for our purposes.
 
 ### DFT
 
+```isc
+(
+~dft = {arg y, k;
+    var m = y.size, result = 0;
+    for(0, m-1, {
+        arg n;
+        result = result + (y[n] * exp(Complex(0,-1) * 2 * pi / m * n * k));
+    });
+    result;
+};
+)
+```
+
+```isc
+y = [8, 4, 8, 0];
+c = Array.fill(4, {arg i; i}).collect({arg i; ~dft.(y, i)});
+
+/* [ 
+Complex( 20.0, 0.0 ), 
+Complex( 0.0, -4.0 ), 
+Complex( 12.0, 1.4695761589768e-15 ), 
+Complex( -8.8817841970013e-16, 4.0 ) ]
+*/
+
+```
+
 ```{code-cell} python3
+:tags: [remove-input]
 def dft(y, k):
     N = len(y)
     result = 0
@@ -158,13 +185,13 @@ def dft(y, k):
 ```
 
 ```{code-cell} python3
+:tags: [remove-input]
 c_k = [dft(y_n, k) for k in range(len(y_n))]
-c_k
 ```
 
 ``c_k`` contains the values of our coefficients, i.e. $c[k]$ for $k = 0, 1, 2, 3$ **Hz**, i.e.,
 
-$$c[0] = 20, c[1] = -4i, c[2] = 8, c[3] = +4i.$$
+$$c[0] = 20, c[1] = -4i, c[2] = 12, c[3] = +4i.$$
 
 ```{code-cell} python3
 :tags: [remove-input]
@@ -201,7 +228,7 @@ $$c[1] = 2 \cdot 4i = 8i.$$
 
 In summary,
 
-$$A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_3 = \frac{1}{4} c[2] = \frac{12}{4} = 3$$
+$$A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3$$
 
 Now you might wonder what happened to the [complex number](sec-complex-numbers) $c[1] = -4i$?
 Remember, multiplying by $i$ equates to a counterclockwise rotation by 90 degrees.
@@ -213,7 +240,33 @@ Which is true for $y(t)$.
 
 Let's now apply the IDFT:
 
+```isc
+(
+~idft = {arg y, k;
+    var m = y.size, result = 0;
+    for(0, m-1, {
+        arg n;
+        n.postln;
+        result = result + (y[n] * exp(Complex(0,1) * 2 * pi / m * n * k));
+    });
+    result / m;
+};
+)
+```
+
+```isc
+~iy = Array.fill(4, {arg i; i}).collect({arg i; ~idft.(c, i)});
+
+/* [ 
+Complex( 8.0, -6.6613381477509e-16 ), 
+Complex( 4.0, -2.2884754904439e-17 ), 
+Complex( 8.0, 6.6613381477509e-16 ), 
+Complex( 7.7715611723761e-16, 1.2475315540518e-15 ) ]
+ */
+```
+
 ```{code-cell} python3
+:tags: [remove-input]
 def idft(c, n):
     N = len(c)
     result = 0
@@ -223,8 +276,8 @@ def idft(c, n):
 ```
 
 ```{code-cell} python3
+:tags: [remove-input]
 iy_n = [idft(c_k, n) for n in range(len(c_k))]
-iy_n
 ```
 
 If we neglect the small numerical errors, we get the correct function values $y[n]$ for $n = 0, 1, 2, 3$ back again.

@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -549,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -905,37 +910,36 @@ Clearly <span class="math notranslate nohighlight">\(N = 4\)</span> since we hav
 The following code is inefficient but suffice for our purposes.</p>
 <section id="dft">
 <h3>DFT<a class="headerlink" href="#dft" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">k</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">result</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">~</span><span class="nx">dft</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">k</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">y</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+        <span class="kd">arg</span> <span class="nx">n</span><span class="p">;</span>
+        <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="p">(</span><span class="nx">y</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">*</span> <span class="nx">exp</span><span class="p">(</span><span class="nc">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">pi</span> <span class="o">/</span> <span class="nx">m</span> <span class="o">*</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">k</span><span class="p">));</span>
+    <span class="p">});</span>
+    <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c_k</span> <span class="o">=</span> <span class="p">[</span><span class="n">dft</span><span class="p">(</span><span class="n">y_n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_n</span><span class="p">))]</span>
-<span class="n">c_k</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
+<span class="nx">c</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">}).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="o">~</span><span class="nx">dft</span><span class="p">.(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">i</span><span class="p">)});</span>
+
+<span class="cm">/* [ </span>
+<span class="cm">Complex( 20.0, 0.0 ), </span>
+<span class="cm">Complex( 0.0, -4.0 ), </span>
+<span class="cm">Complex( 12.0, 1.4695761589768e-15 ), </span>
+<span class="cm">Complex( -8.8817841970013e-16, 4.0 ) ]</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(20+0j),
- -4.000000000000001j,
- (12+1.4695761589768238e-15j),
- (-8.881784197001252e-16+3.999999999999997j)]
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">c_k</span></code> contains the values of our coefficients, i.e. <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, 1, 2, 3\)</span> <strong>Hz</strong>, i.e.,</p>
 <div class="math notranslate nohighlight">
-\[c[0] = 20, c[1] = -4i, c[2] = 8, c[3] = +4i.\]</div>
+\[c[0] = 20, c[1] = -4i, c[2] = 12, c[3] = +4i.\]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../../_images/dft_8_0.png" src="../../../_images/dft_8_0.png" />
@@ -960,7 +964,7 @@ Therefore,</p>
 \[c[1] = 2 \cdot 4i = 8i.\]</div>
 <p>In summary,</p>
 <div class="math notranslate nohighlight">
-\[A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_3 = \frac{1}{4} c[2] = \frac{12}{4} = 3\]</div>
+\[A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3\]</div>
 <p>Now you might wonder what happened to the <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> <span class="math notranslate nohighlight">\(c[1] = -4i\)</span>?
 Remember, multiplying by <span class="math notranslate nohighlight">\(i\)</span> equates to a counterclockwise rotation by 90 degrees.
 The ‘’cosine-part’’ of the complex number represents the real part.
@@ -970,33 +974,32 @@ Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p
 <section id="idft">
 <h3>IDFT<a class="headerlink" href="#idft" title="Permalink to this headline">#</a></h3>
 <p>Let’s now apply the IDFT:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">idft</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">N</span> <span class="o">*</span> <span class="n">result</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">~</span><span class="nx">idft</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">k</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">y</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
+        <span class="kd">arg</span> <span class="nx">n</span><span class="p">;</span>
+        <span class="nx">n</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+        <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="p">(</span><span class="nx">y</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">*</span> <span class="nx">exp</span><span class="p">(</span><span class="nc">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">pi</span> <span class="o">/</span> <span class="nx">m</span> <span class="o">*</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">k</span><span class="p">));</span>
+    <span class="p">});</span>
+    <span class="nx">result</span> <span class="o">/</span> <span class="nx">m</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iy_n</span> <span class="o">=</span> <span class="p">[</span><span class="n">idft</span><span class="p">(</span><span class="n">c_k</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c_k</span><span class="p">))]</span>
-<span class="n">iy_n</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">iy</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">}).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="o">~</span><span class="nx">idft</span><span class="p">.(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">i</span><span class="p">)});</span>
+
+<span class="cm">/* [ </span>
+<span class="cm">Complex( 8.0, -6.6613381477509e-16 ), </span>
+<span class="cm">Complex( 4.0, -2.2884754904439e-17 ), </span>
+<span class="cm">Complex( 8.0, 6.6613381477509e-16 ), </span>
+<span class="cm">Complex( 7.7715611723761e-16, 1.2475315540518e-15 ) ]</span>
+<span class="cm"> */</span>
 </pre></div>
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[(8-6.661338147750939e-16j),
- (3.999999999999999-2.288475490443916e-17j),
- (8+6.661338147750939e-16j),
- (7.771561172376096e-16+1.247531554051792e-15j)]
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <p>If we neglect the small numerical errors, we get the correct function values <span class="math notranslate nohighlight">\(y[n]\)</span> for <span class="math notranslate nohighlight">\(n = 0, 1, 2, 3\)</span> back again.
 The imaginary part of the complex numbers are approximately zero because <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function.</p>
@@ -1013,10 +1016,10 @@ The imaginary part of the complex numbers are approximately zero because <span c
 For that purpose SC offers us a <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generator, respectively.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
-    <span class="kd">var</span> <span class="k">in</span><span class="p">,</span> <span class="nx">chain</span><span class="p">,</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="k">in</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span>
-    <span class="nx">chain</span> <span class="o">=</span> <span class="nb">FFT</span><span class="p">(</span><span class="nb">LocalBuf</span><span class="p">(</span><span class="mi">2048</span><span class="p">),</span> <span class="k">in</span><span class="p">);</span>
-    <span class="nb">IFFT</span><span class="p">(</span><span class="nx">chain</span><span class="p">)</span> <span class="c1">// inverse FFT</span>
+    <span class="kd">var</span> <span class="nx">in</span><span class="p">,</span> <span class="nx">chain</span><span class="p">,</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">in</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span>
+    <span class="nx">chain</span> <span class="o">=</span> <span class="nc">FFT</span><span class="p">(</span><span class="nc">LocalBuf</span><span class="p">(</span><span class="mi">2048</span><span class="p">),</span> <span class="nx">in</span><span class="p">);</span>
+    <span class="nc">IFFT</span><span class="p">(</span><span class="nx">chain</span><span class="p">)</span> <span class="c1">// inverse FFT</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>

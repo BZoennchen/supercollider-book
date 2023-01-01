@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -549,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../misc/bibliography.html">
    Bibliography
   </a>
@@ -816,7 +821,7 @@ He wanted to generate vibrato effects but noticed that when he increased the mod
     <span class="nx">freq_mod</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="nx">amp_car</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="nx">amp_mod</span> <span class="o">=</span> <span class="nx">freq_car</span> <span class="o">*</span> <span class="mf">0.05</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">amp_car</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq_car</span> <span class="o">+</span> <span class="p">(</span><span class="nx">amp_mod</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq_mod</span><span class="p">)));</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">amp_car</span> <span class="o">*</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq_car</span> <span class="o">+</span> <span class="p">(</span><span class="nx">amp_mod</span> <span class="o">*</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq_mod</span><span class="p">)));</span>
     <span class="nx">sig</span><span class="p">;</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
@@ -827,19 +832,19 @@ As a consequence of the success of <em>FM synthesis</em>, the company sold milli
 <section id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75d6c1d6-9bc7-4bbd-afbd-4d559f9a64d3">
-<span class="eqno">(68)<a class="headerlink" href="#equation-75d6c1d6-9bc7-4bbd-afbd-4d559f9a64d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bcc72462-db52-42dc-9b09-3c6b5654e042">
+<span class="eqno">(72)<a class="headerlink" href="#equation-bcc72462-db52-42dc-9b09-3c6b5654e042" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-630b984c-cb99-47cf-9123-542bc91eb703">
-<span class="eqno">(69)<a class="headerlink" href="#equation-630b984c-cb99-47cf-9123-542bc91eb703" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77685d94-7b09-45b0-9495-50f7853c49cb">
+<span class="eqno">(73)<a class="headerlink" href="#equation-77685d94-7b09-45b0-9495-50f7853c49cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1e796f5-c212-4797-8dea-8b89c76ede08">
-<span class="eqno">(70)<a class="headerlink" href="#equation-a1e796f5-c212-4797-8dea-8b89c76ede08" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac9d9d5e-c557-44db-86f1-0ca09fb65814">
+<span class="eqno">(74)<a class="headerlink" href="#equation-ac9d9d5e-c557-44db-86f1-0ca09fb65814" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -855,15 +860,15 @@ Above we only use two oscillators but as you will see, we already achieve a quit
 Try the following code snippet!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// another vibrato example</span>
 <span class="p">(</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\amp_mod</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="ss">\amp_mod</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-    <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">!</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">20</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">,</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\amp_mod</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="ss">\amp_mod</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">!</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>In this example we use</p>
@@ -881,7 +886,7 @@ Those small changes result in a vibration similar to the effect of a violinist m
 <p>The following sounds similar to the first example above.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// vibrato with 10 Hz wobble, starting after 2 second and ramping up over 1 second</span>
 <span class="c1">// the amplitude is 5 percent of the frequency i.e. 300 * 0.05.</span>
-<span class="p">({</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Vibrato</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="kc">freq:</span> <span class="mi">300</span><span class="p">,</span> <span class="kc">rate:</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">delay:</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">depth:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="kc">onset:</span> <span class="mi">1</span><span class="p">));}.</span><span class="nx">play</span><span class="p">;)</span>
+<span class="p">({</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Vibrato</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="na">freq:</span> <span class="mi">300</span><span class="p">,</span> <span class="na">rate:</span> <span class="mi">10</span><span class="p">,</span> <span class="na">delay:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">depth:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="na">onset:</span> <span class="mi">1</span><span class="p">));}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
 </div>
 <p>If we increase the modulation frequency <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> further and further such that it approaches, or even exceeds the carrier frequency <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, we get a different effect.
@@ -889,14 +894,14 @@ At some point, the modulation becomes a form of distortion within the individual
 To make the distortion more prominent, we have to increase the amplitude of the modulator – a portion of the carrier frequency <span class="math notranslate nohighlight">\(f_{\text{car}}\)</span> is a good starting point.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// fm with a high modulator frequency and amplitude</span>
 <span class="p">(</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">800</span><span class="p">))</span> <span class="o">*</span> <span class="ss">\freq_car</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">);</span>
-    <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">!</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq_mod</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">800</span><span class="p">))</span> <span class="o">*</span> <span class="ss">\freq_car</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">);</span>
+    <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">!</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>In this case, the vibration becomes a wobbling effect or siren-type sound.</p>
@@ -908,8 +913,8 @@ To make the distortion more prominent, we have to increase the amplitude of the 
     <span class="p">({</span>
     <span class="kd">var</span> <span class="nx">freq</span><span class="p">,</span> <span class="nx">mod</span><span class="p">,</span> <span class="nx">sig</span><span class="p">;</span>
     <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">mod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span> <span class="o">*</span> <span class="nx">freq</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">);</span>
+    <span class="nx">mod</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span> <span class="o">*</span> <span class="nx">freq</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">);</span>
     <span class="nx">sig</span><span class="p">;</span>
 <span class="p">}).</span><span class="nx">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">200</span><span class="p">));</span>
 <span class="p">)</span>
@@ -918,7 +923,7 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 <figure class="align-default" id="fig-fm-cycle-high-freq">
 <a class="reference internal image-reference" href="../../_images/fm-cycle-high-freq.png"><img alt="../../_images/fm-cycle-high-freq.png" src="../../_images/fm-cycle-high-freq.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we look at the stethoscope, we observe multiple sidebands, i.e., there are numerous frequencies apart from the fundamental frequency (which is equal to the carrier frequency) present.
@@ -931,7 +936,7 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 <figure class="align-default" id="fig-fm-side-band-frequencies">
 <a class="reference internal image-reference" href="../../_images/fm-side-band-frequencies.png"><img alt="../../_images/fm-side-band-frequencies.png" src="../../_images/fm-side-band-frequencies.png" style="width: 200px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we want to keep the same sideband relation for different carrier frequencies, we have to compute the <em>modulation frequency</em> based on the <em>carrier frequency</em>.
@@ -949,15 +954,15 @@ In other words, we have to correlate these two frequencies.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// fm using the ratio to keep the bandwidth realtion the same</span>
 <span class="c1">// while varying the carrier frequency</span>
 <span class="p">(</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\ratio</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
-<span class="nb">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">freq_mod</span> <span class="o">=</span> <span class="ss">\freq_car</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="ss">\ratio</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">freq_mod</span><span class="p">)</span> <span class="o">*</span> <span class="ss">\freq_car</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">);</span>
-    <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">!</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\ratio</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]);</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">freq_mod</span> <span class="o">=</span> <span class="ss">\freq_car</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="ss">\ratio</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq_mod</span><span class="p">)</span> <span class="o">*</span> <span class="ss">\freq_car</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">);</span>
+    <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq_car</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">!</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
-<span class="nb">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
 </section>
@@ -995,7 +1000,7 @@ This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
 <figure class="align-default" id="fig-bessel-function">
 <a class="reference internal image-reference" href="../../_images/bessel-function.png"><img alt="../../_images/bessel-function.png" src="../../_images/bessel-function.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
 Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -1015,8 +1020,8 @@ The larger the index, the larger the bandwidth.</p>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd90f45c-25e6-4337-b219-9f6aea3df72f">
-<span class="eqno">(71)<a class="headerlink" href="#equation-cd90f45c-25e6-4337-b219-9f6aea3df72f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-555e85a9-282f-4308-a060-697cd09c7993">
+<span class="eqno">(75)<a class="headerlink" href="#equation-555e85a9-282f-4308-a060-697cd09c7993" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </section>
@@ -1027,7 +1032,7 @@ It uses the relations above, but instead of using only one modulator, we use thr
 In the code <code class="docutils literal notranslate"><span class="pre">f</span></code> is <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <code class="docutils literal notranslate"><span class="pre">modFreq1</span></code> is <span class="math notranslate nohighlight">\(f_\text{mod}\)</span>, <code class="docutils literal notranslate"><span class="pre">\ratio1</span></code> is <span class="math notranslate nohighlight">\(r_\text{mod}\)</span> and <code class="docutils literal notranslate"><span class="pre">\modIndex1</span></code> represents <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>.
 Furthermore, we added some naturalization (distortion and more) to achieve a more gentle result.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\fm</span><span class="p">,</span> <span class="p">{</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\fm</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">,</span> <span class="nx">car</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">modFreq1</span><span class="p">,</span> <span class="nx">modFreq2</span><span class="p">,</span> <span class="nx">modFreq3</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">mod1</span><span class="p">,</span> <span class="nx">mod2</span><span class="p">,</span> <span class="nx">mod3</span><span class="p">;</span>
@@ -1035,65 +1040,65 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
 
 
     <span class="c1">// noisy envelope</span>
-    <span class="nx">env</span> <span class="o">=</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
-        <span class="ss">\att</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.015</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">),</span>
-        <span class="ss">\rel</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span>
-        <span class="kc">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span>
+        <span class="ss">\att</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.015</span><span class="p">)</span> <span class="o">*</span> <span class="nc">Rand</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.2</span><span class="p">),</span>
+        <span class="ss">\rel</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span> <span class="o">*</span> <span class="nc">Rand</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span>
+        <span class="na">curve:</span> <span class="ss">\curve</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span>
     <span class="p">),</span>
-    <span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="nx">env</span> <span class="o">=</span> <span class="nx">env</span> <span class="o">*</span> <span class="nb">PinkNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">1</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.01</span><span class="p">);</span>
+    <span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nx">env</span> <span class="o">*</span> <span class="nc">PinkNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">1</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span> <span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.01</span><span class="p">);</span>
 
     <span class="c1">// f = f_car</span>
-    <span class="nx">f</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">);</span>
+    <span class="nx">f</span> <span class="o">=</span> <span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">220</span><span class="p">);</span>
 
     <span class="c1">// (11.4a) f_mod = f_car * r^{-1}_mod + distortion</span>
-    <span class="nx">modFreq1</span> <span class="o">=</span> <span class="nx">f</span> <span class="o">*</span> <span class="ss">\ratio1</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">reciprocal</span> <span class="o">+</span> <span class="p">{</span><span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">;</span>
-    <span class="nx">modFreq2</span> <span class="o">=</span> <span class="nx">f</span> <span class="o">*</span> <span class="ss">\ratio2</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">reciprocal</span> <span class="o">+</span> <span class="p">{</span><span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">;</span>
-    <span class="nx">modFreq3</span> <span class="o">=</span> <span class="nx">f</span> <span class="o">*</span> <span class="ss">\ratio3</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">reciprocal</span> <span class="o">+</span> <span class="p">{</span><span class="nb">Rand</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">;</span>
+    <span class="nx">modFreq1</span> <span class="o">=</span> <span class="nx">f</span> <span class="o">*</span> <span class="ss">\ratio1</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nx">reciprocal</span> <span class="o">+</span> <span class="p">{</span><span class="nc">Rand</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">;</span>
+    <span class="nx">modFreq2</span> <span class="o">=</span> <span class="nx">f</span> <span class="o">*</span> <span class="ss">\ratio2</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">reciprocal</span> <span class="o">+</span> <span class="p">{</span><span class="nc">Rand</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">;</span>
+    <span class="nx">modFreq3</span> <span class="o">=</span> <span class="nx">f</span> <span class="o">*</span> <span class="ss">\ratio3</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nx">reciprocal</span> <span class="o">+</span> <span class="p">{</span><span class="nc">Rand</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">;</span>
 
     <span class="c1">// (11.4b) A_mod = f_mod + beta_max</span>
-    <span class="nx">ampmod1</span> <span class="o">=</span> <span class="nx">modFreq1</span> <span class="o">*</span> <span class="ss">\modIndex1</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="nx">ampmod2</span> <span class="o">=</span> <span class="nx">modFreq2</span> <span class="o">*</span> <span class="ss">\modIndex2</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
-    <span class="nx">ampmod3</span> <span class="o">=</span> <span class="nx">modFreq3</span> <span class="o">*</span> <span class="ss">\modIndex3</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.8</span><span class="p">);</span>
+    <span class="nx">ampmod1</span> <span class="o">=</span> <span class="nx">modFreq1</span> <span class="o">*</span> <span class="ss">\modIndex1</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">ampmod2</span> <span class="o">=</span> <span class="nx">modFreq2</span> <span class="o">*</span> <span class="ss">\modIndex2</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+    <span class="nx">ampmod3</span> <span class="o">=</span> <span class="nx">modFreq3</span> <span class="o">*</span> <span class="ss">\modIndex3</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.8</span><span class="p">);</span>
 
     <span class="c1">// (partly 11.2 multiplied with env) A_mod * sin(2pi*f_mod t)</span>
     <span class="c1">// effectively reduces the modulation index beta_max over time</span>
-    <span class="nx">mod1</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">modFreq1</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ampmod1</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nx">mod2</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">modFreq2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ampmod2</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nx">mod3</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">modFreq3</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ampmod3</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">mod1</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">modFreq1</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ampmod1</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">mod2</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">modFreq2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ampmod2</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">mod3</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">modFreq3</span><span class="p">)</span> <span class="o">*</span> <span class="nx">ampmod3</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
 
     <span class="c1">// (11.1 or 11.3) y(t) = A_car * sin(f_car + A_mid * sin(2pi*f_mod t) t)</span>
-    <span class="nx">car</span> <span class="o">=</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
+    <span class="nx">car</span> <span class="o">=</span> <span class="ss">\amp</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span>
         <span class="c1">// f_car</span>
         <span class="nx">f</span> <span class="o">+</span>
         <span class="c1">// changes the effective carrier frequency over time (low frequency) [\pm 5 * 10^{-3} * f_car; 0]</span>
-        <span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span>
-            <span class="kc">freq:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="nb">LFNoise1</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.3</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> 
-            <span class="kc">iphase:</span> <span class="nb">Rand</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mi">2</span><span class="nx">pi</span><span class="p">),</span> 
-            <span class="kc">mul:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">f</span> <span class="o">*</span> <span class="mf">0.005</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nc">LFTri</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span>
+            <span class="na">freq:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="nc">LFNoise1</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.3</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> 
+            <span class="na">iphase:</span> <span class="nc">Rand</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mi">2</span><span class="nx">pi</span><span class="p">),</span> 
+            <span class="na">mul:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">f</span> <span class="o">*</span> <span class="mf">0.005</span><span class="p">)</span> <span class="o">+</span>
         <span class="c1">// distortion [-f/8; +f/8] but the noise is smoothen (it imitates a Brownian motion).</span>
-        <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">f</span><span class="o">/</span><span class="mi">8</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span> <span class="o">+</span>
+        <span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">f</span><span class="o">/</span><span class="mi">8</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span> <span class="o">+</span>
         <span class="c1">// f_mod</span>
         <span class="p">[</span><span class="nx">mod1</span><span class="p">,</span><span class="nx">mod2</span><span class="p">,</span><span class="nx">mod3</span><span class="p">].</span><span class="nx">sum</span><span class="p">);</span>
 
     <span class="c1">// add some envelope</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nx">car</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">HPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">);</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">f</span><span class="p">);</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>Let us play the synth:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Pbindef</span><span class="p">(</span><span class="ss">\melody3</span><span class="p">,</span>
+<span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody3</span><span class="p">,</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\fm</span><span class="p">,</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nx">pow</span><span class="p">((</span><span class="o">-</span><span class="mi">4</span><span class="p">..</span><span class="mi">1</span><span class="p">)),</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pshuf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\octave</span><span class="p">,</span> <span class="nb">Pdup</span><span class="p">(</span><span class="nb">Prand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">)),</span>
-    <span class="ss">\ratio1</span><span class="p">,</span> <span class="nb">Prand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\ratio2</span><span class="p">,</span> <span class="nb">Prand</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="nc">Pshuf</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nx">pow</span><span class="p">((</span><span class="o">-</span><span class="mi">4</span><span class="p">..</span><span class="mi">1</span><span class="p">)),</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pshuf</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\octave</span><span class="p">,</span> <span class="nc">Pdup</span><span class="p">(</span><span class="nc">Prand</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">)),</span>
+    <span class="ss">\ratio1</span><span class="p">,</span> <span class="nc">Prand</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\ratio2</span><span class="p">,</span> <span class="nc">Prand</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\amp</span><span class="p">,</span> <span class="mf">1.0</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>

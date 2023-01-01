@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -788,14 +793,14 @@ Thinking about multidimensional arrays can be both mind bending and mind expandi
 <section id="creation">
 <h2>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">#</a></h2>
 <p>To create a new <code class="docutils literal notranslate"><span class="pre">Array</span></code> the class offers many factory methods.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="kc">maxSize:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [  ]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// [ 0.0, 0.5, 1.0 ]</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="na">maxSize:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [  ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// [ 0.0, 0.5, 1.0 ]</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1">// [1, 2, 3]</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">..</span><span class="mi">5</span><span class="p">)</span> <span class="c1">//  [1, 2, 3, 4, 5]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="o">*</span><span class="nx">i</span><span class="p">})</span> <span class="c1">// [ 0, 1, 4, 9, 16 ]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="kd">with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span> <span class="c1">// [ 1, 2, abc, 1.2 ]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="kc">size:</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">start:</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">step:</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// [ 1, 6, 11, 16 ]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">geom</span><span class="p">(</span><span class="kc">size:</span> <span class="mi">4</span><span class="p">,</span> <span class="kc">start:</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">grow:</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// [ 1, 5, 25, 125 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="o">*</span><span class="nx">i</span><span class="p">})</span> <span class="c1">// [ 0, 1, 4, 9, 16 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span> <span class="c1">// [ 1, 2, abc, 1.2 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="na">size:</span> <span class="mi">4</span><span class="p">,</span> <span class="na">start:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">step:</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// [ 1, 6, 11, 16 ]</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">geom</span><span class="p">(</span><span class="na">size:</span> <span class="mi">4</span><span class="p">,</span> <span class="na">start:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">grow:</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// [ 1, 5, 25, 125 ]</span>
 </pre></div>
 </div>
 <p>There are also factory methods to create two-</p>
@@ -804,11 +809,11 @@ Thinking about multidimensional arrays can be both mind bending and mind expandi
 <span class="kd">var</span> <span class="nx">cols</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
 <span class="c1">// [ [ 0, 1, 2, 3 ], [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ] ]</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="nx">rows</span><span class="p">,</span> <span class="nx">cols</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">r</span><span class="o">*</span><span class="nx">c</span><span class="o">+</span><span class="nx">c</span><span class="p">});</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="nx">rows</span><span class="p">,</span> <span class="nx">cols</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">r</span><span class="o">*</span><span class="nx">c</span><span class="o">+</span><span class="nx">c</span><span class="p">});</span>
 <span class="p">)</span>
 
 <span class="c1">// [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ]</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="k">if</span><span class="p">(</span><span class="nx">r</span> <span class="o">==</span> <span class="nx">c</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">})});</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">fill2D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="k">if</span><span class="p">(</span><span class="nx">r</span> <span class="o">==</span> <span class="nx">c</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">0</span><span class="p">})});</span>
 </pre></div>
 </div>
 <p>and even n-dimensional arrays.</p>
@@ -817,7 +822,7 @@ Thinking about multidimensional arrays can be both mind bending and mind expandi
 <span class="c1">//   [ [ 0, 2, 4, 6 ], [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ], [ 0, 5, 10, 15 ] ], </span>
 <span class="c1">//   [ [ 0, 3, 6, 9 ], [ 0, 4, 8, 12 ], [ 0, 5, 10, 15 ], [ 0, 6, 12, 18 ] ] ]</span>
 
-<span class="nb">Array</span><span class="p">.</span><span class="nx">fillND</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">*</span><span class="nx">c</span><span class="p">;</span> <span class="p">});</span> 
+<span class="nc">Array</span><span class="p">.</span><span class="nx">fillND</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">*</span><span class="nx">c</span><span class="p">;</span> <span class="p">});</span> 
 </pre></div>
 </div>
 </section>
@@ -857,11 +862,26 @@ Similar to <code class="docutils literal notranslate"><span class="pre">numpy</s
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>Instead of using <code class="docutils literal notranslate"><span class="pre">.at</span></code> we can also use brackets:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]];</span> <span class="c1">// [3, 4]</span>
+<span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// 1</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is implemented accordingly.</p>
 </section>
 <section id="manipulation">
 <h2>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h2>
+<p>To <strong>set</strong> a specific value we can use the default syntax well-known for almost all existing programming languages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="p">;</span>
+<span class="n">a</span><span class="p">;</span> <span class="o">//</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Multiplying</strong> an array with a number, will result in a new array for which each element is multiplied by the number.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>
@@ -933,8 +953,8 @@ Adverbs can be applied to <strong>all</strong> binary operators.</p>
 </pre></div>
 </div>
 <p>This adverb is also defined for <a class="reference internal" href="../pattern/2-streams.html#sec-stream"><span class="std std-ref">Streams</span></a>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Pseq</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> <span class="o">+</span><span class="p">.</span><span class="nx">x</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])).</span><span class="nx">asStream</span><span class="p">;</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="p">{</span> <span class="nx">p</span><span class="p">.</span><span class="nx">next</span> <span class="p">});</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="p">(</span><span class="nc">Pseq</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span> <span class="o">+</span><span class="p">.</span><span class="nx">x</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])).</span><span class="nb">asStream</span><span class="p">;</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="p">{</span> <span class="nx">p</span><span class="p">.</span><span class="nx">next</span> <span class="p">});</span>
 </pre></div>
 </div>
 <p>gives</p>

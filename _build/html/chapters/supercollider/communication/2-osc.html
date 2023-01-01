@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -549,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -772,18 +777,18 @@ It was created by <a class="reference external" href="https://researchers.arts.a
 We will later use her <a class="reference external" href="http://www.wekinator.org/">Wekinator</a> in combination with SuperCollider.</p>
 <p>We can see that messages are sent to <code class="docutils literal notranslate"><span class="pre">/wek/inputs</span></code> and port <code class="docutils literal notranslate"><span class="pre">6448</span></code>.
 If we do not specify a port, SuperCollider listens at</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">NetAddr</span><span class="p">.</span><span class="nx">langPort</span><span class="p">;</span> <span class="c1">// default is 57120</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">NetAddr</span><span class="p">.</span><span class="nx">langPort</span><span class="p">;</span> <span class="c1">// default is 57120</span>
 </pre></div>
 </div>
 <p>If we start the <a class="reference external" href="https://processing.org/">Processing</a> sketch and run the following code</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">OSCdef</span><span class="p">(</span>
+<span class="nc">OSCdef</span><span class="p">(</span>
     <span class="ss">\getCoords</span><span class="p">,</span>
     <span class="p">{</span>
         <span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
     <span class="p">},</span>
     <span class="s1">&#39;/wek/inputs&#39;</span><span class="p">,</span>
-    <span class="kc">recvPort:</span> <span class="mi">6448</span>
+    <span class="na">recvPort:</span> <span class="mi">6448</span>
 <span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
@@ -797,20 +802,20 @@ We receive an <a class="reference internal" href="../basics/3-arrays.html#sec-ar
 The first value is the <code class="docutils literal notranslate"><span class="pre">path</span></code> of the receiver, the second is the <span class="math notranslate nohighlight">\(x\)</span> and the third the <span class="math notranslate nohighlight">\(y\)</span> coordinate of our square in the sketch.
 Let’s create a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> such that we can manipulate the arguments of a playing synth by moving our rectangle around:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\fireworks</span><span class="p">,{</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\fireworks</span><span class="p">,{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Dust</span><span class="p">.</span><span class="kd">ar</span><span class="p">([</span><span class="ss">\density</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="ss">\density</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Ringz</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">freq:</span> <span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="kc">decaytime:</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">FreeVerb</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="k">in</span><span class="o">:</span> <span class="nx">sig</span><span class="p">,</span> <span class="kc">freq:</span> <span class="ss">\cutofffreq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">21000</span><span class="p">));</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Dust</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="ss">\density</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="ss">\density</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">]);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Ringz</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="na">freq:</span> <span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="na">decaytime:</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.55</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">FreeVerb</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">in:</span> <span class="nx">sig</span><span class="p">,</span> <span class="na">freq:</span> <span class="ss">\cutofffreq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">21000</span><span class="p">));</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
-<span class="o">~</span><span class="nx">fireworks</span> <span class="o">=</span> <span class="nb">Synth</span><span class="p">(</span><span class="ss">\test</span><span class="p">);</span>
+<span class="o">~</span><span class="nx">fireworks</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\test</span><span class="p">);</span>
 
 <span class="p">(</span>
-<span class="nb">OSCdef</span><span class="p">(</span>
+<span class="nc">OSCdef</span><span class="p">(</span>
     <span class="ss">\getCoords</span><span class="p">,</span>
     <span class="p">{</span>
         <span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="kd">var</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">;</span>
@@ -820,7 +825,7 @@ Let’s create a <code class="docutils literal notranslate"><span class="pre">Sy
         <span class="o">~</span><span class="nx">fireworks</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">y</span><span class="p">.</span><span class="nx">linlin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">600</span><span class="p">));</span>
     <span class="p">},</span>
     <span class="s1">&#39;/wek/inputs&#39;</span><span class="p">,</span>
-    <span class="kc">recvPort:</span> <span class="mi">6448</span>
+    <span class="na">recvPort:</span> <span class="mi">6448</span>
 <span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
@@ -835,10 +840,10 @@ However, this example shows, how OSC opens up the space of possiblities because 
 First we have to declare a <a class="reference external" href="https://doc.sccode.org/Classes/NetAddr.html">NetAddr</a> of the receiver.
 Let’s send a message from the client to the client.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">OSCdef</span><span class="p">(</span><span class="ss">\self</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span><span class="s1">&#39;/self&#39;</span><span class="p">);</span>
+<span class="nc">OSCdef</span><span class="p">(</span><span class="ss">\self</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span><span class="s1">&#39;/self&#39;</span><span class="p">);</span>
 <span class="p">)</span>
 
-<span class="o">~</span><span class="nx">me</span> <span class="o">=</span> <span class="nb">NetAddr</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="nb">NetAddr</span><span class="p">.</span><span class="nx">langPort</span><span class="p">);</span>
+<span class="o">~</span><span class="nx">me</span> <span class="o">=</span> <span class="nc">NetAddr</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="nc">NetAddr</span><span class="p">.</span><span class="nx">langPort</span><span class="p">);</span>
 <span class="o">~</span><span class="nx">me</span><span class="p">.</span><span class="nx">sendMsg</span><span class="p">(</span><span class="s1">&#39;\self&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -853,19 +858,19 @@ In the following I use a very simple synth that sends its amplitude back to the 
 Again, we are listening via <a class="reference external" href="https://doc.sccode.org/Classes/OSCdef.html">OSCdef</a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">amp</span><span class="p">;</span>
-    <span class="nx">amp</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
-    <span class="nb">SendReply</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Impulse</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="s1">&#39;/amp&#39;</span><span class="p">,</span> <span class="nx">amp</span><span class="p">);</span>
-    <span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.2</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nx">amp</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.25</span><span class="p">).</span><span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nc">SendReply</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="nc">Impulse</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="s1">&#39;/amp&#39;</span><span class="p">,</span> <span class="nx">amp</span><span class="p">);</span>
+    <span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.2</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 
 <span class="p">(</span>
-<span class="nb">OSCdef</span><span class="p">(</span><span class="ss">\self</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span><span class="s1">&#39;/amp&#39;</span><span class="p">);</span>
+<span class="nc">OSCdef</span><span class="p">(</span><span class="ss">\self</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span><span class="s1">&#39;/amp&#39;</span><span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>You should see the following kind of messages in the post window.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">/</span><span class="n">amp</span><span class="p">,</span> <span class="mi">1083</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.60563856363297</span> <span class="p">]</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span>[ /amp, 1083, -1, 0.60563856363297 ]
 </pre></div>
 </div>
 <p>Note that the fourth value in the array is the actual amplitude.</p>

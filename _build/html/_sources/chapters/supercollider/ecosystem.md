@@ -11,6 +11,13 @@ It was released in 1996.
 In 2002 McCartney transformed it into a free and open software project under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html).
 It is still maintained and developed by an active community.
 
+```{figure} ../../figs/supercollider/ecosystem/architecture.png
+---
+width: 600px
+name: fig-architecture
+---
+```
+
 All three parts of [SuperCollider (SC)](https://supercollider.github.io/) are independent, i.e., there might be some other subsystem that replaces some of its features.
 One can code by using other IDEs such as VSCode.
 We can also use ``sclang`` independently to program applications that have nothing to do with signal processing.
@@ -23,12 +30,13 @@ However, we find many projects that replace ``sclang`` and **scide**, especially
 + ...
 
 In that case, we can develop our synths using ``sclang`` and run them on the server **scsynth**, but we control them by these systems.
-If we are only interested in using existing synth and samples, we can do so without relying on [SuperCollider (SC)](https://supercollider.github.io/).
+If we are only interested in using existing synths and samples, we can do so without relying on [SuperCollider (SC)](https://supercollider.github.io/).
 
 Of course, deciding between [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/), [FoxDot](https://foxdot.org/), and plain [SuperCollider (SC)](https://supercollider.github.io/) comes down to personal preference and goals.
+The ``sclang`` is rather *close to the metal*.
+It offers a lot of control but might be less productive if you want to get things done quickly.
 Each platform targets different objectives and has various advantages as well as disadvantages.
 In my opinion, [SuperCollider (SC)](https://supercollider.github.io/) is the most powerful one but can be less intuitive and flexible, especially for the live coding experience.
-
 I encourage readers interested in live coding to check them all out!
 
 (sec-audio-sever)=
@@ -37,8 +45,10 @@ I encourage readers interested in live coding to check them all out!
 The real-time audio server *scsynth* forms the core of the platform.
 The server uses synth definitions, i.e., ``SynthDefs`` as templates for creating synth nodes.
 Those synth instances can then be executed.
+A ``SynthDef`` represents a signal-flow-graph and executing a synth equates with creating an instance of a specific ``SynthDef``, i.e., such a graph.
 The user can trigger and influence the execution via [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) messages.
 For example, one can change the arguments of a ``SynthDef`` while the synth is executed.
+In fact, many ``sclang`` classes abstract away the explicit communication via OSC messages.
 
 Very similar to object-oriented programming, a ``SynthDef`` is a blueprint for a synth instance.
 The composer
@@ -49,6 +59,7 @@ The composer
 4. and executes, controls, and terminates it.
 
 All those steps are done via the client-side interpreted programming language ``sclang``.
+It abstracts away thus simplifies the communication with the audio server such that we do not have to write pure OSC messages.
 
 ## Tha Language
 
@@ -59,7 +70,7 @@ Functions are first-class objects and everything is an object, i.e., there are n
 
 From a musical point of view, it has its own interactive programming and lives coding packages and a subsystem for composing patterns and signal graphs.
 Its strength lies in opening up the possibility of dealing, creating, manipulating, and combining signal-flow graphs.
-One hast to get used to its aged syntax.
+One has to get used to its aged syntax.
 
 (sec-scide)=
 ## The Development Environment

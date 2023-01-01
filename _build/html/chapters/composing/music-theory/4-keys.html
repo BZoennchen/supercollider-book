@@ -115,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -549,6 +549,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -716,10 +721,10 @@ We also say that we play a certain piece in the <em>G major key</em> or the <em>
 The untransposed diatonic scale is the <em>key of C</em>.</p>
 <p>In SuperCollider, we can transpose by adding degree to <code class="docutils literal notranslate"><span class="pre">\degree</span></code> or by using <code class="docutils literal notranslate"><span class="pre">\mtransposes</span></code> in the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
+<span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
-    <span class="ss">\scale</span><span class="p">,</span> <span class="nb">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span>
-    <span class="ss">\degree</span><span class="p">,</span> <span class="nb">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\octave</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
     <span class="ss">\mtranspose</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// key of D#</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
@@ -742,7 +747,7 @@ Consecutive transposes (by seven) sound similar.</p>
 <p>The following code generates all <em>major</em> scales by trasposing by seven semitones:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="o">~</span><span class="nx">translate</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">degree</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">degree</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">majorIntervals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
     <span class="kd">var</span> <span class="nx">chromaticKeys</span> <span class="o">=</span> <span class="p">[</span>

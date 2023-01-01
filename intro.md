@@ -1,8 +1,8 @@
-# Introduction
+# Preamble
 
 >What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' [...] Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
 
-## Losing the Future of a Fever Dream
+## Lost Futures
 
 In its early state in the 1990, *cyberculture* hinted at an innovative utopia of anarchistic collaboration and collective expression, where ideas, knowledege and power are evenly distrubuted across a decentralized web;
 The internet felt like a gift to humanity.
@@ -17,7 +17,8 @@ Inventing the World Wide Web involved my growing realisation that there was a po
 
 Ideas can be as powerful as new technologies, especially if they fall on fruitful ground.
 The reaction to the cold war establishment in combination with a strong idea of the internet, led to an ironic transformation.
-In 1990 *cyberculture* became a *counterculture*, a rebellion against the very forces that initiated the invention of the internet.
+Later it was further emplified by the Hippie movement of 1967.
+After all, the roots of many tech gurus were a cultist environment promoting individual freedom, free love, drugs and rock music.  
 Thanks to their vision, counterculturalists and technologists alike joined together to reimagine computers as tools for personal liberation, the building of virtual and decidedly alternative communities, and the exploration of bold new social frontiers.
 Even though the internet was never really free from power concentrations, it gave us a powerful image of a possilbe future;
 a *fever dream* of an alternative structure of society.
@@ -26,7 +27,13 @@ But what happened to this dream?
 Looking at the big cities in the U.S., around 1975, one can observe two groups of radical left-wing artists.
 The one who wanted to change material realities by collective activism and the one who wanted to change peoples minds.
 While the first group embraced bureaucracy, hierachies and organizations, the second believed in doing away with all of those things and turning instead to small-scale technologies, LSD, etc.
-This split was damaging because in a communal system built around shared consciousness people with charisma start to lead and cultural norms kick in.
+But drugs without reason are like an escape kit without an instruction manuel.
+
+>Taking MDMA is like improving [Microsoft] Windows: no matter how much tinkering Bill [Gates] does, MS Windows will always be shit because it is built on top of the rickety structure of DOS -- Mark Fisher
+
+Fisher argues that taking ecstasy will always fuck up in the end because the human operating system has not been taken out of the dismantled.
+
+In the end, this split was damaging because in a communal system built around shared consciousness people with charisma start to lead and cultural norms kick in.
 Distributing resources seem to rely on negotiation thus bureaucracy.
 The collective drive lost its strength and a mood of disillusion spread across artists.
 They did no longer try to change existing power structures and material realities but critiqued the status quo via personal expressions.  
@@ -38,9 +45,6 @@ One might argue that the communalist movement led to a turning away from politic
 It led us to the self as the basis of political change.
 The missing component that was maybe necessary to realize the *fever dream*, that is, the democratization of social, economic and ecological life, was the ability to negotiate.
 Instead the cultist disruption centered around giving power to 'the right' people.
-
-Can we make capitalism responsible for it? 
-Maybe, since this kind of disruption is far easier to achieve in a system relying on exploitation.
 
 We can clearly observe the cultist ethos in today's *Sillicon Valley*.
 Most representatives of the IT industry argue against regulation on the promise of a new satisfying sociaty. 
@@ -60,21 +64,26 @@ Seemingly paradoxically, this elitism correlates with esoterism and cults becaus
 There is no question that this setup led to innovation and an incredible diversity of consumer goods.
 However, did it led to a better society?
 Has the rise of information technology and the expansion of what was originally the military-industrial complex substantially improved our lives? 
-The distribution of material as well as intellectual goods -- the haves and the ahve nots -- are drifting apart and the middle class is melting.
+The distribution of material as well as intellectual goods -- the haves and the have nots -- are drifting apart and the middle class is melting.
 
 Today we realize that this tech explosion brought us an even higher degree of monetarization and commercialization.
 We innovated like crazy but we have not solved some of the problems of inequality and diversity that were core to the 1960.
 Furthermore, the psychological effect on the colonialization of our literal time might be more catastrophic than expected.
-Since we still live by a business ontology our dreams, feelings, moments, culture, and intimacy are now open for sale.
-Andrew Dominik articulates this uncanny realization through his character Jackie in *Killing Them Softly*:
+Today we live in a kind of business ontology in which the enterprise is the holy grail and entrepreneurs our disciples.
+The church lost its power but our religious tendencies are still vibrant.
+The usevalue of commodities are overcoded by their signvalue.
+Objects and events are oversaturated with meaning and significants while real but boring politics is stripped of any meaning.
+Instead of voting, protesting, revolting we go shopping.
+Now our dreams, feelings, moments, culture, and intimacy are now open for sale.
+To do business means to be at war.
 
->I'm living in America, and in America, you're on your own. America's not a country. It's just a business. Now fucking pay me.
-
-Of course, this dog-eat-dog mentality was successfully exported a long time ago, and many firmly believe it is an essential human characteristic.
-
+The accelerating machine is brutal, exploitive, irrational and completely out of control.
 We have proposals from *Ruth Benedict* and *Gregory Bateson* who suggest that we need to build multimedia environments in which people can find themselves by selecting images and sounds from around them such that they can fulfill their individual destinies, and thereby building a more democratic, less hierarchical, more egalitarian sort of society.
 We spot ideas from *Norbert Wiener*.
 At the same time, we can find a critique of hierarchy echoing *Margaret Mead* and *Erich Fromm* who pushed back publicly against facism and racism and openly advocating for a sexually diverse America.
+The tech-sphere still draws from contradictory concepts such as elitism, humanism, cybernetics, trans- and posthumanism, accelerationism, egalitarianism, eugenics, longtermism (a relatively new troubling trend) and of course individualism.
+Technological "progress" is seen as unavoidable and the "objective" reality is confused with the measurable or observable.
+Consequently, *death* is discriminated because it has no significants within a *consumer society* of individuals.
 
 And what about art?
 I stand by the radical view that grown from a world of money making commodities, art can never be seen as innocent.
@@ -100,7 +109,22 @@ We are self-regulatory and self-controlling;
 there is no longer the need to point guns at our heads.
 Many of us feel empty, haunted by *lost futures* while the *Rage Against the Machine* seems now unimaginable.
 
-Is it over?
+The university is one institution where we can observe this dissolution of diverse and critical thought, especially in Europe.
+The *Bologna* process homogenized and instrumentalized the education system.
+Today students do not learn to think but to be "productive" and aligned in an unquestioned economic system of exploitation.
+Universities of today teach emotionally detached students to remember specific rules such that they can apply them in the next exam to get a good grade.
+It is horrifying that one of the most questions students in the first-semester ask is: how will the exam look like?
+Is this topic relevant to the exam? Students demand a list of actions they ought to do to get an A with certainty.
+And they will cheat the system wherever possible if it will bring them closer to that goal.
+Most students are not fascinated by the endless playground of reality. They are interested in something other than the experience of learning and understanding but in the final product, i.e., the certificate to get access to a well-paid job. Let’s not forget that future teachers are the students of today.
+By no means is this the student's fault.
+They play the system of control that demands them to do so.
+And if one resists the circuit, she will not be punished but filtered.
+A departure from this school-like system seems impossible since the new generation of professors grew up in it.
+Nowadays, education is consumption.
+
+The generation of 1967 and most of todays educators are perfectly aligned with the consumerism of today.
+Is it all over?
 Is the end already baked into our current condition?
 Is it time to give up?
 Let it play out and see where we land?
@@ -114,143 +138,60 @@ The story politicians tell the everyday person no longer seem to reflects the re
 Reality and our model of reality no longer fit together:
 Google and the cafeteria workers, the danger of ecological, social and economic collapse due to climate change and the space exploring billionaires, more and more comfort yet more and more unsatisfaction, more and faster communication yet less social movement, more and more donations by billionaires yet more and more inequality, the phantasy of individualized high-tech underground car transporation systems yet no investments in public transportation, hungry people yet supermarkets packed with expensive stuff, homeless people yet the resources to build a home for anybody, and the list goes on and on.
 I am not saying that these problems are easy to solve, and they are boring.
-However, it does not seem to me that we even really trying.
+However, it does not seem to me that we are even really trying.
 Instead we invent yet another gadget.
-This discrepancy triggers a strange feeling.
+This discrepancy triggers a strange feeling; the absurd explodes into our faces.
 Something is completely off.
 My hope is that at some breaking point our model accomplishes a radical recalibration and a new horizon of possibilities arises.
 
 Is brutal exploitation of one another the only way to build and keep a society for some worth living in?
 In the face of climate, ecological and economic disasters, we can no longer assume that endless material growth is a feasible economic strategy.
-It never was, but now it is clear that it is no longer feasible in the short run -- the stability of the current system is just a fantasy.
+It never was, but now it is clear that it is no longer feasible in the short run -- the stability of the current system is just a phantasy.
 However, we still act as if it is feasible.
 Like the people of the late *Soviet Union*, we are acting as if everything is going according to plan even though the climate catastrophe is realistically unavoidable.
 From this perspective, *Capitalist Realism* is not *The End of History* but a sign of a failing system that is on the brink of collapse.
+It is obvious that our *sensless consumtion* has to end or at least slow down radically but the system demands consumption for its own survival.
+It is build on consumption.
+To believe that we can somehow comsume us out of desaster is crazy.
 
 One very old alternative that is getting more and more traction, is fascism.
 By telling the tales of genetic inferiority, fascism is one way to justify inequality and the annihilation of billions of people, facing the fact that endless material growth is impossible and many areas will become uninhabitable.
 Right-wing forces are on the rise.
-They can give the people, beaten down and affected by their *Symbolic Misery*, some short term relief.
+They can give the people, beaten down and affected by their *symbolic misery*, some short term relief.
 They can give easy answers to very complex questions.
-However, these forces act like a drug: they kick in, but soon after, their effect fades away, and you need an ever higher dose to get the same impact.
-Therefore, I stand by Carl Sagan and hope their violent and aggressive story is not enough.
-
->The old appeals to racial, sexual, and religious chauvinism and to rabid nationalist fervor are beginning not to work.
-A new consciousness is developing which sees the Earth as a single organism and recognizes that an organism at war with itself is doomed. We are one planet. -- Carl Sagan
-
+*Facism gets things done* is one of its appealling promise.
 The phenomenon of someone like Trump might signify our desperate desire to find a story that makes sense of our realities.
-People are thirsty.
-There may never be a better time for a good story teller.
-If there is only darkness at the horizon, lighting a candle can move the world.
+People are thirsty, some just wanna push the red button of destruction to force anything different than the status quo.
+Ringwingers are sophisticated myth tellers.
+Maybe we need a myth of our own, not only to push back against a facist dystopia but to extend the horizon of the thinkable.
+If there is only darkness on the horizon, lighting a candle can move the world.
 And art can be a place to start constructing or contributing to a new ideal to strive towards.
 
 Disaster will arrive in our lifetime, but we still shall live our lives in such a way that we welcome the demon forcing us to live it over and over again because we once experienced a moment of unimaginable, undescribable, and non-reproducible quality and beauty.
 If we can not live in dignity, we might learn the art of dying.
 This pessimistic viewpoint sounds bleak.
 But I think it is important to accept the possibility of this reality and to come to peace with it.
-Not to flee reality but instead to be in it, more than ever, and to take on that fight -- to bring dignity and love into a dying world.
+Not to flee reality but instead to be in it, more than ever, and to take on that fight -- to bring dignity, kindness and love into a dying world.
 
-Even though computers and networks have turned on many people, these technologies have the potential to emancipate the citizen of our planet by being a tool to build genuine connections.
-A musical performance constructs a timely space where one can experience collective connections.
-Computer music slipped out of commercialization, for this alone it is interesting.
-It is like being back in 1990, remembering the *fever dream* which might be the first step to finally realize it.
-Therefore, to me, the *community of algorithmic composing* and *live coding* is a project to resist the looming assimilation and to find joy in a time of misery and despair because its community strides towards affirming differences of the living being while acting collectively and inclusive.
-I hope that someday this little project will strengthen the effort.
-
-## How I Started
-
-I discovered the world of algorithmic composition and sound design using code in late 2021.
-It all started when I watched an energetic and really motivated Sam Aaron presenting his [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi).
-I was immediately hooked, especially given the context: educational live programming for kids!
-
-I started experimenting with Sonic Pi.
-However, soon after playing around with it, I wanted to write my own synths for which it is unsuitable.
-Sonic Pi is perfectly appropriate for sequencing your synth and samples but not so much for creating new exciting instruments.
-You create your synth and samples beforehand and then use Sonic Pi to play with them.
-
-I digged deeper and discovered other interesting tools such as [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider (SC)](https://supercollider.github.io/).
-I am surprised that I never heard about SC before, even if it matured a long time ago, and there seems to be no natural alternative.
-Compared to Sonic Pi, SuperCollider has a much steeper learning curve.
-The language has some awful-looking syntax; it is less accessible, but at the same time, SuperCollider is much more extensible and powerful.
-
-I fell in love with SC.
-The language offers fascinating concepts that keep you thinking about signal-flow processing.
-SC supports features well known in modern languages, such as ``Python``, and rather old languages.
-The IDE feels pretty modern and supportive.
-The documentation is decent, and the community is healthy.
-SC is a powerhouse for discovering new exciting sounds.
-It can be a driving force for learning sound design on a deep level.
-
-It is time for me to learn more about *algorithmic compositions* and *sound design*.
-What better way to get started than doing what I may be best at: coding.
-Being creative by producing sound was the essential puzzle I was always looking for -- a strong connection between computer science and art.
-
-## Who is Speaking?
-
->One’s stories persuade one’s audience that one is a particular kind of person. When one is one’s own audience, the telling amounts to having a self. -- *Leslie Ervine*, Even Better Than the Real Thing
-
-Who am I?
-Any description of oneself is doomed because it is a disection of the whole.
-It is a typical modern thing to do: categorization.
-It is insufficient and in its worst manifestations, discriminatory.
-So take this with a grain of salt.
-I can only feed your biased imagination.
-
-From the bottom of my heart, I am a computer scientist.
-But I may have to clarify my interpretation of the term.
-I mean computer scientist in the sense of studying different aspects of computation:
-
-+ **information:** what is information, and how can we create, manipulate and interpret it?
-+ **computation:** what is computable, and what do we mean by that?
-+ **formal methods:** what can we express, and what do we need to express it?
-+ **algorithms** and **data structures:** what can we build?
-
-After school, I did practical training as a software developer.
-I worked for four years in the industry.
-Then, in desperation, I finished an additional year in school and finally started studying computer science.
-I finished my Bachelor's degree in 2013, my Master's in 2017, and my Ph.D. in 2021.
-In my Ph.D. thesis, I analyzed different microscopic simulation models for pedestrian streams and developed algorithms to simulate many pedestrians in a large area faster than in real-time.
-During my time as a Ph.D. candidate, I enjoyed teaching.
-Today, I am a software developer for University that focuses on tools to support our education.
-Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.
-
-For other computer scientists interested in the topic of this book, it might be valuable to know which programming experience I had at the time of writing it.
-I am very experienced in ``Java``.
-Furthermore, I developed an introductory course for ``Python``.
-I am also familiar with ``JavaScript``, ``PHP``, ``Scala``, and ``Go``.
-Furthermore, I can read and understand ``C\C++`` code, but I am not very experienced in it.
-I am familiar with GPU programming using ``OpenCL``.
-Currently, I am trying to learn some ``Rust``.
-
-I have no music theory education and do not play an instrument.
-So this is a solid contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
-However, I am a big music lover, and I have always wanted to make my own music and never thought programming could lead me to this goal.
-
-I am neither a professional musician nor a "professional" artist.
-However, I strongly believe that every human being is capable of creating a whole universe of meaning.
-We are storytellers thrown (*geworfen*) into a world that changes depending on our mood.
-We can not change our being (*Dasein*), but we can choose how we want to deal with it.
-Do we reject our surroundings, becoming alienated in the process?
-Do we revolt against our fundamental condition of confusion?
-Do we make the place where we live our home?
-
-Music gives me peace.
-It gracefully touches my soul.
-It reminds me that something in this world expresses *The Concrete*.
-Something that escapes our calculating minds; something unexplainable.
-Music sets me free.
-Coding sets me free.
-Thus, for me, coding music is the ultimate freedom.
-
-## Notes on Technology
+## Technology and Art
 
 >We might be in a collective state of existential crisis, but we are to busy to notice it.
 
-In my opinion, technology should not be trusted naively.
-Technology is neither inherently good nor bad -- it can be used for the good, the bad, the ugly, and the beautiful.
-In addition, it is neither inherently progressive nor repressive.
+Technology should not be trusted naively, instead we should think about it in depth.
+Our general understanding of technology is inherently humanistic, that is, we think of it as something seperated from us; 
+something over that we can rule; something that we can control perceisly.
+From that viewpoint, technology is by definition something non-human.
+It can be used for the good, the bad, the ugly, and the beautiful and we can decide what to do with it.
+Nowadays this viewpoint is challenged by the advances in *artificial "intelligence"*, especially the branch of *machine learning*.
+The line between controlling and being controled gets more and more blurred.
+
+>[...] there is an idea that technology is in its essence something human beings have under their control. In my opinion, that is not possible. Technology is in its essence something that human beings cannot master of their own accord. -- Heidegger
+
+Technology is neither inherently progressive nor repressive.
 We must rethink technology as something that, like nature, is not strictly separated from us.
-Technology shapes our way of communication and our material realities; it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
+It is an extension of the human body and the human mind.
+Technology shapes our way of communication and our material realities;
+it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
 
 For example, the introduction of cars influenced how we plan and build cities and, consequently, possessing a car became mandatory in many areas.
 Email changed our communication ethics at the workplace; it made the interaction with emails mandatory.
@@ -271,18 +212,42 @@ Time slips away without any deep satisfaction; another day went to *Instagram*.
 The danger is never to stop hustling.
 We need spaces that help us not to escape but to **really** engage with technology!
 To understand how it affects us, how it changes us, how it can help us and how it might destroy us.
+Follwing *Martin Heidegger* there are two distinction we should make: the tools and techniques of modern science, along with all the gadgets created to add material comfort to human life, which he calls *mere technology* and the *essence of technology*, i.e., the structure of the technological world and our way of existing in this world.
+Heidegger argues that if all we ever do is gain an increasingly sophisticated understanding of *mere technology*, the mastery of tools and instruments and the application of techniques, even those that indisputable improve our standard if living, without gaining an understanding of the *essence of technology*, our understanding will not free us but only further enslave us.
+
+When talking about Heidegger one should mention that he was a Nazi.
+
+>How is it that such a brilliant mind was taken
+in by the Nazis? How could Heidegger be so socially irresponsible? It is the
+same problem as with Celan: here is a wonderful writer who was a rotten
+anti-Semite [...] I have shown Heidegger’s brain with a mushroom-like tumor
+growing out of it to make the point. -- Anselm Kiefer
+
+Technology is revealing but at the same time it is concealing, an open space between paths, and a place where reality appears in a certain light.
+The *essence of technology* is its mode of revealing and concealing.
+Technology, according to Heidegger, is dominance and control.
+The mode of revealing that holds sway throughout modern technolgy does not unfold into a bringing forth in the sense of poiesis (Gestalt), the revealing that rules in modern technology is a challenging (Herausfordern), which puts to nature the unreasonable demand that it supply energy which can be extracted and stored as such.
+Modern technology is a distraction from our being-in-the-world (Befindlichkeit) which is always dependent on a mood that Heidegger calls Sorge, meaning fear, or worry, or care.
+The nature of being-in-the-world is such that we never escape these concerns, but we often try to deny them.
+We distract ourselves from our cares, the major one is death, and live inauthentically.
+Our relation to technological tools, techniques, and gadgets can provide this distraction, taking us away from our more fundamental experience, luring us into a pseudo-security which is a danger if it prevents the lived awareness of what we ultimately are:
+
+>beings in trouble in a world of uncertainty.
 
 We get used to the internet, smartphones, social media, and other platform economies, and endless repetition of the trivial.
 As an individual, we seem powerless concerning new technologies.
-If there is a market (built buy the creation of desire, i.e., marketing), we most certainly have to get used to yet another technological phantasy.
-Is it *The Public* that wants to transfer another big chunk of reality into a *Metaverse*;
+If there is a market (built buy channeling desire, i.e., marketing), we most certainly have to get used to yet another technological phantasy.
+Is it *the public* that wants to transfer another big chunk of reality into a *Metaverse*;
 a virtual world based on a business ontology and governed by a corporate dictatorship?
 
-I neither advocate for the denial nor for embracing technology in general.
-I love technology.
+I neither advocate for the denial nor for the embracement of technology in general.
+I love technology and for most of us, rejecting technology is not an option.
+We can, however, cultivate a reflexive understanding that enables us to see the way that reality is constructed by our increasingly technological worldview.
 
 >It certainly is not a matter of condemning the industrial and technological fate of humanity. Rather, it is a case of reinventing this fate. -- *Bernard Stiegler*
 
+Apart from the important distinction of *mere technology* and the *essence of technology* we also have to look at the material reality.
+Who controls the production of *mere technology* and to what end?
 I think digital technology is powerful and could likely solve the majority of humanities problems; 
 from climate change to income distribution, sensor-based agricultural practice, food, education and the abolishment of racialization, gender discrimination, ableism and classism.
 Digital technology can be amazing, but when all decisions about how to deploy and use it are in the hands of business people, then we have a problem.
@@ -343,7 +308,7 @@ We end up feeling empty and more exhausted.
 
 >The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- *Mark Fisher*
 
-We live between emails, calendars, and *Zoom*-Meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and giving love to others.
+We live between emails, calendars, and *Zoom*-meetings, missing out on the things that really make us happy: talking to other people, playing with our kids, and giving love to others.
 At the same time, there is always a *fear of missing out*:
 Can I get in on this thing before it is completely gone?
 
@@ -353,72 +318,39 @@ Young people seem to use technology much more appropriately because they are les
 They seem to understand that these big tech companies are not interested in improving their lives but in using them as vehicles.
 
 I believe technology is always destructive as well as creative.
-It disrupts existing spaces and opens up new ones. 
-The artist's responsibility is to reveal and explore this process.
-She is the one who create aesthetic symbols -- a horizon of a possible future.
+It disrupts existing spaces and opens up new ones.
+Art, on the other hand, can highlight the open relation of *earth* (rock and stone, flood amd famine, birth and death, tools and technology) and the *world* (the cultural and historical horizon that reveals and conceals earth).
+It can simultaneously gather them together, so to say.
+In contrast to technology artistic works have many paths, they are more open in their revealing.
+The work of art opens up paths, relations, and possibilities.
+Art can open up the meaning of technology so that we might gain an open relationship to it.
+For example, a work of art can reveal that we are not sure whether technology can be ignored or wehter it contains a seductive cosmic force that we cannot resist.
+
+We must continually raise the question concerning technology.
+I think it is not a question of complete resistance or complete acceptance but of studied ambivalence, calculated withdrawal, and watchful waiting.
+Consequently, the artist's responsibility is to reveal and explore this process.
+She is the one who creates aesthetic symbols -- a horizon of a possible future.
 Neither being prejudiced nor playing the devil's advocate but engaging with technology and its masters honestly.
-The artifacts of our past are not given circumstances of nature but are invented by people.
+After all, the artifacts of our past are not given circumstances of nature but are invented by people.
+But what happened and what will happen is guided by the horizon of the possible which is en-framed by technology and opened up by works of art.
 We must disregard our automatic acceptance of how things are because it leads to a sense of helplessness about changing anything.
 There is neither time for the bitter sweet melancholia nor the illusion that small local changes suffice.
 Echoing the words of *Mark Fisher*: I am not worried about a zombie apocalypse, but I am worried that it is easier for people to imagine a zombie apocalypse than to visualize what life will be like in 10 or 20 years from now.
 I am concerned that we have already given up, that we lack the imagination and courage to engage in the way that we really should be, and we will resort to reactions and seemingly easy but unreal solutions.
 
 The digital is a critical factor in driving our pacification while we are looking into the abyss right in front of us.
-So let us engage with it; let us be critical; let us fight back; let us sing a new song of technological empowerment of the people all around the world; let us reimagine our *cyberculture*.
+So let us engage with it; 
+let us be critical; 
+let us fight back; 
+let us sing a new song of technological empowerment of the people all around the world; 
+let us reimagine our *cyberculture*.
+Art might help to release us from the grips of technology by opening up a new path, a new awareness of our existence.
 
 >Digital is not here to put an end to anything.
 Rather it is here to expand all things, to combine and to make more things attainable.
 For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- *J.D. Jarvis*
 
-## Why Writing an Online-Book?
+In the end, it might be the *energy of earth* that uncover a possible earth-world relationship.
+This might be Heidegger's god, we are waiting and preparing for.
 
-I am very excited!
-I want to learn more about the *algorithmic composition*. 
-This book is my attempt to do so; nothing more and nothing less (for now at least).
-To understand something, one has to pass through a grueling learning process.
-One such strategy that works for me is called *the Feynman learning technique*.
-It consists of the following steps:
-
-1. pretend to teach a concept you want to learn about to a student in the sixth grade
-2. identify gaps in your explanation. Go back to the source material to understand it better
-3. organize and simplify
-4. transmit (optional)
-
-This book is my attempt to follow *Feynman's technique* imperfectly.
-In the end, someone else might find valuable ideas in this book.
-Currently, I focus solely on [SuperCollider](https://supercollider.github.io/) and *sound design*. 
-
-I experiment with SuperCollider and other tools and write this book in my spare time. 
-It is a hobby. 
-Therefore, I will develop and update it over time.
-In its current state it is only a skeleton, and I will add new chapters and edit old ones. 
-Therefore, do not expect anything professional.
-
-In the future, you might be interested in extending the book with your content. 
-Maybe this project will become a community effort to make SuperCollider, sound design, and other tools and techniques more accessible.
-
-Another thing I am looking forward to is combining the book with a Jupyter-Kernel for SuperCollider such that the book becomes interactive.
-
-The source code of the Jupyter-Book can be found inside one of [GitHub](https://github.com/BZoennchen/supercollider-book) repositories.
-The book is currently published using [GitHub-Pages](https://bzoennchen.github.io/supercollider-book/intro.html).
-
-## Silent Contributors
-
-I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
-The creators of my discoveries and the content of the materials I studied are silent contributors.
-Without the already existing material, I would not be able to learn either SuperCollider or sound design. 
-
-A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
-
-In the following, I list all the material I looked into:
-
-1. [SuperCollider Online-Course](https://www.youtube.com/user/elifieldsteel) by Eli Fieldsteel {cite}`fieldsteel:2021`
-2. [Musical Sound Design in SuperCollider](https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q) by Alik Rustamoff {cite}`rustamoff:2021`
-3. [A Gentle Introduction into SuperCollider](https://scholarcommons.scu.edu/faculty_books/91/) by Bruno Ruviaro {cite}`ruviaro:2014`
-4. [SuperCollider Tutorial](https://composerprogrammer.com/teaching/supercollider/sctutorial/tutorial.html) by Nick Collins {cite}`collins:2004`
-5. [The SuperCollider Book](https://mitpress.mit.edu/books/supercollider-book) by many {cite}`wilson:2011`
-6. [Synth-Secrets Series](https://www.soundonsound.com/series/synth-secrets) by Gordon Reid {cite}`reid:2021`
-7. [Computer Music in SuperCollider 3](https://www.e-booksdirectory.com/details.php?ebook=10110) by David Michael Cottle {cite}`cottle:2006`
-8. [Introduction to SuperCollider](https://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=4017&lng=eng&id=) by Andrea Valle {cite}`valle:2016`
-9. [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5) by Meinard Müller {cite}`mueller:2015`
-10. [Musimathics](http://www.musimathics.com/) volume 1 & 2 by Gareth Loy {cite}`loy:2006`, {cite}`loy:2007`
+>Philosophy will not be able to bring about a direct change of the present state of the world. This is true not only of philosophy but of all merely human meditations and endeavors. Only a god can still save us. I think the only possibility of salvation left to us is to prepare readiness, through thinking and poetry, for the appearance of the god or for the absence of the god during the decline; so that we do not, simply put, die meaningless deaths, but that when we decline, we decline in the face of the absent god. -- Heidegger, Spiegel inverview in 1966

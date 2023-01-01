@@ -92,10 +92,29 @@ a.at([2, 3]); // [3, 4]
 )
 ```
 
+Instead of using ``.at`` we can also use brackets:
+
+```isc
+(
+a[[2, 3]]; // [3, 4]
+a[0]; // 1
+)
+```
+
 In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an ``Array`` in ``sclang`` is implemented accordingly.
 
 ## Manipulation
+
+To **set** a specific value we can use the default syntax well-known for almost all existing programming languages:
+
+```
+(
+a = [2, 4, 5, 6];
+a[0] = -10;
+a; // [-10, 4, 5, 6];
+)
+```
 
 **Multiplying** an array with a number, will result in a new array for which each element is multiplied by the number.
 

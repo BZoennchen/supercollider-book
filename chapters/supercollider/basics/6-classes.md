@@ -82,7 +82,7 @@ Complex : Number {
 ...
 ```
 
-The class has two attributes  ``real`` and ``img`` indicated by the ugly ``<>`` and initialized by the constructor.
+Objects of this class have two (object)-attributes ``real`` and ``img`` indicated by the ugly ``<>`` and initialized by the constructor.
 Furthermore, it has a method ``+`` which takes one non-optional and one optional argument.
 ``aNumber`` is another complex number and ``adverb`` is a modifier that modifies the plus operation if ``aNumber`` is not a number.
 If we ignore the second argument, the ``+`` method returns a new complex number by adding two complex numbers together.

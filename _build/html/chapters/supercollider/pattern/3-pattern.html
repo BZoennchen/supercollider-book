@@ -113,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../../../intro.html">
-                    Introduction
+                    Preamble
                 </a>
             </li>
         </ul>
@@ -547,6 +547,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/about.html">
+   About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../misc/bibliography.html">
    Bibliography
   </a>
@@ -725,8 +730,8 @@ Let us look at a non-trivial example, where we combine multiple <a class="refere
 <code class="docutils literal notranslate"><span class="pre">Pseq</span></code> on the other hand, also expects an <em>array</em> and picks each element in consecutive order.
 <em>Pattern</em> can be configured such that the <em>stream</em> repeats a certain amount of time.
 We can also configure them to repeat an infinite <code class="docutils literal notranslate"><span class="pre">inf</span></code> amount of times.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">(</span><span class="kc">list:</span> <span class="p">[</span><span class="nb">Prand</span><span class="p">((</span><span class="mi">5</span><span class="p">..</span><span class="mi">7</span><span class="p">)),</span> <span class="nb">Prand</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">4</span><span class="p">))],</span> <span class="kc">repeats:</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
-<span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">asStream</span><span class="p">();</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="nc">Prand</span><span class="p">((</span><span class="mi">5</span><span class="p">..</span><span class="mi">7</span><span class="p">)),</span> <span class="nc">Prand</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">4</span><span class="p">))],</span> <span class="na">repeats:</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nb">asStream</span><span class="p">();</span>
 <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 50 and 70</span>
 <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 10 and 40</span>
 <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span> <span class="c1">// random number between 50 and 70</span>
@@ -751,26 +756,26 @@ The <em>pattern</em> consists of a <a class="reference external" href="https://d
 Each <em>sequence</em> represents a fixed melody.
 Combining fixed sequences with a random choice generates an overall spontaneous melody that is not entirely chaotic.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nb">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nb">Env</span><span class="p">.</span><span class="nx">sine</span><span class="p">(</span><span class="kc">dur:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="kc">level:</span> <span class="ss">\amp</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)).</span><span class="kd">ar</span><span class="p">(</span><span class="kc">doneAction:</span> <span class="nb">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="mi">200</span> <span class="o">*</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">]));</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">sine</span><span class="p">(</span><span class="na">dur:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">level:</span> <span class="ss">\amp</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)).</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">200</span> <span class="o">*</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">]));</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
-    <span class="nb">Out</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
 <span class="p">)</span>
 
 <span class="p">(</span>
 <span class="kd">var</span> <span class="nx">mel1</span><span class="p">,</span> <span class="nx">mel2</span><span class="p">,</span> <span class="nx">mel3</span><span class="p">;</span>
-<span class="nx">mel1</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">]);</span>
-<span class="nx">mel2</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">77</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">61</span><span class="p">]);</span>
-<span class="nx">mel3</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">([</span><span class="mi">65</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">71</span><span class="p">]);</span>
-<span class="nx">p</span> <span class="o">=</span> <span class="nb">Pwrand</span><span class="p">([</span><span class="nx">mel1</span><span class="p">,</span> <span class="nx">mel2</span><span class="p">,</span> <span class="nx">mel3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nx">normalizeSum</span><span class="p">,</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">midicps</span><span class="p">;</span>
-<span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">asStream</span><span class="p">;</span>
+<span class="nx">mel1</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">]);</span>
+<span class="nx">mel2</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">77</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">61</span><span class="p">]);</span>
+<span class="nx">mel3</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">65</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">71</span><span class="p">]);</span>
+<span class="nx">p</span> <span class="o">=</span> <span class="nc">Pwrand</span><span class="p">([</span><span class="nx">mel1</span><span class="p">,</span> <span class="nx">mel2</span><span class="p">,</span> <span class="nx">mel3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nx">normalizeSum</span><span class="p">,</span> <span class="kc">inf</span><span class="p">).</span><span class="nx">midicps</span><span class="p">;</span>
+<span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nb">asStream</span><span class="p">;</span>
 
-<span class="nx">t</span> <span class="o">=</span> <span class="nb">Task</span><span class="p">({</span>
-    <span class="nx">loop</span><span class="p">{</span>
-        <span class="nb">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">]);</span>
-        <span class="mf">0.25</span><span class="p">.</span><span class="nx">wait</span>
+<span class="nx">t</span> <span class="o">=</span> <span class="nc">Task</span><span class="p">({</span>
+    <span class="k">loop</span><span class="p">{</span>
+        <span class="nc">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="p">,</span> <span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">]);</span>
+        <span class="mf">0.25</span><span class="p">.</span><span class="nb">wait</span>
     <span class="p">}</span>
 <span class="p">});</span>
 <span class="nx">t</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
@@ -793,9 +798,9 @@ Within the loop, we play a random midi note and sleep for <code class="docutils 
 <span class="kc">inf</span><span class="p">.</span><span class="k">do</span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">midinote</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="mi">20</span><span class="p">.</span><span class="nx">rand</span><span class="p">;</span>
     <span class="nx">midinote</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
-    <span class="mf">0.2</span><span class="p">.</span><span class="nx">wait</span><span class="p">;</span>
+    <span class="mf">0.2</span><span class="p">.</span><span class="nb">wait</span><span class="p">;</span>
 <span class="p">})</span>
-<span class="p">}.</span><span class="nx">fork</span><span class="p">;</span>
+<span class="p">}.</span><span class="k">fork</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -805,12 +810,12 @@ For example, we might want to play notes with different durations, i.e., schedul
 We will see how we can replace threading by modeling a composition by a <em>discrete musical event simulation</em>.</p>
 <p>Like functions, patterns support many mathematical operations including composition.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="nb">Pfunc</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">x</span><span class="p">;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">};</span>
-<span class="nx">b</span> <span class="o">=</span> <span class="nb">Pfunc</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">x</span><span class="p">;</span> <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">{</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">};</span>
-<span class="nx">c</span> <span class="o">=</span> <span class="nb">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">6</span><span class="p">));</span>
+<span class="nx">a</span> <span class="o">=</span> <span class="nc">Pfunc</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">x</span><span class="p">;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">};</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nc">Pfunc</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">x</span><span class="p">;</span> <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">{</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">};</span>
+<span class="nx">c</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">6</span><span class="p">));</span>
 <span class="nx">z</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">&lt;&gt;</span> <span class="nx">a</span> <span class="o">&lt;&gt;</span> <span class="nx">c</span><span class="p">;</span>
-<span class="nx">q</span> <span class="o">=</span> <span class="nx">z</span><span class="p">.</span><span class="nx">asStream</span><span class="p">;</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">{</span><span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">});</span> <span class="c1">// gives us [ 1, 1, 1, 0, 0, 0, 0, nil ]</span>
+<span class="nx">q</span> <span class="o">=</span> <span class="nx">z</span><span class="p">.</span><span class="nb">asStream</span><span class="p">;</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="p">{</span><span class="nx">q</span><span class="p">.</span><span class="nx">next</span><span class="p">});</span> <span class="c1">// gives us [ 1, 1, 1, 0, 0, 0, 0, nil ]</span>
 <span class="p">)</span>
 </pre></div>
 </div>

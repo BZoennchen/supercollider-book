@@ -148,7 +148,7 @@ returns ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
 ```
 
 Especially in within control structures this can lead to bugs that are hard to find. 
-The following code prints ``'ho'`` the the post window.
+The following code prints ``'ho'`` to the the post window.
 
 ```isc
 (

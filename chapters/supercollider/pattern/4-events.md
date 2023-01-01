@@ -3,7 +3,7 @@
 
 [Pbind](https://doc.sccode.org/Classes/Pbind.html) is an important ``Pattern``.
 It models the process of playing an instrument by discrete events in time, realizing a discrete event simulation (DES).
-Its ``Stream``, streams (musical) [Events](https://doc.sccode.org/Classes/Event.html). 
+It streams (musical) [Events](https://doc.sccode.org/Classes/Event.html). 
 
 ```{admonition} Combining Streams
 :name: remark-pbind
@@ -21,7 +21,7 @@ They are similar to hash maps, hash tables, or a ``Python`` dictionary, i.e., a 
 For example, calling a function will create a new local function environment.
 Environments map names to variables and functions.
 
-```isc
+```supercollider
 (
 var env = Environment.make({
     ~a = 100;
@@ -58,7 +58,7 @@ In my case, this is equal to:
 
 ```isc
 'instrument': default, 
-'msgFunc': a Function, 
+'msgFunc': {}, 
 'dur': 1, 
 'amp': 0.1, 
 'server': localhost, 
@@ -149,14 +149,14 @@ is feasible.
 We have the following parameters with their respective default values:
 
 ```isc
-tempo: nil,
-dur: 1.0,
-stretch: 1.0,
-legato: 0.8,
-sustain: { ~dur * ~legato * ~stretch },
-lag: 0.0,
-strum: 0.0,
-strumEndsTogether: false
+'tempo': nil,
+'dur': 1.0,
+'stretch': 1.0,
+'legato': 0.8,
+'sustain': { ~dur * ~legato * ~stretch },
+'lag': 0.0,
+'strum': 0.0,
+'strumEndsTogether': false
 ```
 
 ```{admonition} Scheduling Influencer
@@ -330,10 +330,10 @@ If we look closely, we can observe that there is a ``sustain`` argument that is 
 This is because the default values of our arguments are defined as follows.
 
 ```isc
-dur: 1.0,
-stretch: 1.0,
-legato: 0.8,
-sustain: { ~dur * ~legato * ~stretch },
+'dur': 1.0,
+'stretch': 1.0,
+'legato': 0.8,
+'sustain': { ~dur * ~legato * ~stretch },
 ```
 
 As already mentioned, ``sustain`` is the time after the ``gate`` within our synth is triggered!

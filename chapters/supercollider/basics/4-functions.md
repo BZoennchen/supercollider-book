@@ -1,8 +1,10 @@
 (sec-functions)=
 # Functions
 
-In ``sclang``, functions are first-class objects, meaning a function can be an argument of another function.
+In ``sclang``, functions are first-class objects.
+Therefore, a function can be an argument of another function.
 The language drives the programmer to use this fact in various ways.
+For example, control structures in ``sclang`` are functions.
 
 ## Definition
 
@@ -29,7 +31,7 @@ This looks a little bit weird, but it works just fine.
 
 In ``sclang`` there is no ``return`` keyword.
 We only have to call ``func.value`` for functions and not for methods of an object or class.
-A function always returns the content of the last evaluated statement, in this case, ``x``.
+A function always returns the content of the last evaluated statement, in this case ``x``.
 In my personal opinion, an additional keyword can make the code more readable.
 
 To see what I mean by making use of functions as first-class objects, we can look at the [control structures](https://doc.sccode.org/Reference/Control-Structures.html).
@@ -62,7 +64,7 @@ Again, we can either write ``rand(20);`` or ``20.rand;``.
 
 ## Closures
 
-If we want the ``func`` to return the same randomly chosen value each time it is called, we can use a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming))
+If we want the ``func`` to return the same randomly chosen value each time it is called, we can use a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)).
 In short, a [Closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)) is a function combined with a set of variables that are neither defined within the function nor are arguments of the functions.
 
 ```isc
