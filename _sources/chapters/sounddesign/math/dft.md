@@ -93,6 +93,16 @@ $$c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},$$
 where $c[k]$ for $k = 0, \ldots, N-1$ are the coefficients of the *[discrete Fourier series](def-fourier-series-exp-discrete)*.
 ````
 
+The DFT basically uses $N$ probing functions defined by the [phasors](def-phasor) $\hat{1}_{-2 \pi k / N}, k = 0, \ldots, N-1$ to analyse the discrete signal $y$ for frequencies 
+
+$$0, \frac{1}{N}, \ldots, \frac{N-1}{N}$$
+
+times the *sample frequency* $f_s$. However, due to the [Nyquist–Shannon sampling theorem](theorem-sampling) we can only rely on the first half of coefficients, i.e.,
+
+$$0, \frac{f_s}{N}, \ldots, \frac{f_s}{2}.$$
+
+Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency $f_s / N$ (and zero, i.e., DC).
+
 Similar to the *[Fourier transform](def-fourier-transform-exp)* there is an inverse transformation.
 
 ````{admonition} Inverse Discrete Fourier Transform (IDFT)
@@ -282,6 +292,12 @@ iy_n = [idft(c_k, n) for n in range(len(c_k))]
 
 If we neglect the small numerical errors, we get the correct function values $y[n]$ for $n = 0, 1, 2, 3$ back again.
 The imaginary part of the complex numbers are approximately zero because $y(t)$ is a real-valued function.
+
+## Limitations
+
+
+
+
 
 ## Fast Fourier Transform
 
