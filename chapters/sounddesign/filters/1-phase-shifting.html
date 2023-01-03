@@ -376,6 +376,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../abstract-and-physical.html">
+   Abstract and Physical Synthesis
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -453,6 +458,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../fm.html">
    Frequency Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../physical-modeling.html">
+   Physical Modeling
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -716,16 +726,16 @@ As we will see we can filter a signal by using a simple oscillator.
 Therefore, the term <em>filter</em> is a very general term.</p>
 <p>Let us combine two sine waves.
 First two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56992b51-5c56-4e82-ab2b-5f62e4049f3c">
-<span class="eqno">(45)<a class="headerlink" href="#equation-56992b51-5c56-4e82-ab2b-5f62e4049f3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5ce311d-4e2b-4dfa-af9b-4919dd839c6e">
+<span class="eqno">(45)<a class="headerlink" href="#equation-f5ce311d-4e2b-4dfa-af9b-4919dd839c6e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t) = 2 \sin(2\pi \omega t),
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase-shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6731280-c5e0-4f91-bb18-74f8df513472">
-<span class="eqno">(46)<a class="headerlink" href="#equation-c6731280-c5e0-4f91-bb18-74f8df513472" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-65cd77d8-f27b-41ca-861d-cf2fc6e894d7">
+<span class="eqno">(46)<a class="headerlink" href="#equation-65cd77d8-f27b-41ca-861d-cf2fc6e894d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t + \pi) = \sin(2\pi \omega t) - \sin(2\pi \omega t + \pi) = 0.
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -737,8 +747,8 @@ Of course, we can not hear any difference between a sine wave and shifted sine w
 Only in combination, the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dee3fdda-d414-4d75-b226-f2ca65c80ad3">
-<span class="eqno">(47)<a class="headerlink" href="#equation-dee3fdda-d414-4d75-b226-f2ca65c80ad3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc768bdc-0fe6-4121-a3be-4ad1f41ac28f">
+<span class="eqno">(47)<a class="headerlink" href="#equation-cc768bdc-0fe6-4121-a3be-4ad1f41ac28f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -756,13 +766,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However, the next harmonic with frequency <span class="math notranslate nohighlight">\(2\omega\)</span> Hz is reinforced, i.e., its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2\omega)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2\omega)/(2\omega) = 1\)</span> cycle.</p>
 <p>In the fact, the amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4cd38b3-577e-4930-b21f-2e8dc9dbbe95">
-<span class="eqno">(48)<a class="headerlink" href="#equation-e4cd38b3-577e-4930-b21f-2e8dc9dbbe95" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8bc2c6f9-f20e-4a26-b9b0-7f13089e1f89">
+<span class="eqno">(48)<a class="headerlink" href="#equation-8bc2c6f9-f20e-4a26-b9b0-7f13089e1f89" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{2n\omega}{2\omega} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96a73017-5723-466c-9d0b-f5d36079572d">
-<span class="eqno">(49)<a class="headerlink" href="#equation-96a73017-5723-466c-9d0b-f5d36079572d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-93c37a98-08f1-4c3a-83b3-de966ab57409">
+<span class="eqno">(49)<a class="headerlink" href="#equation-93c37a98-08f1-4c3a-83b3-de966ab57409" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{n\omega}{2\omega} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>

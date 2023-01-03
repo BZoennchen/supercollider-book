@@ -215,7 +215,7 @@ As you can see, we get the expected result!
 ```{figure} ../../../figs/sounddesign/math/sc-convolution-saw.png
 ---
 width: 400px
-name: fig-sc-convolution-pulse
+name: fig-sc-convolution-saw
 ---
 Convoluting two sawtooth waves results in parabola-like wave.
 ```

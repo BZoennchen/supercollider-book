@@ -196,7 +196,7 @@ If we synthesize sound, we can achieve different timbre by:
 
 However, this captures only the perspective of [additive synthesis](sec-additive-synthesis).
 Manipulating a very rich signal already composed of many harmonics is another way to achieve different timbres.
-This is called [subtractive synthesis](sec-subtractive-synthesis) and makes use of [filters](sec-filters).
+This is called [subtractive synthesis](sec-filters) and makes use of *filters*.
 
 (sec-envelope)=
 ### Envelopes

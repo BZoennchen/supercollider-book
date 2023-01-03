@@ -108,7 +108,7 @@ They can be categorized into:
 
 Instead of discussing these different ``UGens`` by listing them all at one place, I try to explain them under practical motivation.
 For example, I will explain the [fundamental wavesforms](sec-fundamental-waveforms) in the context of [additive synthesis](sec-additive-synthesis).
-We will explore many different ``UGens`` discussing [filters](sec-filters), [subtractive synthesis](sec-subtractive-synthesis) and many more concepts.
+We will explore many different ``UGens`` discussing [filters](sec-filters) and many more concepts.
 
 (sec-mce)=
 ## Multichannel Expension

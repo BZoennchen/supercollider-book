@@ -223,11 +223,21 @@ same problem as with Celan: here is a wonderful writer who was a rotten
 anti-Semite [...] I have shown Heidegger’s brain with a mushroom-like tumor
 growing out of it to make the point. -- Anselm Kiefer
 
-Technology is revealing but at the same time it is concealing, an open space between paths, and a place where reality appears in a certain light.
-The *essence of technology* is its mode of revealing and concealing.
-Technology, according to Heidegger, is dominance and control.
-The mode of revealing that holds sway throughout modern technolgy does not unfold into a bringing forth in the sense of poiesis (Gestalt), the revealing that rules in modern technology is a challenging (Herausfordern), which puts to nature the unreasonable demand that it supply energy which can be extracted and stored as such.
+We have to consider that his worry about *global technology* pushed him towards the Nazi Party in the first place.
+The Nazis were opposed to the two dominant forms of government of the day that Heidegger associated with *global technology*, communism and democracy.
+Therefore, to study Heiddegger is both dangerous and difficult.
+It requires great caution and care to appreciate the depth and complexity of his thought, and to be aware of his association with the Nazis.
+
+According to Heidegger, technology is revealing but at the same time it is concealing, an open space between paths, and a place where reality appears in a certain light.
+The *essence of technology* (*das Gestell*) is its mode of revealing and concealing.
+This means that technological things have their own novel kind of presence, endurance, and connections among parts and wholes.
+They have their own way of presenting themselves and the *world* in which they operate -- technology is dominance and control.
+However, the heart of the matter is not in any particular machine, process, resource, but rahter in the *challenging* (herausfordernd): the way the *essence of technology* operates on our understanding of all matters and on the presence of those matters themselves -- the all-pervasive way we confront and are confronted by the technological world.
+
+The mode of revealing that holds sway throughout modern technolgy does not unfold into a bringing forth in the sense of *poiesis* (Gestalt), the revealing that rules in modern technology is a *challenging* (Herausfordern), which puts to nature the unreasonable demand that it supply energy which can be extracted and stored as such.
+It is important to note that for Heidegger the *challenge* preceded the unlocking; the *essence of technology* is thus prior to natural science.
 Modern technology is a distraction from our being-in-the-world (Befindlichkeit) which is always dependent on a mood that Heidegger calls Sorge, meaning fear, or worry, or care.
+
 The nature of being-in-the-world is such that we never escape these concerns, but we often try to deny them.
 We distract ourselves from our cares, the major one is death, and live inauthentically.
 Our relation to technological tools, techniques, and gadgets can provide this distraction, taking us away from our more fundamental experience, luring us into a pseudo-security which is a danger if it prevents the lived awareness of what we ultimately are:
@@ -235,8 +245,16 @@ Our relation to technological tools, techniques, and gadgets can provide this di
 >beings in trouble in a world of uncertainty.
 
 We get used to the internet, smartphones, social media, and other platform economies, and endless repetition of the trivial.
-As an individual, we seem powerless concerning new technologies.
-If there is a market (built buy channeling desire, i.e., marketing), we most certainly have to get used to yet another technological phantasy.
+As an individual, we seem powerless concerning new technologies and we might sometimes feel this lack of depth provided by the scattered and disected.
+The *essence of technology* robs us of experiencing *nearness* because to experience it, we must encounter things in their truth.
+And no matter how much we believe that science will let us encounter the actual in its actuality, science only offers us *representations of things*.
+An example from the second lecture illustrates what Heidegger means. 
+Scientifically speaking, the distance between a house and the tree in front of it can be measured neutrally: it is thirty feet. 
+But in our everyday lives, that distance is not as neutral, not as abstract. Instead, the distance is an aspect of our concern with the tree and the house: the experience of walking, of seeing the tree’s shape grow larger as I come closer, and of the growing separation from the home as I walk away from it.
+In the scientific account things become indifferent to our *concerns* (Sorge) by representing both the distance and the object as simple but useful mathematical entities or philosophical ideas, we lose our truest experience of *nearness* and distance.
+
+Furthermore, functioning things lead to more functioning.
+And if there is a market (built buy channeling desire, i.e., marketing), we most certainly have to get used to yet another technological phantasy.
 Is it *the public* that wants to transfer another big chunk of reality into a *Metaverse*;
 a virtual world based on a business ontology and governed by a corporate dictatorship?
 

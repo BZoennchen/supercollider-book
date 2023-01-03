@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Additive Synthesis" href="../additive-synthesis/additive-synthesis.html" />
+    <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
     <link rel="prev" title="Discrete Fourier Transform" href="dft.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -376,6 +376,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../abstract-and-physical.html">
+   Abstract and Physical Synthesis
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../additive-synthesis/additive-synthesis.html">
    Additive Synthesis
@@ -453,6 +458,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../fm.html">
    Frequency Modulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../physical-modeling.html">
+   Physical Modeling
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -833,8 +843,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4fcf566e-2f21-4f99-ac12-b9bf3bcad2f5">
-<span class="eqno">(30)<a class="headerlink" href="#equation-4fcf566e-2f21-4f99-ac12-b9bf3bcad2f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fde758a0-302b-4811-a152-a622abafa9f0">
+<span class="eqno">(30)<a class="headerlink" href="#equation-fde758a0-302b-4811-a152-a622abafa9f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -844,8 +854,8 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9573709e-65f4-4f8b-a1b4-a88616f99202">
-<span class="eqno">(31)<a class="headerlink" href="#equation-9573709e-65f4-4f8b-a1b4-a88616f99202" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6d61337-d063-4131-94bb-6ded689d414b">
+<span class="eqno">(31)<a class="headerlink" href="#equation-b6d61337-d063-4131-94bb-6ded689d414b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
@@ -881,8 +891,8 @@ Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are
 In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c8307a5-a6ef-4a3f-8969-f520750e1204">
-<span class="eqno">(32)<a class="headerlink" href="#equation-1c8307a5-a6ef-4a3f-8969-f520750e1204" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ce8f3f7e-4db4-4040-80a3-b00ea7ed5641">
+<span class="eqno">(32)<a class="headerlink" href="#equation-ce8f3f7e-4db4-4040-80a3-b00ea7ed5641" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
 </section>
@@ -892,8 +902,8 @@ The argument <span class="math notranslate nohighlight">\(n\)</span> of <span cl
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c085368-c130-4506-8241-abc0b000198f">
-<span class="eqno">(33)<a class="headerlink" href="#equation-0c085368-c130-4506-8241-abc0b000198f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fe677dc8-2d85-4653-a76d-0313d1bd4db7">
+<span class="eqno">(33)<a class="headerlink" href="#equation-fe677dc8-2d85-4653-a76d-0313d1bd4db7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
@@ -939,10 +949,10 @@ Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default" id="id1">
+<figure class="align-default" id="fig-sc-convolution-saw">
 <a class="reference internal image-reference" href="../../../_images/sc-convolution-saw.png"><img alt="../../../_images/sc-convolution-saw.png" src="../../../_images/sc-convolution-saw.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#fig-sc-convolution-saw" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -982,10 +992,10 @@ Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
             <p class="prev-next-title">Discrete Fourier Transform</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../additive-synthesis/additive-synthesis.html" title="next page">
+    <a class='right-next' id="next-link" href="../abstract-and-physical.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Additive Synthesis</p>
+        <p class="prev-next-title">Abstract and Physical Synthesis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
