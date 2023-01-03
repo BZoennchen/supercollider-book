@@ -137,7 +137,7 @@ OSCdef(\self, {arg val; val.postln;},'/amp');
 
 You should see the following kind of messages in the post window.
 
-```isc
+```
 [ /amp, 1083, -1, 0.60563856363297 ]
 ```
 

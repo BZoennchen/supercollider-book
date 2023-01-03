@@ -68,7 +68,7 @@ For this reason, they are useful even though do not seem to differ much from *co
 
 ## Plucking
 
-The [Pluck](https://doc.sccode.org/Classes/Pluck.html) *unit generator* realizes a *Karplus-Strong string synthesis* which is a method of [physical modeling synthesis]() that loops a short waveform through a filtered *delay line* to simulate the sound of a hammered or plucked string or some types of percussion.
+The [Pluck](https://doc.sccode.org/Classes/Pluck.html) *unit generator* realizes a *Karplus-Strong string synthesis* which is a method of [physical modeling](sec-pm) that loops a short waveform through a filtered *delay line* to simulate the sound of a hammered or plucked string or some types of percussion.
 The generator consists of a [OnePole](sec-onepole) lowpass filter and a *delay line*.
 
 In the following, I tried to recreate the *pluck* using basic *unit generators*.
@@ -123,7 +123,7 @@ name: fig-pluck
 Signal-flow graph of the construction above.
 ```
 
-Using [Pluck]() instread, generates a slightly different sound:
+Using [Pluck](https://doc.sccode.org/Classes/Pluck.html) instread, generates a slightly different sound:
 
 ```isc
 ({
