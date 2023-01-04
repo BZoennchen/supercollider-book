@@ -636,6 +636,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/convolution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -657,6 +686,23 @@ title="Fullscreen mode"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/math/convolution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../../_sources/chapters/sounddesign/math/convolution.md"
    class="headerbtn"
@@ -728,8 +774,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#rules">
+   Rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-convolution-unit-generator">
+   The Convolution Unit Generator
   </a>
  </li>
 </ul>
@@ -762,8 +813,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#rules">
+   Rules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-convolution-unit-generator">
+   The Convolution Unit Generator
   </a>
  </li>
 </ul>
@@ -777,7 +833,9 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="convolution">
-<h1>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">#</a></h1>
+<span id="sec-convolution"></span><h1>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">#</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
 <p>Convolution is an operation that takes two functions and outputs a new function.
 In that sense, it is very similar to addition or multiplication.
 Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span> we can compute a new function</p>
@@ -843,8 +901,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a237dae4-7162-474d-bb1c-b6ce74695a1a">
-<span class="eqno">(30)<a class="headerlink" href="#equation-a237dae4-7162-474d-bb1c-b6ce74695a1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-67b58a2b-255e-4dda-9a96-ef3d1efdc4e0">
+<span class="eqno">(30)<a class="headerlink" href="#equation-67b58a2b-255e-4dda-9a96-ef3d1efdc4e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -854,8 +912,8 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-352f0595-1497-4a7c-a75c-2986e141723e">
-<span class="eqno">(31)<a class="headerlink" href="#equation-352f0595-1497-4a7c-a75c-2986e141723e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-87b08c25-7b24-4777-b5c4-320979916fd8">
+<span class="eqno">(31)<a class="headerlink" href="#equation-87b08c25-7b24-4777-b5c4-320979916fd8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
@@ -891,8 +949,8 @@ Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are
 In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c31e7d6-7615-4fe3-aa3a-7b3e4a5cd5ea">
-<span class="eqno">(32)<a class="headerlink" href="#equation-9c31e7d6-7615-4fe3-aa3a-7b3e4a5cd5ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e53a7bf-a683-4326-b121-6b4683390b3b">
+<span class="eqno">(32)<a class="headerlink" href="#equation-3e53a7bf-a683-4326-b121-6b4683390b3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
 </section>
@@ -902,16 +960,16 @@ The argument <span class="math notranslate nohighlight">\(n\)</span> of <span cl
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9a79633e-6b3a-4d50-8db2-f77ec9f3f27b">
-<span class="eqno">(33)<a class="headerlink" href="#equation-9a79633e-6b3a-4d50-8db2-f77ec9f3f27b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-03ee0f1f-c2ef-4f46-b00c-dd78c4a2d6fa">
+<span class="eqno">(33)<a class="headerlink" href="#equation-03ee0f1f-c2ef-4f46-b00c-dd78c4a2d6fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
 <p>This looks intimidating but there is nothing to fear.
 Instead of a sum over an index <span class="math notranslate nohighlight">\(k\)</span> we have the integration over <span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(t\)</span> represents the shift of our second (mirrored) funciton.</p>
 </section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
+<section id="rules">
+<h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">#</a></h2>
 <p>Imagine the function <span class="math notranslate nohighlight">\(y\)</span> which is 1 between 0 and 1 and zero elsewhere.
 <span class="math notranslate nohighlight">\(y\)</span> represents a square.
 Consequently, <span class="math notranslate nohighlight">\((y * y)\)</span> represents the overlapping area of two squares.
@@ -919,6 +977,42 @@ Since the second square is mirrored at the y-axis, <span class="math notranslate
 However, if we increase <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\((y * y)\)</span> increases linearly until it reaches its maximum at <span class="math notranslate nohighlight">\((y * y)(1) = 1\)</span>.
 Then it decreases again.
 Therefore, <span class="math notranslate nohighlight">\((y * y)(t)\)</span> is a triangle!</p>
+<p>Let us illustrate some more examples.
+In the following plot each row represents one convolution.
+In the first and second column you find the functions <span class="math notranslate nohighlight">\(y_1, y_2\)</span> and in the third column the plot shows <span class="math notranslate nohighlight">\(y_1 * y_2\)</span>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/convolution_3_0.png" src="../../../_images/convolution_3_0.png" />
+</div>
+</div>
+<p>The plots show us some effects of the convolution:</p>
+<ol class="simple">
+<li><p>Convolving a function <span class="math notranslate nohighlight">\(y\)</span> with an impulse function just copies <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>Convolving <span class="math notranslate nohighlight">\(y\)</span> with a shifted impulse function makes a shifted copy of <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>Convolving <span class="math notranslate nohighlight">\(y\)</span> with a scaled impulse function scales <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>Convilving <span class="math notranslate nohighlight">\(y\)</span> with a scaled, shifted impulse function scales and shifts <span class="math notranslate nohighlight">\(y\)</span>.</p></li>
+<li><p>Convolving with an <em>impulse train</em>such (last row) adds a shifted original to the output for each impulse.</p></li>
+<li><p>As many copies will be superimposed as there are nonzero impulses.</p></li>
+<li><p>Copies will be shifted (delayed) by the position of the impulse in the <em>impulse train</em> function.</p></li>
+<li><p>Shifted copies will be scaled by the amplitude of the impulses.</p></li>
+<li><p>Shifted, scaled copies of the original are summed, smearing the result.</p></li>
+</ol>
+<div class="theorem admonition" id="theorem-fourier-convolution">
+<p class="admonition-title">Convolution Theorem</p>
+<p>Let <span class="math notranslate nohighlight">\(y_1, y_2\)</span> be two functions for which we can comupte the respective <a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a> <span class="math notranslate nohighlight">\(Y_1 = \mathcal{F}(y_1)\)</span>, and <span class="math notranslate nohighlight">\(Y_2 = \mathcal{F}(y_2)\)</span> respectively.
+Then</p>
+<div class="math notranslate nohighlight">
+\[(y_1 * y_2)(t) = \mathcal{F}^{-1}(Y_1 \cdot Y_2)(t)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[(y_1 \cdot y_2)(t) = \mathcal{F}^{-1}(Y_1 * Y_2)(t)\]</div>
+</div>
+<p>Multiplying in the time domain convolves in the frequency domain and multiplying in the frequency domain convolves in the time domain.
+Therefore, to compute the convolution one can do so by compute the <a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> beforehand.
+In fact, this is how the unit generators, such as <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a>, are implemented.</p>
+</section>
+<section id="the-convolution-unit-generator">
+<h2>The Convolution Unit Generator<a class="headerlink" href="#the-convolution-unit-generator" title="Permalink to this headline">#</a></h2>
 <p>We can compute a discrete convolution on the audio server using the <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> unit generator.
 Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -955,6 +1049,12 @@ Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 <p><span class="caption-number">Fig. 16 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#fig-sc-convolution-saw" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>To compute ‘perfect’ convolution in the time domain, one requires all function values beforehand.
+This would make real-time processing impossible! Therefore, <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> computes a windowed Fourier transform, i.e., the <a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> of a short snipped of the functions (in and the kernel).
+Based on that, it computes the convolution of those snippets. To do so, the unit generator has to fill a buffer of a specific size (twice the number of framesize).
+Before the convolution can start, the buffer has to be filled; therefore, the result is zero at the beginning.
+The larger the buffer, the more expensive the operation gets and the more zeros there are at the beginning.
+If one period of the signals fits approximately into the buffer, the result will look approximately similar to a ‘perfect’ convolution.</p>
 </section>
 </section>
 
