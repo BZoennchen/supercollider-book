@@ -93,7 +93,11 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 # 
 # $$0, \frac{f_s}{N}, \ldots, \frac{f_s}{2}.$$
 # 
-# Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency $f_s / N$ (and zero, i.e., DC).
+# Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency 
+# 
+# $$\frac{f_s}{N}.$$
+# 
+# Therefore, we expect limitations when dealing with inharmonic content because any content within the signal which is not part of some harmonic will be approximated by those harmonics and since we only compute a finite number of coefficients, this approximation is imperfect.
 # 
 # Similar to the *[Fourier transform](def-fourier-transform-exp)* there is an inverse transformation.
 # 
@@ -166,7 +170,7 @@ fig = ax.legend()
 # 
 # ```isc
 # y = [8, 4, 8, 0];
-# c = Array.fill(4, {arg i; i}).collect({arg i; ~dft.(y, i)});
+# c = Array.fill(y.size, {arg i; i}).collect({arg i; ~dft.(y, i)});
 # 
 # /* [ 
 # Complex( 20.0, 0.0 ), 
@@ -201,20 +205,29 @@ c_k = [dft(y_n, k) for k in range(len(y_n))]
 # In[5]:
 
 
-fig, ax = plt.subplots(figsize=(3,3))
+fig, ax = plt.subplots(figsize=(8,3), nrows=1, ncols=2)
 f = np.array([0, 1, 2, 3])
-ax.scatter(f, np.abs(np.array(c_k)), label=r'$|c[n]|$')
-ax.set_ylim((0,20.5))
-ax.set_xticks([0, 1, 2, 3])
-ax.set_yticks([0, 5, 10, 15, 20])
-ax.set_xlabel(r'f (Hz)')
-ax.set_ylabel(r'$|c[n]|$');
+ax[0].scatter(f, np.abs(np.array(c_k)), label=r'$|c[n]|$')
+ax[0].set_ylim((0,20.5))
+ax[0].set_xticks(f)
+ax[0].set_yticks([0, 5, 10, 15, 20])
+ax[0].set_xlabel(r'f (Hz)')
+ax[0].set_ylabel(r'$|c[n]|$');
+
+ax[1].scatter(f, np.arctan2([val.imag for val in c_k], [val.real for val in c_k]), label=r'$|c[n]|$')
+ax[1].set_ylim((-np.pi,np.pi))
+ax[1].set_xticks(f)
+ax[1].set_yticks([-np.pi, -3/4 * np.pi, -1/2*np.pi, -1/4*np.pi, 0, 1/4*np.pi, 1/2*np.pi, 3/4 * np.pi, np.pi])
+ax[1].set_yticklabels([r'$-\pi$',r'$-3/4\pi$', r'$-1/2 \pi$', r'$-1/4 \pi$', r'0', r'$1/4 \pi$', r'$1/2 \pi$', r'$3/4 \pi$', r'$\pi$'])
+ax[1].set_xlabel(r'f (Hz)')
+ax[1].set_ylabel(r'$\theta$ (radian)');
+plt.tight_layout()
 
 
 # Since we have 4 samples, i.e., $N=4$, we have to divide by 4 to compute the respective amplitudes.
 # Since $y(t)$ is a real-valued function we already know that
 # 
-# $$c[n] = \overline{c[N-n]}.$$
+# $$c[n] \equiv \overline{c[N-n]}.$$
 # 
 # and the amplitude is given by 
 # 
@@ -232,9 +245,11 @@ ax.set_ylabel(r'$|c[n]|$');
 # 
 # $$c[1] = 2 \cdot 4i = 8i.$$
 # 
-# In summary,
+# In summary, we get
 # 
-# $$A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3$$
+# $$A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3.$$
+# 
+# Furthermore, **we can perfectly reconstruct the original continuous harmonic signal** $y(t)$!
 # 
 # Now you might wonder what happened to the [complex number](sec-complex-numbers) $c[1] = -4i$?
 # Remember, multiplying by $i$ equates to a counterclockwise rotation by 90 degrees.
@@ -252,7 +267,6 @@ ax.set_ylabel(r'$|c[n]|$');
 #     var m = y.size, result = 0;
 #     for(0, m-1, {
 #         arg n;
-#         n.postln;
 #         result = result + (y[n] * exp(Complex(0,1) * 2 * pi / m * n * k));
 #     });
 #     result / m;
@@ -261,7 +275,7 @@ ax.set_ylabel(r'$|c[n]|$');
 # ```
 # 
 # ```isc
-# ~iy = Array.fill(4, {arg i; i}).collect({arg i; ~idft.(c, i)});
+# ~iy = Array.fill(c.size, {arg i; i}).collect({arg i; ~idft.(c, i)});
 # 
 # /* [ 
 # Complex( 8.0, -6.6613381477509e-16 ), 
@@ -293,8 +307,95 @@ iy_n = [idft(c_k, n) for n in range(len(c_k))]
 # 
 # ## Limitations
 # 
+# Let us suppose we have the following signal consisting of only one frequency:
 # 
+# $$y(t) = \sin\left(f \cdot 2 \pi \frac{n}{N} \right),$$
 # 
+# where $N = 16$ and $f = 3/4$.
+# If the fundamental analysis period of the DFT is also $N = 16$, i.e., the sampe frequency $f_s$ is $1$ Herz and the fundamental analysis frequency $f_N$ is 1/16 Herz, then $f = 3/4$ is clearly not an integer multiple of the sampe frequency! 
+# 
+# The following plot shows the actual signal $y(t)$ and the discontinuous signal $y_{\text{dft}}(t)$ 'seen / assumed' by the DFT operation.
+# Computing the IDFT gives us the correct sample points, i.e., $y[n] \equiv y_\text{dft}[n]$ holds, but the reconstructed signal $y_\text{idft}(t)$ is incorrect.
+
+# In[8]:
+
+
+N = 16
+f = 3/4
+f_s = 1/N
+y_f = lambda k, t: np.sin(k/N * 2 * np.pi * t)
+y_one = lambda t: 14/N * np.cos(1/N * 2 * np.pi * t + 2.16259125)
+    
+y = lambda t: np.sin(f * 2 *np.pi * t / N)
+y2 = lambda t: np.sin(f * 2 * np.pi * (t%16) / N)
+t = np.linspace(0, 2*N*4/3, 1000)
+t2 = np.linspace(0, N, 1000)
+n = np.linspace(0, N, N+1)[:-1]
+
+y_n = y(n)
+c_k = [dft(y_n, k) for k in range(len(y_n))]
+
+iy_n = [idft(c_k, n) for n in range(len(c_k))]
+iy_n = [val.real for val in iy_n]
+
+phases = np.arctan2([val.imag for val in c_k], [val.real for val in c_k])
+magnitudes = np.abs(np.array(c_k))
+
+def idft_fuction(t):
+    s = 0
+    for i in range(len(magnitudes)//2):
+        if i == 0:
+            s += (1/N * magnitudes[-i]) * np.cos(i/N * 2 * np.pi * t + phases[i])
+        else:
+            s += (1/N * magnitudes[i] + 1/N * magnitudes[-i]) * np.cos(i/N * 2 * np.pi * t + phases[i])
+    
+    i = len(magnitudes)//2
+    s +=  (1/N * magnitudes[-i]) * np.cos(i/N * 2 * np.pi * t + phases[i])
+    return s
+
+y_idft = [idft_fuction(ti) for ti in t]
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, y(t), label=r'$y(t)$')
+ax.plot(t, y2(t), label=r'$y_{dft}(t)$', linestyle='--')
+ax.scatter(n, y(n), label=r'$y[n]$', marker='o', alpha=0.5)
+ax.scatter(n, iy_n, label=r'$y_{idft}[n]$', marker='x', c='black')
+ax.plot(t, y_idft, label=r'$y_{idft}(t)$', c='black')
+ax.legend();
+
+
+# Computing the IDFT gives us the correct values for our samples but if we look at the frequency and phase spectrum we can observe many different frequencies that are present:
+
+# In[9]:
+
+
+fig, ax = plt.subplots(figsize=(10,6), nrows=2, ncols=1, sharex=True)
+f = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
+ax[0].scatter(f, np.abs(np.array(c_k)), label=r'$|c[n]|$')
+ax[0].set_ylim((0,7.5))
+ax[0].set_xticks(f)
+ax[0].set_yticks([0, 3.5/2, 3.5, 3.5+3.5/2, 7])
+ax[0].set_ylabel(r'$|c[n]|$')
+ax[1].scatter(f, np.arctan2([val.imag for val in c_k], [val.real for val in c_k]), label=r'$|c[n]|$')
+ax[1].set_ylim((-np.pi,np.pi))
+ax[1].set_xticks(f)
+ax[1].set_yticks([-np.pi, -3/4 * np.pi, -1/2*np.pi, -1/4*np.pi, 0, 1/4*np.pi, 1/2*np.pi, 3/4 * np.pi, np.pi])
+ax[1].set_yticklabels([r'$-\pi$',r'$-3/4\pi$', r'$-1/2 \pi$', r'$-1/4 \pi$', r'0', r'$1/4 \pi$', r'$1/2 \pi$', r'$3/4 \pi$', r'$\pi$'])
+ax[1].set_xlabel(r'f (Hz)')
+ax[1].set_ylabel(r'$\theta$ (radian)');
+
+
+# There are actually two problems here:
+# 
+# + *Picket Fence Effect*: We are trying to represent a frequency $(3/4 \cdot 1/16)$ that is not an integer multiple of the fundamental analysis frequency $f_N = 1/16$, so the results do not fit properly as harmonics of $f_N$. We are unable to view the underlying continuous spectrum because the DFT limits us to integer multiplies of the fundamental analysis frequency $f_N$. This is analogous to trying to observe a row of evenly spaced trees through a picket fence.
+# + *Leakage*: Discontinuities at the edge of the analysis window spray noise throughout the rest of the spectrum. This phenomenon is called *leakage* because energy that should be in one spectral harmonic spreads away (leaks) into adjacent harmonics.
+# 
+# To reduce the picket fence effect we can increase the spectral frequency resolution by artificially increasing the number of samples, e.g., by padding them with zeros.
+# The leakage problem is more serious.
+# The best we can do is devise a work-around.
+# We create a function exactly as long as the analysis window that gradually fades in and fades out at the edges.
+# If we multiply the signal to be analysed by this function (which is called *windowing*), we decrease the effect of any discontinuieties at the edges of the analysis window because the discontinuieties are heavily attenuated at the analysis window edges.
+# This helps to reduce the impact but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.
 # 
 # 
 # ## Fast Fourier Transform

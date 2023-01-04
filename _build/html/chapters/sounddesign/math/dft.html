@@ -905,7 +905,10 @@ Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</sp
 <p>times the <em>sample frequency</em> <span class="math notranslate nohighlight">\(f_s\)</span>. However, due to the <a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a> we can only rely on the first half of coefficients, i.e.,</p>
 <div class="math notranslate nohighlight">
 \[0, \frac{f_s}{N}, \ldots, \frac{f_s}{2}.\]</div>
-<p>Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency <span class="math notranslate nohighlight">\(f_s / N\)</span> (and zero, i.e., DC).</p>
+<p>Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency</p>
+<div class="math notranslate nohighlight">
+\[\frac{f_s}{N}.\]</div>
+<p>Therefore, we expect limitations when dealing with inharmonic content because any content within the signal which is not part of some harmonic will be approximated by those harmonics and since we only compute a finite number of coefficients, this approximation is imperfect.</p>
 <p>Similar to the <em><a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> there is an inverse transformation.</p>
 <div class="definition admonition" id="def-inverse-discrete-fourier-transform">
 <p class="admonition-title">Inverse Discrete Fourier Transform (IDFT)</p>
@@ -950,7 +953,7 @@ The following code is inefficient but suffice for our purposes.</p>
 </pre></div>
 </div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">];</span>
-<span class="nx">c</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">}).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="o">~</span><span class="nx">dft</span><span class="p">.(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">i</span><span class="p">)});</span>
+<span class="nx">c</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">y</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">}).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="o">~</span><span class="nx">dft</span><span class="p">.(</span><span class="nx">y</span><span class="p">,</span> <span class="nx">i</span><span class="p">)});</span>
 
 <span class="cm">/* [ </span>
 <span class="cm">Complex( 20.0, 0.0 ), </span>
@@ -975,7 +978,7 @@ The following code is inefficient but suffice for our purposes.</p>
 <p>Since we have 4 samples, i.e., <span class="math notranslate nohighlight">\(N=4\)</span>, we have to divide by 4 to compute the respective amplitudes.
 Since <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function we already know that</p>
 <div class="math notranslate nohighlight">
-\[c[n] = \overline{c[N-n]}.\]</div>
+\[c[n] \equiv \overline{c[N-n]}.\]</div>
 <p>and the amplitude is given by</p>
 <div class="math notranslate nohighlight">
 \[\frac{2}{N} \cdot c[n], \text{ if there is another } c[N-n] \]</div>
@@ -989,9 +992,10 @@ We can not distinguish the sinosoid of frequency <span class="math notranslate n
 Therefore,</p>
 <div class="math notranslate nohighlight">
 \[c[1] = 2 \cdot 4i = 8i.\]</div>
-<p>In summary,</p>
+<p>In summary, we get</p>
 <div class="math notranslate nohighlight">
-\[A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3\]</div>
+\[A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3.\]</div>
+<p>Furthermore, <strong>we can perfectly reconstruct the original continuous harmonic signal</strong> <span class="math notranslate nohighlight">\(y(t)\)</span>!</p>
 <p>Now you might wonder what happened to the <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> <span class="math notranslate nohighlight">\(c[1] = -4i\)</span>?
 Remember, multiplying by <span class="math notranslate nohighlight">\(i\)</span> equates to a counterclockwise rotation by 90 degrees.
 The ‘’cosine-part’’ of the complex number represents the real part.
@@ -1006,7 +1010,6 @@ Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p
     <span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">y</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">{</span>
         <span class="kd">arg</span> <span class="nx">n</span><span class="p">;</span>
-        <span class="nx">n</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
         <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span> <span class="o">+</span> <span class="p">(</span><span class="nx">y</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">*</span> <span class="nx">exp</span><span class="p">(</span><span class="nc">Complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="nx">pi</span> <span class="o">/</span> <span class="nx">m</span> <span class="o">*</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">k</span><span class="p">));</span>
     <span class="p">});</span>
     <span class="nx">result</span> <span class="o">/</span> <span class="nx">m</span><span class="p">;</span>
@@ -1014,7 +1017,7 @@ Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">iy</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">}).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="o">~</span><span class="nx">idft</span><span class="p">.(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">i</span><span class="p">)});</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">iy</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">size</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span><span class="p">}).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="o">~</span><span class="nx">idft</span><span class="p">.(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">i</span><span class="p">)});</span>
 
 <span class="cm">/* [ </span>
 <span class="cm">Complex( 8.0, -6.6613381477509e-16 ), </span>
@@ -1034,6 +1037,35 @@ The imaginary part of the complex numbers are approximately zero because <span c
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
+<p>Let us suppose we have the following signal consisting of only one frequency:</p>
+<div class="math notranslate nohighlight">
+\[y(t) = \sin\left(f \cdot 2 \pi \frac{n}{N} \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(N = 16\)</span> and <span class="math notranslate nohighlight">\(f = 3/4\)</span>.
+If the fundamental analysis period of the DFT is also <span class="math notranslate nohighlight">\(N = 16\)</span>, i.e., the sampe frequency <span class="math notranslate nohighlight">\(f_s\)</span> is <span class="math notranslate nohighlight">\(1\)</span> Herz and the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N\)</span> is 1/16 Herz, then <span class="math notranslate nohighlight">\(f = 3/4\)</span> is clearly not an integer multiple of the sampe frequency!</p>
+<p>The following plot shows the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and the discontinuous signal <span class="math notranslate nohighlight">\(y_{\text{dft}}(t)\)</span> ‘seen / assumed’ by the DFT operation.
+Computing the IDFT gives us the correct sample points, i.e., <span class="math notranslate nohighlight">\(y[n] \equiv y_\text{dft}[n]\)</span> holds, but the reconstructed signal <span class="math notranslate nohighlight">\(y_\text{idft}(t)\)</span> is incorrect.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/dft_13_0.png" src="../../../_images/dft_13_0.png" />
+</div>
+</div>
+<p>Computing the IDFT gives us the correct values for our samples but if we look at the frequency and phase spectrum we can observe many different frequencies that are present:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/dft_15_0.png" src="../../../_images/dft_15_0.png" />
+</div>
+</div>
+<p>There are actually two problems here:</p>
+<ul class="simple">
+<li><p><em>Picket Fence Effect</em>: We are trying to represent a frequency <span class="math notranslate nohighlight">\((3/4 \cdot 1/16)\)</span> that is not an integer multiple of the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N = 1/16\)</span>, so the results do not fit properly as harmonics of <span class="math notranslate nohighlight">\(f_N\)</span>. We are unable to view the underlying continuous spectrum because the DFT limits us to integer multiplies of the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N\)</span>. This is analogous to trying to observe a row of evenly spaced trees through a picket fence.</p></li>
+<li><p><em>Leakage</em>: Discontinuities at the edge of the analysis window spray noise throughout the rest of the spectrum. This phenomenon is called <em>leakage</em> because energy that should be in one spectral harmonic spreads away (leaks) into adjacent harmonics.</p></li>
+</ul>
+<p>To reduce the picket fence effect we can increase the spectral frequency resolution by artificially increasing the number of samples, e.g., by padding them with zeros.
+The leakage problem is more serious.
+The best we can do is devise a work-around.
+We create a function exactly as long as the analysis window that gradually fades in and fades out at the edges.
+If we multiply the signal to be analysed by this function (which is called <em>windowing</em>), we decrease the effect of any discontinuieties at the edges of the analysis window because the discontinuieties are heavily attenuated at the analysis window edges.
+This helps to reduce the impact but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.</p>
 </section>
 <section id="fast-fourier-transform">
 <h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h2>
