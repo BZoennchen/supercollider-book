@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Phase &amp; Frequency &#8212; Algorithmic Composition</title>
+    <title>Frequency Filters &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Frequency Filters" href="3-frequency-filters.html" />
-    <link rel="prev" title="Phase Shifting" href="1-phase-shifting.html" />
+    <link rel="next" title="Responses and Resonance" href="5-resonance.html" />
+    <link rel="prev" title="Basic Filters" href="3-simpler-filters.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -403,7 +403,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="filters.html">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -413,22 +413,22 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-basics.html">
+     Filter Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-simpler-filters.html">
+     Basic Filters
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Phase &amp; Frequency
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="3-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -656,7 +656,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/chapters/sounddesign/filters/2-phase-and-frequency.md"
+        <a href="../../../_sources/chapters/sounddesign/filters/4-frequency-filters.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -693,23 +693,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lowpass-filter">
+   Lowpass Filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#highpass-filter">
+   Highpass Filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandpass-filter">
+   Bandpass Filter
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Phase & Frequency</h1>
+                <h1>Frequency Filters</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lowpass-filter">
+   Lowpass Filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#highpass-filter">
+   Highpass Filter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bandpass-filter">
+   Bandpass Filter
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -717,54 +774,134 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="phase-frequency">
-<h1>Phase &amp; Frequency<a class="headerlink" href="#phase-frequency" title="Permalink to this headline">#</a></h1>
-<p>If we speak of filters, we often refer to <em>low pass</em> or <em>high pass filters</em>.
-They filter frequencies above or below some <em>cutoff frequency</em>.
-For example, the low pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is a <em>2nd order Butterworth lowpass filter</em>.</p>
-<figure class="align-default" id="fig-butterworth-filter">
-<a class="reference internal image-reference" href="../../../_images/butterworth-filter.png"><img alt="../../../_images/butterworth-filter.png" src="../../../_images/butterworth-filter.png" style="width: 600px;" /></a>
+  <section class="tex2jax_ignore mathjax_ignore" id="frequency-filters">
+<h1>Frequency Filters<a class="headerlink" href="#frequency-filters" title="Permalink to this headline">#</a></h1>
+<p>Frequency filters are the filters we mean if we talk about filters in general.
+They attune the band of frequencies of a signal.</p>
+<p>As Butterworth stated:</p>
+<blockquote>
+<div><p>An ideal electrical filter should not only completely reject the unwanted frequencies but should also have uniform sensitivity for the wanted frequencies. – Stephen Butterworth</p>
+</div></blockquote>
+<p>Such an ideal filter cannot be achieved but one can try to get close approximations by increasing the number of filter elements.
+In practice, a frequency filter decreases the power/gain of high frequncies.</p>
+<section id="lowpass-filter">
+<span id="sec-lowpass-filter"></span><h2>Lowpass Filter<a class="headerlink" href="#lowpass-filter" title="Permalink to this headline">#</a></h2>
+<p>A <em>lowpass filter</em> filters frequency <strong>above</strong> its <em>cutoff frequency</em>.
+It could also be called highfrequency filter.
+Lowpass filters are used to attenuate high harmonics and make sound <em>darker</em> or <em>smoother</em> in <a class="reference internal" href="../terms.html#sec-timbre"><span class="std std-ref">timbre</span></a>.
+A lowpass filter is often combined with a resonant because (with the respective cutoff frequency) lowpass filters leave the <em>fundamentals</em> of the signal intact.
+So they do not usually affect the perceived and subjective pitch.</p>
+<figure class="align-default" id="fig-lpf-graph">
+<a class="reference internal image-reference" href="../../../_images/lpf-graph.png"><img alt="../../../_images/lpf-graph.png" src="../../../_images/lpf-graph.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Effect of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">The gain over frequency of a signal filtered by a lowpass filter.</span><a class="headerlink" href="#fig-lpf-graph" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
-Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 26</span></a> shows the reduction in amplitude.</p>
-<p>The second effect of the filter is a phase shift; compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 26</span></a>.
-This effect is crucial if we combine multiple filters because they interact!
-In other words: we can not just combine a high pass and low pass filter to get the same result as a band pass filter!</p>
-<p>The following code is an example of a band pass filter.
-First, we use a low pass and high pass filter; then a band pass filter.
-The results sound very similar but not identical.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-    <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
-
-<span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
-    <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+<p>In nature, low frequencies tend to die out much slower than high frequencies.
+This makes sense intuitively because it requires more power to keep the vibration of, for example, a string high.</p>
+<p>With <a class="reference external" href="https://doc.sccode.org/Classes/LPF.html">LPF</a> <code class="docutils literal notranslate"><span class="pre">sclang</span></code> offers a <em>second-order Butterworth lowpass filter</em>.
+Compared to a <em>first-order low pass filter</em>, a second-order low pass filter has two stages.
+In principle, the gain in amplitude over frequencies has a steeper slope.</p>
+<div class="remark admonition" id="remark-second-order-lowpass-filter">
+<p class="admonition-title">Second-order Butterworth Lowpass Filter </p>
+<p>A <em>second-order Butterworth lowpass filter</em> has a <em>slope</em> of -12 db per octave.</p>
+</div>
+<p>Let us compare a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> with a filtered sawtooth wave where the cutoff frequency is equal to the fundamental of the sawtooth:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span>
+<span class="p">{</span><span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">2000</span><span class="p">))}.</span><span class="nx">play</span>
 </pre></div>
 </div>
-<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.
-The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BRF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
-    <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+<p>Let us also have a look at how the waveform changes if we reduce the cutoff frequency over time.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// reduce the cutoff frequency from 2*freq to 0 over the time span of 10 cycles of the waveform</span>
+<span class="p">(</span>
+<span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span>
+<span class="p">{</span>	
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="nx">amp</span><span class="p">;</span>
+    <span class="p">[</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">Line</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">freq</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">freq</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="mi">10</span><span class="p">))]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">freq</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
+<figure class="align-default" id="fig-lpf-saw">
+<a class="reference internal image-reference" href="../../../_images/lpf-saw.png"><img alt="../../../_images/lpf-saw.png" src="../../../_images/lpf-saw.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).</span><a class="headerlink" href="#fig-lpf-saw" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can observer that the maximum amplitude of the filtered signal decreases with the cutoff frequency.</p>
+</section>
+<section id="highpass-filter">
+<h2>Highpass Filter<a class="headerlink" href="#highpass-filter" title="Permalink to this headline">#</a></h2>
+<p>A <em>highpass filter</em> filters frequency <strong>below</strong> its <em>cutoff frequency</em>.
+Highpass filters are excellent to clean up woofy signals and tighten up arrangements.
+They can make the sound more clear which can be especially useful for your <em>lead instrument</em>.</p>
+<figure class="align-default" id="fig-hpf-graph">
+<a class="reference internal image-reference" href="../../../_images/hpf-graph.png"><img alt="../../../_images/hpf-graph.png" src="../../../_images/hpf-graph.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">The gain over frequency of a signal filtered by a highpass filter.</span><a class="headerlink" href="#fig-hpf-graph" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The effect is less obvious, at least with my headphones.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5000</span><span class="p">))}.</span><span class="nx">play</span>
+</pre></div>
+</div>
+<p>If we look at a plot using a modulated highpass filter (here we increase the the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span>
+<span class="p">{</span>	
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="nx">amp</span><span class="p">;</span>
+    <span class="p">[</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">Line</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">freq</span><span class="p">,</span> <span class="nx">freq</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="mi">10</span><span class="p">))]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">freq</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="fig-hpf-saw">
+<a class="reference internal image-reference" href="../../../_images/hpf-saw.png"><img alt="../../../_images/hpf-saw.png" src="../../../_images/hpf-saw.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated highpass filter (bottom).</span><a class="headerlink" href="#fig-hpf-saw" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bandpass-filter">
+<h2>Bandpass Filter<a class="headerlink" href="#bandpass-filter" title="Permalink to this headline">#</a></h2>
+<p>A <em>bandpass filter</em> filters frequency <strong>outside</strong> of its band defined by its <em>center frequency</em> and <em>bandwidth</em>.
+It is a combination of a lowpass and highpass filter.</p>
+<div class="attention admonition" id="attention-scombining-filters">
+<p class="admonition-title">Combining filters</p>
+<p>Combining a lowpass and a highpass filter will not necessarily achieve the same effect because they both apply a phase shift.</p>
+</div>
+<figure class="align-default" id="fig-bpf-graph">
+<a class="reference internal image-reference" href="../../../_images/bpf-graph.png"><img alt="../../../_images/bpf-graph.png" src="../../../_images/bpf-graph.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">The gain over frequency of a signal filtered by a bandpass filter.</span><a class="headerlink" href="#fig-bpf-graph" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> offers us the <a class="reference internal" href="../../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGen</span></a> called <a class="reference external" href="https://doc.sccode.org/Classes/BPF.html">BPF</a>.
+It is a second-order Butterworth bandpass filter.
+Instead of defining the <em>bandwith</em>, we define <code class="docutils literal notranslate"><span class="pre">rq</span></code> which is equal to <em>bandwidth / center frequency</em> thus <em>bandwidth</em> = <code class="docutils literal notranslate"><span class="pre">rq</span></code> * <em>center frequency</em>.</p>
+<p>Let us plot the effect of a modulated bandpass filter.
+Here we only change the <em>center frequency</em> from 220 Hz to 880 Hz.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="p">{</span>	
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="nx">amp</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">centerFreq</span> <span class="o">=</span> <span class="nc">Line</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="nx">freq</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">freq</span><span class="p">,</span> <span class="nx">freq</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="p">[</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">centerFreq</span><span class="p">,</span> <span class="nx">bandwidth</span><span class="o">/</span><span class="nx">centerFreq</span><span class="p">)]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="nx">freq</span><span class="p">.</span><span class="nx">reciprocal</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="fig-bpf-saw">
+<a class="reference internal image-reference" href="../../../_images/bpf-saw.png"><img alt="../../../_images/bpf-saw.png" src="../../../_images/bpf-saw.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).</span><a class="headerlink" href="#fig-bpf-saw" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Let’s have a listen:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">2000</span><span class="p">),</span> <span class="nc">MouseY</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))}.</span><span class="nx">play</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -794,17 +931,17 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="1-phase-shifting.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="3-simpler-filters.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Phase Shifting</p>
+            <p class="prev-next-title">Basic Filters</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3-frequency-filters.html" title="next page">
+    <a class='right-next' id="next-link" href="5-resonance.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Frequency Filters</p>
+        <p class="prev-next-title">Responses and Resonance</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

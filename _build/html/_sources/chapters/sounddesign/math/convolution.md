@@ -48,6 +48,7 @@ $$y_3(t) = (y_1 * y_2)(t).$$
 
 But what does the *convolution operator* $*$ really do?
 
+(sec-discrete-convolution)=
 ## Discrete Convolution
 
 Let us start with two arrays of numbers which represent discrete functions $y_1, y_2$.

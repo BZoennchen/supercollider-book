@@ -405,7 +405,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../filters/filters.html">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -415,22 +415,22 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../filters/1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/2-phase-and-frequency.html">
-     Phase &amp; Frequency
+    <a class="reference internal" href="../filters/2-basics.html">
+     Filter Response
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/3-frequency-filters.html">
+    <a class="reference internal" href="../filters/3-simpler-filters.html">
+     Basic Filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../filters/4-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../filters/4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -846,7 +846,7 @@ Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span
 \[y_3(t) = (y_1 * y_2)(t).\]</div>
 <p>But what does the <em>convolution operator</em> <span class="math notranslate nohighlight">\(*\)</span> really do?</p>
 <section id="discrete-convolution">
-<h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
+<span id="sec-discrete-convolution"></span><h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
 <p>Let us start with two arrays of numbers which represent discrete functions <span class="math notranslate nohighlight">\(y_1, y_2\)</span>.</p>
 <p>We can use component-wise multiplication to generate a new function:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// [ -1, 6, -3, 12 ], y_1[k] * y_2[k]</span>
@@ -901,8 +901,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67b58a2b-255e-4dda-9a96-ef3d1efdc4e0">
-<span class="eqno">(30)<a class="headerlink" href="#equation-67b58a2b-255e-4dda-9a96-ef3d1efdc4e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-74ccb79d-c7db-4026-9704-31f4dfab8b61">
+<span class="eqno">(30)<a class="headerlink" href="#equation-74ccb79d-c7db-4026-9704-31f4dfab8b61" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -912,8 +912,8 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87b08c25-7b24-4777-b5c4-320979916fd8">
-<span class="eqno">(31)<a class="headerlink" href="#equation-87b08c25-7b24-4777-b5c4-320979916fd8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0fdfd3ce-c006-4403-86a6-e80458baf79c">
+<span class="eqno">(31)<a class="headerlink" href="#equation-0fdfd3ce-c006-4403-86a6-e80458baf79c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
@@ -949,8 +949,8 @@ Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are
 In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e53a7bf-a683-4326-b121-6b4683390b3b">
-<span class="eqno">(32)<a class="headerlink" href="#equation-3e53a7bf-a683-4326-b121-6b4683390b3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ee4af325-09cc-4aec-addf-ac7cde4718c4">
+<span class="eqno">(32)<a class="headerlink" href="#equation-ee4af325-09cc-4aec-addf-ac7cde4718c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
 </section>
@@ -960,8 +960,8 @@ The argument <span class="math notranslate nohighlight">\(n\)</span> of <span cl
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03ee0f1f-c2ef-4f46-b00c-dd78c4a2d6fa">
-<span class="eqno">(33)<a class="headerlink" href="#equation-03ee0f1f-c2ef-4f46-b00c-dd78c4a2d6fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-08b0b980-ea56-4558-b99b-24e184c36308">
+<span class="eqno">(33)<a class="headerlink" href="#equation-08b0b980-ea56-4558-b99b-24e184c36308" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
