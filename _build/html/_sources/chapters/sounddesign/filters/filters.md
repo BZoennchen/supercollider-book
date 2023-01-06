@@ -1,3 +1,37 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+```{code-cell} python3
+:tags: [remove-input]
+import numpy as np
+import scipy.integrate as integrate
+import scipy.special as special
+from scipy.integrate import quad
+import matplotlib.pyplot as plt
+import scipy.special
+import seaborn as sns
+from scipy.integrate import cumtrapz
+
+dpi = 300
+transparent = True
+PI = np.pi
+TWO_PI = 2*PI
+NUM = 44000
+show = False
+
+sns.set_theme('talk')
+sns.set_style("whitegrid")
+```
+
 (sec-filters)=
 # Subtractive Synthesis and Filters
 
@@ -12,17 +46,54 @@ For example, speaker wire is not considered a filter, but the speaker is (unfort
 -- Julius O. Smith
 
 A *digital filter* is just a filter that operates on digital signals, such as sound represented inside a computer.
-Because of how we normally interprete the term *filter* our fundamental understanding of filters might be that they make parts of the signal quieter -- which is not the whole story.
-Filters have a 
+Because of how we normally interprete the term, *filter* our fundamental understanding of filters might be that they make parts of the signal quieter -- which is not the whole story.
+With respect to the frequency domain, filters have a 
 
-1. **amplitude filter response**, and
+1. **amplitude frequency response**, and
 2. **phase response**.
+
+If a filter sharply sets the a specific range of frequencies to zero and let the rest untouched it is called *brick wall*.
+For example, we could compute the [Fourier transform](def-fourier-transform-exp) of a signal and then multiply frequency in that range with zero.
+For computational complexity and buffering reasons, such ideal filters are rahter unpractical for real-time use.
+Therefore, most filters work differently.
+They reduce or strengthen the power of certain frequencies.
+
+```{admonition} Filtering and the Fourier transform
+:name: remark-filtering-and-convolution
+:class: remark
+
+Filtering can be achieved by multiplication in the spectural domain and by convolution in the time domain.
+
+```
+
+For example, if we want to completely filter out all high frequencies up to a *cutoff frequency* $f_c$ without touching the low frequencies $(f \leq f_c)$, our ideal *brick wall filter* would have an amplitude frequency response that looks like the following plot.
+
+```{code-cell} python3
+:tags: [remove-input]
+f_s = 3
+f_c = 2
+t = np.linspace(0, f_s, 1000)
+gain = lambda x: 1 if x <= f_c else 0
+y = [gain(val) for val in t]
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, y, label=r'$y(t)$')
+ax.set_xticks([0, f_c, f_s])
+ax.set_xticklabels([r'$0$', r'$f_c$', r'$f_s/2$'])
+ax.set_yticks([0, 0.5, 1, 1.5])
+ax.set_xlabel('Frequency $f$');
+ax.set_ylabel(r'Gain $G(f)$');
+```
+
+Such *ideal filter* is the simplest lowpass filter.
+The gain is 1 in the *passband*, which pans frequencies from 0 Hz to the *cutoff frequency* $f_c$ Hz, and its gain is 0 in the *stopband* (all frequencies above $f_c$).
+The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.
 
 Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., $\sin(2\pi t)$ is transformed to $\sin(2\pi t + 0.5\pi)$.
 Some filters do primarily apply such period shifts and we might not think of them as filters.
 For example, the *allpass filter* does passes all frequencies untouched but attunes the phases.
 
-*Low pass filters* are used everywhere because they can smoothen the harshness of a sound.
+*Lowpass filters* are used everywhere because they can smoothen the harshness of a sound.
 A lot of filters allow support a feedback cycle, i.e., the output signal of the filter goes back into the filter.
 Each time the signal is fed into the filter, its level gets reduced such that the feedback eventually comes to an end.
 Such feedback can be used to synthesis reverberation.

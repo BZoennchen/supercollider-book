@@ -82,7 +82,7 @@ The inverse transform of function $Y(f)$ at time $t$ is given by the complex num
 
 The pair $(y, Y)$ are called *Fourier integral pair* or *Fourier transform pair* and we define $\mathcal{F}$ to be the Fourier transform operator with
 
-$$\mathcal{F}(y) = Y, \quad \mathcal{F}^{-1}(Y) = y.$$
+$$\mathcal{F}\{y\} = Y, \quad \mathcal{F}^{-1}\{Y\} = y.$$
 
 We are dealing with real-valued functions but this is not a problem since $\mathbb{R} \subset \mathbb{C}$.
 Real-valued functions are just a special case where $y(t) = \overline{y(t)}$ which implies

@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -416,11 +426,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../filters/1-phase-shifting.html">
      Filtering by Delay
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../filters/2-basics.html">
-     Filter Response
     </a>
    </li>
    <li class="toctree-l2">
@@ -816,8 +821,8 @@ For example, what exactly represents the term <span class="math notranslate nohi
 <div class="definition admonition" id="def-complex-number">
 <p class="admonition-title">Complex Numbers </p>
 <p>A <em>complex number</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2bfc916-3140-4353-8a22-ef8dd6a538d9">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b2bfc916-3140-4353-8a22-ef8dd6a538d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-618b97ae-229c-43d8-980d-7946e8d88389">
+<span class="eqno">(4)<a class="headerlink" href="#equation-618b97ae-229c-43d8-980d-7946e8d88389" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z = (a + bi) \in \mathbb{C},
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span>, is the sum of a <em>real number</em> <span class="math notranslate nohighlight">\(a = \textbf{Re}(z) \in \mathbb{R}\)</span> and an <em>imaginary number</em> <span class="math notranslate nohighlight">\(b = \textbf{Im}(z)\)</span>.</p>
@@ -830,8 +835,8 @@ There is however an additional special operation called <em>complex conjugation<
 <div class="definition admonition" id="def-complex-conjugate">
 <p class="admonition-title">Complex Conjugation </p>
 <p>The conjugation <span class="math notranslate nohighlight">\(\overline{z}\)</span> of a complex number <span class="math notranslate nohighlight">\(z = a + bi\)</span> is the negation of its imaginary part, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-09ca1be2-cfa7-4678-a54e-d047216d6d77">
-<span class="eqno">(5)<a class="headerlink" href="#equation-09ca1be2-cfa7-4678-a54e-d047216d6d77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-48d34cb0-4cda-4fdc-8039-70291e7eaf9c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-48d34cb0-4cda-4fdc-8039-70291e7eaf9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \overline{z} = \overline{a + bi} = \overline{a} + \overline{bi} = a - bi.
 \end{equation}\]</div>
 </div>
@@ -863,16 +868,16 @@ There is however an additional special operation called <em>complex conjugation<
 </figure>
 <p>This gives us another representation using the angle <span class="math notranslate nohighlight">\(\phi\)</span> and the magnitude <span class="math notranslate nohighlight">\(r\)</span> of the vector <span class="math notranslate nohighlight">\((a, b)\)</span>.
 We have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-deacd5c5-ae1b-4750-9f43-a15edcd8db84">
-<span class="eqno">(6)<a class="headerlink" href="#equation-deacd5c5-ae1b-4750-9f43-a15edcd8db84" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d8de54d8-c35e-421f-ae05-77505963309b">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d8de54d8-c35e-421f-ae05-77505963309b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 a &amp;= r \cdot \cos(\phi)\\
 bi &amp;= r \cdot i\sin(\phi)
 \end{split}
 \end{equation}\]</div>
 <p>thus</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a58beb1-158a-4afc-97ab-1599b684c928">
-<span class="eqno">(7)<a class="headerlink" href="#equation-3a58beb1-158a-4afc-97ab-1599b684c928" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ec185a21-1ebd-44d8-89c0-2f0ce9b256ab">
+<span class="eqno">(7)<a class="headerlink" href="#equation-ec185a21-1ebd-44d8-89c0-2f0ce9b256ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 z &amp;= a + bi\\
   &amp;= (r \cdot \cos(\phi)) + (r \cdot i \sin(\phi))\\
@@ -880,13 +885,13 @@ z &amp;= a + bi\\
 \end{split}
 \end{equation}\]</div>
 <p>Given <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, we can compute <span class="math notranslate nohighlight">\(r\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-187f72ac-eee4-49de-adcb-d0b34f34bf06">
-<span class="eqno">(8)<a class="headerlink" href="#equation-187f72ac-eee4-49de-adcb-d0b34f34bf06" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc9e834e-c5f4-432e-a534-7ea55b7a0934">
+<span class="eqno">(8)<a class="headerlink" href="#equation-fc9e834e-c5f4-432e-a534-7ea55b7a0934" title="Permalink to this equation">#</a></span>\[\begin{equation}
 r^2 = a^2 + b^2 = z \cdot \overline{z}
 \end{equation}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\phi\)</span> using</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a5ad4bb4-5114-4f02-9351-9b61adbaf59b">
-<span class="eqno">(9)<a class="headerlink" href="#equation-a5ad4bb4-5114-4f02-9351-9b61adbaf59b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-faec2177-90f5-4537-a6e9-522311912d50">
+<span class="eqno">(9)<a class="headerlink" href="#equation-faec2177-90f5-4537-a6e9-522311912d50" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \phi = \cos^{-1}(a/r).
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -935,8 +940,8 @@ Since <span class="math notranslate nohighlight">\(-i = 1 \cdot (a \cos(90) - i\
 <div class="theorem admonition" id="theorem-de-moivre">
 <p class="admonition-title">De Moivre’s Theorem </p>
 <p>Let <span class="math notranslate nohighlight">\(z = r \cdot (\cos(\phi) + i \sin(\phi))\)</span> be a <em>complex number</em>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3dffe03f-61bf-4894-8ba0-0db2886819aa">
-<span class="eqno">(11)<a class="headerlink" href="#equation-3dffe03f-61bf-4894-8ba0-0db2886819aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b9c03da-c97b-46ce-bd31-355f460b3d35">
+<span class="eqno">(11)<a class="headerlink" href="#equation-6b9c03da-c97b-46ce-bd31-355f460b3d35" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z^n = r^n (\cos(n\phi) + i \sin(n\phi))
 \end{equation}\]</div>
 <p>holds.</p>
@@ -950,8 +955,8 @@ To arrive at the formula we first have to do some work.</p>
 <div class="definition admonition" id="def-taylor-series">
 <p class="admonition-title">Taylor Sries </p>
 <p>Let <span class="math notranslate nohighlight">\(y(t)\)</span> be a real or comlex-valued function that is infinitely differentiable at a real or complex number <span class="math notranslate nohighlight">\(z\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-84d69c6b-6de4-4e88-b7db-4af94c4b9fbd">
-<span class="eqno">(12)<a class="headerlink" href="#equation-84d69c6b-6de4-4e88-b7db-4af94c4b9fbd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0f07501-1928-48fd-9dee-3ad8e1c7210b">
+<span class="eqno">(12)<a class="headerlink" href="#equation-d0f07501-1928-48fd-9dee-3ad8e1c7210b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 T_{y(z)}(t) &amp;= f(z) + \frac{y'(z)}{1!}(t-z) + \frac{y''(z)}{2!}(t-z)^2 + \frac{y'''(z)}{3!}(t-z) + \ldots \\
 &amp;= \sum\limits_{k=0}^{\infty} \frac{y^{(k)}(z)}{k!}(t-z) = y(t)
@@ -1035,8 +1040,8 @@ e^{\phi i} &amp;= T_{e^0}(\phi i) = \sum\limits_{k=0}^{\infty} \frac{(\phi i)^k}
 </pre></div>
 </div>
 <p>Therefore, the most beautiful formula of all times, called <em>Euler’s identity</em>, emerges</p>
-<div class="amsmath math notranslate nohighlight" id="equation-270f21d2-8544-4497-9c18-5d1d1bc38dd8">
-<span class="eqno">(17)<a class="headerlink" href="#equation-270f21d2-8544-4497-9c18-5d1d1bc38dd8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-47d60678-85a3-49aa-905a-03d313d7e800">
+<span class="eqno">(17)<a class="headerlink" href="#equation-47d60678-85a3-49aa-905a-03d313d7e800" title="Permalink to this equation">#</a></span>\[\begin{equation}
 e^{i\pi} + 1 = 0.
 \end{equation}\]</div>
 <p>Using Eq. <a class="reference internal" href="#equation-eq-euler">(16)</a> we can use the exponential function to represent our trigonometric functions.
@@ -1044,16 +1049,16 @@ We start with</p>
 <div class="math notranslate nohighlight">
 \[(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\phi} + e^{-i\phi}.\]</div>
 <p>Therefore, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7027d3b5-e181-4b1c-9a16-e6430d47f0c2">
-<span class="eqno">(18)<a class="headerlink" href="#equation-7027d3b5-e181-4b1c-9a16-e6430d47f0c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4c03b909-00b7-4e0b-8e23-7401b975cd9f">
+<span class="eqno">(18)<a class="headerlink" href="#equation-4c03b909-00b7-4e0b-8e23-7401b975cd9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2}.
 \end{equation}\]</div>
 <p>For the sine we start with</p>
 <div class="math notranslate nohighlight">
 \[(\cos(\phi) + i\sin(\phi)) - (\cos(\phi) - i\sin(\phi)) = 2i \sin(\phi) = e^{i\pi} - e^{-i\pi}.\]</div>
 <p>Therefore, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b9a26e2-9679-401f-8289-7348f4744353">
-<span class="eqno">(19)<a class="headerlink" href="#equation-3b9a26e2-9679-401f-8289-7348f4744353" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-07c95dca-9d2d-41db-b288-ceeab5df362a">
+<span class="eqno">(19)<a class="headerlink" href="#equation-07c95dca-9d2d-41db-b288-ceeab5df362a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sin(\phi) = \frac{e^{i\phi} - e^{-i\phi}}{2i} = -i\frac{e^{i\phi} - e^{-i\phi}}{2}.
 \end{equation}\]</div>
 </section>
@@ -1063,27 +1068,27 @@ We start with</p>
 <div class="definition admonition" id="def-phasor">
 <p class="admonition-title">Phasor</p>
 <p>A <em>phasor</em> is the <em>polar representation</em> of any complex variable</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0daa7cae-e5dc-423f-98fb-dbbac317471b">
-<span class="eqno">(20)<a class="headerlink" href="#equation-0daa7cae-e5dc-423f-98fb-dbbac317471b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eec287fc-03d8-40e4-bfea-b73676ee7552">
+<span class="eqno">(20)<a class="headerlink" href="#equation-eec287fc-03d8-40e4-bfea-b73676ee7552" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \hat{r}_\phi = r e^{i\phi},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r, \phi \in \mathbb{R}\)</span>.
 It represents the amplitude and phase shift of some sinosoid.</p>
 </div>
 <p>We can define any sinosoid of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-042451d0-b8fd-4a9d-86f7-c8640030a445">
-<span class="eqno">(21)<a class="headerlink" href="#equation-042451d0-b8fd-4a9d-86f7-c8640030a445" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f15d2b7c-c996-413e-957e-4005144a509c">
+<span class="eqno">(21)<a class="headerlink" href="#equation-f15d2b7c-c996-413e-957e-4005144a509c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = r \cdot \cos(2\pi f t + \phi)
 \end{equation}\]</div>
 <p>using the real part of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1baec7d4-11c1-448a-bbc0-b566b8999e88">
-<span class="eqno">(22)<a class="headerlink" href="#equation-1baec7d4-11c1-448a-bbc0-b566b8999e88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb183921-cb9a-482e-be78-925b8a863b10">
+<span class="eqno">(22)<a class="headerlink" href="#equation-cb183921-cb9a-482e-be78-925b8a863b10" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = r e^{i\phi} \cdot e^{i 2\pi t} = r e^{i (2\pi t + \phi)} = r \cdot (\cos(2\pi t + \phi) + i \sin(2\pi t + \phi)),
 \end{equation}\]</div>
 <p>where the <strong>phasor</strong> <span class="math notranslate nohighlight">\(r e^{i\phi}\)</span> is a constant, <span class="math notranslate nohighlight">\(f\)</span> is the <strong>frequency</strong>, and <span class="math notranslate nohighlight">\(\phi\)</span> the <strong>phase</strong> of the sinusoid.
 In many text books you will find</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99be6c9d-1ef8-455e-9823-2d19e9ce1103">
-<span class="eqno">(23)<a class="headerlink" href="#equation-99be6c9d-1ef8-455e-9823-2d19e9ce1103" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d26c5920-f016-4fc8-a461-4836fa20b41b">
+<span class="eqno">(23)<a class="headerlink" href="#equation-d26c5920-f016-4fc8-a461-4836fa20b41b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 r e^{i (\omega t + \phi)} = r \cdot (\cos(omega t + \phi) + i \sin(\omega t + \phi))
 \end{equation}\]</div>
 <p>instead, where <span class="math notranslate nohighlight">\(\omega\)</span> is the <em>anglar speed</em> or <em>speed of rotation</em>.</p>

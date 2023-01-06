@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -416,11 +426,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="1-phase-shifting.html">
      Filtering by Delay
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2-basics.html">
-     Filter Response
     </a>
    </li>
    <li class="toctree-l2">
@@ -636,6 +641,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/filters/filters.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -657,6 +691,23 @@ title="Fullscreen mode"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/filters/filters.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../../_sources/chapters/sounddesign/filters/filters.md"
    class="headerbtn"
@@ -719,7 +770,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="subtractive-synthesis-and-filters">
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="subtractive-synthesis-and-filters">
 <span id="sec-filters"></span><h1>Subtractive Synthesis and Filters<a class="headerlink" href="#subtractive-synthesis-and-filters" title="Permalink to this headline">#</a></h1>
 <p>In <a class="reference internal" href="../additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a> we start with silence and add more and more simple wave forms together to achieve a complex sound.
 <em>Subtractive synthesis</em> works the opposite.
@@ -732,16 +785,34 @@ For example, speaker wire is not considered a filter, but the speaker is (unfort
 – Julius O. Smith</p>
 </div></blockquote>
 <p>A <em>digital filter</em> is just a filter that operates on digital signals, such as sound represented inside a computer.
-Because of how we normally interprete the term <em>filter</em> our fundamental understanding of filters might be that they make parts of the signal quieter – which is not the whole story.
-Filters have a</p>
+Because of how we normally interprete the term, <em>filter</em> our fundamental understanding of filters might be that they make parts of the signal quieter – which is not the whole story.
+With respect to the frequency domain, filters have a</p>
 <ol class="simple">
-<li><p><strong>amplitude filter response</strong>, and</p></li>
+<li><p><strong>amplitude frequency response</strong>, and</p></li>
 <li><p><strong>phase response</strong>.</p></li>
 </ol>
+<p>If a filter sharply sets the a specific range of frequencies to zero and let the rest untouched it is called <em>brick wall</em>.
+For example, we could compute the <a class="reference internal" href="../math/z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a> of a signal and then multiply frequency in that range with zero.
+For computational complexity and buffering reasons, such ideal filters are rahter unpractical for real-time use.
+Therefore, most filters work differently.
+They reduce or strengthen the power of certain frequencies.</p>
+<div class="remark admonition" id="remark-filtering-and-convolution">
+<p class="admonition-title">Filtering and the Fourier transform</p>
+<p>Filtering can be achieved by multiplication in the spectural domain and by convolution in the time domain.</p>
+</div>
+<p>For example, if we want to completely filter out all high frequencies up to a <em>cutoff frequency</em> <span class="math notranslate nohighlight">\(f_c\)</span> without touching the low frequencies <span class="math notranslate nohighlight">\((f \leq f_c)\)</span>, our ideal <em>brick wall filter</em> would have an amplitude frequency response that looks like the following plot.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/filters_2_0.png" src="../../../_images/filters_2_0.png" />
+</div>
+</div>
+<p>Such <em>ideal filter</em> is the simplest lowpass filter.
+The gain is 1 in the <em>passband</em>, which pans frequencies from 0 Hz to the <em>cutoff frequency</em> <span class="math notranslate nohighlight">\(f_c\)</span> Hz, and its gain is 0 in the <em>stopband</em> (all frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>).
+The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.</p>
 <p>Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> is transformed to <span class="math notranslate nohighlight">\(\sin(2\pi t + 0.5\pi)\)</span>.
 Some filters do primarily apply such period shifts and we might not think of them as filters.
 For example, the <em>allpass filter</em> does passes all frequencies untouched but attunes the phases.</p>
-<p><em>Low pass filters</em> are used everywhere because they can smoothen the harshness of a sound.
+<p><em>Lowpass filters</em> are used everywhere because they can smoothen the harshness of a sound.
 A lot of filters allow support a feedback cycle, i.e., the output signal of the filter goes back into the filter.
 Each time the signal is fed into the filter, its level gets reduced such that the feedback eventually comes to an end.
 Such feedback can be used to synthesis reverberation.

@@ -301,14 +301,14 @@ The plots show us some effects of the convolution:
 :name: theorem-fourier-convolution
 :class: theorem
 
-Let $y_1, y_2$ be two functions for which we can comupte the respective [Fourier transform](def-fourier-transform-exp) $Y_1 = \mathcal{F}(y_1)$, and $Y_2 = \mathcal{F}(y_2)$ respectively.
+Let $y_1, y_2$ be two functions for which we can comupte the respective [Fourier transform](def-fourier-transform-exp) $Y_1 = \mathcal{F}\{y_1\}$, and $Y_2 = \mathcal{F}\{y_2\}$ respectively.
 Then
 
-$$(y_1 * y_2)(t) = \mathcal{F}^{-1}(Y_1 \cdot Y_2)(t)$$
+$$(y_1 * y_2)(t) = \mathcal{F}^{-1}\{Y_1 \cdot Y_2\}(t)$$
 
 and 
 
-$$(y_1 \cdot y_2)(t) = \mathcal{F}^{-1}(Y_1 * Y_2)(t)$$
+$$(y_1 \cdot y_2)(t) = \mathcal{F}^{-1}\{Y_1 * Y_2\}(t)$$
 
 ```
 

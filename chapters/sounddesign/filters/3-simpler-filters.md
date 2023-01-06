@@ -1,5 +1,7 @@
 # Basic Filters
 
+TODO: Rework!
+
 Mathematically filters realize a *convolution* in the time domain.
 In case of a digital signal this translate to a [discrete convolution](sec-discrete-convolution).
 For example, let $y[0], \ldots, y[n]$ be the discrete (input) signal of a [sawtooth waves](sec-sawtooth-wave) and $z[0], \ldots z[n]$ be the filtered (output) signal.
@@ -36,17 +38,18 @@ This cancelation works so well because the rate of change of a sawtooth wave is 
 ## OneZero
 
 [OneZero](https://doc.sccode.org/Classes/OneZero.html) extends from [Filter](https://doc.sccode.org/Classes/Filter.html) thus it is a filter.
+It is a [linear time-invariant filters](def-linear-time-invariant).
 I had a hard time understanding what this filter actually does to its input signal $\text{in}$, since the documentation is very minimal.
 But I think I could reverse engineer its behaviour.
 
 The documentation states that a one zero filter implements the formula:
 
 \begin{equation}
-\text{out}[i] = (1 - |\alpha|) \cdot \text{in}[n] + \alpha \cdot \text{in}[n-1]
+y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1]
 \end{equation}
 
 with $-1 \leq \alpha \leq 1$.
-$\text{in}[i]$ is actually the $i$-th sample of the discrete input signal.
+$x[n]$ is actually the $n$-th sample of the discrete input signal.
 Therefore, ``OneZero`` as well as ``OnePole`` depend on the sample rate / audio rate!
 
 Let us use $\alpha = -0.5$ and we achieve differentiation!
@@ -69,7 +72,7 @@ To compute the difference quotient we use the following formula:
 Using the discrete input signal $\text{in}$ gives us:
 
 \begin{equation}
-    \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{a_\text{rate}}.
+    \frac{x[n] - x[n-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}
 
 To test this result, let us compute the cosine using ``SinOsc`` and a ``OneZero``.
@@ -109,6 +112,7 @@ gives us the cosine.
 ````
 
 If we use $\alpha = 1.0$ we generate a single sample delay and for -1.0 we additionally mirror the signal at the $x$-axis.
+We already analysed the [frequency response](def-frequency-response) of a very similar filter in section [Analysis of a Simple Filter](sec-analysis-simple-filter).
 
 (sec-onepole)=
 ## OnePole
@@ -118,29 +122,29 @@ The documentation states that a one pole filter implements the formula:
 
 ```{math}
 :label: eq:onepole
-    \text{out}[i] = (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]
+y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]
 ```
 
 with $-1 \leq \alpha \leq 1$.
 I assume 
 
 \begin{equation}
-\text{out}[0] = (1 - |\alpha|) \cdot \text{in}[0]
+y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}
 
-holds. $\text{out}$ is the resulting signal and $\text{in}$ the input signal of ``OnePole``.
+holds. $y$ is the resulting signal and $x$ the input signal of ``OnePole``.
 Let us assume $1 \geq \alpha \geq 0$, then we can rearrange Eq. {eq}`eq:onepole`:
 
 ```{math}
 :label: eq:onepole2
-    \text{out}[i] = \text{in}[i] + \alpha \cdot (\text{out}[i-1] - \text{in}[i])
+    y[n] = x[n] + \alpha \cdot (y[n-1] - x[n])
 ```
 
 or 
 
 ```{math}
 :label: eq:onepole3
-    \text{out}[i] = \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])
+    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])
 ```
 
 with $\beta = 1-\alpha$.
@@ -148,10 +152,10 @@ If $\beta$ is small, ($\alpha$ is large respectively), then output samples $\tex
 
 \begin{equation}
 \begin{split}
-\text{out}[2] & = \text{out}[1] + \beta \cdot (\text{in}[2] - \text{out}[1]) \\
-  & = \text{in}[2] \cdot \beta + \text{in}[1] \cdot (\beta - \beta^2) + \text{in}[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
-  & = \beta \cdot (\text{in}[2] + \text{in}[1] \cdot (1 - \beta) + \text{in}[0] \cdot (1 - \beta)^2) \\
-  & = (1-\alpha) \cdot (\text{in}[2] + \text{in}[1] \cdot \alpha + \text{in}[0] \cdot \alpha^2)
+y[2] & = y[1] + \beta \cdot (x[2] - y[1]) \\
+  & = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
+  & = \beta \cdot (x[2] + x[1] \cdot (1 - \beta) + x[0] \cdot (1 - \beta)^2) \\
+  & = (1-\alpha) \cdot (x[2] + x[1] \cdot \alpha + x[0] \cdot \alpha^2)
 \end{split}
 \end{equation}
 
@@ -159,7 +163,7 @@ and in general we get
 
 \begin{equation}
 \begin{split}
-\text{out}[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot \text{in}[k].
+y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
 \end{equation}
 
@@ -173,7 +177,7 @@ The exponential decay is depicted in {numref}`Fig. {number} <fig-lag-and-onepole
 ``OnePole`` is a first-oder [lowpass filter](sec-lowpass-filter).
 ```
 
-Compare, for example, the following similar sounding signals of a [sawtooth wave](sec-sawtooth-wave), first filtered by the low-pass filter ``LPF`` and then filtered by ``OnePole`` using a large $\alpha$:
+Compare, for example, the following similar sounding signals of a [sawtooth wave](sec-sawtooth-wave), first filtered by the lowpass filter ``LPF`` and then filtered by ``OnePole`` using a large $\alpha$:
 
 ```isc
 {LPF.ar(Saw.ar(440), 400) * 0.25;}.play
@@ -181,4 +185,4 @@ Compare, for example, the following similar sounding signals of a [sawtooth wave
 ```
 
 ``OnePole`` simulates a simple (analog/electrical) RC-filter (resistance, capacity).
-In the [Wikipedia article](https://en.wikipedia.org/wiki/Low-pass_filter) about low-pass filters, you can find some additional explanations regarding the relationship between the continuous electrical and discrete digital filter.
+In the [Wikipedia article](https://en.wikipedia.org/wiki/Low-pass_filter) about lowpass filters, you can find some additional explanations regarding the relationship between the continuous electrical and discrete digital filter.

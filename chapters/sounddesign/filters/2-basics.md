@@ -32,42 +32,78 @@ sns.set_theme('talk')
 sns.set_style("whitegrid")
 ```
 
-# Filter Response
+# Linear Filters
 
-To characterize a filter we general want to know its
+*Linear filters* process time-varying input signals to produce output signals, subject to the constraint of *linearity*.
+In most cases these linear filters are also time *invariant* (or *shift invariant*) in which case they can be analyzed exactly using [LTI](def-linear-time-invariant) ('linear time-invariant') system theory.
 
-1. **amplitude frequency response**, and its
-2. **phase response**.
+```{admonition} Linear Time-invariant Filters (LTI)
+:name: def-linear-time-invariant
+:class: definition
 
-If a filter sharply sets the a specific range of frequencies to zero and let the rest untouched it is called *brick wall*.
-For example, we could compute the [Fourier transform](def-fourier-transform-exp) of a signal and then multiply frequency in that range with zero.
-For computational complexity and buffering reasons, such ideal filters are rahter unpractical for real-time use.
+Let $x(t)$ be the input signal and $y(t)$ be the output signal of a filter.
+Then a filter is *linear time-invariant* if the following two conditions hold:
 
-```{admonition} Filtering and the Fourier transform
-:name: remark-filtering-and-convolution
-:class: remark
-
-Filtering can be achieved by multiplication in the spectural domain and by convolution in the time domain.
+1. Linearity: $a \cdot x(t)$ translates to $a \cdot y(t)$ and $x_1(t) + x_2(t)$ translate to $y_1(t) + y_2(t)$ (superposition principle).
+2. Time-invariant: whether we apply an input to the filter now or some time later does not matter. The filters effect does not change over time.
 
 ```
 
-Therefore, most filters work differently.
-They reduce or strengthen the power of certain frequencies.
+For example, if we modulate the cutoff frequency of a filter, it is no longer *time-invariant*.
+To analyse the behaviour of a *linear filter* one looks at two different effects.
 
-## Butterworth Filter
+1. **Frequency response** (frequency domain): how does the amplitude and phase of a frequency $f$ changes.
+2. **Impulse response** (time domain):
 
-If we speak of filters, we often refer to *low pass* or *high pass filters*. 
-They filter frequencies above or below some *cutoff frequency*.
-For example, the low pass filter ``LPF`` in ``sclang`` is a *2nd order Butterworth lowpass filter*.
+## Frequency Response
+
+The frequency response of a filter tells us how it effects a the amplitude and phase of a frequency of the input signal.
+[LTI filters](def-linear-time-invariant) can be characterized in the frequency domain by the *Z transform*.
+As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the transfer function and the transform of the input.
+In other words, convolution in the time domain is equivalent to multiplication in the frequency domain.
+
+```{admonition} Frequency response
+:name: def-frequency-response
+:class: definition
+
+The *frequency response* of a *linear filter* be represented in one formula (see section [Complex Numbers](sec-complex-numbers))
+
+\begin{equation}
+H(\omega) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}}.
+\end{equation}
+
+where $G(\omega)$ is the *amplutide frequency response* and $\mathcal{\Theta}(\omega)$ the *phase response* of the filter.
+
+```
+
+The *gain* $G(f)$ in frequency $f$ is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:
+
+\begin{equation}
+G(f) = \frac{O(f)}{I(f)}
+\end{equation}
+
+```{admonition} Gain of LTI Filters
+:name: def-gain-lti-theorem
+:class: theorem
+
+If the input to any any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i \omega t}$, the output will be some constant times the input $B \cdot e^{i\omega t}$ and 
+
+$$G(\omega) = \frac{B}{A}.$$
+
+```
+
+The default *low-* ``LPF`` and *highpass filters* ``HPF`` ugens of ``sclang`` filter frequencies above or below some *cutoff frequency*.
+They are *2nd order Butterworth low-/highpass filter*.
 
 ```{figure} ../../../figs/sounddesign/filters/butterworth-filter.png
 ---
 width: 600px
 name: fig-butterworth-filter
 ---
-Effect of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, [link](https://commons.wikimedia.org/w/index.php?curid=735081).
+Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, [link](https://commons.wikimedia.org/w/index.php?curid=735081).
 ```
 
+The *frequency response* of a *2nd order Butterworth lowpass filter* is illustrated above. 
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 Well, that is not entirely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
@@ -75,10 +111,10 @@ The top plot of {numref}`Fig. {number} <fig-butterworth-filter>` shows the reduc
 
 The second effect of the filter is a phase shift; compare the bottom plot of {numref}`Fig. {number} <fig-butterworth-filter>`.
 This effect is crucial if we combine multiple filters because they interact!
-In other words: we can not just combine a high pass and low pass filter to get the same result as a band pass filter!
+In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!
 
 The following code is an example of a band pass filter.
-First, we use a low pass and high pass filter; then a band pass filter.
+First, we use a lowpass and high pass filter; then a band pass filter.
 The results sound very similar but not identical.
 
 ```isc
@@ -111,15 +147,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 }.play;)
 ```
 
-## Computation (Example)
-
-Let us define some relevant terms and formulas such that we can characterize filters.
-I will do so by example.
-The *gain* $H(f)$ in frequency $f$ is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:
-
-\begin{equation}
-G(f) = \frac{O(f)}{I(f)}
-\end{equation}
+(sec-analysis-simple-filter)=
+## Analysis of a Simple Filter
 
 Let $x[n]$ be an input signal, $y[n]$ the output signal of the filter and $f_s = \frac{1}{T}$ the sample rate.
 Let use start with a very *simple filter*:
@@ -129,13 +158,38 @@ y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}
 
 Note that $x[t]$ is defined for $t = n T$ with $n = 0, 1, 2, \ldots$
+Our *simple filter* is a [linear and time-invariant](def-linear-time-invariant) filter.
+The [OnePole](https://doc.sccode.org/Classes/OnePole.html) unit generator is a flexible version of this filter.
 
-To analyse what effect the filter has on a specific frequency we define $x[n]$ to be a sinusoid containing one specific frequency $f$.
+You might suspect that since is the simplest possible *lowpass filter*, it is also somehow the worst possible low-pass filter. 
+How bad is it? 
+In what sense is it bad? How do we even know it is a low-pass at all? 
+The answers to these and related questions will become apparent when we find the [frequency response](def-frequency-response) of this filter.
+
+Our goal is to use a test singal that consists of only one frequency and then reformulate $y[n]$ such that we arrive at
+
+\begin{equation*}
+x[n] = H(\omega) \cdot x[n].
+\end{equation*}
+
+where $H(\omega)$ has to be independent of $n$.
+
+We start by using test signals, i.e., we define $x[n]$ to be a sinusoid containing **one** specific frequency $f$.
 Therefore, we assume:
 
 \begin{equation*}
 x[n] = A \cdot e^{i(2\pi f n T + \phi)}.
 \end{equation*}
+
+```isc
+// here we test for f = f_s / 5
+(	
+{
+  var sig = SinOsc.ar(s.sampleRate/5);
+  [sig, OneZero.ar(sig, coef: 0.5, mul: 2)]
+}.plot(20/s.sampleRate)
+)
+```
 
 Let us simplify by assuming $A = 1$, $\phi = 0$ and $\omega = 2\pi f$ thus
 
@@ -150,7 +204,8 @@ Therefore, $y[n]$ is defined by
 y[n] &= e^{i \omega n T} + e^{i \omega (n-1) T}\\
 &= e^{i \omega n T} + e^{i \omega n T} \cdot e^{-i \omega n T}\\
 &= (1 + e^{-i \omega T}) \cdot e^{i \omega n T}\\
-&= (1 + e^{-i \omega T}) \cdot x[n]
+&= (1 + e^{-i \omega T}) \cdot x[n]\\
+&= H(\omega) \cdot x[n]
 \end{split}
 \end{equation*}
 
@@ -161,20 +216,6 @@ $$G(\omega) = |(1 + e^{-i \omega T})|$$
 and the phase response is
 
 $$\mathcal{\Theta}(\omega) = \angle 1 + e^{-i \omega T}.$$
-
-```{admonition} Filter Response
-:name: def-filter-response
-:class: definition
-
-The overall *filter response* can be represented in one formula (see section [Complex Numbers](sec-complex-numbers))
-
-\begin{equation}
-H(\omega) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{-i \mathcal{\Theta}(\omega)}}_{\text{Phase}}.
-\end{equation}
-
-where $G(\omega)$ is the *amplutide frequency response* and $\mathcal{\Theta}(\omega)$ the *phase response* of the filter.
-
-```
 
 We can further manipulate the formula for the *gain* by the following:
 
@@ -212,12 +253,12 @@ The following plot shows the amplitude frequency response in $\omega$.
 ```{code-cell} python3
 :tags: [remove-input]
 t = np.linspace(-np.pi, np.pi, 1000)
-gain = lambda x: 2 * np.cos(x)
+gain = lambda x: 2 * np.cos(x/2)
 
 fig, ax = plt.subplots(figsize=(10,5))
 ax.plot(t, gain(t), label=r'$y(t)$')
 ax.set_xticks([-np.pi, 0, np.pi])
-ax.set_xticklabels([r'$-\pi$', r'0', r'$+\pi$'])
+ax.set_xticklabels([r'$-\pi$ $(-f_s/2)$', r'0', r'$+\pi$ $(f_s/2)$'])
 ax.set_ylabel(r'Gain $G(\omega)$')
 ax.set_xlabel(r'$\omega\,(=2\pi f)$');
 ```
@@ -237,7 +278,7 @@ fig, ax = plt.subplots(figsize=(10,5))
 ax.plot(t, phase(t), label=r'$y(t)$')
 ax.set_xticks([0, np.pi/2, np.pi])
 ax.set_yticks([-np.pi/2, -np.pi/4, 0])
-ax.set_xticklabels([r'$0$', r'$\pi/2$', r'$\pi$']);
+ax.set_xticklabels([r'$0$', r'$\pi/2$', r'$\pi$ $(f_s/2)$']);
 ax.set_yticklabels([r'$-\frac{\pi}{2}$', r'$-\frac{\pi}{4}$', r'$0$']);
 ax.set_ylabel(r'Phase Shift $\mathcal{\Theta}(\omega)$')
 ax.set_xlabel(r'$\omega$');
@@ -258,3 +299,78 @@ If the phase response of the filter is a linear (straight-line) function of freq
 ```
 
 Filters that are not linear phase can introduce *phase distortion*.
+
+```{admonition} General Form of a LTI Filter
+:name: def-form-lti-filter
+:class: definition
+
+A LTI Filter may be expressed in general as follows:
+
+\begin{equation}
+\begin{split}
+y[n] &= \text{Transfer function} \cdot \text{Circular motion}\\
+&= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
+&= G(\omega) A \cdot e^{i(\omega n T + \Theta(\omega) + \phi)}
+\end{split}
+\end{equation}
+
+```
+
+Thus, a filter can be characterized as circular motion with radius $G(\omega) A$ and phase $\Theta(\omega)+\phi$.
+The particular kind of filter implemented depends only on the definition of $G(\omega)$ and $\Theta(\omega)$.
+
+## Impulse Response
+
+The fundamental result in [LTI](def-linear-time-invariant) system theory is that any LTI system can be characterized entirely by a single function called the system's *impulse response* (in the time domain).
+The output of the filter $y[n]$ is simply the convolution of the input to the filter $x[n]$ with the system's *impulse response* $h[n]$.
+
+```{admonition} Impulse Response
+:name: def-impulse-response
+:class: definition
+
+The *impulse response*, or *impulse response function (IRF)*, of a filter is its output when presented with a brief input signal, called an *impulse* $\delta(t)$.
+(In the discrete case we write $\delta[n]$ instead.)
+
+```
+
+The *Dirac delta distribution* ($\delta$ distribution), also known as *unit impulse*, is a generalized function or distribution over the real numbers, whose value is zero everywhere expect at zero, and whose integral over the entire real line is equal to one:
+
+$$\delta(t) = 0 \Rightarrow t \neq 0 \qquad \int_{-\infty}^\infty \delta(t) dt = 1.$$
+
+Strictly speaking $\delta(t)$ not a function because it is not defined for $\delta(0)$.
+One can define
+
+$$\delta(t) = \lim\limits_{b \rightarrow 0} \frac{1}{|b| \sqrt{\pi}} e^{-(x/b)^2}.$$
+
+Interestingly, the Dirac delta function is the neutral element of the [convolution](sec-convolution), that is,
+
+$$(y * \delta) = (\delta * y) = y.$$
+
+In the discrete case, things are more intuitive via the *Kronecker delta function* $\delta[n]$.
+
+```{admonition} Kronecker $\delta$-Function
+:name: def-kronecker-delta
+:class: definition
+
+The *Kronecker delta function* $\delta : \mathbb{Z} \rightarrow \{0, 1\}$ is defined by 
+
+\begin{equation}
+\delta[n] = \begin{cases}
+1, & \text{if } n = 0,\\
+0, & \text{otherwise}.
+\end{cases}
+\end{equation}
+
+```
+
+It is the discrete analog of the *Dirac delta function*.
+For example, the filter response of our *simple filter* is
+
+$$y[n] = \delta[n] + \delta[n-1], n = 0, 1, 2, \ldots$$
+
+which gives us $y[0] = y[1] = 1$ and $y[n] = 0$ for all $n \geq 2$.
+Note that any signal $x[\cdot]$ can be expressed as a combination of weighted delta functions, i.e.,
+
+$$x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].$$
+
+TODO

@@ -59,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Frequency Filters" href="4-frequency-filters.html" />
-    <link rel="prev" title="Filter Response" href="2-basics.html" />
+    <link rel="prev" title="Filtering by Delay" href="1-phase-shifting.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -416,11 +426,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="1-phase-shifting.html">
      Filtering by Delay
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="2-basics.html">
-     Filter Response
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -768,12 +773,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="basic-filters">
 <h1>Basic Filters<a class="headerlink" href="#basic-filters" title="Permalink to this headline">#</a></h1>
+<p>TODO: Rework!</p>
 <p>Mathematically filters realize a <em>convolution</em> in the time domain.
 In case of a digital signal this translate to a <a class="reference internal" href="../math/convolution.html#sec-discrete-convolution"><span class="std std-ref">discrete convolution</span></a>.
 For example, let <span class="math notranslate nohighlight">\(y[0], \ldots, y[n]\)</span> be the discrete (input) signal of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a> and <span class="math notranslate nohighlight">\(z[0], \ldots z[n]\)</span> be the filtered (output) signal.
 If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bffced92-0c3f-4649-8a50-5b87f43e609a">
-<span class="eqno">(53)<a class="headerlink" href="#equation-bffced92-0c3f-4649-8a50-5b87f43e609a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4c94fddd-6d5b-4bc7-bce6-909813623aab">
+<span class="eqno">(60)<a class="headerlink" href="#equation-4c94fddd-6d5b-4bc7-bce6-909813623aab" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{split}
     z[0] &amp;= 0.5 \cdot y[0]\\
     z[n] &amp;= 0.5 \cdot y[n] - 0.5 \cdot y[n-1], \quad n = 1, 2, 3, \ldots
@@ -796,39 +802,40 @@ We can use the <a class="reference internal" href="#sec-onezero"><span class="st
 <section id="onezero">
 <span id="sec-onezero"></span><h2>OneZero<a class="headerlink" href="#onezero" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> extends from <a class="reference external" href="https://doc.sccode.org/Classes/Filter.html">Filter</a> thus it is a filter.
+It is a <a class="reference internal" href="../math/lti-filters.html#def-linear-time-invariant"><span class="std std-ref">linear time-invariant filters</span></a>.
 I had a hard time understanding what this filter actually does to its input signal <span class="math notranslate nohighlight">\(\text{in}\)</span>, since the documentation is very minimal.
 But I think I could reverse engineer its behaviour.</p>
 <p>The documentation states that a one zero filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-950ffb6c-ffca-414f-b721-f2d077c27447">
-<span class="eqno">(54)<a class="headerlink" href="#equation-950ffb6c-ffca-414f-b721-f2d077c27447" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\text{out}[i] = (1 - |\alpha|) \cdot \text{in}[n] + \alpha \cdot \text{in}[n-1]
+<div class="amsmath math notranslate nohighlight" id="equation-6f28ae7c-ec26-4c25-abf9-7b7033da189e">
+<span class="eqno">(61)<a class="headerlink" href="#equation-6f28ae7c-ec26-4c25-abf9-7b7033da189e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
-<span class="math notranslate nohighlight">\(\text{in}[i]\)</span> is actually the <span class="math notranslate nohighlight">\(i\)</span>-th sample of the discrete input signal.
+<span class="math notranslate nohighlight">\(x[n]\)</span> is actually the <span class="math notranslate nohighlight">\(n\)</span>-th sample of the discrete input signal.
 Therefore, <code class="docutils literal notranslate"><span class="pre">OneZero</span></code> as well as <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> depend on the sample rate / audio rate!</p>
 <p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we achieve differentiation!
 Let <span class="math notranslate nohighlight">\(y(t)\)</span> be our signal, then we basically compute</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a15a6cb-076d-4425-b379-e15cf4f32aec">
-<span class="eqno">(55)<a class="headerlink" href="#equation-0a15a6cb-076d-4425-b379-e15cf4f32aec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-610f34b6-cb62-4185-a67d-ecb3823941dd">
+<span class="eqno">(62)<a class="headerlink" href="#equation-610f34b6-cb62-4185-a67d-ecb3823941dd" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2}.
 \end{equation}\]</div>
 <p>To compute the difference quotient, we have to figure out what <span class="math notranslate nohighlight">\(h\)</span> is.
 In other words, what is the time between <span class="math notranslate nohighlight">\(\text{in}[i]\)</span> and <span class="math notranslate nohighlight">\(\text{in}[i-1]\)</span>.
 The answer is <span class="math notranslate nohighlight">\(1/a_\text{rate}\)</span> where <span class="math notranslate nohighlight">\(a_\text{rate}\)</span> is the audio rate.</p>
 <p>To compute the difference quotient we use the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d69d0fd4-95a3-4252-bf79-08b0e17d596c">
-<span class="eqno">(56)<a class="headerlink" href="#equation-d69d0fd4-95a3-4252-bf79-08b0e17d596c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c3afa547-8b55-4e9a-ac05-3bc17fbd8752">
+<span class="eqno">(63)<a class="headerlink" href="#equation-c3afa547-8b55-4e9a-ac05-3bc17fbd8752" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
 \end{equation}\]</div>
 <p>Using the discrete input signal <span class="math notranslate nohighlight">\(\text{in}\)</span> gives us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d191a2a8-a10e-43d0-9d8a-f0366cf1c15c">
-<span class="eqno">(57)<a class="headerlink" href="#equation-d191a2a8-a10e-43d0-9d8a-f0366cf1c15c" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    \frac{\text{in}[i] - \text{in}[i-1]}{2} \cdot \frac{2}{a_\text{rate}}.
+<div class="amsmath math notranslate nohighlight" id="equation-3a94276f-5eeb-468f-9fa2-fe1cbcfe1199">
+<span class="eqno">(64)<a class="headerlink" href="#equation-3a94276f-5eeb-468f-9fa2-fe1cbcfe1199" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \frac{x[n] - x[n-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}\]</div>
 <p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b1b517b-5db1-4bdf-8f8a-035195c6da46">
-<span class="eqno">(58)<a class="headerlink" href="#equation-3b1b517b-5db1-4bdf-8f8a-035195c6da46" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2962a66-cae6-4900-bef6-efcb6d3ebdde">
+<span class="eqno">(65)<a class="headerlink" href="#equation-d2962a66-cae6-4900-bef6-efcb6d3ebdde" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -854,43 +861,44 @@ Remember</p>
 </div>
 <p>gives us the cosine.</p>
 </div>
-<p>If we use <span class="math notranslate nohighlight">\(\alpha = 1.0\)</span> we generate a single sample delay and for -1.0 we additionally mirror the signal at the <span class="math notranslate nohighlight">\(x\)</span>-axis.</p>
+<p>If we use <span class="math notranslate nohighlight">\(\alpha = 1.0\)</span> we generate a single sample delay and for -1.0 we additionally mirror the signal at the <span class="math notranslate nohighlight">\(x\)</span>-axis.
+We already analysed the <a class="reference internal" href="../math/lti-filters.html#def-frequency-response"><span class="std std-ref">frequency response</span></a> of a very similar filter in section <a class="reference internal" href="../math/lti-filters.html#sec-analysis-simple-filter"><span class="std std-ref">Analysis of a Simple Filter</span></a>.</p>
 </section>
 <section id="onepole">
 <span id="sec-onepole"></span><h2>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">#</a></h2>
 <p>Another <code class="docutils literal notranslate"><span class="pre">UGen</span></code> I have a hard time get my head around is <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
 The documentation states that a one pole filter implements the formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole">
-<span class="eqno">(59)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[    \text{out}[i] = (1 - |\alpha|) \cdot \text{in}[i] + \alpha \cdot \text{out}[i-1]\]</div>
+<span class="eqno">(66)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4137463f-adef-485a-ba59-f378f4452d66">
-<span class="eqno">(60)<a class="headerlink" href="#equation-4137463f-adef-485a-ba59-f378f4452d66" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\text{out}[0] = (1 - |\alpha|) \cdot \text{in}[0]
+<div class="amsmath math notranslate nohighlight" id="equation-f0c9910c-fb67-4fa4-8ed6-bf44c190166f">
+<span class="eqno">(67)<a class="headerlink" href="#equation-f0c9910c-fb67-4fa4-8ed6-bf44c190166f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
-<p>holds. <span class="math notranslate nohighlight">\(\text{out}\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(\text{in}\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
-Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(59)</a>:</p>
+<p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
+Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(66)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole2">
-<span class="eqno">(61)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">#</a></span>\[    \text{out}[i] = \text{in}[i] + \alpha \cdot (\text{out}[i-1] - \text{in}[i])\]</div>
+<span class="eqno">(68)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">#</a></span>\[    y[n] = x[n] + \alpha \cdot (y[n-1] - x[n])\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole3">
-<span class="eqno">(62)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    \text{out}[i] = \text{out}[i-1] + \beta \cdot (\text{in}[i] - \text{out}[i-1])\]</div>
+<span class="eqno">(69)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(\text{in}[0], \ldots \text{in}[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6dabd2c-cb5c-4504-9307-d9a559b7a7eb">
-<span class="eqno">(63)<a class="headerlink" href="#equation-f6dabd2c-cb5c-4504-9307-d9a559b7a7eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-30385e8e-a886-4c4a-992f-f37265cac0e9">
+<span class="eqno">(70)<a class="headerlink" href="#equation-30385e8e-a886-4c4a-992f-f37265cac0e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
-\text{out}[2] &amp; = \text{out}[1] + \beta \cdot (\text{in}[2] - \text{out}[1]) \\
-  &amp; = \text{in}[2] \cdot \beta + \text{in}[1] \cdot (\beta - \beta^2) + \text{in}[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
-  &amp; = \beta \cdot (\text{in}[2] + \text{in}[1] \cdot (1 - \beta) + \text{in}[0] \cdot (1 - \beta)^2) \\
-  &amp; = (1-\alpha) \cdot (\text{in}[2] + \text{in}[1] \cdot \alpha + \text{in}[0] \cdot \alpha^2)
+y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
+  &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
+  &amp; = \beta \cdot (x[2] + x[1] \cdot (1 - \beta) + x[0] \cdot (1 - \beta)^2) \\
+  &amp; = (1-\alpha) \cdot (x[2] + x[1] \cdot \alpha + x[0] \cdot \alpha^2)
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e16bde4f-69e0-4c8d-87fc-f5155575e957">
-<span class="eqno">(64)<a class="headerlink" href="#equation-e16bde4f-69e0-4c8d-87fc-f5155575e957" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3eb6861c-268b-4ae0-a270-bbf52eb2d1eb">
+<span class="eqno">(71)<a class="headerlink" href="#equation-3eb6861c-268b-4ae0-a270-bbf52eb2d1eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
-\text{out}[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot \text{in}[k].
+y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
 \end{equation}\]</div>
 <p>The change from one filter output to the next is proportional to the difference between the previous output and the next input.
@@ -900,13 +908,13 @@ The exponential decay is depicted in <a class="reference internal" href="6-contr
 <p class="admonition-title">OnePole</p>
 <p><code class="docutils literal notranslate"><span class="pre">OnePole</span></code> is a first-oder <a class="reference internal" href="4-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">lowpass filter</span></a>.</p>
 </div>
-<p>Compare, for example, the following similar sounding signals of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>, first filtered by the low-pass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> and then filtered by <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> using a large <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<p>Compare, for example, the following similar sounding signals of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>, first filtered by the lowpass filter <code class="docutils literal notranslate"><span class="pre">LPF</span></code> and then filtered by <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> using a large <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span> <span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span>
 <span class="p">{</span><span class="nc">OnePole</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">),</span> <span class="na">coef:</span> <span class="mf">0.98</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">OnePole</span></code> simulates a simple (analog/electrical) RC-filter (resistance, capacity).
-In the <a class="reference external" href="https://en.wikipedia.org/wiki/Low-pass_filter">Wikipedia article</a> about low-pass filters, you can find some additional explanations regarding the relationship between the continuous electrical and discrete digital filter.</p>
+In the <a class="reference external" href="https://en.wikipedia.org/wiki/Low-pass_filter">Wikipedia article</a> about lowpass filters, you can find some additional explanations regarding the relationship between the continuous electrical and discrete digital filter.</p>
 </section>
 </section>
 
@@ -937,11 +945,11 @@ In the <a class="reference external" href="https://en.wikipedia.org/wiki/Low-pas
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="2-basics.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="1-phase-shifting.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Filter Response</p>
+            <p class="prev-next-title">Filtering by Delay</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="4-frequency-filters.html" title="next page">
