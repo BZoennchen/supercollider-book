@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -405,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../filters/filters.html">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -415,22 +425,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../filters/1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/2-phase-and-frequency.html">
-     Phase &amp; Frequency
+    <a class="reference internal" href="../filters/3-simpler-filters.html">
+     Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/3-frequency-filters.html">
+    <a class="reference internal" href="../filters/4-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../filters/4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -878,7 +883,7 @@ On a computer, audio is digitalized.
 That is, we are dealing with <strong>discrete signals</strong>.</p>
 <section id="definitions">
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
-<p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal we switch from the <em><a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
+<p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal we switch from the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
 If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
 For audio signals the DTFT is not that relevant.</p>
 <div class="definition admonition" id="def-fourier-series-exp-discrete">
@@ -909,7 +914,7 @@ Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</sp
 <div class="math notranslate nohighlight">
 \[\frac{f_s}{N}.\]</div>
 <p>Therefore, we expect limitations when dealing with inharmonic content because any content within the signal which is not part of some harmonic will be approximated by those harmonics and since we only compute a finite number of coefficients, this approximation is imperfect.</p>
-<p>Similar to the <em><a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> there is an inverse transformation.</p>
+<p>Similar to the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> there is an inverse transformation.</p>
 <div class="definition admonition" id="def-inverse-discrete-fourier-transform">
 <p class="admonition-title">Inverse Discrete Fourier Transform (IDFT)</p>
 <p>The <em>inverse discrete Fourier transform IDFT</em> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span> into another sequence of complex numbers  <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span>, such that</p>

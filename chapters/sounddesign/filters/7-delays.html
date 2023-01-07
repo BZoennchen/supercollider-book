@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -405,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="filters.html">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -415,22 +425,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-phase-and-frequency.html">
-     Phase &amp; Frequency
+    <a class="reference internal" href="3-simpler-filters.html">
+     Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3-frequency-filters.html">
+    <a class="reference internal" href="4-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -855,7 +860,7 @@ For this reason, they are useful even though do not seem to differ much from <em
 <section id="plucking">
 <h2>Plucking<a class="headerlink" href="#plucking" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> <em>unit generator</em> realizes a <em>Karplus-Strong string synthesis</em> which is a method of <a class="reference internal" href="../physical-modeling.html#sec-pm"><span class="std std-ref">physical modeling</span></a> that loops a short waveform through a filtered <em>delay line</em> to simulate the sound of a hammered or plucked string or some types of percussion.
-The generator consists of a <a class="reference internal" href="4-simpler-filters.html#sec-onepole"><span class="std std-ref">OnePole</span></a> lowpass filter and a <em>delay line</em>.</p>
+The generator consists of a <a class="reference internal" href="3-simpler-filters.html#sec-onepole"><span class="std std-ref">OnePole</span></a> lowpass filter and a <em>delay line</em>.</p>
 <p>In the following, I tried to recreate the <em>pluck</em> using basic <em>unit generators</em>.
 I use two synth definitions, one for the <em>pluck</em> and the other for the <em>impulse</em> generation.
 The <em>impulse signal</em> is fed into the <em>pluck</em> by using SuperCollider’s bus system.

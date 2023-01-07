@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
+    <link rel="next" title="Z-Transform" href="z-transform.html" />
     <link rel="prev" title="Discrete Fourier Transform" href="dft.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -405,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../filters/filters.html">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -415,22 +425,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../filters/1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/2-phase-and-frequency.html">
-     Phase &amp; Frequency
+    <a class="reference internal" href="../filters/3-simpler-filters.html">
+     Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/3-frequency-filters.html">
+    <a class="reference internal" href="../filters/4-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../filters/4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -846,7 +851,7 @@ Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span
 \[y_3(t) = (y_1 * y_2)(t).\]</div>
 <p>But what does the <em>convolution operator</em> <span class="math notranslate nohighlight">\(*\)</span> really do?</p>
 <section id="discrete-convolution">
-<h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
+<span id="sec-discrete-convolution"></span><h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
 <p>Let us start with two arrays of numbers which represent discrete functions <span class="math notranslate nohighlight">\(y_1, y_2\)</span>.</p>
 <p>We can use component-wise multiplication to generate a new function:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// [ -1, 6, -3, 12 ], y_1[k] * y_2[k]</span>
@@ -901,8 +906,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67b58a2b-255e-4dda-9a96-ef3d1efdc4e0">
-<span class="eqno">(30)<a class="headerlink" href="#equation-67b58a2b-255e-4dda-9a96-ef3d1efdc4e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d0f68da-e5dc-4727-a101-89dab7020710">
+<span class="eqno">(30)<a class="headerlink" href="#equation-3d0f68da-e5dc-4727-a101-89dab7020710" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -912,8 +917,8 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87b08c25-7b24-4777-b5c4-320979916fd8">
-<span class="eqno">(31)<a class="headerlink" href="#equation-87b08c25-7b24-4777-b5c4-320979916fd8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc202062-70cd-46e8-9c57-e12cdfb10dd0">
+<span class="eqno">(31)<a class="headerlink" href="#equation-dc202062-70cd-46e8-9c57-e12cdfb10dd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
@@ -949,8 +954,8 @@ Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are
 In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e53a7bf-a683-4326-b121-6b4683390b3b">
-<span class="eqno">(32)<a class="headerlink" href="#equation-3e53a7bf-a683-4326-b121-6b4683390b3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-34b3092c-aef4-4084-8968-05f9c7ca9019">
+<span class="eqno">(32)<a class="headerlink" href="#equation-34b3092c-aef4-4084-8968-05f9c7ca9019" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
 </section>
@@ -960,8 +965,8 @@ The argument <span class="math notranslate nohighlight">\(n\)</span> of <span cl
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03ee0f1f-c2ef-4f46-b00c-dd78c4a2d6fa">
-<span class="eqno">(33)<a class="headerlink" href="#equation-03ee0f1f-c2ef-4f46-b00c-dd78c4a2d6fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e79b157e-4ce9-4853-8be4-e575c7b08a94">
+<span class="eqno">(33)<a class="headerlink" href="#equation-e79b157e-4ce9-4853-8be4-e575c7b08a94" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
@@ -999,16 +1004,16 @@ In the first and second column you find the functions <span class="math notransl
 </ol>
 <div class="theorem admonition" id="theorem-fourier-convolution">
 <p class="admonition-title">Convolution Theorem</p>
-<p>Let <span class="math notranslate nohighlight">\(y_1, y_2\)</span> be two functions for which we can comupte the respective <a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a> <span class="math notranslate nohighlight">\(Y_1 = \mathcal{F}(y_1)\)</span>, and <span class="math notranslate nohighlight">\(Y_2 = \mathcal{F}(y_2)\)</span> respectively.
+<p>Let <span class="math notranslate nohighlight">\(y_1, y_2\)</span> be two functions for which we can comupte the respective <a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a> <span class="math notranslate nohighlight">\(Y_1 = \mathcal{F}\{y_1\}\)</span>, and <span class="math notranslate nohighlight">\(Y_2 = \mathcal{F}\{y_2\}\)</span> respectively.
 Then</p>
 <div class="math notranslate nohighlight">
-\[(y_1 * y_2)(t) = \mathcal{F}^{-1}(Y_1 \cdot Y_2)(t)\]</div>
+\[(y_1 * y_2)(t) = \mathcal{F}^{-1}\{Y_1 \cdot Y_2\}(t)\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight">
-\[(y_1 \cdot y_2)(t) = \mathcal{F}^{-1}(Y_1 * Y_2)(t)\]</div>
+\[(y_1 \cdot y_2)(t) = \mathcal{F}^{-1}\{Y_1 * Y_2\}(t)\]</div>
 </div>
 <p>Multiplying in the time domain convolves in the frequency domain and multiplying in the frequency domain convolves in the time domain.
-Therefore, to compute the convolution one can do so by compute the <a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> beforehand.
+Therefore, to compute the convolution one can do so by compute the <a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> beforehand.
 In fact, this is how the unit generators, such as <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a>, are implemented.</p>
 </section>
 <section id="the-convolution-unit-generator">
@@ -1050,7 +1055,7 @@ Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 </figcaption>
 </figure>
 <p>To compute ‘perfect’ convolution in the time domain, one requires all function values beforehand.
-This would make real-time processing impossible! Therefore, <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> computes a windowed Fourier transform, i.e., the <a class="reference internal" href="fourier-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> of a short snipped of the functions (in and the kernel).
+This would make real-time processing impossible! Therefore, <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> computes a windowed Fourier transform, i.e., the <a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> of a short snipped of the functions (in and the kernel).
 Based on that, it computes the convolution of those snippets. To do so, the unit generator has to fill a buffer of a specific size (twice the number of framesize).
 Before the convolution can start, the buffer has to be filled; therefore, the result is zero at the beginning.
 The larger the buffer, the more expensive the operation gets and the more zeros there are at the beginning.
@@ -1092,10 +1097,10 @@ If one period of the signals fits approximately into the buffer, the result will
             <p class="prev-next-title">Discrete Fourier Transform</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../abstract-and-physical.html" title="next page">
+    <a class='right-next' id="next-link" href="z-transform.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Abstract and Physical Synthesis</p>
+        <p class="prev-next-title">Z-Transform</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

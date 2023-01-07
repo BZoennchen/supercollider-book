@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Subtractive Synthesis &#8212; Algorithmic Composition</title>
+    <title>Subtractive Synthesis and Filters &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Phase Shifting" href="1-phase-shifting.html" />
+    <link rel="next" title="Filtering by Delay" href="1-phase-shifting.html" />
     <link rel="prev" title="A Sum of Sines" href="../additive-synthesis/2-sine-sum.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../math/lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -405,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -415,22 +425,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-phase-and-frequency.html">
-     Phase &amp; Frequency
+    <a class="reference internal" href="3-simpler-filters.html">
+     Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3-frequency-filters.html">
+    <a class="reference internal" href="4-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -636,6 +641,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/filters/filters.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -657,6 +691,23 @@ title="Fullscreen mode"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/filters/filters.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../../_sources/chapters/sounddesign/filters/filters.md"
    class="headerbtn"
@@ -707,7 +758,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Subtractive Synthesis</h1>
+                <h1>Subtractive Synthesis and Filters</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -719,20 +770,61 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="subtractive-synthesis">
-<span id="sec-filters"></span><h1>Subtractive Synthesis<a class="headerlink" href="#subtractive-synthesis" title="Permalink to this headline">#</a></h1>
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="subtractive-synthesis-and-filters">
+<span id="sec-filters"></span><h1>Subtractive Synthesis and Filters<a class="headerlink" href="#subtractive-synthesis-and-filters" title="Permalink to this headline">#</a></h1>
 <p>In <a class="reference internal" href="../additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a> we start with silence and add more and more simple wave forms together to achieve a complex sound.
 <em>Subtractive synthesis</em> works the opposite.
-We start with rich / complex signal and apply <em>filters</em> to eliminate unwanted frequencies.
-If we talk about subtractive synthesis, we have to talk about filters!</p>
-<p>The fundamental understanding of filters might be that they make parts of the signal quieter – which is wrong.
-They do far more than attenuate some frequencies.
-Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> is transformed to <span class="math notranslate nohighlight">\(\sin(2\pi t + 0.5\pi)\)</span>.
-Some filters do primarily apply such period shifts and we might not think of them as filters.</p>
-<p>A lot of filters allow support a feedback cycle, i.e., the output signal of the filter goes back into the filter.
+We start with rich / complex signal, such as <em>white noise</em> and apply <em>filters</em> to reduce, remove, or even amplify the amplitude of certain frequency bands.
+Consequently, if we talk about subtractive synthesis, we have to talk about <strong>filters</strong>!</p>
+<blockquote>
+<div><p>Any medium through which the music signal passes, whatever its form, can be regarded as a filter.
+However, we do not usually think of something as a filter unless it can modify the sound in some way.
+For example, speaker wire is not considered a filter, but the speaker is (unfortunately).
+– Julius O. Smith</p>
+</div></blockquote>
+<p>A <em>digital filter</em> is just a filter that operates on digital signals, such as sound represented inside a computer.
+Because of how we normally interprete the term, <em>filter</em> our fundamental understanding of filters might be that they make parts of the signal quieter – which is not the whole story.
+With respect to the frequency domain, filters have a</p>
+<ol class="simple">
+<li><p><strong>amplitude frequency response</strong>, and</p></li>
+<li><p><strong>phase response</strong>.</p></li>
+</ol>
+<p>If a filter sharply sets the a specific range of frequencies to zero and let the rest untouched it is called <em>brick wall</em>.
+For example, we could compute the <a class="reference internal" href="../math/z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a> of a signal and then multiply frequency in that range with zero.
+For computational complexity and buffering reasons, such ideal filters are rahter unpractical for real-time use.
+Therefore, most filters work differently.
+They reduce or strengthen the power of certain frequencies.</p>
+<div class="remark admonition" id="remark-filtering-and-convolution">
+<p class="admonition-title">Filtering and the Fourier transform</p>
+<p>Filtering can be achieved by multiplication in the spectural domain and by convolution in the time domain.</p>
+</div>
+<p>For example, if we want to completely filter out all high frequencies up to a <em>cutoff frequency</em> <span class="math notranslate nohighlight">\(f_c\)</span> without touching the low frequencies <span class="math notranslate nohighlight">\((f \leq f_c)\)</span>, our ideal <em>brick wall filter</em> would have an amplitude frequency response that looks like the following plot.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/filters_2_0.png" src="../../../_images/filters_2_0.png" />
+</div>
+</div>
+<p>Such <em>ideal filter</em> is the simplest lowpass filter.
+The gain is 1 in the <em>passband</em>, which pans frequencies from 0 Hz to the <em>cutoff frequency</em> <span class="math notranslate nohighlight">\(f_c\)</span> Hz, and its gain is 0 in the <em>stopband</em> (all frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>).
+The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.</p>
+<p>Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> is transformed to <span class="math notranslate nohighlight">\(\sin(2\pi t + 0.5\pi)\)</span>.
+Some filters do primarily apply such period shifts and we might not think of them as filters.
+For example, the <em>allpass filter</em> does passes all frequencies untouched but attunes the phases.</p>
+<p><em>Lowpass filters</em> are used everywhere because they can smoothen the harshness of a sound.
+A lot of filters allow support a feedback cycle, i.e., the output signal of the filter goes back into the filter.
 Each time the signal is fed into the filter, its level gets reduced such that the feedback eventually comes to an end.
-Such feedback can be used to synthesis reverberation.</p>
-<p>Let me summarize some of the applications of filters:</p>
+Such feedback can be used to synthesis reverberation.
+In combination with an <em>impulse</em> (e.g. <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impuse</a>) filters can be used to contruct surprising effects.
+And with ressonance, filters can add many aspects to the timbre of a sound.</p>
+<p><a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> offers a large variety of filters.
+Execute</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Filter</span><span class="p">.</span><span class="nx">dumpClassSubtree</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>to print a list of all filters to the post window.</p>
+<p>In summary, filters and substractive synthesis are inseperable.</p>
 <ul class="simple">
 <li><p>We can use static filters to emphasize specific frequencies.</p></li>
 <li><p>We can use static filters to create formants in a sound and imitate the characteristics of the human voice or traditional acoustic instruments.</p></li>
@@ -783,7 +875,7 @@ They are also crucial in digital synthesis, and if you are into creative synthes
     <a class='right-next' id="next-link" href="1-phase-shifting.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Phase Shifting</p>
+        <p class="prev-next-title">Filtering by Delay</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

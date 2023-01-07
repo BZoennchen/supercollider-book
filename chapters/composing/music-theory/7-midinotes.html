@@ -374,6 +374,16 @@ const thebe_selector_output = ".output, .cell_output"
      Convolution
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/math/z-transform.html">
+     Z-Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/math/lti-filters.html">
+     Linear Time-invariant Filters
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -405,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../sounddesign/filters/filters.html">
-   Subtractive Synthesis
+   Subtractive Synthesis and Filters
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -415,22 +425,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">
-     Phase Shifting
+     Filtering by Delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/2-phase-and-frequency.html">
-     Phase &amp; Frequency
+    <a class="reference internal" href="../../sounddesign/filters/3-simpler-filters.html">
+     Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">
+    <a class="reference internal" href="../../sounddesign/filters/4-frequency-filters.html">
      Frequency Filters
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/4-simpler-filters.html">
-     Simpler Filters
     </a>
    </li>
    <li class="toctree-l2">
@@ -733,14 +738,14 @@ In combination we get a <em>pitch</em>.</p>
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by <span class="math notranslate nohighlight">\(2^2 = 4\)</span>.
 The mapping between frequency <span class="math notranslate nohighlight">\(f\)</span> and pitch <span class="math notranslate nohighlight">\(p\)</span> is a logarithmic one.
 For <em>12-TET</em> and a standard pitch of A440 we get the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7ecfc87-b23b-443c-86b3-83777d75da04">
-<span class="eqno">(92)<a class="headerlink" href="#equation-b7ecfc87-b23b-443c-86b3-83777d75da04" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9c3289d0-5280-47d1-b57a-992dcc4bdc07">
+<span class="eqno">(101)<a class="headerlink" href="#equation-9c3289d0-5280-47d1-b57a-992dcc4bdc07" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f(p) = 2^\frac{p-69}{12} \cdot 440,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(p\)</span> is the midinote number, i.e., the midinote 69 maps to 440 Hz (A4).
 Since the frequency doubles after 12 keys, we have to multiply the frequency of pitch <span class="math notranslate nohighlight">\(p\)</span> by <span class="math notranslate nohighlight">\(2^{\frac{1}{12}}\)</span> to get <span class="math notranslate nohighlight">\(p+1\)</span>. In other words</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa3290c1-5e21-4e52-b794-e1809b353aa7">
-<span class="eqno">(93)<a class="headerlink" href="#equation-aa3290c1-5e21-4e52-b794-e1809b353aa7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5cde30a1-c792-456a-9de3-53f3b204fafa">
+<span class="eqno">(102)<a class="headerlink" href="#equation-5cde30a1-c792-456a-9de3-53f3b204fafa" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{f(p+1)}{f(p)} = 2^{\frac{1}{12}}.
 \end{equation}\]</div>
 <p>Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.</p>
