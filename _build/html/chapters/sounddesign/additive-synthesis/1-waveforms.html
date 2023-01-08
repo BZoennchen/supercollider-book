@@ -840,7 +840,7 @@ So let us try to understand their timbre by looking at the coefficient of their 
 <span id="sec-sine-wave"></span><h2>The Sine Wave<a class="headerlink" href="#the-sine-wave" title="Permalink to this headline">#</a></h2>
 <p>The sine wave</p>
 <div class="math notranslate nohighlight" id="equation-eq-sine">
-<span class="eqno">(44)<a class="headerlink" href="#equation-eq-sine" title="Permalink to this equation">#</a></span>\[\begin{split}    \begin{split}
+<span class="eqno">(45)<a class="headerlink" href="#equation-eq-sine" title="Permalink to this equation">#</a></span>\[\begin{split}    \begin{split}
     y_\text{sine}(t) &amp;= A \cdot \sin(2\pi \cdot f \cdot t)\\
      &amp;= A \cdot \frac{e^{i 2\pi \cdot f \cdot t} - e^{-i 2\pi \cdot f \cdot t}}{2i}\\
      &amp;= A \cdot \mathbf{Re}\left( -i \cdot e^{i2\pi \cdot f \cdot t} \right)\\
@@ -848,14 +848,14 @@ So let us try to understand their timbre by looking at the coefficient of their 
     \end{split}\end{split}\]</div>
 <p>is the most pure, most basic, and most simple signal.
 The sine or cosine wave is the most basic waveform there is.
-Its <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(44)</a>.
+Its <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(45)</a>.
 Note that I also use the exponetial form introduced in section <a class="reference internal" href="../math/complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a> but don not worry, it is not that important here.
 The sine or cosine wave, consists of only the fundamental frequency <span class="math notranslate nohighlight">\(f\)</span> and is theoretically the basis for all other signals.
 Sine is equals to cosine shifted by <span class="math notranslate nohighlight">\(\pi/2\)</span>.</p>
 <figure class="align-default" id="fig-sine">
 <a class="reference internal image-reference" href="../../../_images/sine.png"><img alt="../../../_images/sine.png" src="../../../_images/sine.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">The sine wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sine" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">The sine wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sine" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>A sine wave is purely <em>harmonic</em> but it has no overtones.
@@ -870,17 +870,17 @@ It can also be used to add a certain <em>harmonic</em> to a sound.</p>
 <span id="sec-sawtooth-wave"></span><h2>The Sawtooth Wave<a class="headerlink" href="#the-sawtooth-wave" title="Permalink to this headline">#</a></h2>
 <p>The first more complicated and important waveform I want to discuss is the so-called <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a></p>
 <div class="math notranslate nohighlight" id="equation-eq-saw">
-<span class="eqno">(45)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
+<span class="eqno">(46)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.</p>
 <figure class="align-default" id="fig-sawtooth">
 <a class="reference internal image-reference" href="../../../_images/sawtooth.png"><img alt="../../../_images/sawtooth.png" src="../../../_images/sawtooth.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>.
 However, the <span class="math notranslate nohighlight">\(x\)</span>-axis will be always the number of the sample.
-Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 19</span></a> using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
+Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 18</span></a> using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">trifunc</span> <span class="o">=</span> <span class="p">{</span>
     <span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span>
@@ -897,23 +897,23 @@ Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><
 </div>
 <p>To understand the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> musically, we have to look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-saw-fourier">
-<span class="eqno">(46)<a class="headerlink" href="#equation-eq-saw-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<span class="eqno">(47)<a class="headerlink" href="#equation-eq-saw-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
 <p>We can approximate the series by only summing up the first <span class="math notranslate nohighlight">\(n\)</span> terms:</p>
 <div class="math notranslate nohighlight" id="equation-eq-saw-fourier-n">
-<span class="eqno">(47)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">#</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<span class="eqno">(48)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">#</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
 <figure class="align-default" id="fig-sawtooth-20">
 <a class="reference internal image-reference" href="../../../_images/sawtooth_20.png"><img alt="../../../_images/sawtooth_20.png" src="../../../_images/sawtooth_20.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(45)</a>.
-However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(46)</a> that</p>
+<p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(46)</a>.
+However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(47)</a> that</p>
 <ol class="simple">
 <li><p>each harmonic of <span class="math notranslate nohighlight">\(k \cdot f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(k\)</span> decrease by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
 </ol>
-<p>We can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(47)</a>.</p>
+<p>We can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(48)</a>.</p>
 <p>Even if the sawtooth wave does not quite sound like a string instrument, its properties are similar to the audio signal generated by string instruments.
 Therefore, the sawtooth wave can be the starting point for modeling the sound of a violin, piano or guitar.
 Apart from noise, the sawtooth wave is the richest sound produced by any basic oscillator.
@@ -928,23 +928,23 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
 <span id="sec-square-wave"></span><h2>The Square Wave<a class="headerlink" href="#the-square-wave" title="Permalink to this headline">#</a></h2>
 <p>Another important waveform is the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> which is a special case of the pulse wave:</p>
 <div class="math notranslate nohighlight" id="equation-eq-square">
-<span class="eqno">(48)<a class="headerlink" href="#equation-eq-square" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \text{sign}\left( \sin\left( 2\pi \cdot f \cdot t \right) \right)\]</div>
+<span class="eqno">(49)<a class="headerlink" href="#equation-eq-square" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \text{sign}\left( \sin\left( 2\pi \cdot f \cdot t \right) \right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{sign}(\cdot)\)</span> is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-sign">
-<span class="eqno">(49)<a class="headerlink" href="#equation-eq-sign" title="Permalink to this equation">#</a></span>\[\begin{split}    \text{sign}(x) = \begin{cases}
+<span class="eqno">(50)<a class="headerlink" href="#equation-eq-sign" title="Permalink to this equation">#</a></span>\[\begin{split}    \text{sign}(x) = \begin{cases}
     +1 &amp; \text{ if } x \geq 0\\
     -1 &amp; \text{ else.}
     \end{cases}\end{split}\]</div>
 <figure class="align-default" id="fig-square">
 <a class="reference internal image-reference" href="../../../_images/square.png"><img alt="../../../_images/square.png" src="../../../_images/square.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">The square wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-square" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">The square wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-square" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-square-fourier">
-<span class="eqno">(50)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
-<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-square-fourier">(50)</a> that</p>
+<span class="eqno">(51)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
+<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-square-fourier">(51)</a> that</p>
 <ol class="simple">
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k-1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k - 1\)</span> decreases with <span class="math notranslate nohighlight">\(4/(2k - 1)\)</span></p></li>
@@ -953,7 +953,7 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
 <figure class="align-default" id="fig-square-20">
 <a class="reference internal image-reference" href="../../../_images/square_20.png"><img alt="../../../_images/square_20.png" src="../../../_images/square_20.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The square wave has more <em>harmonics</em> as the sine wave but less than the sawtooth wave.
@@ -972,23 +972,23 @@ Their sound contains mostly odd harmonics.</p>
 <span id="sec-triangle-wave"></span><h2>The Triangle Wave<a class="headerlink" href="#the-triangle-wave" title="Permalink to this headline">#</a></h2>
 <p>The next important wave is the <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-triangle">
-<span class="eqno">(51)<a class="headerlink" href="#equation-eq-triangle" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \left( 4 \cdot \left| f \cdot (t+1/4) -  \left \lfloor{ \frac{1}{2} + f \cdot (t+1/4)} \right \rfloor \right| - 1 \right),\]</div>
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-triangle" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \left( 4 \cdot \left| f \cdot (t+1/4) -  \left \lfloor{ \frac{1}{2} + f \cdot (t+1/4)} \right \rfloor \right| - 1 \right),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\left| \cdot \right|\)</span> is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-abs">
-<span class="eqno">(52)<a class="headerlink" href="#equation-eq-abs" title="Permalink to this equation">#</a></span>\[\begin{split}    \left| x \right| = \begin{cases}
+<span class="eqno">(53)<a class="headerlink" href="#equation-eq-abs" title="Permalink to this equation">#</a></span>\[\begin{split}    \left| x \right| = \begin{cases}
     +x &amp; \text{ if } x \geq 0\\
     -x &amp; \text{ else.}
     \end{cases}\end{split}\]</div>
 <figure class="align-default" id="fig-triangle">
 <a class="reference internal image-reference" href="../../../_images/triangle.png"><img alt="../../../_images/triangle.png" src="../../../_images/triangle.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The triangle wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-triangle" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The triangle wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-triangle" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-triangle-fourier">
-<span class="eqno">(53)<a class="headerlink" href="#equation-eq-triangle-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \frac{8}{\pi^2} \cdot \sum_{k=0}^{\infty} (-1)^k \frac{\sin(2\pi \cdot f \cdot (2k+1) \cdot t)}{(2k+1)^2}\]</div>
-<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(53)</a> that</p>
+<span class="eqno">(54)<a class="headerlink" href="#equation-eq-triangle-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \frac{8}{\pi^2} \cdot \sum_{k=0}^{\infty} (-1)^k \frac{\sin(2\pi \cdot f \cdot (2k+1) \cdot t)}{(2k+1)^2}\]</div>
+<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(54)</a> that</p>
 <ol class="simple">
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k+1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k+1\)</span> decreases with <span class="math notranslate nohighlight">\(8/\pi^2(2k + 1)^2\)</span></p></li>
@@ -997,7 +997,7 @@ Their sound contains mostly odd harmonics.</p>
 <figure class="align-default" id="fig-triangle-20">
 <a class="reference internal image-reference" href="../../../_images/triangle_5.png"><img alt="../../../_images/triangle_5.png" src="../../../_images/triangle_5.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=5\)</span>.</span><a class="headerlink" href="#fig-triangle-20" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=5\)</span>.</span><a class="headerlink" href="#fig-triangle-20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The triangle wave is half way between the sine and the square wave, both in softness and in harmonic richness.

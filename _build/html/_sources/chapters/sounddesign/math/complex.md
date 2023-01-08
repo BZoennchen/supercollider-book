@@ -1,3 +1,37 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+```{code-cell} python3
+:tags: [remove-input]
+import numpy as np
+import scipy.integrate as integrate
+import scipy.special as special
+from scipy.integrate import quad
+import matplotlib.pyplot as plt
+import scipy.special
+import seaborn as sns
+from scipy.integrate import cumtrapz
+
+dpi = 300
+transparent = True
+PI = np.pi
+TWO_PI = 2*PI
+NUM = 44000
+show = False
+
+sns.set_theme('paper')
+sns.set_style("whitegrid")
+```
+
 (sec-complex-numbers)=
 # Complex Numbers
 
@@ -103,14 +137,46 @@ Complex(2, 1) / Complex(3, 2)
 
 ## Complex Plane
 
-We can represent a complex number $z = a + bi$ by a point $p_z = (a, b)$ in the Cartesian plane which we then call *complex plane*.
+We can represent a complex number $z = a + bi$ by a point $(a, b)$ in the Cartesian plane which we then call *complex plane* or $z$*-plane*.
 
-```{figure} ../../../figs/sounddesign/math/complex-plane.png
----
-width: 500px
-name: fig-complex-plane
----
-Numbers on the complex plane.
+```{code-cell} python3
+:tags: [remove-input]
+r = np.arange(0, (1.0/(2*np.pi))*(np.pi/4-0.2), 0.001)
+theta = 2 * np.pi * r
+
+fig, ax = plt.subplots(figsize=(5,5), subplot_kw={'projection': 'polar'})
+ax.scatter([np.pi/4-0.2, -np.pi/4-0.2, -np.pi/4+np.pi-0.2,+np.pi/4+np.pi-0.2], [1.3, 1.3, 1.3,1.3], marker='o')
+ax.plot([0, np.pi/4-0.2], [0, 1.3], color='r')
+ax.plot([0, np.pi/4-0.2], [1.3*np.cos(np.pi/4-0.2), 1.3], color='g')
+ax.plot([0, 0], [0, 1.3*np.cos(np.pi/4-0.2)], color='orange')
+
+#ax.plot(2*np.pi*r, np.ones(len(r)), color='r')
+ax.fill_between(2*np.pi*r, 0, np.ones(len(r))*1.5, color='b', alpha = 0.3)
+
+ax.set_rmax(1.5)
+ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
+ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_rticks([0, 0.5, 1, 1.5])  # Less radial ticks
+ax.set_yticklabels([r'', '', '', ''])  # Less radial ticks
+ax.text(0,1.0,r'$1$')
+ax.text(np.pi,1.2,r'$-1$')
+
+ax.text(np.pi/2,1.05,r'$i$')
+ax.text(np.pi*3/2,1.1,r'$-i$')
+
+ax.text(np.pi/2+0.05,1.8,r'Im',size=20)
+ax.text(0,1.8,r'Re',size=20)
+#ax.set_rlabel_position(-22.5)  # Move radial labels away from plotted line
+
+ax.text(0.3, 0.5, r'$\phi$')
+ax.text(0.3, 1.2, r'$r \cdot \sin(\phi)$')
+ax.text(-0.25, 0.5, r'$r \cdot \cos(\phi)$')
+
+ax.text(np.pi/4-0.2,1.4,r'$z = a + bi = r \cdot (\cos(\phi) + i \cdot \sin(\phi)) = (\phi, r)$')
+ax.text(-np.pi/4-0.2,1.4,r'$\overline{z} = a - bi = (-\phi, r)$')
+ax.text(-np.pi/4+np.pi+0.15,2.0,r'$-\overline{z} = -a + bi = (\pi-\phi, r)$')
+ax.text(+np.pi/4+np.pi-0.1,1.3,r'$-z = -a - bi = (\pi+\phi, r)$')
+ax.grid(True);
 ```
 
 This gives us another representation using the angle $\phi$ and the magnitude $r$ of the vector $(a, b)$.
@@ -132,6 +198,8 @@ z &= a + bi\\
   &= r \cdot (\cos(\phi) + i \sin(\phi)).
 \end{split}
 \end{equation}
+
+We write $z = (r, \phi)$, $z = a + bi$, $z = r \cdot (\cos(\phi) + i \sin(\phi))$ interchangeable.
 
 Given $a$ and $b$, we can compute $r$ by
 
@@ -351,7 +419,60 @@ Therefore, the most beautiful formula of all times, called *Euler's identity*, e
 e^{i\pi} + 1 = 0.
 \end{equation}
 
-Using Eq. {eq}`eq:euler` we can use the exponential function to represent our trigonometric functions.
+Looking at Eq. {eq}`eq:euler` we immediately see that 
+
+\begin{equation}
+\forall \omega \in \mathbb{R}: |e^{i \omega}| = 1
+\end{equation}
+
+holds.
+Therefore,
+
+$$z = e^{i\omega} \Rightarrow |z^k| = 1.$$
+
+I illustrate this fact by using $z = e^{i \frac{2\pi}{N}}$, i.e. $\omega = \frac{2\pi}{N}$ and the following plot where the plotted points are defined by
+
+$$z^k = e^{i \frac{2\pi}{N} k} \quad \text{ for } k = 0,1,2 \ldots, N-1 \text{ with } N=19.$$
+
+All points lie on the red unit circle.
+
+```{code-cell} python3
+:tags: [remove-input]
+r = np.arange(0, 1.05, 0.05)
+r2 = np.arange(0, 1.05, 0.01)
+theta = 2 * np.pi * r
+
+fig, ax = plt.subplots(figsize=(5,5), subplot_kw={'projection': 'polar'})
+ax.scatter(theta, np.ones(len(r)), marker='o')
+#ax.plot([0, np.pi/4-0.2], [0, 1.0], color='r')
+
+ax.plot(2*np.pi*r2, np.ones(len(r2)), color='r')
+#ax.fill_between(2*np.pi*r, 0, np.ones(len(r))*1.5, color='b', alpha = 0.3)
+
+ax.set_rmax(1.5)
+ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
+ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_rticks([0, 0.5, 1, 1.5])  # Less radial ticks
+ax.set_yticklabels([r'', '', '', ''])  # Less radial ticks
+ax.text(0,1.05,r'$1$')
+ax.text(np.pi,1.2,r'$-1$')
+
+ax.text(np.pi/2,1.05,r'$i$')
+ax.text(np.pi*3/2,1.1,r'$-i$')
+
+ax.text(np.pi/2+0.05,1.8,r'Im',size=20)
+ax.text(0,1.8,r'Re',size=20)
+#ax.set_rlabel_position(-22.5)  # Move radial labels away from plotted line
+
+ax.grid(True);
+```
+Furthermore, we can see that the discrete function $g(k): \mathbb{Z} \rightarrow \mathbb{C}, g(z) = z^k$ is periodic and that its period is $N$:
+
+$$g(N+1) = \left( e^{i \frac{2\pi}{N}} \right)^{N+1} = e^{i \frac{2\pi (N+1)}{N}} = e^{i 2\pi} \cdot e^{i \frac{2\pi}{N}} = e^{i 0} \cdot e^{i \frac{2\pi}{N}} = 1 \cdot e^{i \frac{2\pi}{N}} = z = g(1).$$
+
+If $|z|$ would be greater than 1, then $z^k$ would grow to infinity and if $|z| < 1$ it would converge to $0$. 
+
+Using Eq. {eq}`eq:euler` we can represent our well-known trigonometric functions by exponential functions.
 We start with
 
 $$(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\phi} + e^{-i\phi}.$$
@@ -375,7 +496,7 @@ Therefore, we get
 (sec-phasors)=
 ## Phasors
 
-Interestingly, using *Euler's formula* we can encode the **phase** and **amplitude** of a sinosoid by one very compact we call phasor.
+Interestingly, by using *Euler's formula*, we can encode the **phase** and **amplitude** of a sinosoid by one very compact representation which we call *phasor*.
 
 ```{admonition} Phasor
 :name: def-phasor
@@ -396,32 +517,38 @@ We can define any sinosoid of the form
 y(t) = r \cdot \cos(2\pi f t + \phi)
 \end{equation}
 
-using the real part of
+using the **only the real part** of
 
 \begin{equation}
-y(t) = r e^{i\phi} \cdot e^{i 2\pi t} = r e^{i (2\pi t + \phi)} = r \cdot (\cos(2\pi t + \phi) + i \sin(2\pi t + \phi)),
+\begin{split}
+\underbrace{\hat{r}_\phi}_{\text{phasor}} \cdot \underbrace{e^{i 2\pi f t}}_{\text{circular motion}} &= r e^{i\phi} \cdot e^{i 2\pi f t} = r e^{i (2\pi f t + \phi)}\\
+&= r \cdot (\cos(2\pi f t + \phi) + i \sin(2\pi f t + \phi))\\
+&= y(t) + i r \sin(2\pi f t + \phi)),
+\end{split}
 \end{equation}
 
-where the **phasor** $r e^{i\phi}$ is a constant, $f$ is the **frequency**, and $\phi$ the **phase** of the sinusoid.
+where the **phasor** $\hat{r}_\phi = r e^{i\phi}$ is a constant, $f$ is the **frequency**, and $\phi$ the **phase** of the sinusoid.
+The *phasor* $\hat{r}_\phi$ tells us everything about the amplitude and the phase $\phi$ of the signal $y(t)$.
+
 In many text books you will find 
 
 \begin{equation}
-r e^{i (\omega t + \phi)} = r \cdot (\cos(omega t + \phi) + i \sin(\omega t + \phi))
+r e^{i (\omega t + \phi)} = r \cdot (\cos(\omega t + \phi) + i \sin(\omega t + \phi)) = y(t) + i r \sin(\omega t + \phi))
 \end{equation}
 
-instead, where $\omega$ is the *anglar speed* or *speed of rotation*.
+instead, where $\omega = 2\pi f$ is the *anglar speed* or *speed of rotation*.
 
 ```{figure} ../../../figs/sounddesign/math/phasor_function.jpeg
 ---
 width: 500px
 name: fig-phasor-function
 ---
-A complex sinusoid $y(t) = r e^{i (2\pi t + \phi)}$.
+A complex sinusoid $y(t) = r e^{i (2\pi f t + \phi)}$.
 The phasor is the first red point, i.e. $y(0)$.
 ```
 
 Remember, we can represent any audio signals by a sum of sinusoid.
-Since each phasor is also a vector, a sinusoid consisting of multiple frequencies can be represented by adding up multiple $r e^{i (2\pi t + \phi)}$ terms.
+Since each phasor is also a vector, a sinusoid consisting of multiple frequencies can be represented by a sum of *phasors*.
 
 ```{figure} ../../../figs/sounddesign/math/phasor_complex_function.jpeg
 ---
