@@ -77,6 +77,8 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 # Well, it is all about computation speed!
 # The *FFT* reduces the time complexity of the *Discrete Fourier Transformation (DFT)* from $\mathcal{O}(n^2)$ to $\mathcal{O}(n\log(n))$ which makes the computation of the *DFT* fast thus applicable for many areas and purposes.
 # 
+# (sec-freq-spectrum)=
+# 
 # ## Frequency Spectrum
 # 
 # Before we dicuss the mathematical basis, let's have a look at the *frequency spectrum* of a audio recordings such that you can picture what we want to compute.
