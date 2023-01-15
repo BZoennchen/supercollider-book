@@ -778,8 +778,8 @@ title="Print to PDF"
 In case of a digital signal this translate to a <a class="reference internal" href="../math/convolution.html#sec-discrete-convolution"><span class="std std-ref">discrete convolution</span></a>.
 For example, let <span class="math notranslate nohighlight">\(y[0], \ldots, y[n]\)</span> be the discrete (input) signal of a <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a> and <span class="math notranslate nohighlight">\(z[0], \ldots z[n]\)</span> be the filtered (output) signal.
 If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8feebb74-a2a2-416f-a5bb-ba24689d4318">
-<span class="eqno">(61)<a class="headerlink" href="#equation-8feebb74-a2a2-416f-a5bb-ba24689d4318" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-db739e6a-a5ff-4529-ba2a-f7458aa30488">
+<span class="eqno">(61)<a class="headerlink" href="#equation-db739e6a-a5ff-4529-ba2a-f7458aa30488" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{split}
     z[0] &amp;= 0.5 \cdot y[0]\\
     z[n] &amp;= 0.5 \cdot y[n] - 0.5 \cdot y[n-1], \quad n = 1, 2, 3, \ldots
@@ -806,8 +806,8 @@ It is a <a class="reference internal" href="../math/lti-filters.html#def-linear-
 I had a hard time understanding what this filter actually does to its input signal <span class="math notranslate nohighlight">\(\text{in}\)</span>, since the documentation is very minimal.
 But I think I could reverse engineer its behaviour.</p>
 <p>The documentation states that a one zero filter implements the formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b277bb5a-8d3e-4d90-a191-66ceee0774e9">
-<span class="eqno">(62)<a class="headerlink" href="#equation-b277bb5a-8d3e-4d90-a191-66ceee0774e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf9edb23-b383-4329-93ba-3f64f45eb682">
+<span class="eqno">(62)<a class="headerlink" href="#equation-cf9edb23-b383-4329-93ba-3f64f45eb682" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1]
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
@@ -815,27 +815,27 @@ y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1]
 Therefore, <code class="docutils literal notranslate"><span class="pre">OneZero</span></code> as well as <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> depend on the sample rate / audio rate!</p>
 <p>Let us use <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> and we achieve differentiation!
 Let <span class="math notranslate nohighlight">\(y(t)\)</span> be our signal, then we basically compute</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f869d30-4f2f-44ce-85b8-ab1190b13aa7">
-<span class="eqno">(63)<a class="headerlink" href="#equation-8f869d30-4f2f-44ce-85b8-ab1190b13aa7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f31e175-6bf0-4866-8ca1-cbcaf5dccb46">
+<span class="eqno">(63)<a class="headerlink" href="#equation-1f31e175-6bf0-4866-8ca1-cbcaf5dccb46" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2}.
 \end{equation}\]</div>
 <p>To compute the difference quotient, we have to figure out what <span class="math notranslate nohighlight">\(h\)</span> is.
 In other words, what is the time between <span class="math notranslate nohighlight">\(\text{in}[i]\)</span> and <span class="math notranslate nohighlight">\(\text{in}[i-1]\)</span>.
 The answer is <span class="math notranslate nohighlight">\(1/a_\text{rate}\)</span> where <span class="math notranslate nohighlight">\(a_\text{rate}\)</span> is the audio rate.</p>
 <p>To compute the difference quotient we use the following formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-685bd833-eedf-4017-8753-3003d55d5e75">
-<span class="eqno">(64)<a class="headerlink" href="#equation-685bd833-eedf-4017-8753-3003d55d5e75" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-69713394-02eb-4314-8c13-1eb4811dc8ef">
+<span class="eqno">(64)<a class="headerlink" href="#equation-69713394-02eb-4314-8c13-1eb4811dc8ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{y(t) - y(t - h)}{2} \cdot \frac{2}{h}.
 \end{equation}\]</div>
 <p>Using the discrete input signal <span class="math notranslate nohighlight">\(\text{in}\)</span> gives us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31717c69-ad5a-484d-b34d-8c5db0f433a9">
-<span class="eqno">(65)<a class="headerlink" href="#equation-31717c69-ad5a-484d-b34d-8c5db0f433a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cfa7f1e9-8d30-4885-99ad-58d5e60e5927">
+<span class="eqno">(65)<a class="headerlink" href="#equation-cfa7f1e9-8d30-4885-99ad-58d5e60e5927" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{x[n] - x[n-1]}{2} \cdot \frac{2}{a_\text{rate}}.
 \end{equation}\]</div>
 <p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-444fc20b-1414-4b65-84f8-ce475f1c25be">
-<span class="eqno">(66)<a class="headerlink" href="#equation-444fc20b-1414-4b65-84f8-ce475f1c25be" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-43891d7c-d927-4eee-9d13-a718edc3a0a1">
+<span class="eqno">(66)<a class="headerlink" href="#equation-43891d7c-d927-4eee-9d13-a718edc3a0a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -872,8 +872,8 @@ The documentation states that a one pole filter implements the formula:</p>
 <span class="eqno">(67)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c2e21fe-b111-4b93-8b1e-9581d76859ac">
-<span class="eqno">(68)<a class="headerlink" href="#equation-9c2e21fe-b111-4b93-8b1e-9581d76859ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73f76b8e-0c6e-49a2-8a8c-1fcec03164a4">
+<span class="eqno">(68)<a class="headerlink" href="#equation-73f76b8e-0c6e-49a2-8a8c-1fcec03164a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
@@ -885,8 +885,8 @@ Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\
 <span class="eqno">(70)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(\text{in}[0], \ldots \text{in}[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-69f432e7-6440-41e7-a704-0cb1e55615b9">
-<span class="eqno">(71)<a class="headerlink" href="#equation-69f432e7-6440-41e7-a704-0cb1e55615b9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-10945f75-7607-4d2a-a60d-226419fff968">
+<span class="eqno">(71)<a class="headerlink" href="#equation-10945f75-7607-4d2a-a60d-226419fff968" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
   &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -895,8 +895,8 @@ y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-074e700d-a3d8-42f9-a6e5-581fed6a466e">
-<span class="eqno">(72)<a class="headerlink" href="#equation-074e700d-a3d8-42f9-a6e5-581fed6a466e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e3fde3de-08ea-4d2c-93eb-8a8ad76667e8">
+<span class="eqno">(72)<a class="headerlink" href="#equation-e3fde3de-08ea-4d2c-93eb-8a8ad76667e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
