@@ -119,7 +119,7 @@ Many of us feel empty, haunted by *lost futures*, and from time to time overwhel
 
 The university is one institution where we can observe this dissolution of diverse and critical thought, especially in Europe.
 The *Bologna* process homogenized and instrumentalized the education system.
-Today students do not learn to think but to be "productive" -- to reproduce -- and aligned in an unquestioned economic system of exploitation.
+Today students do not learn to think but to be "productive" -- to reproduce -- and aligned with an unquestioned economic system of exploitation.
 Universities of today teach emotionally detached students to remember specific rules such that they can apply them in the next exam to get a good grade.
 It is horrifying that one of the most questions students in the first semester ask is: how will the exam look like?
 Is this topic relevant to the exam? Students demand a list of actions they ought to do to get an A with certainty.
