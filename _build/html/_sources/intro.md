@@ -122,13 +122,14 @@ The *Bologna* process homogenized and instrumentalized the education system.
 Today students do not learn to think but to be "productive" -- to reproduce -- and aligned with an unquestioned economic system of exploitation.
 Universities of today teach emotionally detached students to remember specific rules such that they can apply them in the next exam to get a good grade.
 It is horrifying that one of the most questions students in the first semester ask is: how will the exam look like?
-Is this topic relevant to the exam? Students demand a list of actions they ought to do to get an A with certainty.
+Is this topic relevant for the exam? Students demand a list of actions they ought to do to get an A with certainty.
 And they will cheat the system wherever possible if it will bring them closer to that goal.
 Most students are not fascinated by the endless playground of reality. They are interested in something other than the experience of learning and understanding but in the final product, i.e., the certificate to get access to a well-paid job. 
 Let’s not forget that future teachers are the students of today.
 By no means is this the student's fault.
 They play the system of control that demands them to do so.
-Moreover, if one resists the circuit, she will not be punished but filtered.
+We stopped punishing.
+Nowadays, the networks of machines filters and channels the flow of the possible.
 It seems impossible to depart from this school-like system since the new generation of professors grew up in it.
 Nowadays, education is consumption.
 
@@ -152,10 +153,10 @@ To do business means to be at war.
 Famously president J. W. Bush encouraged his people to go shopping more while waging an unjustified war in Iraq.
 Recently he misspoke, calling the invasion of Iraq:
 
->the decision of one man to launch a wholly unjustified and brutal invasion of Iraq
+>the decision of one man to launch a wholly unjustified and brutal invasion of Iraq.
 
 Of course, he meant Ukraine.
-It perfectly illustrates the absurdity of our consumer society. 
+Probably just an old man's memorizing problem, but it perfectly illustrates the absurdity of our consumer society. 
 It also shows the difficulty of distinguishing between simulation and reality -- between constructed stories and myth and *the real*: a senseless, infinitely complex shadow of what we call reality.
 
 One obsolete alternative that is getting more and more traction is fascism.
@@ -174,7 +175,7 @@ As such, the *factory* is a *sign* for the loss of manufacturing, the betrayal o
 Whether or not this is true makes no actual difference to the signification of the factories as the *tombstones of American greatness*.
 The power of the myth deforms facts such that they serve an emotional narrative of loss and ruin.
 The rusted-out tombstone factories do not signify, as we might expect, factory production since production appears to be steadily increasing.
-But let's face it: we are also living by a myth; the myth of the successful unlimited domination and exploitation of nature by technology and an economic system is based on material and productivity growth.
+But let's face it: we are also living by a myth; the myth of the successful unlimited domination and exploitation of nature by technology and an economic system that is based on endless material and productivity growth.
 
 So, is it all over?
 Is the end already baked into our current condition?
@@ -195,7 +196,7 @@ It is our last stand against complete assimilation, an *indestructible sparkle o
 Even if we lack an alternative to the money-making machine and seemingly silently accept this "fact", a reinvigorated *cyberculture* might act as a reminder that, despite *Mark Fisher's* declaration, we can still revolt against *Capitalist Realism*.
 The story politicians tell the everyday person no longer seems to reflect the reality they live in.
 Reality and our model of reality no longer fit together:
-Google and the cafeteria workers, the danger of ecological, social, and economic collapse due to climate change and the space exploring billionaires, more and more comfort yet more and more unsatisfaction, more and faster communication yet less social movement, more and more donations by billionaires yet more and more inequality, the phantasy of individualized high-tech underground car transportation systems yet no investments in public transportation, hungry people yet supermarkets packed with expensive stuff, homeless people yet the resources to build a home for anybody, and the list goes on and on.
+Google and the cafeteria workers, the danger of ecological, social, and economic collapse due to climate change and the space exploring billionaires, more and more comfort yet more and more unsatisfaction, more and faster communication yet less social movement, more and more donations by billionaires yet more and more inequality, the fantasy of individualized high-tech underground car transportation systems yet no investments in public transportation, hungry people yet supermarkets packed with expensive stuff, homeless people yet the resources to build a home for anybody, and the list goes on and on.
 I am not saying that these problems are easy to solve, and they are boring.
 However, it doesn't seem that we are even trying.
 Instead, we invent yet another gadget.
@@ -213,14 +214,14 @@ It is evident that our *senseless consumption* has to end or at least slow down 
 It is built on consumption.
 To believe that we can somehow consume out of the disaster is pure madness.
 
-To defeat a myth, I have two ways in mind: by second *Enlightenment* or by creating a better one.
+I have two strategies in mind to defeat a myth: a second *Enlightenment*, which is unlikely to occur, or the construction of a better myth.
 Maybe we need a myth of our own, not only to push back against a fascist dystopia but to extend the horizon of the thinkable.
 If there is only darkness on the horizon, lighting a candle can move the world.
 Furthermore, art can be a place to start constructing or contributing to a new ideal to strive towards.
 
-Disaster will arrive in our lifetime, but I still want to live my life in such a way that I welcome the demon forcing me to live it over and over again because I once experienced a moment of unimaginable, undescribable, and non-reproducible quality and beauty because I once truly recognized *the other*.
+Disaster will arrive in my lifetime, but I still want to live my life in such a way that I welcome the demon forcing me to live it over and over again because I once experienced a moment of unimaginable, undescribable, and non-reproducible quality and beauty because I once truly recognized *the other*.
 I doubt that acting negatively against the myth will break it because, in that case, we take part in the dialectic, which perfectly incorporates any resistance.
-My unjustifiable belief is that the solution lies in creation and affirmation, not by criticizing without creating but by criticizing by creation.
+My unjustifiable belief is that the solution lies in creation and affirmation, not by criticizing without creating but by creating to criticize.
 This time it has to be a collective project that affirms differences.
 Failing tragically seems to me much more appealing than being *comfortable numb*.
 This pessimistic viewpoint sounds bleak.
@@ -308,7 +309,7 @@ But in our everyday lives, that distance is not as neutral, not as abstract. Ins
 In the scientific account things become indifferent to our *concerns* (Sorge) by representing both the distance and the object as simple but useful mathematical entities or philosophical ideas, we lose our truest experience of *nearness* and distance.
 
 Furthermore, functioning things lead to more functioning.
-And if there is a market (built buy channeling desire, i.e., marketing), we most certainly have to get used to yet another technological phantasy.
+And if there is a market (built buy channeling desire, i.e., marketing), we most certainly have to get used to yet another technological fantasy.
 Is it *the public* that wants to transfer another big chunk of reality into a *Metaverse*?
 No one asked for it but we built it because we can, because we are *challenged* to do so.
 
