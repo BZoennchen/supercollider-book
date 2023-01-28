@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delays &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -801,9 +800,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="delays">
+  <div class="tex2jax_ignore mathjax_ignore section" id="delays">
 <span id="sec-delays"></span><h1>Delays<a class="headerlink" href="#delays" title="Permalink to this headline">#</a></h1>
-<section id="single-reflection">
+<div class="section" id="single-reflection">
 <h2>Single Reflection<a class="headerlink" href="#single-reflection" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/DelayN.html">DelayN</a> takes an input signal, delays it for <code class="docutils literal notranslate"><span class="pre">delayTime</span></code> (in seconds) and outputs the a <em>delayed copy</em> (without the original).</p>
 <p>In the following example we use a <em>decaying impulse</em> to generate a repeating exponential envelope.
@@ -820,8 +819,8 @@ We multiply this repeating envelope with a <a class="reference internal" href=".
 </pre></div>
 </div>
 <p>If you want to modulate the <em>delay time</em> you should consider the interpolated versions, i.e. <a class="reference external" href="https://doc.sccode.org/Classes/DelayL.html">DelayL</a> or <a class="reference external" href="https://doc.sccode.org/Classes/DelayC.html">DelayC</a>.</p>
-</section>
-<section id="decaying-reflections">
+</div>
+<div class="section" id="decaying-reflections">
 <span id="sec-comb-allpass-filter"></span><h2>Decaying Reflections<a class="headerlink" href="#decaying-reflections" title="Permalink to this headline">#</a></h2>
 <p>A <a class="reference external" href="https://doc.sccode.org/Classes/CombN.html">CombN</a> delay line with no interpolation is a delay with feedback, i.e., the signal is fed back into the <em>delay</em>.
 The signal’s power is reduced each time it is fed into the <em>delay</em>.
@@ -856,8 +855,8 @@ For this reason, they are useful even though do not seem to differ much from <em
 <span class="p">}.</span><span class="nx">play</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="plucking">
+</div>
+<div class="section" id="plucking">
 <h2>Plucking<a class="headerlink" href="#plucking" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> <em>unit generator</em> realizes a <em>Karplus-Strong string synthesis</em> which is a method of <a class="reference internal" href="../physical-modeling.html#sec-pm"><span class="std std-ref">physical modeling</span></a> that loops a short waveform through a filtered <em>delay line</em> to simulate the sound of a hammered or plucked string or some types of percussion.
 The generator consists of a <a class="reference internal" href="3-simpler-filters.html#sec-onepole"><span class="std std-ref">OnePole</span></a> lowpass filter and a <em>delay line</em>.</p>
@@ -903,12 +902,10 @@ Evaluate each block one at a time from top to bottom.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default" id="fig-pluck">
+<div class="figure align-default" id="fig-pluck">
 <a class="reference internal image-reference" href="../../../_images/pluck.png"><img alt="../../../_images/pluck.png" src="../../../_images/pluck.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Signal-flow graph of the construction above.</span><a class="headerlink" href="#fig-pluck" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">Signal-flow graph of the construction above.</span><a class="headerlink" href="#fig-pluck" title="Permalink to this image">#</a></p>
+</div>
 <p>Using <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> instread, generates a slightly different sound:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
 <span class="nc">Pluck</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span>
@@ -921,8 +918,8 @@ Evaluate each block one at a time from top to bottom.</p>
 <span class="p">}.</span><span class="nx">play</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="reverberation">
+</div>
+<div class="section" id="reverberation">
 <h2>Reverberation<a class="headerlink" href="#reverberation" title="Permalink to this headline">#</a></h2>
 <p>SuperCollider offers out of the box <em>reverberation unit generators</em>: <a class="reference external" href="https://doc.sccode.org/Classes/FreeVerb.html">FreeVerb</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FreeVerb2.html">FreeVerb2</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/GVerb.html">GVerb</a>.</p>
 <p>In this example, I use <em>grains</em> sampled from a single sine wave that changes its frequency whenever the envelope is triggered.</p>
@@ -977,8 +974,8 @@ Evaluate each block one at a time from top to bottom.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="ideal-reverberation">
+</div>
+<div class="section" id="ideal-reverberation">
 <h2>Ideal Reverberation<a class="headerlink" href="#ideal-reverberation" title="Permalink to this headline">#</a></h2>
 <p>The <em>Haas effect</em> is an acoustic phenomenon.
 When a sound is followed by another sound separated by a sufficiently short delay (<span class="math notranslate nohighlight">\(&lt; 50\,\text{ms}\)</span>), listeners perceive a single auditory event; the location of the first-arriving sound dominates its perceived spatial location.
@@ -1002,19 +999,17 @@ Under these conditions, it is easy to hear that it is decaying.</p>
 <p>The human hearing generally waits 50 milliseconds after a sound event’s apparent end before deciding it is over.
 Therefore, we perceive multiple sound cues within a period smaller than 50 ms as one continuous stream.
 Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.</p>
-<figure class="align-default" id="fig-reverberation">
+<div class="figure align-default" id="fig-reverberation">
 <a class="reference internal image-reference" href="../../../_images/reverberation.png"><img alt="../../../_images/reverberation.png" src="../../../_images/reverberation.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Ideal reverberation profile (according to D. Griesinger).
+<p class="caption"><span class="caption-number">Fig. 38 </span><span class="caption-text">Ideal reverberation profile (according to D. Griesinger).
 Time <span class="math notranslate nohighlight">\(t\)</span> is measured in milliseconds.</span><a class="headerlink" href="#fig-reverberation" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+</div>
 <p>In <em>The Theory and Practice of Perceptual Modeling – How to use Electronic Reverberation to Add Depth and Envelopment Without Reducing Clarity</em> David Griesinger gives an excellent description of an <em>ideal reverberation profile for recording</em>.
 We need a strong early lateral field for producing a sense of distance, a mimimum of energy in the <span class="math notranslate nohighlight">\(50-150\,\text{ms}\)</span> region, and adequate reverberant energy after <span class="math notranslate nohighlight">\(150\,\text{ms}\)</span>.
 Recordings with too much energy in the <span class="math notranslate nohighlight">\(50\)</span> to <span class="math notranslate nohighlight">\(150,\text{ms}\)</span> region sound muddy.
 This time range must be carefully minimized.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -5,16 +5,17 @@
 
 The concept of synth definitions and synth is central to SuperCollider.
 Everything is built around this fundamental concept.
-It can be confusing for beginners because there is a big difference between a synth as we know it from the real world and an instance of ``Synth``.
+It can be confusing for beginners because there is a big difference between a synth as we know it in the real world and an instance of ``Synth``.
 
 ## Definition
 
-In the real world a synth is an instrument that can be played.
+In the real world, a synth is an instrument that can be played.
 However, in ``sclang``, we distinguish between the instrument (as a potential/thing) and the played instrument (as a process).
 While the thing is an instance of ``SynthDef``, the process (an executed [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph)) is an instance of ``Synth``.
+If we instanciate a ``Synth``, defined by a specific ``SynthDef`` and its arguments, the signal processing begins and if we destroy the ``Synth`` it stops.
 
-We do not introduce a new class for each new instrument.
-Instead, each instrument is represented by a function, more precisely by *a unit generator graph function* that realizes *a signal-flow-graph (SFG)*.
+Instead of introducing a new class for each new instrument which would lead to thousand of classes, each instrument is represented by a function, more precisely by *a unit generator graph function* that realizes *a signal-flow-graph (SFG)*.
+``sclang`` borrows this concept from functional programming languages.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
 We generate synths by calling the defining function with different arguments to do so.
@@ -23,27 +24,28 @@ We generate synths by calling the defining function with different arguments to 
 :name: def-synth-def
 :class: definition
 An instance of ``SynthDef`` represents a factory of a parameterizable signal-flow-graph.
-The graph can be executed (as ``Synth``) on the audio server.
+The graph can be executed (as ``Synth`` with different arguments) on the audio server.
 ```
 
-From the perspective of a musician, a synth definition is a parameterizable description of a short piece of sound.
+From the perspective of a musician, a synth definition is a parameterizable description of a piece of sound.
 A synth, on the other hand, is the process of playing that piece of sound with specific possibly modulated arguments (frequency, loudness, velocity, etc.).
-From a software developer's perspective, a synth definition is a factory that generates synths following its internal description.
+From a software developer's perspective, a synth definition is a factory that generates synths following its internal description defined by a function representing a signal-flow graph.
 
 A ``SynthDef`` object encapsulates the server-side representation of a synth definition and provides methods for creating new ``Synths`` objects on the server.
+It abstracts away all the low level communication (via [OSC](sec-osc)) between the client and the audio server.
 Furthermore, a ``SynthDef`` object can be serialized to the disk and streamed via the network to distant audio servers.
 ``SynthDefs`` are nothing more than compact representations of signal-flow graphs written down in text.
 
 ```{admonition} Synth
 :name: def-synth
 :class: definition
-A ``Synth`` is a representation of a signal-flow-graph executed in the audio server.
-It is the process that generates sound.
+A ``Synth`` is a representation of an executed signal-flow-graph.
+It is the process that generates sound via the audio server.
 ```
 
 ## Workflow
 
-We can use ``sclang`` to define a ``SynthDef``.
+We use ``sclang`` to define a ``SynthDef``.
 It is defined on the client, and we must send it to the audio server.
 To generate sound, we have to tell the server to create a synth via one of its known ``SynthDefs``.
 
@@ -51,8 +53,8 @@ The normal workflow goes as follows:
 
 1. define (all) your ``SynthDef`` via ``sclang``
 2. add them (all) to the audio sever **scsynth**
-3. create a synth on the server
-4. remove the synth from the server
+3. create one or multiple synth on the server
+4. remove your synths from the server
 
 ```isc
 (
@@ -76,8 +78,9 @@ Synth(\sine_beep, [freq: 200, amp: 0.4]);
 ```
 
 Note that adding a ``SynthDef`` to the server takes time.
-Therefore, we can not execute the last line immediately after adding the definition because it is an asynchronous, non-blocking process.
+Therefore, we can not execute the last line immediately after adding the definition because it is an asynchronous, non-blocking call.
 If you want to perform, adding all your synth definitions beforehand is good practice.
+There is also the possibility to wait for the audio sever programmatically.
 
 By calling ``SynthDef.new()`` or just ``SynthDef()``, we generate a new factory object that produces synth according to the ``SynthDef`` blueprint.
 On behalf of the perspective of the audio server **scsynth**, this factory object produces ``Synth`` objects!

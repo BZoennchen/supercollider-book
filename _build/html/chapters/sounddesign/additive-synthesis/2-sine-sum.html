@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Sum of Sines &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -791,7 +790,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="a-sum-of-sines">
+  <div class="tex2jax_ignore mathjax_ignore section" id="a-sum-of-sines">
 <h1>A Sum of Sines<a class="headerlink" href="#a-sum-of-sines" title="Permalink to this headline">#</a></h1>
 <p>Let us recreate or approximate  the <a class="reference internal" href="1-waveforms.html#sec-square-wave"><span class="std std-ref">sawtooth wave</span></a> without using the <code class="docutils literal notranslate"><span class="pre">LFSaw</span></code> or <code class="docutils literal notranslate"><span class="pre">Saw</span></code> unit generator.
 Instead, we use a bunch of <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> oscillators.
@@ -844,7 +843,7 @@ In summary, for a real violin</p>
 <li><p>they slightly deviate over time – each in a different way,</p></li>
 <li><p>and their power (amplitude) is a unique function of time.</p></li>
 </ol>
-<section id="adding-a-global-envelope">
+<div class="section" id="adding-a-global-envelope">
 <h2>Adding a Global Envelope<a class="headerlink" href="#adding-a-global-envelope" title="Permalink to this headline">#</a></h2>
 <p>Let is first try a percussive envelope:
 The sound is quite boring because nothing changes over time.
@@ -871,8 +870,8 @@ There is no dynamic thus our ears lose interest immediately.</p>
 </pre></div>
 </div>
 <p>Let us introduce some change over time.</p>
-</section>
-<section id="dynamic-frequency-detuning">
+</div>
+<div class="section" id="dynamic-frequency-detuning">
 <h2>Dynamic Frequency Detuning<a class="headerlink" href="#dynamic-frequency-detuning" title="Permalink to this headline">#</a></h2>
 <p>To bring in some movement, we want to change frequencies over time.
 This is called <a class="reference internal" href="../fm.html#sec-fm"><span class="std std-ref">frequency modulation</span></a>, but we only want to change the frequency very slightly.
@@ -889,9 +888,9 @@ It is hard to explain what exactly happens with our <code class="docutils litera
 </pre></div>
 </div>
 <p>gives us the following plot:</p>
-<figure class="align-default" id="fig-add-synth-single-noise">
+<div class="figure align-default" id="fig-add-synth-single-noise">
 <a class="reference internal image-reference" href="../../../_images/add-synth-single-noise.png"><img alt="../../../_images/add-synth-single-noise.png" src="../../../_images/add-synth-single-noise.png" style="width: 800px;" /></a>
-</figure>
+</div>
 <p><span class="math notranslate nohighlight">\(\epsilon\)</span> is the percentage of maximal detune, i.e., a harmonic with a frequency of <span class="math notranslate nohighlight">\(f\)</span> will have an actual frequency within</p>
 <div class="math notranslate nohighlight">
 \[[f \cdot (1-\epsilon); f \cdot (1+\epsilon)].\]</div>
@@ -926,8 +925,8 @@ The updated version of <code class="docutils literal notranslate"><span class="p
 </div>
 <p>In my opinion, this already sounds much more interesting.
 Of course, we went beyond <em>additive synthesis</em> and used <em>frequency modulation</em> but those go hand in hand, especially if the modulation frequency is low.</p>
-</section>
-<section id="individual-envelopes">
+</div>
+<div class="section" id="individual-envelopes">
 <h2>Individual Envelopes<a class="headerlink" href="#individual-envelopes" title="Permalink to this headline">#</a></h2>
 <p>What can we do in addition?
 Well, at the moment, we have one global envelope for all frequencies.
@@ -969,18 +968,14 @@ Thirdly, I use a neat trick to decrease the envelope for high frequencies faster
 <span class="eqno">(55)<a class="headerlink" href="#equation-eq-env-amplified" title="Permalink to this equation">#</a></span>\[    x \leftarrow x^{1 + \frac{k-1}{3}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> is a value of the envelope (a series of numbers) of the <span class="math notranslate nohighlight">\(k^\text{th}\)</span>-harmonic.
 Compare the following two plots.</p>
-<figure class="align-default" id="fig-add-synth-env-2">
+<div class="figure align-default" id="fig-add-synth-env-2">
 <a class="reference internal image-reference" href="../../../_images/add-synth-env_2.png"><img alt="../../../_images/add-synth-env_2.png" src="../../../_images/add-synth-env_2.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(55)</a> for <span class="math notranslate nohighlight">\(k = 2\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="fig-add-synth-env-10">
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(55)</a> for <span class="math notranslate nohighlight">\(k = 2\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-2" title="Permalink to this image">#</a></p>
+</div>
+<div class="figure align-default" id="fig-add-synth-env-10">
 <a class="reference internal image-reference" href="../../../_images/add-synth-env_10.png"><img alt="../../../_images/add-synth-env_10.png" src="../../../_images/add-synth-env_10.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(55)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">The effect of Eq. <a class="reference internal" href="#equation-eq-env-amplified">(55)</a> for <span class="math notranslate nohighlight">\(k = 10\)</span>.</span><a class="headerlink" href="#fig-add-synth-env-10" title="Permalink to this image">#</a></p>
+</div>
 <p>Fourthly, I removed the <code class="docutils literal notranslate"><span class="pre">doneAction:</span> <span class="pre">Done.freeSelf</span></code> from the envelopes because this would shut down the synth as soon as the first envelope reached its end.
 The sound would abruptly end too early.
 To clean up the audio server, I use <code class="docutils literal notranslate"><span class="pre">DetectSilence</span></code>-<a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> instead.
@@ -1000,8 +995,8 @@ It executes the cleanup, that is, the action <code class="docutils literal notra
 <span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="changing-the-power-distribution">
+</div>
+<div class="section" id="changing-the-power-distribution">
 <h2>Changing the Power Distribution<a class="headerlink" href="#changing-the-power-distribution" title="Permalink to this headline">#</a></h2>
 <p>The amplitudes of each <em>harmonic overtone</em> still mirrows the amplitude of its counterpart in a sawtooth wave.
 We can further individualize the sound by changing this.
@@ -1037,8 +1032,8 @@ You can also add addtional harmonics.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Ecosystem &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -779,7 +778,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="the-ecosystem">
+  <div class="tex2jax_ignore mathjax_ignore section" id="the-ecosystem">
 <span id="sec-ecosystem"></span><h1>The Ecosystem<a class="headerlink" href="#the-ecosystem" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is a package and a platform that consists of three components:</p>
 <ul class="simple">
@@ -791,9 +790,9 @@ title="Print to PDF"
 It was released in 1996.
 In 2002 McCartney transformed it into a free and open software project under the <a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>.
 It is still maintained and developed by an active community.</p>
-<figure class="align-default" id="fig-architecture">
+<div class="figure align-default" id="fig-architecture">
 <a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" src="../../_images/architecture.png" style="width: 600px;" /></a>
-</figure>
+</div>
 <p>All three parts of <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> are independent, i.e., there might be some other subsystem that replaces some of its features.
 One can code by using other IDEs such as VSCode.
 We can also use <code class="docutils literal notranslate"><span class="pre">sclang</span></code> independently to program applications that have nothing to do with signal processing.
@@ -813,7 +812,7 @@ It offers a lot of control but might be less productive if you want to get thing
 Each platform targets different objectives and has various advantages as well as disadvantages.
 In my opinion, <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is the most powerful one but can be less intuitive and flexible, especially for the live coding experience.
 I encourage readers interested in live coding to check them all out!</p>
-<section id="the-audio-server">
+<div class="section" id="the-audio-server">
 <span id="sec-audio-sever"></span><h2>The Audio Server<a class="headerlink" href="#the-audio-server" title="Permalink to this headline">#</a></h2>
 <p>The real-time audio server <em>scsynth</em> forms the core of the platform.
 The server uses synth definitions, i.e., <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> as templates for creating synth nodes.
@@ -832,8 +831,8 @@ The composer</p>
 </ol>
 <p>All those steps are done via the client-side interpreted programming language <code class="docutils literal notranslate"><span class="pre">sclang</span></code>.
 It abstracts away thus simplifies the communication with the audio server such that we do not have to write pure OSC messages.</p>
-</section>
-<section id="tha-language">
+</div>
+<div class="section" id="tha-language">
 <h2>Tha Language<a class="headerlink" href="#tha-language" title="Permalink to this headline">#</a></h2>
 <p>The interpreted programming language <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is an objective-oriented programming language.
 It is similar to <code class="docutils literal notranslate"><span class="pre">Smalltalk</span></code> or <code class="docutils literal notranslate"><span class="pre">Ruby</span></code> with syntax similar to <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">JavaScript</span></code>.
@@ -842,17 +841,15 @@ Functions are first-class objects and everything is an object, i.e., there are n
 <p>From a musical point of view, it has its own interactive programming and lives coding packages and a subsystem for composing patterns and signal graphs.
 Its strength lies in opening up the possibility of dealing, creating, manipulating, and combining signal-flow graphs.
 One has to get used to its aged syntax.</p>
-</section>
-<section id="the-development-environment">
+</div>
+<div class="section" id="the-development-environment">
 <span id="sec-scide"></span><h2>The Development Environment<a class="headerlink" href="#the-development-environment" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> integrated development environment (IDE) is a Qt-based cross-platform application.
 Code can be executed in a notebook-like manner, i.e., interactively using the REPL (Read–Eval–Print Loop).</p>
-<figure class="align-default" id="fig-ide">
+<div class="figure align-default" id="fig-ide">
 <a class="reference internal image-reference" href="../../_images/ide.png"><img alt="../../_images/ide.png" src="../../_images/ide.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The <strong>scide</strong>.</span><a class="headerlink" href="#fig-ide" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The <strong>scide</strong>.</span><a class="headerlink" href="#fig-ide" title="Permalink to this image">#</a></p>
+</div>
 <p>The IDE offers some useful tools such as</p>
 <ul class="simple">
 <li><p>the <em>Node Tree</em> displays the synth running currently on the server <code class="docutils literal notranslate"><span class="pre">Server.local.plotTree;</span></code></p></li>
@@ -861,17 +858,15 @@ Code can be executed in a notebook-like manner, i.e., interactively using the RE
 <li><p>a <em>Freq Analyzer</em> that displays the frequencies of the current signal <code class="docutils literal notranslate"><span class="pre">FreqScope.new;</span></code></p></li>
 <li><p>a <em>Server</em> displays useful information about the server such as the CPU workload <code class="docutils literal notranslate"><span class="pre">Server.local.makeWindow;</span></code>.</p></li>
 </ul>
-<figure class="align-default" id="fig-ide-tools">
+<div class="figure align-default" id="fig-ide-tools">
 <a class="reference internal image-reference" href="../../_images/ide-tools.png"><img alt="../../_images/ide-tools.png" src="../../_images/ide-tools.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Different <strong>scide</strong> tools for analyzing and observing what is going on.
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Different <strong>scide</strong> tools for analyzing and observing what is going on.
 One synth is running (a sine wave of 220 cycles per second).</span><a class="headerlink" href="#fig-ide-tools" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+</div>
 <p>These tools are depicted in <a class="reference internal" href="#fig-ide-tools"><span class="std std-numref">Fig. 2</span></a>.
 They can be used to observe and analyze the state of the server as well as the signal processing.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

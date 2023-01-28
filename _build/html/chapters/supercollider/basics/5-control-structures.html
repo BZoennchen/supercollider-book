@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Control Structures &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -698,12 +697,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-cases">
+   Use Cases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteration">
+   Iteration
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -715,6 +743,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-cases">
+   Use Cases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteration">
+   Iteration
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -722,11 +768,52 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="control-structures">
+  <div class="tex2jax_ignore mathjax_ignore section" id="control-structures">
 <h1>Control Structures<a class="headerlink" href="#control-structures" title="Permalink to this headline">#</a></h1>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, control sequences are functions.
-They expect one or multiple functions that are executed conditionally.
-We already saw the <code class="docutils literal notranslate"><span class="pre">if</span></code>-function, which expect one boolean expression (a predicate) and two functions.</p>
+They expect one or multiple functions that are executed conditionally.</p>
+<div class="section" id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">#</a></h2>
+<p>We already saw the <code class="docutils literal notranslate"><span class="pre">if</span></code>-function, which expect one boolean expression (a predicate) and two functions.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x &gt;= 5&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span> <span class="p">{</span><span class="s2">&quot;x &lt; 5&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;});</span>
+</pre></div>
+</div>
+<p>The first function is evaluated if the statement is true, otherwise the second function is evaluated.</p>
+<p>Another way to branch the code execution is achieved by using the <code class="docutils literal notranslate"><span class="pre">switch</span></code>-statement.
+It expects one <code class="docutils literal notranslate"><span class="pre">value</span></code> which is then compared to one or more <code class="docutils literal notranslate"><span class="pre">testvalues</span></code> and each of these is paired with a function that will be executed if <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">==</span> <span class="pre">testvalue</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">(</span>
+<span class="k">switch</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span>                   <span class="c1">// value</span>
+    <span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x == 3&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span>  <span class="c1">// testvalue and testfunction pairs</span>
+    <span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x == 4&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span>
+    <span class="mi">5</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x == 5&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span>
+    <span class="mi">6</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;x == 6&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;},</span>
+       <span class="p">{</span><span class="s2">&quot;x is something else&quot;</span><span class="p">.</span><span class="nx">postln</span><span class="p">;}</span> <span class="c1">// default function</span>
+<span class="p">);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>A kind of the <code class="docutils literal notranslate"><span class="pre">if</span></code>- and <code class="docutils literal notranslate"><span class="pre">switch</span></code>-statement is the <code class="docutils literal notranslate"><span class="pre">case</span></code>-statement.
+The case method allows for conditional evaluations with multiple cases (similar to the switch) but instead of a test value, we have a test function.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">z</span><span class="p">;</span>
+<span class="nx">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="nx">i</span> <span class="o">=</span> <span class="nx">z</span><span class="p">.</span><span class="nx">choose</span><span class="p">;</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="k">case</span>
+    <span class="p">{</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">}</span>   <span class="p">{</span> <span class="ss">\no</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nx">i</span> <span class="o">==</span> <span class="mf">1.1</span> <span class="p">}</span> <span class="p">{</span> <span class="ss">\wrong</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nx">i</span> <span class="o">==</span> <span class="mf">1.3</span> <span class="p">}</span> <span class="p">{</span> <span class="ss">\wrong</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nx">i</span> <span class="o">==</span> <span class="mf">1.5</span> <span class="p">}</span> <span class="p">{</span> <span class="ss">\wrong</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">}</span>   <span class="p">{</span> <span class="ss">\wrong</span> <span class="p">}</span>
+    <span class="p">{</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span>   <span class="p">{</span> <span class="ss">\true</span> <span class="p">};</span>
+<span class="nx">x</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iteration">
+<h2>Iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">while</span></code>-function expects one predicate and another function that can be executed as long as the predicate is true.
 For example:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -758,7 +845,8 @@ It allows us to define an additional <code class="docutils literal notranslate">
 <p>A <code class="docutils literal notranslate"><span class="pre">switch</span></code>-function expects a <code class="docutils literal notranslate"><span class="pre">value</span></code> and pairs of tested values and functions to be executed.
 The test checks for equality <code class="docutils literal notranslate"><span class="pre">==</span></code>.
 To be more flexible and to use different predicates one can use the <code class="docutils literal notranslate"><span class="pre">case</span></code>-function which is as efficient as <code class="docutils literal notranslate"><span class="pre">if</span></code>-statements.</p>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

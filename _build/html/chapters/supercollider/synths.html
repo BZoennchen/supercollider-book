@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Synthesizers &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -779,52 +778,54 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="synthesizers">
+  <div class="tex2jax_ignore mathjax_ignore section" id="synthesizers">
 <span id="sec-synths"></span><h1>Synthesizers<a class="headerlink" href="#synthesizers" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>I got reconnect properly with computers […] I didn’t have to use someone else’s idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. – <em>Jonny Greenwood</em></p>
 </div></blockquote>
 <p>The concept of synth definitions and synth is central to SuperCollider.
 Everything is built around this fundamental concept.
-It can be confusing for beginners because there is a big difference between a synth as we know it from the real world and an instance of <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.</p>
-<section id="definition">
+It can be confusing for beginners because there is a big difference between a synth as we know it in the real world and an instance of <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.</p>
+<div class="section" id="definition">
 <h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
-<p>In the real world a synth is an instrument that can be played.
+<p>In the real world, a synth is an instrument that can be played.
 However, in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we distinguish between the instrument (as a potential/thing) and the played instrument (as a process).
-While the thing is an instance of <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, the process (an executed <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>) is an instance of <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.</p>
-<p>We do not introduce a new class for each new instrument.
-Instead, each instrument is represented by a function, more precisely by <em>a unit generator graph function</em> that realizes <em>a signal-flow-graph (SFG)</em>.
+While the thing is an instance of <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, the process (an executed <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>) is an instance of <code class="docutils literal notranslate"><span class="pre">Synth</span></code>.
+If we instanciate a <code class="docutils literal notranslate"><span class="pre">Synth</span></code>, defined by a specific <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> and its arguments, the signal processing begins and if we destroy the <code class="docutils literal notranslate"><span class="pre">Synth</span></code> it stops.</p>
+<p>Instead of introducing a new class for each new instrument which would lead to thousand of classes, each instrument is represented by a function, more precisely by <em>a unit generator graph function</em> that realizes <em>a signal-flow-graph (SFG)</em>.
+<code class="docutils literal notranslate"><span class="pre">sclang</span></code> borrows this concept from functional programming languages.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
 We generate synths by calling the defining function with different arguments to do so.</p>
 <div class="definition admonition" id="def-synth-def">
 <p class="admonition-title">SynthDef</p>
 <p>An instance of <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> represents a factory of a parameterizable signal-flow-graph.
-The graph can be executed (as <code class="docutils literal notranslate"><span class="pre">Synth</span></code>) on the audio server.</p>
+The graph can be executed (as <code class="docutils literal notranslate"><span class="pre">Synth</span></code> with different arguments) on the audio server.</p>
 </div>
-<p>From the perspective of a musician, a synth definition is a parameterizable description of a short piece of sound.
+<p>From the perspective of a musician, a synth definition is a parameterizable description of a piece of sound.
 A synth, on the other hand, is the process of playing that piece of sound with specific possibly modulated arguments (frequency, loudness, velocity, etc.).
-From a software developer’s perspective, a synth definition is a factory that generates synths following its internal description.</p>
+From a software developer’s perspective, a synth definition is a factory that generates synths following its internal description defined by a function representing a signal-flow graph.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object encapsulates the server-side representation of a synth definition and provides methods for creating new <code class="docutils literal notranslate"><span class="pre">Synths</span></code> objects on the server.
+It abstracts away all the low level communication (via <a class="reference internal" href="communication/2-osc.html#sec-osc"><span class="std std-ref">OSC</span></a>) between the client and the audio server.
 Furthermore, a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object can be serialized to the disk and streamed via the network to distant audio servers.
 <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> are nothing more than compact representations of signal-flow graphs written down in text.</p>
 <div class="definition admonition" id="def-synth">
 <p class="admonition-title">Synth</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">Synth</span></code> is a representation of a signal-flow-graph executed in the audio server.
-It is the process that generates sound.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Synth</span></code> is a representation of an executed signal-flow-graph.
+It is the process that generates sound via the audio server.</p>
 </div>
-</section>
-<section id="workflow">
+</div>
+<div class="section" id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">sclang</span></code> to define a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
+<p>We use <code class="docutils literal notranslate"><span class="pre">sclang</span></code> to define a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
 It is defined on the client, and we must send it to the audio server.
 To generate sound, we have to tell the server to create a synth via one of its known <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code>.</p>
 <p>The normal workflow goes as follows:</p>
 <ol class="simple">
 <li><p>define (all) your <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> via <code class="docutils literal notranslate"><span class="pre">sclang</span></code></p></li>
 <li><p>add them (all) to the audio sever <strong>scsynth</strong></p></li>
-<li><p>create a synth on the server</p></li>
-<li><p>remove the synth from the server</p></li>
+<li><p>create one or multiple synth on the server</p></li>
+<li><p>remove your synths from the server</p></li>
 </ol>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="c1">// (1) define the SynthDef</span>
@@ -847,8 +848,9 @@ To generate sound, we have to tell the server to create a synth via one of its k
 </pre></div>
 </div>
 <p>Note that adding a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server takes time.
-Therefore, we can not execute the last line immediately after adding the definition because it is an asynchronous, non-blocking process.
-If you want to perform, adding all your synth definitions beforehand is good practice.</p>
+Therefore, we can not execute the last line immediately after adding the definition because it is an asynchronous, non-blocking call.
+If you want to perform, adding all your synth definitions beforehand is good practice.
+There is also the possibility to wait for the audio sever programmatically.</p>
 <p>By calling <code class="docutils literal notranslate"><span class="pre">SynthDef.new()</span></code> or just <code class="docutils literal notranslate"><span class="pre">SynthDef()</span></code>, we generate a new factory object that produces synth according to the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> blueprint.
 On behalf of the perspective of the audio server <strong>scsynth</strong>, this factory object produces <code class="docutils literal notranslate"><span class="pre">Synth</span></code> objects!
 A <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> encapsulates the client-side representation of a synth definition and provides methods for creating new <code class="docutils literal notranslate"><span class="pre">Synths</span></code>, writing them to disk, and streaming them to a server.</p>
@@ -878,8 +880,8 @@ You have to tell the server explicitly – there is no automatic garbage collect
 <p>We can also <strong>store</strong> the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> permanently on our hard drive by calling <code class="docutils literal notranslate"><span class="pre">store()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add()</span></code>.
 This call will create the file <code class="docutils literal notranslate"><span class="pre">sineWave.scsyndef</span></code> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> directory which can be found in your <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> application directory.
 If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <code class="docutils literal notranslate"><span class="pre">SynthDefs</span></code> in the <code class="docutils literal notranslate"><span class="pre">snythdefs</span></code> directory are added to the server automatically.</p>
-</section>
-<section id="sever-vs-client">
+</div>
+<div class="section" id="sever-vs-client">
 <h2>Sever vs Client<a class="headerlink" href="#sever-vs-client" title="Permalink to this headline">#</a></h2>
 <p>To understand <code class="docutils literal notranslate"><span class="pre">UGens</span></code> we must understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> is executed when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> to the server.
@@ -909,8 +911,8 @@ There is no such thing as a server-side <code class="docutils literal notranslat
 Its evaluation is part of the definition of the signal-flow graph.
 Since <code class="docutils literal notranslate"><span class="pre">rrand</span></code> is evaluated when we add the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, each synth of this <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> will generate a randomly chosen sound which is the same for <strong>all</strong> synths constructed by this added <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> object.
 Therefore, if we want a <code class="docutils literal notranslate"><span class="pre">Synth</span></code> that generates a random sound whenever it is created, we need server-side randomness using a suitable <code class="docutils literal notranslate"><span class="pre">UGen</span></code>, in this case, <code class="docutils literal notranslate"><span class="pre">Rand</span></code>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
