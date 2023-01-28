@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proxy Space &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -811,7 +810,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="proxy-space">
+  <div class="tex2jax_ignore mathjax_ignore section" id="proxy-space">
 <span id="sec-proxy-space"></span><h1>Proxy Space<a class="headerlink" href="#proxy-space" title="Permalink to this headline">#</a></h1>
 <p>From the three possibilities (<code class="docutils literal notranslate"><span class="pre">NoteProxy</span></code>, <code class="docutils literal notranslate"><span class="pre">Ndef</span></code>, and <code class="docutils literal notranslate"><span class="pre">ProxySpace</span></code>) to interact with server nodes, I prefer the <code class="docutils literal notranslate"><span class="pre">ProxySpace</span></code>.
 Note however, that you can do everything also with the two other methods.
@@ -828,7 +827,7 @@ However, each <em>environment variable</em> of a proxy space is a node proxy –
 Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
 Using a proxy space frees us from dealing with <code class="docutils literal notranslate"><span class="pre">Ndef</span></code> or <code class="docutils literal notranslate"><span class="pre">NodeProxy</span></code> explicitly, but we have to deal with it implicitly instead!</p>
-<section id="initialization">
+<div class="section" id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">#</a></h2>
 <p>To push a proxy space onto the stack, we first have to boot the server because the proxy space lives and operates on an audio server instance of <em>scsynth</em>.
 The following line suffice to push an environment representing the server side proxy space onto the stack:</p>
@@ -840,8 +839,8 @@ The following line suffice to push an environment representing the server side p
 </pre></div>
 </div>
 <p>instead.</p>
-</section>
-<section id="usage">
+</div>
+<div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">#</a></h2>
 <p>If we re-evaluate <code class="docutils literal notranslate"><span class="pre">currentEnvironment</span></code>, we can see that we are indeed in an empty proxy space.
 There are no “classical” environment variables within the proxy space.
@@ -897,8 +896,8 @@ One can not play a paused proxy and one can not resume a stopped proxy.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">nodeMap</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 </pre></div>
 </div>
-</section>
-<section id="routing-signals">
+</div>
+<div class="section" id="routing-signals">
 <h2>Routing Signals<a class="headerlink" href="#routing-signals" title="Permalink to this headline">#</a></h2>
 <p>Of course, we can combine multiple proxies by building a signal-flow graph on the fly.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sine</span> <span class="o">=</span> <span class="p">{</span><span class="o">~</span><span class="nx">amp</span> <span class="o">*</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">350</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.003</span><span class="p">]};</span>
@@ -975,8 +974,8 @@ Thus we can divide pulses into fewer one per beat.
 Also note that our <code class="docutils literal notranslate"><span class="pre">doneAction</span></code> of the envolved envelopes is set to <code class="docutils literal notranslate"><span class="pre">Done.none</span></code> because we do not want to free the synsth – it is running all the time.
 <a class="reference external" href="https://doc.sccode.org/Classes/TChoose.html">TChoose</a> chooses randomly one of the values of the array whenever it is triggered.
 Our clock <code class="docutils literal notranslate"><span class="pre">~clock</span></code> runs at 60 beats per minutes times 16 such that we divide each beat into 16 parts.</p>
-</section>
-<section id="slots-and-node-proxy-roles">
+</div>
+<div class="section" id="slots-and-node-proxy-roles">
 <h2>Slots and Node Proxy Roles<a class="headerlink" href="#slots-and-node-proxy-roles" title="Permalink to this headline">#</a></h2>
 <p>Often we want to chain signals and effects in a series together such that signal <span class="math notranslate nohighlight">\(i\)</span> can manipulate signal <span class="math notranslate nohighlight">\(i+1\)</span>.
 For example, one might want to add a reverb effect to a percussive sawtooth signal.
@@ -1046,8 +1045,8 @@ The low pass filter has no effect since the cutoff frequency is very high.</p>
 <p>In combination, JITLib and the proxy space offer extreme versatility.
 They make live coding easier and very flexible.
 It gets more interesting when used with <a class="reference internal" href="../pattern/3-pattern.html#sec-pattern"><span class="std std-ref">pattern</span></a>, and one has multiple <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> sounding together.</p>
-</section>
-<section id="synthdefs-and-pbinds">
+</div>
+<div class="section" id="synthdefs-and-pbinds">
 <h2>SynthDefs and Pbinds<a class="headerlink" href="#synthdefs-and-pbinds" title="Permalink to this headline">#</a></h2>
 <p>What if we want to use our carefully crafted <a class="reference internal" href="../synths.html#sec-synths"><span class="std std-ref">SynthDefs</span></a> in a live programming setup?
 Well we can bind them to a node proxy.
@@ -1108,14 +1107,14 @@ You can not override it by re-evaluating the <code class="docutils literal notra
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">test_beep</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="kc">nil</span><span class="p">);</span>
 </pre></div>
 </div>
-</section>
-<section id="synchronization">
+</div>
+<div class="section" id="synchronization">
 <h2>Synchronization<a class="headerlink" href="#synchronization" title="Permalink to this headline">#</a></h2>
 <p>In our second routing example we synchronzed our envelopes and <code class="docutils literal notranslate"><span class="pre">TChoose</span></code> unit generator by a global clock realized by an <code class="docutils literal notranslate"><span class="pre">Impulse</span></code> unit generator.
 As you saw, this opens up jet another coding style.
 A more straightforward way is to use <code class="docutils literal notranslate"><span class="pre">Pbinds</span></code> synchronized by a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempoClock</a> which I describe in section <a class="reference internal" href="../scheduling/2-clocks.html#sec-clocks"><span class="std std-ref">Clocks</span></a>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

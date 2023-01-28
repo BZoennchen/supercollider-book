@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classes and Objects &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -698,12 +697,46 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiation">
+   Instantiation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-definition">
+   Class Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getter-and-setter">
+   Getter and Setter
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -715,6 +748,29 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiation">
+   Instantiation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#class-definition">
+   Class Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getter-and-setter">
+   Getter and Setter
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -722,8 +778,22 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="classes-and-objects">
+  <div class="tex2jax_ignore mathjax_ignore section" id="classes-and-objects">
 <h1>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">#</a></h1>
+<p><strong>Disclaimer</strong>: The book is not about programming in general. Therefore, this section contains only a short description of the topic and assumes that the reader is familiar with one or more object-orientated programming (OOP) languages.</p>
+<p>Before we start, note that we can not interactively define new classes.
+Thus, we can not use the interpreter window to define and execute the code that involves a new class.
+Instead, classes have to be compiled before we can use them!
+The following warning is copied from the official SuperCollider documentation from section <a class="reference external" href="https://doc.sccode.org/Guides/WritingClasses.html">Writing Classes</a>.</p>
+<div class="attention admonition" id="attention-class-files">
+<p class="admonition-title">Compiling Class Files</p>
+<p>Class definitions are statically compiled when you launch SuperCollider or recompile the library.
+This means that class definitions must be saved into a file with the extension <code class="docutils literal notranslate"><span class="pre">.sc</span></code>, in a disk location where SuperCollider looks for classes. Saving into the main class library (SCClassLibrary) is generally not recommended.
+It’s preferable to use either the user or system extension directories.</p>
+<p>It is not possible to enter a class definition into an interpreter window and execute it.</p>
+</div>
+<div class="section" id="instantiation">
+<h2>Instantiation<a class="headerlink" href="#instantiation" title="Permalink to this headline">#</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the constructor of an object is called by <code class="docutils literal notranslate"><span class="pre">Classname.new</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
@@ -732,6 +802,34 @@ title="Print to PDF"
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="class-definition">
+<h2>Class Definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">#</a></h2>
+<p>All classes are <code class="docutils literal notranslate"><span class="pre">Objects</span></code>, i.e., they inherit from the fundamental base class <a class="reference external" href="https://doc.sccode.org/Classes/Object.html">Object</a> automatically.
+This makes it necessary to call the constructor of <code class="docutils literal notranslate"><span class="pre">Object</span></code> by calling <code class="docutils literal notranslate"><span class="pre">newCopyArgs</span></code>.
+<code class="docutils literal notranslate"><span class="pre">Object.newCopyArgs(...</span> <span class="pre">args)</span></code> creates a new instance and copies the arguments to the instance variable in <strong>the order that the variables were defined</strong>.
+Of course, class variables will be ignored.
+Therefore, the order is semantically significant!</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">MyClass</span> <span class="p">{</span>           <span class="c1">// Object is implied</span>
+    <span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span>    <span class="c1">// Object variables / attribtes</span>
+    <span class="kd">classvar</span> <span class="nx">d</span><span class="p">;</span>     <span class="c1">// Class variabels / attributes</span>
+
+    <span class="o">*</span><span class="k">new</span> <span class="p">{</span>          <span class="c1">// Class method</span>
+        <span class="kd">arg</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">;</span>
+        <span class="c1">// Will copy arg1, arg2, arg3 to variables a, b, c</span>
+        <span class="o">^</span><span class="kr">super</span><span class="p">.</span><span class="nx">newCopyArgs</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">add</span> <span class="p">{</span>           <span class="c1">// Object method</span>
+        <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nx">sum</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span><span class="p">;</span>
+        <span class="o">^</span><span class="nx">sum</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Instance variables (the attributes of the object) are defined by using the keyword <code class="docutils literal notranslate"><span class="pre">var</span></code> while class variabels (the attribute of the class which are shared by all objects of the class) are defined via the keyword <code class="docutils literal notranslate"><span class="pre">classvar</span></code>.
+Instance variables will <em>shadow</em> class variables of the same name.</p>
 <p>Classes can contain class methods (static methods) and object methods.
 A class method starts with an <code class="docutils literal notranslate"><span class="pre">*</span></code>.
 For example, I implemented a new class <code class="docutils literal notranslate"><span class="pre">Utils</span></code> which offers a <em>class-method</em> <code class="docutils literal notranslate"><span class="pre">initUtils</span></code> that initializes all the useful analyzing tools depicted in <a class="reference internal" href="../ecosystem.html#fig-ide-tools"><span class="std std-numref">Fig. 2</span></a>.</p>
@@ -777,6 +875,13 @@ The following code depicts the object-method <code class="docutils literal notra
 Then elements are swapped accordingly.
 And finally the copy <code class="docutils literal notranslate"><span class="pre">res</span></code> is returned.
 The expression <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">div:</span> <span class="pre">2;</span></code> is equivialent to <code class="docutils literal notranslate"><span class="pre">res.size</span> <span class="pre">/</span> <span class="pre">2;</span></code> or <code class="docutils literal notranslate"><span class="pre">res.size.div(2);</span></code>.</p>
+</div>
+<div class="section" id="getter-and-setter">
+<h2>Getter and Setter<a class="headerlink" href="#getter-and-setter" title="Permalink to this headline">#</a></h2>
+<p>By default, variables are not accessible outside of the class or instance.
+A method must be added to explicitly give access.
+These methods are called <em>getter</em> (returns the variable) and <em>setter</em> (sets the value of the variable).
+<code class="docutils literal notranslate"><span class="pre">sclang</span></code> allows these methods to be added via a shortcut by adding <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> (getter) and/or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (setter) in front of the variable definition.</p>
 <p>Let us look at another example, i.e., the class <code class="docutils literal notranslate"><span class="pre">Complex</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Complex</span> <span class="o">:</span> <span class="nc">Number</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="o">&lt;&gt;</span><span class="nx">real</span><span class="p">,</span> <span class="o">&lt;&gt;</span><span class="nx">imag</span><span class="p">;</span>
@@ -795,14 +900,17 @@ The expression <code class="docutils literal notranslate"><span class="pre">res.
 <span class="p">...</span>
 </pre></div>
 </div>
-<p>Objects of this class have two (object)-attributes <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">img</span></code> indicated by the ugly <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> and initialized by the constructor.
-Furthermore, it has a method <code class="docutils literal notranslate"><span class="pre">+</span></code> which takes one non-optional and one optional argument.
+<p>Objects of this class have two (object)-attributes <code class="docutils literal notranslate"><span class="pre">real</span></code> and <code class="docutils literal notranslate"><span class="pre">img</span></code> indicated by the signal word <code class="docutils literal notranslate"><span class="pre">var</span></code> and they are accessible from outside indicated by the ugly rue <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>.
+The instance variables are initialized by the constructor.
+The name <strong>and order</strong> is identical!</p>
+<p>Furthermore, the class defines a method <code class="docutils literal notranslate"><span class="pre">+</span></code> which takes one non-optional and one optional argument.
 <code class="docutils literal notranslate"><span class="pre">aNumber</span></code> is another complex number and <code class="docutils literal notranslate"><span class="pre">adverb</span></code> is a modifier that modifies the plus operation if <code class="docutils literal notranslate"><span class="pre">aNumber</span></code> is not a number.
 If we ignore the second argument, the <code class="docutils literal notranslate"><span class="pre">+</span></code> method returns a new complex number by adding two complex numbers together.
 Therefore, <code class="docutils literal notranslate"><span class="pre">+</span></code> is a <em>pure function</em>.</p>
 <p>I may come back to object-oriented programming with <code class="docutils literal notranslate"><span class="pre">sclang</span></code> but for now we do not really need it.
 The best way to learn more about it is to look into the source code pressing <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">+</span> <span class="pre">CMD</span></code>.</p>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

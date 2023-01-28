@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unit Generator Library &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -761,11 +760,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="unit-generator-library">
+  <div class="tex2jax_ignore mathjax_ignore section" id="unit-generator-library">
 <h1>Unit Generator Library<a class="headerlink" href="#unit-generator-library" title="Permalink to this headline">#</a></h1>
 <p>In the following, I discuss certain <code class="docutils literal notranslate"><span class="pre">UGens</span></code> which I had difficulties to understand.
 For all the well documented <code class="docutils literal notranslate"><span class="pre">UGens</span></code> such as <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Saw.html">Saw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFTri.html">LFTri</a>, I refer to the <a class="reference external" href="https://doc.sccode.org/Guides/Tour_of_UGens.html">official documentation</a>.</p>
-<section id="amplitude">
+<div class="section" id="amplitude">
 <h2>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">#</a></h2>
 <p>In the description of the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://doc.sccode.org/Classes/Amplitude.html">Amplitude</a> we find the following statement:</p>
 <blockquote>
@@ -789,15 +788,13 @@ For example, we say that the following signal</p>
 </pre></div>
 </div>
 <p>has an amplitude of <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
-<figure class="align-default" id="fig-amplitude-sine">
+<div class="figure align-default" id="fig-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/amplitude-sine.png"><img alt="../../_images/amplitude-sine.png" src="../../_images/amplitude-sine.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">#</a></p>
+</div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a5e46a1e-d0c0-4d0b-bbc1-b7175cb7e15d">
-<span class="eqno">(1)<a class="headerlink" href="#equation-a5e46a1e-d0c0-4d0b-bbc1-b7175cb7e15d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-03b2ff3a-d97f-4a39-ad68-182c811258a5">
+<span class="eqno">(1)<a class="headerlink" href="#equation-03b2ff3a-d97f-4a39-ad68-182c811258a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -818,12 +815,10 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default" id="fig-all-amplitude-sine">
+<div class="figure align-default" id="fig-all-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/all-amplitude-sine.png"><img alt="../../_images/all-amplitude-sine.png" src="../../_images/all-amplitude-sine.png" style="width: 800px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">#</a></p>
+</div>
 <p>Somehow <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> underestimates the perceive loudness quite a bit.</p>
 <p>Futhermore, we have to tell <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> the time period the signal loudness increases <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and the time period the amplitude decreases <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.
 If we don’t know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
@@ -843,8 +838,8 @@ Here we cut the noisy sound if its amplitude measured by <code class="docutils l
 </div>
 <p>As longas <code class="docutils literal notranslate"><span class="pre">Amplitude.ar(sig)</span> <span class="pre">&gt;</span> <span class="pre">0.2</span></code> is true, it returns (on the server-side) not true but 1.
 Otherwise the expression is evaluated to 0.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

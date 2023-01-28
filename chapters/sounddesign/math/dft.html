@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discrete Fourier Transform &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -871,7 +870,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="discrete-fourier-transform">
+  <div class="tex2jax_ignore mathjax_ignore section" id="discrete-fourier-transform">
 <span id="sec-dft"></span><h1>Discrete Fourier Transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -881,7 +880,7 @@ We generalized this concept to <strong>continuous aperiodic fuctions</strong> in
 That’s all fine but on a computer we are not dealing with continuous functions.
 On a computer, audio is digitalized.
 That is, we are dealing with <strong>discrete signals</strong>.</p>
-<section id="definitions">
+<div class="section" id="definitions">
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
 <p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal we switch from the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
 If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
@@ -923,8 +922,8 @@ Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</sp
 <p>where <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, N-1\)</span> are the coefficients of the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.</p>
 </div>
 <p>Note that the <em><a class="reference internal" href="#def-inverse-discrete-fourier-transform"><span class="std std-ref">inverse discrete Fourier transform  IDFT</span></a></em> is a specific examle of a <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
-</section>
-<section id="example">
+</div>
+<div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
 <p>Suppose the following signal is given</p>
 <div class="math notranslate nohighlight">
@@ -943,7 +942,7 @@ Clearly <span class="math notranslate nohighlight">\(N = 4\)</span> since we hav
 </div>
 <p>Let us implement the <em>DFT</em> and <em>IDFT</em> using <code class="docutils literal notranslate"><span class="pre">Python</span></code>.
 The following code is inefficient but suffice for our purposes.</p>
-<section id="dft">
+<div class="section" id="dft">
 <h3>DFT<a class="headerlink" href="#dft" title="Permalink to this headline">#</a></h3>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="o">~</span><span class="nx">dft</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">k</span><span class="p">;</span>
@@ -1006,8 +1005,8 @@ Remember, multiplying by <span class="math notranslate nohighlight">\(i\)</span>
 The ‘’cosine-part’’ of the complex number represents the real part.
 Therefore, the <strong>phase</strong> of the cosine with the fundamental frequency is shifted by <span class="math notranslate nohighlight">\(-\pi/2\)</span>.
 Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
-</section>
-<section id="idft">
+</div>
+<div class="section" id="idft">
 <h3>IDFT<a class="headerlink" href="#idft" title="Permalink to this headline">#</a></h3>
 <p>Let’s now apply the IDFT:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -1038,9 +1037,9 @@ Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p
 </div>
 <p>If we neglect the small numerical errors, we get the correct function values <span class="math notranslate nohighlight">\(y[n]\)</span> for <span class="math notranslate nohighlight">\(n = 0, 1, 2, 3\)</span> back again.
 The imaginary part of the complex numbers are approximately zero because <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function.</p>
-</section>
-</section>
-<section id="limitations">
+</div>
+</div>
+<div class="section" id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
 <p>Let us suppose we have the following signal consisting of only one frequency:</p>
 <div class="math notranslate nohighlight">
@@ -1071,12 +1070,12 @@ The best we can do is devise a work-around.
 We create a function exactly as long as the analysis window that gradually fades in and fades out at the edges.
 If we multiply the signal to be analysed by this function (which is called <em>windowing</em>), we decrease the effect of any discontinuieties at the edges of the analysis window because the discontinuieties are heavily attenuated at the analysis window edges.
 This helps to reduce the impact but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.</p>
-</section>
-<section id="fast-fourier-transform">
+</div>
+<div class="section" id="fast-fourier-transform">
 <h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h2>
 <p>TODO</p>
-</section>
-<section id="fft-in-supercollider">
+</div>
+<div class="section" id="fft-in-supercollider">
 <h2>FFT in SuperCollider<a class="headerlink" href="#fft-in-supercollider" title="Permalink to this headline">#</a></h2>
 <p>TODO</p>
 <p>To compute the DFT and IDFT in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> we use the FFT and IFFT respectively.
@@ -1091,8 +1090,8 @@ For that purpose SC offers us a <a class="reference external" href="https://doc.
 <span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

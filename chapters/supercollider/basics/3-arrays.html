@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arrays &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -799,13 +798,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="arrays">
+  <div class="tex2jax_ignore mathjax_ignore section" id="arrays">
 <span id="sec-array"></span><h1>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">#</a></h1>
 <p>A signal is a sequence of numbers.
 An array can realize this sequence.
 Therefore, it is no surprise that <code class="docutils literal notranslate"><span class="pre">sclang</span></code> offers a rich interface to create, manipulate and combine arrays.
 Thinking about multidimensional arrays can be both mind bending and mind expanding.</p>
-<section id="creation">
+<div class="section" id="creation">
 <h2>Creation<a class="headerlink" href="#creation" title="Permalink to this headline">#</a></h2>
 <p>To create a new <code class="docutils literal notranslate"><span class="pre">Array</span></code> the class offers many factory methods.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="k">new</span><span class="p">(</span><span class="na">maxSize:</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// [  ]</span>
@@ -840,8 +839,8 @@ Thinking about multidimensional arrays can be both mind bending and mind expandi
 <span class="nc">Array</span><span class="p">.</span><span class="nx">fillND</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="o">*</span><span class="nx">c</span><span class="p">;</span> <span class="p">});</span> 
 </pre></div>
 </div>
-</section>
-<section id="concatenation">
+</div>
+<div class="section" id="concatenation">
 <h2>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">#</a></h2>
 <p>First, we can concatenate two arrays without changing any of the two originals:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">++</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6 ]</span>
@@ -852,8 +851,8 @@ Thinking about multidimensional arrays can be both mind bending and mind expandi
 <span class="nx">a</span><span class="p">.</span><span class="nx">addAll</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]);</span> <span class="c1">// [ 1, 2, 3, 4, 5, 6 ]</span>
 </pre></div>
 </div>
-</section>
-<section id="access-of-elements">
+</div>
+<div class="section" id="access-of-elements">
 <h2>Access of Elements<a class="headerlink" href="#access-of-elements" title="Permalink to this headline">#</a></h2>
 <p>We can access any element by <code class="docutils literal notranslate"><span class="pre">.at(index)</span></code> or by the shorthand <code class="docutils literal notranslate"><span class="pre">&#64;index</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -886,8 +885,8 @@ Similar to <code class="docutils literal notranslate"><span class="pre">numpy</s
 </div>
 <p>In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an <code class="docutils literal notranslate"><span class="pre">Array</span></code> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is implemented accordingly.</p>
-</section>
-<section id="manipulation">
+</div>
+<div class="section" id="manipulation">
 <h2>Manipulation<a class="headerlink" href="#manipulation" title="Permalink to this headline">#</a></h2>
 <p>To <strong>set</strong> a specific value we can use the default syntax well-known for almost all existing programming languages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -927,8 +926,8 @@ Therefore, an <code class="docutils literal notranslate"><span class="pre">Array
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="o">!</span><span class="mi">2</span><span class="o">!</span><span class="mi">3</span> <span class="c1">// [ [ 5, 5 ], [ 5, 5 ], [ 5, 5 ] ]</span>
 </pre></div>
 </div>
-</section>
-<section id="adverbs">
+</div>
+<div class="section" id="adverbs">
 <span id="sec-array-adverbs"></span><h2>Adverbs<a class="headerlink" href="#adverbs" title="Permalink to this headline">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">J</span></code> and <code class="docutils literal notranslate"><span class="pre">APL</span></code> are programming languages that are made for processing arrays of data and are able to express complex notions of iterations implicitely.
 <code class="docutils literal notranslate"><span class="pre">J</span></code> is a purely functional programming language that was developed around 1990 and is based on <code class="docutils literal notranslate"><span class="pre">APL</span></code> (<strong>A</strong> <strong>P</strong>rogramming <strong>L</strong>anguage).
@@ -976,8 +975,8 @@ Adverbs can be applied to <strong>all</strong> binary operators.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="n">nil</span> <span class="p">]</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

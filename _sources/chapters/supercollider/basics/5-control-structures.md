@@ -2,7 +2,55 @@
 
 In ``sclang``, control sequences are functions.
 They expect one or multiple functions that are executed conditionally.
+
+## Use Cases
+
 We already saw the ``if``-function, which expect one boolean expression (a predicate) and two functions.
+
+```isc
+x = 5;
+if(x >= 5, {"x >= 5".postln;}, {"x < 5".postln;});
+```
+
+The first function is evaluated if the statement is true, otherwise the second function is evaluated.
+
+Another way to branch the code execution is achieved by using the ``switch``-statement.
+It expects one ``value`` which is then compared to one or more ``testvalues`` and each of these is paired with a function that will be executed if ``value == testvalue``.
+
+```isc
+x = 5;
+(
+switch(x,                   // value
+    3, {"x == 3".postln;},  // testvalue and testfunction pairs
+    4, {"x == 4".postln;},
+    5, {"x == 5".postln;},
+    6, {"x == 6".postln;},
+       {"x is something else".postln;} // default function
+);
+)
+```
+
+A kind of the ``if``- and ``switch``-statement is the ``case``-statement.
+The case method allows for conditional evaluations with multiple cases (similar to the switch) but instead of a test value, we have a test function.
+
+```isc
+(
+var i, x, z;
+z = [0, 1, 1.1, 1.3, 1.5, 2];
+i = z.choose;
+x = case
+    { i == 1 }   { \no }
+    { i == 1.1 } { \wrong }
+    { i == 1.3 } { \wrong }
+    { i == 1.5 } { \wrong }
+    { i == 2 }   { \wrong }
+    { i == 0 }   { \true };
+x.postln;
+)
+```
+
+
+## Iteration
 
 The ``while``-function expects one predicate and another function that can be executed as long as the predicate is true.
 For example:

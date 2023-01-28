@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Convolution &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -837,7 +836,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="convolution">
+  <div class="tex2jax_ignore mathjax_ignore section" id="convolution">
 <span id="sec-convolution"></span><h1>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -850,7 +849,7 @@ Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span
 <div class="math notranslate nohighlight">
 \[y_3(t) = (y_1 * y_2)(t).\]</div>
 <p>But what does the <em>convolution operator</em> <span class="math notranslate nohighlight">\(*\)</span> really do?</p>
-<section id="discrete-convolution">
+<div class="section" id="discrete-convolution">
 <span id="sec-discrete-convolution"></span><h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
 <p>Let us start with two arrays of numbers which represent discrete functions <span class="math notranslate nohighlight">\(y_1, y_2\)</span>.</p>
 <p>We can use component-wise multiplication to generate a new function:</p>
@@ -862,12 +861,10 @@ Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span
 \[y_3[k] = y_1[k] \cdot y_2[k].\]</div>
 <p>The convolution is defined very differently.
 The idea is to mirrow the second function and to compute the weighted sum of a sliding window.</p>
-<figure class="align-default" id="fig-array-conv">
+<div class="figure align-default" id="fig-array-conv">
 <a class="reference internal image-reference" href="../../../_images/array_conv.png"><img alt="../../../_images/array_conv.png" src="../../../_images/array_conv.png" style="width: 900px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Visualization of the computation of a convolution of two discrete signals (arrays of numbers).</span><a class="headerlink" href="#fig-array-conv" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Visualization of the computation of a convolution of two discrete signals (arrays of numbers).</span><a class="headerlink" href="#fig-array-conv" title="Permalink to this image">#</a></p>
+</div>
 <p>Given <span class="math notranslate nohighlight">\(y_1 = [1,2,3,4]\)</span> and <span class="math notranslate nohighlight">\(y_2 = [ -1, 6, -3, 1]\)</span>, we use sliding window to compute the new function by a weighted sum.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -906,8 +903,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a73c2ce0-8ab6-4b83-a6b5-f3091094922a">
-<span class="eqno">(31)<a class="headerlink" href="#equation-a73c2ce0-8ab6-4b83-a6b5-f3091094922a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-752921c6-524a-4f95-b1d5-9f7cfd11f35f">
+<span class="eqno">(31)<a class="headerlink" href="#equation-752921c6-524a-4f95-b1d5-9f7cfd11f35f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -917,18 +914,16 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25b98a9c-b8ef-4dc3-9303-fb7382e75432">
-<span class="eqno">(32)<a class="headerlink" href="#equation-25b98a9c-b8ef-4dc3-9303-fb7382e75432" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c91245b1-5caa-4370-9b84-aa16e655beb0">
+<span class="eqno">(32)<a class="headerlink" href="#equation-c91245b1-5caa-4370-9b84-aa16e655beb0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
 </div>
-<figure class="align-default" id="fig-array-conv-periodic">
+<div class="figure align-default" id="fig-array-conv-periodic">
 <a class="reference internal image-reference" href="../../../_images/array_conv_periodic.png"><img alt="../../../_images/array_conv_periodic.png" src="../../../_images/array_conv_periodic.png" style="width: 900px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Visualization of the computation of a convalution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.</span><a class="headerlink" href="#fig-array-conv-periodic" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Visualization of the computation of a convalution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.</span><a class="headerlink" href="#fig-array-conv-periodic" title="Permalink to this image">#</a></p>
+</div>
 <p>The circular convolution of a finite signal with a infinite periodic discrete function is an infinite periodic funciton.
 This in our code we do not construct an <code class="docutils literal notranslate"><span class="pre">Array</span></code> but a new function.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -954,26 +949,26 @@ Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are
 In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-966fd649-f15b-464d-9f88-de22bf43b476">
-<span class="eqno">(33)<a class="headerlink" href="#equation-966fd649-f15b-464d-9f88-de22bf43b476" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e13a82e-95f6-45e5-ac25-5360b57e1528">
+<span class="eqno">(33)<a class="headerlink" href="#equation-6e13a82e-95f6-45e5-ac25-5360b57e1528" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
-</section>
-<section id="continuous-convolution">
+</div>
+<div class="section" id="continuous-convolution">
 <h2>Continuous Convolution<a class="headerlink" href="#continuous-convolution" title="Permalink to this headline">#</a></h2>
 <p>If <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are continuous functions then the sum becomes an integral.</p>
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ababb819-85f8-42f6-b1ce-30dc60b90400">
-<span class="eqno">(34)<a class="headerlink" href="#equation-ababb819-85f8-42f6-b1ce-30dc60b90400" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a8be0baf-7737-47dd-8940-1a5f8443afd0">
+<span class="eqno">(34)<a class="headerlink" href="#equation-a8be0baf-7737-47dd-8940-1a5f8443afd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
 <p>This looks intimidating but there is nothing to fear.
 Instead of a sum over an index <span class="math notranslate nohighlight">\(k\)</span> we have the integration over <span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(t\)</span> represents the shift of our second (mirrored) funciton.</p>
-</section>
-<section id="rules">
+</div>
+<div class="section" id="rules">
 <h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">#</a></h2>
 <p>Imagine the function <span class="math notranslate nohighlight">\(y\)</span> which is 1 between 0 and 1 and zero elsewhere.
 <span class="math notranslate nohighlight">\(y\)</span> represents a square.
@@ -1015,8 +1010,8 @@ Then</p>
 <p>Multiplying in the time domain convolves in the frequency domain and multiplying in the frequency domain convolves in the time domain.
 Therefore, to compute the convolution one can do so by compute the <a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> beforehand.
 In fact, this is how the unit generators, such as <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a>, are implemented.</p>
-</section>
-<section id="the-convolution-unit-generator">
+</div>
+<div class="section" id="the-convolution-unit-generator">
 <h2>The Convolution Unit Generator<a class="headerlink" href="#the-convolution-unit-generator" title="Permalink to this headline">#</a></h2>
 <p>We can compute a discrete convolution on the audio server using the <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> unit generator.
 Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
@@ -1030,12 +1025,10 @@ Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default" id="fig-sc-convolution-pulse">
+<div class="figure align-default" id="fig-sc-convolution-pulse">
 <a class="reference internal image-reference" href="../../../_images/sc-convolution-pulse.png"><img alt="../../../_images/sc-convolution-pulse.png" src="../../../_images/sc-convolution-pulse.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Convoluting two pulse waves results in a triangle wave.</span><a class="headerlink" href="#fig-sc-convolution-pulse" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Convoluting two pulse waves results in a triangle wave.</span><a class="headerlink" href="#fig-sc-convolution-pulse" title="Permalink to this image">#</a></p>
+</div>
 <p>As you can see, we get the expected result!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">kernel</span><span class="p">;</span>
@@ -1048,20 +1041,18 @@ Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<figure class="align-default" id="fig-sc-convolution-saw">
+<div class="figure align-default" id="fig-sc-convolution-saw">
 <a class="reference internal image-reference" href="../../../_images/sc-convolution-saw.png"><img alt="../../../_images/sc-convolution-saw.png" src="../../../_images/sc-convolution-saw.png" style="width: 400px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#fig-sc-convolution-saw" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#fig-sc-convolution-saw" title="Permalink to this image">#</a></p>
+</div>
 <p>To compute ‘perfect’ convolution in the time domain, one requires all function values beforehand.
 This would make real-time processing impossible! Therefore, <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> computes a windowed Fourier transform, i.e., the <a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> of a short snipped of the functions (in and the kernel).
 Based on that, it computes the convolution of those snippets. To do so, the unit generator has to fill a buffer of a specific size (twice the number of framesize).
 Before the convolution can start, the buffer has to be filled; therefore, the result is zero at the beginning.
 The larger the buffer, the more expensive the operation gets and the more zeros there are at the beginning.
 If one period of the signals fits approximately into the buffer, the result will look approximately similar to a ‘perfect’ convolution.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

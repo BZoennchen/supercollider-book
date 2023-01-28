@@ -4,8 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fourier Series &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -837,7 +836,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="fourier-series">
+  <div class="tex2jax_ignore mathjax_ignore section" id="fourier-series">
 <span id="sec-fourier"></span><h1>Fourier Series<a class="headerlink" href="#fourier-series" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>L’étude profonde de la nature est la source la plus féconde de découvertes mathématiques. – Jean-Baptiste Joseph Fourier (1768–1830)</p>
@@ -868,7 +867,7 @@ It is no surprise that the mathematician <em>Gilbert Strang</em> called the FFT<
 <p>But why is that?
 Well, it is all about computation speed!
 The <em>FFT</em> reduces the time complexity of the <em>Discrete Fourier Transformation (DFT)</em> from <span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span> to <span class="math notranslate nohighlight">\(\mathcal{O}(n\log(n))\)</span> which makes the computation of the <em>DFT</em> fast thus applicable for many areas and purposes.</p>
-<section id="frequency-spectrum">
+<div class="section" id="frequency-spectrum">
 <span id="sec-freq-spectrum"></span><h2>Frequency Spectrum<a class="headerlink" href="#frequency-spectrum" title="Permalink to this headline">#</a></h2>
 <p>Before we dicuss the mathematical basis, let’s have a look at the <em>frequency spectrum</em> of a audio recordings such that you can picture what we want to compute.
 First let us use a audio recording of a real piano.
@@ -928,8 +927,8 @@ The piano might be out of tune.</p>
 </div>
 </div>
 <p>In the synthetic we get the exaclty what we expected, i.e. 5 peaks, four <em>harmonic overtones</em> and one fundamental at 440 Hz.</p>
-</section>
-<section id="similarity-of-periodic-functions">
+</div>
+<div class="section" id="similarity-of-periodic-functions">
 <span id="sec-similarity-of-functions"></span><h2>Similarity of Periodic Functions<a class="headerlink" href="#similarity-of-periodic-functions" title="Permalink to this headline">#</a></h2>
 <p>Let us start from the assumption that the <em><a class="reference internal" href="#theorem-fourier-synthesis"><span class="std std-ref">Fourier Theorem</span></a></em> is correct (which it is).
 So we assume, that we can built any periodic vibration using a combination of sinusiods whose frequencies are integer multiple of a fundamental frequcency.
@@ -1052,8 +1051,8 @@ The sum changes to an integral.</p>
 <p>is the inner product of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.
 It is a measure of the similarity of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.</p>
 </div>
-</section>
-<section id="fourier-synthesis">
+</div>
+<div class="section" id="fourier-synthesis">
 <h2>Fourier Synthesis<a class="headerlink" href="#fourier-synthesis" title="Permalink to this headline">#</a></h2>
 <p>But let us start from the beginning, i.e., from the <em>Fourier series</em>.
 The process of constructing a periodic function by a <em>Foruier series</em> is called <em>Fourier synthesis</em>.</p>
@@ -1084,8 +1083,8 @@ For example, the (periodic) <a class="reference internal" href="../additive-synt
 <p>can be constructed by an infinite sum</p>
 <div class="math notranslate nohighlight">
 \[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
-</section>
-<section id="fourier-analysis">
+</div>
+<div class="section" id="fourier-analysis">
 <h2>Fourier Analysis<a class="headerlink" href="#fourier-analysis" title="Permalink to this headline">#</a></h2>
 <p>Until know we assumed that all <em>phase shifts</em> are zero.
 Then we concluded that if we compute the integral of signal <span class="math notranslate nohighlight">\(y(t)\)</span> multiplied with a sinusoid of the same phase we get:</p>
@@ -1153,13 +1152,13 @@ A_0/2 &amp;= a_0 / 2 &amp; \text{ if } n = 0\\
 </div>
 <p>Note that in this form <strong>phase</strong> and <strong>amplitude</strong> represented by a phasor, e.g., <span class="math notranslate nohighlight">\(A_n / 2 e^{-i \phi_n}\)</span>
 Finally, we can define <span class="math notranslate nohighlight">\(Y_N : \mathbb{Z} \rightarrow \mathbb{C}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c6fefe8-6100-4206-b1c6-39dd2bef309c">
-<span class="eqno">(28)<a class="headerlink" href="#equation-3c6fefe8-6100-4206-b1c6-39dd2bef309c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1a34ac8c-36a9-4793-a469-a55427eae248">
+<span class="eqno">(28)<a class="headerlink" href="#equation-1a34ac8c-36a9-4793-a469-a55427eae248" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Y_N(n) = c_n,
 \end{equation}\]</div>
 <p>to be the <a class="reference internal" href="complex.html#def-phasor"><span class="std std-ref">phasor</span></a> of the respective sinusoid with <strong>frequency</strong> <span class="math notranslate nohighlight">\(n\)</span> of the <em>Fourier series</em> of a (real) <strong>periodic function</strong> <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

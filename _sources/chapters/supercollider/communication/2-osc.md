@@ -1,3 +1,4 @@
+(sec-osc)=
 # Open Sound Control
 
 Open Sound Control (OSC) is a protocol for networking sound synthesizers, computers, and other multimedia devices for musical performance or show control purposes.
