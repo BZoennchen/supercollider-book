@@ -352,7 +352,7 @@ $H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)$
 
 If we evaluate the [transfer function](theorem-transfer-function) $H(z)$ for $\alpha = 0.5$ at the frequncies of interest we get the [frequency response](def-frequency-response):
 
-$$H(e^{i \omega T}) = 0.5 \cdot (1 - e^{-i\omega T})$$
+$$H(e^{i \omega T}) = 0.5 \cdot (1 + e^{-i\omega T})$$
 
 which is similar result we got in the last section!
 
