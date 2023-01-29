@@ -337,7 +337,7 @@ ax.set_xlabel(r'$\omega$');
 # We can use the [transfer function](sec-trensfer-function) of [LTI filters](def-form-lti-filter) to analyse the effects of the filter.
 # Using the Z-transform, we get
 # 
-# $$\mathcal{X}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).$$
+# $$\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).$$
 # 
 # There is a *pole* at $z = 0$ and a *zero* at $z = \frac{\alpha}{|\alpha|-1}$.
 # Therefore,
@@ -394,7 +394,7 @@ ax.legend();
 # we have $N = 1$ and $M = 0, a_0 = 1, a_1 = -\alpha, b_0 = (1 - |\alpha|)$
 # Therefore,
 # 
-# $$\mathcal{X}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).$$
+# $$\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).$$
 # 
 # There is a *pole* at $z = \alpha$ and a *zero* at $z = \infty$.
 # Therefore,
