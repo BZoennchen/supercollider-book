@@ -339,7 +339,7 @@ ax.set_xlabel(r'$\omega$');
 # 
 # $$\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).$$
 # 
-# There is a *pole* at $z = 0$ and a *zero* at $z = \frac{\alpha}{|\alpha|-1}$.
+# There is a *pole* at $z = \infty$ and a *zero* at $z = \frac{\alpha}{|\alpha|-1}$.
 # Therefore,
 # 
 # $H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)$
@@ -359,8 +359,10 @@ t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x, alpha: (1-np.abs(alpha)) * (1-(alpha/(np.abs(alpha) -1))*np.exp(-1j*x))
 
 fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, np.abs(gain(t, 0.3)), label=r'$\alpha = 0.3$')
 ax.plot(t, np.abs(gain(t, 0.5)), label=r'$\alpha = 0.5$')
 ax.plot(t, np.abs(gain(t, 0.8)), label=r'$\alpha = 0.8$')
+ax.plot(t, np.abs(gain(t, -0.3)), label=r'$\alpha = -0.3$')
 ax.plot(t, np.abs(gain(t, -0.5)), label=r'$\alpha = -0.5$')
 ax.plot(t, np.abs(gain(t, -0.8)), label=r'$\alpha = -0.8$')
 ax.set_xticks([-np.pi, 0, np.pi])
@@ -414,8 +416,10 @@ t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x, alpha: (1-np.abs(alpha)) / (1-alpha*np.exp(-1j*x))
 
 fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, np.abs(gain(t, 0.3)), label=r'$\alpha = 0.3$')
 ax.plot(t, np.abs(gain(t, 0.5)), label=r'$\alpha = 0.5$')
 ax.plot(t, np.abs(gain(t, 0.8)), label=r'$\alpha = 0.8$')
+ax.plot(t, np.abs(gain(t, -0.3)), label=r'$\alpha = -0.3$')
 ax.plot(t, np.abs(gain(t, -0.5)), label=r'$\alpha = -0.5$')
 ax.plot(t, np.abs(gain(t, -0.8)), label=r'$\alpha = -0.8$')
 ax.set_xticks([-np.pi, 0, np.pi])

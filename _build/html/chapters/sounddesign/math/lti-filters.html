@@ -877,15 +877,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f1cac00-603f-42ff-8558-91f516884e7e">
-<span class="eqno">(41)<a class="headerlink" href="#equation-9f1cac00-603f-42ff-8558-91f516884e7e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f1e8976b-42a7-403c-8a50-23f658f1c0a1">
+<span class="eqno">(41)<a class="headerlink" href="#equation-f1e8976b-42a7-403c-8a50-23f658f1c0a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5f99fd5-71d1-406a-a24f-767864cbc1c6">
-<span class="eqno">(42)<a class="headerlink" href="#equation-d5f99fd5-71d1-406a-a24f-767864cbc1c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a161223-6fd6-4224-8e1a-a6d485954c1a">
+<span class="eqno">(42)<a class="headerlink" href="#equation-7a161223-6fd6-4224-8e1a-a6d485954c1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -943,8 +943,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8123aa7-e3e0-4b92-b0b0-4812118690a5">
-<span class="eqno">(43)<a class="headerlink" href="#equation-a8123aa7-e3e0-4b92-b0b0-4812118690a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0f34f30-fad1-4a16-8f90-f3b0c5597b4c">
+<span class="eqno">(43)<a class="headerlink" href="#equation-f0f34f30-fad1-4a16-8f90-f3b0c5597b4c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -1058,8 +1058,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c610aa2-2592-43d2-ac9b-5067736b3c05">
-<span class="eqno">(44)<a class="headerlink" href="#equation-1c610aa2-2592-43d2-ac9b-5067736b3c05" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4f1f022d-eb99-4f29-a44e-4348d24198c0">
+<span class="eqno">(44)<a class="headerlink" href="#equation-4f1f022d-eb99-4f29-a44e-4348d24198c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1080,7 +1080,7 @@ We can use the <a class="reference internal" href="z-transform.html#sec-trensfer
 Using the Z-transform, we get</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).\]</div>
-<p>There is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = 0\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = \frac{\alpha}{|\alpha|-1}\)</span>.
+<p>There is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = \infty\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = \frac{\alpha}{|\alpha|-1}\)</span>.
 Therefore,</p>
 <p><span class="math notranslate nohighlight">\(H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)\)</span></p>
 <p>If we evaluate the <a class="reference internal" href="z-transform.html#theorem-transfer-function"><span class="std std-ref">transfer function</span></a> <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we get the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a>:</p>
@@ -1165,8 +1165,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-12e8a032-b2a4-457b-8d8e-e1809c8b73a9">
-<span class="eqno">(45)<a class="headerlink" href="#equation-12e8a032-b2a4-457b-8d8e-e1809c8b73a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a39cb1a8-dad4-47cd-92e7-4124665fa0e7">
+<span class="eqno">(45)<a class="headerlink" href="#equation-a39cb1a8-dad4-47cd-92e7-4124665fa0e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
