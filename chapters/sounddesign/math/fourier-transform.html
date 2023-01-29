@@ -380,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="lti-filters.html">
-     Linear Time-invariant Filters
+     LTI Filters
     </a>
    </li>
   </ul>
@@ -491,11 +491,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -565,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/about.html">
    About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/terms.html">
+   Glossary
   </a>
  </li>
  <li class="toctree-l1">
@@ -725,70 +725,77 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="fourier-transform">
 <span id="sec-fourier-transform"></span><h1>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this headline">#</a></h1>
-<p>The <em>Fourier Transform</em> is an extension or generalization of the <em>Fourier Series</em>.
-Instead of a finate period, we deal with an infinite period <span class="math notranslate nohighlight">\(T\)</span>.
-Using this trick we can represent aperiodic functions as well.
-Similar the the concept of the <em>Fourier series</em> we are looking at two directions:</p>
+<p>The <em>Fourier transform</em> is an extension or generalization of the <em>Fourier series</em>.
+Instead of a finite period, we deal with an infinite period <span class="math notranslate nohighlight">\(T\)</span>.
+Using this trick, we can represent aperiodic functions as well.
+Similar to the concept of the <em>Fourier series</em> we are looking in two directions:</p>
 <ol class="simple">
 <li><p><strong>Fourier transform</strong>: going from the time domain <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> to the frequency domain <span class="math notranslate nohighlight">\(Y: \mathbb{R} \rightarrow \mathbb{C}\)</span></p></li>
 <li><p><strong>Inverse Fourier transform</strong>: going from the frequency domain <span class="math notranslate nohighlight">\(Y: \mathbb{R} \rightarrow \mathbb{C}\)</span> to the time domain <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span>.</p></li>
 </ol>
 <p><em>Fourier series</em> are limited to <em>periodic functions</em>.
-Musical signals are mostly periodic but what if they are not?
+Musical signals are mostly periodic, but what if they are not?
 Well, the <em>Fourier series</em> is used to represent a <em>periodic function</em> by a discrete sum of <em>complex exponentials</em>, while the <em>Fourier transform</em> is then used to represent a <strong>general, non-periodic function</strong> by a <em>continuous superposition</em> or <em>integral of complex exponentials</em>.</p>
-<p>The <em>Fourier transform</em> can be thought of as the <em>Fourier series</em> of a function with the period that approaches infinity.
+<p>The <em>Fourier transform</em> can be thought of as the <em>Fourier series</em> of a function with a period that approaches infinity.
 We switch from a <em>discrete superposition</em> to a <em>continuous superposition</em>.
-Of course the <em>Fourier transform</em> can also deal with periodic functions.
+Of course, the <em>Fourier transform</em> can also deal with periodic functions.
 Therefore, one might say that it is more powerful.</p>
 <div class="definition admonition" id="def-fourier-transform-exp">
 <p class="admonition-title">Fourier Transform (TF)</p>
-<p>The <em>Fourier transform (FT)</em> of an <em>integgrable</em> function <span class="math notranslate nohighlight">\(y : \mathbb{R} \rightarrow \mathbb{C}\)</span> is defined by</p>
+<p>The <em>Fourier transform (FT)</em> of an <em>integrable</em> function <span class="math notranslate nohighlight">\(y : \mathbb{R} \rightarrow \mathbb{C}\)</span> is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-transform-exp">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eq-fourier-transform-exp" title="Permalink to this equation">#</a></span>\[Y(f) = \int\limits_{-\infty}^\infty y(t) e^{-i2\pi f t} dt, \quad \forall f \in \mathbb{R}.\]</div>
+<span class="eqno">(30)<a class="headerlink" href="#equation-eq-fourier-transform-exp" title="Permalink to this equation">#</a></span>\[Y(f) = \int\limits_{-\infty}^\infty y(t) e^{-i2\pi f t} dt, \quad \forall f \in \mathbb{R}.\]</div>
 <p>The transform of function <span class="math notranslate nohighlight">\(y(t)\)</span> at frequency <span class="math notranslate nohighlight">\(f\)</span> is given by the complex number <span class="math notranslate nohighlight">\(Y(f)\)</span>.</p>
 </div>
-<p>Let me give you an intuition how this follows from the coefficients of the <em><a class="reference internal" href="fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a></em>. We get</p>
+<p>Let me give you an intuition of how this follows from the coefficients of the <em><a class="reference internal" href="fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a></em>.
+Consider an infinite period, i.e., <span class="math notranslate nohighlight">\(T\)</span> goes to infinity.
+Therefore, we get</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \lim_{T \rightarrow \infty} c_n = \lim_{T \rightarrow \infty} \frac{1}{T} \int_T y(t) \cdot e^{-i2\pi n t / T}dt.
 \end{equation*}\]</div>
-<p><span class="math notranslate nohighlight">\(n/T = n \cdot f_0\)</span> with <span class="math notranslate nohighlight">\(n \in \mathbb{Z}, f_0 \rightarrow 0\)</span> becomes a new continuous variable <span class="math notranslate nohighlight">\(f\)</span> as if you remember that <span class="math notranslate nohighlight">\(n\)</span> goes from minus infinity to infinity.
-So we have,</p>
+<p>Since <span class="math notranslate nohighlight">\(T\)</span> goes to infinity, the fundamental frequency <span class="math notranslate nohighlight">\(f_0 = 1 / T\)</span> goes to zero.
+Thus the discrete variables <span class="math notranslate nohighlight">\(n \cdot f_0\)</span> all become continuous since <span class="math notranslate nohighlight">\(f_0 \rightarrow 0\)</span>.
+Remember that, for the exponential form, <span class="math notranslate nohighlight">\(n\)</span> goes from negative infinity to positive infinity.
+We can summarize:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \lim_{T \rightarrow \infty} \frac{n}{T} = \lim_{f_0 \rightarrow 0} n \cdot f_0 = f
 \end{equation*}\]</div>
-<p>thus</p>
+<p>following</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\lim_{T \rightarrow \infty} c_n = \left( \lim_{T \rightarrow \infty} \frac{1}{T}\right) \underbrace{\int_{-\infty}^\infty y(t) \cdot e^{-i2\pi f t}dt}_{Y(f)}.
+\lim_{T \rightarrow \infty} c_n = \left( \lim_{T \rightarrow \infty} \frac{1}{T}\right) \cdot \underbrace{\int_{-\infty}^\infty y(t) \cdot e^{-i2\pi f t}dt}_{Y(f)}.
 \end{equation*}\]</div>
 <p>Consequently,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-c_n = \frac{1}{T} Y\left( \frac{n}{T}\right)
+c_n = \frac{1}{T} Y\left( n \cdot f_0 \right) = \frac{1}{T} Y\left( n \cdot \frac{1}{T}\right)
 \end{equation*}\]</div>
-<p>holds, i.e., we can use the <em>Fourier transform</em> to compute the coefficients for the <em><a class="reference internal" href="fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a></em>.</p>
+<p>holds, since the value of each part of the integral <span class="math notranslate nohighlight">\(Y(f)\)</span> of length <span class="math notranslate nohighlight">\(T\)</span> is equal to <span class="math notranslate nohighlight">\(T \cdot c_n\)</span>.
+Everything works out.
+Thus we can use the <em>Fourier transform</em> to compute the coefficients for the <em><a class="reference internal" href="fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a></em>.</p>
 <p>Evaluating <span class="math notranslate nohighlight">\(Y(f) \in \mathbb{C}\)</span> for all values of <span class="math notranslate nohighlight">\(f\)</span> produces the <strong>frequency-domain</strong> function.
 Similar to <span class="math notranslate nohighlight">\(Y(n)\)</span> of the <em>Fourier series</em>, the complex number <span class="math notranslate nohighlight">\(Y(f)\)</span> (a <a class="reference internal" href="complex.html#def-phasor"><span class="std std-ref">phasor</span></a>), conveys both <strong>apmplitude</strong> and <strong>phase</strong> of the <strong>frequency</strong> <span class="math notranslate nohighlight">\(f\)</span>.</p>
-<p>The effect of multiplying <span class="math notranslate nohighlight">\(y(t)\)</span> by <span class="math notranslate nohighlight">\(e^{-i2\pi f t}\)</span> is to substract <span class="math notranslate nohighlight">\(f\)</span> from every frequency component of function <span class="math notranslate nohighlight">\(y(t)\)</span>.
-So the component that was at <span class="math notranslate nohighlight">\(f\)</span> ends up at zero herz, and the integral produces its amplitude, because all the other components are oscillatory and integrate ti zero over an infinite interval.
-In section <a class="reference internal" href="fourier-series.html#sec-similarity-of-functions"><span class="std std-ref">Similarity of Periodic Functions</span></a> I tried to give you an intuition for this phenomenon.</p>
+<p>The effect of multiplying <span class="math notranslate nohighlight">\(y(t)\)</span> by <span class="math notranslate nohighlight">\(e^{-i2\pi f t}\)</span> is to subtract <span class="math notranslate nohighlight">\(f\)</span> from every frequency component of <span class="math notranslate nohighlight">\(y(t)\)</span>.
+So the component that was at <span class="math notranslate nohighlight">\(f\)</span> ends up at zero herz.
+The integral produces its amplitude because all the other components are orthogonal and consequently integrate to zero over an infinite interval.
+In section <a class="reference internal" href="fourier-series.html#sec-similarity-of-functions"><span class="std std-ref">Similarity of Periodic Functions</span></a>, I tried to give an intuition for this phenomenon.</p>
 <div class="definition admonition" id="def-inverse-fourier-transform-exp">
 <p class="admonition-title">Inverse Fourier Transform (ITF)</p>
-<p>Under suitable conditions <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> cen be represented as a recombination of <em>complex exponentials</em> of all possible frequencies, called <em>inverse Fourier transform (IFT)</em>:</p>
+<p>Under suitable conditions <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> can be represented as a recombination of <em>complex exponentials</em> of all possible frequencies, called <em>inverse Fourier transform (IFT)</em>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-inverse-fourier-transform-exp">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eq-inverse-fourier-transform-exp" title="Permalink to this equation">#</a></span>\[y(t) = \int\limits_{-\infty}^\infty Y(f) e^{i2\pi f t} df, \quad \forall t \in \mathbb{R}.\]</div>
+<span class="eqno">(31)<a class="headerlink" href="#equation-eq-inverse-fourier-transform-exp" title="Permalink to this equation">#</a></span>\[y(t) = \int\limits_{-\infty}^\infty Y(f) e^{i2\pi f t} df, \quad \forall t \in \mathbb{R}.\]</div>
 <p>The inverse transform of function <span class="math notranslate nohighlight">\(Y(f)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is given by the complex number <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 </div>
 <p>The pair <span class="math notranslate nohighlight">\((y, Y)\)</span> are called <em>Fourier integral pair</em> or <em>Fourier transform pair</em> and we define <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> to be the Fourier transform operator with</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}\{y\} = Y, \quad \mathcal{F}^{-1}\{Y\} = y.\]</div>
-<p>We are dealing with real-valued functions but this is not a problem since <span class="math notranslate nohighlight">\(\mathbb{R} \subset \mathbb{C}\)</span>.
+<p>We are dealing with real-valued functions, but this is not a problem since <span class="math notranslate nohighlight">\(\mathbb{R} \subset \mathbb{C}\)</span>.
 Real-valued functions are just a special case where <span class="math notranslate nohighlight">\(y(t) = \overline{y(t)}\)</span> which implies</p>
 <div class="math notranslate nohighlight">
 \[Y(f) = Y(-f),\]</div>
-<p>i.e. we do not have to remember or compute anything for negative frequencies.</p>
+<p>i.e., we do not have to remember or compute anything for negative frequencies.</p>
 </div>
 
     <script type="text/x-thebe-config">

@@ -380,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="lti-filters.html">
-     Linear Time-invariant Filters
+     LTI Filters
     </a>
    </li>
   </ul>
@@ -491,11 +491,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -565,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/about.html">
    About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/terms.html">
+   Glossary
   </a>
  </li>
  <li class="toctree-l1">
@@ -875,16 +875,16 @@ title="Print to PDF"
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Up to this point, we considered continuous signals <span class="math notranslate nohighlight">\(y(t)\)</span>.
-In section <a class="reference internal" href="fourier-series.html#sec-fourier"><span class="std std-ref">Fourier Series</span></a>, we started with <strong>continuous periodic fuctions</strong>.
-We generalized this concept to <strong>continuous aperiodic fuctions</strong> in section <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier Transform</span></a>.
-That’s all fine but on a computer we are not dealing with continuous functions.
+In section <a class="reference internal" href="fourier-series.html#sec-fourier"><span class="std std-ref">Fourier Series</span></a>, we started with <strong>continuous periodic functions</strong>.
+We generalized this concept to <strong>continuous aperiodic functions</strong> in section <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier Transform</span></a>.
+That’s all fine, but on a computer, we are not dealing with continuous functions.
 On a computer, audio is digitalized.
 That is, we are dealing with <strong>discrete signals</strong>.</p>
 <div class="section" id="definitions">
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
-<p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal we switch from the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
-If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
-For audio signals the DTFT is not that relevant.</p>
+<p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal, we switch from the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
+If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal, we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
+For audio signals, the DTFT is not that relevant.</p>
 <div class="definition admonition" id="def-fourier-series-exp-discrete">
 <p class="admonition-title">Discrete Fourier Series (DFS)</p>
 <p>The <em>discrete Foruier series</em> <span class="math notranslate nohighlight">\(y: \mathbb{Z} \rightarrow \mathbb{C}\)</span> in <em>exponential form</em> of a periodic and discrete function <span class="math notranslate nohighlight">\(y[n]\)</span> is defined by</p>
@@ -909,7 +909,7 @@ Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</sp
 <p>times the <em>sample frequency</em> <span class="math notranslate nohighlight">\(f_s\)</span>. However, due to the <a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a> we can only rely on the first half of coefficients, i.e.,</p>
 <div class="math notranslate nohighlight">
 \[0, \frac{f_s}{N}, \ldots, \frac{f_s}{2}.\]</div>
-<p>Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency</p>
+<p>Also, note that the DFT does only probe for frequencies that are an integer multiple of the fundamental frequency</p>
 <div class="math notranslate nohighlight">
 \[\frac{f_s}{N}.\]</div>
 <p>Therefore, we expect limitations when dealing with inharmonic content because any content within the signal which is not part of some harmonic will be approximated by those harmonics and since we only compute a finite number of coefficients, this approximation is imperfect.</p>
@@ -989,10 +989,10 @@ Since <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-value
 <p>otherwise it is</p>
 <div class="math notranslate nohighlight">
 \[\frac{1}{N} \cdot c[n]\]</div>
-<p>Furthermore, because of <em><a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a></em> we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
+<p>Furthermore, because of <em><a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a></em>, we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
 In general, all <span class="math notranslate nohighlight">\(c[n]\)</span> with <span class="math notranslate nohighlight">\(n &gt; \frac{N}{2}\)</span> are <strong>invalid</strong> because of <em><a class="reference internal" href="sampling.html#def-aliasing"><span class="std std-ref">aliasing</span></a></em>.
 Therefore, <span class="math notranslate nohighlight">\(c[3] = 4i\)</span> is ‘’incorrect’’.
-We can not distinguish the sinosoid of frequency <span class="math notranslate nohighlight">\(1\)</span> from the sinosoid of frequency <span class="math notranslate nohighlight">\(3 = 1 + f_s\)</span>.
+We can not distinguish the sinusoid of frequency <span class="math notranslate nohighlight">\(1\)</span> from the sinusoid of frequency <span class="math notranslate nohighlight">\(3 = 1 + f_s\)</span>.
 Therefore,</p>
 <div class="math notranslate nohighlight">
 \[c[1] = 2 \cdot 4i = 8i.\]</div>
@@ -1036,7 +1036,7 @@ Which is true for <span class="math notranslate nohighlight">\(y(t)\)</span>.</p
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>If we neglect the small numerical errors, we get the correct function values <span class="math notranslate nohighlight">\(y[n]\)</span> for <span class="math notranslate nohighlight">\(n = 0, 1, 2, 3\)</span> back again.
-The imaginary part of the complex numbers are approximately zero because <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function.</p>
+The imaginary part of the complex numbers is approximately zero because <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function.</p>
 </div>
 </div>
 <div class="section" id="limitations">
@@ -1045,7 +1045,7 @@ The imaginary part of the complex numbers are approximately zero because <span c
 <div class="math notranslate nohighlight">
 \[y(t) = \sin\left(f \cdot 2 \pi \frac{n}{N} \right),\]</div>
 <p>where <span class="math notranslate nohighlight">\(N = 16\)</span> and <span class="math notranslate nohighlight">\(f = 3/4\)</span>.
-If the fundamental analysis period of the DFT is also <span class="math notranslate nohighlight">\(N = 16\)</span>, i.e., the sampe frequency <span class="math notranslate nohighlight">\(f_s\)</span> is <span class="math notranslate nohighlight">\(1\)</span> Herz and the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N\)</span> is 1/16 Herz, then <span class="math notranslate nohighlight">\(f = 3/4\)</span> is clearly not an integer multiple of the sampe frequency!</p>
+If the fundamental analysis period of the DFT is also <span class="math notranslate nohighlight">\(N = 16\)</span>, i.e., the sampling frequency <span class="math notranslate nohighlight">\(f_s\)</span> is <span class="math notranslate nohighlight">\(1\)</span> Herz and the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N\)</span> is 1/16 Herz, then <span class="math notranslate nohighlight">\(f = 3/4\)</span> is clearly not an integer multiple of the sampling frequency!</p>
 <p>The following plot shows the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and the discontinuous signal <span class="math notranslate nohighlight">\(y_{\text{dft}}(t)\)</span> ‘seen / assumed’ by the DFT operation.
 Computing the IDFT gives us the correct sample points, i.e., <span class="math notranslate nohighlight">\(y[n] \equiv y_\text{dft}[n]\)</span> holds, but the reconstructed signal <span class="math notranslate nohighlight">\(y_\text{idft}(t)\)</span> is incorrect.</p>
 <div class="cell tag_remove-input docutils container">
@@ -1061,15 +1061,15 @@ Computing the IDFT gives us the correct sample points, i.e., <span class="math n
 </div>
 <p>There are actually two problems here:</p>
 <ul class="simple">
-<li><p><em>Picket Fence Effect</em>: We are trying to represent a frequency <span class="math notranslate nohighlight">\((3/4 \cdot 1/16)\)</span> that is not an integer multiple of the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N = 1/16\)</span>, so the results do not fit properly as harmonics of <span class="math notranslate nohighlight">\(f_N\)</span>. We are unable to view the underlying continuous spectrum because the DFT limits us to integer multiplies of the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N\)</span>. This is analogous to trying to observe a row of evenly spaced trees through a picket fence.</p></li>
-<li><p><em>Leakage</em>: Discontinuities at the edge of the analysis window spray noise throughout the rest of the spectrum. This phenomenon is called <em>leakage</em> because energy that should be in one spectral harmonic spreads away (leaks) into adjacent harmonics.</p></li>
+<li><p><em>Picket fence effect</em>: We are trying to represent a frequency <span class="math notranslate nohighlight">\((3/4 \cdot 1/16)\)</span> that is not an integer multiple of the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N = 1/16\)</span>, so the results do not fit appropriately as harmonics of <span class="math notranslate nohighlight">\(f_N\)</span>. We cannot view the underlying continuous spectrum because the DFT limits us to integer multiples of the fundamental analysis frequency <span class="math notranslate nohighlight">\(f_N\)</span>. This is analogous to observing a row of evenly spaced trees through a picket fence.</p></li>
+<li><p><em>Leakage</em>: Discontinuities at the edge of the analysis window spray noise throughout the rest of the spectrum. This phenomenon is called <em>leakage</em> because the energy that should be in one spectral harmonic spreads away (leaks) into adjacent harmonics.</p></li>
 </ul>
-<p>To reduce the picket fence effect we can increase the spectral frequency resolution by artificially increasing the number of samples, e.g., by padding them with zeros.
+<p>To reduce the picket fence effect, we can increase the spectral frequency resolution by artificially increasing the number of samples, e.g., by padding them with zeros.
 The leakage problem is more serious.
-The best we can do is devise a work-around.
-We create a function exactly as long as the analysis window that gradually fades in and fades out at the edges.
-If we multiply the signal to be analysed by this function (which is called <em>windowing</em>), we decrease the effect of any discontinuieties at the edges of the analysis window because the discontinuieties are heavily attenuated at the analysis window edges.
-This helps to reduce the impact but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.</p>
+The best we can do is devise a workaround.
+We create a function exactly as long as the analysis window gradually fades in and fades out at the edges.
+If we multiply the signal to be analyzed by this function (which is called <em>windowing</em>), we decrease the effect of any discontinuities at the edges of the analysis window because the discontinuities are heavily attenuated at the analysis window edges.
+This helps to reduce the impact, but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.</p>
 </div>
 <div class="section" id="fast-fourier-transform">
 <h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h2>
@@ -1078,8 +1078,8 @@ This helps to reduce the impact but there is no free lunch because any alternati
 <div class="section" id="fft-in-supercollider">
 <h2>FFT in SuperCollider<a class="headerlink" href="#fft-in-supercollider" title="Permalink to this headline">#</a></h2>
 <p>TODO</p>
-<p>To compute the DFT and IDFT in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> we use the FFT and IFFT respectively.
-For that purpose SC offers us a <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generator, respectively.</p>
+<p>To compute the DFT and IDFT in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> we use the FFT and IFFT, respectively.
+For that purpose, SC offers us a <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generator, respectively.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">in</span><span class="p">,</span> <span class="nx">chain</span><span class="p">,</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>

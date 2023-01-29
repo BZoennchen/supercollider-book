@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Linear Time-invariant Filters" href="lti-filters.html" />
+    <link rel="next" title="LTI Filters" href="lti-filters.html" />
     <link rel="prev" title="Convolution" href="convolution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -380,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="lti-filters.html">
-     Linear Time-invariant Filters
+     LTI Filters
     </a>
    </li>
   </ul>
@@ -491,11 +491,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -565,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/about.html">
    About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/terms.html">
+   Glossary
   </a>
  </li>
  <li class="toctree-l1">
@@ -798,13 +798,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-transformation">
-     General Transformation
+    <a class="reference internal nav-link" href="#transfer-function">
+     Transfer Function
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example
+    <a class="reference internal nav-link" href="#example-1-filter-equation-to-transfer-function">
+     Example 1: Filter Equation to Transfer Function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-transfer-function-to-filter-equation">
+     Example 2: Transfer Function to Filter Equation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -884,13 +889,18 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#general-transformation">
-     General Transformation
+    <a class="reference internal nav-link" href="#transfer-function">
+     Transfer Function
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example">
-     Example
+    <a class="reference internal nav-link" href="#example-1-filter-equation-to-transfer-function">
+     Example 1: Filter Equation to Transfer Function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-transfer-function-to-filter-equation">
+     Example 2: Transfer Function to Filter Equation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -933,47 +943,49 @@ title="Print to PDF"
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="z-transform">
-<h1>Z-Transform<a class="headerlink" href="#z-transform" title="Permalink to this headline">#</a></h1>
+<span id="sec-z-transform"></span><h1>Z-Transform<a class="headerlink" href="#z-transform" title="Permalink to this headline">#</a></h1>
 <p>One important mathematical concept for understanding and designing filters is the <em>Z-transform</em>.
-<a class="reference internal" href="lti-filters.html#def-linear-time-invariant"><span class="std std-ref">Linear time-variant filters (LTI)</span></a> in the form of infinite (IIR) and finite impulse response (FIR) filters described by difference equations play an important role in signal processing, i.e., sound design and these filters can be analysed using the <em>Z-transform</em>.</p>
+<a class="reference internal" href="lti-filters.html#def-linear-time-invariant"><span class="std std-ref">Linear time-variant filters (LTI)</span></a> in the form of infinite (IIR) and finite impulse response (FIR) filters described by difference equations play an important role in signal processing, i.e., sound design, and these filters can be analyzed using the <em>Z-transform</em>.</p>
 <p>The <em>Z-transform</em> converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain (<span class="math notranslate nohighlight">\(z\)</span>-domain or <span class="math notranslate nohighlight">\(z\)</span>-plane) representation.
 It can be considered as a discrete-time equivalent of the Laplace transform.
-The <em>Z-transform</em> is an generalization of the <em>discrete-time Fourier transform (DTFT)</em> (not to be confused with the discrete Fourier transform).</p>
+The <em>Z-transform</em> is a generalization of the <em>discrete-time Fourier transform (DTFT)</em> (not to be confused with the discrete Fourier transform).</p>
 <div class="definition admonition" id="def-fourier-transform-exp">
 <p class="admonition-title">(Unilateral) Z-Transform</p>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be a discrete-time signal, then the (unilateral) <em>Z-transform</em> of <span class="math notranslate nohighlight">\(x[n]\)</span> is the formal power series</p>
 <div class="math notranslate nohighlight">
 \[X(z) = \mathcal{Z}\{x[n]\} = \sum\limits_{n=0}^\infty x[n] z^{-n},\]</div>
-<p>where <span class="math notranslate nohighlight">\(n \in \mathbb{N}_0\)</span> and <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span> is, in general, a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a>.</p>
+<p>where <span class="math notranslate nohighlight">\(n \in \mathbb{N}_0\)</span> and <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span> is a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a>.</p>
 </div>
 <p><span class="math notranslate nohighlight">\(X(z)\)</span> is a complex-valued function of complex-valued <span class="math notranslate nohighlight">\(z\)</span>.
-Furthermore, <span class="math notranslate nohighlight">\(X(z)\)</span> is defined on the <span class="math notranslate nohighlight">\(z\)</span>-plane while the DTFT is defined only on the unit circle, i.e, for <span class="math notranslate nohighlight">\(|z| = 1\)</span> that is <span class="math notranslate nohighlight">\(z = e^{i \omega}\)</span>.
+Furthermore, <span class="math notranslate nohighlight">\(X(z)\)</span> is defined on the <span class="math notranslate nohighlight">\(z\)</span>-plane while the DTFT is defined only on the unit circle, i.e, for <span class="math notranslate nohighlight">\(|z| = 1\)</span>, that is, <span class="math notranslate nohighlight">\(z = e^{i \omega}\)</span>.
 Remeber, as <span class="math notranslate nohighlight">\(-\pi &lt; \omega &lt; \pi\)</span>, <span class="math notranslate nohighlight">\(z = e^{i \omega}\)</span> goes once around the unit circle.</p>
 <div class="section" id="region-of-convergence">
 <h2>Region of Convergence<a class="headerlink" href="#region-of-convergence" title="Permalink to this headline">#</a></h2>
 <p>The region of convergence is the set of <span class="math notranslate nohighlight">\(z\)</span> for which the Z-transform of a signal <span class="math notranslate nohighlight">\(x[n]\)</span> converges.
-If it does not converge, the Z-transform does not exist.
-For example,</p>
+If it does not converge, the Z-transform of the signal does not exist.
+For example, let us look at a delayed impulse <span class="math notranslate nohighlight">\(x[n] = \delta[n-n_0]\)</span> with <span class="math notranslate nohighlight">\(n \geq n_0\)</span>.
+Here <span class="math notranslate nohighlight">\(\delta\)</span> is the <a class="reference internal" href="lti-filters.html#def-kronecker-delta"><span class="std std-ref">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-function</span></a>.
+We get</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{Z}\{\delta[n-n_0]\} = \sum\limits_{n=0}^\infty \delta[n-n_0] z^{-n} = z^{-n_0}\]</div>
-<p>which does not converge for <span class="math notranslate nohighlight">\(z = 0\)</span> (note <span class="math notranslate nohighlight">\(n_0 \geq 0\)</span>).</p>
-<p>Let us look at another example, i.e., the signal</p>
+<p>which does not converge for <span class="math notranslate nohighlight">\(z = 0\)</span>.</p>
+<p>Let us look at another example, i.e., an exponential decay</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \alpha^n \cdot u[n] = \alpha^n \cdot 1 = \alpha^n.\]</div>
-<p>In this case</p>
-<div class="amsmath math notranslate nohighlight" id="equation-241861be-cc5c-4af8-85fa-1ed67af2831d">
-<span class="eqno">(35)<a class="headerlink" href="#equation-241861be-cc5c-4af8-85fa-1ed67af2831d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>In this case, we get</p>
+<div class="amsmath math notranslate nohighlight" id="equation-26806b39-8f54-4df8-af21-803237634ab9">
+<span class="eqno">(36)<a class="headerlink" href="#equation-26806b39-8f54-4df8-af21-803237634ab9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 = \sum\limits_{n = 0}^\infty \alpha^n z^{-n}\\
-&amp;= \sum\limits_{n = 0}^\infty (\alpha z^{-1})^n
+&amp;= \sum\limits_{n = 0}^\infty (\alpha z^{-1})^n.
 \end{split}
 \end{equation}\]</div>
-<p>This gives us</p>
+<p>Since this is a <em>geometric series</em>, this gives us</p>
 <div class="math notranslate nohighlight">
-\[\frac{1}{1-\alpha z^{-1}}\]</div>
+\[\frac{1}{1-\alpha z^{-1}},\]</div>
 <p>if <span class="math notranslate nohighlight">\(|\alpha z^{-1}| &lt; 1\)</span>, otherwise <span class="math notranslate nohighlight">\(X(z)\)</span> does not converge.</p>
-<p>The <em>region of convergence ROC</em> is either the region</p>
+<p>In general, the <em>region of convergence ROC</em> is either the region</p>
 <ol class="simple">
 <li><p>inside a circle (<span class="math notranslate nohighlight">\(|z| &lt; r_L\)</span>),</p></li>
 <li><p>outside a circle (<span class="math notranslate nohighlight">\(|z| &gt; r_R\)</span>) or</p></li>
@@ -981,18 +993,18 @@ X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 </ol>
 <p>Secondly, the ROC can not contain any <em>poles</em>.
 The ROC includes <span class="math notranslate nohighlight">\(|z| = 1\)</span> if and only if the <em>discrete-time Fourier transform (DTFT)</em> exists.
-Furthermore, if <span class="math notranslate nohighlight">\(x[n]\)</span> is finite duration signal (which is the case in digital audio processing) then the ROC contains all <span class="math notranslate nohighlight">\(z\)</span> except possibly <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z = \infty\)</span>.</p>
+Furthermore, if <span class="math notranslate nohighlight">\(x[n]\)</span> is a finite duration signal (which is the case in digital audio processing), then the ROC contains all <span class="math notranslate nohighlight">\(z\)</span> except possibly <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z = \infty\)</span>.</p>
 </div>
 <div class="section" id="poles-and-zeros">
 <h2>Poles and Zeros<a class="headerlink" href="#poles-and-zeros" title="Permalink to this headline">#</a></h2>
 <p>Most useful and important Z-transforms are those who give us rational functions</p>
 <div class="math notranslate nohighlight">
-\[X(z) = \frac{P(z)}{Q(z)}\]</div>
-<p>with <span class="math notranslate nohighlight">\(P(z), Q(z)\)</span> to be polynomials in <span class="math notranslate nohighlight">\(z\)</span>.</p>
-<p>The <em>zeros</em> are values of <span class="math notranslate nohighlight">\(z\)</span> for which <span class="math notranslate nohighlight">\(X(z) = 0\)</span> and the <em>poles</em> are values of <span class="math notranslate nohighlight">\(z\)</span> for which <span class="math notranslate nohighlight">\(X(z) = \infty\)</span>.
-The rooits of <span class="math notranslate nohighlight">\(P(z)\)</span> are the <em>zeros</em> and the roots of <span class="math notranslate nohighlight">\(Q(z)\)</span> are the <em>poles</em>.
-(<span class="math notranslate nohighlight">\(X(z)\)</span> may also have poles/zeros at <span class="math notranslate nohighlight">\(z = \infty\)</span> if the order of the two polynomials differ.)</p>
-<p>Let us look at the example above, i.e.</p>
+\[X(z) = \frac{P(z)}{Q(z)},\]</div>
+<p>with <span class="math notranslate nohighlight">\(P(z), Q(z)\)</span> to be polynomials in <span class="math notranslate nohighlight">\(z\)</span>.
+The <em>zeros</em> are values of <span class="math notranslate nohighlight">\(z\)</span> for which <span class="math notranslate nohighlight">\(X(z) = 0\)</span> and the <em>poles</em> are values of <span class="math notranslate nohighlight">\(z\)</span> for which <span class="math notranslate nohighlight">\(X(z) = \infty\)</span>.
+The roots of <span class="math notranslate nohighlight">\(P(z)\)</span> are the <em>zeros</em> and the roots of <span class="math notranslate nohighlight">\(Q(z)\)</span> are the <em>poles</em>.
+(<span class="math notranslate nohighlight">\(X(z)\)</span> may also have poles/zeros at <span class="math notranslate nohighlight">\(z = \infty\)</span>, if the order of the two polynomials differ.)</p>
+<p>Let us look at the example above, i.e.,</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{Z}\{\alpha^n u[n]\} = X(z) = \frac{z}{z-\alpha}, \quad |z| &gt; |\alpha|.\]</div>
 <p>In this case there is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = \alpha\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = 0\)</span>.
@@ -1005,7 +1017,7 @@ The <em>region of convergence (ROC)</em> (in blue) is outside of the (red) circl
 </div>
 <p>Let us look at another example:</p>
 <div class="math notranslate nohighlight">
-\[\mathcal{Z}\left\{ \left( \frac{1}{4} \right) u[n] + \left( \frac{-1}{2}\right)^n u[n]\right\} = X(z) = \frac{z}{z-1/4} + \frac{z}{z + 1/}, \quad |z| &gt; 1/2\]</div>
+\[\mathcal{Z}\left\{ \left( \frac{1}{4} \right) u[n] + \left( \frac{-1}{2}\right)^n u[n]\right\} = X(z) = \frac{z}{z-1/4} + \frac{z}{z + 1/2}, \quad |z| &gt; 1/2\]</div>
 <p>Using some algebra, we get</p>
 <div class="math notranslate nohighlight">
 \[X(z) = \frac{z^2 + 1/2 z + z^2 - 1/4 z}{(z-1/4)(z+1/2)} = \frac{2z(z+1/8)}{(z-1/4)(z+1/2)}, \quad |z| &gt; 1/2\]</div>
@@ -1031,8 +1043,8 @@ x[n] = \begin{cases}
 \[X(z) = \frac{1 - (\alpha z^{-1})^N}{1 - \alpha z ^{-1}} = \frac{z^N- \alpha^N}{z^{N-1}(z-\alpha)}.\]</div>
 <p>This geometric series converges for <span class="math notranslate nohighlight">\(|\alpha| &lt; \infty\)</span> and <span class="math notranslate nohighlight">\(z \neq 0\)</span>.
 Therefore, the <em>ROC</em> is the entire <span class="math notranslate nohighlight">\(z\)</span>-plane, except <span class="math notranslate nohighlight">\(z = 0\)</span>.
-Our single <em>pole</em> is at <span class="math notranslate nohighlight">\(z = 0\)</span> since <span class="math notranslate nohighlight">\(z = \alpha\)</span> cancels out with our <em>zero</em> <span class="math notranslate nohighlight">\(z_0 = \alpha\)</span>.</p>
-<p>Remeber that when we multiply a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> by another complex number, the result is another complex number that is a rotated and scaled version of the first one.
+Our single <em>pole</em> is at <span class="math notranslate nohighlight">\(z = 0\)</span> since <span class="math notranslate nohighlight">\(z = \alpha\)</span> cancels out with our <em>zero</em> <span class="math notranslate nohighlight">\(z_0 = \alpha\)</span>.
+Remeber that when we multiply a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> by another complex number, the result is another complex number that is a rotated and scaled version of the first one.
 The equation <span class="math notranslate nohighlight">\(z^N = \alpha^N\)</span> should have <span class="math notranslate nohighlight">\(N\)</span> solutions.
 <a class="reference internal" href="complex.html#theorem-de-moivre"><span class="std std-ref">De Moivre’s theorem</span></a> states that for <span class="math notranslate nohighlight">\(z = r \cdot e^{i \phi}\)</span></p>
 <div class="math notranslate nohighlight">
@@ -1046,7 +1058,7 @@ If we rotate by 360 degrees, i.e. <span class="math notranslate nohighlight">\(2
 Therefore,</p>
 <div class="math notranslate nohighlight">
 \[\phi_k = \frac{2\pi}{N} \cdot k, \quad k = 1, 2, 3, \ldots, N-1.\]</div>
-<p>This our <em>ploes</em> are</p>
+<p>Thus our <em>zeros</em> are</p>
 <div class="math notranslate nohighlight">
 \[z_k = \alpha \cdot e^{i \frac{2\pi}{N} k}, \quad k = 1, 2, 3, \ldots, N-1.\]</div>
 <p>The following plot shows <em>poles</em> and <em>zeros</em> for some <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}^+\)</span>.</p>
@@ -1055,7 +1067,7 @@ Therefore,</p>
 <img alt="../../../_images/z-transform_6_0.png" src="../../../_images/z-transform_6_0.png" />
 </div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(X(z) = \frac{P(z)}{Q(z)}\)</span> and the order of <span class="math notranslate nohighlight">\(P(z)\)</span> is <span class="math notranslate nohighlight">\(M\)</span> while the order of <span class="math notranslate nohighlight">\(Q(z)\)</span> is <span class="math notranslate nohighlight">\(N\)</span> then:</p>
+<p>In general, if <span class="math notranslate nohighlight">\(X(z) = \frac{P(z)}{Q(z)}\)</span> and the order of <span class="math notranslate nohighlight">\(P(z)\)</span> is <span class="math notranslate nohighlight">\(M\)</span> while the order of <span class="math notranslate nohighlight">\(Q(z)\)</span> is <span class="math notranslate nohighlight">\(N\)</span> then:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(N &gt; M \Rightarrow N-M\)</span> zeros at <span class="math notranslate nohighlight">\(z = \infty\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(M &gt; N \Rightarrow M-N\)</span> poles at <span class="math notranslate nohighlight">\(z = \infty\)</span>.</p></li>
@@ -1073,7 +1085,7 @@ For example, given</p>
 \[X(z) = 1 + 3z^{-1} - 4z^{-4}\]</div>
 <p>we can write this like</p>
 <div class="math notranslate nohighlight">
-\[X(z) =  = x[0] z^0 + x[1] z^{-1} - x[4] z^{-4},\]</div>
+\[X(z) = x[0] z^0 + x[1] z^{-1} - x[4] z^{-4},\]</div>
 <p>thus</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \delta[n] + 3 \delta[n-1] - 4 \delta[n-4]\]</div>
@@ -1102,12 +1114,12 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 <div class="section" id="lti-analysis">
 <h2>LTI Analysis<a class="headerlink" href="#lti-analysis" title="Permalink to this headline">#</a></h2>
 <p>The general form for a difference equation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cb45aef-8733-479d-a102-7e0d71c00569">
-<span class="eqno">(36)<a class="headerlink" href="#equation-3cb45aef-8733-479d-a102-7e0d71c00569" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-45ae6b3b-b3a1-4442-b6cf-de556901c964">
+<span class="eqno">(37)<a class="headerlink" href="#equation-45ae6b3b-b3a1-4442-b6cf-de556901c964" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
-<div class="section" id="general-transformation">
-<h3>General Transformation<a class="headerlink" href="#general-transformation" title="Permalink to this headline">#</a></h3>
+<div class="section" id="transfer-function">
+<span id="sec-trensfer-function"></span><h3>Transfer Function<a class="headerlink" href="#transfer-function" title="Permalink to this headline">#</a></h3>
 <p>If we take the Z-transform of both sides we get:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -1118,18 +1130,65 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 \[\begin{equation*}
 Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}}}_{H(z)} X(z) = H(z) X(z)
 \end{equation*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(H(z)\)</span> is the <em>transfer function</em>, i.e. the Z-transform of the filter’s <a class="reference internal" href="lti-filters.html#def-frequency-response"><span class="std std-ref">frequency response</span></a>, in other words</p>
-<div class="math notranslate nohighlight">
-\[H(z) = \mathcal{Z}\{h[n]\}.\]</div>
-<p>If <span class="math notranslate nohighlight">\(b_0 \neq 0\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5637af0f-84e8-41e2-a557-453a684503fb">
-<span class="eqno">(37)<a class="headerlink" href="#equation-5637af0f-84e8-41e2-a557-453a684503fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
-H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits_{k=1}^N (1 - d_k z^{-1})}
+<p>where <span class="math notranslate nohighlight">\(H(z)\)</span> is the <em>transfer function</em>.</p>
+<div class="theorem admonition" id="theorem-transfer-function">
+<p class="admonition-title">Transfer Function of LTI Filters</p>
+<p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em></p>
+<div class="amsmath math notranslate nohighlight" id="equation-b41148e2-9d7e-4400-bc6b-a6c59226cf1a">
+<span class="eqno">(38)<a class="headerlink" href="#equation-b41148e2-9d7e-4400-bc6b-a6c59226cf1a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(c_k, k = 1, 2, \ldots M\)</span> are zeros and <span class="math notranslate nohighlight">\(d_k, k = 1, 2, \ldots N\)</span> are poles.</p>
+<p>defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7159cbe1-a1eb-4294-baf1-fb68499a220c">
+<span class="eqno">(39)<a class="headerlink" href="#equation-7159cbe1-a1eb-4294-baf1-fb68499a220c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}},
+\end{equation}\]</div>
 </div>
-<div class="section" id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(b_0 \neq 0\)</span> then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits_{k=1}^N (1 - d_k z^{-1})}
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_k\)</span> for <span class="math notranslate nohighlight">\(k = 1, 2, \ldots M\)</span> are zeros and <span class="math notranslate nohighlight">\(d_k, for \)</span>k = 1, 2, \ldots N$ are poles.</p>
+<div class="theorem admonition" id="theorem-transfer-function-impulse-response">
+<p class="admonition-title">Transfer Funktio and Impulse Response</p>
+<p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em> is the Z-transform of the impulse response of the filter, i.e.,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-be9c01c3-5542-4361-85f5-b043df20d8a9">
+<span class="eqno">(40)<a class="headerlink" href="#equation-be9c01c3-5542-4361-85f5-b043df20d8a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H(z) = \mathcal{Z}\{h[n]\}
+\end{equation}\]</div>
+</div>
+</div>
+<div class="section" id="example-1-filter-equation-to-transfer-function">
+<span id="sec-simple-filter-example"></span><h3>Example 1: Filter Equation to Transfer Function<a class="headerlink" href="#example-1-filter-equation-to-transfer-function" title="Permalink to this headline">#</a></h3>
+<p>Let use start with a very <em>simple filter</em>.
+I will re-use this example in section <a class="reference internal" href="lti-filters.html#sec-analysis-simple-filter"><span class="std std-ref">Analysis of a Simple Filter</span></a>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
+\end{equation*}\]</div>
+<p>We have <span class="math notranslate nohighlight">\(b_0 = b_1 = a_0 = 1\)</span>.
+Therfore the <em>transfer function</em> is determined by</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{b_0 + b_1 z^{-1}}{a_0} = \frac{1 + z^{-1}}{1} = 1 + z^{-1}\]</div>
+<p>Therefore, there is a zero at <span class="math notranslate nohighlight">\(z = -1\)</span>.
+The <a class="reference internal" href="lti-filters.html#def-frequency-response"><span class="std std-ref">frequency response</span></a> of the filter is given by</p>
+<div class="math notranslate nohighlight">
+\[H(e^{i\omega}) = 1 + e^{-i\omega}.\]</div>
+<p>The following plot illustrates the behavior of <span class="math notranslate nohighlight">\(H\)</span>.
+Each point on the unit circle represents a specific frequency between <span class="math notranslate nohighlight">\(-f_s/2\)</span> and <span class="math notranslate nohighlight">\(f_s/2\)</span>.
+The gain in amplitude for such a point (frequency) is the length of the line segment of that point to the zero!
+I draw one such line in blue and some of the points.
+Imagine the grey point connected to the cross going around on the unit circle.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/z-transform_8_0.png" src="../../../_images/z-transform_8_0.png" />
+</div>
+</div>
+<p>With only one zero, the effect of the filter kicks only in for high frequencies, i.e. points close to the zero.</p>
+</div>
+<div class="section" id="example-2-transfer-function-to-filter-equation">
+<h3>Example 2: Transfer Function to Filter Equation<a class="headerlink" href="#example-2-transfer-function-to-filter-equation" title="Permalink to this headline">#</a></h3>
 <p>Let</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{(z+1)^2}{(z-1/2)(z+1/4)} = \frac{z^2(1 + z^{-1})^2}{z^2(1-1/2 z^{-1}) (1+1/4 z^{-1})} = \frac{1 + 2 z^{-1} + z^{-2}}{ 1 - 1/4 z^{-1} - 1/8 z^{-2}}\]</div>
@@ -1200,7 +1259,7 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
     <a class='right-next' id="next-link" href="lti-filters.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear Time-invariant Filters</p>
+        <p class="prev-next-title">LTI Filters</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

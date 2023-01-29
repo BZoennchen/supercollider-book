@@ -54,17 +54,17 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 ```
 
 Up to this point, we considered continuous signals $y(t)$.
-In section [Fourier Series](sec-fourier), we started with **continuous periodic fuctions**.
-We generalized this concept to **continuous aperiodic fuctions** in section [Fourier Transform](sec-fourier-transform).
-That's all fine but on a computer we are not dealing with continuous functions.
+In section [Fourier Series](sec-fourier), we started with **continuous periodic functions**.
+We generalized this concept to **continuous aperiodic functions** in section [Fourier Transform](sec-fourier-transform).
+That's all fine, but on a computer, we are not dealing with continuous functions.
 On a computer, audio is digitalized.
 That is, we are dealing with **discrete signals**.
 
 ## Definitions
 
-To deal with a **periodic** and **discrete** signal we switch from the *[Fourier transform](def-fourier-transform-exp)* to the *[discrete Fourier transform](def-discrete-fourier-transform)*.
-If we want to handle a **non-periodic** and **discrete** signal we apply the *discrete-time Fourier transform (DTFT)* instead.
-For audio signals the DTFT is not that relevant.
+To deal with a **periodic** and **discrete** signal, we switch from the *[Fourier transform](def-fourier-transform-exp)* to the *[discrete Fourier transform](def-discrete-fourier-transform)*.
+If we want to handle a **non-periodic** and **discrete** signal, we apply the *discrete-time Fourier transform (DTFT)* instead.
+For audio signals, the DTFT is not that relevant.
 
 ````{admonition} Discrete Fourier Series (DFS)
 :name: def-fourier-series-exp-discrete
@@ -101,7 +101,7 @@ times the *sample frequency* $f_s$. However, due to the [Nyquist–Shannon sampl
 
 $$0, \frac{f_s}{N}, \ldots, \frac{f_s}{2}.$$
 
-Also note that the DFT does only probe for frequencies which are an integer multiple of the fundamental frequency 
+Also, note that the DFT does only probe for frequencies that are an integer multiple of the fundamental frequency 
 
 $$\frac{f_s}{N}.$$
 
@@ -241,10 +241,10 @@ otherwise it is
 
 $$\frac{1}{N} \cdot c[n]$$
 
-Furthermore, because of *[Nyquist–Shannon sampling theorem](theorem-sampling)* we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
+Furthermore, because of *[Nyquist–Shannon sampling theorem](theorem-sampling)*, we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
 In general, all $c[n]$ with $n > \frac{N}{2}$ are **invalid** because of *[aliasing](def-aliasing)*.
 Therefore, $c[3] = 4i$ is ''incorrect''.
-We can not distinguish the sinosoid of frequency $1$ from the sinosoid of frequency $3 = 1 + f_s$.
+We can not distinguish the sinusoid of frequency $1$ from the sinusoid of frequency $3 = 1 + f_s$.
 Therefore, 
 
 $$c[1] = 2 \cdot 4i = 8i.$$
@@ -305,7 +305,7 @@ iy_n = [idft(c_k, n) for n in range(len(c_k))]
 ```
 
 If we neglect the small numerical errors, we get the correct function values $y[n]$ for $n = 0, 1, 2, 3$ back again.
-The imaginary part of the complex numbers are approximately zero because $y(t)$ is a real-valued function.
+The imaginary part of the complex numbers is approximately zero because $y(t)$ is a real-valued function.
 
 ## Limitations
 
@@ -314,7 +314,7 @@ Let us suppose we have the following signal consisting of only one frequency:
 $$y(t) = \sin\left(f \cdot 2 \pi \frac{n}{N} \right),$$
 
 where $N = 16$ and $f = 3/4$.
-If the fundamental analysis period of the DFT is also $N = 16$, i.e., the sampe frequency $f_s$ is $1$ Herz and the fundamental analysis frequency $f_N$ is 1/16 Herz, then $f = 3/4$ is clearly not an integer multiple of the sampe frequency! 
+If the fundamental analysis period of the DFT is also $N = 16$, i.e., the sampling frequency $f_s$ is $1$ Herz and the fundamental analysis frequency $f_N$ is 1/16 Herz, then $f = 3/4$ is clearly not an integer multiple of the sampling frequency! 
 
 The following plot shows the actual signal $y(t)$ and the discontinuous signal $y_{\text{dft}}(t)$ 'seen / assumed' by the DFT operation.
 Computing the IDFT gives us the correct sample points, i.e., $y[n] \equiv y_\text{dft}[n]$ holds, but the reconstructed signal $y_\text{idft}(t)$ is incorrect.
@@ -387,15 +387,15 @@ ax[1].set_ylabel(r'$\theta$ (radian)');
 
 There are actually two problems here:
 
-+ *Picket Fence Effect*: We are trying to represent a frequency $(3/4 \cdot 1/16)$ that is not an integer multiple of the fundamental analysis frequency $f_N = 1/16$, so the results do not fit properly as harmonics of $f_N$. We are unable to view the underlying continuous spectrum because the DFT limits us to integer multiplies of the fundamental analysis frequency $f_N$. This is analogous to trying to observe a row of evenly spaced trees through a picket fence.
-+ *Leakage*: Discontinuities at the edge of the analysis window spray noise throughout the rest of the spectrum. This phenomenon is called *leakage* because energy that should be in one spectral harmonic spreads away (leaks) into adjacent harmonics.
++ *Picket fence effect*: We are trying to represent a frequency $(3/4 \cdot 1/16)$ that is not an integer multiple of the fundamental analysis frequency $f_N = 1/16$, so the results do not fit appropriately as harmonics of $f_N$. We cannot view the underlying continuous spectrum because the DFT limits us to integer multiples of the fundamental analysis frequency $f_N$. This is analogous to observing a row of evenly spaced trees through a picket fence.
++ *Leakage*: Discontinuities at the edge of the analysis window spray noise throughout the rest of the spectrum. This phenomenon is called *leakage* because the energy that should be in one spectral harmonic spreads away (leaks) into adjacent harmonics.
 
-To reduce the picket fence effect we can increase the spectral frequency resolution by artificially increasing the number of samples, e.g., by padding them with zeros.
+To reduce the picket fence effect, we can increase the spectral frequency resolution by artificially increasing the number of samples, e.g., by padding them with zeros.
 The leakage problem is more serious.
-The best we can do is devise a work-around.
-We create a function exactly as long as the analysis window that gradually fades in and fades out at the edges.
-If we multiply the signal to be analysed by this function (which is called *windowing*), we decrease the effect of any discontinuieties at the edges of the analysis window because the discontinuieties are heavily attenuated at the analysis window edges.
-This helps to reduce the impact but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.
+The best we can do is devise a workaround.
+We create a function exactly as long as the analysis window gradually fades in and fades out at the edges.
+If we multiply the signal to be analyzed by this function (which is called *windowing*), we decrease the effect of any discontinuities at the edges of the analysis window because the discontinuities are heavily attenuated at the analysis window edges.
+This helps to reduce the impact, but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.
 
 
 ## Fast Fourier Transform
@@ -406,8 +406,8 @@ TODO
 
 TODO
 
-To compute the DFT and IDFT in [SuperCollider (SC)](https://supercollider.github.io/) we use the FFT and IFFT respectively.
-For that purpose SC offers us a [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generator, respectively.
+To compute the DFT and IDFT in [SuperCollider (SC)](https://supercollider.github.io/) we use the FFT and IFFT, respectively.
+For that purpose, SC offers us a [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generator, respectively.
 
 ```isc
 

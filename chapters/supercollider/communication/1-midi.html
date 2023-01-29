@@ -53,6 +53,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Open Sound Control" href="2-osc.html" />
@@ -378,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../sounddesign/math/lti-filters.html">
-     Linear Time-invariant Filters
+     LTI Filters
     </a>
    </li>
   </ul>
@@ -489,11 +491,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../sounddesign/terms.html">
-   Terms
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -563,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/about.html">
    About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/terms.html">
+   Glossary
   </a>
  </li>
  <li class="toctree-l1">
@@ -697,12 +699,51 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listening-to-midi-messages">
+   Listening to MIDI-messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playing-a-non-sustaining-synth">
+   Playing a Non-Sustaining Synth
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playing-sustainable-synth">
+   Playing Sustainable Synth
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-playing-synths">
+   Beyond Playing Synths
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -714,6 +755,34 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#listening-to-midi-messages">
+   Listening to MIDI-messages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playing-a-non-sustaining-synth">
+   Playing a Non-Sustaining Synth
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playing-sustainable-synth">
+   Playing Sustainable Synth
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-playing-synths">
+   Beyond Playing Synths
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -723,7 +792,136 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="musical-instrument-digital-interface">
 <h1>Musical Instrument Digital Interface<a class="headerlink" href="#musical-instrument-digital-interface" title="Permalink to this headline">#</a></h1>
-<p>TODO</p>
+<p>In the article <a class="reference external" href="https://web.archive.org/web/20120830211425/http://www.doc.ic.ac.uk/~nd/surprise_97/journal/vol1/aps2/">An introduction to MIDI</a>, <em>Andrew Swift</em> states that the musical instrument digital interface is a technical standard (a sort of agreement) that describes a communications protocol, digital interface, and electrical connectors that connect a wide variety of electronic musical instruments, computers, and related audio devices for playing, editing, and recording music.</p>
+<p>If a modern music producer presses a key on his MIDI device, such as a keyboard or launchpad, she sends a piece of information directly to the computer.
+I have a little keyboard that I can connect to my computer via USB, and if I press a key on the keyboard, that is exactly what happens.
+However, since no program is listening to incoming MIDI commands, nothing is happening.
+If I start a digital workstation such as <a class="reference external" href="https://tytel.org/helm/">Helm</a> (after I connect my MIDI device to my computer), the application reacts to me playing the keyboard.</p>
+<div class="section" id="listening-to-midi-messages">
+<h2>Listening to MIDI-messages<a class="headerlink" href="#listening-to-midi-messages" title="Permalink to this headline">#</a></h2>
+<p>SuperCollider is perfectly capable to listen to incoming MIDI-commands:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// Connect SuperCollider to all possible MIDI-devices of this computer</span>
+<span class="nc">MIDIIn</span><span class="p">.</span><span class="nx">connectAll</span><span class="p">;</span>    
+
+<span class="c1">// Print out every MIDI-command SuperCollider is receiving.</span>
+<span class="nc">MIDIFunc</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>   
+</pre></div>
+</div>
+<p>If I press a key on the keyboard, the post window shows the following message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIDI</span> <span class="n">Message</span> <span class="n">Received</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">noteOn</span>            <span class="o">//</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">the</span> <span class="n">command</span>
+    <span class="n">src</span><span class="p">:</span> <span class="mi">668746688</span>          <span class="o">//</span> <span class="n">device</span> <span class="nb">id</span>
+    <span class="n">chan</span><span class="p">:</span> <span class="mi">0</span>                 <span class="o">//</span> <span class="n">channel</span> <span class="n">number</span>
+    <span class="n">num</span><span class="p">:</span> <span class="mi">52</span>                 <span class="o">//</span> <span class="n">key</span> <span class="nb">id</span>
+    <span class="n">val</span><span class="p">:</span> <span class="mi">104</span>                <span class="o">//</span> <span class="n">value</span> <span class="p">(</span><span class="n">velocity</span> <span class="k">for</span> <span class="n">noteOn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and if I release the key, the following shows up:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIDI</span> <span class="n">Message</span> <span class="n">Received</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">noteOff</span>           <span class="o">//</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">the</span> <span class="n">command</span>
+    <span class="n">src</span><span class="p">:</span> <span class="mi">668746688</span>          <span class="o">//</span> <span class="n">device</span> <span class="nb">id</span>
+    <span class="n">chan</span><span class="p">:</span> <span class="mi">0</span>                 <span class="o">//</span> <span class="n">channel</span> <span class="n">number</span>
+    <span class="n">num</span><span class="p">:</span> <span class="mi">52</span>                 <span class="o">//</span> <span class="n">key</span> <span class="nb">id</span>
+    <span class="n">val</span><span class="p">:</span> <span class="mi">127</span>                <span class="o">//</span> <span class="n">value</span> <span class="p">(</span><span class="n">velocity</span> <span class="k">for</span> <span class="n">noteOff</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pressing multiple keys results in multiple messages.
+MIDI messages/commands are made up of 8-bit words (1 byte) that are transmitted serially at a rate of 31.25 kbit/s.
+A message consists of a status byte, which indicates the type of the message, followed by up to two data bytes that contain the parameters.</p>
+<p>There are five types, but here we are only looking at the <em>channel voice message</em> since they can be used to control our instrument by transmitting real-time performance data over a single channel, i.e., to all devices listening to that channel.
+MIDI notes are numbered from 0 to 127 assigned to <span class="math notranslate nohighlight">\(\text{C}_{-1}\)</span> to <span class="math notranslate nohighlight">\(\text{G}_9\)</span> corresponding to a range of <span class="math notranslate nohighlight">\(8.175799\)</span> to <span class="math notranslate nohighlight">\(12543.85\)</span> Hz (assuming equal temperament and 440 Hz for <span class="math notranslate nohighlight">\(\text{A}_4\)</span>).</p>
+</div>
+<div class="section" id="playing-a-non-sustaining-synth">
+<h2>Playing a Non-Sustaining Synth<a class="headerlink" href="#playing-a-non-sustaining-synth" title="Permalink to this headline">#</a></h2>
+<p>Now let us suppose we have the following percussive synth defined by the following <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\tri</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="nx">harm</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="nx">rel</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="nx">out</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">{</span><span class="nc">LFTri</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span> <span class="o">+</span> <span class="nc">Rand</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))}</span><span class="o">!</span><span class="mi">8</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Splay</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">RLPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="p">(</span><span class="nx">freq</span><span class="o">*</span><span class="nx">harm</span><span class="p">).</span><span class="nx">clip</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20000</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">);</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="nx">rel</span><span class="p">),</span> <span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Playing the synth via my keyboard is rather easy after we connected SuperCollider to all MIDI-devices using <code class="docutils literal notranslate"><span class="pre">MIDIIn.connectAll;</span></code>
+We can use the <code class="docutils literal notranslate"><span class="pre">MIDIdef.noteOn</span></code> callback function to execute code if a MIDI-message of type <code class="docutils literal notranslate"><span class="pre">noteOn</span></code> arrives.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">MIDIdef</span><span class="p">.</span><span class="nx">noteOn</span><span class="p">(</span><span class="ss">\on</span><span class="p">,</span> <span class="p">{</span>
+    <span class="c1">// value, num = midi note, channel and src = device</span>
+    <span class="kd">arg</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">chan</span><span class="p">,</span> <span class="nx">src</span><span class="p">;</span>
+    <span class="nc">Synth</span><span class="p">(</span><span class="ss">\tri</span><span class="p">,</span> <span class="p">[</span><span class="ss">\amp</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\freq</span><span class="p">,</span> <span class="nx">num</span><span class="p">.</span><span class="nx">midicps</span><span class="p">,</span> <span class="ss">\harm</span><span class="p">,</span> <span class="nx">exprand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">)]);</span>
+<span class="p">});</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We are perfectly capable of playing multiple notes without a problem since we can forget about the synth after it is scheduled on the audio server because it will be automatically destroyed by the <code class="docutils literal notranslate"><span class="pre">doneAction:</span> <span class="pre">Done.freeSelf</span></code> configuration.</p>
+</div>
+<div class="section" id="playing-sustainable-synth">
+<h2>Playing Sustainable Synth<a class="headerlink" href="#playing-sustainable-synth" title="Permalink to this headline">#</a></h2>
+<p>If we wanna control the length of a note via keyboard we need a sustaining envelope within the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
+Let us change the definition accordingly.
+I change only one line of the definition introducing an attack-sustain-release envelope using a fast attack, a sustain level at half the amplitude and a parameterizes release.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">env</span> <span class="o">=</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Env</span><span class="p">.</span><span class="nx">asr</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nx">rel</span><span class="p">),</span> <span class="na">gate:</span> <span class="nx">gate</span><span class="p">,</span> <span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Most importantly, the envelope has a gate!
+When we release the key, my keyboard sends a <code class="docutils literal notranslate"><span class="pre">noteOff</span></code> MIDI-message and we have to set the gate argument to 0.
+To do so, we need a reference to the synth running on the audio server.
+Therefore, I introduce a global variable <code class="docutils literal notranslate"><span class="pre">~synth</span></code> that I initialize when the keyboard sends a <code class="docutils literal notranslate"><span class="pre">noteOn</span></code> message.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">MIDIdef</span><span class="p">.</span><span class="nx">noteOn</span><span class="p">(</span><span class="ss">\on</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">chan</span><span class="p">,</span><span class="nx">src</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\tri</span><span class="p">,</span> <span class="p">[</span><span class="ss">\amp</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\freq</span><span class="p">,</span> <span class="nx">num</span><span class="p">.</span><span class="nx">midicps</span><span class="p">,</span> <span class="ss">\harm</span><span class="p">,</span> <span class="nx">exprand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">)]);</span>
+<span class="p">});</span>
+
+<span class="nc">MIDIdef</span><span class="p">.</span><span class="nx">noteOff</span><span class="p">(</span><span class="ss">\off</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">chan</span><span class="p">,</span><span class="nx">src</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This works as long as we only play one note at a time.
+If two <code class="docutils literal notranslate"><span class="pre">noteOn</span></code> messages arrive before any <code class="docutils literal notranslate"><span class="pre">noteOff</span></code>message does, the reference of the first synth is lost, and we can no longer terminate it.</p>
+<p>Since it is impossible to press the same key twice before releasing it, we can save each synth reference within an array where the index of the array slot corresponds to the key number <code class="docutils literal notranslate"><span class="pre">num</span></code>.
+To be absolutely safe, we only play a new synth if the old one got removed.
+The MIDI key numbers on my keyboard range from 0 to 120.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="o">~</span><span class="nx">synths</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="kc">nil</span><span class="p">);</span>
+<span class="nc">MIDIdef</span><span class="p">.</span><span class="nx">noteOn</span><span class="p">(</span><span class="ss">\on</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">chan</span><span class="p">,</span><span class="nx">src</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">~</span><span class="nx">synths</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">==</span> <span class="kc">nil</span><span class="p">,</span> <span class="p">{</span>  <span class="c1">// To be absolutely save</span>
+        <span class="o">~</span><span class="nx">synths</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\tri</span><span class="p">,</span> <span class="p">[</span>
+            <span class="ss">\amp</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> 
+            <span class="ss">\freq</span><span class="p">,</span> <span class="nx">num</span><span class="p">.</span><span class="nx">midicps</span><span class="p">,</span> 
+            <span class="ss">\harm</span><span class="p">,</span> <span class="nx">exprand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">)]);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nc">MIDIdef</span><span class="p">.</span><span class="nx">noteOff</span><span class="p">(</span><span class="ss">\off</span><span class="p">,</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">val</span><span class="p">,</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">chan</span><span class="p">,</span><span class="nx">src</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">~</span><span class="nx">synths</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">,</span> <span class="p">{</span>  <span class="c1">// To be absolutely save</span>
+        <span class="o">~</span><span class="nx">synths</span><span class="p">[</span><span class="nx">num</span><span class="p">].</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="o">~</span><span class="nx">synths</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">;</span>    <span class="c1">// Remove the reference</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>I use 127 here since this will give us <span class="math notranslate nohighlight">\(2^7\)</span> possibilities, guessing that <code class="docutils literal notranslate"><span class="pre">num</span></code> is expressed via 7 bit.</p>
+</div>
+<div class="section" id="beyond-playing-synths">
+<h2>Beyond Playing Synths<a class="headerlink" href="#beyond-playing-synths" title="Permalink to this headline">#</a></h2>
+<p>We can, of course, bind the MIDI note to anything.
+For example, we could use different octaves for different synths.
+We could also trigger specific patterns using our MIDI device.
+The limits are our imaginations.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
