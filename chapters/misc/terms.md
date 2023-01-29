@@ -1,4 +1,4 @@
-# Terms
+# Glossary
 
 Learning something now almost always includes learning a new language.
 In this reference section, I explain common terms.

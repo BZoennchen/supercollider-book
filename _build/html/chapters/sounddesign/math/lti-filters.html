@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linear Time-invariant Filters &#8212; Algorithmic Composition</title>
+    <title>LTI Filters &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -380,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Linear Time-invariant Filters
+     LTI Filters
     </a>
    </li>
   </ul>
@@ -491,11 +491,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -565,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/about.html">
    About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/terms.html">
+   Glossary
   </a>
  </li>
  <li class="toctree-l1">
@@ -778,21 +778,14 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-z-transformation">
-   General Z-Transformation
+  <a class="reference internal nav-link" href="#one-zero-filter">
+   One Zero Filter
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-zero-filter">
-     One Zero Filter
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-pole-filter">
-     One Pole Filter
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#one-pole-filter">
+   One Pole Filter
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#impulse-response">
@@ -808,7 +801,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Linear Time-invariant Filters</h1>
+                <h1>LTI Filters</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -829,21 +822,14 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-z-transformation">
-   General Z-Transformation
+  <a class="reference internal nav-link" href="#one-zero-filter">
+   One Zero Filter
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-zero-filter">
-     One Zero Filter
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-pole-filter">
-     One Pole Filter
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#one-pole-filter">
+   One Pole Filter
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#impulse-response">
@@ -862,8 +848,8 @@ title="Print to PDF"
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="linear-time-invariant-filters">
-<h1>Linear Time-invariant Filters<a class="headerlink" href="#linear-time-invariant-filters" title="Permalink to this headline">#</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="lti-filters">
+<h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">#</a></h1>
 <p><em>Linear filters</em> process time-varying input signals to produce output signals, subject to the constraint of <em>linearity</em>.
 In most cases these linear filters are also time <em>invariant</em> (or <em>shift invariant</em>) in which case they can be analyzed exactly using <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> (‘linear time-invariant’) system theory.</p>
 <div class="definition admonition" id="def-linear-time-invariant">
@@ -879,43 +865,44 @@ Then a filter is <em>linear time-invariant</em> if the following two conditions 
 To analyse the behaviour of a <em>linear filter</em> one looks at two different effects.</p>
 <ol class="simple">
 <li><p><strong>Frequency response</strong> (frequency domain): how does the amplitude and phase of a frequency <span class="math notranslate nohighlight">\(f\)</span> changes.</p></li>
-<li><p><strong>Impulse response</strong> (time domain):</p></li>
+<li><p><strong>Impulse response</strong> (time domain): how does the amplitude over time change.</p></li>
 </ol>
 <div class="section" id="frequency-response">
 <h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">#</a></h2>
-<p>The frequency response of a filter tells us how it effects a the amplitude and phase of a frequency of the input signal.
-<a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filters</span></a> can be characterized in the frequency domain by the <em>Z transform</em>.
-As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the transfer function and the transform of the input.
+<p>The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
+<a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filters</span></a> can be characterized in the frequency domain by the <em><a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a></em> with respect to the input <span class="math notranslate nohighlight">\(x[n]\)</span> and output signal <span class="math notranslate nohighlight">\(y[n]\)</span>.
+As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref"><em>transfer function</em></span></a> and the transform of the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
 In other words, convolution in the time domain is equivalent to multiplication in the frequency domain.</p>
+<p>If <span class="math notranslate nohighlight">\(H(z)\)</span> is the <em>transfer function</em> of the filter, then plugging in <span class="math notranslate nohighlight">\(e^{i \omega}\)</span> into <span class="math notranslate nohighlight">\(H(\cdot)\)</span> gives us the <em>frequency response</em> <span class="math notranslate nohighlight">\(H(e^{i \omega})\)</span>.</p>
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9395b348-1fd8-42ca-814d-17d12ee76749">
-<span class="eqno">(38)<a class="headerlink" href="#equation-9395b348-1fd8-42ca-814d-17d12ee76749" title="Permalink to this equation">#</a></span>\[\begin{equation}
-H(\omega) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}}.
+<div class="amsmath math notranslate nohighlight" id="equation-88e16223-df43-4a31-9b0c-c805cbdc986e">
+<span class="eqno">(41)<a class="headerlink" href="#equation-88e16223-df43-4a31-9b0c-c805cbdc986e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(G(\omega)\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega)\)</span> the <em>phase response</em> of the filter.</p>
+<p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
-<p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(f)\)</span> in frequency <span class="math notranslate nohighlight">\(f\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fead3541-01a6-43f4-82c0-0b90ba424694">
-<span class="eqno">(39)<a class="headerlink" href="#equation-fead3541-01a6-43f4-82c0-0b90ba424694" title="Permalink to this equation">#</a></span>\[\begin{equation}
-G(f) = \frac{O(f)}{I(f)}
+<p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3bb1aa3f-5faa-4050-ad50-fcf495b1626f">
+<span class="eqno">(42)<a class="headerlink" href="#equation-3bb1aa3f-5faa-4050-ad50-fcf495b1626f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
 <p class="admonition-title">Gain of LTI Filters</p>
-<p>If the input to any any <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filter</span></a> is a complex waveform <span class="math notranslate nohighlight">\(A \cdot e^{i \omega t}\)</span>, the output will be some constant times the input <span class="math notranslate nohighlight">\(B \cdot e^{i\omega t}\)</span> and</p>
+<p>If the input to any <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filter</span></a> is a complex waveform <span class="math notranslate nohighlight">\(A \cdot e^{i \omega t}\)</span>, the output will be some constant times the input <span class="math notranslate nohighlight">\(B \cdot e^{i\omega t}\)</span> and</p>
 <div class="math notranslate nohighlight">
 \[G(\omega) = \frac{B}{A}.\]</div>
 </div>
-<p>The default <em>low-</em> <code class="docutils literal notranslate"><span class="pre">LPF</span></code> and <em>highpass filters</em> <code class="docutils literal notranslate"><span class="pre">HPF</span></code> ugens of <code class="docutils literal notranslate"><span class="pre">sclang</span></code> filter frequencies above or below some <em>cutoff frequency</em>.
+<p>The default <em>low-</em> and <em>highpass filters</em> ugens (<code class="docutils literal notranslate"><span class="pre">LPF</span></code> and  <code class="docutils literal notranslate"><span class="pre">HPF</span></code> respectively) of <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, filter frequencies above or below some <em>cutoff frequency</em>.
 They are <em>2nd order Butterworth low-/highpass filter</em>.</p>
 <div class="figure align-default" id="fig-butterworth-filter">
 <a class="reference internal image-reference" href="../../../_images/butterworth-filter.png"><img alt="../../../_images/butterworth-filter.png" src="../../../_images/butterworth-filter.png" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
 </div>
-<p>The <em>frequency response</em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
+<p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
+Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../../misc/terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
 The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 16</span></a> shows the reduction in amplitude.</p>
 <p>The second effect of the filter is a phase shift; compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 16</span></a>.
@@ -956,21 +943,21 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d0de0ad-aa5a-46a7-9f50-144b64f13099">
-<span class="eqno">(40)<a class="headerlink" href="#equation-0d0de0ad-aa5a-46a7-9f50-144b64f13099" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2c6deb4b-1198-441c-be9a-64f6a65e0a78">
+<span class="eqno">(43)<a class="headerlink" href="#equation-2c6deb4b-1198-441c-be9a-64f6a65e0a78" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
 Our <em>simple filter</em> is a <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear and time-invariant</span></a> filter.
 The <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> unit generator is a flexible version of this filter.</p>
-<p>You might suspect that since is the simplest possible <em>lowpass filter</em>, it is also somehow the worst possible low-pass filter.
+<p>You might suspect that, since it is the simplest possible <em>lowpass filter</em>, it is also somehow the worst possible lowpass filter.
 How bad is it?
-In what sense is it bad? How do we even know it is a low-pass at all?
+In what sense is it bad? How do we even know it is a lowpass filter at all?
 The answers to these and related questions will become apparent when we find the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of this filter.</p>
 <p>Our goal is to use a test singal that consists of only one frequency and then reformulate <span class="math notranslate nohighlight">\(y[n]\)</span> such that we arrive at</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-x[n] = H(\omega) \cdot x[n].
+y[n] = H(e^{i \omega}) \cdot x[n],
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(H(\omega)\)</span> has to be independent of <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>We start by using test signals, i.e., we define <span class="math notranslate nohighlight">\(x[n]\)</span> to be a sinusoid containing <strong>one</strong> specific frequency <span class="math notranslate nohighlight">\(f\)</span>.
@@ -1000,11 +987,11 @@ x[n] = e^{i \omega n T}.
 y[n] &amp;= e^{i \omega n T} + e^{i \omega (n-1) T}\\
 &amp;= e^{i \omega n T} + e^{i \omega n T} \cdot e^{-i \omega n T}\\
 &amp;= (1 + e^{-i \omega T}) \cdot e^{i \omega n T}\\
-&amp;= (1 + e^{-i \omega T}) \cdot x[n]\\
-&amp;= H(\omega) \cdot x[n]
+&amp;= (1 + e^{-i \omega T}) \cdot x[n] = H(e^{i \omega}) \cdot x[n]
 \end{split}
 \end{equation*}\]</div>
-<p>Therefore, the <em>gain</em> for this filter is</p>
+<p>We get the same solution as we got using the <a class="reference internal" href="z-transform.html#sec-simple-filter-example"><span class="std std-ref">Z-transform</span></a>.
+The <em>gain</em> for this filter is</p>
 <div class="math notranslate nohighlight">
 \[G(\omega) = |(1 + e^{-i \omega T})|\]</div>
 <p>and the phase response is</p>
@@ -1036,7 +1023,7 @@ Therefore, the equation simplifies to</p>
 <div class="math notranslate nohighlight">
 \[2\cos(\omega T / 2)\]</div>
 <p>for <span class="math notranslate nohighlight">\(-\pi \leq \omega \leq \pi\)</span>.
-The following plot shows the amplitude frequency response in <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+The following plot shows the amplitude <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> in <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../../_images/lti-filters_2_0.png" src="../../../_images/lti-filters_2_0.png" />
@@ -1051,9 +1038,16 @@ The following plot shows the amplitude frequency response in <span class="math n
 <img alt="../../../_images/lti-filters_4_0.png" src="../../../_images/lti-filters_4_0.png" />
 </div>
 </div>
-<p>This <em>low pass filter</em> has no phase delay at 0 Hz and a maximum delay of <span class="math notranslate nohighlight">\(-(\pi/2)T\)</span> at the Nyquist frequency.
-Note that both responses rely on the sample rate <span class="math notranslate nohighlight">\(f_s = 1 / T\)</span>.
-Furthermore, the phase shift depends on <span class="math notranslate nohighlight">\(\omega\)</span>.
+<p>This <em>lowpass filter</em> has no phase delay at 0 Hz and a maximum delay of <span class="math notranslate nohighlight">\(-(\pi/2)T\)</span> at the Nyquist frequency.
+<strong>Note that both responses rely on the sample period</strong> <span class="math notranslate nohighlight">\(T = = 1 / f_s\)</span>.
+If we increase the sample rate, the loss in power of high frequencies decreases!
+To achieve a similar result, we have to adapt the coefficients of the filter equation accordingly.</p>
+<div class="remark admonition" id="remark-low-level-filter">
+<p class="admonition-title">Low and High Level Filters</p>
+<p>The <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of low level SuperCollider filters such as <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>, <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FOS.html">FOS</a>, <a class="reference external" href="https://doc.sccode.org/Classes/SOS.html">SOS</a> rely the sample rate <span class="math notranslate nohighlight">\(f_s\)</span>.
+High level filters such as <a class="reference external" href="https://doc.sccode.org/Classes/LPF.html">LPF</a> and <a class="reference external" href="https://doc.sccode.org/Classes/HPF.html">HPF</a> do not!</p>
+</div>
+<p>Furthermore, the phase shift depends on <span class="math notranslate nohighlight">\(\omega\)</span>.
 It looks like this might lead to a phase distortion, however, this frequency-dependent delay is counteracted because doubling the frequency of the input halves its period, balancing the growth in retardation introduced by the filter.
 This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-linear-phase-filter">
@@ -1064,8 +1058,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc46f89a-b431-4286-ade7-b0fe7dff1cf8">
-<span class="eqno">(41)<a class="headerlink" href="#equation-bc46f89a-b431-4286-ade7-b0fe7dff1cf8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9ad84a51-2ac4-4e4d-930b-092bf593bb20">
+<span class="eqno">(44)<a class="headerlink" href="#equation-9ad84a51-2ac4-4e4d-930b-092bf593bb20" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1076,45 +1070,20 @@ y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 <p>Thus, a filter can be characterized as circular motion with radius <span class="math notranslate nohighlight">\(G(\omega) A\)</span> and phase <span class="math notranslate nohighlight">\(\Theta(\omega)+\phi\)</span>.
 The particular kind of filter implemented depends only on the definition of <span class="math notranslate nohighlight">\(G(\omega)\)</span> and <span class="math notranslate nohighlight">\(\Theta(\omega)\)</span>.</p>
 </div>
-<div class="section" id="general-z-transformation">
-<h2>General Z-Transformation<a class="headerlink" href="#general-z-transformation" title="Permalink to this headline">#</a></h2>
-<p>The general form for a difference equation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a160f70f-c6ab-43b9-8799-e0293784f474">
-<span class="eqno">(42)<a class="headerlink" href="#equation-a160f70f-c6ab-43b9-8799-e0293784f474" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
-\end{equation}\]</div>
-<p>If we take the Z-transform of both sides we get:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-\sum\limits_{k=0}^N a_k z^{-k}Y(z) = \sum\limits_{k=0}^M b_k z^{-k} X(z)
-\end{equation*}\]</div>
-<p>and by solving for <span class="math notranslate nohighlight">\(Y(z)\)</span> we get</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}}}_{H(z)} X(z) = H(z) X(z)
-\end{equation*}\]</div>
-<p>where <span class="math notranslate nohighlight">\(H(z)\)</span> is the <em>transfer function</em>, i.e. the Z-transform of the filter’s <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a>, in other words</p>
-<div class="math notranslate nohighlight">
-\[H(z) = \mathcal{Z}\{h[n]\}.\]</div>
-<p>If <span class="math notranslate nohighlight">\(b_0 \neq 0\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a66d9ae-dc3e-4150-80cb-06b871b74fb9">
-<span class="eqno">(43)<a class="headerlink" href="#equation-4a66d9ae-dc3e-4150-80cb-06b871b74fb9" title="Permalink to this equation">#</a></span>\[\begin{equation}
-H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits_{k=1}^N (1 - d_k z^{-1})}
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(c_k, k = 1, 2, \ldots M\)</span> are <em>zeros</em> and <span class="math notranslate nohighlight">\(d_k, k = 1, 2, \ldots N\)</span> are <em>poles</em>.</p>
 <div class="section" id="one-zero-filter">
-<h3>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">#</a></h3>
-<p>In SuperCollider the <em>one zero filter</em> realizes the following formula:</p>
+<h2>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">#</a></h2>
+<p>In SuperCollider the <em>one zero filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> realizes the following formula:</p>
 <div class="math notranslate nohighlight">
 \[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1], \quad -1 \leq \alpha \leq 1\]</div>
-<p>we have <span class="math notranslate nohighlight">\(N = 0\)</span> and <span class="math notranslate nohighlight">\(M = 1, a_0 = 1, b_0 = (1 - |\alpha|), b_1 = \alpha.\)</span>
-Therefore,</p>
+<p>we have <span class="math notranslate nohighlight">\(N = 0\)</span> and <span class="math notranslate nohighlight">\(M = 1, a_0 = 1, b_0 = (1 - |\alpha|), b_1 = \alpha\)</span>.
+We can use the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref">transfer function</span></a> of <a class="reference internal" href="#def-form-lti-filter"><span class="std std-ref">LTI filters</span></a> to analyse the effects of the filter.
+Using the Z-transform, we get</p>
 <div class="math notranslate nohighlight">
-\[\mathcal{F}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).\]</div>
+\[\mathcal{X}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).\]</div>
 <p>There is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = 0\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = \frac{\alpha}{|\alpha|-1}\)</span>.
 Therefore,</p>
 <p><span class="math notranslate nohighlight">\(H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)\)</span></p>
-<p>If we evaluate <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we can see the <em>frequency response</em>:</p>
+<p>If we evaluate the <a class="reference internal" href="z-transform.html#theorem-transfer-function"><span class="std std-ref">transfer function</span></a> <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we get the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a>:</p>
 <div class="math notranslate nohighlight">
 \[H(e^{i \omega T}) = 0.5 \cdot (1 - e^{-i\omega T})\]</div>
 <p>which is similar result we got in the last section!</p>
@@ -1138,14 +1107,14 @@ Without a <em>pole</em> the filtering effect is weak.</p>
 </div>
 </div>
 <div class="section" id="one-pole-filter">
-<h3>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">#</a></h3>
-<p>In SuperCollider the <em>one pole filter</em> realizes the following formula:</p>
+<h2>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">#</a></h2>
+<p>In SuperCollider the <em>one pole filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> realizes the following formula:</p>
 <div class="math notranslate nohighlight">
 \[y[n] - \alpha \cdot y[n-1] = (1 - |\alpha|) \cdot x[n], \quad -1 \leq \alpha \leq 1\]</div>
 <p>we have <span class="math notranslate nohighlight">\(N = 1\)</span> and <span class="math notranslate nohighlight">\(M = 0, a_0 = 1, a_1 = -\alpha, b_0 = (1 - |\alpha|)\)</span>
 Therefore,</p>
 <div class="math notranslate nohighlight">
-\[\mathcal{F}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).\]</div>
+\[\mathcal{X}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).\]</div>
 <p>There is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = \alpha\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = \infty\)</span>.
 Therefore,</p>
 <div class="math notranslate nohighlight">
@@ -1159,7 +1128,8 @@ Therefore,</p>
 <img alt="../../../_images/lti-filters_8_0.png" src="../../../_images/lti-filters_8_0.png" />
 </div>
 </div>
-<p>The unit generator <a class="reference external" href="http://doc.sccode.org/Classes/OneZero.html">OnePole</a> got his name by the fact that it has <strong>one pole</strong>.
+<p>This explains the name of the unit generator <a class="reference external" href="http://doc.sccode.org/Classes/OneZero.html">OnePole</a>.
+It got his name by the fact that it has <strong>one pole</strong>.
 Compared to the <em>one zero filter</em> it is able to have a much steeper drop / increase in <em>gain</em>.
 Similar to the <em>one zero filter</em> it is a low pass filter for positive <span class="math notranslate nohighlight">\(\alpha\)</span> and high pass filter for negative <span class="math notranslate nohighlight">\(\alpha\)</span>.
 For both these filters, the cutoff frequency <span class="math notranslate nohighlight">\(f_c\)</span> is equal to 0 Hz, i.e., all frequencies are effected.</p>
@@ -1170,7 +1140,6 @@ For both these filters, the cutoff frequency <span class="math notranslate nohig
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 <div class="section" id="impulse-response">
@@ -1196,8 +1165,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ad6cae4f-6504-41e2-a47c-8f170cbde62e">
-<span class="eqno">(44)<a class="headerlink" href="#equation-ad6cae4f-6504-41e2-a47c-8f170cbde62e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f3e9eb61-2f8d-411e-aebb-bf1397e91e7a">
+<span class="eqno">(45)<a class="headerlink" href="#equation-f3e9eb61-2f8d-411e-aebb-bf1397e91e7a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.

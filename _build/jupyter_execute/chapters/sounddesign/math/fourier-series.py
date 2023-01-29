@@ -48,15 +48,15 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
     return fig, ax
 
 
-# Given a signal $y(t)$ of a played piano key, how can we compute the pitch and how can we recreate that sound?
-# Spectral analysis and synthesis gives us some answers.
+# Given a signal $y(t)$ of a played piano key, how can we compute the pitch, and how can we recreate that sound?
+# Spectral analysis and synthesis give us some answers.
 # By *transforming* the representation of a signal, we can catapult ourselves from the space of amplitude over time into the space of intensity over frequencies.
 # 
-# In mathematics, the meaning of *transform* and *transformation* is somewhat specific, but it still is rather wide or loose, when the definition sometimes says it is a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
-# In *transform theory*, mathematicians talk about a suitable choice of a function, called *kernel* (from the German *nucleus* or *core*), by which a problem may be simplified.
+# In mathematics, the meaning of *transform* and *transformation* is somewhat specific, but it still is relatively wide or loose when the definition sometimes says it is a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
+# In *transform theory*, mathematicians talk about a suitable choice of a function called *kernel* (from the German *nucleus* or *core*), by which a problem may be simplified.
 # 
-# In 1822 *Jean-Baptise Joseph Fourier* discovered a truely remarkalbe *transformation* which gives us insights to our knowledge of waveforms in general and music in particular.
-# He claimed that any function, whether continuous or discontinuous, can be expanded into a series of sines.
+# In 1822 *Jean-Baptise Joseph Fourier* discovered a truly remarkable *transformation* which gives us insights into our knowledge of waveforms in general and music in particular.
+# He claimed that any function, whether continuous or discontinuous, can be transformed into a series of sines.
 # That important work was corrected to
 # 
 # >Almost any periodic function can be represented by a Fourier series that converges.
@@ -64,25 +64,25 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 # and expanded upon by others to provide the foundation for various forms of the Fourier transform used since.
 # 
 # I find this result still fascinating.
-# At this point I have to mention that the great German mathematician *Carl Friedrich Gauß* already discovered this connection in 1805 and, what is even more remarkable, he formulated something quite similar to the **fast Fourier transform (FFT)**!
-# The reason his breakthrough was not widely adopted was because it only appeared after his death in volume three of his collected works and it was written with non-standard notation in a 19th century version of Latin. 
+# At this point, I have to mention that the great German mathematician *Carl Friedrich Gauß* already discovered this connection in 1805 and, what is even more remarkable, he formulated something quite similar to the **fast Fourier transform (FFT)**!
+# His breakthrough was not widely adopted because it only appeared after his death in *volume three of his collected works* which was written with non-standard notation in a 19th-century version of Latin. 
 # 
-# Especially since the re-discovery of the *fast Fourier transformation (FFT)* in 1965 by *Cooley* and *Tukey* to detect underground tests of atomic bombs, the Fourier synthesis is a widespread technique performed in all areas of signal processing.
-# There are so many applications of the FFT, from solving differential equations to radar and sonar, studying crystal structures, WiFi and 5G.
+# Especially since the re-discovery of the *fast Fourier transform (FFT)* in 1965 by *Cooley* and *Tukey* to detect underground tests of atomic bombs, the Fourier synthesis is a widespread technique performed in all areas of signal processing.
+# There are so many applications of the FFT, from solving differential equations to radar and sonar, studying crystal structures, WiFi, and 5G.
 # It is no surprise that the mathematician *Gilbert Strang* called the FFT
 # 
 # >The most important numerical algorithm of our lifetime. -- Gilbert Strang
 # 
 # But why is that?
 # Well, it is all about computation speed!
-# The *FFT* reduces the time complexity of the *Discrete Fourier Transformation (DFT)* from $\mathcal{O}(n^2)$ to $\mathcal{O}(n\log(n))$ which makes the computation of the *DFT* fast thus applicable for many areas and purposes.
+# The *FFT* reduces the time complexity of the *[discrete Fourier transformation (DFT)](def-discrete-fourier-transform)* from $\mathcal{O}(n^2)$ to $\mathcal{O}(n\log(n))$ which makes the computation of the *DFT* fast thus applicable for many areas and purposes.
 # 
 # (sec-freq-spectrum)=
 # 
 # ## Frequency Spectrum
 # 
-# Before we dicuss the mathematical basis, let's have a look at the *frequency spectrum* of a audio recordings such that you can picture what we want to compute.
-# First let us use a audio recording of a real piano.
+# Before we dicuss the mathematical basis, let's have a look at the *frequency spectrum* of a audio recordings such that we can picture what we want to compute.
+# First let us use an audio recording of a physical piano.
 # The note played is A0 = 440 Hz.
 
 # In[2]:
@@ -174,7 +174,7 @@ plt.ylabel('Magnitude')
 plt.show()
 
 
-# In the synthetic we get the exaclty what we expected, i.e. 5 peaks, four *harmonic overtones* and one fundamental at 440 Hz.
+# In the synthetic case, we get exaclty what we expected, i.e., 5 peaks, four *harmonic overtones*, and one fundamental at 440 Hz.
 # 
 # (sec-similarity-of-functions)=
 # ## Similarity of Periodic Functions
@@ -435,7 +435,7 @@ txt = fig.suptitle(r'$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ and
 # where $N$ is potentially an infinite integer. 
 # $T = \frac{1}{f_0}$ is the period of $y(t)$, $A_n$ is the $n$-th hermonic's *amplitude* and $\phi_n$ is its *phase (shift)*.
 # $A_0/2$ is the DC component, it is the mean value of $y(t)$.
-# $f_0$ is the fundamental frequency of the signal.
+# $f_0$ is the *fundamental frequency* of the signal.
 # ````
 # 
 # Except for pathological functions, any periodic function can be represented by a *Fourier series (FS)* that converges.
@@ -498,12 +498,12 @@ txt = fig.suptitle(r'$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ and
 # 
 # $$\cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) \equiv \cos(\phi_n) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right) + \sin(\phi_n) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)$$
 # 
-# We can simplify the $X_n(\phi)$:
+# We can simplify $X_n(\phi)$:
 # 
 # \begin{equation*}
 # \begin{split}
 # X_n(\phi) &= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) dt\\
-# &= \cos(\phi) \cdot \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right)dt + \sin(\phi) \cdot \frac{2}{T}\int_T y(t) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)dt\\
+# &= \cos(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right)dt}_{a_n} + \sin(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)dt}_{b_n}\\
 # &= \cos(\phi) \cdot a_n + \sin(\phi) \cdot b_n
 # \end{split}
 # \end{equation*}
@@ -519,9 +519,38 @@ txt = fig.suptitle(r'$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ and
 # 
 # In other words, $a_n$ and $b_n$ are the *Cartesian coordinates* of a vector with *polar coordinates* $A_n$ and $\phi_n$.
 # That is quite remarkable.
+# Furthermore, we can write the Fourier series replacing Eq. {eq}`eq:fourier:series` using $a_n$ and $b_n$ instead of $A_n$:
 # 
-# If we use [Euler's formula](theorem-euler-formula), we can write the *Fourier series* in its exponential form.
-# Remember our discussion in section [Phasors](sec-phasors).
+# ```{math}
+# :label: eq:fourier:series:alternative
+# y_N(t) = \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \cos\left( \frac{2\pi \cdot n}{T}t \right) + b_n \sin\left( \frac{2\pi \cdot n}{T}t \right) \right]
+# ```
+# 
+# where $a_0 = A_0$. In this formula, the phase $\phi$ is encoded in the interplay between sine and cosine.
+# 
+# Recalling [complex numbers](sec-complex-numbers), remember that
+# 
+# $$\cos(\alpha) = \frac{e^{i\alpha} + e^{-i\alpha}}{2}$$
+# 
+# and 
+# 
+# $$\sin(\alpha) = \frac{e^{i\alpha} - e^{-i\alpha}}{2i}$$
+# 
+# holds.
+# Therefore, we can write the Fourier series of a function in *complex form* by adapting Eq. {eq}`eq:fourier:series:alternative`:
+# 
+# $$
+# y_N(t) &= \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \cos\left( \frac{2\pi \cdot n}{T}t \right) + b_n \sin\left( \frac{2\pi \cdot n}{T}t \right) \right]\\
+# &= \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \frac{e^{i 2\pi n t / T} + e^{-i 2\pi n t / T}}{2} + b_n \frac{e^{i 2\pi n t / T} - e^{-i 2\pi n t / T}}{2i} \right]\\
+# &= \frac{a_0}{2} + \sum\limits_{n=1}^N \frac{a_n - ib_n}{2} e^{i 2\pi n t / T} + \sum\limits_{n=1}^N \frac{a_n + ib_n}{2} e^{-i 2\pi n t / T}\\
+# &= \sum\limits_{n=-N}^N c_n e^{i2\pi n t / T}
+# $$
+# 
+# Here we have used the following notations:
+# 
+# $$c_0 = \frac{a_0}{2}, c_n = \frac{a_n - ib_n}{2}, c_{-n} = \frac{a_n + ib_n}{2}.$$
+# 
+# We finally arrive at the *Fourier series in its exponential form*.
 # 
 # ````{admonition} Fourier Series (FS) in its Exponential Form
 # :name: def-fourier-series-exp
@@ -546,11 +575,12 @@ txt = fig.suptitle(r'$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ and
 # This form generalizes to **complex-valued functions**.
 # ````
 # 
-# Note that in this form **phase** and **amplitude** represented by a phasor, e.g., $A_n / 2 e^{-i \phi_n}$
-# Finally, we can define $Y_N : \mathbb{Z} \rightarrow \mathbb{C}$
+# In this form **phase** and **amplitude** are represented by a phasor, e.g., $A_n / 2 e^{-i \phi_n}$.
+# 
+# We can define $Y_N : \mathbb{Z} \rightarrow \mathbb{C}$
 # 
 # \begin{equation}
 # Y_N(n) = c_n,
 # \end{equation}
 # 
-# to be the [phasor](def-phasor) of the respective sinusoid with **frequency** $n$ of the *Fourier series* of a (real) **periodic function** $y(t)$.
+# to be the [phasor](def-phasor) of the respective sinusoid with **frequency** $n$ times the fundamental frequency $f_0$ of the *Fourier series* of a (real) **periodic function** $y(t)$ with period equal to $1/f_0$.

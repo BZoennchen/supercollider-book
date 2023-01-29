@@ -28,7 +28,7 @@ sns.set_style("whitegrid")
 # # Complex Numbers
 # 
 # The history of mathematics is a history of discoveries and inventions.
-# The Greeks were fascibated by geometry.
+# The Greeks were fascinated by geometry.
 # They introduced natural as well as rational numbers but interestingely, left out negative numbers as well as the number zero.
 # Their experience of the world, their perspective on points, lines and shapes, i.e. the classical Euclidean geometry, kept negative values hidden.
 # Negative length or areas were unheared-of.
@@ -49,10 +49,10 @@ sns.set_style("whitegrid")
 # x^2 + 2 = 0?
 # ```
 # 
-# Well, we need *complex numbers*.
+# Well, we need [*complex numbers*](def-complex-number).
 # They extend real numbers by defintion but their definition is not arbitrary.
-# Instead, it was carefully craftet such that *complex numbers* have all necessery properties to be integrated in all known and accepted theories.
-# To define *complex numbers*, we introduce a special symbol $i$ which is defined by
+# Instead, it was carefully craftet such that complex numbers have all necessery properties to be integrated in all known and accepted theories.
+# To define complex numbers, we introduce a special symbol $i$ (some use $j$ instead) which is defined by
 # 
 # ```{math}
 # :label: eq:complex:i
@@ -127,9 +127,10 @@ sns.set_style("whitegrid")
 # Complex(2, 1) / Complex(3, 2)
 # ```
 # 
+# (sec-complex-plane)=
 # ## Complex Plane
 # 
-# We can represent a complex number $z = a + bi$ by a point $(a, b)$ in the Cartesian plane which we then call *complex plane* or $z$*-plane*.
+# We can represent a complex number $z = a + bi$ by a point $(a, b)$ in the *Cartesian plane* which we then call *complex plane* or $z$*-plane*.
 
 # In[2]:
 
@@ -193,7 +194,6 @@ ax.grid(True);
 # \end{equation}
 # 
 # We write $z = (r, \phi)$, $z = a + bi$, $z = r \cdot (\cos(\phi) + i \sin(\phi))$ interchangeable.
-# 
 # Given $a$ and $b$, we can compute $r$ by
 # 
 # \begin{equation}
@@ -297,7 +297,7 @@ ax.grid(True);
 # 
 # ```
 # 
-# One often approximate a function by using only the first $n$ terms of Tayler's serie.
+# One often approximates a function by using only the first $n$ terms of Tayler's serie.
 # What we need is the Taylor series for the sine, cosine and the natural exponential function.
 # We know that $\sin'(t) = \cos(t)$ and $\cos'(t) = - \sin(t)$.
 # Furthermore, $\sin(0) = 0$ and $\cos(0) = 1$.
@@ -466,7 +466,6 @@ ax.grid(True);
 # $$g(N+1) = \left( e^{i \frac{2\pi}{N}} \right)^{N+1} = e^{i \frac{2\pi (N+1)}{N}} = e^{i 2\pi} \cdot e^{i \frac{2\pi}{N}} = e^{i 0} \cdot e^{i \frac{2\pi}{N}} = 1 \cdot e^{i \frac{2\pi}{N}} = z = g(1).$$
 # 
 # If $|z|$ would be greater than 1, then $z^k$ would grow to infinity and if $|z| < 1$ it would converge to $0$. 
-# 
 # Using Eq. {eq}`eq:euler` we can represent our well-known trigonometric functions by exponential functions.
 # We start with
 # 

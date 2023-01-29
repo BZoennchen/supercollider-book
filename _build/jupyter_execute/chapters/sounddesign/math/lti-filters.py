@@ -24,7 +24,7 @@ sns.set_theme('talk')
 sns.set_style("whitegrid")
 
 
-# # Linear Time-invariant Filters
+# # LTI Filters
 # 
 # *Linear filters* process time-varying input signals to produce output signals, subject to the constraint of *linearity*.
 # In most cases these linear filters are also time *invariant* (or *shift invariant*) in which case they can be analyzed exactly using [LTI](def-linear-time-invariant) ('linear time-invariant') system theory.
@@ -45,14 +45,16 @@ sns.set_style("whitegrid")
 # To analyse the behaviour of a *linear filter* one looks at two different effects.
 # 
 # 1. **Frequency response** (frequency domain): how does the amplitude and phase of a frequency $f$ changes.
-# 2. **Impulse response** (time domain):
+# 2. **Impulse response** (time domain): how does the amplitude over time change.
 # 
 # ## Frequency Response
 # 
-# The frequency response of a filter tells us how it effects a the amplitude and phase of a frequency of the input signal.
-# [LTI filters](def-linear-time-invariant) can be characterized in the frequency domain by the *Z transform*.
-# As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the transfer function and the transform of the input.
+# The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
+# [LTI filters](def-linear-time-invariant) can be characterized in the frequency domain by the *[Z-transform](sec-z-transform)* with respect to the input $x[n]$ and output signal $y[n]$.
+# As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the [*transfer function*](sec-trensfer-function) and the transform of the input $x[n]$.
 # In other words, convolution in the time domain is equivalent to multiplication in the frequency domain.
+# 
+# If $H(z)$ is the *transfer function* of the filter, then plugging in $e^{i \omega}$ into $H(\cdot)$ gives us the *frequency response* $H(e^{i \omega})$.
 # 
 # ```{admonition} Frequency response
 # :name: def-frequency-response
@@ -61,30 +63,30 @@ sns.set_style("whitegrid")
 # The *frequency response* of a *linear filter* be represented in one formula (see section [Complex Numbers](sec-complex-numbers))
 # 
 # \begin{equation}
-# H(\omega) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}}.
+# H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 # \end{equation}
 # 
-# where $G(\omega)$ is the *amplutide frequency response* and $\mathcal{\Theta}(\omega)$ the *phase response* of the filter.
+# where $G(\omega) = |H(e^{i \omega})|$ is the *amplutide frequency response* and $\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})$ the *phase response* of the filter.
 # 
 # ```
 # 
-# The *gain* $G(f)$ in frequency $f$ is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:
+# The *gain* $G(\omega)$ in frequency $f = \frac{\omega}{2 \pi}$ is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:
 # 
 # \begin{equation}
-# G(f) = \frac{O(f)}{I(f)}
+# G(\omega) = \frac{O(\omega)}{I(\omega)}.
 # \end{equation}
 # 
 # ```{admonition} Gain of LTI Filters
 # :name: def-gain-lti-theorem
 # :class: theorem
 # 
-# If the input to any any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i \omega t}$, the output will be some constant times the input $B \cdot e^{i\omega t}$ and 
+# If the input to any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i \omega t}$, the output will be some constant times the input $B \cdot e^{i\omega t}$ and 
 # 
 # $$G(\omega) = \frac{B}{A}.$$
 # 
 # ```
 # 
-# The default *low-* ``LPF`` and *highpass filters* ``HPF`` ugens of ``sclang`` filter frequencies above or below some *cutoff frequency*.
+# The default *low-* and *highpass filters* ugens (``LPF`` and  ``HPF`` respectively) of ``sclang``, filter frequencies above or below some *cutoff frequency*.
 # They are *2nd order Butterworth low-/highpass filter*.
 # 
 # ```{figure} ../../../figs/sounddesign/filters/butterworth-filter.png
@@ -95,7 +97,7 @@ sns.set_style("whitegrid")
 # Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, [link](https://commons.wikimedia.org/w/index.php?curid=735081).
 # ```
 # 
-# The *frequency response* of a *2nd order Butterworth lowpass filter* is illustrated above. 
+# The *[frequency response](def-frequency-response)* of a *2nd order Butterworth lowpass filter* is illustrated above. 
 # The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 # Well, that is not entirely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
 # Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
@@ -153,15 +155,15 @@ sns.set_style("whitegrid")
 # Our *simple filter* is a [linear and time-invariant](def-linear-time-invariant) filter.
 # The [OnePole](https://doc.sccode.org/Classes/OnePole.html) unit generator is a flexible version of this filter.
 # 
-# You might suspect that since is the simplest possible *lowpass filter*, it is also somehow the worst possible low-pass filter. 
+# You might suspect that, since it is the simplest possible *lowpass filter*, it is also somehow the worst possible lowpass filter. 
 # How bad is it? 
-# In what sense is it bad? How do we even know it is a low-pass at all? 
+# In what sense is it bad? How do we even know it is a lowpass filter at all? 
 # The answers to these and related questions will become apparent when we find the [frequency response](def-frequency-response) of this filter.
 # 
 # Our goal is to use a test singal that consists of only one frequency and then reformulate $y[n]$ such that we arrive at
 # 
 # \begin{equation*}
-# x[n] = H(\omega) \cdot x[n].
+# y[n] = H(e^{i \omega}) \cdot x[n],
 # \end{equation*}
 # 
 # where $H(\omega)$ has to be independent of $n$.
@@ -196,12 +198,12 @@ sns.set_style("whitegrid")
 # y[n] &= e^{i \omega n T} + e^{i \omega (n-1) T}\\
 # &= e^{i \omega n T} + e^{i \omega n T} \cdot e^{-i \omega n T}\\
 # &= (1 + e^{-i \omega T}) \cdot e^{i \omega n T}\\
-# &= (1 + e^{-i \omega T}) \cdot x[n]\\
-# &= H(\omega) \cdot x[n]
+# &= (1 + e^{-i \omega T}) \cdot x[n] = H(e^{i \omega}) \cdot x[n]
 # \end{split}
 # \end{equation*}
 # 
-# Therefore, the *gain* for this filter is
+# We get the same solution as we got using the [Z-transform](sec-simple-filter-example).
+# The *gain* for this filter is
 # 
 # $$G(\omega) = |(1 + e^{-i \omega T})|$$
 # 
@@ -240,7 +242,7 @@ sns.set_style("whitegrid")
 # $$2\cos(\omega T / 2)$$
 # 
 # for $-\pi \leq \omega \leq \pi$.
-# The following plot shows the amplitude frequency response in $\omega$.
+# The following plot shows the amplitude [frequency response](def-frequency-response) in $\omega$.
 
 # In[2]:
 
@@ -278,8 +280,20 @@ ax.set_ylabel(r'Phase Shift $\mathcal{\Theta}(\omega)$')
 ax.set_xlabel(r'$\omega$');
 
 
-# This *low pass filter* has no phase delay at 0 Hz and a maximum delay of $-(\pi/2)T$ at the Nyquist frequency.
-# Note that both responses rely on the sample rate $f_s = 1 / T$.
+# This *lowpass filter* has no phase delay at 0 Hz and a maximum delay of $-(\pi/2)T$ at the Nyquist frequency.
+# **Note that both responses rely on the sample period** $T = = 1 / f_s$.
+# If we increase the sample rate, the loss in power of high frequencies decreases!
+# To achieve a similar result, we have to adapt the coefficients of the filter equation accordingly.
+# 
+# ```{admonition} Low and High Level Filters
+# :name: remark-low-level-filter
+# :class: remark
+# 
+# The [frequency response](def-frequency-response) of low level SuperCollider filters such as [OneZero](https://doc.sccode.org/Classes/OneZero.html), [OnePole](https://doc.sccode.org/Classes/OnePole.html), [FOS](https://doc.sccode.org/Classes/FOS.html), [SOS](https://doc.sccode.org/Classes/SOS.html) rely the sample rate $f_s$.
+# High level filters such as [LPF](https://doc.sccode.org/Classes/LPF.html) and [HPF](https://doc.sccode.org/Classes/HPF.html) do not!
+# 
+# ```
+# 
 # Furthermore, the phase shift depends on $\omega$.
 # It looks like this might lead to a phase distortion, however, this frequency-dependent delay is counteracted because doubling the frequency of the input halves its period, balancing the growth in retardation introduced by the filter.
 # This linear dependence is actually necessary.
@@ -313,55 +327,24 @@ ax.set_xlabel(r'$\omega$');
 # Thus, a filter can be characterized as circular motion with radius $G(\omega) A$ and phase $\Theta(\omega)+\phi$.
 # The particular kind of filter implemented depends only on the definition of $G(\omega)$ and $\Theta(\omega)$.
 # 
-# ## General Z-Transformation
+# ## One Zero Filter
 # 
-# The general form for a difference equation is given by 
-# 
-# \begin{equation}
-# \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
-# \end{equation}
-# 
-# If we take the Z-transform of both sides we get:
-# 
-# \begin{equation*}
-# \sum\limits_{k=0}^N a_k z^{-k}Y(z) = \sum\limits_{k=0}^M b_k z^{-k} X(z)
-# \end{equation*}
-# 
-# and by solving for $Y(z)$ we get
-# 
-# \begin{equation*}
-# Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}}}_{H(z)} X(z) = H(z) X(z)
-# \end{equation*}
-# 
-# where $H(z)$ is the *transfer function*, i.e. the Z-transform of the filter's [frequency response](def-frequency-response), in other words 
-# 
-# $$H(z) = \mathcal{Z}\{h[n]\}.$$
-# 
-# If $b_0 \neq 0$ then
-# 
-# \begin{equation}
-# H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits_{k=1}^N (1 - d_k z^{-1})}
-# \end{equation}
-# 
-# where $c_k, k = 1, 2, \ldots M$ are *zeros* and $d_k, k = 1, 2, \ldots N$ are *poles*.
-# 
-# ### One Zero Filter
-# 
-# In SuperCollider the *one zero filter* realizes the following formula:
+# In SuperCollider the *one zero filter* [OneZero](https://doc.sccode.org/Classes/OneZero.html) realizes the following formula:
 # 
 # $$y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1], \quad -1 \leq \alpha \leq 1$$
 # 
-# we have $N = 0$ and $M = 1, a_0 = 1, b_0 = (1 - |\alpha|), b_1 = \alpha.$
-# Therefore,
+# we have $N = 0$ and $M = 1, a_0 = 1, b_0 = (1 - |\alpha|), b_1 = \alpha$.
+# We can use the [transfer function](sec-trensfer-function) of [LTI filters](def-form-lti-filter) to analyse the effects of the filter.
+# Using the Z-transform, we get
 # 
-# $$\mathcal{F}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).$$
+# $$\mathcal{X}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).$$
 # 
 # There is a *pole* at $z = 0$ and a *zero* at $z = \frac{\alpha}{|\alpha|-1}$.
 # Therefore,
 # 
 # $H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)$
 # 
-# If we evaluate $H(z)$ for $\alpha = 0.5$ at the frequncies of interest we can see the *frequency response*:
+# If we evaluate the [transfer function](theorem-transfer-function) $H(z)$ for $\alpha = 0.5$ at the frequncies of interest we get the [frequency response](def-frequency-response):
 # 
 # $$H(e^{i \omega T}) = 0.5 \cdot (1 - e^{-i\omega T})$$
 # 
@@ -402,16 +385,16 @@ ax.legend();
 # )
 # ```
 # 
-# ### One Pole Filter
+# ## One Pole Filter
 # 
-# In SuperCollider the *one pole filter* realizes the following formula:
+# In SuperCollider the *one pole filter* [OnePole](https://doc.sccode.org/Classes/OnePole.html) realizes the following formula:
 # 
 # $$y[n] - \alpha \cdot y[n-1] = (1 - |\alpha|) \cdot x[n], \quad -1 \leq \alpha \leq 1$$
 # 
 # we have $N = 1$ and $M = 0, a_0 = 1, a_1 = -\alpha, b_0 = (1 - |\alpha|)$
 # Therefore,
 # 
-# $$\mathcal{F}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).$$
+# $$\mathcal{X}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).$$
 # 
 # There is a *pole* at $z = \alpha$ and a *zero* at $z = \infty$.
 # Therefore,
@@ -442,7 +425,8 @@ ax.set_xlabel(r'$\omega$ $(2\pi f)$')
 ax.legend();
 
 
-# The unit generator [OnePole](http://doc.sccode.org/Classes/OneZero.html) got his name by the fact that it has **one pole**.
+# This explains the name of the unit generator [OnePole](http://doc.sccode.org/Classes/OneZero.html).
+# It got his name by the fact that it has **one pole**.
 # Compared to the *one zero filter* it is able to have a much steeper drop / increase in *gain*.
 # Similar to the *one zero filter* it is a low pass filter for positive $\alpha$ and high pass filter for negative $\alpha$.
 # For both these filters, the cutoff frequency $f_c$ is equal to 0 Hz, i.e., all frequencies are effected.

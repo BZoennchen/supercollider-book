@@ -380,7 +380,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="lti-filters.html">
-     Linear Time-invariant Filters
+     LTI Filters
     </a>
    </li>
   </ul>
@@ -491,11 +491,6 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../terms.html">
-   Terms
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -565,6 +560,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/about.html">
    About the Book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../misc/terms.html">
+   Glossary
   </a>
  </li>
  <li class="toctree-l1">
@@ -843,34 +843,34 @@ title="Print to PDF"
 </div></blockquote>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p>Given a signal <span class="math notranslate nohighlight">\(y(t)\)</span> of a played piano key, how can we compute the pitch and how can we recreate that sound?
-Spectral analysis and synthesis gives us some answers.
+<p>Given a signal <span class="math notranslate nohighlight">\(y(t)\)</span> of a played piano key, how can we compute the pitch, and how can we recreate that sound?
+Spectral analysis and synthesis give us some answers.
 By <em>transforming</em> the representation of a signal, we can catapult ourselves from the space of amplitude over time into the space of intensity over frequencies.</p>
-<p>In mathematics, the meaning of <em>transform</em> and <em>transformation</em> is somewhat specific, but it still is rather wide or loose, when the definition sometimes says it is a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
-In <em>transform theory</em>, mathematicians talk about a suitable choice of a function, called <em>kernel</em> (from the German <em>nucleus</em> or <em>core</em>), by which a problem may be simplified.</p>
-<p>In 1822 <em>Jean-Baptise Joseph Fourier</em> discovered a truely remarkalbe <em>transformation</em> which gives us insights to our knowledge of waveforms in general and music in particular.
-He claimed that any function, whether continuous or discontinuous, can be expanded into a series of sines.
+<p>In mathematics, the meaning of <em>transform</em> and <em>transformation</em> is somewhat specific, but it still is relatively wide or loose when the definition sometimes says it is a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
+In <em>transform theory</em>, mathematicians talk about a suitable choice of a function called <em>kernel</em> (from the German <em>nucleus</em> or <em>core</em>), by which a problem may be simplified.</p>
+<p>In 1822 <em>Jean-Baptise Joseph Fourier</em> discovered a truly remarkable <em>transformation</em> which gives us insights into our knowledge of waveforms in general and music in particular.
+He claimed that any function, whether continuous or discontinuous, can be transformed into a series of sines.
 That important work was corrected to</p>
 <blockquote>
 <div><p>Almost any periodic function can be represented by a Fourier series that converges.</p>
 </div></blockquote>
 <p>and expanded upon by others to provide the foundation for various forms of the Fourier transform used since.</p>
 <p>I find this result still fascinating.
-At this point I have to mention that the great German mathematician <em>Carl Friedrich Gauß</em> already discovered this connection in 1805 and, what is even more remarkable, he formulated something quite similar to the <strong>fast Fourier transform (FFT)</strong>!
-The reason his breakthrough was not widely adopted was because it only appeared after his death in volume three of his collected works and it was written with non-standard notation in a 19th century version of Latin.</p>
-<p>Especially since the re-discovery of the <em>fast Fourier transformation (FFT)</em> in 1965 by <em>Cooley</em> and <em>Tukey</em> to detect underground tests of atomic bombs, the Fourier synthesis is a widespread technique performed in all areas of signal processing.
-There are so many applications of the FFT, from solving differential equations to radar and sonar, studying crystal structures, WiFi and 5G.
+At this point, I have to mention that the great German mathematician <em>Carl Friedrich Gauß</em> already discovered this connection in 1805 and, what is even more remarkable, he formulated something quite similar to the <strong>fast Fourier transform (FFT)</strong>!
+His breakthrough was not widely adopted because it only appeared after his death in <em>volume three of his collected works</em> which was written with non-standard notation in a 19th-century version of Latin.</p>
+<p>Especially since the re-discovery of the <em>fast Fourier transform (FFT)</em> in 1965 by <em>Cooley</em> and <em>Tukey</em> to detect underground tests of atomic bombs, the Fourier synthesis is a widespread technique performed in all areas of signal processing.
+There are so many applications of the FFT, from solving differential equations to radar and sonar, studying crystal structures, WiFi, and 5G.
 It is no surprise that the mathematician <em>Gilbert Strang</em> called the FFT</p>
 <blockquote>
 <div><p>The most important numerical algorithm of our lifetime. – Gilbert Strang</p>
 </div></blockquote>
 <p>But why is that?
 Well, it is all about computation speed!
-The <em>FFT</em> reduces the time complexity of the <em>Discrete Fourier Transformation (DFT)</em> from <span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span> to <span class="math notranslate nohighlight">\(\mathcal{O}(n\log(n))\)</span> which makes the computation of the <em>DFT</em> fast thus applicable for many areas and purposes.</p>
+The <em>FFT</em> reduces the time complexity of the <em><a class="reference internal" href="dft.html#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transformation (DFT)</span></a></em> from <span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span> to <span class="math notranslate nohighlight">\(\mathcal{O}(n\log(n))\)</span> which makes the computation of the <em>DFT</em> fast thus applicable for many areas and purposes.</p>
 <div class="section" id="frequency-spectrum">
 <span id="sec-freq-spectrum"></span><h2>Frequency Spectrum<a class="headerlink" href="#frequency-spectrum" title="Permalink to this headline">#</a></h2>
-<p>Before we dicuss the mathematical basis, let’s have a look at the <em>frequency spectrum</em> of a audio recordings such that you can picture what we want to compute.
-First let us use a audio recording of a real piano.
+<p>Before we dicuss the mathematical basis, let’s have a look at the <em>frequency spectrum</em> of a audio recordings such that we can picture what we want to compute.
+First let us use an audio recording of a physical piano.
 The note played is A0 = 440 Hz.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -926,7 +926,7 @@ The piano might be out of tune.</p>
 <img alt="../../../_images/fourier-series_13_0.png" src="../../../_images/fourier-series_13_0.png" />
 </div>
 </div>
-<p>In the synthetic we get the exaclty what we expected, i.e. 5 peaks, four <em>harmonic overtones</em> and one fundamental at 440 Hz.</p>
+<p>In the synthetic case, we get exaclty what we expected, i.e., 5 peaks, four <em>harmonic overtones</em>, and one fundamental at 440 Hz.</p>
 </div>
 <div class="section" id="similarity-of-periodic-functions">
 <span id="sec-similarity-of-functions"></span><h2>Similarity of Periodic Functions<a class="headerlink" href="#similarity-of-periodic-functions" title="Permalink to this headline">#</a></h2>
@@ -1066,7 +1066,7 @@ The <em>Foruier series</em> in amplitude-phase form <span class="math notranslat
 <p>where <span class="math notranslate nohighlight">\(N\)</span> is potentially an infinite integer.
 <span class="math notranslate nohighlight">\(T = \frac{1}{f_0}\)</span> is the period of <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(A_n\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-th hermonic’s <em>amplitude</em> and <span class="math notranslate nohighlight">\(\phi_n\)</span> is its <em>phase (shift)</em>.
 <span class="math notranslate nohighlight">\(A_0/2\)</span> is the DC component, it is the mean value of <span class="math notranslate nohighlight">\(y(t)\)</span>.
-<span class="math notranslate nohighlight">\(f_0\)</span> is the fundamental frequency of the signal.</p>
+<span class="math notranslate nohighlight">\(f_0\)</span> is the <em>fundamental frequency</em> of the signal.</p>
 </div>
 <p>Except for pathological functions, any periodic function can be represented by a <em>Fourier series (FS)</em> that converges.
 Convergence of <em>Fourier series</em> means that as more and more harmonics from the series are summed, each successive partial <em>Fourier series sum</em> will better approximate the function, and will equal the function with a potentially infinite number of harmonics.</p>
@@ -1112,12 +1112,12 @@ Furthermore, we get the missing <strong>phase shift</strong> defined by</p>
 <p>Using the equivalence of polar and Cartesian forms, that is,</p>
 <div class="math notranslate nohighlight">
 \[\cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) \equiv \cos(\phi_n) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right) + \sin(\phi_n) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)\]</div>
-<p>We can simplify the <span class="math notranslate nohighlight">\(X_n(\phi)\)</span>:</p>
+<p>We can simplify <span class="math notranslate nohighlight">\(X_n(\phi)\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \begin{split}
 X_n(\phi) &amp;= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) dt\\
-&amp;= \cos(\phi) \cdot \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right)dt + \sin(\phi) \cdot \frac{2}{T}\int_T y(t) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)dt\\
+&amp;= \cos(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right)dt}_{a_n} + \sin(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)dt}_{b_n}\\
 &amp;= \cos(\phi) \cdot a_n + \sin(\phi) \cdot b_n
 \end{split}
 \end{equation*}\]</div>
@@ -1129,9 +1129,30 @@ Threfore,</p>
 <div class="math notranslate nohighlight">
 \[A_n = X_n(\phi_n) = \cos(\phi_n) a_n + \sin(\phi_n) b_n = \sqrt{a_n^2 + b_n^2}.\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> are the <em>Cartesian coordinates</em> of a vector with <em>polar coordinates</em> <span class="math notranslate nohighlight">\(A_n\)</span> and <span class="math notranslate nohighlight">\(\phi_n\)</span>.
-That is quite remarkable.</p>
-<p>If we use <a class="reference internal" href="complex.html#theorem-euler-formula"><span class="std std-ref">Euler’s formula</span></a>, we can write the <em>Fourier series</em> in its exponential form.
-Remember our discussion in section <a class="reference internal" href="complex.html#sec-phasors"><span class="std std-ref">Phasors</span></a>.</p>
+That is quite remarkable.
+Furthermore, we can write the Fourier series replacing Eq. <a class="reference internal" href="#equation-eq-fourier-series">(27)</a> using <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> instead of <span class="math notranslate nohighlight">\(A_n\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-series-alternative">
+<span class="eqno">(28)<a class="headerlink" href="#equation-eq-fourier-series-alternative" title="Permalink to this equation">#</a></span>\[y_N(t) = \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \cos\left( \frac{2\pi \cdot n}{T}t \right) + b_n \sin\left( \frac{2\pi \cdot n}{T}t \right) \right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_0 = A_0\)</span>. In this formula, the phase <span class="math notranslate nohighlight">\(\phi\)</span> is encoded in the interplay between sine and cosine.</p>
+<p>Recalling <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex numbers</span></a>, remember that</p>
+<div class="math notranslate nohighlight">
+\[\cos(\alpha) = \frac{e^{i\alpha} + e^{-i\alpha}}{2}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\sin(\alpha) = \frac{e^{i\alpha} - e^{-i\alpha}}{2i}\]</div>
+<p>holds.
+Therefore, we can write the Fourier series of a function in <em>complex form</em> by adapting Eq. <a class="reference internal" href="#equation-eq-fourier-series-alternative">(28)</a>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_N(t) &amp;= \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \cos\left( \frac{2\pi \cdot n}{T}t \right) + b_n \sin\left( \frac{2\pi \cdot n}{T}t \right) \right]\\
+&amp;= \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \frac{e^{i 2\pi n t / T} + e^{-i 2\pi n t / T}}{2} + b_n \frac{e^{i 2\pi n t / T} - e^{-i 2\pi n t / T}}{2i} \right]\\
+&amp;= \frac{a_0}{2} + \sum\limits_{n=1}^N \frac{a_n - ib_n}{2} e^{i 2\pi n t / T} + \sum\limits_{n=1}^N \frac{a_n + ib_n}{2} e^{-i 2\pi n t / T}\\
+&amp;= \sum\limits_{n=-N}^N c_n e^{i2\pi n t / T}
+\end{split}\]</div>
+<p>Here we have used the following notations:</p>
+<div class="math notranslate nohighlight">
+\[c_0 = \frac{a_0}{2}, c_n = \frac{a_n - ib_n}{2}, c_{-n} = \frac{a_n + ib_n}{2}.\]</div>
+<p>We finally arrive at the <em>Fourier series in its exponential form</em>.</p>
 <div class="definition admonition" id="def-fourier-series-exp">
 <p class="admonition-title">Fourier Series (FS) in its Exponential Form</p>
 <p>The <em>Foruier series</em> in <em>exponential form</em> <span class="math notranslate nohighlight">\(y_N: \mathbb{R} \rightarrow \mathbb{C}\)</span> of a periodic function <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> is defined by</p>
@@ -1150,13 +1171,13 @@ A_0/2 &amp;= a_0 / 2 &amp; \text{ if } n = 0\\
 \end{split}\]</div>
 <p>This form generalizes to <strong>complex-valued functions</strong>.</p>
 </div>
-<p>Note that in this form <strong>phase</strong> and <strong>amplitude</strong> represented by a phasor, e.g., <span class="math notranslate nohighlight">\(A_n / 2 e^{-i \phi_n}\)</span>
-Finally, we can define <span class="math notranslate nohighlight">\(Y_N : \mathbb{Z} \rightarrow \mathbb{C}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a34ac8c-36a9-4793-a469-a55427eae248">
-<span class="eqno">(28)<a class="headerlink" href="#equation-1a34ac8c-36a9-4793-a469-a55427eae248" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>In this form <strong>phase</strong> and <strong>amplitude</strong> are represented by a phasor, e.g., <span class="math notranslate nohighlight">\(A_n / 2 e^{-i \phi_n}\)</span>.</p>
+<p>We can define <span class="math notranslate nohighlight">\(Y_N : \mathbb{Z} \rightarrow \mathbb{C}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-b10a4432-6682-4d3b-a9d3-4200c0b8503a">
+<span class="eqno">(29)<a class="headerlink" href="#equation-b10a4432-6682-4d3b-a9d3-4200c0b8503a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Y_N(n) = c_n,
 \end{equation}\]</div>
-<p>to be the <a class="reference internal" href="complex.html#def-phasor"><span class="std std-ref">phasor</span></a> of the respective sinusoid with <strong>frequency</strong> <span class="math notranslate nohighlight">\(n\)</span> of the <em>Fourier series</em> of a (real) <strong>periodic function</strong> <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
+<p>to be the <a class="reference internal" href="complex.html#def-phasor"><span class="std std-ref">phasor</span></a> of the respective sinusoid with <strong>frequency</strong> <span class="math notranslate nohighlight">\(n\)</span> times the fundamental frequency <span class="math notranslate nohighlight">\(f_0\)</span> of the <em>Fourier series</em> of a (real) <strong>periodic function</strong> <span class="math notranslate nohighlight">\(y(t)\)</span> with period equal to <span class="math notranslate nohighlight">\(1/f_0\)</span>.</p>
 </div>
 </div>
 
