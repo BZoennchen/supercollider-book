@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LTI Filters &#8212; Algorithmic Composition</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -31,30 +28,33 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
@@ -66,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../intro.html">
-   Preamble
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Preamble
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider I
  </span>
@@ -176,7 +192,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider II
  </span>
@@ -311,7 +327,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Sound Design
  </span>
@@ -476,7 +492,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Composing
  </span>
@@ -525,7 +541,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -547,7 +563,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Trash
  </span>
@@ -566,94 +582,181 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../../_sources/chapters/sounddesign/math/lti-filters.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/sounddesign/math/lti-filters.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/lti-filters.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/lti-filters.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/math/lti-filters.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/math/lti-filters.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#frequency-response">
    Frequency Response
@@ -681,12 +784,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>LTI Filters</h1>
@@ -730,13 +832,14 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell tag_remove-input docutils container">
 </div>
-<div class="section" id="lti-filters">
-<h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="lti-filters">
+<h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">#</a></h1>
 <p><em>Linear filters</em> process time-varying input signals to produce output signals, subject to the constraint of <em>linearity</em>.
 In most cases these linear filters are also time <em>invariant</em> (or <em>shift invariant</em>) in which case they can be analyzed exactly using <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> (‘linear time-invariant’) system theory.</p>
 <div class="definition admonition" id="def-linear-time-invariant">
@@ -755,7 +858,7 @@ To analyse the behaviour of a <em>linear filter</em> one looks at two different 
 <li><p><strong>Impulse response</strong> (time domain): how does the amplitude over time change.</p></li>
 </ol>
 <div class="section" id="frequency-response">
-<h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">¶</a></h2>
+<h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">#</a></h2>
 <p>The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
 <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filters</span></a> can be characterized in the frequency domain by the <em><a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a></em> with respect to the input <span class="math notranslate nohighlight">\(x[n]\)</span> and output signal <span class="math notranslate nohighlight">\(y[n]\)</span>.
 As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref"><em>transfer function</em></span></a> and the transform of the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
@@ -764,15 +867,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c166e8cc-cf34-4f3e-8344-bd903b74aad0">
-<span class="eqno">(41)<a class="headerlink" href="#equation-c166e8cc-cf34-4f3e-8344-bd903b74aad0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-39438688-bf24-45e0-acfb-2b4d49779f46">
+<span class="eqno">(41)<a class="headerlink" href="#equation-39438688-bf24-45e0-acfb-2b4d49779f46" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f658b191-7cc0-47e6-9ed9-1a40fb63f1d3">
-<span class="eqno">(42)<a class="headerlink" href="#equation-f658b191-7cc0-47e6-9ed9-1a40fb63f1d3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac042d42-6b90-427a-9344-ed035f215716">
+<span class="eqno">(42)<a class="headerlink" href="#equation-ac042d42-6b90-427a-9344-ed035f215716" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -785,7 +888,7 @@ G(\omega) = \frac{O(\omega)}{I(\omega)}.
 They are <em>2nd order Butterworth low-/highpass filter</em>.</p>
 <div class="figure align-default" id="fig-butterworth-filter">
 <a class="reference internal image-reference" href="../../../_images/butterworth-filter.png"><img alt="../../../_images/butterworth-filter.png" src="../../../_images/butterworth-filter.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
 </div>
 <p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
@@ -799,17 +902,17 @@ In other words: we can not just combine a high pass and lowpass filter to get th
 First, we use a lowpass and high pass filter; then a band pass filter.
 The results sound very similar but not identical.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">HPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
     <span class="nx">sig</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 
 <span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">BPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="kc">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
     <span class="nx">sig</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
@@ -817,21 +920,21 @@ The results sound very similar but not identical.</p>
 <p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.
 The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">BRF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="kc">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BRF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
     <span class="nx">sig</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="analysis-of-a-simple-filter">
-<span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">¶</a></h2>
+<span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d657996-e7ba-4d68-888c-a65f84ed7e7e">
-<span class="eqno">(43)<a class="headerlink" href="#equation-1d657996-e7ba-4d68-888c-a65f84ed7e7e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a989eed0-ebd5-46a2-a73b-00a9208eb2e0">
+<span class="eqno">(43)<a class="headerlink" href="#equation-a989eed0-ebd5-46a2-a73b-00a9208eb2e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -856,9 +959,9 @@ x[n] = A \cdot e^{i(2\pi f n T + \phi)}.
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// here we test for f = f_s / 5</span>
 <span class="p">(</span>	
 <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span>
-  <span class="p">[</span><span class="nx">sig</span><span class="p">,</span> <span class="nb">OneZero</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="kc">coef:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="kc">mul:</span> <span class="mi">2</span><span class="p">)]</span>
-<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="p">)</span>
+  <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span>
+  <span class="p">[</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">OneZero</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="na">coef:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">mul:</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -945,8 +1048,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f96ae7f-009e-49d4-b1dc-790243508d53">
-<span class="eqno">(44)<a class="headerlink" href="#equation-2f96ae7f-009e-49d4-b1dc-790243508d53" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bafadc5f-ed81-4491-8ee9-2777b93749e1">
+<span class="eqno">(44)<a class="headerlink" href="#equation-bafadc5f-ed81-4491-8ee9-2777b93749e1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -958,7 +1061,7 @@ y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 The particular kind of filter implemented depends only on the definition of <span class="math notranslate nohighlight">\(G(\omega)\)</span> and <span class="math notranslate nohighlight">\(\Theta(\omega)\)</span>.</p>
 </div>
 <div class="section" id="one-zero-filter">
-<h2>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">¶</a></h2>
+<h2>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">#</a></h2>
 <p>In SuperCollider the <em>one zero filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> realizes the following formula:</p>
 <div class="math notranslate nohighlight">
 \[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1], \quad -1 \leq \alpha \leq 1\]</div>
@@ -987,14 +1090,14 @@ Without a <em>pole</em> the filtering effect is weak.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
-    <span class="nb">OneZero</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="nx">alpha</span><span class="p">)</span>
+    <span class="nc">OneZero</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="nx">alpha</span><span class="p">)</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="one-pole-filter">
-<h2>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">¶</a></h2>
+<h2>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">#</a></h2>
 <p>In SuperCollider the <em>one pole filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> realizes the following formula:</p>
 <div class="math notranslate nohighlight">
 \[y[n] - \alpha \cdot y[n-1] = (1 - |\alpha|) \cdot x[n], \quad -1 \leq \alpha \leq 1\]</div>
@@ -1023,14 +1126,14 @@ For both these filters, the cutoff frequency <span class="math notranslate nohig
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
-    <span class="nb">OnePole</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">WhiteNoise</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="mf">0.95</span><span class="p">)</span>
+    <span class="nc">OnePole</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="mf">0.95</span><span class="p">)</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="impulse-response">
-<h2>Impulse Response<a class="headerlink" href="#impulse-response" title="Permalink to this headline">¶</a></h2>
+<h2>Impulse Response<a class="headerlink" href="#impulse-response" title="Permalink to this headline">#</a></h2>
 <p>The fundamental result in <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> system theory is that any LTI system can be characterized entirely by a single function called the system’s <em>impulse response</em> (in the time domain).
 The output of the filter <span class="math notranslate nohighlight">\(y[n]\)</span> is simply the convolution of the input to the filter <span class="math notranslate nohighlight">\(x[n]\)</span> with the system’s <em>impulse response</em> <span class="math notranslate nohighlight">\(h[n]\)</span>.</p>
 <div class="definition admonition" id="def-impulse-response">
@@ -1052,8 +1155,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ecf75a5d-6434-4fa1-ab7a-5ca5f256eba7">
-<span class="eqno">(45)<a class="headerlink" href="#equation-ecf75a5d-6434-4fa1-ab7a-5ca5f256eba7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79570511-173a-4793-ae50-b1383133ecd9">
+<span class="eqno">(45)<a class="headerlink" href="#equation-79570511-173a-4793-ae50-b1383133ecd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -1094,9 +1197,11 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="z-transform.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1112,24 +1217,28 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Benedikt Zönnchen<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

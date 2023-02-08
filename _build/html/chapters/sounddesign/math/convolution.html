@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Convolution &#8212; Algorithmic Composition</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -31,30 +28,33 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Z-Transform" href="z-transform.html" />
@@ -66,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../intro.html">
-   Preamble
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Preamble
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider I
  </span>
@@ -176,7 +192,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider II
  </span>
@@ -311,7 +327,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Sound Design
  </span>
@@ -476,7 +492,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Composing
  </span>
@@ -525,7 +541,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -547,7 +563,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Trash
  </span>
@@ -566,94 +582,181 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../../_sources/chapters/sounddesign/math/convolution.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/chapters/sounddesign/math/convolution.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/convolution.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/sounddesign/math/convolution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/math/convolution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../../_sources/chapters/sounddesign/math/convolution.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discrete-convolution">
    Discrete Convolution
@@ -676,12 +779,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Convolution</h1>
@@ -720,11 +822,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="convolution">
-<span id="sec-convolution"></span><h1>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="convolution">
+<span id="sec-convolution"></span><h1>Convolution<a class="headerlink" href="#convolution" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
 <p>Convolution is an operation that takes two functions and outputs a new function.
@@ -737,7 +840,7 @@ Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span
 \[y_3(t) = (y_1 * y_2)(t).\]</div>
 <p>But what does the <em>convolution operator</em> <span class="math notranslate nohighlight">\(*\)</span> really do?</p>
 <div class="section" id="discrete-convolution">
-<span id="sec-discrete-convolution"></span><h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">¶</a></h2>
+<span id="sec-discrete-convolution"></span><h2>Discrete Convolution<a class="headerlink" href="#discrete-convolution" title="Permalink to this headline">#</a></h2>
 <p>Let us start with two arrays of numbers which represent discrete functions <span class="math notranslate nohighlight">\(y_1, y_2\)</span>.</p>
 <p>We can use component-wise multiplication to generate a new function:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// [ -1, 6, -3, 12 ], y_1[k] * y_2[k]</span>
@@ -750,7 +853,7 @@ Given two function <span class="math notranslate nohighlight">\(y_1, y_2\)</span
 The idea is to mirrow the second function and to compute the weighted sum of a sliding window.</p>
 <div class="figure align-default" id="fig-array-conv">
 <a class="reference internal image-reference" href="../../../_images/array_conv.png"><img alt="../../../_images/array_conv.png" src="../../../_images/array_conv.png" style="width: 900px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Visualization of the computation of a convolution of two discrete signals (arrays of numbers).</span><a class="headerlink" href="#fig-array-conv" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Visualization of the computation of a convolution of two discrete signals (arrays of numbers).</span><a class="headerlink" href="#fig-array-conv" title="Permalink to this image">#</a></p>
 </div>
 <p>Given <span class="math notranslate nohighlight">\(y_1 = [1,2,3,4]\)</span> and <span class="math notranslate nohighlight">\(y_2 = [ -1, 6, -3, 1]\)</span>, we use sliding window to compute the new function by a weighted sum.</p>
 <div class="amsmath math notranslate nohighlight">
@@ -771,8 +874,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <span class="o">~</span><span class="nx">convolve</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">a_pad</span><span class="p">,</span> <span class="nx">b_pad</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="nx">val</span><span class="p">;</span>
 
-    <span class="nx">a_pad</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">++</span> <span class="nx">a</span><span class="p">;</span>
-    <span class="nx">b_pad</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">++</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nx">a_pad</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">++</span> <span class="nx">a</span><span class="p">;</span>
+    <span class="nx">b_pad</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">reverse</span> <span class="o">++</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
     <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
     <span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">a</span><span class="p">.</span><span class="nx">size</span><span class="o">+</span><span class="nx">b</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span>
@@ -790,8 +893,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b6c1e10-13b9-4a69-9c07-99aed9a173b8">
-<span class="eqno">(32)<a class="headerlink" href="#equation-7b6c1e10-13b9-4a69-9c07-99aed9a173b8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f665470d-aaaa-4b0e-abb8-cbc5a952ce7f">
+<span class="eqno">(32)<a class="headerlink" href="#equation-f665470d-aaaa-4b0e-abb8-cbc5a952ce7f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -801,15 +904,15 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9aa599db-d2d6-411e-af5d-4ececbb36866">
-<span class="eqno">(33)<a class="headerlink" href="#equation-9aa599db-d2d6-411e-af5d-4ececbb36866" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a445d5b-9134-4c51-b13a-5ae2a1a38721">
+<span class="eqno">(33)<a class="headerlink" href="#equation-4a445d5b-9134-4c51-b13a-5ae2a1a38721" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
 </div>
 <div class="figure align-default" id="fig-array-conv-periodic">
 <a class="reference internal image-reference" href="../../../_images/array_conv_periodic.png"><img alt="../../../_images/array_conv_periodic.png" src="../../../_images/array_conv_periodic.png" style="width: 900px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Visualization of the computation of a convalution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.</span><a class="headerlink" href="#fig-array-conv-periodic" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Visualization of the computation of a convalution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.</span><a class="headerlink" href="#fig-array-conv-periodic" title="Permalink to this image">#</a></p>
 </div>
 <p>The circular convolution of a finite signal with a infinite periodic discrete function is an infinite periodic funciton.
 This in our code we do not construct an <code class="docutils literal notranslate"><span class="pre">Array</span></code> but a new function.</p>
@@ -821,7 +924,7 @@ This in our code we do not construct an <code class="docutils literal notranslat
     <span class="nx">func</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="nx">f</span> <span class="o">=</span> <span class="o">~</span><span class="nx">cconvolve</span><span class="p">.([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
-<span class="nx">y</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">f</span><span class="p">.(</span><span class="nx">i</span><span class="p">);});</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">f</span><span class="p">.(</span><span class="nx">i</span><span class="p">);});</span>
 <span class="nx">y</span> <span class="c1">// [ 14, 6, 14, 6, 14, 6, 14, 6, 14, 6, 14, 6 ]</span>
 <span class="p">)</span>
 </pre></div>
@@ -836,19 +939,19 @@ Therefore, if <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are
 In our example, we can see that <span class="math notranslate nohighlight">\(y_2\)</span> mirrored is most similar if it is not shifted.
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7493ddc0-b8e4-46cc-ac4d-74dd4e05c35e">
-<span class="eqno">(34)<a class="headerlink" href="#equation-7493ddc0-b8e4-46cc-ac4d-74dd4e05c35e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8db98e7d-12ac-48f2-8190-e91d12b95d98">
+<span class="eqno">(34)<a class="headerlink" href="#equation-8db98e7d-12ac-48f2-8190-e91d12b95d98" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
 </div>
 <div class="section" id="continuous-convolution">
-<h2>Continuous Convolution<a class="headerlink" href="#continuous-convolution" title="Permalink to this headline">¶</a></h2>
+<h2>Continuous Convolution<a class="headerlink" href="#continuous-convolution" title="Permalink to this headline">#</a></h2>
 <p>If <span class="math notranslate nohighlight">\(y_1, y_2\)</span> are continuous functions then the sum becomes an integral.</p>
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8859229-d4e6-4d3a-8ec5-b659ed03872e">
-<span class="eqno">(35)<a class="headerlink" href="#equation-f8859229-d4e6-4d3a-8ec5-b659ed03872e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6bb291b5-c1f3-4374-802c-9f02718abc7a">
+<span class="eqno">(35)<a class="headerlink" href="#equation-6bb291b5-c1f3-4374-802c-9f02718abc7a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
@@ -856,7 +959,7 @@ The argument <span class="math notranslate nohighlight">\(n\)</span> of <span cl
 Instead of a sum over an index <span class="math notranslate nohighlight">\(k\)</span> we have the integration over <span class="math notranslate nohighlight">\(\tau\)</span> and <span class="math notranslate nohighlight">\(t\)</span> represents the shift of our second (mirrored) funciton.</p>
 </div>
 <div class="section" id="rules">
-<h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<h2>Rules<a class="headerlink" href="#rules" title="Permalink to this headline">#</a></h2>
 <p>Imagine the function <span class="math notranslate nohighlight">\(y\)</span> which is 1 between 0 and 1 and zero elsewhere.
 <span class="math notranslate nohighlight">\(y\)</span> represents a square.
 Consequently, <span class="math notranslate nohighlight">\((y * y)\)</span> represents the overlapping area of two squares.
@@ -899,38 +1002,38 @@ Therefore, to compute the convolution one can do so by compute the <a class="ref
 In fact, this is how the unit generators, such as <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a>, are implemented.</p>
 </div>
 <div class="section" id="the-convolution-unit-generator">
-<h2>The Convolution Unit Generator<a class="headerlink" href="#the-convolution-unit-generator" title="Permalink to this headline">¶</a></h2>
+<h2>The Convolution Unit Generator<a class="headerlink" href="#the-convolution-unit-generator" title="Permalink to this headline">#</a></h2>
 <p>We can compute a discrete convolution on the audio server using the <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> unit generator.
 Let’s try to contruct a triangle wave by convoluting two pulse waves.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">sig</span><span class="p">;</span>
     <span class="nx">n</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFPulse</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Convolution</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="nx">n</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFPulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Convolution</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="nx">n</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
     <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="p">);</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default" id="fig-sc-convolution-pulse">
 <a class="reference internal image-reference" href="../../../_images/sc-convolution-pulse.png"><img alt="../../../_images/sc-convolution-pulse.png" src="../../../_images/sc-convolution-pulse.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Convoluting two pulse waves results in a triangle wave.</span><a class="headerlink" href="#fig-sc-convolution-pulse" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Convoluting two pulse waves results in a triangle wave.</span><a class="headerlink" href="#fig-sc-convolution-pulse" title="Permalink to this image">#</a></p>
 </div>
 <p>As you can see, we get the expected result!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">n</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">kernel</span><span class="p">;</span>
     <span class="nx">n</span> <span class="o">=</span> <span class="mi">512</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
-    <span class="nx">kernel</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">Convolution</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">kernel</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="nx">n</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">kernel</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Convolution</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="nx">kernel</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">n</span><span class="p">)</span> <span class="o">*</span> <span class="nx">n</span><span class="p">.</span><span class="nx">reciprocal</span><span class="p">;</span>
     <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nx">sampleRate</span><span class="p">);</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">512</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">);</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default" id="fig-sc-convolution-saw">
 <a class="reference internal image-reference" href="../../../_images/sc-convolution-saw.png"><img alt="../../../_images/sc-convolution-saw.png" src="../../../_images/sc-convolution-saw.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#fig-sc-convolution-saw" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Convoluting two sawtooth waves results in parabola-like wave.</span><a class="headerlink" href="#fig-sc-convolution-saw" title="Permalink to this image">#</a></p>
 </div>
 <p>To compute ‘perfect’ convolution in the time domain, one requires all function values beforehand.
 This would make real-time processing impossible! Therefore, <a class="reference external" href="https://doc.sccode.org/Classes/Convolution.html">Convolution</a> computes a windowed Fourier transform, i.e., the <a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fouier tranform</span></a> of a short snipped of the functions (in and the kernel).
@@ -963,9 +1066,11 @@ If one period of the signals fits approximately into the buffer, the result will
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="dft.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -981,24 +1086,28 @@ If one period of the signals fits approximately into the buffer, the result will
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Benedikt Zönnchen<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

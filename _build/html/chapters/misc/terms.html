@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Glossary &#8212; Algorithmic Composition</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,12 +19,8 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -31,30 +28,33 @@
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script src="../../_static/tabs.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="bibliography.html" />
@@ -66,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -75,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -95,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Preamble
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Preamble
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider I
  </span>
@@ -176,7 +192,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider II
  </span>
@@ -311,7 +327,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Sound Design
  </span>
@@ -476,7 +492,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Composing
  </span>
@@ -525,7 +541,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Appendix
  </span>
@@ -547,7 +563,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Trash
  </span>
@@ -566,12 +582,17 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -579,61 +600,117 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/chapters/misc/terms.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/chapters/misc/terms.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#physics">
    Physics
@@ -717,12 +794,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Glossary</h1>
@@ -822,60 +898,61 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="section" id="glossary">
-<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="glossary">
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">#</a></h1>
 <p>Learning something now almost always includes learning a new language.
 In this reference section, I explain common terms.</p>
 <div class="section" id="physics">
-<h2>Physics<a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h2>
+<h2>Physics<a class="headerlink" href="#physics" title="Permalink to this headline">#</a></h2>
 <div class="section" id="sound-waves">
-<h3>Sound Waves<a class="headerlink" href="#sound-waves" title="Permalink to this headline">¶</a></h3>
+<h3>Sound Waves<a class="headerlink" href="#sound-waves" title="Permalink to this headline">#</a></h3>
 <p>In nature, <em>sound</em> is produced by a vibrating object.
 These vibrations cause air molecules to oscillate.
 They bump into each other at some areas (compression) and tend to leave other areas (rarefaction).
 A pattern of lower and higher molecule density emerges.</p>
 <div class="figure align-default" id="fig-molecules">
 <a class="reference internal image-reference" href="../../_images/molecules.png"><img alt="../../_images/molecules.png" src="../../_images/molecules.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">A pattern of lower and higher molecule density.</span><a class="headerlink" href="#fig-molecules" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 52 </span><span class="caption-text">A pattern of lower and higher molecule density.</span><a class="headerlink" href="#fig-molecules" title="Permalink to this image">#</a></p>
 </div>
 <p>On a larger scale, this change in air pressure is a mechanical wave that travels from the oscillating object, called <em>oscillator</em>, to other objects.
 Overall, we can think of sound as a mechanical wave that propagates from one place through the medium of transportation.
 The wave is energy that deforms the medium, i.e., it transfers energy from one place to the other.</p>
 </div>
 <div class="section" id="hearing-range">
-<h3>Hearing Range<a class="headerlink" href="#hearing-range" title="Permalink to this headline">¶</a></h3>
+<h3>Hearing Range<a class="headerlink" href="#hearing-range" title="Permalink to this headline">#</a></h3>
 <p>The <em>hearing range</em> is the range of frequency that a being can perceive.
 The hearing range of humans is 20 Hz to 20kHz where cats go up to 75kHz and bats up to 200kHz.
 This does not mean that we can not perceive sound below 20 Hz but at this point it perceived as discrete clicks instead of a continues tone.
 Furthermore, we can hear minimal relative frequency differences very intensively.
 Experimenting with low frequencies can be very fun!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// triangle waveform below the human hearing range</span>
-<span class="p">({</span> <span class="nb">LFTri</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">10</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;</span> <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+<span class="p">({</span> <span class="nc">LFTri</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">10</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;</span> <span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="sound-power">
-<h3>Sound Power<a class="headerlink" href="#sound-power" title="Permalink to this headline">¶</a></h3>
+<h3>Sound Power<a class="headerlink" href="#sound-power" title="Permalink to this headline">#</a></h3>
 <p>The <em>sound power</em> is a physical measure.
 It is the energy per unit of time emitted by a sound source in all directions.
 The sound power is measured in watt (W) and it is surprisingly small.
 For example, a complete concert orchestra and a thunder have roughly the power of only 1 watt.</p>
 </div>
 <div class="section" id="sound-intensity">
-<span id="sec-intensity"></span><h3>Sound Intensity<a class="headerlink" href="#sound-intensity" title="Permalink to this headline">¶</a></h3>
+<span id="sec-intensity"></span><h3>Sound Intensity<a class="headerlink" href="#sound-intensity" title="Permalink to this headline">#</a></h3>
 <p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meters.
 The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-56d71f93-3ddf-4a20-8749-d54035c1d899">
-<span class="eqno">(101)<a class="headerlink" href="#equation-56d71f93-3ddf-4a20-8749-d54035c1d899" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a7478cf-7dcd-4337-8227-a61615c84607">
+<span class="eqno">(101)<a class="headerlink" href="#equation-4a7478cf-7dcd-4337-8227-a61615c84607" title="Permalink to this equation">#</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc443eca-d8bf-4a49-b4ea-a0830f9ddff1">
-<span class="eqno">(102)<a class="headerlink" href="#equation-fc443eca-d8bf-4a49-b4ea-a0830f9ddff1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-335c321e-f581-467a-80c9-8719c1dfa6ce">
+<span class="eqno">(102)<a class="headerlink" href="#equation-335c321e-f581-467a-80c9-8719c1dfa6ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>At that intensity we start suffering.</p>
@@ -896,8 +973,8 @@ It is convenient to start with</p>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
 <p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29371377-4bed-478b-8e1a-25675cd4db87">
-<span class="eqno">(103)<a class="headerlink" href="#equation-29371377-4bed-478b-8e1a-25675cd4db87" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5c8d24f5-c2b7-4127-89d0-e0fb0dbf283c">
+<span class="eqno">(103)<a class="headerlink" href="#equation-5c8d24f5-c2b7-4127-89d0-e0fb0dbf283c" title="Permalink to this equation">#</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -913,16 +990,16 @@ To convert db to amp use <code class="docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <p>For example, the sound generated by</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">400</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">).</span><span class="nx">dbamp</span><span class="p">;}.</span><span class="nx">play</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">400</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">).</span><span class="nx">dbamp</span><span class="p">;}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>should be approximately perceived half the level of</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">400</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">400</span><span class="o">!</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="loudness">
-<h3>Loudness<a class="headerlink" href="#loudness" title="Permalink to this headline">¶</a></h3>
+<h3>Loudness<a class="headerlink" href="#loudness" title="Permalink to this headline">#</a></h3>
 <p><em>Loudness</em> is a subjective perception of sound intensity.
 It depends on the duration and frequency of a sound, the age and other subjective properties of the lister.
 We perceive short lasting sounds and sounds with a low frequency less loud than long lasting high frequency sounds.
@@ -931,19 +1008,19 @@ It is measured in phons.</p>
 </div>
 </div>
 <div class="section" id="sound-design">
-<h2>Sound Design<a class="headerlink" href="#sound-design" title="Permalink to this headline">¶</a></h2>
+<h2>Sound Design<a class="headerlink" href="#sound-design" title="Permalink to this headline">#</a></h2>
 <div class="section" id="signal">
-<h3>Signal<a class="headerlink" href="#signal" title="Permalink to this headline">¶</a></h3>
+<h3>Signal<a class="headerlink" href="#signal" title="Permalink to this headline">#</a></h3>
 <p>A <em>signal</em> is a function that conveys information about a phenomena.</p>
 </div>
 <div class="section" id="waveform">
-<h3>Waveform<a class="headerlink" href="#waveform" title="Permalink to this headline">¶</a></h3>
+<h3>Waveform<a class="headerlink" href="#waveform" title="Permalink to this headline">#</a></h3>
 <p>The <em>waveform</em> of a <em>signal</em> is the shape of its graph as a function of time, independent of its time and magnitude scales and of any displacement in time.
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is a <strong>sinusoid</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-44b39fcc-2c52-44cc-a7a2-43a7354836d6">
-<span class="eqno">(104)<a class="headerlink" href="#equation-44b39fcc-2c52-44cc-a7a2-43a7354836d6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-463ebf50-125d-44d8-8241-0d79fefb231a">
+<span class="eqno">(104)<a class="headerlink" href="#equation-463ebf50-125d-44d8-8241-0d79fefb231a" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the <em>period</em> <span class="math notranslate nohighlight">\(T\)</span>.
@@ -958,7 +1035,7 @@ To increase the pitch by <span class="math notranslate nohighlight">\(n\)</span>
 The higher the amplitude the louder the sound.</p>
 </div>
 <div class="section" id="timbre">
-<span id="sec-timbre"></span><h3>Timbre<a class="headerlink" href="#timbre" title="Permalink to this headline">¶</a></h3>
+<span id="sec-timbre"></span><h3>Timbre<a class="headerlink" href="#timbre" title="Permalink to this headline">#</a></h3>
 <p>There is no measure of timbre.
 It is generally very hard to define it formally.
 It is often referred to as the <em>color of a sound</em> which does not explain anything but gives us an intuition.</p>
@@ -974,15 +1051,15 @@ There are infinitely many different <span class="math notranslate nohighlight">\
 <p>For example, both of the flowing synth generate the same note but have a very different timbre:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">SinOsc</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">*</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.1</span><span class="p">));</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.1</span><span class="p">));</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="na">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
 
 <span class="p">({</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">*</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">220</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="na">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
 </pre></div>
 </div>
 <p>If we synthesize sound, we can achieve different timbre by:</p>
@@ -997,7 +1074,7 @@ Manipulating a very rich signal already composed of many harmonics is another wa
 This is called <a class="reference internal" href="../sounddesign/filters/filters.html#sec-filters"><span class="std std-ref">subtractive synthesis</span></a> and makes use of <em>filters</em>.</p>
 </div>
 <div class="section" id="envelopes">
-<span id="sec-envelope"></span><h3>Envelopes<a class="headerlink" href="#envelopes" title="Permalink to this headline">¶</a></h3>
+<span id="sec-envelope"></span><h3>Envelopes<a class="headerlink" href="#envelopes" title="Permalink to this headline">#</a></h3>
 <p>Envelopes partly form the timbre of an instrument.
 They control the amplitude of a waveforms over time thus describe how a sound changes over time.
 In SuperCollider we create envelopes by combining envelope generators <a class="reference external" href="https://doc.sccode.org/Classes/EnvGen.html">EnvGen</a> and envelopes <a class="reference external" href="https://doc.sccode.org/Classes/Env.html">Env</a>.</p>
@@ -1010,7 +1087,7 @@ In SuperCollider we create envelopes by combining envelope generators <a class="
 </ol>
 <div class="figure align-default" id="fig-adrs-env">
 <a class="reference internal image-reference" href="../../_images/adsr-env.png"><img alt="../../_images/adsr-env.png" src="../../_images/adsr-env.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">ADSR envelope with an attack of 1 second, decay of 2 seconds, a sustain (level) of 0.6 and a release of 4 seconds.</span><a class="headerlink" href="#fig-adrs-env" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 53 </span><span class="caption-text">ADSR envelope with an attack of 1 second, decay of 2 seconds, a sustain (level) of 0.6 and a release of 4 seconds.</span><a class="headerlink" href="#fig-adrs-env" title="Permalink to this image">#</a></p>
 </div>
 <p>Another simpler envelope is the percussive envelope (for modelling percussive instruments) which has only two stages: a very short attack, and medium decay.</p>
 <p>Of course each <code class="docutils literal notranslate"><span class="pre">UGen</span></code> can have its dedicated envelope.
@@ -1025,19 +1102,19 @@ There is no sustain because we assume the pianist does not use the sustain pedal
     <span class="nx">atk</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
     <span class="nx">dec</span> <span class="o">=</span> <span class="mf">0.07</span><span class="p">;</span>
     <span class="nx">rel</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nb">LPF</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="nb">LFSaw</span><span class="p">.</span><span class="kd">ar</span><span class="p">(</span><span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">*</span> <span class="nb">EnvGen</span><span class="p">.</span><span class="kd">kr</span><span class="p">(</span><span class="nb">Env</span><span class="p">(</span><span class="kc">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="kc">times:</span> <span class="p">[</span><span class="nx">atk</span><span class="p">,</span> <span class="nx">dec</span><span class="p">,</span> <span class="nx">rel</span><span class="p">]))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="kc">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="mi">69</span><span class="p">.</span><span class="nx">midicps</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">*</span> <span class="nc">EnvGen</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="nc">Env</span><span class="p">(</span><span class="na">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="na">times:</span> <span class="p">[</span><span class="nx">atk</span><span class="p">,</span> <span class="nx">dec</span><span class="p">,</span> <span class="nx">rel</span><span class="p">]))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">(</span><span class="na">fadeTime:</span><span class="mi">0</span><span class="p">);)</span>
 </pre></div>
 </div>
 <p>In SuperCollider we can plot an envelope by sending the <code class="docutils literal notranslate"><span class="pre">plot</span></code> message to it.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nb">Env</span><span class="p">(</span><span class="kc">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="kc">times:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]).</span><span class="nx">plot</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Env</span><span class="p">(</span><span class="na">levels:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="na">times:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">]).</span><span class="nx">plot</span>
 </pre></div>
 </div>
 <p>Compared to that, a violin has a long attack – the sound ramps up if the violinist accelerates the motion of his or her arm.</p>
 </div>
 <div class="section" id="legato">
-<span id="sec-legato"></span><h3>Legato<a class="headerlink" href="#legato" title="Permalink to this headline">¶</a></h3>
+<span id="sec-legato"></span><h3>Legato<a class="headerlink" href="#legato" title="Permalink to this headline">#</a></h3>
 <p>With respect to the piano, legato means that a series of notes are played without a gap of silence.
 Before the pianist hits the next combination of keys when he or she sustains the previous keys.
 This concept is extended to wind and string instruments.</p>
@@ -1054,14 +1131,14 @@ If legato is large, events will overlap.</p>
 </div>
 </div>
 <div class="section" id="synthesis">
-<h2>Synthesis<a class="headerlink" href="#synthesis" title="Permalink to this headline">¶</a></h2>
+<h2>Synthesis<a class="headerlink" href="#synthesis" title="Permalink to this headline">#</a></h2>
 <div class="section" id="low-frequency-oscillator">
-<span id="sec-lfo"></span><h3>Low Frequency Oscillator<a class="headerlink" href="#low-frequency-oscillator" title="Permalink to this headline">¶</a></h3>
+<span id="sec-lfo"></span><h3>Low Frequency Oscillator<a class="headerlink" href="#low-frequency-oscillator" title="Permalink to this headline">#</a></h3>
 <p>A low frequency oscillator (LFO) is, as its name suggests, an oscillator that oscillates with a low frequency, that is, a frequency that is below the audible frequency.
 LFO’s are often used to control some argument of another oscillator, for example, to control its amplitude.</p>
 </div>
 <div class="section" id="ring-modulation">
-<span id="sec-rm"></span><h3>Ring Modulation<a class="headerlink" href="#ring-modulation" title="Permalink to this headline">¶</a></h3>
+<span id="sec-rm"></span><h3>Ring Modulation<a class="headerlink" href="#ring-modulation" title="Permalink to this headline">#</a></h3>
 <p>Ring modulation (RM) is often used as a synonym for <a class="reference internal" href="../sounddesign/am.html#sec-am"><span class="std std-ref">amplitude modulation (AM)</span></a>.
 Sometimes the term RM is used when the modulator is bipolar (the amplitude becomes positive as well as negative) and AM refers to a unipolar amplitude modulation.
 However, I stick to the term <a class="reference internal" href="../sounddesign/am.html#sec-am"><span class="std std-ref">amplitude modulation (AM)</span></a> to refer to both.</p>
@@ -1091,9 +1168,11 @@ However, I stick to the term <a class="reference internal" href="../sounddesign/
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="about.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1109,24 +1188,28 @@ However, I stick to the term <a class="reference internal" href="../sounddesign/
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Benedikt Zönnchen<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Benedikt Zönnchen<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
