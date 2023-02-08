@@ -1,3 +1,4 @@
+(sec-chords)=
 # Chords
 
 Similar to diatonic scale where notes are numbered from one to seven, we also use numbers to denote the position of a chord relative to its key (e.g. scale of key E).

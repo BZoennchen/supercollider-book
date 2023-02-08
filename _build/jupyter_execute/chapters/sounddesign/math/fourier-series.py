@@ -85,7 +85,7 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 # First let us use an audio recording of a physical piano.
 # The note played is A0 = 440 Hz.
 
-# In[2]:
+# In[ ]:
 
 
 # Sound of a piano
@@ -95,7 +95,7 @@ ipd.Audio(audio_path)
 
 # We can display the wave form of the signal
 
-# In[3]:
+# In[ ]:
 
 
 signal, sr = librosa.load(audio_path)
@@ -106,7 +106,7 @@ plt.show()
 
 # as well as the frequency sprectrum
 
-# In[4]:
+# In[ ]:
 
 
 ft = sp.fft.fft(signal)
@@ -128,7 +128,7 @@ plt.show()
 # 
 # Let us look at a second synthetic example:
 
-# In[5]:
+# In[ ]:
 
 
 audio_path = '../../../sounds/sine-waves.wav'
@@ -147,7 +147,7 @@ ipd.Audio(audio_path)
 # 
 # We can display the wave form of the signal (here I only plot a very short time period)
 
-# In[6]:
+# In[ ]:
 
 
 signal, sr = librosa.load(audio_path)
@@ -159,7 +159,7 @@ plt.show()
 
 # as well as the frequency sprectrum
 
-# In[7]:
+# In[ ]:
 
 
 ft = sp.fft.fft(signal)
@@ -209,7 +209,7 @@ plt.show()
 # )
 # ```
 
-# In[8]:
+# In[ ]:
 
 
 N = 10000
@@ -264,7 +264,7 @@ txt = fig.suptitle(r'Product $y(t) \cdot \sin(2\pi t)$ for different $y(t)$.')
 # )
 # ```
 
-# In[9]:
+# In[ ]:
 
 
 N = 100000
@@ -363,7 +363,7 @@ txt = fig.suptitle(r'Multiplying functions: $y(t)$ in the upper left corner. In 
 # )
 # ```
 
-# In[10]:
+# In[ ]:
 
 
 N = 100000
