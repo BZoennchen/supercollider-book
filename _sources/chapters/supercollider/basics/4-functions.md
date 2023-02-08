@@ -148,3 +148,36 @@ g.(5); // 10
 h = f <> g;
 h.(5); // f(g(5)) = (2*5)^2 = 10 * 10 = 100
 ```
+
+## A Common Pitfall
+
+A common error to make, which is hard to spot, is when we generate multiple duplicates, but we want to duplicate the evaluation of a function rather than its return value.
+For example, let us create an [Array]() with five random values:
+
+```isc
+// all values are identical
+Array.fill(5, 1.0.rand);
+```
+
+That's different from what we wanted.
+``fill`` expects a function to be evaluated, but we define as a second argument a random value.
+This value gets copied five times.
+The following is even more dangerous:
+
+```isc
+// all values are identical
+(
+a = Array.fill(5, []);
+a[0] = a[0].add(1)
+a // [ [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ] ]
+)
+```
+
+The same problem occurs.
+We only create one subarray ``[]``, which gets copied **by reference**!
+To fix both problems, we have to use a function instead:
+
+```isc
+Array.fill(5, {1.0.rand}); // all values are different
+Array.fill(5, {[]});       // all subarrays are different
+```

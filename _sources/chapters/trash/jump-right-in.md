@@ -133,3 +133,21 @@ SynthDef.new(\melo,{
 }.play
 )
 ```
+
+
+```{admonition} Intervals and Pitches 
+:name: remark-interval-vs-pitches
+:class: remark
+The actual pitches within a scale are less important than their relation, i.e. the *interval* between pitches/frequencies.
+```
+
+```{figure} ../../../figs/composing/piano-keys.png
+---
+width: 500px
+name: fig-piano-keys
+---
+The notes of an octave mapped onto piano keys.
+Each consecutive key is a multiple of $\sqrt[12]{2}$ apart.
+The white keys give us the C major scale ([diatonic scale](sec-diatonic-scale)).
+Above, one can see the number of semitones of each interval of the major scale.
+```

@@ -1,34 +1,77 @@
 (sec-intervals)=
 # Intervals
 
-Let $\omega_1 > \omega_2$ be some arbitrary frequencies, then the *ratio*
+If we push multiple keys on a piano, the color of the sound we perceive will be determined mainly by the relation between those keys, i.e., the generated *intervals*.
+In that regard, compared to the exact pitches, *intervals* are much more important.
+Building a beautiful melody revolves around finding a suitable sequence of a set interval of intervals.
+They are, in fact, so crucial that musicians give certain intervals specific names!
+
+## Frequency Ratios
+
+Let $f_1 > f_2$ be some arbitrary frequencies, then the *ratio*
 
 \begin{equation}
-    \frac{\omega_1}{\omega_2}
+    \frac{f_1}{f_2}
 \end{equation}
 
-is the *interval* between $\omega_1$ and $\omega_2$.
-We often notate an interval as $\omega_1$:$\omega_2$.
-The interval between two frequencies, i.e., notes, gives a sound quality.
-Relating multiple intervals by, for example, playing two times three different notes in sequence, gives the resulting sound another quality.
+is the *interval* between $f_1$ and $f_2$.
+We often notate an interval as $f_1$:$f_2$.
+The interval between two frequencies, i.e., pitches, gives a sound quality.
+Relating multiple intervals by, for example, playing two times three different pitches in sequence, gives the resulting sound another quality.
 It may evoke happiness, fear, darkness, melancholy, or tension.
 It may be grounding, i.e., invoke a feeling of homecoming.
-Therefore, *intervals* are one of the most critical features to study.
 
-Everything starts with a *natural phenomenon* which has been referred to as *The Basic Miracle of Music*.
+The most common number of pitches within a [chord](sec-chords) is the triad $f_1, f_2, f_3$ which generates three intervals:
+
+\begin{equation*}
+    \frac{f_1}{f_2}, \frac{f_2}{f_3}, \frac{f_3}{f_1}.
+\end{equation*}
+
+In general, if we play $n$ keys on a piano simultaneously, we create $(n-1)^2$ intervals.
+So, why do intervals have a psychological effect on us humans?
+
+Everything starts with a *natural phenomenon* which has been referred to as *the basic miracle of music*.
 After *unison* (an interval of 1:1), the *octave* (interval of 2:1) is the simplest interval in music.
 An *octave* is the *interval* between one musical pitch and another double its frequency.
 The human's (as well as monkey's, rat's, and infant's) ear tends to hear both frequencies/notes as being essentially the same due to closely related harmonics.
-For this reason, notes an *octave* apart are given the same note name in the *Western System of Music Notation*.
+For this reason, notes an *octave* apart are given the same note name in the *Western dystem of music notation*.
+
+Compare the sound of the following two pattern.
+Which melody sounds more harmonic and why?
+Can you hear the difference?
+
+```isc
+(
+var base = 300;
+Pbindef(\melody1,
+    \instrument, \default,
+    // complex ratios
+    \freq, Pseq([base, base*21/17, base*37/17, base*11/7, base*11/17, base*39/17], 6),
+    \dur, 0.2,
+    \legato, 0.1
+).play;
+)
+
+(
+var base = 300;
+Pbindef(\melody2,
+    \instrument, \default,
+    // simple ratios
+    \freq, Pseq([base, base*5/3, base*2/3, base*4/3, base/2, base*6/5], 6),
+    \dur, 0.2,
+    \legato, 0.1
+).play;
+)
+```
 
 Notable, pitch can be perceived in a range which is approximately the same for each person.
-If we assume the *Twelve-tone Equal Temperament* as a ginven, an *octave* is divided into 12 *semitones* of 100 *cents* each.
+If we assume the *twelve-tone equal temperament* as a given, then an *octave* is divided into 12 *semitones* of 100 *cents* each.
 Thus, an *octave* is divided into 1200 *cents*.
 In a range from 10 to 25 *cents*, depending on the listeners hearing and musical education or exposer, pitch differences can be perceived.
-In terms of a center frequency $\omega$, this gives us an interval defined by
+In terms of a center frequency $f$, this gives us an interval defined by
 
 \begin{equation}
-    \omega \cdot \lambda,
+    f \cdot \lambda,
 \end{equation}
 
 with $\lambda \in [-\epsilon;\epsilon]$ and
@@ -37,32 +80,16 @@ with $\lambda \in [-\epsilon;\epsilon]$ and
    \epsilon \in \left[\frac{10}{1200}; \frac{25}{1200} \right] = \left[\frac{1}{120}; \frac{1}{48} \right] \approx \left[0.0083; 0.208 \right].
 \end{equation}
 
-Compare the sound of the following signals.
-Listen to each sine wave seperately. 
-Can you hear the difference?
-What happens if you listen to both of them at the same time?
+Therefore, our perception ability widely outperforms the variants a musician can perform on a piano but it covers most of the consonant options.
 
-```isc
-(
-{
-    var sig, freq = 440;
-    sig = SinOsc.ar(freq!2);
-    sig * 0.25;
-}.play;
-)
-
-(
-{
-    var sig, freq = 440 * (1 + 48.reciprocal);
-    sig = SinOsc.ar(freq!2);
-    sig * 0.25;
-}.play;
-)
-```
+## Naming Convention
 
 The following table lists special names for important intervals.
+In the table I list the *just temperament*, i.e., ratios of *rational numbers*.
+For the *equal temperament* the ratios slightly differ; they are irrational.
+For example, $6/5 = 1.2$ becomes $\sqrt[3]{2} \approx 1.1892$.
 
-| Interval       | Multiple                      | (Just) Ratios         | Semitones |
+| Interval Name  | Multiple                      | (Just) Ratios         | Semitones |
 | -------------- | ----------------------------- | --------------------- | --------- |
 | Unison         | 1                             | 1:1                   | 0         |
 | Minor second   | 1.778                         | 16:9                  | 1         |
@@ -81,18 +108,22 @@ The following table lists special names for important intervals.
 *Intervals* can sound pleasingly consonant or dissonant.
 Simple **or** close to simple ratios tend to sound consonant while complicated ratios tend to sound dissonant.
 An *octave* (2:1) sounds perfectly consonant.
-The *perfect fifth* (3:2), the *perfect fourth* (4:3), and the *minor* and *major* third are consonant.
+The *perfect fifth* (3:2), the *perfect fourth* (4:3), and the *minor* and *major third* are consonant.
 The *diminished* is dissonant.
 While dissonance is less pleasing, it can create drama, excitement, and tension.
 It is an important property to use in composing music.
 
-In the table I list the *just temperament*, i.e., ratios of *rational numbers*.
-For the *equal temperament* the ratios slightly differ; they are irrational.
-For example, $6/5 = 1.2$ becomes $\sqrt[3]{2} \approx 1.1892$.
+```{figure} ../../../figs/composing/piano-keys-intervals.png
+---
+width: 800px
+name: fig-piano-keys-intervals
+---
+Piano keys: the octave in blue, the perfect fourth in red, and the minor third in green. Note that only the distance between keys, i.e., their relation matters!
+```
 
 Why is an interval of four semitones called *major third*?
-Well, to understand this concept, we have to first understand [scales](sec-scales) and [keys](sec-keys).
-First read these sections and come back.
+Well, to understand this concept, we have to first understand [scales and keys](sec-scales-and-keys).
+First read these sections and come back later.
 
 Are you ready?
 Ok, let us move on.
