@@ -1,3 +1,4 @@
+(sec-music-theory)=
 # Music Theory
 
 >I was lucky enough to be shown a Penderecki score and played polymorphia by a tutor. It was just really exciting. I didn't know you are allowed to do that. I didn't know you could be that free and you can just think of 48 musicians as being able to do anything. -- *Jonny Greenwood*

@@ -251,18 +251,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/2-node-proxies.html">
+    <a class="reference internal" href="../../supercollider/live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="../../supercollider/live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -843,7 +843,7 @@ The sine or cosine wave, consists of only the fundamental frequency <span class=
 Sine is equals to cosine shifted by <span class="math notranslate nohighlight">\(\pi/2\)</span>.</p>
 <div class="figure align-default" id="fig-sine">
 <a class="reference internal image-reference" href="../../../_images/sine.png"><img alt="../../../_images/sine.png" src="../../../_images/sine.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The sine wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sine" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The sine wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sine" title="Permalink to this image">#</a></p>
 </div>
 <p>A sine wave is purely <em>harmonic</em> but it has no overtones.
 Therefore, it sounds rather smoth and soft.
@@ -861,11 +861,11 @@ It can also be used to add a certain <em>harmonic</em> to a sound.</p>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.</p>
 <div class="figure align-default" id="fig-sawtooth">
 <a class="reference internal image-reference" href="../../../_images/sawtooth.png"><img alt="../../../_images/sawtooth.png" src="../../../_images/sawtooth.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">#</a></p>
 </div>
 <p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>.
 However, the <span class="math notranslate nohighlight">\(x\)</span>-axis will be always the number of the sample.
-Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 18</span></a> using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
+Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><span class="std std-numref">Fig. 19</span></a> using <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">trifunc</span> <span class="o">=</span> <span class="p">{</span>
     <span class="kd">arg</span> <span class="nx">t</span><span class="p">;</span>
@@ -888,7 +888,7 @@ Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><
 <span class="eqno">(49)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">#</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
 <div class="figure align-default" id="fig-sawtooth-20">
 <a class="reference internal image-reference" href="../../../_images/sawtooth_20.png"><img alt="../../../_images/sawtooth_20.png" src="../../../_images/sawtooth_20.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">#</a></p>
 </div>
 <p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(47)</a>.
 However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(48)</a> that</p>
@@ -920,7 +920,7 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
     \end{cases}\end{split}\]</div>
 <div class="figure align-default" id="fig-square">
 <a class="reference internal image-reference" href="../../../_images/square.png"><img alt="../../../_images/square.png" src="../../../_images/square.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">The square wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-square" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">The square wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-square" title="Permalink to this image">#</a></p>
 </div>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-square-fourier">
@@ -933,7 +933,7 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
 <p>The amplitudes also decrease linearly with increasing frequencies.</p>
 <div class="figure align-default" id="fig-square-20">
 <a class="reference internal image-reference" href="../../../_images/square_20.png"><img alt="../../../_images/square_20.png" src="../../../_images/square_20.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">#</a></p>
 </div>
 <p>The square wave has more <em>harmonics</em> as the sine wave but less than the sawtooth wave.
 Without any additions, it sounds rather hollow but also rich.
@@ -960,7 +960,7 @@ Their sound contains mostly odd harmonics.</p>
     \end{cases}\end{split}\]</div>
 <div class="figure align-default" id="fig-triangle">
 <a class="reference internal image-reference" href="../../../_images/triangle.png"><img alt="../../../_images/triangle.png" src="../../../_images/triangle.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">The triangle wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-triangle" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">The triangle wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-triangle" title="Permalink to this image">#</a></p>
 </div>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-triangle-fourier">
@@ -973,7 +973,7 @@ Their sound contains mostly odd harmonics.</p>
 <p>The amplitudes decreases <strong>quadratically</strong> with increasing frequencies.</p>
 <div class="figure align-default" id="fig-triangle-20">
 <a class="reference internal image-reference" href="../../../_images/triangle_5.png"><img alt="../../../_images/triangle_5.png" src="../../../_images/triangle_5.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=5\)</span>.</span><a class="headerlink" href="#fig-triangle-20" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">An approximation for the Fourier series of the triangle wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=5\)</span>.</span><a class="headerlink" href="#fig-triangle-20" title="Permalink to this image">#</a></p>
 </div>
 <p>The triangle wave is half way between the sine and the square wave, both in softness and in harmonic richness.
 It is pretty soft.</p>

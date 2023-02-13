@@ -251,18 +251,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/2-node-proxies.html">
+    <a class="reference internal" href="../../supercollider/live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="../../supercollider/live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -630,6 +630,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/chapters/composing/music-theory/2-scales.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -651,6 +680,23 @@ title="Fullscreen mode"
   </button>
   <div class="menu-dropdown__content">
     <ul>
+      <li>
+        <a href="../../../_sources/chapters/composing/music-theory/2-scales.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
       <li>
         <a href="../../../_sources/chapters/composing/music-theory/2-scales.md"
    class="headerbtn"
@@ -734,6 +780,11 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-circle-of-fifths">
+   The Circle of Fifths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modes">
    Modes
   </a>
@@ -785,6 +836,11 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-circle-of-fifths">
+   The Circle of Fifths
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modes">
    Modes
   </a>
@@ -804,7 +860,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="scales-modes-and-keys">
+  <div class="cell tag_remove-input docutils container">
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="scales-modes-and-keys">
 <span id="sec-scales"></span><h1>Scales, Modes and Keys<a class="headerlink" href="#scales-modes-and-keys" title="Permalink to this headline">#</a></h1>
 <p>As a beginner coming from a rigorous discipline, I found the terms <em>scales</em>, <em>keys</em>, and <em>modes</em>, confusing because they seem to blend into one another.
 Let me start with a clear differentiation between <em>scales</em> and <em>keys</em>.</p>
@@ -818,7 +876,7 @@ We think of notes that make up a scale but do not think of them in any particula
 <span id="sec-scales-and-keys"></span><h2>Scales &amp; Keys<a class="headerlink" href="#scales-keys" title="Permalink to this headline">#</a></h2>
 <p>A <em>musical scale (Tonleiter)</em> is an <strong>ordered</strong> set of pitches, together with a formula for specifying their frequencies.
 Each individual pitch of a scale is called a <em>degree (Tonstufe)</em>.</p>
-<p>Most musical traditions use <em>octave intervals</em> to associate pitches that serve the same musical function (<em>unison</em>) such that a scale is completely defined by one <em>octave</em> because of <em>octave equivalence</em>, i.e., the basic miracle of music*.
+<p>Most musical traditions use <em>octave intervals</em> to associate pitches that serve the same musical function (<em>unison</em>) such that a scale is completely defined by one <em>octave</em> because of <em>octave equivalence</em>, i.e., <em>the basic miracle of music</em>.
 In that case, any <em>degree</em> is a member of a class that it shares with the same degree in all other octaves.
 <em>Degrees</em> of a scale are sometimes called <em>pitch classes</em>.</p>
 <div class="section" id="chromatic-scale">
@@ -828,19 +886,18 @@ In that case, any <em>degree</em> is a member of a class that it shares with the
 \[\text{C, C#, D, D#, E, F, F#, G, G#, A, A#, B}.\]</div>
 <p>It is an extension of the <a class="reference internal" href="#sec-diatonic-scale"><span class="std std-ref">diatonic scale</span></a>.
 On an equally tempered piano, i.e., if the frequency of degree <span class="math notranslate nohighlight">\(d_i\)</span> is <span class="math notranslate nohighlight">\(f_i\)</span> then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c71821ca-80dc-4bbf-b7e4-6874aff839a9">
-<span class="eqno">(90)<a class="headerlink" href="#equation-c71821ca-80dc-4bbf-b7e4-6874aff839a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4355bcae-9b53-440a-9124-5a8dffbf6900">
+<span class="eqno">(90)<a class="headerlink" href="#equation-4355bcae-9b53-440a-9124-5a8dffbf6900" title="Permalink to this equation">#</a></span>\[\begin{equation}
     f_{i+1} = f_{i} \cdot 2^{1/12}
 \end{equation}\]</div>
-<p>for all <span class="math notranslate nohighlight">\(i\)</span>.
-In that case, consecutive degrees are apart 100 <a class="reference internal" href="1-intervals.html#sec-intervals"><span class="std std-ref">cents</span></a>.
-Note that, for example, C# (C raised by a semitone) and Db (D lowered by a semitone) are represented by the same keys on the piano.
+<p>for all <span class="math notranslate nohighlight">\(i\)</span>, consecutive degrees are apart 100 <a class="reference internal" href="1-intervals.html#sec-intervals"><span class="std std-ref">cents</span></a>.
+Note that, for example, C# (C raised by a semitone) and Db (D lowered by a semitone) are represented by the same keys on the piano but within a specific <em>scale/key</em> they serve different purposes.
 Compare the following code that plays the <em>chromatic scale</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">chromatic</span><span class="p">,</span>
-    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">11</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">12</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\octave</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\amp</span><span class="p">,</span> <span class="mi">1</span>
@@ -852,56 +909,149 @@ Compare the following code that plays the <em>chromatic scale</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Scale</span><span class="p">.</span><span class="nx">chromatic</span><span class="p">.</span><span class="nx">cents</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="fig-chromatic-scale">
-<a class="reference internal image-reference" href="../../../_images/chromatic-scale.png"><img alt="../../../_images/chromatic-scale.png" src="../../../_images/chromatic-scale.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">The chromatic scale on a note sheet.</span><a class="headerlink" href="#fig-chromatic-scale" title="Permalink to this image">#</a></p>
+<p>Note that on a note sheet for Western music only the letter of a note, i.e. C-D-E-F-G-A-B, determines its position.
+Raising a note by a semitone (100 cents) is indicated by the sharp # and lowing it by a small b.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/2-scales_2_0.png" src="../../../_images/2-scales_2_0.png" />
 </div>
+</div>
+<p>Therefore, to find a specific key on the piano we can orient ourselves by the white keys and then move up or down one semitone accordingly.
+Note also that many notes such as D# and Eb are enharmonic (equal in pitch).</p>
 </div>
 <div class="section" id="diatonic-scale-major-scale">
 <span id="sec-diatonic-scale"></span><h3>Diatonic Scale (Major Scale)<a class="headerlink" href="#diatonic-scale-major-scale" title="Permalink to this headline">#</a></h3>
 <p>Western music’s prototype of all scale system is the <em>diatonic scale</em>.
 It is also known as the <em>major scale</em>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">.</span><span class="nx">cents</span><span class="p">;</span>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Instead of twelve, it has only seven pitches per octave, named with the seven letters C, D, E, F, A, and B corresponding to the seven <em>degrees</em> of this scale.
-In German, it’s C, D, E, F, A, H.
+<p>Instead of twelve, it has only eight pitches (and seven pitch classes), named with the seven letters C, D, E, F, A, B, C corresponding to the seven <em>degrees</em> of this scale.
+In German, it’s C, D, E, F, A, H, C.
 The diatonic scale contains two-interval sizes, the <em>half step</em> (<em>semitone</em>) and the <em>whole step</em> where a <em>whole step</em> (<em>whole tone</em>) contains exactly two <em>half steps</em>.
 A half step is equal to 100 and a whole step to 200 cents.
 The <em>interval order</em> of the diatonic scale, defined by the following tuple,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f995e0c9-b575-4f3b-9765-459a2347cdc1">
-<span class="eqno">(91)<a class="headerlink" href="#equation-f995e0c9-b575-4f3b-9765-459a2347cdc1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d377776c-d825-42f6-8bbc-2a933f71fe5f">
+<span class="eqno">(91)<a class="headerlink" href="#equation-d377776c-d825-42f6-8bbc-2a933f71fe5f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,2,1,2,2,2,1)_{\text{major}}
 \end{equation}\]</div>
-<p>is the sequence of whole and half steps in the scale.
-Its <em>sparsity</em> (using only seven notes) gives each note in the scale a distinctive tone, while its <em>asymmetry</em> is an important property that gives each note in the scale a unique relation to the other notes;
+<p>is the sequence of whole (2) and half steps (1) in the scale.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="c1">// major F scale</span>
+<span class="nc">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="ss">\root</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="c1">// F</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span>
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Its <em>sparsity</em> (using only seven notes per octave) gives each note in the scale a distinctive tone, while its <em>asymmetry</em> is an important property that gives each note in the scale a unique relation to the other notes;
 Together, <em>sparsity</em> and <em>asymmetry</em> provide the listener with a clear orientation within the scale.</p>
 <div class="figure align-default" id="fig-piano-keys-major-scales">
 <a class="reference internal image-reference" href="../../../_images/piano-keys-major-scales.png"><img alt="../../../_images/piano-keys-major-scales.png" src="../../../_images/piano-keys-major-scales.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">C major scale (or keys of C major) in blue and D# major scale in red.
+<p class="caption"><span class="caption-number">Fig. 49 </span><span class="caption-text">C major scale <strong>C</strong> (or keys of C major) in blue and D# major <strong>D#</strong> scale in red.
 The ones mark the beginning of the scales.</span><a class="headerlink" href="#fig-piano-keys-major-scales" title="Permalink to this image">#</a></p>
 </div>
 <p>The diatonic scale is reflected by the piano keys, but hidden by the notation of a note sheet, e.g., C and C# occupy the same pitch line.
 The group <span class="math notranslate nohighlight">\((2,2,1)\)</span> is followed by <span class="math notranslate nohighlight">\((2,2,2,1)\)</span>.</p>
-<div class="figure align-default" id="fig-diatonic-scale">
-<a class="reference internal image-reference" href="../../../_images/diatonic-scale.png"><img alt="../../../_images/diatonic-scale.png" src="../../../_images/diatonic-scale.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">The diatonic scale on a note sheet.</span><a class="headerlink" href="#fig-diatonic-scale" title="Permalink to this image">#</a></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/2-scales_4_0.png" src="../../../_images/2-scales_4_0.png" />
 </div>
+</div>
+<p>One important characteristic property of the <em>diatonic scales</em> is that they can be obtained from a chain of six successive perfect fifths.
+For example, C major scale is obtained from an ascending chain of six perfect fifths starting from F.
+If we start with F and add 7 semitones, we land at F-C-G-D-A-E-B.</p>
+<p>The following code computes this sequence.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="c1">// computes the note for a given midinote</span>
+<span class="o">~</span><span class="nx">toNote</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">midinote</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">notes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C# / Db&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;D# / Eb&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;F# / Gb&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G# / Ab&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A# / Bb&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span>
+    <span class="p">];</span>
+    <span class="nx">notes</span><span class="p">[</span><span class="nx">midinote</span> <span class="o">%</span> <span class="mi">12</span><span class="p">]</span> <span class="o">++</span> <span class="p">(</span><span class="nx">midinote</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">2</span><span class="p">).</span><span class="nx">floor</span><span class="p">.</span><span class="nx">asInteger</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">// F3</span>
+<span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="mi">65</span><span class="p">);</span> 
+
+<span class="c1">// [ F3, C4, G4, D5, A5, E6, B6 ]</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="na">size:</span> <span class="mi">7</span><span class="p">,</span> <span class="na">start:</span> <span class="mi">65</span><span class="p">,</span> <span class="na">step:</span> <span class="mi">7</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">k</span><span class="p">;</span> <span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="nx">k</span><span class="p">)});</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In the <em>diatonic scale</em> and its <a class="reference internal" href="#sec-modes"><span class="std std-ref">modes</span></a> each degree has its specific name hinting to its role.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Degree</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Symbol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Tonic</p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Supertonic</p></td>
+<td><p>ii</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Mediant</p></td>
+<td><p>iii</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Subdominant</p></td>
+<td><p>IV</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Dominant</p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Submediant</p></td>
+<td><p>vi</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Leading tone</p></td>
+<td><p>vii<span class="math notranslate nohighlight">\(^o\)</span> / VII</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that in SuperCollider we <a class="reference internal" href="#attention-sc-counting"><span class="std std-ref">count</span></a> from 0.</p>
 </div>
 <div class="section" id="minor-scales">
 <h3>Minor Scales<a class="headerlink" href="#minor-scales" title="Permalink to this headline">#</a></h3>
 <p>The <em>minor scale</em>, also known as <em>natural minor scale</em>, uses the standard <em>diatonic interval order</em> but starts on degree 6 (counting from one).
 We get the <em>minor interval order</em> by shifting the diatonic interval order by 2 to the right or by 5 to the left.
 Therefore, it has the same <em>sparsity</em> as well as <em>asymmetry</em>. as the <a class="reference internal" href="#sec-diatonic-scale"><span class="std std-ref">diatonic scale</span></a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="c1">// minor C# / Db scale</span>
+<span class="nc">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="ss">\root</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// C#/ Db</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span>
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>The <em>minor scale</em> is also called <strong>natural minor</strong> and is also known as the <em>Aolian <a class="reference internal" href="#sec-modes"><span class="std std-ref">mode</span></a></em>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b93490aa-dd3e-4cc6-ba27-b0fbda84edb3">
-<span class="eqno">(92)<a class="headerlink" href="#equation-b93490aa-dd3e-4cc6-ba27-b0fbda84edb3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7d50d4d-3a90-4268-b209-cdbaf09d384f">
+<span class="eqno">(92)<a class="headerlink" href="#equation-d7d50d4d-3a90-4268-b209-cdbaf09d384f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,1,2,2)_\text{nat. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, Ab, Bb.</p>
 <div class="figure align-default" id="fig-piano-keys-minor-scales">
 <a class="reference internal image-reference" href="../../../_images/piano-keys-minor-scales.png"><img alt="../../../_images/piano-keys-minor-scales.png" src="../../../_images/piano-keys-minor-scales.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">C minor scale (or keys of C minor) in blue and D# minor scale in red.
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">C minor scale (or keys of C minor) in blue and D# minor scale in red.
 The ones mark the beginning of the scales.</span><a class="headerlink" href="#fig-piano-keys-minor-scales" title="Permalink to this image">#</a></p>
 </div>
 <div class="attention admonition" id="attention-sc-counting">
@@ -909,14 +1059,14 @@ The ones mark the beginning of the scales.</span><a class="headerlink" href="#fi
 <p>Note that in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we start counting from zero!</p>
 </div>
 <p>There is also the <strong>harmonic minor scale</strong> for which the seventh note is raised by one semitone.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d656fd02-c437-4fbd-9677-f324713e1fb6">
-<span class="eqno">(93)<a class="headerlink" href="#equation-d656fd02-c437-4fbd-9677-f324713e1fb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e12c7e83-c1a7-4d67-8633-e689db144577">
+<span class="eqno">(93)<a class="headerlink" href="#equation-e12c7e83-c1a7-4d67-8633-e689db144577" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,1,3,1)_\text{ham. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, Ab, B.</p>
 <p>The last variation is the <strong>melodic minor scale</strong> for which the sith and seventh notes are always raised.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af1badef-d67e-4d42-9264-98fe0fb39f4d">
-<span class="eqno">(94)<a class="headerlink" href="#equation-af1badef-d67e-4d42-9264-98fe0fb39f4d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c0a05f22-c616-4942-ba0b-65963db192c3">
+<span class="eqno">(94)<a class="headerlink" href="#equation-c0a05f22-c616-4942-ba0b-65963db192c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,2,2,1)_\text{mel. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, A, B.</p>
@@ -924,21 +1074,8 @@ The ones mark the beginning of the scales.</span><a class="headerlink" href="#fi
 The diatonic scale can be transposed to any chromatic degree so long as the <em><a class="reference internal" href="#sec-diatonic-scale"><span class="std std-ref">diatonic interval order</span></a></em> is preserved.
 For example, the diatonic scale transposed to G by the introduction of F# is the <em>key of G</em>.
 We also say that we play a certain piece in the <em>G major key</em> or the <em>key of G major</em> or just <em>G major</em>.
-The untransposed diatonic scale is the <em>key of C</em>.</p>
-<p>In SuperCollider, we can transpose by adding degree to <code class="docutils literal notranslate"><span class="pre">\degree</span></code> or by using <code class="docutils literal notranslate"><span class="pre">\mtransposes</span></code> in the <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
-    <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span>
-    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\octave</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="ss">\mtranspose</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// key of D#</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
-    <span class="ss">\amp</span><span class="p">,</span> <span class="mi">1</span>
-<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
+The untransposed diatonic scale is the <em>key of C</em>.
+As I we already saw, to transpose to another <em>key/scale</em> we define the <code class="docutils literal notranslate"><span class="pre">\root</span></code>.</p>
 <p>Let us consider the degrees of <em>major scale</em> (key of C) with respect to the chromatic scale:</p>
 <div class="math notranslate nohighlight">
 \[C_\text{major} = (1, 3, 5, 6, 8, 10, 12) = (\text{C, D, E, F, G, A, B }).\]</div>
@@ -971,9 +1108,25 @@ The following code generates all <em>major</em> scales by trasposing by seven se
 
 <span class="p">(</span>
 <span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="mi">12</span><span class="p">).</span><span class="k">do</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
-	<span class="o">~</span><span class="nx">translate</span><span class="p">.(</span><span class="nx">i</span><span class="o">*</span><span class="mi">7</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
+    <span class="o">~</span><span class="nx">translate</span><span class="p">.(</span><span class="nx">i</span><span class="o">*</span><span class="mi">7</span><span class="p">).</span><span class="nx">postln</span><span class="p">;</span>
 <span class="p">});</span>
 <span class="p">)</span>
+
+<span class="cm">/*</span>
+<span class="cm">[ C, D, E, F, G, A, B ]</span>
+<span class="cm">[ G, A, B, C, D, E, F# ]</span>
+<span class="cm">[ D, E, F#, G, A, B, C# ]</span>
+<span class="cm">[ A, B, C#, D, E, F#, G# ]</span>
+<span class="cm">[ E, F#, G#, A, B, C#, D# ]</span>
+<span class="cm">[ B, C#, D#, E, F#, G#, A# ]</span>
+<span class="cm">[ F#, G#, A#, B, C#, D#, F ]</span>
+<span class="cm">[ C#, D#, F, F#, G#, A#, C ]</span>
+<span class="cm">[ G#, A#, C, C#, D#, F, G ]</span>
+<span class="cm">[ D#, F, G, G#, A#, C, D ]</span>
+<span class="cm">[ A#, C, D, D#, F, G, A ]</span>
+<span class="cm">[ F, G, A, A#, C, D, E ]</span>
+<span class="cm">[ C, D, E, F, G, A, B ]</span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 <p>The circular result is depicted in the following table.
@@ -1055,17 +1208,63 @@ Adding seven semitones gives us the ratio</p>
 <div class="math notranslate nohighlight">
 \[2^{7/12} \approx 1.498 \approx 1.5 = 3/2.\]</div>
 <p>As already mentioned, simple or close to simple ratios sound pleasing, while complex ratios sound unharmonic and can provide tension.</p>
+<p>We get the very same pitch classes by adding the very next perfect fifth while dropping the last one.
+The following code generates the major scales by adding perfect fifths.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span> 
+    <span class="nc">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span>
+        <span class="na">size:</span> <span class="mi">7</span><span class="p">,</span> 
+        <span class="na">start:</span> <span class="mi">65</span><span class="o">+</span><span class="p">(</span><span class="nx">i</span><span class="o">*</span><span class="mi">7</span><span class="p">),</span> 
+        <span class="na">step:</span> <span class="mi">7</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">k</span><span class="p">;</span> <span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="nx">k</span><span class="p">)})});</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>gives us</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="p">[</span> <span class="nc">F3</span><span class="p">,</span> <span class="nc">C4</span><span class="p">,</span> <span class="nc">G4</span><span class="p">,</span> <span class="nc">D5</span><span class="p">,</span> <span class="nc">A5</span><span class="p">,</span> <span class="nc">E6</span><span class="p">,</span> <span class="nc">B6</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">C4</span><span class="p">,</span> <span class="nc">G4</span><span class="p">,</span> <span class="nc">D5</span><span class="p">,</span> <span class="nc">A5</span><span class="p">,</span> <span class="nc">E6</span><span class="p">,</span> <span class="nc">B6</span><span class="p">,</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">G4</span><span class="p">,</span> <span class="nc">D5</span><span class="p">,</span> <span class="nc">A5</span><span class="p">,</span> <span class="nc">E6</span><span class="p">,</span> <span class="nc">B6</span><span class="p">,</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span><span class="p">,</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">D5</span><span class="p">,</span> <span class="nc">A5</span><span class="p">,</span> <span class="nc">E6</span><span class="p">,</span> <span class="nc">B6</span><span class="p">,</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span><span class="p">,</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">A5</span><span class="p">,</span> <span class="nc">E6</span><span class="p">,</span> <span class="nc">B6</span><span class="p">,</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span><span class="p">,</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">E6</span><span class="p">,</span> <span class="nc">B6</span><span class="p">,</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span><span class="p">,</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">B6</span><span class="p">,</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span><span class="p">,</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">F10</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">F</span><span class="o">#</span><span class="mi">7</span><span class="p">,</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">F10</span><span class="p">,</span> <span class="nc">C11</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">C</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">F10</span><span class="p">,</span> <span class="nc">C11</span><span class="p">,</span> <span class="nc">G11</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">G</span><span class="o">#</span><span class="mi">8</span><span class="p">,</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">F10</span><span class="p">,</span> <span class="nc">C11</span><span class="p">,</span> <span class="nc">G11</span><span class="p">,</span> <span class="nc">D12</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">D</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">F10</span><span class="p">,</span> <span class="nc">C11</span><span class="p">,</span> <span class="nc">G11</span><span class="p">,</span> <span class="nc">D12</span><span class="p">,</span> <span class="nc">A12</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">A</span><span class="o">#</span><span class="mi">9</span><span class="p">,</span> <span class="nc">F10</span><span class="p">,</span> <span class="nc">C11</span><span class="p">,</span> <span class="nc">G11</span><span class="p">,</span> <span class="nc">D12</span><span class="p">,</span> <span class="nc">A12</span><span class="p">,</span> <span class="nc">E13</span> <span class="p">],</span>
+<span class="p">[</span> <span class="nc">F10</span><span class="p">,</span> <span class="nc">C11</span><span class="p">,</span> <span class="nc">G11</span><span class="p">,</span> <span class="nc">D12</span><span class="p">,</span> <span class="nc">A12</span><span class="p">,</span> <span class="nc">E13</span><span class="p">,</span> <span class="nc">B13</span> <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 <p>Because the <em>major-minor-intervals</em> are so prominent, we can also define the <em>keys</em> as <em>minor keys</em>.
 For example, the keys of C major are equivalent to the keys of A minor (A, B, C, D, E, F, G), but they are differently balanced in a piece.
 The <em>tonic/root</em> (the “home” of the <em>keys</em>), for example, is usually the first note in the respective <em>scale</em>.</p>
 </div>
 </div>
+<div class="section" id="the-circle-of-fifths">
+<h2>The Circle of Fifths<a class="headerlink" href="#the-circle-of-fifths" title="Permalink to this headline">#</a></h2>
+<p>Furthermore, for each <em>major scale</em> there is a corresponding <em>minor scale</em> which consists of the exact same pitch classes, e.g. <strong>C</strong> corresponds to <strong>Am</strong>.
+This relationship is often depicted as the so called <em>circle of fifth</em>:</p>
+<div class="figure align-default" id="fig-circle-of-fifths">
+<a class="reference internal image-reference" href="../../../_images/circle-of-fifths.png"><img alt="../../../_images/circle-of-fifths.png" src="../../../_images/circle-of-fifths.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 51 </span><span class="caption-text">The <em>circle of fifths</em> and the <em>circle of fourths</em>.</span><a class="headerlink" href="#fig-circle-of-fifths" title="Permalink to this image">#</a></p>
+</div>
+<p>If the Western system is used, then the <em>circle of fifths</em> reflects the degree of musical similarity between different scales; the closer two scales are located on the circle, the more they share in terms of tonal material.
+In music, <em>modulations</em> are used to move from one <em>scale</em> or musical <em>key</em> to another.
+Since six out of seven notes are shared by adjacent scales, a modulation by a perfect fifth can be accomplished in a very smooth fashion by only changing one note by a semitone.
+Moving from the top <strong>C</strong> adds more and more accidentials (# / b).</p>
+<p>Intuitively, the chromatic scale may be regarded as a <em>global world</em> that contains all available tonal material.
+The major and minor scales can then be regarded as <em>local regions</em> of this world, each having its own <em>harmonic</em> flavor.
+The circle of fifths provides an orientation guide for the music to smoothly travel (if desired) from one region to another region.</p>
+</div>
 <div class="section" id="modes">
 <span id="sec-modes"></span><h2>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">#</a></h2>
-<p>Starting a <em>diatonic scale</em> other than from degree 1 or 6 produces additional <em>scales</em> that share the diatonic interval order.
-These variations are called <em>modes</em>.
-We get the different <em>modes</em> by shifting the <em>interval order</em> of the <em>diatonic scale</em>.
-In SuperCollider we can achieve this by <em>array rotation</em> using <code class="docutils literal notranslate"><span class="pre">rotate</span></code>:</p>
+<p>Changing the interval sequence from major <span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 2, 1)\)</span> to another sequence by rotation creates a so called <em>mode</em>.
+We get the different <em>modes</em> by shifting/rotating the <em>interval order</em> of the <em>diatonic scale</em>.
+For example, by shifting the <em>major scale intervals</em> by 2 to the right (or 5 to the left) gives us the <em>natural minor</em>.
+Modern Western modes use the same set of notes as the major scale, in the same order, but starting from one of its seven degrees in turn as a <em>tonic</em>, and so present a different sequence of whole and half steps.</p>
+<p>In SuperCollider we can generate all the different modes by <em>array rotation</em> using <code class="docutils literal notranslate"><span class="pre">rotate</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// generation of different modes</span>
 <span class="o">~</span><span class="nx">majorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>                <span class="c1">// major interval order</span>
 <span class="o">~</span><span class="nx">minorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>                <span class="c1">// (nat.) minor interval order</span>
@@ -1074,30 +1273,91 @@ In SuperCollider we can achieve this by <em>array rotation</em> using <code clas
 <span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1">// (nat.) minor degrees (by rotation)</span>
 </pre></div>
 </div>
-<p><em>Major</em> and <em>minor scales</em> are synonyms for <em>Ionian</em> and <em>Aeolian modes</em> – a quite elaborate naming convention.
-The initial degree of a mode is called <em>final</em> because typically, music in a mode would end on that note.
-For example, the <em>final</em> of the <em>Aeolian mode</em> is 6.</p>
-<p>Since the order matters for a <em>scale</em>, we have to change the <em>interval order</em>.
-Adding a fixed number of semitones/half steps does not suffice because we would change the <em>root</em>.
-If we do so, we change the <em>root</em> (the ‘home note’), i.e., achieve another transformation called <em>transposition</em> by switching from, e.g., C major to D major.
-However, if we disregard the order, i.e., if we look at the <em>keys</em> in which we play, we can get the same by transposing the <em>keys</em>.
-For example, as you can observe in the above illustrations, the keys of C minor are the keys of D# major.</p>
+<p><em>Major</em> and <em>minor scales</em> are synonyms for <em>ionian</em> and <em>aeolian modes</em> – a quite elaborate naming convention.
+The initial degree of a mode is called <em>final</em> because typically, music in a mode would end on that note.</p>
+<p>Note that adding a fixed number of semitones/half steps to our C major scale does not change the mode but the key, e.g. from <strong>C</strong> to <strong>D</strong>; we just changed the <em>tonic</em>.
+To change the <em>mode</em> and the <em>key</em> of our piece we change both: the <em>tonic</em> and the interval sequence, that is, the <em>mode</em>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Interval sequence</p></th>
+<th class="head"><p>Tonic relative</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ionian (Major)</p></td>
+<td><p><span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 2, 1)\)</span></p></td>
+<td><p>I</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dorian</p></td>
+<td><p><span class="math notranslate nohighlight">\((2, 1, 2, 2, 2, 1, 2)\)</span></p></td>
+<td><p>ii</p></td>
+</tr>
+<tr class="row-even"><td><p>Phrygian</p></td>
+<td><p><span class="math notranslate nohighlight">\((1, 2, 2, 2, 1, 2, 2)\)</span></p></td>
+<td><p>iii</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lydian</p></td>
+<td><p><span class="math notranslate nohighlight">\((2, 2, 2, 1, 2, 2, 1)\)</span></p></td>
+<td><p>IV</p></td>
+</tr>
+<tr class="row-even"><td><p>Mixolydian</p></td>
+<td><p><span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 1, 2)\)</span></p></td>
+<td><p>V</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aeolian (Minor)</p></td>
+<td><p><span class="math notranslate nohighlight">\((2, 1, 2, 2, 1, 2, 2)\)</span></p></td>
+<td><p>vi</p></td>
+</tr>
+<tr class="row-even"><td><p>Locrain</p></td>
+<td><p><span class="math notranslate nohighlight">\((1, 2, 2, 1, 2, 2, 2)\)</span></p></td>
+<td><p>vii</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <em>tonic relative</em> is the <a class="reference internal" href="1-intervals.html#sec-intervals"><span class="std std-ref">interval</span></a> we have to change the tonic from C to stay in the same set of pitch class (all the keys of <strong>C</strong>).</p>
+<p>Overall a <strong>scale</strong> is fully defined by the <strong>root note</strong> and a <strong>mode</strong>.
+Any transposition is a valid example of the corresponding mode.
+In other words, transposition preserves mode.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// Playing all the different modes with C as the tonic</span>
+<span class="p">(</span>
+<span class="nc">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">ionian</span><span class="p">,</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">dorian</span><span class="p">,</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">phrygian</span><span class="p">,</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">lydian</span><span class="p">,</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">mixolydian</span><span class="p">,</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">aeolian</span><span class="p">,</span>
+        <span class="nc">Scale</span><span class="p">.</span><span class="nx">locrian</span>
+    <span class="p">].</span><span class="nx">dupEach</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="ss">\root</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// C = tonic</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">(</span><span class="mf">0.25</span><span class="o">!</span><span class="mi">7</span> <span class="o">++</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">7</span><span class="p">),</span>
+    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.2</span>
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="supercollider-scales">
 <h2>SuperCollider Scales<a class="headerlink" href="#supercollider-scales" title="Permalink to this headline">#</a></h2>
-<p>Supercollider provides you with many well-known predefined scales.
+<p>An object of the <a class="reference external" href="https://doc.sccode.org/Classes/Scale.html">Scale</a> class represents not really a <em>scale</em> but a <em>mode</em>.
+To get a scale we have to specifiy the <code class="docutils literal notranslate"><span class="pre">\root</span></code>, i.e. the <em>tonic</em>.
+Supercollider provides you with many well-known predefined modes.
 You can look them up by calling:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Scale</span><span class="p">.</span><span class="nx">directory</span>
 </pre></div>
 </div>
-<p>For example, we can use the <em>melodic minor</em> the following way:</p>
+<p>For example, we can use the <em>G melodic minor</em> the following way:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">melodicMinor</span><span class="p">,</span>
     <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">((</span><span class="mi">0</span><span class="p">..</span><span class="mi">7</span><span class="p">),</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\octave</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="ss">\mtranspose</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="ss">\root</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="c1">// G</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\amp</span><span class="p">,</span> <span class="mi">1</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
@@ -1107,7 +1367,7 @@ You can look them up by calling:</p>
 <p>But we can always create our own <a class="reference external" href="https://doc.sccode.org/Classes/Scale.html">Scale</a>.
 It is defined by its <em>degrees</em>, the number of <em>pitches</em> per octave and the <em>tuninig</em> in semitones (100 cents).
 In addition we can use <code class="docutils literal notranslate"><span class="pre">descDegrees</span></code> to play the scale differently when descending than when ascending.</p>
-<p>In the following we define the <em>major scale</em>.</p>
+<p>In the following we re-define the <em>major scale</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Scale</span><span class="p">(</span>
     <span class="na">degrees:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> 
@@ -1117,26 +1377,6 @@ In addition we can use <code class="docutils literal notranslate"><span class="p
     <span class="na">name:</span> <span class="s2">&quot;my_minor&quot;</span>
 <span class="p">);</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-<p>If we want to use an <em>interval order</em> instead of <em>degrees</em> we can do so.
-Let us first define a function that translates an order to degrees:</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="o">~</span><span class="nx">intervalToDegrees</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">array</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">copy</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="nx">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">array</span><span class="p">.</span><span class="nx">size</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">i</span><span class="p">;</span>
-        <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">+</span><span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="p">});</span>
-    <span class="nx">result</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>We can call the function to generate degrees.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">majorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>                <span class="c1">// major interval order</span>
-<span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">)</span>             <span class="c1">// major degrees</span>
 </pre></div>
 </div>
 </div>

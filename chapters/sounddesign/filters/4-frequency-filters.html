@@ -249,18 +249,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/2-node-proxies.html">
+    <a class="reference internal" href="../../supercollider/live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="../../supercollider/live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../supercollider/live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -787,7 +787,7 @@ A lowpass filter is often combined with a resonant because (with the respective 
 So they do not usually affect the perceived and subjective pitch.</p>
 <div class="figure align-default" id="fig-lpf-graph">
 <a class="reference internal image-reference" href="../../../_images/lpf-graph.png"><img alt="../../../_images/lpf-graph.png" src="../../../_images/lpf-graph.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">The gain over frequency of a signal filtered by a lowpass filter.</span><a class="headerlink" href="#fig-lpf-graph" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">The gain over frequency of a signal filtered by a lowpass filter.</span><a class="headerlink" href="#fig-lpf-graph" title="Permalink to this image">#</a></p>
 </div>
 <p>In nature, low frequencies tend to die out much slower than high frequencies.
 This makes sense intuitively because it requires more power to keep the vibration of, for example, a string high.</p>
@@ -816,7 +816,7 @@ In principle, the gain in amplitude over frequencies has a steeper slope.</p>
 </div>
 <div class="figure align-default" id="fig-lpf-saw">
 <a class="reference internal image-reference" href="../../../_images/lpf-saw.png"><img alt="../../../_images/lpf-saw.png" src="../../../_images/lpf-saw.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).</span><a class="headerlink" href="#fig-lpf-saw" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).</span><a class="headerlink" href="#fig-lpf-saw" title="Permalink to this image">#</a></p>
 </div>
 <p>We can observer that the maximum amplitude of the filtered signal decreases with the cutoff frequency.</p>
 </div>
@@ -827,7 +827,7 @@ Highpass filters are excellent to clean up woofy signals and tighten up arrangem
 They can make the sound more clear which can be especially useful for your <em>lead instrument</em>.</p>
 <div class="figure align-default" id="fig-hpf-graph">
 <a class="reference internal image-reference" href="../../../_images/hpf-graph.png"><img alt="../../../_images/hpf-graph.png" src="../../../_images/hpf-graph.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">The gain over frequency of a signal filtered by a highpass filter.</span><a class="headerlink" href="#fig-hpf-graph" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">The gain over frequency of a signal filtered by a highpass filter.</span><a class="headerlink" href="#fig-hpf-graph" title="Permalink to this image">#</a></p>
 </div>
 <p>The effect is less obvious, at least with my headphones.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">5000</span><span class="p">))}.</span><span class="nx">play</span>
@@ -845,7 +845,7 @@ They can make the sound more clear which can be especially useful for your <em>l
 </div>
 <div class="figure align-default" id="fig-hpf-saw">
 <a class="reference internal image-reference" href="../../../_images/hpf-saw.png"><img alt="../../../_images/hpf-saw.png" src="../../../_images/hpf-saw.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated highpass filter (bottom).</span><a class="headerlink" href="#fig-hpf-saw" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated highpass filter (bottom).</span><a class="headerlink" href="#fig-hpf-saw" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="bandpass-filter">
@@ -858,7 +858,7 @@ It is a combination of a lowpass and highpass filter.</p>
 </div>
 <div class="figure align-default" id="fig-bpf-graph">
 <a class="reference internal image-reference" href="../../../_images/bpf-graph.png"><img alt="../../../_images/bpf-graph.png" src="../../../_images/bpf-graph.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">The gain over frequency of a signal filtered by a bandpass filter.</span><a class="headerlink" href="#fig-bpf-graph" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">The gain over frequency of a signal filtered by a bandpass filter.</span><a class="headerlink" href="#fig-bpf-graph" title="Permalink to this image">#</a></p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> offers us the <a class="reference internal" href="../../supercollider/ugens.html#def-ugen"><span class="std std-ref">UGen</span></a> called <a class="reference external" href="https://doc.sccode.org/Classes/BPF.html">BPF</a>.
 It is a second-order Butterworth bandpass filter.
@@ -877,7 +877,7 @@ Here we only change the <em>center frequency</em> from 220 Hz to 880 Hz.</p>
 </div>
 <div class="figure align-default" id="fig-bpf-saw">
 <a class="reference internal image-reference" href="../../../_images/bpf-saw.png"><img alt="../../../_images/bpf-saw.png" src="../../../_images/bpf-saw.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).</span><a class="headerlink" href="#fig-bpf-saw" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).</span><a class="headerlink" href="#fig-bpf-saw" title="Permalink to this image">#</a></p>
 </div>
 <p>Let’s have a listen:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">,</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">2000</span><span class="p">),</span> <span class="nc">MouseY</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))}.</span><span class="nx">play</span>

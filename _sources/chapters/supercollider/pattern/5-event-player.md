@@ -7,7 +7,7 @@ We finally make use of [Pbind](https://doc.sccode.org/Classes/Pbind.html) to con
 ```isc
 (
 Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.4,
     \sustain, 0.1 
@@ -31,10 +31,10 @@ For example:
 ```isc
 (
 p = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], inf),
-    \dur, 0.1,
-    \sustain, 0.3
+    \dur, 0.25,
+    \sustain, 0.5
 ).play;
 )
 ```
@@ -44,10 +44,10 @@ The same can be achieved by using the ``legato`` parameter:
 ```isc
 (
 p = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], inf),
-    \dur, 0.1,
-    \legato, 3.0
+    \dur, 0.25,
+    \legato, 2.0 // two times dur overlap
 ).play;
 )
 ```
@@ -63,7 +63,7 @@ If it is a pattern, it was already transformed into a stream when ``play`` was c
 ## Argument Dependence
 
 Since we combine multiple ``Streams`` we may want to influence one value stream by the other.
-For example, we might want that the ``amp`` depends on the frequency such that we can reduce the amplitude for higher pitches.#
+For example, we might want that the ``amp`` depends on the frequency such that we can reduce the amplitude for higher pitches.
 There are multiple ways to do so.
 One is by using one of the most powerful ``Pattern``, that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
 
@@ -85,10 +85,10 @@ In the following code snippet, we print the ``amp`` so you can see the effect.
 ```isc
 (
 p = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.25,
-    \sustain, 0.3,
+    \legato, 0.2,
     \amp, Pfunc({arg event; min(1.0, event[\freq].linexp(100, 500, 1.0, 0.2)).postln;})
 );
 q = p.play;
@@ -102,10 +102,10 @@ The following code creates exactly the same sound.
 ```isc
 (
 p = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.25,
-    \sustain, 0.3,
+    \legato, 0.2,
     \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
 );
 q = p.play;
@@ -124,7 +124,7 @@ We can, of course, use multiple ``Pbinds``.
 (
 var intro, middle, outro;
 intro = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], 3),
     \dur, 0.25,
     \sustain, 0.3,
@@ -132,7 +132,7 @@ intro = Pbind(
 );
 
 middle = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([233, 321, 344], 3),
     \dur, 0.25,
     \sustain, 0.3,
@@ -140,7 +140,7 @@ middle = Pbind(
 );
 
 outro = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 320, 430], 3),
     \dur, 0.25,
     \sustain, 0.3,
@@ -158,7 +158,7 @@ We can generate the same piece using only one ``Pbind``:
 ```isc
 (
 p = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
 	\freq, Pseq([
 		Pseq([440, 220, 330], 3), 
 		Pseq([233, 321, 344], 3),
@@ -180,8 +180,21 @@ You can use any symbol to create a ``Rest`` (i.e. do nothing).
 
 ```isc
 (
+SynthDef(\snare,{arg hcutoff = 9000, lcutoff = 5000, amp = 1.4;
+    var env, hat, bass, sig, cutoff = 5000;
+    env = Env.perc(0.01, 0.15).kr(doneAction: Done.freeSelf);
+    hat = {PinkNoise.ar()}!2;
+    hat = HPF.ar(hat, XLine.ar(lcutoff/4, lcutoff, 0.2));
+    hat = LPF.ar(hat, hcutoff);
+    bass = LFTri.ar(XLine.kr(150, 10, 0.21))*0.2;
+    sig = (hat + bass) * env * amp;
+    Out.ar(0, sig);
+}).add;
+)
+
+(
 var melody = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \scale, Scale.minor,
     \octave, 5,
     \degree, Pseq([
@@ -211,7 +224,7 @@ It allows you to play patterns in parallel or in sequence, via a callback functi
 ```isc
 (
 var melody = Pbind(
-    \instrument, \saw,
+    \instrument, \default,
     \scale, Scale.minor,
     \octave, 5,
     \degree, Pseq([
@@ -231,13 +244,13 @@ var rythm = Pbind(
 );
 
 Pspawner({ arg sp;
-	3.do {
-		sp.par(melody);
-		sp.seq(rythm);
-		sp.seq(rythm);
-	};
-	sp.seq(rythm);
-	sp.seq(melody);
+    3.do {
+        sp.par(melody);
+        sp.seq(rythm);
+        sp.seq(rythm);
+    };
+    sp.seq(rythm);
+    sp.seq(melody);
 }).play;
 )
 ```
@@ -267,12 +280,26 @@ Listen to what happens!
 ```isc
 (
 Pbindef(\melody,
-    \instrument, \saw,
+    \instrument, \default,
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.4,
     \sustain, 0.1 
 ).play;
 )
+```
+
+There is, however, a pitfall.
+If you are using ``Pbindef`` and you change your style of defining pitch, you might run into problems.
+Once you define ``\freq``, there is no way to use any other argument that determines the frequency since it will always be overwritten by ``\freq``.
+For example, try ``\midinote`` in the above example. 
+You will notice that it does not work.
+If you change the name of the ``Pbindef`` it will work as long as you do not define the ``\freq`` argument!
+Another solution is to set ``\freq`` to ``nil``.
+
+```{admonition} Overwriting Arguments
+:name: attention-overwriting-args
+:class: attention
+Once you use an argument within a ``Pbindef`` you can only unuse it by overwriting it or by setting it to ``nil``!
 ```
 
 ## Naming Conventions
