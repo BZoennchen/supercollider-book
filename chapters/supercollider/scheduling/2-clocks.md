@@ -86,3 +86,10 @@ Pbind(
 
 t.tempo = 5
 ```
+
+We can also change the tempo of the default clock which is used whenever we do not specify a certain clock.
+
+```isc
+// default clock set to 120 beats per minute (bpm)
+TempoClock.default.tempo = 120/60;
+```

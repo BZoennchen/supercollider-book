@@ -251,18 +251,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../supercollider/live-coding/2-node-proxies.html">
+    <a class="reference internal" href="../supercollider/live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../supercollider/live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="../supercollider/live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../supercollider/live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -836,19 +836,19 @@ As a consequence of the success of <em>FM synthesis</em>, the company sold milli
 <div class="section" id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41e35378-09a3-46e4-8cb8-9e9475135ac1">
-<span class="eqno">(83)<a class="headerlink" href="#equation-41e35378-09a3-46e4-8cb8-9e9475135ac1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0c2f48cd-d7b3-4fbe-8e73-b3c8457279c6">
+<span class="eqno">(83)<a class="headerlink" href="#equation-0c2f48cd-d7b3-4fbe-8e73-b3c8457279c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-524cfcfb-42d3-4635-82af-3938ed94f656">
-<span class="eqno">(84)<a class="headerlink" href="#equation-524cfcfb-42d3-4635-82af-3938ed94f656" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-542ffbd0-2f33-4634-b758-13f57b5e999b">
+<span class="eqno">(84)<a class="headerlink" href="#equation-542ffbd0-2f33-4634-b758-13f57b5e999b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71b0bd62-ed53-4368-ac8b-70afc3333103">
-<span class="eqno">(85)<a class="headerlink" href="#equation-71b0bd62-ed53-4368-ac8b-70afc3333103" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fac52e02-4b3f-4339-b679-58185bc7a255">
+<span class="eqno">(85)<a class="headerlink" href="#equation-fac52e02-4b3f-4339-b679-58185bc7a255" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -926,7 +926,7 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 </div>
 <div class="figure align-default" id="fig-fm-cycle-high-freq">
 <a class="reference internal image-reference" href="../../_images/fm-cycle-high-freq.png"><img alt="../../_images/fm-cycle-high-freq.png" src="../../_images/fm-cycle-high-freq.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 42 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
 </div>
 <p>If we look at the stethoscope, we observe multiple sidebands, i.e., there are numerous frequencies apart from the fundamental frequency (which is equal to the carrier frequency) present.
 How many frequencies are present?
@@ -937,7 +937,7 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 <p>with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p>
 <div class="figure align-default" id="fig-fm-side-band-frequencies">
 <a class="reference internal image-reference" href="../../_images/fm-side-band-frequencies.png"><img alt="../../_images/fm-side-band-frequencies.png" src="../../_images/fm-side-band-frequencies.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
 </div>
 <p>If we want to keep the same sideband relation for different carrier frequencies, we have to compute the <em>modulation frequency</em> based on the <em>carrier frequency</em>.
 In other words, we have to correlate these two frequencies.</p>
@@ -999,7 +999,7 @@ This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
 <p>The series is a converging series and especially in our case where <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> is not too large, the values of each term become very small very quick.</p>
 <div class="figure align-default" id="fig-bessel-function">
 <a class="reference internal image-reference" href="../../_images/bessel-function.png"><img alt="../../_images/bessel-function.png" src="../../_images/bessel-function.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
+<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
 Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">#</a></p>
 </div>
 <p>As we can see, <span class="math notranslate nohighlight">\(A_{ \text{sb},n^{\pm} }\)</span> depend only on <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> but oscillate for increasing <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>!</p>
@@ -1018,8 +1018,8 @@ The larger the index, the larger the bandwidth.</p>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-657766b3-954d-4a9a-81fe-8330442be257">
-<span class="eqno">(86)<a class="headerlink" href="#equation-657766b3-954d-4a9a-81fe-8330442be257" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73ed4edc-8d30-41ae-bb50-cea3797f7365">
+<span class="eqno">(86)<a class="headerlink" href="#equation-73ed4edc-8d30-41ae-bb50-cea3797f7365" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </div>

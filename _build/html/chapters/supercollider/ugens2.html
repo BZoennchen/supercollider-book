@@ -251,18 +251,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="live-coding/2-node-proxies.html">
+    <a class="reference internal" href="live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -780,11 +780,11 @@ For example, we say that the following signal</p>
 <p>has an amplitude of <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
 <div class="figure align-default" id="fig-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/amplitude-sine.png"><img alt="../../_images/amplitude-sine.png" src="../../_images/amplitude-sine.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">A modulated amplitude of a sine wave. We say that this signal has an amplitude of 1.0.</span><a class="headerlink" href="#fig-amplitude-sine" title="Permalink to this image">#</a></p>
 </div>
 <p>What we actually mean is the <strong>maximum amplitude of the signal</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a4f0ee4-7cda-4b3d-9c6d-f7b2ccfc76b1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-6a4f0ee4-7cda-4b3d-9c6d-f7b2ccfc76b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a2983cf-0f7d-4b60-8b94-f43c55448fd9">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5a2983cf-0f7d-4b60-8b94-f43c55448fd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \max\limits_{t \in ]-\infty; +\infty[ } |y(t)|.
 \end{equation}\]</div>
 <p>Ok, but there is more.
@@ -807,7 +807,7 @@ It computes the perceive loudness, i.e., local amplitude of a signal!</p>
 </div>
 <div class="figure align-default" id="fig-all-amplitude-sine">
 <a class="reference internal image-reference" href="../../_images/all-amplitude-sine.png"><img alt="../../_images/all-amplitude-sine.png" src="../../_images/all-amplitude-sine.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">A modulated amplitude of a sine wave. At the top the measured perceive loudness using <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code>. In the middle the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and at the bottom <span class="math notranslate nohighlight">\(|y(t)|\)</span>.</span><a class="headerlink" href="#fig-all-amplitude-sine" title="Permalink to this image">#</a></p>
 </div>
 <p>Somehow <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> underestimates the perceive loudness quite a bit.</p>
 <p>Futhermore, we have to tell <code class="docutils literal notranslate"><span class="pre">Amplitude</span></code> the time period the signal loudness increases <code class="docutils literal notranslate"><span class="pre">attackTime</span></code> and the time period the amplitude decreases <code class="docutils literal notranslate"><span class="pre">releaseTime</span></code>.

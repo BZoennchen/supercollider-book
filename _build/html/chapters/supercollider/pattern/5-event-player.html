@@ -249,18 +249,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../live-coding/2-node-proxies.html">
+    <a class="reference internal" href="../live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="../live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -794,7 +794,7 @@ title="Print to PDF"
 We finally make use of <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> to construct a <em>discreate musical event simulation</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.1</span> 
@@ -813,10 +813,10 @@ Thereby, we do not play all events instantly but create a rhythm.</p>
 <p>For example:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>
-    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.5</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
@@ -824,10 +824,10 @@ Thereby, we do not play all events instantly but create a rhythm.</p>
 <p>The same can be achieved by using the <code class="docutils literal notranslate"><span class="pre">legato</span></code> parameter:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>
-    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">3.0</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">2.0</span> <span class="c1">// two times dur overlap</span>
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
@@ -841,7 +841,7 @@ If it is a pattern, it was already transformed into a stream when <code class="d
 <div class="section" id="argument-dependence">
 <h2>Argument Dependence<a class="headerlink" href="#argument-dependence" title="Permalink to this headline">#</a></h2>
 <p>Since we combine multiple <code class="docutils literal notranslate"><span class="pre">Streams</span></code> we may want to influence one value stream by the other.
-For example, we might want that the <code class="docutils literal notranslate"><span class="pre">amp</span></code> depends on the frequency such that we can reduce the amplitude for higher pitches.#
+For example, we might want that the <code class="docutils literal notranslate"><span class="pre">amp</span></code> depends on the frequency such that we can reduce the amplitude for higher pitches.
 There are multiple ways to do so.
 One is by using one of the most powerful <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>, that is <a class="reference external" href="https://doc.sccode.org/Classes/Pfunc.html">Pfunc</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Pfunc</span></code> expects a function as an argument and this function is called whenever the respective <code class="docutils literal notranslate"><span class="pre">Stream</span></code> generates its next value.
@@ -858,10 +858,10 @@ Therefore, we can look inside the event, and use the information to compute our 
 In the following code snippet, we print the <code class="docutils literal notranslate"><span class="pre">amp</span></code> so you can see the effect.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
-    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>
     <span class="ss">\amp</span><span class="p">,</span> <span class="nc">Pfunc</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">event</span><span class="p">;</span> <span class="nx">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="nx">event</span><span class="p">[</span><span class="ss">\freq</span><span class="p">].</span><span class="nx">linexp</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)).</span><span class="nx">postln</span><span class="p">;})</span>
 <span class="p">);</span>
 <span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
@@ -873,10 +873,10 @@ It is called <a class="reference external" href="https://doc.sccode.org/Classes/
 The following code creates exactly the same sound.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
-    <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>
     <span class="ss">\amp</span><span class="p">,</span> <span class="nc">Pkey</span><span class="p">(</span><span class="ss">\freq</span><span class="p">).</span><span class="nx">linexp</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
 <span class="p">);</span>
 <span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">play</span><span class="p">;</span>
@@ -893,7 +893,7 @@ I think, using <code class="docutils literal notranslate"><span class="pre">Pkey
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">intro</span><span class="p">,</span> <span class="nx">middle</span><span class="p">,</span> <span class="nx">outro</span><span class="p">;</span>
 <span class="nx">intro</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
@@ -901,7 +901,7 @@ I think, using <code class="docutils literal notranslate"><span class="pre">Pkey
 <span class="p">);</span>
 
 <span class="nx">middle</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">233</span><span class="p">,</span> <span class="mi">321</span><span class="p">,</span> <span class="mi">344</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
@@ -909,7 +909,7 @@ I think, using <code class="docutils literal notranslate"><span class="pre">Pkey
 <span class="p">);</span>
 
 <span class="nx">outro</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">430</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span>
@@ -925,7 +925,7 @@ I think, using <code class="docutils literal notranslate"><span class="pre">Pkey
 We can generate the same piece using only one <code class="docutils literal notranslate"><span class="pre">Pbind</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
 	<span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span>
 		<span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> 
 		<span class="nc">Pseq</span><span class="p">([</span><span class="mi">233</span><span class="p">,</span> <span class="mi">321</span><span class="p">,</span> <span class="mi">344</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span>
@@ -945,8 +945,21 @@ We can imagine that each <code class="docutils literal notranslate"><span class=
 In this example I use a fixed <code class="docutils literal notranslate"><span class="pre">dur</span></code> and <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> to adjust the actual duration.
 You can use any symbol to create a <code class="docutils literal notranslate"><span class="pre">Rest</span></code> (i.e. do nothing).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\snare</span><span class="p">,{</span><span class="kd">arg</span> <span class="nx">hcutoff</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">,</span> <span class="nx">lcutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">1.4</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">hat</span><span class="p">,</span> <span class="nx">bass</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">).</span><span class="k">kr</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="p">{</span><span class="nc">PinkNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">()}</span><span class="o">!</span><span class="mi">2</span><span class="p">;</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">hat</span><span class="p">,</span> <span class="nc">XLine</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">lcutoff</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="nx">lcutoff</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">));</span>
+    <span class="nx">hat</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">hat</span><span class="p">,</span> <span class="nx">hcutoff</span><span class="p">);</span>
+    <span class="nx">bass</span> <span class="o">=</span> <span class="nc">LFTri</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">XLine</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.21</span><span class="p">))</span><span class="o">*</span><span class="mf">0.2</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="p">(</span><span class="nx">hat</span> <span class="o">+</span> <span class="nx">bass</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="nx">amp</span><span class="p">;</span>
+    <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="p">(</span>
 <span class="kd">var</span> <span class="nx">melody</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">minor</span><span class="p">,</span>
     <span class="ss">\octave</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
     <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span>
@@ -974,7 +987,7 @@ You can use any symbol to create a <code class="docutils literal notranslate"><s
 It allows you to play patterns in parallel or in sequence, via a callback function.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">melody</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">minor</span><span class="p">,</span>
     <span class="ss">\octave</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
     <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span>
@@ -994,13 +1007,13 @@ It allows you to play patterns in parallel or in sequence, via a callback functi
 <span class="p">);</span>
 
 <span class="nc">Pspawner</span><span class="p">({</span> <span class="kd">arg</span> <span class="nx">sp</span><span class="p">;</span>
-	<span class="mi">3</span><span class="p">.</span><span class="k">do</span> <span class="p">{</span>
-		<span class="nx">sp</span><span class="p">.</span><span class="nx">par</span><span class="p">(</span><span class="nx">melody</span><span class="p">);</span>
-		<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
-		<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
-	<span class="p">};</span>
-	<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
-	<span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">melody</span><span class="p">);</span>
+    <span class="mi">3</span><span class="p">.</span><span class="k">do</span> <span class="p">{</span>
+        <span class="nx">sp</span><span class="p">.</span><span class="nx">par</span><span class="p">(</span><span class="nx">melody</span><span class="p">);</span>
+        <span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
+        <span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">rythm</span><span class="p">);</span>
+    <span class="nx">sp</span><span class="p">.</span><span class="nx">seq</span><span class="p">(</span><span class="nx">melody</span><span class="p">);</span>
 <span class="p">}).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
@@ -1027,13 +1040,24 @@ Use the following <code class="docutils literal notranslate"><span class="pre">P
 Listen to what happens!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\saw</span><span class="p">,</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
     <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">440</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">330</span><span class="p">],</span> <span class="kc">inf</span><span class="p">),</span>
     <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span>
     <span class="ss">\sustain</span><span class="p">,</span> <span class="mf">0.1</span> 
 <span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
+</div>
+<p>There is, however, a pitfall.
+If you are using <code class="docutils literal notranslate"><span class="pre">Pbindef</span></code> and you change your style of defining pitch, you might run into problems.
+Once you define <code class="docutils literal notranslate"><span class="pre">\freq</span></code>, there is no way to use any other argument that determines the frequency since it will always be overwritten by <code class="docutils literal notranslate"><span class="pre">\freq</span></code>.
+For example, try <code class="docutils literal notranslate"><span class="pre">\midinote</span></code> in the above example.
+You will notice that it does not work.
+If you change the name of the <code class="docutils literal notranslate"><span class="pre">Pbindef</span></code> it will work as long as you do not define the <code class="docutils literal notranslate"><span class="pre">\freq</span></code> argument!
+Another solution is to set <code class="docutils literal notranslate"><span class="pre">\freq</span></code> to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<div class="attention admonition" id="attention-overwriting-args">
+<p class="admonition-title">Overwriting Arguments</p>
+<p>Once you use an argument within a <code class="docutils literal notranslate"><span class="pre">Pbindef</span></code> you can only unuse it by overwriting it or by setting it to <code class="docutils literal notranslate"><span class="pre">nil</span></code>!</p>
 </div>
 </div>
 <div class="section" id="naming-conventions">

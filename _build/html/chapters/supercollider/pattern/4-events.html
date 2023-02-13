@@ -251,18 +251,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../live-coding/2-node-proxies.html">
+    <a class="reference internal" href="../live-coding/2-proxy-space.html">
+     Proxy Space
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../live-coding/3-node-proxies.html">
      Node Proxies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../live-coding/3-node-proxy-defs.html">
+    <a class="reference internal" href="../live-coding/4-node-proxy-defs.html">
      Node Proxy Definition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../live-coding/4-proxy-space.html">
-     Proxy Space
     </a>
    </li>
    <li class="toctree-l2">
@@ -899,12 +899,23 @@ By decreasing the cutoff frequency over time, high frequencies die out faster wh
 </div>
 <div class="section" id="value-conversions">
 <span id="sec-value-conversion"></span><h2>Value Conversions<a class="headerlink" href="#value-conversions" title="Permalink to this headline">#</a></h2>
+<p>Playing events with <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> (or <code class="docutils literal notranslate"><span class="pre">Pbindef</span></code>) using other patterns is a compelling but also inviting challenge.
+In my opinion, the main difficulty stems from the fact that each argument of the synth (and/or the <code class="docutils literal notranslate"><span class="pre">play</span></code> method) is defined by its own mostly independent stream of numbers.
+This invites you to think about each argument, such as frequency (<code class="docutils literal notranslate"><span class="pre">\freq</span></code>) and duration (<code class="docutils literal notranslate"><span class="pre">\dur</span></code>), independently, which is contrary to the western musical notation where a pair of pitch and duration defines a musical note.
+Another source of confusion is the fact that <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> allows you to specify the same class of arguments in different ways.
+For example, you can define the pitch (a specific class) via the frequency argument <code class="docutils literal notranslate"><span class="pre">\freq</span></code> a combination of <code class="docutils literal notranslate"><span class="pre">\midinote</span></code>, <code class="docutils literal notranslate"><span class="pre">\harmonic</span></code>, and more and other combinations of arguments.
+This flexibility is handy, but it can also feel overwhelming, especially for beginners.</p>
+<div class="remark admonition" id="remark-naming-convention-of-arguments">
+<p class="admonition-title">Naming Convention of Synth Arguments</p>
+<p>Note that one can only use specific arguments if the synth supports those. For example, we can neither use <code class="docutils literal notranslate"><span class="pre">\freq</span></code> nor <code class="docutils literal notranslate"><span class="pre">\midinote</span></code> if there is no argument <code class="docutils literal notranslate"><span class="pre">freq</span></code> used in the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> of the synth we want to play!</p>
+</div>
 <p>In the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class, we can also find the code that actually <code class="docutils literal notranslate"><span class="pre">plays</span></code> an event.
 The method of interest is called <code class="docutils literal notranslate"><span class="pre">makeParentEvents</span></code>.
 It is very lengthy, and you do not have to understand it.
 But if you are interested in what is precisely happening, it is a good starting point.
 Furthermore, it gives us information about all the default values.
-These values are also discussed in the official <a class="reference external" href="https://doc.sccode.org/Tutorials/A-Practical-Guide/PG_07_Value_Conversions.html">pattern guide</a>.</p>
+These values are also discussed in the official <a class="reference external" href="https://doc.sccode.org/Tutorials/A-Practical-Guide/PG_07_Value_Conversions.html">pattern guide</a>.
+Another source of explanation can be found in the documentation of the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class under section <em>Useful keys for notes</em>.</p>
 <p>SuperCollider provides the specification of the different parameters that influence the scheduling and the play of a single synth.
 But it provides different ways to express the same thing and converts it to a specific item.
 For example, a synth only knows frequencies, but you do not have to think in terms of frequencies.
@@ -916,16 +927,16 @@ SuperCollider will always take the most substantial value, e.g., frequency over 
 <p>First of all, time is measured in beats per second (bps), and events are scheduled on a specific <a class="reference external" href="https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html">TempoClock</a> that runs at a particular bps.
 The default clock runs at 60 beats per second.
 We will discuss later how we can change this.</p>
-<p>Let us look at the parameters determining the timing of an event.
-Let <span class="math notranslate nohighlight">\(t_e\)</span> be the start time of the event <span class="math notranslate nohighlight">\(e\)</span> (scheduled on our clock).
-Then <span class="math notranslate nohighlight">\(t_e + \Delta t_e\)</span> is the end time of <span class="math notranslate nohighlight">\(e\)</span>, i.e., the start time of the next scheduled event.</p>
-<p>Furthermore, at <span class="math notranslate nohighlight">\(t_e + \Delta t_{e_s}\)</span> the sustain ends and the decay of the sound begins.
-<span class="math notranslate nohighlight">\(\Delta t_e\)</span> is equal to <code class="docutils literal notranslate"><span class="pre">delta</span> <span class="pre">=</span> <span class="pre">dur</span> <span class="pre">*</span> <span class="pre">stretch</span></code> and <span class="math notranslate nohighlight">\(\Delta t_{e_s}\)</span> is equal to <code class="docutils literal notranslate"><span class="pre">sustain</span></code>.
+<p>Let us look at the parameters determining the timing of a stream of events <span class="math notranslate nohighlight">\(e_1, \ldots, e_n\)</span>.
+Let <span class="math notranslate nohighlight">\(t_{i}\)</span> be the start time of the event <span class="math notranslate nohighlight">\(e_i\)</span> (scheduled on our clock).
+Then <span class="math notranslate nohighlight">\(t_{i+1} = t_{i} + \Delta t_{i}\)</span> is the end time of <span class="math notranslate nohighlight">\(e_{i}\)</span> and the start time of the next scheduled event <span class="math notranslate nohighlight">\(e_{i+1}\)</span>.</p>
+<p>Furthermore, at <span class="math notranslate nohighlight">\(t_{i} + \Delta_s t_{i}\)</span> the sustain ends and the decay of the sound begins.
+<span class="math notranslate nohighlight">\(\Delta t_{i}\)</span> is equal to <code class="docutils literal notranslate"><span class="pre">delta</span> <span class="pre">=</span> <span class="pre">dur</span> <span class="pre">*</span> <span class="pre">stretch</span></code> and <span class="math notranslate nohighlight">\(\Delta_s t_{i}\)</span> is equal to <code class="docutils literal notranslate"><span class="pre">sustain</span></code>.
 The duration <code class="docutils literal notranslate"><span class="pre">dur</span></code> is stretched by a factor <code class="docutils literal notranslate"><span class="pre">stretch</span></code>.
-Of course, the sound of the event <span class="math notranslate nohighlight">\(e\)</span> can last longer than <span class="math notranslate nohighlight">\(\Delta t_e\)</span>, i.e.,</p>
+Of course, the sound of the event <span class="math notranslate nohighlight">\(e_i\)</span> can last longer than <span class="math notranslate nohighlight">\(\Delta t_i\)</span> especially if the sustain is longer than the final event duration <code class="docutils literal notranslate"><span class="pre">delta</span></code>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-   \Delta t_{e_s} &gt;\Delta t_e
+   \Delta_s t_{i} &gt;\Delta t_i
 \end{equation*}\]</div>
 <p>is feasible.
 We have the following parameters with their respective default values:</p>
@@ -941,16 +952,17 @@ We have the following parameters with their respective default values:</p>
 </div>
 <div class="remark admonition" id="remark-scheduling-influencer">
 <p class="admonition-title">Scheduling Influencer</p>
-<p><code class="docutils literal notranslate"><span class="pre">dur</span></code>, <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, <code class="docutils literal notranslate"><span class="pre">delta</span></code> and <code class="docutils literal notranslate"><span class="pre">lag</span></code> do not influence the sound generated by the event but influences the scheduling of events!</p>
+<p><code class="docutils literal notranslate"><span class="pre">dur</span></code>, <code class="docutils literal notranslate"><span class="pre">stretch</span></code>, <code class="docutils literal notranslate"><span class="pre">delta</span></code> and <code class="docutils literal notranslate"><span class="pre">lag</span></code> influences the scheduling of events and may or may not influence the sound depending on the definition of other arguments.</p>
 </div>
-<p>We can set either <code class="docutils literal notranslate"><span class="pre">sustain</span></code> or <code class="docutils literal notranslate"><span class="pre">legato</span></code> but it does not really make sense to define them both because if we set <code class="docutils literal notranslate"><span class="pre">sustain</span></code>, then <code class="docutils literal notranslate"><span class="pre">legato</span></code> has no effect.
-This is not true for the duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, since it is not only used to compute <code class="docutils literal notranslate"><span class="pre">sustain</span></code>.</p>
+<p>First note that by default <code class="docutils literal notranslate"><span class="pre">sustain</span></code> is equal <code class="docutils literal notranslate"><span class="pre">0.8</span> <span class="pre">*</span> <span class="pre">dur</span></code>.
+In addition, we can either define <code class="docutils literal notranslate"><span class="pre">sustain</span></code> or <code class="docutils literal notranslate"><span class="pre">legato</span></code> but it does not really make sense to define them both because if <code class="docutils literal notranslate"><span class="pre">sustain</span></code> is defined, then the value of <code class="docutils literal notranslate"><span class="pre">legato</span></code> has no effect.
+This is not true for the duration <code class="docutils literal notranslate"><span class="pre">dur</span></code>, since it is not only used to compute <code class="docutils literal notranslate"><span class="pre">sustain</span></code> (if it is undefined).</p>
 <div class="remark admonition" id="remark-sound-influencer">
 <p class="admonition-title">Sound Influencer</p>
 <p><code class="docutils literal notranslate"><span class="pre">legato</span></code> and <code class="docutils literal notranslate"><span class="pre">sustain</span></code> do not influence the scheduling but the sound generated by the event!</p>
 </div>
 <p>What does <code class="docutils literal notranslate"><span class="pre">lag</span></code> mean?
-Well, <code class="docutils literal notranslate"><span class="pre">lag</span></code> (<span class="math notranslate nohighlight">\(\Delta t_l\)</span>) is a delay for the scheduler, i.e., scheduled events <em>lag</em> behind.
+Well, <code class="docutils literal notranslate"><span class="pre">lag</span></code> <span class="math notranslate nohighlight">\(\Delta t_l\)</span> is a delay for the scheduler, i.e., scheduled events <em>lag</em> behind.
 The effect is that the sound generated by consecutive events will just start <em>lag</em> bps later.</p>
 <div class="figure align-default" id="fig-event-timing">
 <a class="reference internal image-reference" href="../../../_images/event-timing.png"><img alt="../../../_images/event-timing.png" src="../../../_images/event-timing.png" style="width: 400px;" /></a>
@@ -960,64 +972,130 @@ The effect is that the sound generated by consecutive events will just start <em
 Then for all <span class="math notranslate nohighlight">\(1 \leq i &lt; m\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-    t_{e_{i+1}} = t_{e_i} + \Delta t_{e_i} = t_l + \Delta t_{e_1} + \ldots + \Delta t_{e_{i}}
+    t_{{i+1}} = t_{i} + \Delta t_{i} = t_0 + \Delta t_l + \Delta t_{1} + \ldots + \Delta t_{i}
 \end{equation*}\]</div>
-<p>holds.</p>
+<p>holds, where <span class="math notranslate nohighlight">\(t_0\)</span> is the time when the whole sequence got scheduled.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">//2-second pause before the event is played</span>
 <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">,</span> <span class="ss">\lag</span><span class="o">:</span> <span class="mi">2</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>One very specific argument one can use is <code class="docutils literal notranslate"><span class="pre">\strum</span></code>.
+It breaks a chord into multiple single notes which can be very handy.
+The default value is 0, i.e., no delay.
+In the following we play two chords two times but each note is delayed by 0.1 beats.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">Pbind</span><span class="p">(</span>
+    <span class="ss">\note</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([[</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="ss">\strum</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span>
+<span class="p">).</span><span class="nx">play</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">\strum</span></code> does not influence <code class="docutils literal notranslate"><span class="pre">\dur</span></code> that is the next event will start at a time independent of the value of <code class="docutils literal notranslate"><span class="pre">\strum</span></code>.
+You can hear this if we increase the value to 0.5.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">Pbind</span><span class="p">(</span>
+    <span class="ss">\note</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([[</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]],</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="ss">\strum</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="p">).</span><span class="nx">play</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In that case, you can hear that the notes 7, 0 and 10, 3 are played simultaniously since the next even starts after the notes -7 and 3 are played!</p>
 <p>We will see the effect of the different timing parameters later on when we actually play a stream of events.</p>
 </div>
 <div class="section" id="pitch">
 <h3>Pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">#</a></h3>
 <p>As already mentioned, we do not have to work with frequencies.
-In fact, there are many ways to define the pitch of the event, i.e., the played synth, and many of them are more relevant for musicians who are used to them.
-I am not entirely familiar with all the concepts, so I will not provide a complete picture.</p>
-<p>One of the concepts is the so-called midi notes.
-This system assigns ascending numbers to the keys of a piano.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="ss">\midinote</span><span class="o">:</span> <span class="mi">60</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+In fact, there are many ways to define the pitch of the event, i.e., the played synth, and many of them are more relevant for musicians who are used to them.</p>
+<p>One of the concepts is the so-called <em>midi notes</em>.
+It is baked into <a class="reference internal" href="../communication/1-midi.html#sec-midi"><span class="std std-ref">MIDI</span></a>.
+This system assigns ascending numbers to the keys of a piano, defining C3 to be the midi note 60.
+The argument works together with <code class="docutils literal notranslate"><span class="pre">\ctranspose</span></code> and <code class="docutils literal notranslate"><span class="pre">\harmonics</span></code>.
+<code class="docutils literal notranslate"><span class="pre">\ctranspose</span></code> is added to <code class="docutils literal notranslate"><span class="pre">\midinote</span></code>.
+The overall formula looks like the following:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="na">freq:</span> <span class="o">#</span><span class="p">{</span>
+    <span class="p">(</span><span class="o">~</span><span class="nx">midinote</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="o">~</span><span class="nx">ctranspose</span><span class="p">).</span><span class="nx">midicps</span> <span class="o">*</span> <span class="o">~</span><span class="nx">harmonic</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
+<p>We can add an additional detune to the frequency since the final detuned frequency that is sent to the synth is in fact <code class="docutils literal notranslate"><span class="pre">detunedFreq</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="na">detunedFreq:</span> <span class="o">#</span><span class="p">{</span>
+    <span class="o">~</span><span class="nx">freq</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="o">~</span><span class="nx">detune</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We could set <code class="docutils literal notranslate"><span class="pre">detune</span></code> to a high value, but to keep things clean, one should use the arguments as they are intended such that others and the future you and I can keep up with the code!
+Variable and argument names matter; they should mean something.</p>
 <p>The function/message <code class="docutils literal notranslate"><span class="pre">midicps</span></code> transforms a midi note into its frequency.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">60</span><span class="p">.</span><span class="nx">midicps</span> <span class="c1">// 261.6255653006</span>
-<span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">60</span><span class="p">.</span><span class="nx">midicps</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>We can also work with a scale and construct from it a note using its degree and its octave.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="ss">\scale</span><span class="o">:</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">,</span> <span class="ss">\degree</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">\octave</span><span class="o">:</span> <span class="mi">4</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> defines how many <code class="docutils literal notranslate"><span class="pre">note</span></code> units map onto the octave.
-It supports non-12ET temperaments.
-For the default of 12 <code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> (western music).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> 
-    <span class="ss">\scale</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">],</span> 
-    <span class="ss">\degree</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> 
-    <span class="ss">\octave</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="ss">\stepsPerOctave</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="ss">\mtranspose</span><span class="o">:</span> <span class="mi">3</span>
-<span class="p">).</span><span class="nx">play</span>
+    <span class="ss">\midinote</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span>
+    <span class="ss">\ctranspose</span><span class="o">:</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span>
+    <span class="ss">\harmonic</span><span class="o">:</span> <span class="mi">3</span>
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>we can compute the midi note by the following formula</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="ss">\stepsPerOctave</span> <span class="o">*</span> <span class="ss">\octave</span> <span class="o">+</span> <span class="ss">\scale</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="ss">\degree</span> <span class="o">+</span> <span class="ss">\mtranspose</span><span class="p">)</span>
+<p>Is equivalent to</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="p">(</span><span class="ss">\instrument</span><span class="o">:</span> <span class="ss">\default</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="mf">0.5</span><span class="p">,</span> 
+    <span class="ss">\freq</span><span class="o">:</span> <span class="p">(</span><span class="mi">60</span><span class="o">-</span><span class="mi">6</span><span class="p">).</span><span class="nx">midicps</span> <span class="o">*</span> <span class="mi">3</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>i.e.</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-    12 \cdot 4 + 11 = 59
-\end{equation*}\]</div>
-<p>This does not work if we introduce other values for <code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> or manipulate the <code class="docutils literal notranslate"><span class="pre">octaveRatio</span></code>.
-If you are interested in the exact computation, have a look at the source code of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class.</p>
+<p>We can also use the <a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic note index</span></a> <code class="docutils literal notranslate"><span class="pre">\note</span></code> to compute the <code class="docutils literal notranslate"><span class="pre">\midinote</span></code>, which is handy if we do not want to work with midi notation but with a more musical-related notation that gives us a more flexible way to change certain properties of a note, e.g., the root and the specific octave we are playing it in.
+By default <code class="docutils literal notranslate"><span class="pre">\note:</span> <span class="pre">0</span></code> maps to <code class="docutils literal notranslate"><span class="pre">\midinote:</span> <span class="pre">60</span></code>, i.e., C3.
+The following formula shows the exact relationship:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="na">midinote:</span> <span class="o">#</span><span class="p">{</span>    <span class="c1">// midinote is the midinote (continuous intermediate values)</span>
+    <span class="p">((</span><span class="o">~</span><span class="nx">note</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="o">~</span><span class="nx">gtranspose</span> <span class="o">+</span> <span class="o">~</span><span class="nx">root</span><span class="p">)</span> <span class="o">/</span> <span class="o">~</span><span class="nx">stepsPerOctave</span> <span class="o">+</span> <span class="o">~</span><span class="nx">octave</span><span class="p">)</span> <span class="o">*</span> <span class="mf">12.0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If undefined <code class="docutils literal notranslate"><span class="pre">~stepsPerOctave</span></code> is 12 (<a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic scale</span></a> in Western music).</p>
+<p>We can be even more abstract and use a specific <a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-scales-and-keys"><span class="std std-ref">scale</span></a> instead of the chromatic one.
+In that case, we can specify the <code class="docutils literal notranslate"><span class="pre">\degree</span></code> within a scale.
+The combination of <code class="docutils literal notranslate"><span class="pre">\degree</span></code> and scale gives us a specific <code class="docutils literal notranslate"><span class="pre">\note</span></code>.
+In practice, we could define a <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> using a certain key.
+Then we could play the whole pattern in another key by changing its scale.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="na">note:</span> <span class="o">#</span><span class="p">{</span>
+    <span class="p">(</span><span class="o">~</span><span class="nx">degree</span> <span class="o">+</span> <span class="o">~</span><span class="nx">mtranspose</span><span class="p">).</span><span class="nx">degreeToKey</span><span class="p">(</span><span class="o">~</span><span class="nx">scale</span><span class="p">,</span> <span class="o">~</span><span class="nx">stepsPerOctave</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">stepsPerOctave</span></code> defines how many <code class="docutils literal notranslate"><span class="pre">note</span></code> units map onto the octave.
+It supports <em>non-12ET temperaments</em>.
+I will not go into the details here.
+<code class="docutils literal notranslate"><span class="pre">\mtranspose</span></code> shifts/rotates the intervals of the scale combined with a shift of the root note.
+Therefore, we generate a different <a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-modes"><span class="std std-ref">mode</span></a>.
+For example, if you want to play in the <em>key of A minor</em> (<strong>Am</strong>) you can do so by choosing the minor scale and a <code class="docutils literal notranslate"><span class="pre">\root</span></code> of -3 or +9.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">Pbind</span><span class="p">(</span>
+    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
+    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> 
+    <span class="ss">\amp</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">minor</span><span class="p">,</span>        <span class="c1">// minor</span>
+    <span class="ss">\degree</span><span class="p">,</span> <span class="nc">Pseries</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="ss">\root</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span>                   <span class="c1">// A</span>
+<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are interested in more details, have a look at the source code of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class and its <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">documentation</a>.
+Furthermore, in chapter <a class="reference internal" href="../../composing/music-theory/music-theory.html#sec-music-theory"><span class="std std-ref">Music Theory</span></a>, I give an overview of the basic principles of music theory with examples using SuperCollider.</p>
+<div class="figure align-default" id="fig-pitch-conversion">
+<a class="reference internal image-reference" href="../../../_images/pitch-conversion.png"><img alt="../../../_images/pitch-conversion.png" src="../../../_images/pitch-conversion.png" style="width: 800px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Overview of the pitch conversion. Source: <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">SC documentation</a>.</span><a class="headerlink" href="#fig-pitch-conversion" title="Permalink to this image">#</a></p>
+</div>
 </div>
 <div class="section" id="amplitude">
 <h3>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">#</a></h3>
-<p>The amplitude can be defined by either <code class="docutils literal notranslate"><span class="pre">amp</span></code> or <code class="docutils literal notranslate"><span class="pre">db</span></code> (decibel).
-<code class="docutils literal notranslate"><span class="pre">amp</span></code> has a higher prioritization.</p>
+<p>The amplitude can be defined by either <code class="docutils literal notranslate"><span class="pre">\amp</span></code> or <code class="docutils literal notranslate"><span class="pre">\db</span></code> (decibel).
+<code class="docutils literal notranslate"><span class="pre">\amp</span></code> has a higher prioritization and will override <code class="docutils literal notranslate"><span class="pre">\db</span></code>.</p>
 <p>Both of the following code lines generate a sound of equal amplitude.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span> <span class="ss">\amp</span><span class="o">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="nx">dbamp</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">(</span><span class="ss">\dur</span><span class="o">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="ss">\freq</span><span class="o">:</span> <span class="mi">600</span><span class="p">,</span> <span class="ss">\db</span><span class="o">:</span> <span class="o">-</span><span class="mi">3</span><span class="p">).</span><span class="nx">play</span><span class="p">;</span>
@@ -1027,13 +1105,20 @@ If you are interested in the exact computation, have a look at the source code o
 <p class="admonition-title">Amplitude in Decibel</p>
 <p><code class="docutils literal notranslate"><span class="pre">\db:</span> <span class="pre">0</span></code> equals <code class="docutils literal notranslate"><span class="pre">\amp:</span> <span class="pre">1.0</span></code>.</p>
 </div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">\db</span></code> is a logarithmic unit used to measure sound level.
+Doubling the amplitude is approximately equal to adding 3 db.^</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">6</span><span class="p">.</span><span class="nx">dpamp</span>    <span class="c1">// 0.50118723362727</span>
+<span class="mi">0</span><span class="p">.</span><span class="nx">dbamp</span>     <span class="c1">// 1.0</span>
+<span class="mi">6</span><span class="p">.</span><span class="nx">dbamp</span>     <span class="c1">// 1.9952623149689</span>
+<span class="mi">12</span><span class="p">.</span><span class="nx">dbamp</span>    <span class="c1">// 3.981071705535</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="custom-instrument">
 <h2>Custom Instrument<a class="headerlink" href="#custom-instrument" title="Permalink to this headline">#</a></h2>
-<p>Of course, we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., custom instrument.
-To use all the excellent predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments, and we have to name them as intended.
-For the rest of this section, we work with the following synth:</p>
+<p>Of course, we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., a custom instrument.
+To utilize all the excellent predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments, and we have to name them as intended.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\snare</span><span class="p">,{</span><span class="kd">arg</span> <span class="nx">hcutoff</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">,</span> <span class="nx">lcutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">1.4</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">hat</span><span class="p">,</span> <span class="nx">bass</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
@@ -1063,7 +1148,7 @@ For the rest of this section, we work with the following synth:</p>
 <span class="o">~</span><span class="nx">snare</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that the frequency argument should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, the amplitude argument should be called <code class="docutils literal notranslate"><span class="pre">amp,</span> </code> and the gate should be called <code class="docutils literal notranslate"><span class="pre">gate</span></code>.
+<p>Note that the frequency argument should be called <code class="docutils literal notranslate"><span class="pre">freq</span></code>, the amplitude argument should be called <code class="docutils literal notranslate"><span class="pre">amp</span></code>, and the gate should be called <code class="docutils literal notranslate"><span class="pre">gate</span></code>.
 This is crucial.
 Otherwise, we can not make use of the full potential of SuperCollider’s pattern library.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>

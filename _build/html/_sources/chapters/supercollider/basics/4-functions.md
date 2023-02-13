@@ -152,7 +152,7 @@ h.(5); // f(g(5)) = (2*5)^2 = 10 * 10 = 100
 ## A Common Pitfall
 
 A common error to make, which is hard to spot, is when we generate multiple duplicates, but we want to duplicate the evaluation of a function rather than its return value.
-For example, let us create an [Array]() with five random values:
+For example, let us create an [Array](sec-array) with five random values:
 
 ```isc
 // all values are identical
