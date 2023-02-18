@@ -1,6 +1,9 @@
 (sec-chords)=
 # Chords
 
+An interval is defined by exaclty two notes.
+Adding one additional note makes a chord.
+
 Similar to diatonic scale where notes are numbered from one to seven, we also use numbers to denote the position of a chord relative to its key (e.g. scale of key E).
 The most prominant chords called *triads* consist of three notes, where we start at some note and take two times every other note.
 In other words, chords are fully defined by the used *key* and a combination of degrees (*scale note positions*).
