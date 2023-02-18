@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Musical Event &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -514,13 +515,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/1-intervals.html">
+    <a class="reference internal" href="../../composing/music-theory/1-midinotes.html">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="../../composing/music-theory/3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -529,13 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="../../composing/music-theory/6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -804,7 +810,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="musical-event">
+  <section class="tex2jax_ignore mathjax_ignore" id="musical-event">
 <span id="sec-playing-events"></span><h1>Musical Event<a class="headerlink" href="#musical-event" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> is an important <code class="docutils literal notranslate"><span class="pre">Pattern</span></code>.
 It models the process of playing an instrument by discrete events in time, realizing a discrete event simulation (DES).
@@ -870,7 +876,7 @@ They are split into partial events:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Event</span><span class="p">.</span><span class="nx">partialEvents</span><span class="p">.</span><span class="nx">postln</span><span class="p">;</span>
 </pre></div>
 </div>
-<div class="section" id="the-default-instrument">
+<section id="the-default-instrument">
 <span id="sec-default-instrument"></span><h2>The Default Instrument<a class="headerlink" href="#the-default-instrument" title="Permalink to this headline">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">instrument</span></code> is a <em>default</em> instrument called <code class="docutils literal notranslate"><span class="pre">\default</span></code> that is built into SuperCollider.
 We can find it in the source code of the <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Event</a> class.
@@ -896,8 +902,8 @@ Let us have a look:</p>
 Two slightly detuned waves are generated and mixed a single channel which is then panned into both speakers.</p>
 <p>The cutoff frequency of the <a class="reference internal" href="../../sounddesign/filters/4-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">low pass filter</span></a> decreases over the time span of 1 second and is initialized with random values.
 By decreasing the cutoff frequency over time, high frequencies die out faster which is natural.</p>
-</div>
-<div class="section" id="value-conversions">
+</section>
+<section id="value-conversions">
 <span id="sec-value-conversion"></span><h2>Value Conversions<a class="headerlink" href="#value-conversions" title="Permalink to this headline">#</a></h2>
 <p>Playing events with <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> (or <code class="docutils literal notranslate"><span class="pre">Pbindef</span></code>) using other patterns is a compelling but also inviting challenge.
 In my opinion, the main difficulty stems from the fact that each argument of the synth (and/or the <code class="docutils literal notranslate"><span class="pre">play</span></code> method) is defined by its own mostly independent stream of numbers.
@@ -922,7 +928,7 @@ For example, a synth only knows frequencies, but you do not have to think in ter
 Instead, you can think in terms of midi notes, and the event player will transform your midi note into the respective frequency.
 Of course, defining midi note and simultaneously frequency does not really make sense.
 SuperCollider will always take the most substantial value, e.g., frequency over the midi note.</p>
-<div class="section" id="timing">
+<section id="timing">
 <h3>Timing<a class="headerlink" href="#timing" title="Permalink to this headline">#</a></h3>
 <p>First of all, time is measured in beats per second (bps), and events are scheduled on a specific <a class="reference external" href="https://doc.sccode.org/Tutorials/Getting-Started/14-Scheduling-Events.html">TempoClock</a> that runs at a particular bps.
 The default clock runs at 60 beats per second.
@@ -964,10 +970,12 @@ This is not true for the duration <code class="docutils literal notranslate"><sp
 <p>What does <code class="docutils literal notranslate"><span class="pre">lag</span></code> mean?
 Well, <code class="docutils literal notranslate"><span class="pre">lag</span></code> <span class="math notranslate nohighlight">\(\Delta t_l\)</span> is a delay for the scheduler, i.e., scheduled events <em>lag</em> behind.
 The effect is that the sound generated by consecutive events will just start <em>lag</em> bps later.</p>
-<div class="figure align-default" id="fig-event-timing">
+<figure class="align-default" id="fig-event-timing">
 <a class="reference internal image-reference" href="../../../_images/event-timing.png"><img alt="../../../_images/event-timing.png" src="../../../_images/event-timing.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the timings of three scheduled events.</span><a class="headerlink" href="#fig-event-timing" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Example of the timings of three scheduled events.</span><a class="headerlink" href="#fig-event-timing" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Let <span class="math notranslate nohighlight">\(e_1, \ldots, e_m\)</span> be the <span class="math notranslate nohighlight">\(m\)</span> scheduled events.
 Then for all <span class="math notranslate nohighlight">\(1 \leq i &lt; m\)</span></p>
 <div class="amsmath math notranslate nohighlight">
@@ -1007,8 +1015,8 @@ You can hear this if we increase the value to 0.5.</p>
 </div>
 <p>In that case, you can hear that the notes 7, 0 and 10, 3 are played simultaniously since the next even starts after the notes -7 and 3 are played!</p>
 <p>We will see the effect of the different timing parameters later on when we actually play a stream of events.</p>
-</div>
-<div class="section" id="pitch">
+</section>
+<section id="pitch">
 <h3>Pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">#</a></h3>
 <p>As already mentioned, we do not have to work with frequencies.
 In fact, there are many ways to define the pitch of the event, i.e., the played synth, and many of them are more relevant for musicians who are used to them.</p>
@@ -1048,7 +1056,7 @@ Variable and argument names matter; they should mean something.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>We can also use the <a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic note index</span></a> <code class="docutils literal notranslate"><span class="pre">\note</span></code> to compute the <code class="docutils literal notranslate"><span class="pre">\midinote</span></code>, which is handy if we do not want to work with midi notation but with a more musical-related notation that gives us a more flexible way to change certain properties of a note, e.g., the root and the specific octave we are playing it in.
+<p>We can also use the <a class="reference internal" href="../../composing/music-theory/3-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic note index</span></a> <code class="docutils literal notranslate"><span class="pre">\note</span></code> to compute the <code class="docutils literal notranslate"><span class="pre">\midinote</span></code>, which is handy if we do not want to work with midi notation but with a more musical-related notation that gives us a more flexible way to change certain properties of a note, e.g., the root and the specific octave we are playing it in.
 By default <code class="docutils literal notranslate"><span class="pre">\note:</span> <span class="pre">0</span></code> maps to <code class="docutils literal notranslate"><span class="pre">\midinote:</span> <span class="pre">60</span></code>, i.e., C3.
 The following formula shows the exact relationship:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="na">midinote:</span> <span class="o">#</span><span class="p">{</span>    <span class="c1">// midinote is the midinote (continuous intermediate values)</span>
@@ -1056,8 +1064,8 @@ The following formula shows the exact relationship:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>If undefined <code class="docutils literal notranslate"><span class="pre">~stepsPerOctave</span></code> is 12 (<a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic scale</span></a> in Western music).</p>
-<p>We can be even more abstract and use a specific <a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-scales-and-keys"><span class="std std-ref">scale</span></a> instead of the chromatic one.
+<p>If undefined <code class="docutils literal notranslate"><span class="pre">~stepsPerOctave</span></code> is 12 (<a class="reference internal" href="../../composing/music-theory/3-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic scale</span></a> in Western music).</p>
+<p>We can be even more abstract and use a specific <span class="xref myst">scale</span> instead of the chromatic one.
 In that case, we can specify the <code class="docutils literal notranslate"><span class="pre">\degree</span></code> within a scale.
 The combination of <code class="docutils literal notranslate"><span class="pre">\degree</span></code> and scale gives us a specific <code class="docutils literal notranslate"><span class="pre">\note</span></code>.
 In practice, we could define a <code class="docutils literal notranslate"><span class="pre">Pbind</span></code> using a certain key.
@@ -1071,7 +1079,7 @@ Then we could play the whole pattern in another key by changing its scale.</p>
 It supports <em>non-12ET temperaments</em>.
 I will not go into the details here.
 <code class="docutils literal notranslate"><span class="pre">\mtranspose</span></code> shifts/rotates the intervals of the scale combined with a shift of the root note.
-Therefore, we generate a different <a class="reference internal" href="../../composing/music-theory/2-scales.html#sec-modes"><span class="std std-ref">mode</span></a>.
+Therefore, we generate a different <a class="reference internal" href="../../composing/music-theory/3-scales.html#sec-modes"><span class="std std-ref">mode</span></a>.
 For example, if you want to play in the <em>key of A minor</em> (<strong>Am</strong>) you can do so by choosing the minor scale and a <code class="docutils literal notranslate"><span class="pre">\root</span></code> of -3 or +9.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbind</span><span class="p">(</span>
@@ -1087,12 +1095,14 @@ For example, if you want to play in the <em>key of A minor</em> (<strong>Am</str
 </div>
 <p>If you are interested in more details, have a look at the source code of the <code class="docutils literal notranslate"><span class="pre">Event</span></code> class and its <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">documentation</a>.
 Furthermore, in chapter <a class="reference internal" href="../../composing/music-theory/music-theory.html#sec-music-theory"><span class="std std-ref">Music Theory</span></a>, I give an overview of the basic principles of music theory with examples using SuperCollider.</p>
-<div class="figure align-default" id="fig-pitch-conversion">
+<figure class="align-default" id="fig-pitch-conversion">
 <a class="reference internal image-reference" href="../../../_images/pitch-conversion.png"><img alt="../../../_images/pitch-conversion.png" src="../../../_images/pitch-conversion.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Overview of the pitch conversion. Source: <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">SC documentation</a>.</span><a class="headerlink" href="#fig-pitch-conversion" title="Permalink to this image">#</a></p>
-</div>
-</div>
-<div class="section" id="amplitude">
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Overview of the pitch conversion. Source: <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">SC documentation</a>.</span><a class="headerlink" href="#fig-pitch-conversion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="amplitude">
 <h3>Amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">#</a></h3>
 <p>The amplitude can be defined by either <code class="docutils literal notranslate"><span class="pre">\amp</span></code> or <code class="docutils literal notranslate"><span class="pre">\db</span></code> (decibel).
 <code class="docutils literal notranslate"><span class="pre">\amp</span></code> has a higher prioritization and will override <code class="docutils literal notranslate"><span class="pre">\db</span></code>.</p>
@@ -1113,9 +1123,9 @@ Doubling the amplitude is approximately equal to adding 3 db.^</p>
 <span class="mi">12</span><span class="p">.</span><span class="nx">dbamp</span>    <span class="c1">// 3.981071705535</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="custom-instrument">
+</section>
+</section>
+<section id="custom-instrument">
 <h2>Custom Instrument<a class="headerlink" href="#custom-instrument" title="Permalink to this headline">#</a></h2>
 <p>Of course, we can use our own <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e., a custom instrument.
 To utilize all the excellent predefined parameters, our <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> has to use the correct arguments, and we have to name them as intended.</p>
@@ -1182,8 +1192,8 @@ We can change this default behavior by setting our own <code class="docutils lit
 However, we need <code class="docutils literal notranslate"><span class="pre">dur</span></code> if we not only play one event but a <code class="docutils literal notranslate"><span class="pre">Stream</span></code> of events!
 Remember, <code class="docutils literal notranslate"><span class="pre">dur</span></code> influences the scheduler of our musical events.
 We can see the effect if we play a stream of events.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1197,7 +1207,7 @@ We can see the effect if we play a stream of events.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/supercollider/pattern"
         },
         predefinedOutput: true

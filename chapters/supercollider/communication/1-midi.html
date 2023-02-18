@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Musical Instrument Digital Interface &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -514,13 +515,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/1-intervals.html">
+    <a class="reference internal" href="../../composing/music-theory/1-midinotes.html">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="../../composing/music-theory/3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -529,13 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="../../composing/music-theory/6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -780,14 +786,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="musical-instrument-digital-interface">
+  <section class="tex2jax_ignore mathjax_ignore" id="musical-instrument-digital-interface">
 <span id="sec-midi"></span><h1>Musical Instrument Digital Interface<a class="headerlink" href="#musical-instrument-digital-interface" title="Permalink to this headline">#</a></h1>
 <p>In the article <a class="reference external" href="https://web.archive.org/web/20120830211425/http://www.doc.ic.ac.uk/~nd/surprise_97/journal/vol1/aps2/">An introduction to MIDI</a>, <em>Andrew Swift</em> states that the musical instrument digital interface is a technical standard (a sort of agreement) that describes a communications protocol, digital interface, and electrical connectors that connect a wide variety of electronic musical instruments, computers, and related audio devices for playing, editing, and recording music.</p>
 <p>If a modern music producer presses a key on his MIDI device, such as a keyboard or launchpad, she sends a piece of information directly to the computer.
 I have a little keyboard that I can connect to my computer via USB, and if I press a key on the keyboard, that is exactly what happens.
 However, since no program is listening to incoming MIDI commands, nothing is happening.
 If I start a digital workstation such as <a class="reference external" href="https://tytel.org/helm/">Helm</a> (after I connect my MIDI device to my computer), the application reacts to me playing the keyboard.</p>
-<div class="section" id="listening-to-midi-messages">
+<section id="listening-to-midi-messages">
 <h2>Listening to MIDI-messages<a class="headerlink" href="#listening-to-midi-messages" title="Permalink to this headline">#</a></h2>
 <p>SuperCollider is perfectly capable to listen to incoming MIDI-commands:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// Connect SuperCollider to all possible MIDI-devices of this computer</span>
@@ -820,8 +826,8 @@ MIDI messages/commands are made up of 8-bit words (1 byte) that are transmitted 
 A message consists of a status byte, which indicates the type of the message, followed by up to two data bytes that contain the parameters.</p>
 <p>There are five types, but here we are only looking at the <em>channel voice message</em> since they can be used to control our instrument by transmitting real-time performance data over a single channel, i.e., to all devices listening to that channel.
 MIDI notes are numbered from 0 to 127 assigned to <span class="math notranslate nohighlight">\(\text{C}_{-1}\)</span> to <span class="math notranslate nohighlight">\(\text{G}_9\)</span> corresponding to a range of <span class="math notranslate nohighlight">\(8.175799\)</span> to <span class="math notranslate nohighlight">\(12543.85\)</span> Hz (assuming equal temperament and 440 Hz for <span class="math notranslate nohighlight">\(\text{A}_4\)</span>).</p>
-</div>
-<div class="section" id="playing-a-non-sustaining-synth">
+</section>
+<section id="playing-a-non-sustaining-synth">
 <h2>Playing a Non-Sustaining Synth<a class="headerlink" href="#playing-a-non-sustaining-synth" title="Permalink to this headline">#</a></h2>
 <p>Now let us suppose we have the following percussive synth defined by the following <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -850,8 +856,8 @@ We can use the <code class="docutils literal notranslate"><span class="pre">MIDI
 </pre></div>
 </div>
 <p>We are perfectly capable of playing multiple notes without a problem since we can forget about the synth after it is scheduled on the audio server because it will be automatically destroyed by the <code class="docutils literal notranslate"><span class="pre">doneAction:</span> <span class="pre">Done.freeSelf</span></code> configuration.</p>
-</div>
-<div class="section" id="playing-sustainable-synth">
+</section>
+<section id="playing-sustainable-synth">
 <h2>Playing Sustainable Synth<a class="headerlink" href="#playing-sustainable-synth" title="Permalink to this headline">#</a></h2>
 <p>If we wanna control the length of a note via keyboard we need a sustaining envelope within the <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>.
 Let us change the definition accordingly.
@@ -904,15 +910,15 @@ The MIDI key numbers on my keyboard range from 0 to 120.</p>
 </pre></div>
 </div>
 <p>I use 127 here since this will give us <span class="math notranslate nohighlight">\(2^7\)</span> possibilities, guessing that <code class="docutils literal notranslate"><span class="pre">num</span></code> is expressed via 7 bit.</p>
-</div>
-<div class="section" id="beyond-playing-synths">
+</section>
+<section id="beyond-playing-synths">
 <h2>Beyond Playing Synths<a class="headerlink" href="#beyond-playing-synths" title="Permalink to this headline">#</a></h2>
 <p>We can, of course, bind the MIDI note to anything.
 For example, we could use different octaves for different synths.
 We could also trigger specific patterns using our MIDI device.
 The limits are our imaginations.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -926,7 +932,7 @@ The limits are our imaginations.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/supercollider/communication"
         },
         predefinedOutput: true

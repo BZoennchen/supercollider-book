@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Control Filters &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -512,13 +513,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/1-intervals.html">
+    <a class="reference internal" href="../../composing/music-theory/1-midinotes.html">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="../../composing/music-theory/3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -527,13 +538,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="../../composing/music-theory/6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -758,9 +764,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="control-filters">
+  <section class="tex2jax_ignore mathjax_ignore" id="control-filters">
 <h1>Control Filters<a class="headerlink" href="#control-filters" title="Permalink to this headline">#</a></h1>
-<div class="section" id="lag">
+<section id="lag">
 <span id="sec-lag"></span><h2>Lag<a class="headerlink" href="#lag" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="http://doc.sccode.org/Classes/Lag.html">Lag</a> unit generator is similar to <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> but it has a more meaningful parameter, called <code class="docutils literal notranslate"><span class="pre">lagTime</span></code>.
 I do not yet fully understand what it means but basically it is the time frame for which the signal should be smoothen.</p>
@@ -775,10 +781,12 @@ Our frequency is 10 Hz and our <code class="docutils literal notranslate"><span 
 </pre></div>
 </div>
 <p>This gives us the following plot.</p>
-<div class="figure align-default" id="fig-lag-and-onepole">
+<figure class="align-default" id="fig-lag-and-onepole">
 <a class="reference internal image-reference" href="../../../_images/lag-and-onepole.png"><img alt="../../../_images/lag-and-onepole.png" src="../../../_images/lag-and-onepole.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-lag-and-onepole" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-lag-and-onepole" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Since <code class="docutils literal notranslate"><span class="pre">Lag</span></code> is often used to smoothen changing parameters, for example in a performance, SuperCollider offers us a syntactical shorthand:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">LFNoise0</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
 </pre></div>
@@ -789,12 +797,14 @@ As we increase the <code class="docutils literal notranslate"><span class="pre">
 <span class="p">{</span><span class="mf">3.8</span><span class="o">*</span><span class="nc">Lag</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">+</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">40</span><span class="p">),</span> <span class="na">lagTime:</span> <span class="mi">300</span><span class="o">/</span><span class="mi">440</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="fig-lag-filtering">
+<figure class="align-default" id="fig-lag-filtering">
 <a class="reference internal image-reference" href="../../../_images/lag-filtering.png"><img alt="../../../_images/lag-filtering.png" src="../../../_images/lag-filtering.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">A signal consisting of 440 HZ and 40 Hz partial (left) filtered by <code class="docutils literal notranslate"><span class="pre">Lag</span></code> (right).</span><a class="headerlink" href="#fig-lag-filtering" title="Permalink to this image">#</a></p>
-</div>
-</div>
-<div class="section" id="varlag">
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">A signal consisting of 440 HZ and 40 Hz partial (left) filtered by <code class="docutils literal notranslate"><span class="pre">Lag</span></code> (right).</span><a class="headerlink" href="#fig-lag-filtering" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="varlag">
 <span id="sec-varlag"></span><h2>VarLag<a class="headerlink" href="#varlag" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="http://doc.sccode.org/Classes/VarLag.html">VarLag</a> is similar to <code class="docutils literal notranslate"><span class="pre">Lag</span></code> but with other curve shapes than exponential.
 However <code class="docutils literal notranslate"><span class="pre">VarLag</span></code> only works at control rate <code class="docutils literal notranslate"><span class="pre">kr</span></code>!
@@ -811,12 +821,14 @@ Compare the different shapes of the lag:</p>
 <span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="fig-var-lag">
+<figure class="align-default" id="fig-var-lag">
 <a class="reference internal image-reference" href="../../../_images/var-lag.png"><img alt="../../../_images/var-lag.png" src="../../../_images/var-lag.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 37 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-var-lag" title="Permalink to this image">#</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">A filtered random signal. First we apply <code class="docutils literal notranslate"><span class="pre">OnePole</span></code> and <code class="docutils literal notranslate"><span class="pre">Lag</span></code> which gives us roughly the same result.</span><a class="headerlink" href="#fig-var-lag" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -830,7 +842,7 @@ Compare the different shapes of the lag:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/sounddesign/filters"
         },
         predefinedOutput: true

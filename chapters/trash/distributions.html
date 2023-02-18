@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Random distributions &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -511,13 +512,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/1-intervals.html">
+    <a class="reference internal" href="../composing/music-theory/1-midinotes.html">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../composing/music-theory/2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="../composing/music-theory/3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../composing/music-theory/4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -526,13 +537,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="../composing/music-theory/6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -710,7 +716,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="random-distributions">
+  <section class="tex2jax_ignore mathjax_ignore" id="random-distributions">
 <span id="sec-distributions"></span><h1>Random distributions<a class="headerlink" href="#random-distributions" title="Permalink to this headline">#</a></h1>
 <p>In SuperCollider there are many build-in sampling functions.
 On the client side we can use those while on the server side, that is, within a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code> we have to use the respective <code class="docutils literal notranslate"><span class="pre">UGen</span></code> counterpart.
@@ -748,7 +754,7 @@ For example,</p>
 	<span class="p">}</span>
 </pre></div>
 </div>
-<p>so that we can plot the distribution to get some intuition. <a class="reference internal" href="#fig-plot-dists"><span class="std std-numref">Figure 56</span></a> shows the results of the following code:</p>
+<p>so that we can plot the distribution to get some intuition. <a class="reference internal" href="#fig-plot-dists"><span class="std std-numref">Figure 58</span></a> shows the results of the following code:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Utils</span><span class="p">.</span><span class="nx">histogram</span><span class="p">(</span> <span class="na">values:</span> <span class="p">{</span><span class="nx">rand</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)}</span><span class="o">!</span><span class="mi">1000000</span><span class="p">,</span> <span class="na">steps:</span> <span class="mi">100</span> <span class="p">).</span><span class="nx">plot</span><span class="p">(</span><span class="na">name:</span> <span class="s2">&quot;uniform&quot;</span><span class="p">);</span>
 <span class="nc">Utils</span><span class="p">.</span><span class="nx">histogram</span><span class="p">(</span> <span class="na">values:</span> <span class="p">{</span><span class="nx">linrand</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)}</span><span class="o">!</span><span class="mi">1000000</span><span class="p">,</span> <span class="na">steps:</span> <span class="mi">100</span> <span class="p">).</span><span class="nx">plot</span><span class="p">(</span><span class="na">name:</span> <span class="s2">&quot;linear&quot;</span><span class="p">);</span>
@@ -759,17 +765,19 @@ For example,</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="fig-plot-dists">
+<figure class="align-default" id="fig-plot-dists">
 <a class="reference internal image-reference" href="../../_images/plot-dists.png"><img alt="../../_images/plot-dists.png" src="../../_images/plot-dists.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 56 </span><span class="caption-text">Plot of a histogram of <code class="docutils literal notranslate"><span class="pre">rand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">linrand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">exprand(a,</span> <span class="pre">b)</span></code>, <code class="docutils literal notranslate"><span class="pre">bilinrand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">sum3rand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">gauss(x,</span> <span class="pre">sigma)</span></code>.</span><a class="headerlink" href="#fig-plot-dists" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 58 </span><span class="caption-text">Plot of a histogram of <code class="docutils literal notranslate"><span class="pre">rand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">linrand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">exprand(a,</span> <span class="pre">b)</span></code>, <code class="docutils literal notranslate"><span class="pre">bilinrand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">sum3rand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">gauss(x,</span> <span class="pre">sigma)</span></code>.</span><a class="headerlink" href="#fig-plot-dists" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The corresponding <code class="docutils literal notranslate"><span class="pre">UGen</span></code>s are called:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Rand</span></code>,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LinRand</span></code>, and</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ExpRand</span></code>.</p></li>
 </ul>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -783,7 +791,7 @@ For example,</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/trash"
         },
         predefinedOutput: true

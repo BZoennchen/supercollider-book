@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Frequency Modulation &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -514,13 +515,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/1-intervals.html">
+    <a class="reference internal" href="../composing/music-theory/1-midinotes.html">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../composing/music-theory/2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="../composing/music-theory/3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../composing/music-theory/4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -529,13 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../composing/music-theory/7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="../composing/music-theory/6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -810,7 +816,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="frequency-modulation">
+  <section class="tex2jax_ignore mathjax_ignore" id="frequency-modulation">
 <span id="sec-fm"></span><h1>Frequency Modulation<a class="headerlink" href="#frequency-modulation" title="Permalink to this headline">#</a></h1>
 <p>FM is the most common encoding technique for public radio transmission (hence <em>FM radio</em>).
 It uses frequencies that are out of the limits of human hearing.
@@ -833,22 +839,22 @@ He wanted to generate vibrato effects but noticed that when he increased the mod
 <p>Chowning pushed for commercial use but none of the American manufacturers saw the potential of FM.
 In desperation, Stanford turned to the Japanese manufacturer Yamaha.
 As a consequence of the success of <em>FM synthesis</em>, the company sold millions of FM synthesizers, organs and home keyboards.</p>
-<div class="section" id="theory">
+<section id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c2f48cd-d7b3-4fbe-8e73-b3c8457279c6">
-<span class="eqno">(83)<a class="headerlink" href="#equation-0c2f48cd-d7b3-4fbe-8e73-b3c8457279c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5156e82f-2a1e-4568-bbed-d3232c492578">
+<span class="eqno">(83)<a class="headerlink" href="#equation-5156e82f-2a1e-4568-bbed-d3232c492578" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-542ffbd0-2f33-4634-b758-13f57b5e999b">
-<span class="eqno">(84)<a class="headerlink" href="#equation-542ffbd0-2f33-4634-b758-13f57b5e999b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-75507ee2-87bf-404f-ad6b-65ef150d5301">
+<span class="eqno">(84)<a class="headerlink" href="#equation-75507ee2-87bf-404f-ad6b-65ef150d5301" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fac52e02-4b3f-4339-b679-58185bc7a255">
-<span class="eqno">(85)<a class="headerlink" href="#equation-fac52e02-4b3f-4339-b679-58185bc7a255" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3fd994d8-654e-49f8-bfc1-9be8da91e1f0">
+<span class="eqno">(85)<a class="headerlink" href="#equation-3fd994d8-654e-49f8-bfc1-9be8da91e1f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -857,8 +863,8 @@ Those numbers and their relation influence the generated sound fundamentally.
 We can also use different oscillators and modulate the frequency of the most outer oscillator by multiple modulators!</p>
 <p>FM is a very powerful technique to generate a rich spectrum in a very computational efficient way.
 Above we only use two oscillators but as you will see, we already achieve a quite complex spectrum.</p>
-</div>
-<div class="section" id="vibrato-sirens">
+</section>
+<section id="vibrato-sirens">
 <h2>Vibrato &amp; Sirens<a class="headerlink" href="#vibrato-sirens" title="Permalink to this headline">#</a></h2>
 <p>If the frequency of the modulator <span class="math notranslate nohighlight">\(f_{\text{mod}}\)</span> is small, than we achieve a so called <em>vibrato effect</em>.
 Try the following code snippet!</p>
@@ -909,8 +915,8 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 </pre></div>
 </div>
 <p>In this case, the vibration becomes a wobbling effect or siren-type sound.</p>
-</div>
-<div class="section" id="harmonic-relation">
+</section>
+<section id="harmonic-relation">
 <h2>Harmonic Relation<a class="headerlink" href="#harmonic-relation" title="Permalink to this headline">#</a></h2>
 <p>Let us look at this distortion by plotting <span class="math notranslate nohighlight">\(y(t)\)</span> for <span class="math notranslate nohighlight">\(f_{\text{car}} = f_{\text{mod}} = A_{\text{mod}} = \beta = 200\)</span>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -924,10 +930,12 @@ To make the distortion more prominent, we have to increase the amplitude of the 
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="fig-fm-cycle-high-freq">
+<figure class="align-default" id="fig-fm-cycle-high-freq">
 <a class="reference internal image-reference" href="../../_images/fm-cycle-high-freq.png"><img alt="../../_images/fm-cycle-high-freq.png" src="../../_images/fm-cycle-high-freq.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">One cycle of <span class="math notranslate nohighlight">\(y(t)\)</span> for a high frequency modulation frequency.</span><a class="headerlink" href="#fig-fm-cycle-high-freq" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>If we look at the stethoscope, we observe multiple sidebands, i.e., there are numerous frequencies apart from the fundamental frequency (which is equal to the carrier frequency) present.
 How many frequencies are present?
 Well, in theory, an infinite amount!
@@ -935,10 +943,12 @@ Fortunately, there is a formula for the frequencies <span class="math notranslat
 <div class="math notranslate nohighlight">
 \[f_{\text{sb},n^{\pm}} = f_{\text{car}} \pm n \cdot f_{\text{mod}},\]</div>
 <p>with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p>
-<div class="figure align-default" id="fig-fm-side-band-frequencies">
+<figure class="align-default" id="fig-fm-side-band-frequencies">
 <a class="reference internal image-reference" href="../../_images/fm-side-band-frequencies.png"><img alt="../../_images/fm-side-band-frequencies.png" src="../../_images/fm-side-band-frequencies.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Snapshot of the stethoscope using a logarithmic frequency scale (<span class="math notranslate nohighlight">\(x\)</span>-axis).</span><a class="headerlink" href="#fig-fm-side-band-frequencies" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>If we want to keep the same sideband relation for different carrier frequencies, we have to compute the <em>modulation frequency</em> based on the <em>carrier frequency</em>.
 In other words, we have to correlate these two frequencies.</p>
 <div class="remark admonition" id="remark-side-band-amplitude">
@@ -965,8 +975,8 @@ In other words, we have to correlate these two frequencies.</p>
 <span class="nc">Ndef</span><span class="p">(</span><span class="ss">\fm_low_mod</span><span class="p">).</span><span class="nx">gui</span><span class="p">;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sideband-amplitudes">
+</section>
+<section id="sideband-amplitudes">
 <h2>Sideband Amplitudes<a class="headerlink" href="#sideband-amplitudes" title="Permalink to this headline">#</a></h2>
 <p>The question is now: what about the amplitudes of the sidebands?
 We already observed what happens if the modulation frequency is low and we increase the modulator amplitude.
@@ -997,14 +1007,16 @@ This amplitude is given by the <em>Bessel function (of first kind)</em>:</p>
 <div class="math notranslate nohighlight">
 \[A_{ \text{sb},n^{\pm} } = J_n(\beta_\text{max}) = \sum^{\infty}_{k=0} \frac{ (-1)^k \cdot \left(\frac{\beta_\text{max}}{2}\right)^{n+2k} }{k! \cdot (n+k)!}.\]</div>
 <p>The series is a converging series and especially in our case where <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> is not too large, the values of each term become very small very quick.</p>
-<div class="figure align-default" id="fig-bessel-function">
+<figure class="align-default" id="fig-bessel-function">
 <a class="reference internal image-reference" href="../../_images/bessel-function.png"><img alt="../../_images/bessel-function.png" src="../../_images/bessel-function.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Plot of Bessel function of the first kind, <span class="math notranslate nohighlight">\(J_n(x)\)</span>, for integer orders <span class="math notranslate nohighlight">\(n = 0, 1, 2\)</span>.
 Figure made by Inductiveload - Own work, made with Inkscape, Public Domain, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=3564725">link</a>.</span><a class="headerlink" href="#fig-bessel-function" title="Permalink to this image">#</a></p>
-</div>
+</figcaption>
+</figure>
 <p>As we can see, <span class="math notranslate nohighlight">\(A_{ \text{sb},n^{\pm} }\)</span> depend only on <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> but oscillate for increasing <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span>!</p>
-</div>
-<div class="section" id="bandwidth">
+</section>
+<section id="bandwidth">
 <h2>Bandwidth<a class="headerlink" href="#bandwidth" title="Permalink to this headline">#</a></h2>
 <p>We stated that there are an infinite amount of sidebands.
 In practice, that is not the case.
@@ -1014,16 +1026,16 @@ As a rule of thump, the following formula gives an approximation of the bandwidt
 \[2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).\]</div>
 <p>Again the <em>modulation index</em> will determine the bandwidth.
 The larger the index, the larger the bandwidth.</p>
-</div>
-<div class="section" id="summary">
+</section>
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73ed4edc-8d30-41ae-bb50-cea3797f7365">
-<span class="eqno">(86)<a class="headerlink" href="#equation-73ed4edc-8d30-41ae-bb50-cea3797f7365" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b866b53c-f592-4e54-93fd-8b2d78876035">
+<span class="eqno">(86)<a class="headerlink" href="#equation-b866b53c-f592-4e54-93fd-8b2d78876035" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
 <p>The following example is an FM synth heavily inspired by the <a class="reference external" href="https://www.youtube.com/channel/UCypLRZiSlIQjsT_7J4Vz35Q/featured">tutorial</a> given by <a class="reference external" href="https://reflectives.bandcamp.com/track/ikaere">Alik Rustamoff</a>.
 It uses the relations above, but instead of using only one modulator, we use three.
@@ -1102,8 +1114,8 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1117,7 +1129,7 @@ Furthermore, we added some naturalization (distortion and more) to achieve a mor
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/sounddesign"
         },
         predefinedOutput: true

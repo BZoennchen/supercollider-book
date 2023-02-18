@@ -4,8 +4,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intervals &#8212; Algorithmic Composition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Notes &amp; Midi Notes &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Scales, Modes and Keys" href="2-scales.html" />
+    <link rel="next" title="Intervals" href="2-intervals.html" />
     <link rel="prev" title="Music Theory" href="music-theory.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -515,12 +516,22 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -529,13 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -652,7 +658,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/chapters/composing/music-theory/1-intervals.md"
+        <a href="../../../_sources/chapters/composing/music-theory/1-midinotes.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -712,31 +718,19 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequency-ratios">
-   Frequency Ratios
+  <a class="reference internal nav-link" href="#notes">
+   Notes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cents">
-   Cents
+  <a class="reference internal nav-link" href="#midi-notes">
+   Midi Notes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#naming-convention">
-   Naming Convention
+  <a class="reference internal nav-link" href="#conversion">
+   Conversion
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numbering">
-     Numbering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality">
-     Quality
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -747,7 +741,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Intervals</h1>
+                <h1>Notes & Midi Notes</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -758,31 +752,19 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequency-ratios">
-   Frequency Ratios
+  <a class="reference internal nav-link" href="#notes">
+   Notes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cents">
-   Cents
+  <a class="reference internal nav-link" href="#midi-notes">
+   Midi Notes
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#naming-convention">
-   Naming Convention
+  <a class="reference internal nav-link" href="#conversion">
+   Conversion
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#numbering">
-     Numbering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quality">
-     Quality
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -794,242 +776,98 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="intervals">
-<span id="sec-intervals"></span><h1>Intervals<a class="headerlink" href="#intervals" title="Permalink to this headline">#</a></h1>
-<p>If we push multiple piano keys, the color of the sound we perceive will be determined mainly by the relation between those keys, i.e., the generated <em>intervals</em>.
-In that regard, compared to the exact pitches, <em>intervals</em> are much more important.
-But instead of similarity we consider <em>consonant</em> and <em>dissonant</em> combinations of notes or more preceisly pitches.
-For example, pressing two consequitive piano keys result in vibration, i.e., both strings vibrate with a similar frequency but they cause dissonance!</p>
-<p>Building a beautiful melody revolves around finding a suitable sequence of a set interval of intervals.
-It is a play around <em>dissonance</em> and <em>consonance</em>, between building up tension and realsing it by coming home to the literal root.
-Intervals are, in fact, so crucial that musicians give certain intervals specific names and functionalities!</p>
-<p>An interval can be described as <em>vertical</em> or <strong>harmonic</strong> if the two notes sound simultaneously.
-If they sound successively we speak of <em>horizontal</em>, <em>linear</em> or <strong>melodic</strong> intervals.
-These can be <em>ascending</em> and <em>descending</em>.</p>
-<div class="section" id="frequency-ratios">
-<h2>Frequency Ratios<a class="headerlink" href="#frequency-ratios" title="Permalink to this headline">#</a></h2>
-<p>Since I am a computer scientist and not a musician I will start by looking at the relation of notes using my mathematical perspective first.
-Before we talk about notes, chords, keys and so on, let us focus on the basics: frequencies!
-Let <span class="math notranslate nohighlight">\(f_1 &gt; f_2\)</span> be some arbitrary frequencies, then the <em>ratio</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-e13e23e1-9f3a-419d-8147-36c557f61277">
-<span class="eqno">(87)<a class="headerlink" href="#equation-e13e23e1-9f3a-419d-8147-36c557f61277" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    \frac{f_1}{f_2}
-\end{equation}\]</div>
-<p>is the <em>interval</em> between <span class="math notranslate nohighlight">\(f_1\)</span> and <span class="math notranslate nohighlight">\(f_2\)</span>.
-We often notate an interval as <span class="math notranslate nohighlight">\(f_1\)</span>:<span class="math notranslate nohighlight">\(f_2\)</span>.
-Consequently, an interval is defined as the ratio of two frequencies.
-We can extend this concept to multiple frequencies <span class="math notranslate nohighlight">\(f_1, f_2, f_3\)</span> for which we receive three intervals:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="notes-midi-notes">
+<span id="sec-notes"></span><h1>Notes &amp; Midi Notes<a class="headerlink" href="#notes-midi-notes" title="Permalink to this headline">#</a></h1>
+<p>While notes are introduced by musicians a long time ago, midi notes a rather recent invention becoming especially popular with the invention of analog and digital synthesizer.
+Both are motivated and related to piano keys.</p>
+<figure class="align-default" id="fig-piano-keys-notes-midi-notes">
+<a class="reference internal image-reference" href="../../../_images/piano-keys.png"><img alt="../../../_images/piano-keys.png" src="../../../_images/piano-keys.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Piano keys labeled by their <em>note</em> and corresponding <em>midi note</em>.</span><a class="headerlink" href="#fig-piano-keys-notes-midi-notes" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
+<p>There are twelve piano keys within an octave.
+White keys are numbered with consecutive alphabetic letters A-B-C-D-E-F-G.
+But normally we start from C, that is, C-D-E-F-G-A-B.</p>
+<figure class="align-default" id="fig-diatonic-scale">
+<a class="reference internal image-reference" href="../../../_images/diatonic-scale.png"><img alt="../../../_images/diatonic-scale.png" src="../../../_images/diatonic-scale.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Notes written down on a musical sheet with a <em>treble staff</em>.</span><a class="headerlink" href="#fig-diatonic-scale" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The black keys are sharps and flats of the white keys: C#/Bb-D#/Eb-F#/Gb-G#/Ab-A#/Bb.
+To arrive at a black key we either we raise a white key by a semitone, e.g. C to C#.
+Or we lower a white key by a semitone, e.g. E to Eb.</p>
+<p>Modern pianos follow the <em>twelve-tone equal temperament tuning (12-TET)</em>.
+In that case A4 corresponds to a fundamental frequency of 440 Hz.
+Furthermore, A1 and A3 have the same tone but A3 is two octaves higher thus its pitch is higher.
+We also say that they are in the same <em>pitch class</em> A.
+Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by <span class="math notranslate nohighlight">\(2^2 = 4\)</span>.
+In general, the frequency doubles after each succesive 12 keys.</p>
+<p>Suppose we number all notes by natural numbers, e.g. A0 = 1, B0 = 2, and so on.
+Then to compute the fundamental frequency <span class="math notranslate nohighlight">\(f(p+1)\)</span> of the note number <span class="math notranslate nohighlight">\(p+1\)</span> given the frequency <span class="math notranslate nohighlight">\(f(p)\)</span> of the note number <span class="math notranslate nohighlight">\(p\)</span>, we have to multiply <span class="math notranslate nohighlight">\(f(p)\)</span> by <span class="math notranslate nohighlight">\(2^{\frac{1}{12}}\)</span>.
+In other words</p>
+<div class="math notranslate nohighlight" id="equation-eq-note-to-frequency">
+<span class="eqno">(87)<a class="headerlink" href="#equation-eq-note-to-frequency" title="Permalink to this equation">#</a></span>\[  f(p+1) = f(p) \cdot 2^{\frac{1}{12}}.\]</div>
+<p>Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.</p>
+</section>
+<section id="midi-notes">
+<h2>Midi Notes<a class="headerlink" href="#midi-notes" title="Permalink to this headline">#</a></h2>
+<p><em>Midi notes</em> are just a numbering convention for piano keys.
+They were introduced with the <a class="reference internal" href="../../supercollider/communication/1-midi.html#sec-midi"><span class="std std-ref">musical instrument digital interface (MIDI)</span></a> and realise a bijetive mapping from a subset of natural numbers to piano keys.</p>
+<p>The different piano keys are numbered in an ascending order from left to right.
+A higher midi note corresponds to a higher pitch.
+The note A0 corresponds to the midi note 21, B0 corresponds to the note 22 and A2 corresponds to 33.
+In general, the note Ai corresponds to the midinote</p>
+<div class="math notranslate nohighlight">
+\[21 + 12 \cdot i\]</div>
+<p>because the key pattern of a piano repeats itself and each succesive 12 keys corresponds to one <em>octave</em>, see section <a class="reference internal" href="2-intervals.html#sec-intervals"><span class="std std-ref">Intervals</span></a>.
+Consecutive piano keys have consecutive natural number as midi notes.</p>
+<p>Using Eq. <a class="reference internal" href="#equation-eq-note-to-frequency">(87)</a> and the fact that the midi note 69 corresponds to A4 which corresponds to 440 Hz, we can compute the fundamental frequency <span class="math notranslate nohighlight">\(f(p)\)</span> for a specific midi note <span class="math notranslate nohighlight">\(p\)</span> by the following function:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-    \frac{f_1}{f_2}, \frac{f_2}{f_3}, \frac{f_3}{f_1}.
+    f(p) = 2^\frac{p-69}{12} \cdot 440.
 \end{equation*}\]</div>
-<p>In general, if we have <span class="math notranslate nohighlight">\(n\)</span> distinct frequencies, we get <span class="math notranslate nohighlight">\((n-1)^2\)</span> intervals.</p>
-<p>However, if we consider piano keys things get more complicated since the vibration of a single piano string result air pressure that can be represented by a signal with multiple frequencies.
-We have to add many harmonics to the fundamental.
-The actual pitch is a perceptual property and depends on the listener.
-We generalise and claim that the fundamental frequency, i.e., the frequency of the lowest partial, is the actual pitch of the vibration the listener hears.
-Consequently, in music theory, an <em>interval</em> may be loosely defined as the difference between two pitches, i.e., the ratio of two fundamentals.
-Playing two piano keys gives the sound a specific color.
-Relating multiple intervals by, for example, playing two times three different pitches in sequence, gives the resulting sound another quality.
-It may evoke happiness, fear, darkness, melancholy, or tension.
-It may be grounding, i.e., invoke a feeling of homecoming.</p>
-<p>So, why do intervals have a psychological effect on us humans?
-Everything starts with a <em>natural phenomenon</em> which has been referred to as <em>the basic miracle of music</em>.
-After <em>unison</em> (an interval of 1:1), the <em>octave</em> (interval of 2:1) is the simplest interval in music.
-An <em>octave</em> is the <em>interval</em> between one musical pitch and another double its frequency.
-The human’s (as well as monkey’s, rat’s, and infant’s) ear tends to hear both frequencies/notes as being essentially the same due to closely related harmonics.
-For this reason, pitches an <em>octave</em> apart are given the same note name in the <em>Western dystem of music notation</em>.</p>
-<p>Compare the sound of the following two pattern.
-Which melody sounds more harmonic and why?
-Can you hear the difference?</p>
+<p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> has a build-in function to translate frequencies to midi notes and vice verca:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">440</span><span class="p">.</span><span class="nx">cpsmidi</span> <span class="c1">// 69.0             frequency to midi</span>
+<span class="mi">60</span><span class="p">.</span><span class="nx">midicps</span>  <span class="c1">// 261.6255653006   midi to frequency</span>
+</pre></div>
+</div>
+</section>
+<section id="conversion">
+<h2>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">#</a></h2>
+<p>There are twelve piano keys within an octave are C, C#/Bb, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B.
+This is equivalent to the <a class="reference internal" href="3-scales.html#sec-chromatic-scale"><span class="std std-ref">chromatic sacle</span></a>.
+The letter gives us the <em>ptich class / tone</em> while number tells us in which <em>octave</em> we are.
+The combination determines the actual <em>pitch</em>.</p>
+<p>Since any piano key corresponds to at least one note, there is a function that gives us a midi note for a given note, for the <a class="reference internal" href="5-tuning.html#sec-tuning"><span class="std std-ref">tuning</span></a> of a piano.
+The following function computes the note for a given midi note.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
-<span class="kd">var</span> <span class="nx">base</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-<span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody1</span><span class="p">,</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
-    <span class="c1">// complex ratios</span>
-    <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="nx">base</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">21</span><span class="o">/</span><span class="mi">17</span><span class="p">,</span> 
-                 <span class="nx">base</span><span class="o">*</span><span class="mi">37</span><span class="o">/</span><span class="mi">17</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">11</span><span class="o">/</span><span class="mi">7</span><span class="p">,</span>
-                 <span class="nx">base</span><span class="o">*</span><span class="mi">11</span><span class="o">/</span><span class="mi">17</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">39</span><span class="o">/</span><span class="mi">17</span><span class="p">],</span> <span class="mi">6</span><span class="p">),</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">0.1</span>
-<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
-<span class="p">)</span>
+<span class="c1">// computes the note for a given midinote</span>
+<span class="o">~</span><span class="nx">toNote</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="kd">arg</span> <span class="nx">midinote</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">notes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;C# / Db&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;D# / Eb&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;F# / Gb&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G# / Ab&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A# / Bb&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span>
+    <span class="p">];</span>
+    <span class="nx">notes</span><span class="p">[</span><span class="nx">midinote</span> <span class="o">%</span> <span class="mi">12</span><span class="p">]</span> <span class="o">++</span> <span class="p">(</span><span class="nx">midinote</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">2</span><span class="p">).</span><span class="nx">floor</span><span class="p">.</span><span class="nx">asInteger</span><span class="p">;</span>
+<span class="p">};</span>
 
-<span class="p">(</span>
-<span class="kd">var</span> <span class="nx">base</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>
-<span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody2</span><span class="p">,</span>
-    <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
-    <span class="c1">// simple ratios</span>
-    <span class="ss">\freq</span><span class="p">,</span> <span class="nc">Pseq</span><span class="p">([</span><span class="nx">base</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="nx">base</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="nx">base</span><span class="o">*</span><span class="mi">6</span><span class="o">/</span><span class="mi">5</span><span class="p">],</span> <span class="mi">6</span><span class="p">),</span>
-    <span class="ss">\dur</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="ss">\legato</span><span class="p">,</span> <span class="mf">0.1</span>
-<span class="p">).</span><span class="nx">play</span><span class="p">;</span>
+<span class="c1">// F3</span>
+<span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="mi">65</span><span class="p">);</span> 
+
+<span class="c1">// [ F3, C4, G4, D5, A5, E6, B6 ]</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="na">size:</span> <span class="mi">7</span><span class="p">,</span> <span class="na">start:</span> <span class="mi">65</span><span class="p">,</span> <span class="na">step:</span> <span class="mi">7</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">k</span><span class="p">;</span> <span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="nx">k</span><span class="p">)});</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Notable, pitch can be perceived in a range which is approximately the same for each person.
-If we assume the <em>twelve-tone equal temperament</em> as a given, then an <em>octave</em> is divided into 12 <em>semitones</em> of 100 <em>cents</em> each.
-Thus, an <em>octave</em> is divided into 1200 <em>cents</em>.
-In a range from 10 to 25 <em>cents</em>, depending on the listeners hearing and musical education or exposer, pitch differences can be perceived.
-In terms of a center frequency <span class="math notranslate nohighlight">\(f\)</span>, this gives us an interval defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-778fbab0-c39b-4cf0-8365-eda74d6f22f6">
-<span class="eqno">(88)<a class="headerlink" href="#equation-778fbab0-c39b-4cf0-8365-eda74d6f22f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    f \cdot \lambda,
-\end{equation}\]</div>
-<p>with <span class="math notranslate nohighlight">\(\lambda \in [-\epsilon;\epsilon]\)</span> and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e2ae386-1c21-4e8e-a8ca-ffde1c736260">
-<span class="eqno">(89)<a class="headerlink" href="#equation-0e2ae386-1c21-4e8e-a8ca-ffde1c736260" title="Permalink to this equation">#</a></span>\[\begin{equation}
-   \epsilon \in \left[\frac{10}{1200}; \frac{25}{1200} \right] = \left[\frac{1}{120}; \frac{1}{48} \right] \approx \left[0.0083; 0.208 \right].
-\end{equation}\]</div>
-<p>Therefore, our perception ability widely outperforms the variants a musician can perform on a piano but it covers most of the consonant options.</p>
-</div>
-<div class="section" id="cents">
-<h2>Cents<a class="headerlink" href="#cents" title="Permalink to this headline">#</a></h2>
-<p>The cent is a logarithmic unit of measurement.
-If frequency is expressed in a logarithmic scale, and along that scale the distance between a given frequency and its double (also called octave) is divided into 1200 equal parts, each of these parts is one cent.
-In <em>twelve-tone equal temperament (12-TET)</em>, a tuning system in which all semitones have the same size, the size of one semitone is exactly 100 cents.
-Hence, in 12-TET the cent can be also defined as one hundredth of a semitone.</p>
-<p>Mathematically, the size in cents of the interval from frequency <span class="math notranslate nohighlight">\(f_1\)</span> to frequency <span class="math notranslate nohighlight">\(f_2\)</span> is</p>
-<div class="math notranslate nohighlight">
-\[1200 \cdot \log_2\left( \frac{f_1}{f_2} \right).\]</div>
-</div>
-<div class="section" id="naming-convention">
-<h2>Naming Convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline">#</a></h2>
-<p>The following table lists special names for important intervals.
-A lot of <em>augmented</em> and *dimished
-In the table I list the <em>just temperament</em>, i.e., ratios of <em>rational numbers</em>.
-For the <em>equal temperament</em> the ratios slightly differ; they are irrational.
-For example, <span class="math notranslate nohighlight">\(6/5 = 1.2\)</span> becomes <span class="math notranslate nohighlight">\(\sqrt[3]{2} \approx 1.1892\)</span>.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Interval Name</p></th>
-<th class="head"><p>Symbol</p></th>
-<th class="head"><p>Multiple</p></th>
-<th class="head"><p>(Just) Ratios</p></th>
-<th class="head"><p>Semitones</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Unison / diminished second</p></td>
-<td><p>I</p></td>
-<td><p>1</p></td>
-<td><p>1:1</p></td>
-<td><p>0</p></td>
-</tr>
-<tr class="row-odd"><td><p>Minor second / augmented unison</p></td>
-<td><p>ii</p></td>
-<td><p>1.778</p></td>
-<td><p>16:9</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-even"><td><p>Major second / diminished third</p></td>
-<td><p>II</p></td>
-<td><p>1.125</p></td>
-<td><p>9:8</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-odd"><td><p>Minor third / augmented second</p></td>
-<td><p>iii</p></td>
-<td><p>1.2</p></td>
-<td><p>6:5</p></td>
-<td><p>3</p></td>
-</tr>
-<tr class="row-even"><td><p>Major third / diminished fourth</p></td>
-<td><p>III</p></td>
-<td><p>1.25</p></td>
-<td><p>5:4</p></td>
-<td><p>4</p></td>
-</tr>
-<tr class="row-odd"><td><p>Perfect fourth / augmented third</p></td>
-<td><p>IV</p></td>
-<td><p>1.33</p></td>
-<td><p>4:3</p></td>
-<td><p>5</p></td>
-</tr>
-<tr class="row-even"><td><p>Diminished fifth / tritone</p></td>
-<td><p></p></td>
-<td><p>1.4142</p></td>
-<td><p>45:32</p></td>
-<td><p>6</p></td>
-</tr>
-<tr class="row-odd"><td><p>Perfect fifth / diminished sixth</p></td>
-<td><p>V</p></td>
-<td><p>1.5</p></td>
-<td><p>3:2</p></td>
-<td><p>7</p></td>
-</tr>
-<tr class="row-even"><td><p>Minor sixth / augmented fifth</p></td>
-<td><p>vi</p></td>
-<td><p>1.66</p></td>
-<td><p>5:3</p></td>
-<td><p>9</p></td>
-</tr>
-<tr class="row-odd"><td><p>Major sixth / diminished seventh</p></td>
-<td><p>VI</p></td>
-<td><p>1.6</p></td>
-<td><p>8:5</p></td>
-<td><p>8</p></td>
-</tr>
-<tr class="row-even"><td><p>Minor seventh / augmented sixth</p></td>
-<td><p>vii</p></td>
-<td><p>1.8</p></td>
-<td><p>9:5</p></td>
-<td><p>10</p></td>
-</tr>
-<tr class="row-odd"><td><p>Major seventh / diminished octave</p></td>
-<td><p>VII</p></td>
-<td><p>1.875</p></td>
-<td><p>15:8</p></td>
-<td><p>11</p></td>
-</tr>
-<tr class="row-even"><td><p>Octave / augmented seventh</p></td>
-<td><p></p></td>
-<td><p>2</p></td>
-<td><p>2:1</p></td>
-<td><p>12</p></td>
-</tr>
-</tbody>
-</table>
-<p><em>Intervals</em> can sound pleasingly consonant or dissonant.
-Simple <strong>or</strong> close to simple ratios tend to sound consonant while complicated ratios tend to sound dissonant.
-An <em>octave</em> (2:1) sounds perfectly consonant.
-The <em>perfect fifth</em> (3:2), the <em>perfect fourth</em> (4:3), and the <em>minor</em> and <em>major third</em> are consonant.
-The <em>diminished</em> is dissonant.
-While dissonance is less pleasing, it can create drama, excitement, and tension.
-It is an important property to use in composing music.
-Hermann von Helmholtz categorises the octave, perfect fifth, perfect fourth, major sixth, major third, and minor third as consonant, in decreasing value, and other intervals as dissonant.</p>
-<div class="figure align-default" id="fig-piano-keys-intervals">
-<a class="reference internal image-reference" href="../../../_images/piano-keys-intervals.png"><img alt="../../../_images/piano-keys-intervals.png" src="../../../_images/piano-keys-intervals.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 48 </span><span class="caption-text">Piano keys: the octave in blue, the perfect fourth in red, and the minor third in green. Note that only the distance between keys, i.e., their relation matters!</span><a class="headerlink" href="#fig-piano-keys-intervals" title="Permalink to this image">#</a></p>
-</div>
-<p>Why is an interval of four semitones called <em>major third</em>?
-Well, to understand this concept, we have to first understand the <a class="reference internal" href="2-scales.html#sec-diatonic-scale"><span class="std std-ref">diatonic scale</span></a>.
-Each name consists of two parts: a <em>quality</em> (major, minor, diminished, …) and a <em>number</em> (second, third, fourth, …).</p>
-<div class="section" id="numbering">
-<h3>Numbering<a class="headerlink" href="#numbering" title="Permalink to this headline">#</a></h3>
-<p>The numbering system is also called <em>diatonic numbering</em> because they correspond to the degrees of the <a class="reference internal" href="2-scales.html#sec-diatonic-scale"><span class="std std-ref">diatonic scale</span></a>.
-For instance, C-G is a <em>fifth</em> because the notes from C to the G above it encompass five letter names (C, D, E, F, G) and it encompass five notes of the diatonic scale, for example, C-Db-Eb-F-G for the <em>Ab major diatonic scale</em>.</p>
-<p>Note that we start counting from one thus C-C is counted as one, even though there is no difference between the endpoints.</p>
-<p>Adding accidentals to the notes that form an interval does not necessarily change its number.
-For instance, the interval G-G# (spanning 8 semitones, i.e., a <em>minor sixth</em>) and C#-G (spanning 6 semitones, i.e., a <em>diminished</em>) can be regarded as fifths, like the corresponding <em>natural interval</em> C-G (7 semitones).</p>
-</div>
-<div class="section" id="quality">
-<h3>Quality<a class="headerlink" href="#quality" title="Permalink to this headline">#</a></h3>
-<p>The name of any interval is further qualified using the terms perfect (<strong>P</strong>), major (<strong>M</strong>), minor (<strong>m</strong>), augmented (<strong>A</strong>), and diminished (<strong>d</strong>).
-This is called its <em>interval quality</em>.
-Perfect intervals are consonant.
-By definition, the inversion of a perfect interval is also perfect since</p>
-<div class="math notranslate nohighlight">
-\[12 - 7 + 2 = 7\]</div>
-<p>All other intervals are less consonant.
-The inversion of a minor interval is major and vice versa and the inversion of an augmented invertal is a dimished interval.
-For example, a major third (4 semitones becames)</p>
-<div class="math notranslate nohighlight">
-\[12-4 + 2 = 10\]</div>
-<p>a minor seventh (10 semitones).</p>
-</div>
-</div>
-</div>
+<p>In the last line I construct the keys of the <a class="reference internal" href="3-scales.html#sec-diatonic-scale"><span class="std std-ref">C major scale</span></a> using succesive intervals of <em>perfect fifths</em>, see section <a class="reference internal" href="2-intervals.html#sec-intervals"><span class="std std-ref">Intervals</span></a>.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1043,7 +881,7 @@ For example, a major third (4 semitones becames)</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/composing/music-theory"
         },
         predefinedOutput: true
@@ -1065,10 +903,10 @@ For example, a major third (4 semitones becames)</p>
             <p class="prev-next-title">Music Theory</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2-scales.html" title="next page">
+    <a class='right-next' id="next-link" href="2-intervals.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Scales, Modes and Keys</p>
+        <p class="prev-next-title">Intervals</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
