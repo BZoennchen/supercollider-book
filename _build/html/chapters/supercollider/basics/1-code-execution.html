@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Code Execution &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -512,13 +513,23 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/1-intervals.html">
+    <a class="reference internal" href="../../composing/music-theory/1-midinotes.html">
+     Notes &amp; Midi Notes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/2-intervals.html">
      Intervals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/2-scales.html">
-     Scales, Modes and Keys
+    <a class="reference internal" href="../../composing/music-theory/3-scales.html">
+     Scales &amp; Keys
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../composing/music-theory/4-chords.html">
+     Chords
     </a>
    </li>
    <li class="toctree-l2">
@@ -527,13 +538,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/6-chords.html">
-     Chords
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../composing/music-theory/7-midinotes.html">
-     Midi Notes
+    <a class="reference internal" href="../../composing/music-theory/6-analysis.html">
+     Analysis of a Piece
     </a>
    </li>
   </ul>
@@ -768,7 +774,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="code-execution">
+  <section class="tex2jax_ignore mathjax_ignore" id="code-execution">
 <h1>Code Execution<a class="headerlink" href="#code-execution" title="Permalink to this headline">#</a></h1>
 <p>The <a class="reference internal" href="../ecosystem.html#sec-scide"><span class="std std-ref">SuperCollider IDE</span></a> is build for interaction.
 If you are familiar with the concept of notebooks, for example, Jupyter notebooks or Mathematica notebooks, you already know what I mean.
@@ -777,7 +783,7 @@ Instead of writing a complete program, you are constantly stimulated to run smal
 In live coding, this is embraced even more, but it is also good practice if you learn and explore SuperCollider in general.</p>
 <p>SuperCollider initializes an <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environment</a>, i.e., a collection of things that can be accessed via name.
 Interacting with the IDE will manipulate this environment on the fly.</p>
-<div class="section" id="triggering-the-evaluation">
+<section id="triggering-the-evaluation">
 <h2>Triggering the Evaluation<a class="headerlink" href="#triggering-the-evaluation" title="Permalink to this headline">#</a></h2>
 <p>Let’s start!
 Let’s write some <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code and execute it via the REPL (Read–Eval–Print Loop).
@@ -815,8 +821,8 @@ It will open the documentation of the code your cursor is at.</p>
 <p class="admonition-title">Lookup Documentation</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">d</span></code> to look at the documentation of the class or method your cursor is at.</p>
 </div>
-</div>
-<div class="section" id="execution-of-c-code">
+</section>
+<section id="execution-of-c-code">
 <h2>Execution of C++ Code<a class="headerlink" href="#execution-of-c-code" title="Permalink to this headline">#</a></h2>
 <p>Let us reverse engineer what happens if we print out a string to the post window.</p>
 <div class="remark admonition" id="remark-lookup-source-code">
@@ -871,8 +877,8 @@ In the <code class="docutils literal notranslate"><span class="pre">C++</span></
 <p>In our case, <code class="docutils literal notranslate"><span class="pre">g-&gt;sp</span></code> is the <code class="docutils literal notranslate"><span class="pre">String</span></code> object.
 This interaction between <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code> reminds me of the interaction between <code class="docutils literal notranslate"><span class="pre">Python</span></code> and <code class="docutils literal notranslate"><span class="pre">C++</span></code>.
 As long as we do not write our own <a class="reference external" href="https://doc.sccode.org/Guides/WritingPrimitives.html">primitives</a>, we can ignore the <code class="docutils literal notranslate"><span class="pre">C++</span></code> interaction.</p>
-</div>
-<div class="section" id="order-of-execution">
+</section>
+<section id="order-of-execution">
 <h2>Order of Execution<a class="headerlink" href="#order-of-execution" title="Permalink to this headline">#</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> the code is strictly evaluated from left to right.
 All operands have the same priority, which might lead to unexpected results.
@@ -896,8 +902,8 @@ The following code prints <code class="docutils literal notranslate"><span class
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -911,7 +917,7 @@ The following code prints <code class="docutils literal notranslate"><span class
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters/supercollider/basics"
         },
         predefinedOutput: true

@@ -1,3 +1,4 @@
+(sec-tuning)=
 # Tuning
 
 *Pythagoreans* were obsessed with *simple ratios*, i.e., ratios formed by small prime numbers.
