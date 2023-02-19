@@ -54,6 +54,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Playing Patterns" href="pattern/pattern.html" />
@@ -176,6 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="basics/8-environments.html">
      Environments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="basics/9-utility-functions.html">
+     Utility Functions
     </a>
    </li>
   </ul>
@@ -786,9 +793,9 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="unit-generators">
 <span id="sec-ugens"></span><h1>Unit Generators<a class="headerlink" href="#unit-generators" title="Permalink to this headline">#</a></h1>
-<p>The defining function of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e. the <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>, consists of a network of so called <em>unit generators</em> (<a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a>).
+<p>The defining function of a <code class="docutils literal notranslate"><span class="pre">SynthDef</span></code>, i.e. the representation of a <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>, consists of a network of so called <em>unit generators</em> (<a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a>).
 Unit generators are the smallest building blocks of our sound generation architecture.
-They are used for generating processing sigals with the SuperCollider synthesis audio server.</p>
+They are used for generating processing signals with the SuperCollider synthesis audio server.</p>
 <section id="definition">
 <h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
 <p>A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as <em>side effects</em> such as wrting to the post window, accessing a buffer, or seinding a message over a network.</p>
@@ -880,20 +887,45 @@ We will explore many different <code class="docutils literal notranslate"><span 
 </section>
 <section id="multichannel-expension">
 <span id="sec-mce"></span><h2>Multichannel Expension<a class="headerlink" href="#multichannel-expension" title="Permalink to this headline">#</a></h2>
-<p>When an <a class="reference internal" href="basics/3-arrays.html#sec-array"><span class="std std-ref">array</span></a> is given as an input to a <em>unit generator</em> it causes an array of multiple copies of that unit generator to be made, each with a different value from the input array.
-This behaviour is called multichannel expension.
-All but a few special unit generators perform multichannel expension.
-<strong>Only</strong> arrays are expanded, no other type of collection, not even subclasses of Array.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// one channel</span>
+<p>When an <a class="reference internal" href="basics/3-arrays.html#sec-array"><span class="std std-ref">array</span></a> is given as an argument to a <em>unit generator</em> it causes an array of multiple copies of that unit generator to be made, each receiving as argument one specific element of the array.
+This powerful behaviour is called <em>multichannel expension</em>.</p>
+<p>All but a few special unit generators perform multichannel expension.
+<strong>Only</strong> arrays are expanded, no other type of collection, not even subclasses of <a class="reference external" href="https://doc.sccode.org/Classes/Array.html">Array</a>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// one channel</span>
+<span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> 
 
-<span class="c1">// the array in the freq input causes an Array of 2 Blips to be created :</span>
-<span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">499</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> <span class="c1">// two channels</span>
+<span class="c1">// two channels: the array in the freq input causes an Array of 2 Blips to be created</span>
+<span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">499</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> 
 
-<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// one unit generator created.</span>
+<span class="c1">// one unit generator created</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> 
 
-<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">601</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">).</span><span class="nx">postln</span> <span class="c1">// two unit generators created.</span>
+<span class="c1">// two unit generators created</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">([</span><span class="mi">500</span><span class="p">,</span> <span class="mi">601</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1">// two unit generators created.</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">rrand</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> 
+
+<span class="c1">// sixteen unit generators created</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">({</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">200.0</span><span class="p">,</span><span class="mf">300.0</span><span class="p">)}</span><span class="o">!</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> 
 </pre></div>
 </div>
+<p>Each unit generator receives the same argument if it is a scalar.
+If their are multiple arrays, each of the same size <span class="math notranslate nohighlight">\(n\)</span>, there will be <span class="math notranslate nohighlight">\(n\)</span> ugens generated, each receiving the respective argument.
+If there is a missmatch in length, the largest array determines the number of unit generators and all the other arrays are wraped as needed.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// three unit generators created</span>
+<span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">freq:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">600</span><span class="p">],</span> <span class="na">numharm:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="cm">/* equivalent to</span>
+<span class="cm">[</span>
+<span class="cm">Blip.ar(freq: 300, numharm: 5, 0.1),</span>
+<span class="cm">Blip.ar(freq: 400, numharm: 7, 0.1),</span>
+<span class="cm">Blip.ar(freq: 600, numharm: 5, 0.1)</span>
+<span class="cm">]</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<p>By multichannel expension one can create a large number of unit generators which in turn generate a rich sound by a few lines of code.</p>
 </section>
 </section>
 
