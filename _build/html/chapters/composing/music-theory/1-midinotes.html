@@ -806,7 +806,7 @@ Furthermore, A1 and A3 have the same tone but A3 is two octaves higher thus its 
 We also say that they are in the same <em>pitch class</em> A.
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by <span class="math notranslate nohighlight">\(2^2 = 4\)</span>.
 In general, the frequency doubles after each succesive 12 keys.</p>
-<p>Suppose we number all notes by natural numbers, e.g. A0 = 1, B0 = 2, and so on.
+<p>Suppose we number all notes by natural numbers, e.g. F0 = 4, G0 = 5, A0 = 6, B0 = 7,  and so on.
 Then to compute the fundamental frequency <span class="math notranslate nohighlight">\(f(p+1)\)</span> of the note number <span class="math notranslate nohighlight">\(p+1\)</span> given the frequency <span class="math notranslate nohighlight">\(f(p)\)</span> of the note number <span class="math notranslate nohighlight">\(p\)</span>, we have to multiply <span class="math notranslate nohighlight">\(f(p)\)</span> by <span class="math notranslate nohighlight">\(2^{\frac{1}{12}}\)</span>.
 In other words</p>
 <div class="math notranslate nohighlight" id="equation-eq-note-to-frequency">
@@ -819,7 +819,7 @@ In other words</p>
 They were introduced with the <a class="reference internal" href="../../supercollider/communication/1-midi.html#sec-midi"><span class="std std-ref">musical instrument digital interface (MIDI)</span></a> and realise a bijetive mapping from a subset of natural numbers to piano keys.</p>
 <p>The different piano keys are numbered in an ascending order from left to right.
 A higher midi note corresponds to a higher pitch.
-The note A0 corresponds to the midi note 21, B0 corresponds to the note 22 and A2 corresponds to 33.
+The note A0 corresponds to the midi note 21, B0 corresponds to the note 22 and A1 corresponds to 33.
 In general, the note Ai corresponds to the midinote</p>
 <div class="math notranslate nohighlight">
 \[21 + 12 \cdot i\]</div>
@@ -854,13 +854,13 @@ The following function computes the note for a given midi note.</p>
         <span class="s1">&#39;F# / Gb&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;G# / Ab&#39;</span><span class="p">,</span>
         <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A# / Bb&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span>
     <span class="p">];</span>
-    <span class="nx">notes</span><span class="p">[</span><span class="nx">midinote</span> <span class="o">%</span> <span class="mi">12</span><span class="p">]</span> <span class="o">++</span> <span class="p">(</span><span class="nx">midinote</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">2</span><span class="p">).</span><span class="nx">floor</span><span class="p">.</span><span class="nx">asInteger</span><span class="p">;</span>
+    <span class="nx">notes</span><span class="p">[</span><span class="nx">midinote</span> <span class="o">%</span> <span class="mi">12</span><span class="p">]</span> <span class="o">++</span> <span class="p">(</span><span class="nx">midinote</span> <span class="o">/</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">1</span><span class="p">).</span><span class="nx">floor</span><span class="p">.</span><span class="nx">asInteger</span><span class="p">;</span>
 <span class="p">};</span>
 
-<span class="c1">// F3</span>
+<span class="c1">// F4</span>
 <span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="mi">65</span><span class="p">);</span> 
 
-<span class="c1">// [ F3, C4, G4, D5, A5, E6, B6 ]</span>
+<span class="c1">// [ F4, C5, G6, D7, A7, E7, B7 ]</span>
 <span class="nc">Array</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="na">size:</span> <span class="mi">7</span><span class="p">,</span> <span class="na">start:</span> <span class="mi">65</span><span class="p">,</span> <span class="na">step:</span> <span class="mi">7</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">k</span><span class="p">;</span> <span class="o">~</span><span class="nx">toNote</span><span class="p">.(</span><span class="nx">k</span><span class="p">)});</span>
 <span class="p">)</span>
 </pre></div>

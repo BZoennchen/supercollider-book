@@ -281,7 +281,16 @@ The *perfect fifth* (3:2), the *perfect fourth* (4:3), and the *minor* and *majo
 The *diminished* is dissonant.
 While dissonance is less pleasing, it can create drama, excitement, and tension.
 It is an important property to use in composing music.
+
 Hermann von Helmholtz categorises the octave, perfect fifth, perfect fourth, major sixth, major third, and minor third as consonant, in decreasing value, and other intervals as dissonant.
+
+Many others make the following distinction:
+
++ **Perfect consonance** (perfect unisons, fifths, and octaves)
++ **Imperfect consonance** (major and minor third and sixths)
++ **Dissonance** (all seconds, sevenths, and diminished and augmented intervals)
+
+The **perfect fourth** is often regared as dissonant when it involves the lowest voice in the texture, but consonant when it occurs between two upper voices.
 
 ```{figure} ../../../figs/composing/piano-keys-intervals.png
 ---
@@ -291,6 +300,7 @@ name: fig-piano-keys-intervals
 Piano keys: the octave in blue, the perfect fourth in red, and the minor third in green. Note that only the distance between keys, i.e., their relation matters!
 ```
 
+(sec-tritone)=
 ## The Devil’s Tritone
 
 Some regard the *tritone* (aka diminished fifth) as *the devil's interval* because it is highly dissonant and has inspired composers to explore the dark side of music.

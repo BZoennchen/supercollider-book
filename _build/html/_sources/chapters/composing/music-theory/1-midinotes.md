@@ -37,7 +37,7 @@ We also say that they are in the same *pitch class* A.
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by $2^2 = 4$.
 In general, the frequency doubles after each succesive 12 keys.
 
-Suppose we number all notes by natural numbers, e.g. A0 = 1, B0 = 2, and so on.
+Suppose we number all notes by natural numbers, e.g. F0 = 4, G0 = 5, A0 = 6, B0 = 7,  and so on.
 Then to compute the fundamental frequency $f(p+1)$ of the note number $p+1$ given the frequency $f(p)$ of the note number $p$, we have to multiply $f(p)$ by $2^{\frac{1}{12}}$.
 In other words
 
@@ -55,7 +55,7 @@ They were introduced with the [musical instrument digital interface (MIDI)](sec-
 
 The different piano keys are numbered in an ascending order from left to right.
 A higher midi note corresponds to a higher pitch.
-The note A0 corresponds to the midi note 21, B0 corresponds to the note 22 and A2 corresponds to 33.
+The note A0 corresponds to the midi note 21, B0 corresponds to the note 22 and A1 corresponds to 33.
 In general, the note Ai corresponds to the midinote
 
 $$21 + 12 \cdot i$$
@@ -97,13 +97,13 @@ The following function computes the note for a given midi note.
         'F# / Gb', 'G', 'G# / Ab',
         'A', 'A# / Bb', 'B'
     ];
-    notes[midinote % 12] ++ (midinote / 12 - 2).floor.asInteger;
+    notes[midinote % 12] ++ (midinote / 12 - 1).floor.asInteger;
 };
 
-// F3
+// F4
 ~toNote.(65); 
 
-// [ F3, C4, G4, D5, A5, E6, B6 ]
+// [ F4, C5, G6, D7, A7, E7, B7 ]
 Array.series(size: 7, start: 65, step: 7).collect({arg k; ~toNote.(k)});
 )
 ```
