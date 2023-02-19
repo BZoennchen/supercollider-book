@@ -123,7 +123,7 @@ display(im)
 # ## Diatonic Scale
 # 
 # Western music's prototype of all scale system is the *diatonic scale*.
-# It is also known as the *major scale*.
+# It is also known as the *major scale* and it is often regarded as invoking an overall happy feeling.
 # 
 # ```isc
 # Scale.major;
@@ -245,6 +245,7 @@ display(im)
 # ## Minor Scales
 # 
 # The *minor scale*, also known as *natural minor scale*, uses the standard *diatonic interval order* but starts on degree 6 (counting from one).
+# It is often regarded as invoking an overall sad feeling.
 # We get the *minor interval order* by shifting the diatonic interval order by 2 to the right or by 5 to the left.
 # Therefore, it has the same *sparsity* as well as *asymmetry*. as the [diatonic scale](sec-diatonic-scale).
 # 
