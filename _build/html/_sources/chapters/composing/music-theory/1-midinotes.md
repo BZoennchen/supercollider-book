@@ -48,6 +48,7 @@ In other words
 
 Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.
 
+(sec-midi-notes)=
 ## Midi Notes
 
 *Midi notes* are just a numbering convention for piano keys.

@@ -1,9 +1,9 @@
 (sec-ugens)=
 # Unit Generators
 
-The defining function of a ``SynthDef``, i.e. the [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph), consists of a network of so called *unit generators* ([UGens](https://doc.sccode.org/Classes/UGen.html)).
+The defining function of a ``SynthDef``, i.e. the representation of a [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph), consists of a network of so called *unit generators* ([UGens](https://doc.sccode.org/Classes/UGen.html)).
 Unit generators are the smallest building blocks of our sound generation architecture.
-They are used for generating processing sigals with the SuperCollider synthesis audio server.
+They are used for generating processing signals with the SuperCollider synthesis audio server.
 
 ## Definition
 
@@ -113,18 +113,48 @@ We will explore many different ``UGens`` discussing [filters](sec-filters) and m
 (sec-mce)=
 ## Multichannel Expension
 
-When an [array](sec-array) is given as an input to a *unit generator* it causes an array of multiple copies of that unit generator to be made, each with a different value from the input array.
-This behaviour is called multichannel expension.
+When an [array](sec-array) is given as an argument to a *unit generator* it causes an array of multiple copies of that unit generator to be made, each receiving as argument one specific element of the array.
+This powerful behaviour is called *multichannel expension*.
+
 All but a few special unit generators perform multichannel expension.
-**Only** arrays are expanded, no other type of collection, not even subclasses of Array.
+**Only** arrays are expanded, no other type of collection, not even subclasses of [Array](https://doc.sccode.org/Classes/Array.html).
 
 ```isc
-{ Blip.ar(500, 8, 0.1) }.play // one channel
+// one channel
+{ Blip.ar(500, 8, 0.1) }.play 
 
-// the array in the freq input causes an Array of 2 Blips to be created :
-{ Blip.ar([499, 600], 8, 0.1) }.play // two channels
+// two channels: the array in the freq input causes an Array of 2 Blips to be created
+{ Blip.ar([499, 600], 8, 0.1) }.play 
 
-Blip.ar(500, 8, 0.1).postln // one unit generator created.
+// one unit generator created
+Blip.ar(500, 8, 0.1) 
 
-Blip.ar([500, 601], 8, 0.1).postln // two unit generators created.
+// two unit generators created
+Blip.ar([500, 601], 8, 0.1)
+
+// two unit generators created.
+Blip.ar(rrand, 8, 0.1) 
+
+// sixteen unit generators created
+Blip.ar({rrand(200.0,300.0)}!16, 8, 0.1) 
 ```
+
+Each unit generator receives the same argument if it is a scalar.
+If their are multiple arrays, each of the same size $n$, there will be $n$ ugens generated, each receiving the respective argument.
+If there is a missmatch in length, the largest array determines the number of unit generators and all the other arrays are wraped as needed.
+
+```isc
+// three unit generators created
+Blip.ar(freq: [300,400,600], numharm: [5,7], 0.1)
+
+/* equivalent to
+[
+Blip.ar(freq: 300, numharm: 5, 0.1),
+Blip.ar(freq: 400, numharm: 7, 0.1),
+Blip.ar(freq: 600, numharm: 5, 0.1)
+]
+*/
+```
+
+By multichannel expension one can create a large number of unit generators which in turn generate a rich sound by a few lines of code.
+

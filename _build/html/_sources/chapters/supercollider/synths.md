@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-synths)=
 # Synthesizers
 
@@ -72,9 +84,16 @@ synthdef.add;
 )
 
 // (3) use it by creating Synth of the SynthDef
-Synth(\sine_beep, [freq: 200, amp: 0.4]);
+Synth(\sine_beep, [freq: 800, amp: 0.4]);
 
 // (4) the synth removes itself because we specied doneAction: Done.freeSelf
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../sounds/sine-beep.mp3'
+ipd.Audio(audio_path)
 ```
 
 Note that adding a ``SynthDef`` to the server takes time.
@@ -132,14 +151,14 @@ The relationship between server- and client-side code becomes more evident if we
 ```isc
 (
 SynthDef(\crndsine, {
-    var sig = SinOsc.ar(rrand(55, 75).midicps) * 0.25!2;
+    var sig = SinOsc.ar(rrand(55, 75).poll.midicps) * 0.25!2;
     Out.ar(0, sig);
 }).add;
 )
 
 (
 SynthDef(\srndsine, {
-    var sig = SinOsc.ar(Rand(55, 75).round.midicps) * 0.25!2;
+    var sig = SinOsc.ar(Rand(55, 75).poll.round.midicps) * 0.25!2;
     Out.ar(0, sig);
 }).add;
 )
@@ -153,3 +172,15 @@ There is no such thing as a server-side ``rrand`` function!
 Its evaluation is part of the definition of the signal-flow graph.
 Since ``rrand`` is evaluated when we add the ``SynthDef``, each synth of this ``SynthDef`` will generate a randomly chosen sound which is the same for **all** synths constructed by this added ``SynthDef`` object.
 Therefore, if we want a ``Synth`` that generates a random sound whenever it is created, we need server-side randomness using a suitable ``UGen``, in this case, ``Rand``.
+
+In the example above we use the ``poll`` functions which polls frequently values from unit generators to the client and post them to the post window.
+This can be helpful to see what is going on, i.e., to debug server-side code.
+Whenever we play the first the exact same number gets posted.
+But when we play the second synth multiple times, numbers change.
+
+```{admonition} Server-side Debugging
+:name: hint-server-side-debugging
+:class: remark
+You can ``poll`` any unit generator.
+It will frequently print the values of the generator to the post windows.
+```

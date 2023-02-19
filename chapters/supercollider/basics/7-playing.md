@@ -1,6 +1,18 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Playing Sound
 
-Let us create the most simple sound possible: the sound of a sine wave. 
+Let us create the most simple sound possible: the sound of a sine wave.
 First, we define a function that returns a so-called unit generator [UGen](sec-ugens) that starts when we call ``play()``.
 In fact ``play()`` is shorthand for
 
@@ -29,9 +41,17 @@ If we execute this code, we get a warning that the server ``localhost`` is not r
 We have to boot the real-time audio server **scsynth** first:
 
 ```isc
-s.boot;
+Server.local.boot;  // boots the local server on your machine
+//s.boot;           // is equivalent
 ~sine = {arg freq=200; SinOsc.ar(freq, mul: 0.2)};
 ~sineplay = ~sine.play();
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/sine-wave.mp3'
+ipd.Audio(audio_path)
 ```
 
 ``~sine`` is a function that returns ``SinOsc.ar(freq, mul: 0.2)`` which is a ``BinaryOpUGen``.
