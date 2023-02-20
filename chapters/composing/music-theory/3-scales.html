@@ -546,7 +546,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="6-analysis.html">
-     Analysis of a Piece
+     Nuvole Bianche
     </a>
    </li>
   </ul>
@@ -920,8 +920,13 @@ Compare the following code that plays the <em>chromatic scale</em>.</p>
 </pre></div>
 </div>
 <p>Note that on a note sheet for Western music only the letter of a note, i.e. C-D-E-F-G-A-B, determines its position.
-Raising a note by a semitone (100 cents) is indicated by the sharp # and lowing it by the same amount is indicated by a small b.
-The following shows the chromatic scale up and down one octave.
+Raising a note by a semitone (100 cents) is indicated by the sharp # and lowing it by the same amount is indicated by a small b.</p>
+<p>E, F, B, and C are special because the interval E-F is only one half step (100 semitones) and so is B-C.
+Any other interval between consecutive letters, e.g. A-B, are whole steps.
+Consequently, sharpening an E gives us an F, i.e. E# = F.
+Furthermore, Fb = E, B# = C and Cb = B.
+On the piano we find two special areas at consecutive white keys.</p>
+<p>The following shows the chromatic scale up and down one octave.
 I use sharps when going up and flats when going down.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -942,9 +947,9 @@ It is also known as the <em>major scale</em> and it is often regarded as invokin
 In German, it’s C, D, E, F, A, H, C.
 The diatonic scale contains two-interval sizes, the <em>half step</em> (<em>semitone</em>) and the <em>whole step</em> where a <em>whole step</em> (<em>whole tone</em>) contains exactly two <em>half steps</em>.
 A half step is equal to 100 and a whole step to 200 cents.
-The <em>interval order</em> of the diatonic scale, defined by the following tuple,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a87c7992-2bbe-4706-a9ac-453bae795485">
-<span class="eqno">(88)<a class="headerlink" href="#equation-a87c7992-2bbe-4706-a9ac-453bae795485" title="Permalink to this equation">#</a></span>\[\begin{equation}
+The <em>interval sequence</em> of the diatonic scale, defined by the following tuple,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-19d13f3c-bc6d-4c9e-9104-53e0d6e4ab80">
+<span class="eqno">(88)<a class="headerlink" href="#equation-19d13f3c-bc6d-4c9e-9104-53e0d6e4ab80" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,2,1,2,2,2,1)_{\text{major}}
 \end{equation}\]</div>
 <p>is the sequence of whole (2) and half steps (1) in the scale.</p>
@@ -1051,9 +1056,9 @@ If we start with F and successively add 7 semitones, we land at F-C-G-D-A-E-B.</
 </section>
 <section id="minor-scales">
 <span id="sec-minor-scale"></span><h2>Minor Scales<a class="headerlink" href="#minor-scales" title="Permalink to this headline">#</a></h2>
-<p>The <em>minor scale</em>, also known as <em>natural minor scale</em>, uses the standard <em>diatonic interval order</em> but starts on degree 6 (counting from one).
+<p>The <em>minor scale</em>, also known as <em>natural minor scale</em>, uses the standard <em>diatonic interval sequence</em> but starts on degree 6 (counting from one).
 It is often regarded as invoking an overall sad feeling.
-We get the <em>minor interval order</em> by shifting the diatonic interval order by 2 to the right or by 5 to the left.
+We get the <em>minor interval sequence</em> by shifting the diatonic interval sequence by 2 to the right or by 5 to the left.
 Therefore, it has the same <em>sparsity</em> as well as <em>asymmetry</em>. as the <a class="reference internal" href="#sec-diatonic-scale"><span class="std std-ref">diatonic scale</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="c1">// minor C# / Db scale</span>
 <span class="nc">Pbind</span><span class="p">(</span>
@@ -1067,8 +1072,8 @@ Therefore, it has the same <em>sparsity</em> as well as <em>asymmetry</em>. as t
 </pre></div>
 </div>
 <p>The <em>minor scale</em> is also called <strong>natural minor</strong> and is also known as the <em>Aolian <a class="reference internal" href="#sec-modes"><span class="std std-ref">mode</span></a></em>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6974b8b3-3119-4130-9ced-4600d78b2464">
-<span class="eqno">(89)<a class="headerlink" href="#equation-6974b8b3-3119-4130-9ced-4600d78b2464" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f44c3789-e13b-4a1a-bcb7-346c410d5e5e">
+<span class="eqno">(89)<a class="headerlink" href="#equation-f44c3789-e13b-4a1a-bcb7-346c410d5e5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,1,2,2)_\text{nat. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, Ab, Bb.</p>
@@ -1083,14 +1088,14 @@ Therefore, it has the same <em>sparsity</em> as well as <em>asymmetry</em>. as t
 <p>Note that in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we start counting from zero!</p>
 </div>
 <p>There is also the <strong>harmonic minor scale</strong> for which the seventh note is raised by one semitone.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-131ed590-49f2-4270-9e8e-9c21146efde9">
-<span class="eqno">(90)<a class="headerlink" href="#equation-131ed590-49f2-4270-9e8e-9c21146efde9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c0178284-819d-493d-8b3e-b90f9d7803b9">
+<span class="eqno">(90)<a class="headerlink" href="#equation-c0178284-819d-493d-8b3e-b90f9d7803b9" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,1,3,1)_\text{ham. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, Ab, B.</p>
 <p>The last variation is the <strong>melodic minor scale</strong> for which the sith and seventh notes are always raised.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fdae239a-b287-4bcc-81b7-f8e1bfa3d9b0">
-<span class="eqno">(91)<a class="headerlink" href="#equation-fdae239a-b287-4bcc-81b7-f8e1bfa3d9b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d35145cb-d058-4c63-8c44-6dc940322a1b">
+<span class="eqno">(91)<a class="headerlink" href="#equation-d35145cb-d058-4c63-8c44-6dc940322a1b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,2,2,1)_\text{mel. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, A, B.</p>
@@ -1098,7 +1103,7 @@ Therefore, it has the same <em>sparsity</em> as well as <em>asymmetry</em>. as t
 <section id="transpositions">
 <span id="sec-transpositions"></span><h2>Transpositions<a class="headerlink" href="#transpositions" title="Permalink to this headline">#</a></h2>
 <p>If a scale starts on any <em>pitch class</em> other than C, it is said to be <em>transposed</em>.
-The diatonic scale can be transposed to any chromatic degree so long as the <em><a class="reference internal" href="#sec-diatonic-scale"><span class="std std-ref">diatonic interval order</span></a></em> is preserved.
+The diatonic scale can be transposed to any chromatic degree so long as the <em><a class="reference internal" href="#sec-diatonic-scale"><span class="std std-ref">diatonic interval sequence</span></a></em> is preserved.
 For example, the diatonic scale transposed to G by the introduction of F# is the <em>key of G</em>.</p>
 <p>We also say that we play a certain piece in <em>key of G major</em> or just <em>G major</em>.
 The untransposed diatonic scale is is the <em>key of C</em>.
@@ -1283,8 +1288,8 @@ If we take the major interval sequence <span class="math notranslate nohighlight
 For example, by shifting the <em>major scale intervals</em> by 2 to the right (or 5 to the left) gives us the <em><a class="reference internal" href="#sec-minor-scale"><span class="std std-ref">natural minor</span></a></em>.</p>
 <p>In SuperCollider we can generate all the different modes by <em>array rotation</em> using <code class="docutils literal notranslate"><span class="pre">rotate</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// generation of different modes</span>
-<span class="o">~</span><span class="nx">majorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>                <span class="c1">// major interval order</span>
-<span class="o">~</span><span class="nx">minorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>                <span class="c1">// (nat.) minor interval order</span>
+<span class="o">~</span><span class="nx">majorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>                <span class="c1">// major interval sequence</span>
+<span class="o">~</span><span class="nx">minorIntervalOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>                <span class="c1">// (nat.) minor interval sequence</span>
 <span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">)</span>             <span class="c1">// major degrees</span>
 <span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">minorIntervalOrder</span><span class="p">)</span>             <span class="c1">// (nat.) minor degrees</span>
 <span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1">// (nat.) minor degrees (by rotation)</span>
