@@ -18,7 +18,7 @@ from PIL import Image
 ```
 
 (sec-piece-analysis)=
-# Analysis of a Piece
+# Nuvole Bianche
 
 Let us apply what we have learned by analysing the beginning of the famous piece *Nuvole Bianche* by *Ludovico Enaudi*.
 

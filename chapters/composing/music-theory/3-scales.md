@@ -79,6 +79,13 @@ Scale.chromatic.cents;
 
 Note that on a note sheet for Western music only the letter of a note, i.e. C-D-E-F-G-A-B, determines its position.
 Raising a note by a semitone (100 cents) is indicated by the sharp # and lowing it by the same amount is indicated by a small b.
+
+E, F, B, and C are special because the interval E-F is only one half step (100 semitones) and so is B-C.
+Any other interval between consecutive letters, e.g. A-B, are whole steps.
+Consequently, sharpening an E gives us an F, i.e. E# = F.
+Furthermore, Fb = E, B# = C and Cb = B.
+On the piano we find two special areas at consecutive white keys.
+
 The following shows the chromatic scale up and down one octave.
 I use sharps when going up and flats when going down.
 
@@ -140,7 +147,7 @@ Instead of twelve, it has only eight pitches (and seven pitch classes), named wi
 In German, it's C, D, E, F, A, H, C.
 The diatonic scale contains two-interval sizes, the *half step* (*semitone*) and the *whole step* where a *whole step* (*whole tone*) contains exactly two *half steps*.
 A half step is equal to 100 and a whole step to 200 cents.
-The *interval order* of the diatonic scale, defined by the following tuple,
+The *interval sequence* of the diatonic scale, defined by the following tuple,
 
 \begin{equation}
     (2,2,1,2,2,2,1)_{\text{major}}
@@ -250,9 +257,9 @@ Note that in SuperCollider we [count](attention-sc-counting) from 0.
 (sec-minor-scale)=
 ## Minor Scales
 
-The *minor scale*, also known as *natural minor scale*, uses the standard *diatonic interval order* but starts on degree 6 (counting from one).
+The *minor scale*, also known as *natural minor scale*, uses the standard *diatonic interval sequence* but starts on degree 6 (counting from one).
 It is often regarded as invoking an overall sad feeling.
-We get the *minor interval order* by shifting the diatonic interval order by 2 to the right or by 5 to the left.
+We get the *minor interval sequence* by shifting the diatonic interval sequence by 2 to the right or by 5 to the left.
 Therefore, it has the same *sparsity* as well as *asymmetry*. as the [diatonic scale](sec-diatonic-scale).
 
 ```isc
@@ -309,7 +316,7 @@ This gives us: C, D, Eb, F, G, A, B.
 ## Transpositions
 
 If a scale starts on any *pitch class* other than C, it is said to be *transposed*.
-The diatonic scale can be transposed to any chromatic degree so long as the *[diatonic interval order](sec-diatonic-scale)* is preserved.
+The diatonic scale can be transposed to any chromatic degree so long as the *[diatonic interval sequence](sec-diatonic-scale)* is preserved.
 For example, the diatonic scale transposed to G by the introduction of F# is the *key of G*.
 
 We also say that we play a certain piece in *key of G major* or just *G major*.
@@ -463,8 +470,8 @@ In SuperCollider we can generate all the different modes by *array rotation* usi
 
 ```isc
 // generation of different modes
-~majorIntervalOrder = [2,2,1,2,2,2,1]                // major interval order
-~minorIntervalOrder = [2,1,2,2,1,2,2]                // (nat.) minor interval order
+~majorIntervalOrder = [2,2,1,2,2,2,1]                // major interval sequence
+~minorIntervalOrder = [2,1,2,2,1,2,2]                // (nat.) minor interval sequence
 ~intervalToDegrees.(~majorIntervalOrder)             // major degrees
 ~intervalToDegrees.(~minorIntervalOrder)             // (nat.) minor degrees
 ~intervalToDegrees.(~majorIntervalOrder.rotate(2))   // (nat.) minor degrees (by rotation)
