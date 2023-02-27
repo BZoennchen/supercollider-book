@@ -58,7 +58,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Random distributions" href="distributions.html" />
     <link rel="prev" title="Bibliography" href="../misc/bibliography.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -546,7 +545,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../composing/music-theory/6-analysis.html">
-     Nuvole Bianche
+     Analysis
     </a>
    </li>
   </ul>
@@ -583,11 +582,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Building Sounds
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="distributions.html">
-   Random distributions
   </a>
  </li>
 </ul>
@@ -811,7 +805,7 @@ There are 12 keys on a pianos keyboard within one octave, this means that if we 
 <p>This is a quite boring sound.
 A way to enrich it, is to add slightly detuned copies of the sinewave which change their frequency over time.
 The noise oscillators <code class="docutils literal notranslate"><span class="pre">LFNoiseX.ar(freq:</span> <span class="pre">freq)</span></code> generate a juggeling signal which changes its amplitude inbetween the <span class="math notranslate nohighlight">\([-1;1]\)</span> uniformly distributed.
-Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 56</span></a>.</p>
+Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare <a class="reference internal" href="#fig-plot-lfnoisex"><span class="std std-numref">Figure 59</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{[</span>
     <span class="nc">LFNoise0</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
@@ -824,7 +818,7 @@ Between the changes, the amplitude stays constant (0), is interpolated linearly 
 <figure class="align-default" id="fig-plot-lfnoisex">
 <a class="reference internal image-reference" href="../../_images/plot-LFNoiseX.png"><img alt="../../_images/plot-LFNoiseX.png" src="../../_images/plot-LFNoiseX.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 56 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 59 </span><span class="caption-text">Plot of <code class="docutils literal notranslate"><span class="pre">LFNoise0</span></code>, <code class="docutils literal notranslate"><span class="pre">LFNoise1</span></code> and <code class="docutils literal notranslate"><span class="pre">LFNoise2</span></code> over 4 seconds and a frequency of 10 Hz.</span><a class="headerlink" href="#fig-plot-lfnoisex" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>So let us create <span class="math notranslate nohighlight">\(n\)</span> number of detuned sinewaves and adding them to the fundamental:</p>
@@ -843,7 +837,7 @@ Between the changes, the amplitude stays constant (0), is interpolated linearly 
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">{Rand(lo,</span> <span class="pre">hi)}!n</span></code> is a array containing <code class="docutils literal notranslate"><span class="pre">n</span></code> functions <code class="docutils literal notranslate"><span class="pre">{Rand(lo,</span> <span class="pre">hi)}</span></code> which are evaluated each time we execute the synth <code class="docutils literal notranslate"><span class="pre">\melo</span></code>.
-Is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> that <code class="docutils literal notranslate"><span class="pre">Rand(lo,</span> <span class="pre">hi)</span></code> generates a single random <code class="docutils literal notranslate"><span class="pre">float</span></code> value in uniform distribution from <code class="docutils literal notranslate"><span class="pre">lo</span></code> to <code class="docutils literal notranslate"><span class="pre">hi</span></code>, see <a class="reference internal" href="distributions.html#sec-distributions"><span class="std std-ref">Random distributions</span></a>.</p>
+Is a <code class="docutils literal notranslate"><span class="pre">UGen</span></code> that <code class="docutils literal notranslate"><span class="pre">Rand(lo,</span> <span class="pre">hi)</span></code> generates a single random <code class="docutils literal notranslate"><span class="pre">float</span></code> value in uniform distribution from <code class="docutils literal notranslate"><span class="pre">lo</span></code> to <code class="docutils literal notranslate"><span class="pre">hi</span></code>, see <a class="reference internal" href="../supercollider/basics/9-utility-functions.html#sec-utility-distributions"><span class="std std-ref">Random distributions</span></a>.</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">bipolar(x)</span></code> ensures that each value is inbetween the interval [<code class="docutils literal notranslate"><span class="pre">-x</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>].
 In this case we could also just multiply the noise by <code class="docutils literal notranslate"><span class="pre">detune</span></code>, since it is between [<code class="docutils literal notranslate"><span class="pre">-1</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>].</p>
 <p>To enrich a sound a good technique is to add detuned</p>
@@ -895,7 +889,7 @@ In this case we could also just multiply the noise by <code class="docutils lite
 <figure class="align-default" id="fig-piano-keys">
 <a class="reference internal image-reference" href="../figs/composing/piano-keys.png"><img alt="../figs/composing/piano-keys.png" src="../figs/composing/piano-keys.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 57 </span><span class="caption-text">The notes of an octave mapped onto piano keys.
+<p><span class="caption-number">Fig. 60 </span><span class="caption-text">The notes of an octave mapped onto piano keys.
 Each consecutive key is a multiple of <span class="math notranslate nohighlight">\(\sqrt[12]{2}\)</span> apart.
 The white keys give us the C major scale (<a class="reference internal" href="../composing/music-theory/3-scales.html#sec-diatonic-scale"><span class="std std-ref">diatonic scale</span></a>).
 Above, one can see the number of semitones of each interval of the major scale.</span><a class="headerlink" href="#fig-piano-keys" title="Permalink to this image">#</a></p>
@@ -937,13 +931,6 @@ Above, one can see the number of semitones of each interval of the major scale.<
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Bibliography</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="distributions.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Random distributions</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

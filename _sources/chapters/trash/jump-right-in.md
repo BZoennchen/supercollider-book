@@ -82,7 +82,7 @@ Synth(\melo);
 ```
 
 ``{Rand(lo, hi)}!n`` is a array containing ``n`` functions ``{Rand(lo, hi)}`` which are evaluated each time we execute the synth ``\melo``.
-Is a ``UGen`` that ``Rand(lo, hi)`` generates a single random ``float`` value in uniform distribution from ``lo`` to ``hi``, see [Random distributions](sec-distributions).
+Is a ``UGen`` that ``Rand(lo, hi)`` generates a single random ``float`` value in uniform distribution from ``lo`` to ``hi``, see [Random distributions](sec-utility-distributions).
 
 The function ``bipolar(x)`` ensures that each value is inbetween the interval [``-x``, ``x``].
 In this case we could also just multiply the noise by ``detune``, since it is between [``-1``, ``1``].
