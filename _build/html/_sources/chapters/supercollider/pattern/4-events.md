@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-playing-events)=
 # Musical Event
 
@@ -231,6 +243,13 @@ Pbind(
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/event-strum.mp3'
+ipd.Audio(audio_path)
+```
+
 Note that ``\strum`` does not influence ``\dur`` that is the next event will start at a time independent of the value of ``\strum``.
 You can hear this if we increase the value to 0.5. 
 
@@ -243,6 +262,12 @@ Pbind(
     \strum, 0.5,
 ).play
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-legato.mp3'
+ipd.Audio(audio_path)
 ```
 
 In that case, you can hear that the notes 7, 0 and 10, 3 are played simultaniously since the next even starts after the notes -7 and 3 are played!
@@ -278,7 +303,7 @@ detunedFreq: #{
 We could set ``detune`` to a high value, but to keep things clean, one should use the arguments as they are intended such that others and the future you and I can keep up with the code!
 Variable and argument names matter; they should mean something.
 
-The function/message ``midicps`` transforms a midi note into its frequency.
+The function/message ``midicps`` transforms a midi note into its frequency, see section [Utility Function](sec-utility-functions).
 
 ```isc
 (
@@ -313,7 +338,7 @@ If undefined ``~stepsPerOctave`` is 12 ([chromatic scale](sec-chromatic-scale) i
 
 We can be even more abstract and use a specific [scale](sec-scales) instead of the chromatic one.
 In that case, we can specify the ``\degree`` within a scale.
-The combination of ``\degree`` and scale gives us a specific ``\note``.
+The combination of ``\degree``, ``\root`` (tonic) and [scale](sec-scales) gives us a specific ``\note``.
 In practice, we could define a ``Pbind`` using a certain key.
 Then we could play the whole pattern in another key by changing its scale.
 
@@ -342,6 +367,15 @@ Pbind(
 ).play;
 )
 ```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-a-minor.mp3'
+ipd.Audio(audio_path)
+```
+
+SuperColliders [Scale](https://doc.sccode.org/Classes/Scale.html) is more like a [mode](sec-modes), since we need the ``\root`` to define the actual scale.
+The default value of ``\root`` is 0, i.e., C.
 
 If you are interested in more details, have a look at the source code of the ``Event`` class and its [documentation](https://doc.sccode.org/Classes/Event.html).
 Furthermore, in chapter [Music Theory](sec-music-theory), I give an overview of the basic principles of music theory with examples using SuperCollider.
@@ -399,22 +433,41 @@ SynthDef(\snare,{arg hcutoff = 9000, lcutoff = 5000, amp = 1.4;
     sig = (hat + bass) * env * amp;
     Out.ar(0, sig);
 }).add;
+)
 
-SynthDef(\saw, {arg freq = 600, amp = 0.8, gate = 1;
-    var sig, env;
+Synth(\snare)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-snare.mp3'
+ipd.Audio(audio_path)
+```
+
+```isc
+(
+SynthDef(\saw, {arg freq = 600, amp = 0.8, gate = 1, rel = 1.4;
+    var sig, env, noise, cutoff;
     env = EnvGen.kr(
-        Env.asr(attackTime: 0.01, sustainLevel: 1.0, releaseTime: 1.4), 
+        Env.asr(attackTime: 0.01, sustainLevel: 0.5, releaseTime: rel), 
         gate: gate, 
         doneAction: Done.freeSelf);
-	sig = LPF.ar(LFSaw.ar([freq, freq*1.004]), XLine.ar(freq*2, freq/4, 0.2) + LFNoise2.kr(90).bipolar(freq/10));
+	sig = LFSaw.ar([freq, freq*1.004]);
+	cutoff = XLine.ar(freq*2, freq/4, 1.01+rel);
+	sig = LPF.ar(sig, cutoff);
     sig = sig * env * amp;
     Out.ar(0, sig);
 }).add;
 )
 
-Synth(\snare)
 ~snare = Synth(\saw)
 ~snare.set(\gate, 0)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-saw.mp3'
+ipd.Audio(audio_path)
 ```
 
 Note that the frequency argument should be called ``freq``, the amplitude argument should be called ``amp``, and the gate should be called ``gate``.
@@ -426,6 +479,12 @@ Otherwise, we can not make use of the full potential of SuperCollider's pattern 
 var event = (\instrument: \saw, \dur: 0.2, \freq: 300);
 event.play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-saw-1.mp3'
+ipd.Audio(audio_path)
 ```
 
 First, we add a very simple synth, then we play it for a duration of ``0.2`` beats per second (bps).
@@ -450,6 +509,12 @@ event.play;
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-saw-2.mp3'
+ipd.Audio(audio_path)
+```
+
 ```{admonition} Difference between Duration and Sustain
 :name: remark-overlapping-sound
 :class: remark
@@ -460,3 +525,46 @@ This seems to make the ``dur`` argument irrelevant.
 However, we need ``dur`` if we not only play one event but a ``Stream`` of events!
 Remember, ``dur`` influences the scheduler of our musical events.
 We can see the effect if we play a stream of events.
+
+```isc
+(
+t = TempoClock(tempo: 1);
+
+c = [0, 3, 4, 6, 0];
+
+Pbind(
+    \instrument, \saw,
+    \scale, Scale.melodicMinor,
+    \root, 1,
+    \degree, Pseq(c, inf),
+    \octave, 4,
+    \rel, 0.1,
+    \amp, 0.8,
+    \dur, Pseq([0.25, 0.25, 0.25, 1.25], inf)
+).play(t, quant: 1);
+
+Pbind(
+    \instrument, \saw,
+    \scale, Scale.melodicMinor,
+    \root, 1,
+    \degree, Prand(c, inf),
+    \octave, 7,
+    \rel, 0.1,
+    \amp, 0.3,
+    \dur, 2
+).play(t, quant: 1);
+
+Pbind(
+    \instrument, \snare,
+    \dur, Pseq([0.25, 0.25, 0.5], inf),
+    \amp, Pseq([1.5, 0.8, 0.8], inf),
+    \hcutoff, Pseq([15000, 9000, 9000], inf)
+).play(t, quant: 1)
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-multi-pattern.mp3'
+ipd.Audio(audio_path)
+```

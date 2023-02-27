@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-pattern)=
 # Pattern
 
@@ -85,6 +97,13 @@ t.play;
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/example-pattern-task.mp3'
+ipd.Audio(audio_path)
+```
+
 Why are patterns so useful?
 Well, they can be combined, and all regular math functions can manipulate them if they return numbers.
 In our first example, we multiplied the ``Pseq``-pattern by ``10`` (calling ``asStream`` returns a ``BinaryOpStream``).
@@ -103,7 +122,7 @@ Within the loop, we play a random midi note and sleep for ``0.2`` seconds.
 {
 inf.do({
     var midinote = 50 + 20.rand;
-    midinote.play;
+    (\midinote: midinote).play;
     0.2.wait;
 })
 }.fork;

@@ -10,6 +10,7 @@ kernelspec:
   name: python3
 ---
 
+(sec-utility-functions)=
 # Utility Functions
 
 Since SuperCollider is used to generate sound and music, it has built-in functions that are special to the field of audio processing.
@@ -132,8 +133,17 @@ name: fig-mappings-plot-2
 ---
 The resulting plots of the code above.
 ```
+
+Two functions which are very helpful to change the range of a unit generator are ``range`` and ``bipolar``.
+``range`` expects two values min and max while ``bipolar`` is a shorthand for ``range(a, -a)``.
+For example, the following code posts values in $[100;400]$ to the post window.
+
+```isc
+{SinOsc.ar(1).range(100, 400).poll}.play
+```
+
 (sec-utility-distributions)=
-## Random Distributions
+## Random Sampling
 
 ``sclang`` offers many useful functions to generate pseudorandom values.
 This is especially useful in the domain of algorithmic composition, since variations comes often not from human input but random variables.
@@ -168,10 +178,10 @@ The following code generates histograms for some of the random generators.
 ```isc
 (
 ~histogram = {
-	arg values, steps = 500;
-	var histogram;
-	histogram = values.histo(steps: steps).normalizeSum;
-	histogram;
+  arg values, steps = 500;
+  var histogram;
+  histogram = values.histo(steps: steps).normalizeSum;
+  histogram;
 };
 
 ~histogram.( values: {rand(4.0)}!1000000, steps: 100 ).plot(name: "uniform");
@@ -198,7 +208,7 @@ On the **serve-side** there are corresponding unit generators such as
 + ``ExpRand``.
 
 
-## Example
+## Examples
 
 In the following example we use frequency for ``\freq``, amplitude for ``\amp`` and semitones for ``\detune``.
 Furthermore, we convert -7 decibals into amplitude and make use of ``k.reciprocal`` which computes ``1/k``.
@@ -227,3 +237,48 @@ import IPython.display as ipd
 audio_path = '../../../sounds/detune-sines.mp3'
 ipd.Audio(audio_path)
 ```
+
+Let us look at another example using [patterns](sec-pattern).
+
+```isc
+(
+SynthDef(\blip,{
+  arg freq = 440, amp = 0.5, atk = 0.01, rel = 0.3, detune = 0.1;
+  var sig, env;
+
+  sig = Pulse.ar(freq * [0.0, detune, (-1)*detune].midiratio);
+  env = Env.perc(atk, rel).ar(doneAction: Done.freeSelf);
+  sig = sig * env * amp;
+  sig = Mix(sig);
+  Out.ar(0, sig!2);
+}).add;
+
+)
+
+(
+Pbind(
+  \instrument, \blip,
+  \scale, Scale.minor,
+  \root, 1,
+  \degree, Pfunc({gauss(0, 5).floor}),
+  \rel, Pkey(\degree).linexp(inMin: -7, inMax: 7, outMin: 0.5, outMax: 0.1),
+  \octave, Prand([6,6,6,6,7], inf),
+  \dur, 1/8,
+  \detune, Pseries(0, 0.01, 200)
+).play
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/utility-example-pattern.mp3'
+ipd.Audio(audio_path)
+```
+
+First, I define a basic synth definition that generates a percussive pulse computer-game-like sound.
+Again, I use the detuning technique.
+Then I play an [event pattern](sec-event-player) using the defined synth ``\blip``.
+I play in the [scale](sec-scales) of D minor using a gaussian distribution around the tonic.
+Furthermore, I modulate the release time with respect to the degree of the note such that high-degree notes have an exponentially shorter release time!
+Thereby, I mimic the natural effect of faster disappearing high frequencies. 
+In addition, the ``\detune`` increases from 0 to 0.01 times 200.
