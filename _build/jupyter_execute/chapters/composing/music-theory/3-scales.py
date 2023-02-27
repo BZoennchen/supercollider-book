@@ -578,3 +578,5 @@ ipd.Audio(audio_path)
 # );
 # )
 # ```
+# 
+# As you can see, we can introduce a non-standard [tuning](sec-tuning).

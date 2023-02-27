@@ -22,15 +22,36 @@ from PIL import Image
 
 >Two tones sounding together are usually termed an interval, while three or more tones are called a chord. -- George T. Jones
 
-An interval is defined by exaclty two notes.
+An interval is defined by exactly two notes.
 Adding at least one note and letting them all sound together makes a chord.
-Though, since instances of any given note in different octaves may be taken as the same note, it is more precise for the purposes of analysis to speak of distinct *pitch classes*.
-Furthermore, as three notes are needed to define any common chord, three is often taken as the minimum number of notes that form a definite chord.
+Of course, we can also break up a chord into single notes playing what is called an *arpeggio*.
+Though, since instances of any given note within the same *pitch class* may be interpreted as the same note within a chord, it is more precise for the purposes of analysis to speak of distinct *pitch classes*.
+The pitch class of C is formed by the C of each octave.
+Furthermore, since three notes are needed to define any common chord, three is often taken as the minimum number of notes that form a definite chord.
 
+Let us listen to all [triads](sec-triads) of the [diatonic scale](sec-diatonic-scale).
+
+```isc
+(
+Pbind(
+  \scale, Scale.major,
+  \degree, [0,2,4] + Pseq((0..7), 1)
+).play
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/c-major-chords.mp3'
+ipd.Audio(audio_path)
+```
+
+(sec-triads)=
 ## Triads
 
 The most prominant chords called *triads* consist of three notes
-They are called *triads* and finding a harmonic sounding *triad* can be achieved by adding **ever other note** in a scale starting from some *root* also called *bass note* (if the chord is in root position).
+Finding a harmonic sounding *triad* can be achieved by adding **ever other note in a scale** starting from some *root* also called *base note* (if the chord is in root position) - I did so in the code above.
 In other words, chords are fully defined by the used *key* and a combination of degrees (*scale note positions*).
 If $d$ is the degree of the first note then the degree sequence
 
@@ -50,26 +71,33 @@ We use capitalized roman numerals if we refer to a major chord, otherwise we use
 The numbers translate to the degrees of the key.
 In the following first table I use the major scale in the key of A:
 
-| A Major Key | I     | ii    | iii   | IV    | V     | vi    | vii           |
-| ----------- | ----- | ----- | ----- | ----- | ----- | ----- | ------------- |
-| Quality     | major | minor | minor | major | major | minor | diminished    |
-| Intervals   | 4,3   | 3,4   | 3,4   | 4,3   | 4,3   | 3,4   | 3,3           |
-| Root        | A     | B     | C#    | D     | E     | F#    | G#            |
+| A Major       | I     | ii         | iii     | IV          | V        | vi         | vii           |
+| ------------- | ----- | ---------- | ------- | ----------- | -------- | ---------- | ------------- |
+| **Name**      | Tonic | Supertonic | Mediant | Subdominant | Dominant | Submediant | Leading note  |
+| **Quality**   | Major | Minor      | Minor   | Major       | Major    | Minor      | Diminished    |
+| **Intervals** | 4,3   | 3,4        | 3,4     | 4,3         | 4,3      | 3,4        | 3,3           |
+| **Root**      | A     | B          | C#      | D           | E        | F#         | G#            |
 
 In the second table I use the minor scale in the key of A:
 
-| A Minor Key | i     | ii         | III   | iv    | v     | VI    | VII   |
-| ----------- | ----- | ---------- | ----- | ----- | ----- | ----- | ------|
-| Quality     | minor | diminished | major | minor | minor | major | major |
-| Intervals   | 3,4   | 3,3        | 4,3   | 3,4   | 3,4   | 4,3   | 4,3   |
-| Root        | A     | B          | C     | D     | E     | F     | G     |
+| A Minor       | i     | ii         | III     | iv          | v        | VI         | VII           |
+| ------------- | ----- | ---------- | ------- | ----------- | -------- | ---------- | --------------|
+| **Name**      | Tonic | Supertonic | Mediant | Subdominant | Dominant | Submediant | Leading note  |
+| **Quality**   | Minor | Diminished | Major   | Minor       | Minor    | Major      | Major         |
+| **Intervals** | 3,4   | 3,3        | 4,3     | 3,4         | 3,4      | 4,3        | 4,3           |
+| **Root**      | A     | B          | C       | D           | E        | F          | G             |
 
-Following the formula, we call (B, D, F#) the *B minor chord* and (D, F, A) the *D major chord*, regardless of the scale we are using.
-However, we need the scale to determine the tonal role of each chord (and note).
+Each *triad* of a scale has a more or less defined role.
+I/i act as the tonic, i.e, the home or the tonal center.
+Leading tones (vii/VII) lead into the tonic and (iv/) 
+
+Following the formula, we call (B, D, F#) the *B minor chord* and (D, F, A) the *D major chord*, regardless of the scale we are using because the [interval](sec-intervals) B-D is a minor third and from D-F it is a major third.
+However, we need the scale to determine the tonal role of each chord (and note) within a composition.
 
 Note that all *triads within a key* are unique and that all major and minor chords contain a **perfect fifth**.
 A major chord is defined an interval sequence (4,3) (in semitones) and a minor chord is defined by an interval sequence (3,4).
-The deminished is defined by (3,3), it contains a **[diminished fifths / tritone](sec-tritone)** instead of a **peferfect fifhts**.
+The deminished is defined by (3,3), it contains a **[diminished fifths / tritone](sec-tritone)** instead of a **peferfect fifths**.
+If the interval is (4,4) the chord is **augmented**.
 
 If we look at all resulting intervals for the major and minor chord we get: 3 semitones (**minor third**), 4 semitones **major third** and 7 semitones (**perfect fifth**).
 In frequencies of an equally tempered octave this equates to 
@@ -82,7 +110,7 @@ In frequencies of an equally tempered octave this equates to
 \end{split}
 \end{equation*}
 
-All these ratios are relatively simple; thus, the tone is consonant. 
+All these ratios are relatively simple; thus, the tone is consonant.
 
 For the diminished chord, we get two intervals of 3 semitones (**minor third**) and an interval of 6 semitones (**minor seventh**) which is regarded as very dissonant.
 In frequencies of an equally tempered octave this equates to 

@@ -546,7 +546,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../composing/music-theory/6-analysis.html">
-     Nuvole Bianche
+     Analysis
     </a>
    </li>
   </ul>
@@ -583,11 +583,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../trash/jump-right-in.html">
    Building Sounds
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../trash/distributions.html">
-   Random distributions
   </a>
  </li>
 </ul>
@@ -878,15 +873,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7e66162-1eee-45bf-863f-861c12edd7eb">
-<span class="eqno">(41)<a class="headerlink" href="#equation-a7e66162-1eee-45bf-863f-861c12edd7eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de9f5b42-6ac8-47e2-821a-496440f2bc89">
+<span class="eqno">(41)<a class="headerlink" href="#equation-de9f5b42-6ac8-47e2-821a-496440f2bc89" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03cc20dc-1e9c-4bff-be28-94ccb1390ec6">
-<span class="eqno">(42)<a class="headerlink" href="#equation-03cc20dc-1e9c-4bff-be28-94ccb1390ec6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fe9a04f4-b099-4661-8b75-657722783143">
+<span class="eqno">(42)<a class="headerlink" href="#equation-fe9a04f4-b099-4661-8b75-657722783143" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -900,15 +895,15 @@ They are <em>2nd order Butterworth low-/highpass filter</em>.</p>
 <figure class="align-default" id="fig-butterworth-filter">
 <a class="reference internal image-reference" href="../../../_images/butterworth-filter.png"><img alt="../../../_images/butterworth-filter.png" src="../../../_images/butterworth-filter.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../../misc/terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 17</span></a> shows the reduction in amplitude.</p>
-<p>The second effect of the filter is a phase shift; compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 17</span></a>.
+The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 20</span></a> shows the reduction in amplitude.</p>
+<p>The second effect of the filter is a phase shift; compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 20</span></a>.
 This effect is crucial if we combine multiple filters because they interact!
 In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!</p>
 <p>The following code is an example of a band pass filter.
@@ -946,8 +941,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15eab608-1c23-48e1-93bd-5b5d989e8706">
-<span class="eqno">(43)<a class="headerlink" href="#equation-15eab608-1c23-48e1-93bd-5b5d989e8706" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b45d52ab-8866-4ffa-bb1c-22d08e335303">
+<span class="eqno">(43)<a class="headerlink" href="#equation-b45d52ab-8866-4ffa-bb1c-22d08e335303" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -1061,8 +1056,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e784ccb4-180e-4eb9-b4c6-6025846026d0">
-<span class="eqno">(44)<a class="headerlink" href="#equation-e784ccb4-180e-4eb9-b4c6-6025846026d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-be01c352-2d79-4076-a471-80ae6a3165ec">
+<span class="eqno">(44)<a class="headerlink" href="#equation-be01c352-2d79-4076-a471-80ae6a3165ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1168,8 +1163,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40815a53-2982-49d1-93a1-257ac0ee7282">
-<span class="eqno">(45)<a class="headerlink" href="#equation-40815a53-2982-49d1-93a1-257ac0ee7282" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-500a8ea6-3a0a-44e6-bdd4-0816cd6f6f34">
+<span class="eqno">(45)<a class="headerlink" href="#equation-500a8ea6-3a0a-44e6-bdd4-0816cd6f6f34" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.

@@ -311,7 +311,7 @@ midinote: #{    // midinote is the midinote (continuous intermediate values)
 
 If undefined ``~stepsPerOctave`` is 12 ([chromatic scale](sec-chromatic-scale) in Western music).
 
-We can be even more abstract and use a specific [scale](sec-scales-and-keys) instead of the chromatic one.
+We can be even more abstract and use a specific [scale](sec-scales) instead of the chromatic one.
 In that case, we can specify the ``\degree`` within a scale.
 The combination of ``\degree`` and scale gives us a specific ``\note``.
 In practice, we could define a ``Pbind`` using a certain key.
