@@ -20,25 +20,29 @@ from PIL import Image
 (sec-scales)=
 # Scales & Keys
 
-As a beginner coming from a rigorous discipline, I found the terms *scales*, *keys*, and *modes*, confusing because they seem to blend into one another.
+We already saw in section [Intervals](sec-intervals) that the naming convention in music theory is quite elaborate.
+However, if you get the main concept it makes a lot of sense.
+If you talk about scales, intervals, [chords](sec-chords) or keys, terms like *major*, *minor*, *diminished*, *third* and so on, point to the same underlying concept.
+Still, as a beginner coming from a rigorous discipline, I found the terms *scales*, *keys*, and *modes*, confusing because they seem to blend into one another.
 Let me start with a clear differentiation between *scales* and *keys*.
 
 Sometimes musicians speak of a scale and sometimes of a key as if these two terms are interchangeable.
 A scale places the [notes](sec-notes) in a **specific order**, up and down the keyboard, while *key* refers to all the notes of the same *scale* in **any order**
 and all possible combinations.
-For example, if we play multiple notes, we play these in the *key of C*.
+For example, if we play multiple notes, we play these in the *key of C (major)*.
 We also use the note from the C major *scale*.
-We think of notes that make up a scale but do not think of them in any particular order, we think of 'the key of C'.
+If we think of notes that make up a scale but do not think of them in any particular order, we think of 'the key of C (major)'.
 
 A *musical scale (Tonleiter)* is an **ordered** set of pitches, together with a formula for specifying their frequencies.
 Each individual pitch of a scale is called a *degree (Tonstufe)*.
 
 Most musical traditions use *octave intervals* to associate pitches that serve the same musical function (*unison*) such that a scale is completely defined by one *octave* because of *octave equivalence*, i.e., *the basic miracle of music*.
 In that case, any *degree* is a member of a class that it shares with the same degree in all other octaves.
-All notes of a *degree* of a scale are within the same *pitch classes*.
-Thus some use the terms *degree* and *pitch class* interchangeable.
+All pitches of a *degree* of a scale are within the same *pitch classes*.
+Thus some use the terms *note* and *pitch class* interchangeable.
 
-The **tonic** of a scale (also the "home" of the *keys*), is usually the first note in the respective *scale*.
+The **tonic** of a scale (also the "home" of the *keys*), is usually the first note in the respective *scale*, that is, it has degree 1.
+Note that in ``sclang`` it has degree 0, since we count from zero.
 
 (sec-chromatic-scale)=
 ## Chromatic Scale
@@ -48,6 +52,9 @@ The *chromatic scale*, which translates to *colorful scale*, consists of all twe
 $$\text{C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B}.$$
 
 It is an extension of the [diatonic scale](sec-diatonic-scale).
+The *chromatic scale* is so dense such that notes within the scale lack a clear characterization.
+It is used in the *atonal* twelve-tone technique of Arnold Schönberg which is a form of *post-tonal* thinking, i.e., composing without a tonal center.
+
 Note that, for example, C# (C raised by a semitone) and Db (D lowered by a semitone) are represented by the same keys on the piano but within a specific *scale/key* they serve different purposes.
 Compare the following code that plays the *chromatic scale*.
 
@@ -138,22 +145,23 @@ Note also that many notes such as D# and Eb are *enharmonic* (equal in pitch).
 
 Western music's prototype of all scale system is the *diatonic scale*.
 It is also known as the *major scale* and it is often regarded as invoking an overall happy feeling.
+Other than the [chromatic scale](sec-chromatic-scale) the *diatonic scale* is much more sparse.
 
 ```isc
 Scale.major;
 ```
 
 Instead of twelve, it has only eight pitches (and seven pitch classes), named with the seven letters C, D, E, F, A, B, C corresponding to the seven *degrees* of this scale.
-In German, it's C, D, E, F, A, H, C.
-The diatonic scale contains two-interval sizes, the *half step* (*semitone*) and the *whole step* where a *whole step* (*whole tone*) contains exactly two *half steps*.
-A half step is equal to 100 and a whole step to 200 cents.
+In German, we swap the B for the H.
+The *diatonic scale* is built from two-interval sizes, the *half step* (*semitone*) and the *whole step* where a *whole step* (*whole tone*) contains exactly two *half steps*.
+A half step is equal to 100 (minor second) and a whole step to 200 cents (major second).
 The *interval sequence* of the diatonic scale, defined by the following tuple,
 
 \begin{equation}
     (2,2,1,2,2,2,1)_{\text{major}}
 \end{equation}
 
-is the sequence of whole (2) and half steps (1) in the scale.
+is the sequence of whole (2 semitones) and half steps (1 semitone) in the scale.
 
 ```isc
 ( // major A scale
@@ -185,8 +193,7 @@ name: fig-piano-keys-major-scales
 C major scale **C** (or keys of C major) in blue and D# major **D#** scale in red.
 ```
 
-The diatonic scale is reflected by the piano keys, but hidden by the notation of a note sheet, e.g., C and C# occupy the same pitch line.
-The group $(2,2,1)$ is followed by $(2,2,2,1)$.
+The diatonic scale is so important, that it is built into the piano keys and the *staff notation*, e.g., C, C# and Cb occupy the same staff line.
 
 ```{code-cell} python3
 :tags: [remove-input]
@@ -240,38 +247,67 @@ Array.series(size: 7, start: 65, step: 7).collect({arg k; ~toNote.(k)});
 ```
 
 In the *diatonic scale* and its [modes](sec-modes) each degree has its specific name hinting to its role.
-
-| Degree | Name          | Symbol        |
-| ------ | ------------- | ------------- |
-| 1      | Tonic         | I             |
-| 2      | Supertonic    | ii            |
-| 3      | Mediant       | iii           |
-| 4      | Subdominant   | IV            |
-| 5      | Dominant      | V             |
-| 6      | Submediant    | vi            |
-| 7      | Leading tone  | vii$^o$ / VII |
-
-
 Note that in SuperCollider we [count](attention-sc-counting) from 0.
+
+| Degree | Name          | Symbol        | Semitones |
+| ------ | ------------- | ------------- | --------- |
+| 1      | Tonic         | I             | 0         |
+| 2      | Supertonic    | II            | 2         |
+| 3      | Mediant       | III           | 4         |
+| 4      | Subdominant   | IV            | 5         |
+| 5      | Dominant      | V             | 7         |
+| 6      | Submediant    | VI            | 9         |
+| 7      | Leading tone  | VII           | 11        |
+
+
+Looking closely at the [interval](sec-intervals) sequence, the group $(2,2,1)$ is followed by $(2,2,2,1)$.
+From the tonic to any other note, all intervals of the major scale are major intervals!
+Therefore, the diatonic scale has a strong *leading tone* pulling us heavily into its *tonic* since it is only one semitone apart from it.
+The dominant as well as the subdominant are **perfect** (P5 / P4) thus very consonant with the *tonic*.
+
+```isc
+(
+Pbind(
+    \scale, Scale.major,
+    \degree, Pseq([(0..6), [0]].allTuples, 1),
+    \dur, 0.5
+).play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/major-intervals.mp3'
+ipd.Audio(audio_path)
+```
 
 (sec-minor-scale)=
 ## Minor Scales
 
 The *minor scale*, also known as *natural minor scale*, uses the standard *diatonic interval sequence* but starts on degree 6 (counting from one).
 It is often regarded as invoking an overall sad feeling.
+
 We get the *minor interval sequence* by shifting the diatonic interval sequence by 2 to the right or by 5 to the left.
 Therefore, it has the same *sparsity* as well as *asymmetry*. as the [diatonic scale](sec-diatonic-scale).
 
 ```isc
-( // minor C# / Db scale
+( // minor D
 Pbind(
     \instrument, \default,
-    \scale, Scale.major,
+    \scale, Scale.minor,
     \degree, Pseq((0..7), 1),
-    \root, 1, // C#/ Db
+    \root, 2, 
     \dur, 0.25
 ).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/d-minor-scale.mp3'
+ipd.Audio(audio_path)
 ```
 
 The *minor scale* is also called **natural minor** and is also known as the *Aolian [mode](sec-modes)*.
@@ -290,27 +326,78 @@ name: fig-piano-keys-minor-scales
 C minor scale (or keys of C minor) in blue and D# minor scale in red.
 ```
 
-```{admonition} Counting in sclang
-:name: attention-sc-counting
-:class: attention
-Note that in ``sclang``, we start counting from zero!
-```
+Looking closely at the [interval](sec-intervals) sequence, one can see that the minor scale has a less strong *leading tone* because it is two semitones apart from the *tonic*.
+This property is sometimes unwanted which leads to the harmonic and melodic minor scales.
+Furthermore, three out of all the intervals from the tonic to any other note are minor intervals!
+This makes the *harmonic minor* a little bit exotic.
 
-There is also the **harmonic minor scale** for which the seventh note is raised by one semitone. 
+| Degree | Name          | Symbol         | Semitones |
+| ------ | ------------- | -------------- | --------- |
+| 1      | Tonic         | I              | 0         |
+| 2      | Supertonic    | II             | 2         |
+| 3      | Mediant       | iii            | 3         |
+| 4      | Subdominant   | IV             | 5         |
+| 5      | Dominant      | V              | 7         |
+| 6      | Submediant    | vi             | 8         |
+| 7      | Leading tone  | vii            | 10        |
+
+
+As mentioned above, there is also the **harmonic minor scale** for which the seventh note is raised by one semitone such that we recover the strong leading tone of the major scale.
+It is often used for harmonization within a major key.
 
 \begin{equation}
     (2,1,2,2,1,3,1)_\text{ham. minor}
 \end{equation}
 
 This gives us: C, D, Eb, F, G, Ab, B.
+The gap between A flat and B introduces a new large interval of three semitones.
 
-The last variation is the **melodic minor scale** for which the sith and seventh notes are always raised.
+```isc
+( // D harmonic minor  
+Pbind(
+    \instrument, \default,
+    \scale, Scale.harmonicMinor,
+    \degree, Pseq((0..7), 1),
+    \root, 2, 
+    \dur, 0.25
+).play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/harmonic-minor.mp3'
+ipd.Audio(audio_path)
+```
+
+The last variation is the **melodic minor scale** for which the sixth and seventh notes are raised.
 
 \begin{equation}
     (2,1,2,2,2,2,1)_\text{mel. minor}
 \end{equation}
 
 This gives us: C, D, Eb, F, G, A, B.
+Sometimes the natural minor is used if we play in descending order which gives us: C, D, Eb, F, G, A, B, A, G, F, E, D, C.
+
+```isc
+( // D melodic minor  
+Pbind(
+    \instrument, \default,
+    \scale, Scale.melodicMinor,
+	\degree, Pseq((0..6)++(5..0), 1),
+    \root, 2, 
+    \dur, 0.25
+).play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/melodic-minor.mp3'
+ipd.Audio(audio_path)
+```
 
 (sec-transpositions)=
 ## Transpositions
@@ -318,9 +405,10 @@ This gives us: C, D, Eb, F, G, A, B.
 If a scale starts on any *pitch class* other than C, it is said to be *transposed*.
 The diatonic scale can be transposed to any chromatic degree so long as the *[diatonic interval sequence](sec-diatonic-scale)* is preserved.
 For example, the diatonic scale transposed to G by the introduction of F# is the *key of G*.
+From now on, we abbreviate any *major/minor scale* with a bold letter, e.g., the *D major scale* is written as **D** and the *D minor scale* as **Dm**.
 
-We also say that we play a certain piece in *key of G major* or just *G major*.
-The untransposed diatonic scale is is the *key of C*.
+We also say that we play a certain piece in *key of G major* or just *G major* or **G**.
+The untransposed diatonic scale is the *key of C*.
 As I we already saw, to transpose to another *key/scale* in ``sclang``, we define the ``\root`` to be different than 0.
 
 Let us consider the degrees of *major scale* (key of C) with respect to the chromatic scale:
@@ -338,6 +426,7 @@ $$F_\text{major} = (6, 8, 10, 11, 1, 3, 5) = (\text{F, G, A, A#, C, D, E}).$$
 Transposing again and again by seven semitones will add additional sharps and flats.
 Consecutive transpositions by seven semitones, i.e. by **perfect fifths**, sound similar.
 They share many notes thus musical properties.
+Therefore, composers tend to move on the circle of fifth if they move at all.
 
 The following code generates all *major* scales by trasposing by seven semitones.
 Note that I use only sharps instead of mixing in flats:
@@ -369,23 +458,23 @@ Note that I use only sharps instead of mixing in flats:
 ```
 
 The circular result is depicted in the following table.
-After F major everything is repeated.
+After **F** everything is repeated.
 We could construct a similar table for all *minor* scales.
 
-| Scale         | Pitches                                                     | Sharps | Flats  |
-| ------------- | ----------------------------------------------------------- | ------ | ------ |
-| **C**         | C, D, E, F, G, A, B                                         | 0      | 0      |
-| **G**         | G, A, B, C, D, E, F#                                        | 1      |        |
-| **D**         | D, E, F#, G, A, B, C#                                       | 2      |        |
-| **A**         | A, B, C#, D, E, F#, G#                                      | 3      |        |
-| **E**         | E, F#, G#, A, B, C#, D#                                     | 4      |        |
-| **B**         | B (Cb), C# (Db), D# (Eb), E (Fb), F# (Gb), G# (Ab), A# (Bb) | 5      | 7      |
-| **F#/Gb**     | F# (Gb), G# (Ab), A# (Bb), B (Cb), C# (Db), D# (Eb), E# (F) | 6      | 6      |
-| **Db**        | C# (Db), D# (Eb), E# (F), F# (Gb), G# (Ab), A# (Bb), B# (C) | 7      | 5      |
-| **Ab**        | Ab, Bb, C, Db, Eb, F, G                                     |        | 4      |
-| **Eb**        | Eb, F, G, Ab, Bb, C, D                                      |        | 3      |
-| **Bb**        | Bb, C, D, Eb, F, G, A                                       |        | 2      |
-| **F**         | F, G, A, Bb, C, D, E                                        |        | 1      |
+| Scales                | Pitches                                                     | Sharps | Flats  |
+| --------------------- | ----------------------------------------------------------- | ------ | ------ |
+| **C**/**Am**          | C, D, E, F, G, A, B                                         | 0      | 0      |
+| **G**/**Em**          | G, A, B, C, D, E, F#                                        | 1      |        |
+| **D**/**Bm**          | D, E, F#, G, A, B, C#                                       | 2      |        |
+| **A**/**F#m**         | A, B, C#, D, E, F#, G#                                      | 3      |        |
+| **E**/**C#m**         | E, F#, G#, A, B, C#, D#                                     | 4      |        |
+| **B**/**G#m**         | B (Cb), C# (Db), D# (Eb), E (Fb), F# (Gb), G# (Ab), A# (Bb) | 5      | 7      |
+| **F#/Gb**/**Ebm/D#m** | F# (Gb), G# (Ab), A# (Bb), B (Cb), C# (Db), D# (Eb), E# (F) | 6      | 6      |
+| **Db**/**Bbm**        | C# (Db), D# (Eb), E# (F), F# (Gb), G# (Ab), A# (Bb), B# (C) | 7      | 5      |
+| **Ab**/**Fm**         | Ab, Bb, C, Db, Eb, F, G                                     |        | 4      |
+| **Eb**/**Cm**         | Eb, F, G, Ab, Bb, C, D                                      |        | 3      |
+| **Bb**/**Gm**         | Bb, C, D, Eb, F, G, A                                       |        | 2      |
+| **F**/**Dm**          | F, G, A, Bb, C, D, E                                        |        | 1      |
 
 In general, A# equals Bb, D# equals Eb, G# equals Ab, C# equals Db and F# equals Gb.
 As we already discussed a seven semitone [interval](sec-intervals) is called **perfect fifth**.
@@ -433,10 +522,9 @@ gives us
 (sec-circle-of-fifths)=
 ## The Circle of Fifths
 
-*Major* and *minor* *scales* are very prominent.
+[Major](sec-diatonic-scale) and [minor scales](sec-minor-scale) are very prominent.
 They are widely used in all areas of music compositions.
 Interestingly, for each *major scale* there is a corresponding *minor scale* which consists of the exact same *pitch classes*, e.g. **C** (C major) corresponds to **Am** (A minor).
-
 This relationship is often depicted as the so called *circle of fifth*, we computed with by adding **perfect fifths**.
 
 ```{figure} ../../../figs/composing/circle-of-fifths.png
@@ -485,15 +573,15 @@ Again, adding a fixed number of semitones/half steps to our C major scale does n
 In that case we change the *tonic* of the scale but letting the interval sequence intact.
 To change the *mode* and the *key* of our piece we change both: the *tonic* and the interval sequence, that is, the *mode*.
 
-| Mode            | Interval sequence                  | Tonic relative  |
-| --------------- | ---------------------------------- | --------------- |
-| Ionian (Major)  | $(2, 2, 1, 2, 2, 2, 1)$            |        I        |
-| Dorian          | $(2, 1, 2, 2, 2, 1, 2)$            |        ii       |
-| Phrygian        | $(1, 2, 2, 2, 1, 2, 2)$            |       iii       |
-| Lydian          | $(2, 2, 2, 1, 2, 2, 1)$            |        IV       |
-| Mixolydian      | $(2, 2, 1, 2, 2, 1, 2)$            |        V        |
-| Aeolian (Minor) | $(2, 1, 2, 2, 1, 2, 2)$            |        vi       |
-| Locrain         | $(1, 2, 2, 1, 2, 2, 2)$            |       vii       |
+| Mode            | Interval sequence                  |
+| --------------- | ---------------------------------- |
+| Ionian (Major)  | $(2, 2, 1, 2, 2, 2, 1)$            |
+| Dorian          | $(2, 1, 2, 2, 2, 1, 2)$            |
+| Phrygian        | $(1, 2, 2, 2, 1, 2, 2)$            |
+| Lydian          | $(2, 2, 2, 1, 2, 2, 1)$            |
+| Mixolydian      | $(2, 2, 1, 2, 2, 1, 2)$            |
+| Aeolian (Minor) | $(2, 1, 2, 2, 1, 2, 2)$            |
+| Locrain         | $(1, 2, 2, 1, 2, 2, 2)$            |
 
 
 Overall a **scale** is fully defined by the note of the **tonic** and a **mode** (an interval sequence).
@@ -544,6 +632,12 @@ You can look them up by calling:
 
 ```isc
 Scale.directory
+```
+
+```{admonition} Counting in sclang
+:name: attention-sc-counting
+:class: attention
+Note that in ``sclang``, we start counting from zero!
 ```
 
 For example, we can use the *G melodic minor* the following way:

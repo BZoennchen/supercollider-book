@@ -24,15 +24,18 @@ from PIL import Image
 
 An interval is defined by exactly two notes.
 Adding at least one note and letting them all sound together makes a chord.
+Sometimes an interval is also regarded as a chord, i.e. a *dyad*.
+For example, the power chord which consists of the *root note* and the fifth, (as well as possible octaves of those notes) is a famous guitar chord.
+
 Of course, we can also break up a chord into single notes playing what is called an *arpeggio*.
 Though, since instances of any given note within the same *pitch class* may be interpreted as the same note within a chord, it is more precise for the purposes of analysis to speak of distinct *pitch classes*.
-The pitch class of C is formed by the C of each octave.
+Remeber, the pitch class of C is formed by the C of each octave.
 Furthermore, since three notes are needed to define any common chord, three is often taken as the minimum number of notes that form a definite chord.
 
-Let us listen to all [triads](sec-triads) of the [diatonic scale](sec-diatonic-scale).
+Let us listen to all [triads](sec-triads) of the [diatonic](sec-diatonic-scale) and [minor scale](sec-minor-scale).
 
 ```isc
-(
+( // triads of the C major scale
 Pbind(
   \scale, Scale.major,
   \degree, [0,2,4] + Pseq((0..7), 1)
@@ -47,11 +50,29 @@ audio_path = '../../../sounds/c-major-chords.mp3'
 ipd.Audio(audio_path)
 ```
 
+```isc
+( // triads of the C minor scale
+Pbind(
+  \scale, Scale.minor,
+  \degree, [0,2,4] + Pseq((0..7), 1)
+).play
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/c-minor-chords.mp3'
+ipd.Audio(audio_path)
+```
+
+The triads of the minor tend to sound more serious.
+
 (sec-triads)=
 ## Triads
 
-The most prominant chords called *triads* consist of three notes
-Finding a harmonic sounding *triad* can be achieved by adding **ever other note in a scale** starting from some *root* also called *base note* (if the chord is in root position) - I did so in the code above.
+The most prominant chords called *triads* consist of three notes.
+Finding a harmonic sounding *triad* can be achieved by adding **ever other note in a scale** starting from some *root*, also called *base note* (if the chord is in root position) - all the chords played above are in root position.
 In other words, chords are fully defined by the used *key* and a combination of degrees (*scale note positions*).
 If $d$ is the degree of the first note then the degree sequence
 
@@ -60,7 +81,7 @@ $$(d, d+2, d+4)$$
 constitute all natural *triads* within a scale.
 For example, for a major scale in the key of C (all white key on a piano),
 
-$$(\text{E4, G4, B4})$$
+$$(\text{E, G, B})$$
 
 constitutes the **iii-minor chord** within this *key*.
 
@@ -80,7 +101,7 @@ In the following first table I use the major scale in the key of A:
 
 In the second table I use the minor scale in the key of A:
 
-| A Minor       | i     | ii         | III     | iv          | v        | VI         | VII           |
+| A Minor       | i     | ii$^\circ$ | III     | iv          | v        | VI         | VII           |
 | ------------- | ----- | ---------- | ------- | ----------- | -------- | ---------- | --------------|
 | **Name**      | Tonic | Supertonic | Mediant | Subdominant | Dominant | Submediant | Leading note  |
 | **Quality**   | Minor | Diminished | Major   | Minor       | Minor    | Major      | Major         |
@@ -89,7 +110,7 @@ In the second table I use the minor scale in the key of A:
 
 Each *triad* of a scale has a more or less defined role.
 I/i act as the tonic, i.e, the home or the tonal center.
-Leading tones (vii/VII) lead into the tonic and (iv/) 
+Leading tones (vii/VII) lead into the tonic and (iv/IV/V/v) open up possibilities that wants to be resolved into the tonic.  
 
 Following the formula, we call (B, D, F#) the *B minor chord* and (D, F, A) the *D major chord*, regardless of the scale we are using because the [interval](sec-intervals) B-D is a minor third and from D-F it is a major third.
 However, we need the scale to determine the tonal role of each chord (and note) within a composition.
@@ -104,8 +125,8 @@ In frequencies of an equally tempered octave this equates to
 
 \begin{equation*}
 \begin{split}
-2^{3/12} &\approx 1.189 \approx 1.20,  \quad \text{minor third}\\
-2^{4/12} &\approx 1.259 \approx 1.25, \quad \text{major third}\\
+2^{3/12} &\approx 1.189 \approx 1.19,  \quad \text{minor third}\\
+2^{4/12} &\approx 1.259 \approx 1.26,  \quad \text{major third}\\
 2^{7/12} &\approx 1.498 \approx 1.50,  \quad \text{perfect fifth.}
 \end{split}
 \end{equation*}
@@ -117,8 +138,8 @@ In frequencies of an equally tempered octave this equates to
 
 \begin{equation*}
 \begin{split}
-2^{3/12} &\approx 1.1890 \approx 1.200, \quad \text{minor third}\\
-2^{6/12} &\approx 1.4142 \approx 1.414, \quad \text{tritone.}
+2^{3/12} &\approx 1.1890 \approx 1.19, \quad \text{minor third}\\
+2^{6/12} &\approx 1.4142 \approx 1.41, \quad \text{tritone.}
 \end{split}
 \end{equation*}
 
@@ -129,6 +150,7 @@ We can name the chord by its **root** and the *interval sequence*, e.g., B minor
 Musicians use only the note symbol, such as **F**, to denote the major chord of that note, e.g., **F major chord**.
 This can be confusing because scales and keys are denoted similarily.
 
+(sec-inversion)=
 ## Inversion
 
 Changing the order of the notes within a chord by changing their octaves is called *inversion*.
@@ -136,11 +158,10 @@ Since the lowest note within a chord is important with respect to the tonality o
 Of course, we can also move the *root* up instead.
 
 Because of the asymetric propertie of major and minor scales, inversion changes the **quality** of the chord!
-
 For example, E-G-B is **Em**, i.e. a (3, 4) semitones interval which is a **minor third** and a **major third**.
 Its first inversion G-B-E results in a (4, 5) semitones interval which is a **major third** and a **minor sixth**.
 
-Its second inversion B-E-G results in (5, 3) whic is a **minor sixth** and a **minor third**.
+Its second inversion B-E-G results in (5, 3) which is a **minor sixth** and a **minor third**.
 The following staff notation shows three chords from left to right: E-G-B in *root position*, *first inversion* and *second inversion*.
 
 ```{code-cell} python3

@@ -208,6 +208,31 @@ On the **serve-side** there are corresponding unit generators such as
 + ``ExpRand``.
 
 
+## Signal Lagging
+
+We are sometimes in a situation where we want to change the output of a signal from one value to another but we desire a smooth transition, e.g., to avoid clicks.
+Lagging a signal via the ``lag`` function filters the signal via a [lowpass filter](sec-lowpass-filter) such that a smooth transition is accomplished.
+Instead of dealing with abstract filter arguments, it lets you conviniently define the duration of the transition.
+It is equivalent to the [Lag](https://doc.sccode.org/Classes/Lag.html) unit generator.
+
+In the following we use the [TRand](https://doc.sccode.org/Classes/TRand.html) unit generator triggered by a [Dust](https://doc.sccode.org/Classes/Dust.html) ugen to spill out the same random number over a short duration, determined by the next trigger signal.
+The plot below shows the unfiltered signal and two filtered signals with different lag times.
+
+```isc
+({
+  var sig = TRand.ar(0, 1, Dust.ar(10));
+  sig = [sig, sig.lag(0.3), sig.lag(0.7)]
+}.plot(2);
+)
+```
+
+```{figure} ../../../figs/supercollider/basics/trandom-lag-plot.png
+---
+width: 800px
+name: fig-trandom-lag-plot
+---
+```
+
 ## Examples
 
 In the following example we use frequency for ``\freq``, amplitude for ``\amp`` and semitones for ``\detune``.
@@ -282,3 +307,16 @@ I play in the [scale](sec-scales) of D minor using a gaussian distribution aroun
 Furthermore, I modulate the release time with respect to the degree of the note such that high-degree notes have an exponentially shorter release time!
 Thereby, I mimic the natural effect of faster disappearing high frequencies. 
 In addition, the ``\detune`` increases from 0 to 0.01 times 200.
+
+Let us to two sine waves changing their frequency 5 times a second via a smooth transition.
+To achieve the rate of change we use the [Impulse](https://doc.sccode.org/Classes/Impulse.html) ugen:
+
+```isc
+{0.25 * SinOsc.ar(TRand.ar(200, 1000, Impulse.ar(5)!2).lag(0.3))}.play
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/trand-laged-sine.mp3'
+ipd.Audio(audio_path)
+```
