@@ -1,7 +1,7 @@
 (sec-notes)=
 # Notes & Midi Notes
 
-While notes are introduced by musicians a long time ago, midi notes a rather recent invention becoming especially popular with the invention of analog and digital synthesizer.
+While notes are introduced by musicians a long time ago, midi notes a rather recent invention becoming especially popular with the introduction of analog and digital synthesizer.
 Both are motivated and related to piano keys.
 
 ```{figure} ../../../figs/composing/piano-keys.png
@@ -26,13 +26,15 @@ name: fig-diatonic-scale
 Notes written down on a musical sheet with a *treble staff*.
 ```
 
-The black keys are sharps and flats of the white keys: C#/Bb-D#/Eb-F#/Gb-G#/Ab-A#/Bb.
-To arrive at a black key we either we raise a white key by a semitone, e.g. C to C#.
+Black keys are sharps and flats of the white keys: C#/Bb-D#/Eb-F#/Gb-G#/Ab-A#/Bb.
+To arrive at a black key we either raise a white key by a semitone, e.g. C to C#.
 Or we lower a white key by a semitone, e.g. E to Eb.
+All these letters represent a *note*.
+Often we notate sharps when we play in ascending order, e.g., C-D# and flats if we play in descending order, e.g., E-Db (instead of E-C#).
 
-Modern pianos follow the *twelve-tone equal temperament tuning (12-TET)*.
-In that case A4 corresponds to a fundamental frequency of 440 Hz.
-Furthermore, A1 and A3 have the same tone but A3 is two octaves higher thus its pitch is higher.
+Modern pianos follow the *twelve-tone equal temperament tuning (12-TET)* thus after 12 notes in ascending or descending order, everything is repeated but one octave higher or lower respectively.
+Furthermore, A4 corresponds to a fundamental frequency of 440 Hz.
+A1 and A3 are the same note but A3 is two octaves higher thus its pitch is higher.
 We also say that they are in the same *pitch class* A.
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by $2^2 = 4$.
 In general, the frequency doubles after each succesive 12 keys.

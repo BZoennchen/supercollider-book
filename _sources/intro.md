@@ -232,19 +232,22 @@ Not to flee reality but instead to be in it, more than ever, and to take on that
 
 >We might be in a collective state of existential crisis, but we are to busy to notice it.
 
-Technology should not be trusted naively, instead we should think about it in depth.
-Our general understanding of technology is inherently humanistic, that is, we think of it as something seperated from us; 
+The current Zeitgeist is technological.
+By that I mean that nowadays societies are still critical of the usage of technology but not of so much of technology itself.
+The assumption is that humans are still in control of technology, therefore, it is us who decide if technology can be used for something good or bad.
+This understanding of technology as something neutral is inherently humanistic, that is, we think of it as something seperated from us; 
 something over that we can rule; something that we can control perceisly.
-From that viewpoint, technology is by definition something non-human.
+From that subject-object viewpoint, technology is by definition something non-human.
 It can be used for the good, the bad, the ugly, and the beautiful and we can decide what to do with it.
-Nowadays this viewpoint is challenged by the advances in *artificial "intelligence"*, especially the branch of *machine learning*.
+
+However, this viewpoint is increasingly challenged by the advances in *artificial "intelligence"*, especially the branch of *machine learning*.
 The line between controlling and being controled gets more and more blurred.
 
 >[...] there is an idea that technology is in its essence something human beings have under their control. In my opinion, that is not possible. Technology is in its essence something that human beings cannot master of their own accord. -- Heidegger
 
 Technology is neither inherently progressive nor repressive.
 We must rethink technology as something that, like nature, is not strictly separated from us.
-It is an extension of the human body and the human mind.
+It is an extension of the human body and the human mind in so far that it shapes our *mode of being*.
 Technology shapes our way of communication and our material realities;
 it opens up spaces of possibilities but, at the same time, closes the door to preexisting ways of life.
 
@@ -270,7 +273,8 @@ To understand how it affects us, how it changes us, how it can help us and how i
 Follwing *Martin Heidegger* there are two distinction we should make: the tools and techniques of modern science, along with all the gadgets created to add material comfort to human life, which he calls *mere technology* and the *essence of technology*, i.e., the structure of the technological world and our way of existing in this world.
 Heidegger argues that if all we ever do is gain an increasingly sophisticated understanding of *mere technology*, the mastery of tools and instruments and the application of techniques, even those that indisputable improve our standard of living, without gaining an understanding of the *essence of technology*, our understanding will not free us but only further enslave us.
 
-When talking about Heidegger one should mention that he was a nazi.
+Now, I am fully aware that Heidegger was a Nazi and when talking about him one should mention that.
+Furthermore, one should investigate his philosphy with respcet to his Nazism.
 
 >How is it that such a brilliant mind was taken
 in by the Nazis? How could Heidegger be so socially irresponsible? It is the
@@ -278,10 +282,10 @@ same problem as with Celan: here is a wonderful writer who was a rotten
 anti-Semite [...] I have shown Heidegger’s brain with a mushroom-like tumor
 growing out of it to make the point. -- Anselm Kiefer
 
-We have to consider that his worry about *global technology* pushed him towards the nazi party in the first place.
-The nazis were opposed to the two dominant forms of government of the day that Heidegger associated with *global technology*, communism and democracy.
+We have to consider that his worry about *global technology* pushed him towards the Nazi party in the first place.
+The Nazis were opposed to the two dominant forms of government of the day that Heidegger associated with *global technology*, communism and democracy.
 Therefore, to study Heiddegger is both dangerous and difficult.
-It requires great caution and care to appreciate the depth and complexity of his thought, and to be aware of his association with the nazis.
+It requires great caution and care to appreciate the depth and complexity of his thought, and to be aware of his association with the Nazis.
 
 According to Heidegger, technology is revealing but at the same time it is concealing, an open space between paths, and a place where reality appears in a certain light.
 The *essence of technology* (*das Gestell*) is its mode of revealing and concealing.
@@ -323,7 +327,7 @@ We can, however, cultivate a reflexive understanding that enables us to see the 
 
 Apart from the important distinction of *mere technology* and the *essence of technology* we also have to look at the material reality.
 Who controls the production of *mere technology* and to what end?
-I think digital technology is powerful and could likely solve the majority of humanities problems; 
+I think digital technology is powerful and could contribute to solutions of a majority of humanities problems; 
 from climate change to income distribution, sensor-based agricultural practice, food, education and the abolishment of racialization, gender discrimination, ableism and classism.
 Digital technology can be amazing, but when all decisions about how to deploy and use it are in the hands of business people, then we have a problem.
 These people implement a hazardous form of technological-driven society with the economy at its absolute center: a form of *digital / computational capitalism* where algorithms produce money instead of value.
