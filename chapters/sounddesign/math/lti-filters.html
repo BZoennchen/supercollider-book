@@ -56,6 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
@@ -114,12 +115,34 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../../../intro.html">
-                    Preamble
+                <a class="reference internal" href="../../../about.html">
+                    Preface
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Philosophy
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preamble/lost-futures.html">
+   Lost Futures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preamble/technology-and-art.html">
+   Technology and Art
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../preamble/algorithms.html">
+   Algorithms
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SuperCollider I
  </span>
@@ -556,6 +579,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">
+   Algorithmic Composition
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -563,11 +591,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../misc/about.html">
-   About the Book
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../misc/terms.html">
    Glossary
@@ -878,15 +901,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-202cda87-36c5-4290-b3e0-b763c84753f2">
-<span class="eqno">(41)<a class="headerlink" href="#equation-202cda87-36c5-4290-b3e0-b763c84753f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c8795a16-231f-45bf-b7eb-4a76fd610c43">
+<span class="eqno">(41)<a class="headerlink" href="#equation-c8795a16-231f-45bf-b7eb-4a76fd610c43" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-28aa0b6d-fd08-4767-b911-64fe5c72e1cd">
-<span class="eqno">(42)<a class="headerlink" href="#equation-28aa0b6d-fd08-4767-b911-64fe5c72e1cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-144c9e88-993f-4b2d-8160-cb0e564229f5">
+<span class="eqno">(42)<a class="headerlink" href="#equation-144c9e88-993f-4b2d-8160-cb0e564229f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -946,8 +969,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83ecd6a0-ceb9-4676-b0d2-db0a8e2815f5">
-<span class="eqno">(43)<a class="headerlink" href="#equation-83ecd6a0-ceb9-4676-b0d2-db0a8e2815f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-801ab4ec-6cfa-4232-b922-82183226e1f5">
+<span class="eqno">(43)<a class="headerlink" href="#equation-801ab4ec-6cfa-4232-b922-82183226e1f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -1061,8 +1084,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4815276d-9905-4d00-9dc4-d26df0248de8">
-<span class="eqno">(44)<a class="headerlink" href="#equation-4815276d-9905-4d00-9dc4-d26df0248de8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-035aadc2-4db6-400d-a7b7-152ec3a8b460">
+<span class="eqno">(44)<a class="headerlink" href="#equation-035aadc2-4db6-400d-a7b7-152ec3a8b460" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1168,8 +1191,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9992acf6-7f78-49b3-b8c4-902e8c38053d">
-<span class="eqno">(45)<a class="headerlink" href="#equation-9992acf6-7f78-49b3-b8c4-902e8c38053d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2d870ed-e5b2-4be4-bc06-28b771169112">
+<span class="eqno">(45)<a class="headerlink" href="#equation-e2d870ed-e5b2-4be4-bc06-28b771169112" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.

@@ -1,4 +1,15 @@
-# About the Book
+# Preface
+
+>Emancipatory politics must always destroy the appearance of a "natural order", must reveal what is presented as necessary and inevitable to be a mere contingency, just as it must make what was previously deemed to be impossible seem attainable. -- Mark Fisher
+
+This book is about learning to design sound and to compose music using the programming language and compositional environment called SuperCollider developed by James McCartney and many others.
+
+The motivation for writing this book comes from my experience as a lecturer in the field of computer science and my belief in the playfulness of coding as an important and fruitful form of communication.
+Music is a historically grown form of communication, but the idea that algorithms communicate as well becomes ever more clear in the current digital age.
+I believe that algorithmic compositions enrich our understanding of technology and can be a tool to reinvigorate selfless collaboration.
+However, they are not mere means to an end but emit multifaceted aesthetic beauty; 
+with respect to your personal viewpoint, the piece, the algorithm and the process of its creation can be seen aesthetically.
+These words echo a specific set of believes and I will not hide that the source of my motivation to write this book is coupled to a certain belief system which I partly unfold in the first part of this book.
 
 ## How I Started
 
@@ -86,13 +97,11 @@ Music sets me free.
 Coding sets me free.
 Thus, for me, coding music is the ultimate freedom.
 
-
-
 ## Why Writing an Online-Book?
 
 I am very excited!
 I want to learn more about the *algorithmic composition*. 
-This book is my attempt to do so; nothing more and nothing less (for now at least).
+This book is my attempt to do so;
 To understand something, one has to pass through a grueling learning process.
 One such strategy that works for me is called *the Feynman learning technique*.
 It consists of the following steps:
