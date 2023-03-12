@@ -1,13 +1,13 @@
 (sec-ugens)=
 # Unit Generators
 
-The defining function of a ``SynthDef``, i.e. the representation of a [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph), consists of a network of so called *unit generators* ([UGens](https://doc.sccode.org/Classes/UGen.html)).
-Unit generators are the smallest building blocks of our sound generation architecture.
-They are used for generating processing signals with the SuperCollider synthesis audio server.
+The defining characteristics of a ``SynthDef``, i.e. the representation of a [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph), is defined by a network of so called *unit generators* ([UGens](https://doc.sccode.org/Classes/UGen.html)).
+Unit generators are the smallest building blocks of our server-side sound generation architecture.
+They are used for generating and processing signals on the SuperCollider synthesis audio server.
 
 ## Definition
 
-A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point data outputs, as well as *side effects* such as wrting to the post window, accessing a buffer, or seinding a message over a network.
+A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point outputs, as well as *side effects* such as wrting to the post window, accessing a buffer, or sending a message over the network.
 
 ```isc
 (
@@ -45,7 +45,7 @@ A *unit generator* ``UGen`` represent calculations with a signal.
 They are the basic building blocks of a synth definition, and are used to generate or process both *audio* and *control signals*.
 ```
 
-When using ``sclang``, we need representations unit generators which provides information about its inputs and outputs (the number, type etc.).
+When using ``sclang``, we need representations of unit generators which provides information about its inputs and outputs (the number, type etc.).
 These representations allow us to define synthesis graphs in ``sclang``, i.e. ``SynthDefs``.
 Therefore, each unit generator also comes with a SC class; these classes are always derived from a base class, appropriately called ``UGen``.
 Later we will discuss how to write our own brand new unit generator.
@@ -57,11 +57,12 @@ A unit generator, i.e., an instance of ``UGen``, is executed on the server!
 
 A *unit generator* is the signal-generating and -processing workhorse for the SuperCollider synthesis environment.
 They provide an efficient modular system for creating complicated *audio networks*, which we will refer to *unit generator graphs* or *unit generator graph function*.
-*Unit generators* are defined within libraries, which are are written in the ``C++`` programming language and compiled before use.
+*Unit generators* are defined within libraries, which are written in the ``C++`` programming language and compiled before we can use them.
 The libraries (*plug-ins*) are loaded into an instance of SuperCollider's audio server *scsynth* when it is booted and persist until the server quits.
 Any sound produced by *scsynth* is the result of a *unit generator*, and *unit generators* are used only inside scsynth.
 ``UGens`` are represented in the Supercollider language's class system.
 Therefore, a *unit generator* is realized by a combination of ``C++`` and ``sclang`` code.
+Because unit generators are executed by efficient compiled ``c++`` code, they are highly efficient.
 
 ## Sample Rates
 
@@ -108,7 +109,7 @@ They can be categorized into:
 
 Instead of discussing these different ``UGens`` by listing them all at one place, I try to explain them under practical motivation.
 For example, I will explain the [fundamental wavesforms](sec-fundamental-waveforms) in the context of [additive synthesis](sec-additive-synthesis).
-We will explore many different ``UGens`` discussing [filters](sec-filters) and many more concepts.
+We will explore many different ``UGens`` discussing [filters](sec-filters) and many other concepts.
 
 (sec-mce)=
 ## Multichannel Expension

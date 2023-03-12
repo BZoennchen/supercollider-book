@@ -1,7 +1,20 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+(sec-routines-tasks)=
 # Routines & Tasks
 
 A [Routine](https://doc.sccode.org/Classes/Routine.html) is like a function that you can evaluate only partly at a time.
-Routines and functions can be used almost interchangeable.
+Routines and functions can be used almost interchangeable but routines can be scheduled/played on a clock.
 Within a routine, you use the ``yield`` method to return a value and pause its execution.
 The next time you evaluate the routine, it picks up where it left off.
 In that sense, a routine is similar to a [stream](sec-stream) but it does not only return values but can do stuff, i.e., realize *sideeffects*.
@@ -40,8 +53,7 @@ r.play;
 
 We can schedule the routine on a specific clock ``t`` by providing it via ``r.play(t)``
 
-There is even a shorter version of this code.
-*Forking* a function will transform the function into a routine and *play* it immediately.
+*Forking* a function via the ``fork`` keyword will transform the function into a routine and *play* it immediately.
 
 ```isc
 (
@@ -69,25 +81,49 @@ The example uses the *gated* [default instrument](sec-default-instrument).
 
 ```isc
 (
-t = Task({
-    loop({
-        3.do({
-            x.release(0.1);
-            x = Synth(\default, [\freq: 76.midicps]);
-            0.5.wait;
-            x.release(0.1);
-            x = Synth(\default, [\freq: 73.midicps]);
-            0.5.wait;
-        });
-        "Waiting".postln;
-        nil.yield;
-        x.release(0.1);
-        x = Synth(\default, [\freq: 69.midicps]);
+t = Task {
+    loop {
+        [56, 66, 60, 64].do { |midi|
+            x = Synth(\default, [\freq: midi.midicps]);
+            0.25.wait;
+            x.set(\gate, 0);
+        };
+        x = Synth(\default, [\freq: 64.midicps]);
         1.wait;
-        x.release;
-    });
-});
+        x.set(\gate, 0);
+        "Waiting".postln;
+        nil.yield
+    };
+};
 )
 
+t.play;
 t.resume(0);
+```
+
+Routines and task wait by a measure of beats not seconds!
+Therefore, to double the tempo we just have to schedule the routine/task on a clock with double the tempo.
+We can also change the tempo of the clock while playing.
+
+```isc
+(
+t = TempoClock(1);
+{
+    2.do {
+        (60..90).do{ |midi|
+            x = Synth(\default, [\freq: midi.midicps]);
+            0.25.wait;
+            x.set(\gate, 0);
+            t.tempo = t.tempo + 0.1;
+        };
+    };
+}.fork(t);
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/routine-clock-change.mp3'
+ipd.Audio(audio_path)
 ```

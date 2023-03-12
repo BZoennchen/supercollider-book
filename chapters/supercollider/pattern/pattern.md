@@ -4,7 +4,7 @@
 [UGens](sec-ugens) are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 Sound design in SC is the process of combining unit generators, i.e., to build a *unit generator graph function* that spits out the floating-point numbers we desire.
 But having instruments is not enough, we also want to play them!
-We want to create rhythms, textures, and melodies.
+We want to create rhythms, textures, harmony, and melodies.
 
 There are different ways to do this.
 First of all, as mentioned in [The Ecosystem](sec-ecosystem), there are other software packages such as [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/) or [FoxDot](https://foxdot.org/) which are designed to play synths and samples.
@@ -17,7 +17,18 @@ It also uses players but lets the user manipulate a signal in a functional style
 Each of these tools offers a distinct language and, therefore a way of thinking.
 
 However, [SuperCollider](https://supercollider.github.io/) offers its own excellent and powerful interface for composing a musical piece.
-Within the language, we can use plain iteration and threading.
-Secondly, we can use so-called [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html), and [Events](https://doc.sccode.org/Classes/Event.html) to abstract most of the technical burden away!
+Within the language, we can use plain iteration and threading via [Routines](https://doc.sccode.org/Classes/Routine.html) and [Tasks](https://doc.sccode.org/Classes/Task.html), see section [Rountines and Tasks](sec-routines-tasks).
+The advantage of using routines is that there is not much to remember.
+You build everything by the basic imperative programming concepts, i.e., *loops*, *cases*, *arrays* and *functions*.
+However, this requires a lot of typing and your code becomes quite unreadable very fast.
 
-Later we will see how we can use the live programming interface to enhance our ability to create rhythms and melodic textures on the fly.
+Another option is the so-called [Pattern](https://doc.sccode.org/Classes/Pattern.html) library which uses [Pattern](https://doc.sccode.org/Classes/Pattern.html), [Streams](https://doc.sccode.org/Classes/Stream.html), and [Events](https://doc.sccode.org/Classes/Event.html) to abstract most of the technical burden away.
+Instead of writing how your code operates, you can write what you want.
+It is a switch from the imperative to the declarative paradigm.
+Patterns are not better or worse than more close to the metal concepts like routines.
+With routines you can start right away.
+Using patterns requires to learn a new vocabulary and until one has a critical mass of knowledge about the different pattern, it can be hard to trust them.
+Furthermore, if there is not a pattern that does quite what you want, then it might take some ingenuity to combine patterns into new designs. 
+(Custom behaviors can always be written using [Prout](https://doc.sccode.org/Classes/Prout.html).)
+
+Later we will see how we can use the [live programming interface](sec-live-coding) to enhance our ability to create rhythms and melodic textures on the fly.

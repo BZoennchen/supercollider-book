@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension:
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-event-player)=
 # Event Player
 
@@ -8,17 +20,27 @@ We finally make use of [Pbind](https://doc.sccode.org/Classes/Pbind.html) to con
 (
 Pbind(
     \instrument, \default,
-    \freq, Pseq([440, 220, 330], inf),
+    \freq, Pseq([440, 220, 330], 4),
     \dur, 0.4,
     \sustain, 0.1 
 ).play;
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/event-player-ex1.mp3'
+ipd.Audio(audio_path)
+```
+
 As already mentioned, ``Pbind`` is a unique ``Pattern`` that generates a ``Stream`` that spits out (musical) ``Events``.
 Using the ``play`` method on the ``Pbind`` pattern, we play all the events the event stream gives us.
-In that case, ``dur`` determines the waiting time between two successive events.
-Thereby, we do not play all events instantly but create a rhythm.
+In the above example we play a sequence of three notes 4 times on the ``\default`` instrument each seperated by ``0.4`` beats sustaining ``0.1`` beats.
+
+``dur`` determines the waiting time between two successive events.
+Thereby, we do not play all events instantly.
+Instead we create a rhythm.
 
 ```{admonition} Legato and Duration
 :name: remark-legato-duration
@@ -26,13 +48,13 @@ Thereby, we do not play all events instantly but create a rhythm.
 If the sound sustains longer than ``dur`` we get overlapping sounds, i.e., [legato](sec-legato).
 ```
 
-For example:
+Legato is nice to control the amount of overlap relative to the duration of the event. For example:
 
 ```isc
 (
 p = Pbind(
     \instrument, \default,
-    \freq, Pseq([440, 220, 330], inf),
+    \freq, Pseq([440, 220, 330], 4),
     \dur, 0.25,
     \sustain, 0.5
 ).play;
@@ -45,11 +67,17 @@ The same can be achieved by using the ``legato`` parameter:
 (
 p = Pbind(
     \instrument, \default,
-    \freq, Pseq([440, 220, 330], inf),
+    \freq, Pseq([440, 220, 330], 3),
     \dur, 0.25,
-    \legato, 2.0 // two times dur overlap
+    \legato, 1.0 // two times dur overlap
 ).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-player-legato.mp3'
+ipd.Audio(audio_path)
 ```
 
 We can call ``stop`` on the ``Stream`` (not the ``Pattern``!) to stop it (or we can hit ``CMD`` + ``.`` / ``Ctrl`` + ``.`` as always).
@@ -89,14 +117,14 @@ p = Pbind(
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.25,
     \legato, 0.2,
-    \amp, Pfunc({arg event; min(1.0, event[\freq].linexp(100, 500, 1.0, 0.2)).postln;})
-);
-q = p.play;
+    \amp, Pfunc({|e| min(1.0, e[\freq].linexp(100, 500, 1.0, 0.2)).postln;})
+).play;
 )
 ```
 
 ``Pfunc`` can do a lot of other things and there is a pattern that is specifically designed for our case.
 It is called [Pkey](https://doc.sccode.org/Classes/Pkey.html).
+Furthermore, we can use [utility function](sec-utility-debugging)) ``trace`` to post the numbers a pattern spits out.
 The following code creates exactly the same sound.
 
 ```isc
@@ -106,9 +134,8 @@ p = Pbind(
     \freq, Pseq([440, 220, 330], inf),
     \dur, 0.25,
     \legato, 0.2,
-    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2)
-);
-q = p.play;
+    \amp, Pkey(\freq).linexp(100, 500, 1.0, 0.2).trace
+).play;
 )
 ```
 
@@ -172,6 +199,12 @@ q = p.play;
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-player-pbind-comb.mp3'
+ipd.Audio(audio_path)
+```
+
 We can also play multiple ``Pbinds`` in parallel.
 We can imagine that each ``Pbind`` represents one musician in our assemble.
 [Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple ``Pbinds`` in parallel.
@@ -218,6 +251,12 @@ Ppar([rythm, melody], inf).play;
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-player-ppar.mp3'
+ipd.Audio(audio_path)
+```
+
 Another way to sequence ``Pbinds`` and ``Pattern`` is to use [Pspawner](https://doc.sccode.org/Classes/Pspawner.html).
 It allows you to play patterns in parallel or in sequence, via a callback function.
 
@@ -253,6 +292,12 @@ Pspawner({ arg sp;
     sp.seq(melody);
 }).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/event-player-pspawner.mp3'
+ipd.Audio(audio_path)
 ```
 
 Later we will see that we can organize our piece by using multiple ``Pbind``.
@@ -315,10 +360,3 @@ However, we can only take advantage of this support if we name the arguments of 
 :class: attention
 Always use the appropriate names, such as ``amp`` and ``freq`` for your ``SynthDef`` arguments!
 ```
-
-## Examples
-
-There are many different ``Pattern``, I will only discuss some of them which I find most important.
-In fact, the official [documentation of SuperCollider](https://doc.sccode.org/) is not always super helpful but the tutorial [Understanding Streams, Patterns and Events](https://doc.sccode.org/Tutorials/Streams-Patterns-Events1.html) is an excellent source to get started.
-
-TODO!

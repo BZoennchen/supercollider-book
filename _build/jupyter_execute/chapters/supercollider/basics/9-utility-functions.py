@@ -224,6 +224,13 @@
 # ---
 # ```
 # 
+# (sec-utility-debugging)=
+# ## Debugging
+# 
+# Sometimes we want to know what stream or flow of numbers we generate.
+# To post the numbers a unit generator produces to the post windows you can use ``poll``.
+# For patterns and other language/client side functions you can use ``trace`` instead.
+# 
 # ## Examples
 # 
 # In the following example we use frequency for ``\freq``, amplitude for ``\amp`` and semitones for ``\detune``.

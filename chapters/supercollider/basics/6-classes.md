@@ -31,10 +31,14 @@ However, we can omit the ``new``.
 var numbers = Array(10);
 ```
 
+This calls the *class method* ``new`` of the ``Array`` class.
+
 ## Class Definition
 
 All classes are ``Objects``, i.e., they inherit from the fundamental base class [Object](https://doc.sccode.org/Classes/Object.html) automatically.
-This makes it necessary to call the constructor of ``Object`` by calling ``newCopyArgs``.
+This makes it necessary to call the constructor of ``Object``.
+
+To copy the arguments of the constructor to into the object variables we can call ``newCopyArgs`` of ``Object``.
 ``Object.newCopyArgs(... args)`` creates a new instance and copies the arguments to the instance variable in **the order that the variables were defined**.
 Of course, class variables will be ignored.
 Therefore, the order is semantically significant!
@@ -58,36 +62,75 @@ MyClass {           // Object is implied
 }
 ```
 
+If you need more control over the initiation of an object you can use the ``init`` object method:
+The expression ``a = arg1 ? a;`` makes sure that ``a`` will only change if it is not already initialized, i.e., in case you call init after the object has been created.
+
+```isc
+MyClass {           // Object is implied
+    var a, b, c;    // Object variables / attribtes
+    classvar d;     // Class variabels / attributes
+
+    *new {          // Class method
+        arg arg1, arg2, arg3;
+        ^super.new.init(arg1, arg2, arg3);
+    }
+
+    init {          // Object method
+        arg arg1, arg2, arg3;
+        a = arg1 ? a;
+        b = arg2 ? b;
+        c = arg3 ? c;
+    }
+
+    ...
+}
+```
+
 Instance variables (the attributes of the object) are defined by using the keyword ``var`` while class variabels (the attribute of the class which are shared by all objects of the class) are defined via the keyword ``classvar``.
 Instance variables will *shadow* class variables of the same name.
 
 Classes can contain class methods (static methods) and object methods.
 A class method starts with an ``*``.
-For example, I implemented a new class ``Utils`` which offers a *class-method* ``initUtils`` that initializes all the useful analyzing tools depicted in {numref}`Fig. {number} <fig-ide-tools>`.
+For example, I implemented a new class ``MIDIRecorder`` which offers a *class-method* ``*new`` that calls ``init`` which initializes all the object variables.
 
 ```isc
-Utils {
-    *initTools {
-        arg activateLimiter = false;
-        // reboot all
-        Server.killAll;
-        Server.local.options.numBuffers = 1024 * 16;
-        Server.local.options.memSize = 8192 * 64;
-        Server.local.boot;
-        Server.local.waitForBoot(onComplete: {
-            // re-initialize tools
-            Server.local.makeWindow;
-            Server.local.meter;
-            Server.local.scope;
-            FreqScope.new;
-            Server.local.plotTree;
+MIDIRecorder {
+    // Object variables / attribtes
+    var name, instrument, history, synths, <events, clock, noteOn, mono, paused, pauseTime, midiDefOn, midiDefOff;
 
-            if(activateLimiter) {
-                StageLimiter.activate;
-            }
-        });
+    *new {      // Class method
+        arg name, instrument = \default, mono = false;
+        ^super.new.init(name, instrument, mono);
     }
-}
+
+    init {      // Object method
+        arg argname, arginstrument, argmono;
+        name = argname ? name;
+        instrument = arginstrument ? instrument;
+        mono = argmono ? mono;
+        history = Array.fill(127, {[]});
+        synths = Array.newClear(127);
+        clock = TempoClock();
+        events = [];
+        paused = true;
+        noteOn = false;
+        pauseTime = 0.0;
+
+        clock.permanent = true;
+
+        ...
+    }
+
+    record {    // Object method
+        history = Array.fill(127, {[]});
+        synths.do({arg synth; synth.set(\gate, 0);});
+        synths = Array.newClear(127);
+        events = [];
+        paused = false;
+    }
+
+    ...
+
 ```
 
 Another significant difference between functions and methods is that for methods, the return value has to be marked by a ``^``.

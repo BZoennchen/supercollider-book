@@ -237,6 +237,11 @@ const thebe_selector_output = ".output, .cell_output"
      Event Player
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pattern/6-reference.html">
+     Reference
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -798,11 +803,13 @@ It’s preferable to use either the user or system extension directories.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 </div>
+<p>This calls the <em>class method</em> <code class="docutils literal notranslate"><span class="pre">new</span></code> of the <code class="docutils literal notranslate"><span class="pre">Array</span></code> class.</p>
 </section>
 <section id="class-definition">
 <h2>Class Definition<a class="headerlink" href="#class-definition" title="Permalink to this headline">#</a></h2>
 <p>All classes are <code class="docutils literal notranslate"><span class="pre">Objects</span></code>, i.e., they inherit from the fundamental base class <a class="reference external" href="https://doc.sccode.org/Classes/Object.html">Object</a> automatically.
-This makes it necessary to call the constructor of <code class="docutils literal notranslate"><span class="pre">Object</span></code> by calling <code class="docutils literal notranslate"><span class="pre">newCopyArgs</span></code>.
+This makes it necessary to call the constructor of <code class="docutils literal notranslate"><span class="pre">Object</span></code>.</p>
+<p>To copy the arguments of the constructor to into the object variables we can call <code class="docutils literal notranslate"><span class="pre">newCopyArgs</span></code> of <code class="docutils literal notranslate"><span class="pre">Object</span></code>.
 <code class="docutils literal notranslate"><span class="pre">Object.newCopyArgs(...</span> <span class="pre">args)</span></code> creates a new instance and copies the arguments to the instance variable in <strong>the order that the variables were defined</strong>.
 Of course, class variables will be ignored.
 Therefore, the order is semantically significant!</p>
@@ -824,33 +831,69 @@ Therefore, the order is semantically significant!</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>If you need more control over the initiation of an object you can use the <code class="docutils literal notranslate"><span class="pre">init</span></code> object method:
+The expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">arg1</span> <span class="pre">?</span> <span class="pre">a;</span></code> makes sure that <code class="docutils literal notranslate"><span class="pre">a</span></code> will only change if it is not already initialized, i.e., in case you call init after the object has been created.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">MyClass</span> <span class="p">{</span>           <span class="c1">// Object is implied</span>
+    <span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">;</span>    <span class="c1">// Object variables / attribtes</span>
+    <span class="kd">classvar</span> <span class="nx">d</span><span class="p">;</span>     <span class="c1">// Class variabels / attributes</span>
+
+    <span class="o">*</span><span class="k">new</span> <span class="p">{</span>          <span class="c1">// Class method</span>
+        <span class="kd">arg</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">;</span>
+        <span class="o">^</span><span class="kr">super</span><span class="p">.</span><span class="k">new</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">init</span> <span class="p">{</span>          <span class="c1">// Object method</span>
+        <span class="kd">arg</span> <span class="nx">arg1</span><span class="p">,</span> <span class="nx">arg2</span><span class="p">,</span> <span class="nx">arg3</span><span class="p">;</span>
+        <span class="nx">a</span> <span class="o">=</span> <span class="nx">arg1</span> <span class="o">?</span> <span class="nx">a</span><span class="p">;</span>
+        <span class="nx">b</span> <span class="o">=</span> <span class="nx">arg2</span> <span class="o">?</span> <span class="nx">b</span><span class="p">;</span>
+        <span class="nx">c</span> <span class="o">=</span> <span class="nx">arg3</span> <span class="o">?</span> <span class="nx">c</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>Instance variables (the attributes of the object) are defined by using the keyword <code class="docutils literal notranslate"><span class="pre">var</span></code> while class variabels (the attribute of the class which are shared by all objects of the class) are defined via the keyword <code class="docutils literal notranslate"><span class="pre">classvar</span></code>.
 Instance variables will <em>shadow</em> class variables of the same name.</p>
 <p>Classes can contain class methods (static methods) and object methods.
 A class method starts with an <code class="docutils literal notranslate"><span class="pre">*</span></code>.
-For example, I implemented a new class <code class="docutils literal notranslate"><span class="pre">Utils</span></code> which offers a <em>class-method</em> <code class="docutils literal notranslate"><span class="pre">initUtils</span></code> that initializes all the useful analyzing tools depicted in <a class="reference internal" href="../ecosystem.html#fig-ide-tools"><span class="std std-numref">Fig. 2</span></a>.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Utils</span> <span class="p">{</span>
-    <span class="o">*</span><span class="nx">initTools</span> <span class="p">{</span>
-        <span class="kd">arg</span> <span class="nx">activateLimiter</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-        <span class="c1">// reboot all</span>
-        <span class="nc">Server</span><span class="p">.</span><span class="nx">killAll</span><span class="p">;</span>
-        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">numBuffers</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">16</span><span class="p">;</span>
-        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">memSize</span> <span class="o">=</span> <span class="mi">8192</span> <span class="o">*</span> <span class="mi">64</span><span class="p">;</span>
-        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>
-        <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">waitForBoot</span><span class="p">(</span><span class="na">onComplete:</span> <span class="p">{</span>
-            <span class="c1">// re-initialize tools</span>
-            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">makeWindow</span><span class="p">;</span>
-            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">meter</span><span class="p">;</span>
-            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">scope</span><span class="p">;</span>
-            <span class="nc">FreqScope</span><span class="p">.</span><span class="k">new</span><span class="p">;</span>
-            <span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">plotTree</span><span class="p">;</span>
+For example, I implemented a new class <code class="docutils literal notranslate"><span class="pre">MIDIRecorder</span></code> which offers a <em>class-method</em> <code class="docutils literal notranslate"><span class="pre">*new</span></code> that calls <code class="docutils literal notranslate"><span class="pre">init</span></code> which initializes all the object variables.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">MIDIRecorder</span> <span class="p">{</span>
+    <span class="c1">// Object variables / attribtes</span>
+    <span class="kd">var</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">instrument</span><span class="p">,</span> <span class="nx">history</span><span class="p">,</span> <span class="nx">synths</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">events</span><span class="p">,</span> <span class="nx">clock</span><span class="p">,</span> <span class="nx">noteOn</span><span class="p">,</span> <span class="nx">mono</span><span class="p">,</span> <span class="nx">paused</span><span class="p">,</span> <span class="nx">pauseTime</span><span class="p">,</span> <span class="nx">midiDefOn</span><span class="p">,</span> <span class="nx">midiDefOff</span><span class="p">;</span>
 
-            <span class="k">if</span><span class="p">(</span><span class="nx">activateLimiter</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nc">StageLimiter</span><span class="p">.</span><span class="nx">activate</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
+    <span class="o">*</span><span class="k">new</span> <span class="p">{</span>      <span class="c1">// Class method</span>
+        <span class="kd">arg</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">instrument</span> <span class="o">=</span> <span class="ss">\default</span><span class="p">,</span> <span class="nx">mono</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="o">^</span><span class="kr">super</span><span class="p">.</span><span class="k">new</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">instrument</span><span class="p">,</span> <span class="nx">mono</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
+
+    <span class="nx">init</span> <span class="p">{</span>      <span class="c1">// Object method</span>
+        <span class="kd">arg</span> <span class="nx">argname</span><span class="p">,</span> <span class="nx">arginstrument</span><span class="p">,</span> <span class="nx">argmono</span><span class="p">;</span>
+        <span class="nx">name</span> <span class="o">=</span> <span class="nx">argname</span> <span class="o">?</span> <span class="nx">name</span><span class="p">;</span>
+        <span class="nx">instrument</span> <span class="o">=</span> <span class="nx">arginstrument</span> <span class="o">?</span> <span class="nx">instrument</span><span class="p">;</span>
+        <span class="nx">mono</span> <span class="o">=</span> <span class="nx">argmono</span> <span class="o">?</span> <span class="nx">mono</span><span class="p">;</span>
+        <span class="nx">history</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="p">{[]});</span>
+        <span class="nx">synths</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">newClear</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+        <span class="nx">clock</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">();</span>
+        <span class="nx">events</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="nx">paused</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="nx">noteOn</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">pauseTime</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+
+        <span class="nx">clock</span><span class="p">.</span><span class="nx">permanent</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+        <span class="p">...</span>
+    <span class="p">}</span>
+
+    <span class="nx">record</span> <span class="p">{</span>    <span class="c1">// Object method</span>
+        <span class="nx">history</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="mi">127</span><span class="p">,</span> <span class="p">{[]});</span>
+        <span class="nx">synths</span><span class="p">.</span><span class="k">do</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">synth</span><span class="p">;</span> <span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\gate</span><span class="p">,</span> <span class="mi">0</span><span class="p">);});</span>
+        <span class="nx">synths</span> <span class="o">=</span> <span class="nc">Array</span><span class="p">.</span><span class="nx">newClear</span><span class="p">(</span><span class="mi">127</span><span class="p">);</span>
+        <span class="nx">events</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="nx">paused</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="p">...</span>
 </pre></div>
 </div>
 <p>Another significant difference between functions and methods is that for methods, the return value has to be marked by a <code class="docutils literal notranslate"><span class="pre">^</span></code>.

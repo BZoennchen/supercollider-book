@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-clocks)=
 # Clocks
 
@@ -48,6 +60,13 @@ t.sched(0, {Synth(\beep, [\freq, rrand(40, 80).midicps]); 1})
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/clock-schedule-rand.mp3'
+ipd.Audio(audio_path)
+```
+
 Using a *gated* envelope makes it difficult to use a plain scheduler since we have to set the gate of the synth to ``0`` manually, i.e. by another scheduled function.
 For example, the ``default`` instrument is consists of a gated envelople.
 The following ugly code plays it buy using a ``TempClock``.
@@ -56,6 +75,7 @@ The following ugly code plays it buy using a ``TempClock``.
 (
 t = TempoClock(2);
 ~synth = nil;
+~dur = 1;
 
 // schedule the synth
 t.sched(0, {~synth = Synth(\default, [\freq, rrand(40, 80).midicps]); 1});
@@ -63,6 +83,12 @@ t.sched(0, {~synth = Synth(\default, [\freq, rrand(40, 80).midicps]); 1});
 // and ~dur beats afterwards its termination
 t.sched(~dur, {~synth.set(\gate, 0); 1});
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/clock-gated-rand.mp3'
+ipd.Audio(audio_path)
 ```
 
 But as we know from section [Playing Pattern](sec-playing-pattern), we can use a ``Pbind`` to play an event pattern.
@@ -85,6 +111,12 @@ Pbind(
 )
 
 t.tempo = 5
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/clock-pbind-rand.mp3'
+ipd.Audio(audio_path)
 ```
 
 We can also change the tempo of the default clock which is used whenever we do not specify a certain clock.
