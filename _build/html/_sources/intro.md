@@ -4,12 +4,25 @@
 
 This book is about learning to design sound and to compose music using the programming language and compositional environment called SuperCollider developed by James McCartney and many others.
 
-The motivation for writing this book comes from my experience as a lecturer in the field of computer science and my belief in the playfulness of coding as an important and fruitful form of communication.
-Music is a historically grown form of communication, but the idea that algorithms communicate as well becomes ever more clear in the current digital age.
-I believe that algorithmic compositions enrich our understanding of technology and can be a tool to reinvigorate selfless collaboration.
-However, they are not mere means to an end but emit multifaceted aesthetic beauty; 
-with respect to your personal viewpoint, the piece, the algorithm and the process of its creation can be seen aesthetically.
-These words echo a specific set of believes and I will not hide that the source of my motivation to write this book is coupled to a certain belief system which I partly unfold in the first part of this book.
+The motivation for writing this book comes from my experience as a lecturer in the field of computer science, my belief in the playfulness of coding as an unrecognized and fruitful form of communication, and probably my inability to communicate properly.
+
+Music is a historically grown form of human communication and, as such, worth studying.
+It can evoke strong emotions;
+it can tell stories. 
+It can be cold and dark and frightening, and it can touch us.
+Algorithms, on the other hand, are, by definition, calculating.
+They are strict, well-defined formal rules that computers can execute;
+Which they do, unemotionally and relentlessly;
+However, strangely, musical compositions and algorithms share a strong relationship.
+Both rely on a sequence of actions, and both represent time.
+
+While music has to be listened to and has to be experienced, it is rather unusual to "experience" algorithms.
+Algorithms are analyzed analytically, and their aesthetic beauty stems from their effectiveness, correctness, and elegance.
+I believe that similar to music, a pure analytical contemplation of algorithms conceals a deeper understanding of them.
+Consequently, I believe that computer music can enrich our understanding of algorithms and technology in general.
+And, to pick up Fisher's words, it can push music and coding to new emancipatory spaces by destroying the appearance of a "natural order" and thus possibly reinvigorate selfless collaboration.
+
+These words echo a specific set of beliefs, and I will not hide that the source of my motivation to write this book is coupled with a certain belief system which I will partly unfold to the careful reader.
 
 ## How I Started
 
