@@ -1,6 +1,8 @@
 (sec-playing-pattern)=
 # Playing Patterns
 
+>Patterns provide a facility for easily exploring generative music/algorithmic composition. Rather than making single synthesis events, we're looking much more at how we schedule lots of events over time. -- {cite}`collins:2004`
+
 [UGens](sec-ugens) are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 Sound design in SC is the process of combining unit generators, i.e., to build a *unit generator graph function* that spits out the floating-point numbers we desire.
 But having instruments is not enough, we also want to play them!

@@ -135,6 +135,7 @@ ipd.Audio(audio_path)
 # $2^{7/12}$ is so close to 3:2 that it is almost impossible for us humans to hear the difference.
 # This is one of the reason why the 12-TET tuning system is generally accepted as the standard tuning system for Western music.
 # 
+# (sec-cent-semitones)=
 # ## Cents and Semitones
 # 
 # **Cent** and **semitone** are intervals as well as logarithmic unit of measurement. 

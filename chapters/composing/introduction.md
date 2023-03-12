@@ -25,7 +25,7 @@ For example, [Continue](https://magenta.tensorflow.org/studio/standalone#continu
 [OpenAI](https://openai.com/) released [MuseNet](https://openai.com/blog/musenet/), a deep neural network that can generate 4-minute musical compositions with ten different instruments and can combine styles from country to Mozart to the Beatles.
 If we should call these techniques *algorithmic compositions* is at least debatable because the algorithm that generates is not defined by the artist but by the model architecture and the data the model is trained on.
 
-*Artificial systems* might not be creative by themselves, but they can help us to
+*Artificial "intelligence" systems* might not be creative by themselves, but they can help us to
 
 1. explore the conceptual space 
 2. combine familiar concepts, and
