@@ -219,6 +219,6 @@ Array.fill(7, { p.next });
 
 gives
 
-```
+```isc
 [ 11, 12, 13, 21, 22, 23, nil ]
 ```

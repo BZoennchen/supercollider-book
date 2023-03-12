@@ -237,6 +237,11 @@ const thebe_selector_output = ".output, .cell_output"
      Event Player
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pattern/6-reference.html">
+     Reference
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -790,23 +795,35 @@ It is still maintained and developed by an active community.</p>
 <a class="reference internal image-reference" href="../../_images/architecture.png"><img alt="../../_images/architecture.png" src="../../_images/architecture.png" style="width: 600px;" /></a>
 </figure>
 <p>All three parts of <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> are independent, i.e., there might be some other subsystem that replaces some of its features.
-One can code by using other IDEs such as VSCode.
+One can code by using other IDEs such as <a class="reference external" href="https://code.visualstudio.com/">VSCode</a>.
 We can also use <code class="docutils literal notranslate"><span class="pre">sclang</span></code> independently to program applications that have nothing to do with signal processing.
 These use cases are rare.
-However, we find many projects that replace <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and <strong>scide</strong>, especially in the area of Live Programming, for example:</p>
+However, we find many projects that replace <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and <strong>scide</strong>, especially in the area of <em>live programming</em>, for example:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>: highly accessible and therefore fascinating in the context of education.</p></li>
-<li><p><a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>: functional language that focuses on the creation of complex rhythms.</p></li>
+<li><p><a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>: functional language that focuses on the creation of complex rhythms via pattern.</p></li>
 <li><p><a class="reference external" href="https://foxdot.org/">FoxDot</a>: similar to <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> but focuses more on the melodic side of compositions.</p></li>
+<li><p><a class="reference external" href="https://github.com/Bubobubobubobubo/Sardine">Sardina</a>: a <code class="docutils literal notranslate"><span class="pre">Python</span></code> based live coding library</p></li>
+<li><p><a class="reference external" href="https://github.com/overtone/overtone">Overtone</a>: open source audio environment designed to explore new musical ideas from synthesis and sampling to instrument building, live-coding and collaborative jamming</p></li>
+<li><p><a class="reference external" href="https://github.com/hundredrabbits/Orca">ORCA</a>: esoteric programming language designed to quickly create procedural sequencers</p></li>
+<li><p><a class="reference external" href="https://github.com/pjagielski/punkt">Punkt</a>: live coding music library/environment for Kotlin, for software developers who want to dive into live coding music</p></li>
 <li><p>…</p></li>
 </ul>
 <p>In that case, we can develop our synths using <code class="docutils literal notranslate"><span class="pre">sclang</span></code> and run them on the server <strong>scsynth</strong>, but we control them by these systems.
-If we are only interested in using existing synths and samples, we can do so without relying on <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a>.</p>
-<p>Of course, deciding between <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>, <a class="reference external" href="https://foxdot.org/">FoxDot</a>, and plain <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> comes down to personal preference and goals.
+If we are only interested in using existing synths and samples, we can do so without relying on <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a>.
+Furthermore, there are many more projects that use their own audio server, i.e., do not rely on SuperCollider:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://chuck.cs.princeton.edu/">ChucK</a>: strongly-timed, concurrent, and on-the-fly music programming language</p></li>
+<li><p><a class="reference external" href="https://github.com/gibber-cc/gibber">Gibber</a>: live coding environment for the web browser</p></li>
+<li><p><a class="reference external" href="https://github.com/Gwion/Gwion">Gwion</a>: a programming language designed for making music and sound inspired by <a class="reference external" href="https://chuck.cs.princeton.edu/">ChucK</a> but also has a REPL mode you can use for live-coding</p></li>
+<li><p><a class="reference external" href="https://glicol.web.app/">GLICOL</a>: a graph-oriented live coding language written in <code class="docutils literal notranslate"><span class="pre">Rust</span></code> (I have my eyes on that project ;)!)</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Of course, deciding between <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>, <a class="reference external" href="https://foxdot.org/">FoxDot</a>, or any other environment/language and plain <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> comes down to personal preference and goals.
 The <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is rather <em>close to the metal</em>.
 It offers a lot of control but might be less productive if you want to get things done quickly.
 Each platform targets different objectives and has various advantages as well as disadvantages.
-In my opinion, <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is the most powerful one but can be less intuitive and flexible, especially for the live coding experience.
+In my opinion, <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is the most powerful one but can be less intuitive and flexible, especially for a collaborate live coding experience.
 I encourage readers interested in live coding to check them all out!</p>
 <section id="the-audio-server">
 <span id="sec-audio-sever"></span><h2>The Audio Server<a class="headerlink" href="#the-audio-server" title="Permalink to this headline">#</a></h2>

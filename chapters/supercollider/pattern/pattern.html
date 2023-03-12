@@ -237,6 +237,11 @@ const thebe_selector_output = ".output, .cell_output"
      Event Player
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-reference.html">
+     Reference
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -722,7 +727,7 @@ title="Print to PDF"
 <p><a class="reference internal" href="../ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> are the basic building blocks for our synth, i.e., instruments, i.e., sound.
 Sound design in SC is the process of combining unit generators, i.e., to build a <em>unit generator graph function</em> that spits out the floating-point numbers we desire.
 But having instruments is not enough, we also want to play them!
-We want to create rhythms, textures, and melodies.</p>
+We want to create rhythms, textures, harmony, and melodies.</p>
 <p>There are different ways to do this.
 First of all, as mentioned in <a class="reference internal" href="../ecosystem.html#sec-ecosystem"><span class="std std-ref">The Ecosystem</span></a>, there are other software packages such as <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a>, <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a> or <a class="reference external" href="https://foxdot.org/">FoxDot</a> which are designed to play synths and samples.
 <a class="reference external" href="https://sonic-pi.net/">Sonic Pi</a> goes the imperative way of combining iteration and threading in a single concept called <code class="docutils literal notranslate"><span class="pre">live_loops</span></code>.
@@ -733,9 +738,19 @@ Each player can play a synth repeatedly and is synchronized to a clock.
 It also uses players but lets the user manipulate a signal in a functional style.
 Each of these tools offers a distinct language and, therefore a way of thinking.</p>
 <p>However, <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> offers its own excellent and powerful interface for composing a musical piece.
-Within the language, we can use plain iteration and threading.
-Secondly, we can use so-called <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a> to abstract most of the technical burden away!</p>
-<p>Later we will see how we can use the live programming interface to enhance our ability to create rhythms and melodic textures on the fly.</p>
+Within the language, we can use plain iteration and threading via <a class="reference external" href="https://doc.sccode.org/Classes/Routine.html">Routines</a> and <a class="reference external" href="https://doc.sccode.org/Classes/Task.html">Tasks</a>, see section <a class="reference internal" href="../scheduling/3-routines-tasks.html#sec-routines-tasks"><span class="std std-ref">Rountines and Tasks</span></a>.
+The advantage of using routines is that there is not much to remember.
+You build everything by the basic imperative programming concepts, i.e., <em>loops</em>, <em>cases</em>, <em>arrays</em> and <em>functions</em>.
+However, this requires a lot of typing and your code becomes quite unreadable very fast.</p>
+<p>Another option is the so-called <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> library which uses <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a> to abstract most of the technical burden away.
+Instead of writing how your code operates, you can write what you want.
+It is a switch from the imperative to the declarative paradigm.
+Patterns are not better or worse than more close to the metal concepts like routines.
+With routines you can start right away.
+Using patterns requires to learn a new vocabulary and until one has a critical mass of knowledge about the different pattern, it can be hard to trust them.
+Furthermore, if there is not a pattern that does quite what you want, then it might take some ingenuity to combine patterns into new designs.
+(Custom behaviors can always be written using <a class="reference external" href="https://doc.sccode.org/Classes/Prout.html">Prout</a>.)</p>
+<p>Later we will see how we can use the <a class="reference internal" href="../live-coding/live-coding.html#sec-live-coding"><span class="std std-ref">live programming interface</span></a> to enhance our ability to create rhythms and melodic textures on the fly.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

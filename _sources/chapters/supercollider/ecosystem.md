@@ -19,24 +19,35 @@ name: fig-architecture
 ```
 
 All three parts of [SuperCollider (SC)](https://supercollider.github.io/) are independent, i.e., there might be some other subsystem that replaces some of its features.
-One can code by using other IDEs such as VSCode.
+One can code by using other IDEs such as [VSCode](https://code.visualstudio.com/).
 We can also use ``sclang`` independently to program applications that have nothing to do with signal processing.
 These use cases are rare.
-However, we find many projects that replace ``sclang`` and **scide**, especially in the area of Live Programming, for example:
+However, we find many projects that replace ``sclang`` and **scide**, especially in the area of *live programming*, for example:
 
 + [Sonic Pi](https://sonic-pi.net/): highly accessible and therefore fascinating in the context of education.
-+ [TidalCycle](https://tidalcycles.org/): functional language that focuses on the creation of complex rhythms.
++ [TidalCycle](https://tidalcycles.org/): functional language that focuses on the creation of complex rhythms via pattern.
 + [FoxDot](https://foxdot.org/): similar to [TidalCycle](https://tidalcycles.org/) but focuses more on the melodic side of compositions.
++ [Sardina](https://github.com/Bubobubobubobubo/Sardine): a ``Python`` based live coding library
++ [Overtone](https://github.com/overtone/overtone): open source audio environment designed to explore new musical ideas from synthesis and sampling to instrument building, live-coding and collaborative jamming
++ [ORCA](https://github.com/hundredrabbits/Orca): esoteric programming language designed to quickly create procedural sequencers
++ [Punkt](https://github.com/pjagielski/punkt): live coding music library/environment for Kotlin, for software developers who want to dive into live coding music
 + ...
 
 In that case, we can develop our synths using ``sclang`` and run them on the server **scsynth**, but we control them by these systems.
 If we are only interested in using existing synths and samples, we can do so without relying on [SuperCollider (SC)](https://supercollider.github.io/).
+Furthermore, there are many more projects that use their own audio server, i.e., do not rely on SuperCollider:
 
-Of course, deciding between [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/), [FoxDot](https://foxdot.org/), and plain [SuperCollider (SC)](https://supercollider.github.io/) comes down to personal preference and goals.
++ [ChucK](https://chuck.cs.princeton.edu/): strongly-timed, concurrent, and on-the-fly music programming language
++ [Gibber](https://github.com/gibber-cc/gibber): live coding environment for the web browser
++ [Gwion](https://github.com/Gwion/Gwion): a programming language designed for making music and sound inspired by [ChucK](https://chuck.cs.princeton.edu/) but also has a REPL mode you can use for live-coding
++ [GLICOL](https://glicol.web.app/): a graph-oriented live coding language written in ``Rust`` (I have my eyes on that project ;)!)
++ ...
+
+Of course, deciding between [Sonic Pi](https://sonic-pi.net/), [TidalCycle](https://tidalcycles.org/), [FoxDot](https://foxdot.org/), or any other environment/language and plain [SuperCollider (SC)](https://supercollider.github.io/) comes down to personal preference and goals.
 The ``sclang`` is rather *close to the metal*.
 It offers a lot of control but might be less productive if you want to get things done quickly.
 Each platform targets different objectives and has various advantages as well as disadvantages.
-In my opinion, [SuperCollider (SC)](https://supercollider.github.io/) is the most powerful one but can be less intuitive and flexible, especially for the live coding experience.
+In my opinion, [SuperCollider (SC)](https://supercollider.github.io/) is the most powerful one but can be less intuitive and flexible, especially for a collaborate live coding experience.
 I encourage readers interested in live coding to check them all out!
 
 (sec-audio-sever)=
