@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Basic Filters" href="3-simpler-filters.html" />
+    <link rel="next" title="Basic Filters" href="2-simpler-filters.html" />
     <link rel="prev" title="Subtractive Synthesis and Filters" href="filters.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -461,27 +461,27 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3-simpler-filters.html">
+    <a class="reference internal" href="2-simpler-filters.html">
      Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="4-frequency-filters.html">
+    <a class="reference internal" href="3-frequency-filters.html">
      Frequency Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="5-resonance.html">
+    <a class="reference internal" href="4-resonance.html">
      Responses and Resonance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-control-filters.html">
+    <a class="reference internal" href="5-control-filters.html">
      Control Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="7-delays.html">
+    <a class="reference internal" href="6-delays.html">
      Delays
     </a>
    </li>
@@ -753,16 +753,16 @@ As we will see, we can filter a signal by using a simple oscillator.
 Therefore, the term <em>filter</em> is a very general term.</p>
 <p>Let us combine two sine waves.
 First two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-257f1a5e-f910-44eb-abc1-7526cbe8e406">
-<span class="eqno">(57)<a class="headerlink" href="#equation-257f1a5e-f910-44eb-abc1-7526cbe8e406" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f6047332-4627-4a78-a9aa-b80980f4cbf7">
+<span class="eqno">(57)<a class="headerlink" href="#equation-f6047332-4627-4a78-a9aa-b80980f4cbf7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t) = 2 \sin(2\pi \omega t),
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase-shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f059de52-66fa-4915-9a71-225b90a1b2d9">
-<span class="eqno">(58)<a class="headerlink" href="#equation-f059de52-66fa-4915-9a71-225b90a1b2d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4c8b0555-0b5c-4467-b0b8-218745e28e0f">
+<span class="eqno">(58)<a class="headerlink" href="#equation-4c8b0555-0b5c-4467-b0b8-218745e28e0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi \omega t) + \sin(2\pi \omega t + \pi) = \sin(2\pi \omega t) - \sin(2\pi \omega t + \pi) = 0.
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -774,8 +774,8 @@ Of course, we can not hear any difference between a sine wave and shifted sine w
 Only in combination, the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a498a161-ad9b-4b5d-b39e-1e13c7cea0bf">
-<span class="eqno">(59)<a class="headerlink" href="#equation-a498a161-ad9b-4b5d-b39e-1e13c7cea0bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0b71518-517b-4601-9731-a1360e8dec48">
+<span class="eqno">(59)<a class="headerlink" href="#equation-f0b71518-517b-4601-9731-a1360e8dec48" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -793,13 +793,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However, the next harmonic with frequency <span class="math notranslate nohighlight">\(2\omega\)</span> Hz is reinforced, i.e., its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2\omega)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2\omega)/(2\omega) = 1\)</span> cycle.
 In the fact, the amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0bb93bb3-3b1d-4b3a-b5c5-95b1b4895659">
-<span class="eqno">(60)<a class="headerlink" href="#equation-0bb93bb3-3b1d-4b3a-b5c5-95b1b4895659" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06855788-34fc-43af-aba6-5e4a21cd1e39">
+<span class="eqno">(60)<a class="headerlink" href="#equation-06855788-34fc-43af-aba6-5e4a21cd1e39" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{2n\omega}{2\omega} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-049e4235-d23b-4079-96a1-a13e7a14de5e">
-<span class="eqno">(61)<a class="headerlink" href="#equation-049e4235-d23b-4079-96a1-a13e7a14de5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7375400d-d00d-464d-be9b-322f0a047630">
+<span class="eqno">(61)<a class="headerlink" href="#equation-7375400d-d00d-464d-be9b-322f0a047630" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{n\omega}{2\omega} = \frac{n}{2} = k + \frac{1}{2}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -826,7 +826,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">CombX</sp
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>I will discuss these <em>delays</em> in section <a class="reference internal" href="7-delays.html#sec-delays"><span class="std std-ref">Delays</span></a>.</p>
+<p>I will discuss these <em>delays</em> in section <a class="reference internal" href="6-delays.html#sec-delays"><span class="std std-ref">Delays</span></a>.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -863,7 +863,7 @@ Note that <code class="docutils literal notranslate"><span class="pre">CombX</sp
             <p class="prev-next-title">Subtractive Synthesis and Filters</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="3-simpler-filters.html" title="next page">
+    <a class='right-next' id="next-link" href="2-simpler-filters.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Basic Filters</p>
