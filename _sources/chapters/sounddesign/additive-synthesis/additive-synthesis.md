@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-additive-synthesis)=
 # Additive Synthesis
 
@@ -30,7 +42,7 @@ Ndef(\sine_sum, {
     odd = Array.series(6, 1, 2);
     even = odd + 1;
     env = EnvGen.ar(Env.perc(
-        attackTime: {Rand(0.001, 1.03)}!6, 
+        attackTime: {Rand(0.001, 0.1)}!6, 
         releaseTime: {Rand(1.0, 1.3)}!6, 
         curve: {Rand(-6, -2)}!6));
     sig = [
@@ -40,6 +52,13 @@ Ndef(\sine_sum, {
     sig*0.1;
 }).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/additive-synth-harm-ex1.mp3'
+ipd.Audio(audio_path)
 ```
 
 Let us also listen to some inharmonics, combined with *additive synthesis*.
@@ -64,6 +83,13 @@ Ndef(\inharmonics, {
     sig;
 }).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/additive-synth-inharm-ex1.mp3'
+ipd.Audio(audio_path)
 ```
 
 The flexibility and power of *additive synthesis* come at a price.
