@@ -461,27 +461,27 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/3-simpler-filters.html">
+    <a class="reference internal" href="../../sounddesign/filters/2-simpler-filters.html">
      Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/4-frequency-filters.html">
+    <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">
      Frequency Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/5-resonance.html">
+    <a class="reference internal" href="../../sounddesign/filters/4-resonance.html">
      Responses and Resonance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/6-control-filters.html">
+    <a class="reference internal" href="../../sounddesign/filters/5-control-filters.html">
      Control Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/filters/7-delays.html">
+    <a class="reference internal" href="../../sounddesign/filters/6-delays.html">
      Delays
     </a>
    </li>
@@ -819,6 +819,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#modes">
    Modes
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construction">
+     Construction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qualities">
+     Qualities
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#supercollider-scales">
@@ -873,6 +885,18 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#modes">
    Modes
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construction">
+     Construction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#qualities">
+     Qualities
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#supercollider-scales">
@@ -977,11 +1001,11 @@ In German, we swap the B for the H.
 The <em>diatonic scale</em> is built from two-interval sizes, the <em>half step</em> (<em>semitone</em>) and the <em>whole step</em> where a <em>whole step</em> (<em>whole tone</em>) contains exactly two <em>half steps</em>.
 A half step is equal to 100 (minor second) and a whole step to 200 cents (major second).
 The <em>interval sequence</em> of the diatonic scale, defined by the following tuple,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f4a33eb8-acfc-4403-8d05-29047ed7fc99">
-<span class="eqno">(88)<a class="headerlink" href="#equation-f4a33eb8-acfc-4403-8d05-29047ed7fc99" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f34d837d-4cd7-43e8-9af9-019d86f5d883">
+<span class="eqno">(84)<a class="headerlink" href="#equation-f34d837d-4cd7-43e8-9af9-019d86f5d883" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,2,1,2,2,2,1)_{\text{major}}
 \end{equation}\]</div>
-<p>is the sequence of whole (2 semitones) and half steps (1 semitone) in the scale.</p>
+<p>is the sequence of whole (2 semitones / 1 tone / whole step) and half steps (1 semitone / half step) in the scale.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="c1">// major A scale</span>
 <span class="nc">Pbind</span><span class="p">(</span>
     <span class="ss">\instrument</span><span class="p">,</span> <span class="ss">\default</span><span class="p">,</span>
@@ -1139,8 +1163,8 @@ Therefore, it has the same <em>sparsity</em> as well as <em>asymmetry</em>. as t
 </div></div>
 </div>
 <p>The <em>minor scale</em> is also called <strong>natural minor</strong> and is also known as the <em>Aolian <a class="reference internal" href="#sec-modes"><span class="std std-ref">mode</span></a></em>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7290443-f418-43d6-8528-973a0c7655f9">
-<span class="eqno">(89)<a class="headerlink" href="#equation-a7290443-f418-43d6-8528-973a0c7655f9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a51f1c19-f971-486c-8b63-69b817cccc95">
+<span class="eqno">(85)<a class="headerlink" href="#equation-a51f1c19-f971-486c-8b63-69b817cccc95" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,1,2,2)_\text{nat. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, Ab, Bb.</p>
@@ -1202,8 +1226,8 @@ This makes the <em>harmonic minor</em> a little bit exotic.</p>
 </table>
 <p>As mentioned above, there is also the <strong>harmonic minor scale</strong> for which the seventh note is raised by one semitone such that we recover the strong leading tone of the major scale.
 It is often used for harmonization within a major key.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-145e45a1-de82-40bb-80fc-2105d6a92f3f">
-<span class="eqno">(90)<a class="headerlink" href="#equation-145e45a1-de82-40bb-80fc-2105d6a92f3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77137af2-4dc2-49c1-a3fc-c4f00b58a7e7">
+<span class="eqno">(86)<a class="headerlink" href="#equation-77137af2-4dc2-49c1-a3fc-c4f00b58a7e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,1,3,1)_\text{ham. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, Ab, B.
@@ -1229,8 +1253,8 @@ The gap between A flat and B introduces a new large interval of three semitones.
 </div></div>
 </div>
 <p>The last variation is the <strong>melodic minor scale</strong> for which the sixth and seventh notes are raised.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aafa7278-3df1-4ccb-a94f-cf8d261fa911">
-<span class="eqno">(91)<a class="headerlink" href="#equation-aafa7278-3df1-4ccb-a94f-cf8d261fa911" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bb4920cb-317f-481a-bc5f-8b486db2eb1d">
+<span class="eqno">(87)<a class="headerlink" href="#equation-bb4920cb-317f-481a-bc5f-8b486db2eb1d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     (2,1,2,2,2,2,1)_\text{mel. minor}
 \end{equation}\]</div>
 <p>This gives us: C, D, Eb, F, G, A, B.
@@ -1441,8 +1465,10 @@ The circle of fifths provides an orientation guide for the music to smoothly tra
 </section>
 <section id="modes">
 <span id="sec-modes"></span><h2>Modes<a class="headerlink" href="#modes" title="Permalink to this headline">#</a></h2>
-<p>While changing the tonic of a scale by letting the interval sequence untouched is a <a class="reference internal" href="#sec-transpositions"><span class="std std-ref">transposition</span></a> of the scale, changing the interval sequences creates a completely different scale.
-If we take the major interval sequence <span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 2, 1)\)</span> and shift/rotate it, we can construct different <em>modes</em>.
+<p>While changing the tonic of a scale by letting the interval sequence untouched is a <a class="reference internal" href="#sec-transpositions"><span class="std std-ref">transposition</span></a> of the scale, changing the interval sequences creates a completely different scale.</p>
+<section id="construction">
+<h3>Construction<a class="headerlink" href="#construction" title="Permalink to this headline">#</a></h3>
+<p>If we take the major interval sequence <span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 2, 1)\)</span> and shift/rotate it, we can construct 7 different <em>modes</em>.
 For example, by shifting the <em>major scale intervals</em> by 2 to the right (or 5 to the left) gives us the <em><a class="reference internal" href="#sec-minor-scale"><span class="std std-ref">natural minor</span></a></em>.</p>
 <p>In SuperCollider we can generate all the different modes by <em>array rotation</em> using <code class="docutils literal notranslate"><span class="pre">rotate</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// generation of different modes</span>
@@ -1453,49 +1479,95 @@ For example, by shifting the <em>major scale intervals</em> by 2 to the right (o
 <span class="o">~</span><span class="nx">intervalToDegrees</span><span class="p">.(</span><span class="o">~</span><span class="nx">majorIntervalOrder</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1">// (nat.) minor degrees (by rotation)</span>
 </pre></div>
 </div>
-<p><em>Major</em> and <em>minor scales</em> are synonyms for <em>ionian</em> and <em>aeolian modes</em>.
+<p><em>Major</em> and <em>minor scales</em> are synonyms for <em>Ionian</em> and <em>Aeolian mode</em>.
 The initial degree of a mode is called <em>final</em>.
 If we additional define the <em>tonic</em> of the scale, the <em>final</em> correspond to the <em>tonic</em> which is typically the <em>pitch class</em> at which a piece ends.</p>
 <p>Again, adding a fixed number of semitones/half steps to our C major scale does not change the mode but the key, e.g. from <strong>C</strong> to <strong>D</strong>.
-In that case we change the <em>tonic</em> of the scale but letting the interval sequence intact.
-To change the <em>mode</em> and the <em>key</em> of our piece we change both: the <em>tonic</em> and the interval sequence, that is, the <em>mode</em>.</p>
+In that case we change the <em>tonic</em> <a class="reference internal" href="1-midinotes.html#sec-notes"><span class="std std-ref">note</span></a> and <a class="reference internal" href="4-chords.html#sec-chords"><span class="std std-ref">chord</span></a> of the scale but letting the interval sequence intact.
+To change the <em>mode</em> and the <em>key</em> of our piece we change both: the <em>tonic</em> note and the interval sequence, that is, the <em>mode</em>.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mode</p></th>
 <th class="head"><p>Interval sequence</p></th>
+<th class="head"><p>Notes (tonic = G)</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Ionian (Major)</p></td>
 <td><p><span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 2, 1)\)</span></p></td>
+<td><p>G A B C D E F#</p></td>
 </tr>
 <tr class="row-odd"><td><p>Dorian</p></td>
 <td><p><span class="math notranslate nohighlight">\((2, 1, 2, 2, 2, 1, 2)\)</span></p></td>
+<td><p>G A Bb C D E F</p></td>
 </tr>
 <tr class="row-even"><td><p>Phrygian</p></td>
 <td><p><span class="math notranslate nohighlight">\((1, 2, 2, 2, 1, 2, 2)\)</span></p></td>
+<td><p>G Ab Bb C D Eb F</p></td>
 </tr>
 <tr class="row-odd"><td><p>Lydian</p></td>
 <td><p><span class="math notranslate nohighlight">\((2, 2, 2, 1, 2, 2, 1)\)</span></p></td>
+<td><p>G A B C# D E F#</p></td>
 </tr>
 <tr class="row-even"><td><p>Mixolydian</p></td>
 <td><p><span class="math notranslate nohighlight">\((2, 2, 1, 2, 2, 1, 2)\)</span></p></td>
+<td><p>G A B C D E F</p></td>
 </tr>
 <tr class="row-odd"><td><p>Aeolian (Minor)</p></td>
 <td><p><span class="math notranslate nohighlight">\((2, 1, 2, 2, 1, 2, 2)\)</span></p></td>
+<td><p>G A Bb C D Eb F</p></td>
 </tr>
 <tr class="row-even"><td><p>Locrain</p></td>
 <td><p><span class="math notranslate nohighlight">\((1, 2, 2, 1, 2, 2, 2)\)</span></p></td>
+<td><p>G Ab Bb C Db Eb F</p></td>
 </tr>
 </tbody>
 </table>
 <p>Overall a <strong>scale</strong> is fully defined by the note of the <strong>tonic</strong> and a <strong>mode</strong> (an interval sequence).
 Any transposition is a valid example of the corresponding mode.
 In other words, transposition preserves mode.</p>
-<p>Two <em>parallel keys</em> have the same <em>tonic</em>.
+<p>Two <em>parallel keys</em> have the same <em>tonic note</em>.
 For example, in both <strong>C</strong> (C major) and <strong>Cm</strong> (C minor), the tonic is C.
 However, <em>relative keys</em> (two different scales that share a <em>key signature</em>) have different <em>tonics</em>
 For example, <strong>C</strong> and <strong>Am</strong> share a <em>key signature</em>, despite having different tonic pitches (C and A, respectively).</p>
+<p>So there a scales and modes.
+But how do we determine the mode and scale of a piece?
+Well, first we try to figure out the <em>tonic <a class="reference internal" href="1-midinotes.html#sec-notes"><span class="std std-ref">note</span></a></em> and <em>tonic <a class="reference internal" href="4-chords.html#sec-chords"><span class="std std-ref">chrod</span></a></em>.
+If there are a lot of Gs and Bs and Ds, the tonic chord is probably a <em>G major chord</em>, i.e. G-B-D.
+Therefore, the piece is probably in the key of <em>G major</em> (<em>ionian mode</em>), <em>lydian</em> or <em>mixolyian mode</em> which is determined by the other notes and chords in the piece.</p>
+</section>
+<section id="qualities">
+<h3>Qualities<a class="headerlink" href="#qualities" title="Permalink to this headline">#</a></h3>
+<p>In the following, I describe the different modes using the notes from the table above, i.e., the tonic note stays G.</p>
+<p>The <strong>ionian</strong> (major scale) is very happy, one might say sickening happy, and it can be challenging to make something sound interesting.</p>
+<p>The <strong>dorian</strong> mode is a rather smooth and Irish-sounding mode.
+The note of interest is the <em>natural sixth</em> E.
+For example, <em>Carlos Santana</em> uses the dorian mode a lot.
+It is minor, i.e., a little bit dark but also spicy, and has a little pep and brightness.
+It is a watered-down minor because it has the <em>natural sixth</em> detouring from the flat sixth, which gives the mode some of the major’s quality.</p>
+<p><strong>Phrygian</strong> sounds a little creepy, dark, and tense.
+The note of interest is the <em>flat second</em> Ab
+It has an exotic flavor to it.
+The flat second can be used to bring in a lot of tension.</p>
+<p><strong>Lydian</strong> is the sci-fi mode.
+The note of interest is the <em>tritone</em>.
+It sounds floaty, spacy, and wide because we have a major triad (G-B-D) but also the <a class="reference internal" href="2-intervals.html#sec-tritone"><span class="std std-ref">tritone</span></a> G-C#.</p>
+<p><strong>Mixolydian</strong> is rock-ish, Irish, bright, and upbeat.
+The note of interest is the <em>flatten seventh</em>, i.e, the F.
+It is a watered down major.
+It lacks the sickening sweetness of major.
+It is for fun rock-like music produced by bands like <em>AC/DC</em> and <em>Guns’n Roses</em>.
+Duo to the flattening of the F# in the major scale, we change the leading tone.
+The F gives us an unexpected feeling and dilutes the happiness of the major scale.</p>
+<p><strong>Aeolian</strong> (natural minor) is dark, rock-ish, and sad-ish.
+The note of interest is the <em>minor sixth</em> Eb.
+The aeolian is the foundation of most classic rock music pieces.
+It is darker than dorian, and less exotic than phrygian.</p>
+<p>Looking at the table above, we can see that all except the <strong>locrain</strong> mode contain G and D, i.e., the <em>fifth</em>!
+Not having a <em>fifth</em> makes the tonic chord of the <em>Locrian</em> a diminished <a class="reference internal" href="4-chords.html#sec-triads"><span class="std std-ref">triad</span></a> which makes the mode rather inharmonic.
+Since there are better options to have something with a lot of tension or something odd, locrain is not really used.</p>
+<p>We can use the same tonic <a class="reference internal" href="4-chords.html#sec-chords"><span class="std std-ref">chord</span></a> and change the mode during a piece.
+This is called <em>model interchange</em> or <em>model mixture</em> and gives the composer the option to wander around across a greater tonal distance.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// Playing all the different modes with C as the tonic</span>
 <span class="p">(</span>
 <span class="nc">Pbind</span><span class="p">(</span>
@@ -1526,6 +1598,7 @@ For example, <strong>C</strong> and <strong>Am</strong> share a <em>key signatur
 </audio>
 </div></div>
 </div>
+</section>
 </section>
 <section id="supercollider-scales">
 <h2>SuperCollider Scales<a class="headerlink" href="#supercollider-scales" title="Permalink to this headline">#</a></h2>

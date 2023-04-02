@@ -161,7 +161,7 @@ The *interval sequence* of the diatonic scale, defined by the following tuple,
     (2,2,1,2,2,2,1)_{\text{major}}
 \end{equation}
 
-is the sequence of whole (2 semitones) and half steps (1 semitone) in the scale.
+is the sequence of whole (2 semitones / 1 tone / whole step) and half steps (1 semitone / half step) in the scale.
 
 ```isc
 ( // major A scale
@@ -551,7 +551,10 @@ The circle of fifths provides an orientation guide for the music to smoothly tra
 ## Modes
 
 While changing the tonic of a scale by letting the interval sequence untouched is a [transposition](sec-transpositions) of the scale, changing the interval sequences creates a completely different scale.
-If we take the major interval sequence $(2, 2, 1, 2, 2, 2, 1)$ and shift/rotate it, we can construct different *modes*.
+
+### Construction
+
+If we take the major interval sequence $(2, 2, 1, 2, 2, 2, 1)$ and shift/rotate it, we can construct 7 different *modes*.
 For example, by shifting the *major scale intervals* by 2 to the right (or 5 to the left) gives us the *[natural minor](sec-minor-scale)*.
 
 In SuperCollider we can generate all the different modes by *array rotation* using ``rotate``:
@@ -565,33 +568,79 @@ In SuperCollider we can generate all the different modes by *array rotation* usi
 ~intervalToDegrees.(~majorIntervalOrder.rotate(2))   // (nat.) minor degrees (by rotation)
 ```
 
-*Major* and *minor scales* are synonyms for *ionian* and *aeolian modes*.
+*Major* and *minor scales* are synonyms for *Ionian* and *Aeolian mode*.
 The initial degree of a mode is called *final*.
 If we additional define the *tonic* of the scale, the *final* correspond to the *tonic* which is typically the *pitch class* at which a piece ends.
 
 Again, adding a fixed number of semitones/half steps to our C major scale does not change the mode but the key, e.g. from **C** to **D**.
-In that case we change the *tonic* of the scale but letting the interval sequence intact.
-To change the *mode* and the *key* of our piece we change both: the *tonic* and the interval sequence, that is, the *mode*.
+In that case we change the *tonic* [note](sec-notes) and [chord](sec-chords) of the scale but letting the interval sequence intact.
+To change the *mode* and the *key* of our piece we change both: the *tonic* note and the interval sequence, that is, the *mode*.
 
-| Mode            | Interval sequence                  |
-| --------------- | ---------------------------------- |
-| Ionian (Major)  | $(2, 2, 1, 2, 2, 2, 1)$            |
-| Dorian          | $(2, 1, 2, 2, 2, 1, 2)$            |
-| Phrygian        | $(1, 2, 2, 2, 1, 2, 2)$            |
-| Lydian          | $(2, 2, 2, 1, 2, 2, 1)$            |
-| Mixolydian      | $(2, 2, 1, 2, 2, 1, 2)$            |
-| Aeolian (Minor) | $(2, 1, 2, 2, 1, 2, 2)$            |
-| Locrain         | $(1, 2, 2, 1, 2, 2, 2)$            |
-
+| Mode            | Interval sequence                  | Notes (tonic = G) |
+| --------------- | ---------------------------------- | ----------------- |
+| Ionian (Major)  | $(2, 2, 1, 2, 2, 2, 1)$            | G A B C D E F#    |
+| Dorian          | $(2, 1, 2, 2, 2, 1, 2)$            | G A Bb C D E F    |
+| Phrygian        | $(1, 2, 2, 2, 1, 2, 2)$            | G Ab Bb C D Eb F  |
+| Lydian          | $(2, 2, 2, 1, 2, 2, 1)$            | G A B C# D E F#   |
+| Mixolydian      | $(2, 2, 1, 2, 2, 1, 2)$            | G A B C D E F     |
+| Aeolian (Minor) | $(2, 1, 2, 2, 1, 2, 2)$            | G A Bb C D Eb F   |
+| Locrain         | $(1, 2, 2, 1, 2, 2, 2)$            | G Ab Bb C Db Eb F |
 
 Overall a **scale** is fully defined by the note of the **tonic** and a **mode** (an interval sequence).
 Any transposition is a valid example of the corresponding mode.
 In other words, transposition preserves mode.
 
-Two *parallel keys* have the same *tonic*.
+Two *parallel keys* have the same *tonic note*.
 For example, in both **C** (C major) and **Cm** (C minor), the tonic is C.
 However, *relative keys* (two different scales that share a *key signature*) have different *tonics*
 For example, **C** and **Am** share a *key signature*, despite having different tonic pitches (C and A, respectively).
+
+So there a scales and modes.
+But how do we determine the mode and scale of a piece?
+Well, first we try to figure out the *tonic [note](sec-notes)* and *tonic [chrod](sec-chords)*.
+If there are a lot of Gs and Bs and Ds, the tonic chord is probably a *G major chord*, i.e. G-B-D.
+Therefore, the piece is probably in the key of *G major* (*ionian mode*), *lydian* or *mixolyian mode* which is determined by the other notes and chords in the piece.
+
+### Qualities
+
+In the following, I describe the different modes using the notes from the table above, i.e., the tonic note stays G.
+
+The **ionian** (major scale) is very happy, one might say sickening happy, and it can be challenging to make something sound interesting.
+
+The **dorian** mode is a rather smooth and Irish-sounding mode.
+The note of interest is the *natural sixth* E.
+For example, *Carlos Santana* uses the dorian mode a lot.
+It is minor, i.e., a little bit dark but also spicy, and has a little pep and brightness.
+It is a watered-down minor because it has the *natural sixth* detouring from the flat sixth, which gives the mode some of the major's quality.
+
+**Phrygian** sounds a little creepy, dark, and tense.
+The note of interest is the *flat second* Ab
+It has an exotic flavor to it.
+The flat second can be used to bring in a lot of tension.
+
+**Lydian** is the sci-fi mode.
+The note of interest is the *tritone*.
+It sounds floaty, spacy, and wide because we have a major triad (G-B-D) but also the [tritone](sec-tritone) G-C#.
+
+**Mixolydian** is rock-ish, Irish, bright, and upbeat.
+The note of interest is the *flatten seventh*, i.e, the F.
+It is a watered down major.
+It lacks the sickening sweetness of major.
+It is for fun rock-like music produced by bands like *AC/DC* and *Guns'n Roses*.
+Duo to the flattening of the F# in the major scale, we change the leading tone.
+The F gives us an unexpected feeling and dilutes the happiness of the major scale.
+
+**Aeolian** (natural minor) is dark, rock-ish, and sad-ish.
+The note of interest is the *minor sixth* Eb.
+The aeolian is the foundation of most classic rock music pieces.
+It is darker than dorian, and less exotic than phrygian.
+
+Looking at the table above, we can see that all except the **locrain** mode contain G and D, i.e., the *fifth*!
+Not having a *fifth* makes the tonic chord of the *Locrian* a diminished [triad](sec-triads) which makes the mode rather inharmonic.
+Since there are better options to have something with a lot of tension or something odd, locrain is not really used.
+
+We can use the same tonic [chord](sec-chords) and change the mode during a piece.
+This is called *model interchange* or *model mixture* and gives the composer the option to wander around across a greater tonal distance.
 
 ```isc
 // Playing all the different modes with C as the tonic

@@ -32,6 +32,7 @@ sns.set_theme('talk')
 sns.set_style("whitegrid")
 ```
 
+(sec-lti-filters)=
 # LTI Filters
 
 *Linear filters* process time-varying input signals to produce output signals, subject to the constraint of *linearity*.
@@ -333,6 +334,7 @@ y[n] &= \text{Transfer function} \cdot \text{Circular motion}\\
 Thus, a filter can be characterized as circular motion with radius $G(\omega) A$ and phase $\Theta(\omega)+\phi$.
 The particular kind of filter implemented depends only on the definition of $G(\omega)$ and $\Theta(\omega)$.
 
+(sec-one-zero-analysis)=
 ## One Zero Filter
 
 In SuperCollider the *one zero filter* [OneZero](https://doc.sccode.org/Classes/OneZero.html) realizes the following formula:
@@ -392,6 +394,7 @@ Without a *pole* the filtering effect is weak.
 )
 ```
 
+(sec-one-pole-analysis)=
 ## One Pole Filter
 
 In SuperCollider the *one pole filter* [OnePole](https://doc.sccode.org/Classes/OnePole.html) realizes the following formula:

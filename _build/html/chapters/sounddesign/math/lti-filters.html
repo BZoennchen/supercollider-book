@@ -461,27 +461,27 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/3-simpler-filters.html">
+    <a class="reference internal" href="../filters/2-simpler-filters.html">
      Basic Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/4-frequency-filters.html">
+    <a class="reference internal" href="../filters/3-frequency-filters.html">
      Frequency Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/5-resonance.html">
+    <a class="reference internal" href="../filters/4-resonance.html">
      Responses and Resonance
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/6-control-filters.html">
+    <a class="reference internal" href="../filters/5-control-filters.html">
      Control Filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/7-delays.html">
+    <a class="reference internal" href="../filters/6-delays.html">
      Delays
     </a>
    </li>
@@ -872,7 +872,7 @@ title="Print to PDF"
   <div class="cell tag_remove-input docutils container">
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="lti-filters">
-<h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">#</a></h1>
+<span id="sec-lti-filters"></span><h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">#</a></h1>
 <p><em>Linear filters</em> process time-varying input signals to produce output signals, subject to the constraint of <em>linearity</em>.
 In most cases these linear filters are also time <em>invariant</em> (or <em>shift invariant</em>) in which case they can be analyzed exactly using <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> (‘linear time-invariant’) system theory.</p>
 <div class="definition admonition" id="def-linear-time-invariant">
@@ -900,15 +900,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e315fc5-1474-4fb4-9041-9135eb873abc">
-<span class="eqno">(41)<a class="headerlink" href="#equation-4e315fc5-1474-4fb4-9041-9135eb873abc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-078021ab-adfd-433d-bff7-d63e602bc67d">
+<span class="eqno">(41)<a class="headerlink" href="#equation-078021ab-adfd-433d-bff7-d63e602bc67d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8cdbdf9-a734-43d3-b3d8-01925487d63c">
-<span class="eqno">(42)<a class="headerlink" href="#equation-e8cdbdf9-a734-43d3-b3d8-01925487d63c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b67d1d3d-c7cb-4378-8523-69496fac09d0">
+<span class="eqno">(42)<a class="headerlink" href="#equation-b67d1d3d-c7cb-4378-8523-69496fac09d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -968,8 +968,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-efc209b5-ca01-4cc4-8299-93f54d85e1c0">
-<span class="eqno">(43)<a class="headerlink" href="#equation-efc209b5-ca01-4cc4-8299-93f54d85e1c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3f2c84f5-2a6b-438c-bd50-640c37bfd8e3">
+<span class="eqno">(43)<a class="headerlink" href="#equation-3f2c84f5-2a6b-438c-bd50-640c37bfd8e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -1083,8 +1083,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73abde26-67ec-4cac-bd1d-14ba47b13491">
-<span class="eqno">(44)<a class="headerlink" href="#equation-73abde26-67ec-4cac-bd1d-14ba47b13491" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09204047-11af-4eb1-91db-97f87f575c3e">
+<span class="eqno">(44)<a class="headerlink" href="#equation-09204047-11af-4eb1-91db-97f87f575c3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1096,7 +1096,7 @@ y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 The particular kind of filter implemented depends only on the definition of <span class="math notranslate nohighlight">\(G(\omega)\)</span> and <span class="math notranslate nohighlight">\(\Theta(\omega)\)</span>.</p>
 </section>
 <section id="one-zero-filter">
-<h2>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">#</a></h2>
+<span id="sec-one-zero-analysis"></span><h2>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">#</a></h2>
 <p>In SuperCollider the <em>one zero filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> realizes the following formula:</p>
 <div class="math notranslate nohighlight">
 \[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1], \quad -1 \leq \alpha \leq 1\]</div>
@@ -1132,7 +1132,7 @@ Without a <em>pole</em> the filtering effect is weak.</p>
 </div>
 </section>
 <section id="one-pole-filter">
-<h2>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">#</a></h2>
+<span id="sec-one-pole-analysis"></span><h2>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">#</a></h2>
 <p>In SuperCollider the <em>one pole filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> realizes the following formula:</p>
 <div class="math notranslate nohighlight">
 \[y[n] - \alpha \cdot y[n-1] = (1 - |\alpha|) \cdot x[n], \quad -1 \leq \alpha \leq 1\]</div>
@@ -1190,8 +1190,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-263a177a-1d4c-42a6-aeed-66ec8e2658ce">
-<span class="eqno">(45)<a class="headerlink" href="#equation-263a177a-1d4c-42a6-aeed-66ec8e2658ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a564f6c1-2fb5-4148-acd0-88fac5709f01">
+<span class="eqno">(45)<a class="headerlink" href="#equation-a564f6c1-2fb5-4148-acd0-88fac5709f01" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.

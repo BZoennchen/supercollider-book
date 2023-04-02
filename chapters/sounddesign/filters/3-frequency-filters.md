@@ -1,6 +1,7 @@
 # Frequency Filters
 
-Frequency filters are the filters we mean if we talk about filters in general.
+When we talk about filters, we usually mean frequency filters.
+Their arguments are more meaningful than the filters discussed in section [Basic Filters](sec-basic-filters).
 They attune the band of frequencies of a signal.
 
 As Butterworth stated:
@@ -70,6 +71,7 @@ A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).
 
 We can observer that the maximum amplitude of the filtered signal decreases with the cutoff frequency.
 
+(sec-highpass-filter)=
 ## Highpass Filter
 
 A *highpass filter* filters frequency **below** its *cutoff frequency*.
