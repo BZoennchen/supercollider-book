@@ -791,11 +791,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#just-intonation">
-   Just Intonation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pythagorean-tuning">
    Pythagorean Tuning
   </a>
@@ -825,11 +820,6 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#just-intonation">
-   Just Intonation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pythagorean-tuning">
    Pythagorean Tuning
   </a>
@@ -855,21 +845,23 @@ title="Print to PDF"
 The term “out of tune” refers to a pitch/tone that is either too high (sharp) or too low (flat) in relation to a given reference pitch.</p>
 <p>A <em>tuning system</em> is the system used to define which tones, or pitches, to use when playing music.
 In other words, it is the choice of number and spacing of frequency values used.</p>
-<section id="just-intonation">
-<span id="sec-just-tuning"></span><h2>Just Intonation<a class="headerlink" href="#just-intonation" title="Permalink to this headline">#</a></h2>
-<p>TODO</p>
-</section>
+<p><em>Just intonation</em> or <em>pure intonation</em> is <em>tuning system</em> where intervals are whole number ratios of frequencies.
+One example is the <a class="reference internal" href="#sec-p-tuning"><span class="std std-ref">Pythagorean tuning system</span></a>.</p>
+<p>However, in Western musical practice, instruments are rarely tuned using only pure intervals – the desire for different keys have identical intervals makes this impractical.
+The <a class="reference internal" href="#sec-tet-tuning"><span class="std std-ref">equal temperament system</span></a> is mostly used in Western music.</p>
 <section id="pythagorean-tuning">
 <span id="sec-p-tuning"></span><h2>Pythagorean Tuning<a class="headerlink" href="#pythagorean-tuning" title="Permalink to this headline">#</a></h2>
-<p>As mentioned in section <a class="reference internal" href="2-intervals.html#sec-intervals"><span class="std std-ref">Intervals</span></a> the consonant frequency ratio is 2:1.
-The next most consonant frequency ratio is 3:1 than 4:1 and so on.
-When building a scale we desire the absence of beating when two sounds are played together.
+<p><em>Pythagoreans</em> were obsessed with <em>simple ratios</em>, i.e., ratios formed by small prime numbers.
+They build a <em>just-tuning</em> by using these ratios, which lead to a strong dissonance for some combinations of notes.</p>
+<p>As mentioned in section <a class="reference internal" href="2-intervals.html#sec-intervals"><span class="std std-ref">Intervals</span></a>, the consonant frequency ratio is 2:1.
+The next most consonant frequency ratio is 3:1, then 4:1, and so on.
+When building a scale, we desire the absence of beating when two sounds are played together.
 Since a frequency ratio of 2:1 appears when we play the same note one octave apart, we know that our scale should span no more than twice the frequency of the root frequency.</p>
 <p>Therefore, we use the 3:1 ratio to build our scale.
 Let us start with 440 Hz.
-Using the 3:1 ratio we add one frequency below <span class="math notranslate nohighlight">\(440 \cdot 4/3 \approx 586.66\)</span> and one above <span class="math notranslate nohighlight">\(440 \cdot 3 / 2 = 660\)</span>
+Using the 3:1 ratio we add one frequency below <span class="math notranslate nohighlight">\(440 \cdot 4/3 \approx 586.66\)</span> and one above <span class="math notranslate nohighlight">\(440 \cdot 3 / 2 = 660\)</span>.
 We can repeat this process to create even more frequencies: <span class="math notranslate nohighlight">\(586.66 \cdot 2/3 \approx 391.11\)</span> and <span class="math notranslate nohighlight">\(660 \cdot 3/4 = 495\)</span>.</p>
-<p>Overall we end up with the following notes five.</p>
+<p>Overall we end up with the following five notes.</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Frequency</p></th>
@@ -897,10 +889,9 @@ We can repeat this process to create even more frequencies: <span class="math no
 </tr>
 </tbody>
 </table>
-<p>3/2 * 3/4 = 9/16</p>
-<p>Which forms the <em>petatonic scale</em> of <em>G major</em>.
+<p>This forms the <em>pentatonic scale</em> of <em>G major</em>.
 The jump from 391.11 to 440 Hz equates to 2 semitones.
-The interval between 391.11 to 495.00 equates to 4 semitones and going from the root to 586.66 spans 7 semitones.
+The interval between 391.11 to 495.00 equates to 4 semitones, and going from the root to 586.66 spans 7 semitones.
 391.11 to 660 gives us 9 semitones.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mi">440</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="o">-</span><span class="mf">391.11</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="p">;</span>     <span class="c1">//  2.0391492001631</span>
 <span class="mf">495.00</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="o">-</span><span class="mf">391.11</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="p">;</span>  <span class="c1">//  4.0782492174708</span>
@@ -926,7 +917,8 @@ The interval between 391.11 to 495.00 equates to 4 semitones and going from the 
 </audio>
 </div></div>
 </div>
-<p>From there we can add two more notes by dividing 391.11 by 3/4 and multiplying 495 by 3/2, i.e. <span class="math notranslate nohighlight">\(391.11 \cdot 4/3 = 521.48\)</span> and <span class="math notranslate nohighlight">\(495 \cdot 3 / 2 = 742.5\)</span> and we end up with the scale of G major.</p>
+<p>From there, we can add two more notes by dividing 391.11 by 3/4 and multiplying 495 by 3/2, i.e., <span class="math notranslate nohighlight">\(391.11 \cdot 4/3 = 521.48\)</span> and <span class="math notranslate nohighlight">\(495 \cdot 3 / 2 = 742.5\)</span>.
+We end up with the scale of G major.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="mf">521.48</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="o">-</span><span class="mf">391.11</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="p">;</span> <span class="c1">//  4.9804499913461</span>
 <span class="mf">742.5</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="o">-</span><span class="mf">391.11</span><span class="p">.</span><span class="nx">cpsmidi</span><span class="p">;</span>  <span class="c1">//  11.097799226125</span>
 </pre></div>
@@ -965,38 +957,32 @@ The interval between 391.11 to 495.00 equates to 4 semitones and going from the 
 </tbody>
 </table>
 <p>The technique we just used to build a scale is called <em>Pythagorean tuning</em> or <em>Pythagorean just intonation</em>.
-It is close to the <a class="reference internal" href="#sec-tet-tuning"><span class="std std-ref">12-TET</span></a> but uses whole number ratios.
+It is close to the <a class="reference internal" href="#sec-tet-tuning"><span class="std std-ref">12-TET</span></a> but uses whole-number ratios.
 Overall it does not offer much advantage for tonal harmony.
-We get all the intervals by consecutively multiplying by <span class="math notranslate nohighlight">\(3/2\)</span> (ascending fifth), <span class="math notranslate nohighlight">\(2/3\)</span> (descending fifth), or their <a class="reference internal" href="4-chords.html#sec-inversion"><span class="std std-ref">inversion</span></a> <span class="math notranslate nohighlight">\(4/3\)</span> or <span class="math notranslate nohighlight">\(3/4\)</span> respectively.
-The <em>Pythagorean tuning</em> involves ratios of very large numbers, corresponding to natural harmonics very high in the harmonic series that do not occur widely in physical phenomena.
-The primary reason for its use is that it is extremely easy to tune, as its building block, the perfect fifth, is the simplest and consequently the most consonant interval after the octave and unison.</p>
+We get all the intervals by consecutively multiplying by <span class="math notranslate nohighlight">\(3/2\)</span> (ascending fifth), <span class="math notranslate nohighlight">\(2/3\)</span> (descending fifth), or their <a class="reference internal" href="4-chords.html#sec-inversion"><span class="std std-ref">inversion</span></a> <span class="math notranslate nohighlight">\(4/3\)</span> or <span class="math notranslate nohighlight">\(3/4\)</span>, respectively.</p>
+<p>The <em>Pythagorean tuning</em> involves ratios of very large numbers, corresponding to natural harmonics very high in the harmonic series that do not occur widely in physical phenomena.
+The primary reason for its use is that it is extremely easy to tune, as its building block, the <em>perfect fifth</em>, is the simplest and consequently the most consonant interval after the <em>octave</em> and <em>unison</em>.</p>
 </section>
 <section id="equal-temperament">
 <span id="sec-tet-tuning"></span><h2>Equal Temperament<a class="headerlink" href="#equal-temperament" title="Permalink to this headline">#</a></h2>
-<p>TODO</p>
-<p><em>Pythagoreans</em> were obsessed with <em>simple ratios</em>, i.e., ratios formed by small prime numbers.
-They build a <em>just-tuning</em> by using these ratios, which lead to a strong dissonance for some combinations of notes.
-In 1584 <em>Zhu Zaiyu</em> achieved an exact calculation of the well-known <em>twelve-tone equal temperament tuning (12-TET)</em> in China.
+<p>An <em>equal temperament</em> is a <em>tuning system</em> that approximates just intervals, such as the <a class="reference internal" href="#sec-p-tuning"><span class="std std-ref">Pythagorean tuning system</span></a>, by dividing an octave (or another interval) into equal steps.
+It was first introduced in 1584 by <em>Zhu Zaiyu</em> who achieved an exact calculation of the well-known <em>twelve-tone equal temperament tuning (12-TET)</em> in China.
 One year later, the Flemish mathematician <em>Simon Stevin</em> was also able to develop this flexible <em>tuning</em>.
-Instead of using <em>simple ratios</em> <em>equal temperament tunings</em>, use real numbers such that an <em>octave</em> is divided in equally tempered (equally spaced) on a logarithmic scale.
-In the case of the <em>twelve-tone</em>, the ratio is equal to the 12th root of 2, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fe299c21-60b6-4c8b-9932-baca1ee1f51b">
-<span class="eqno">(88)<a class="headerlink" href="#equation-fe299c21-60b6-4c8b-9932-baca1ee1f51b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+Instead of using <em>simple ratios</em>, <em>equal temperament tunings</em> use real numbers such that an <em>octave</em> is divided into equally tempered (equally spaced) on a logarithmic scale.</p>
+<p>In the case of the <em>twelve-tone</em>, the ratio is equal to the 12th root of 2, i.e.,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a35e215-8990-470f-ae36-8dc44b32d635">
+<span class="eqno">(88)<a class="headerlink" href="#equation-0a35e215-8990-470f-ae36-8dc44b32d635" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \sqrt[12]{2} = 2^{1/12} \approx 1.05946.
 \end{equation}\]</div>
 <p>In modern times, 12-TET is usually tuned relative to a standard pitch of 440 Hz, called A440.
 Note A is tuned to 440 hertz, and all other notes are defined as some multiple of semitones apart from it, either higher or lower in frequency.
-However, the standard pitch has not always been 440 Hz, and there is still a lot of dispute and discussion.
-This development is a comparatively recent development in the musical community, and the agreement is still fragile among musicians <span id="id1">[<a class="reference internal" href="../../misc/bibliography.html#id8" title="Gareth Loy. Musimathics: the mathematical foundations of music. Volume 1. MIT Press, 2006. ISBN 978-0-262-51655-6.">Loy06</a>]</span>.</p>
-<p>Interstingly, if we look at the intervals between harmonics we spot <em>simple ratios</em> for 12-TET.
-From the fundamental <span class="math notranslate nohighlight">\(\omega\)</span> to the first overtone <span class="math notranslate nohighlight">\(2\omega\)</span> we get the ratio <span class="math notranslate nohighlight">\(2/1\)</span>.
-From the first <span class="math notranslate nohighlight">\(2\omega\)</span> to the second overtone <span class="math notranslate nohighlight">\(3\omega\)</span> we get another simple ratio, i.e., <span class="math notranslate nohighlight">\(3/2\)</span> following the intervals <span class="math notranslate nohighlight">\(4/3\)</span>, <span class="math notranslate nohighlight">\(5/4\)</span> and <span class="math notranslate nohighlight">\(6/5\)</span>.
-In general the <span class="math notranslate nohighlight">\(i\)</span>-th interval is equal to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5897361a-a9dc-4066-a4d0-2b296e939f27">
-<span class="eqno">(89)<a class="headerlink" href="#equation-5897361a-a9dc-4066-a4d0-2b296e939f27" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    \frac{i+1}{i},
-\end{equation}\]</div>
-<p>which gives us <em>simple ratios</em> for small <span class="math notranslate nohighlight">\(i\)</span>.</p>
+However, the standard pitch has sometimes been 440 Hz, and there is still a lot of dispute and discussion.
+This development is comparatively recent in the musical community, and the agreement is still fragile among musicians <span id="id1">[<a class="reference internal" href="../../misc/bibliography.html#id8" title="Gareth Loy. Musimathics: the mathematical foundations of music. Volume 1. MIT Press, 2006. ISBN 978-0-262-51655-6.">Loy06</a>]</span>.</p>
+<p>The significant advantage of an equal system is that we can change the key of a piece without re-tuning the instrument.
+Furthermore, moving from one key to the next or from one mode to the next is much more musically pleasant.
+The substantial disadvantage is imperfection!
+The equal system is the most “wrong” system since every perfect ratio is detuned a little bit.
+However, since everyone uses equal temperament, our culturally trained ears got used to it – most of us can not hear the imperfection.</p>
 </section>
 </section>
 
