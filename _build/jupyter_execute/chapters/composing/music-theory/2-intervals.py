@@ -294,7 +294,7 @@ display(im)
 # Furthermore, there are two different tunings listed in the table:
 # 
 # 1. *[Twelve-tone equal temperament (12-TET)](sec-tet-tuning)*
-# 2. *[Just intonation](sec-just-tuning)* or *Pythagorean pure intonation*
+# 2. *[Just intonation](sec-p-tuning)* or *Pythagorean pure intonation*
 # 
 # For the *equal temperament* the ratios slightly differ; they are irrational.
 # For example, $6/5 = 1.2$ becomes $\sqrt[3]{2} \approx 1.1892$.
