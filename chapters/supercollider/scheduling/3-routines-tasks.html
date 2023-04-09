@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Communication" href="../communication/communication.html" />
+    <link rel="next" title="Minimalism" href="4-minimalism.html" />
     <link rel="prev" title="Clocks" href="2-clocks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -328,6 +328,11 @@ const thebe_selector_output = ".output, .cell_output"
      Routines &amp; Tasks
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-minimalism.html">
+     Minimalism
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -437,8 +442,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-sine-sum.html">
-     A Sum of Sines
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-harmonics.html">
+     Harmonic Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/3-inharmonics.html">
+     Inharmonic Series
     </a>
    </li>
   </ul>
@@ -897,6 +907,24 @@ We can also change the tempo of the clock while playing.</p>
 </audio>
 </div></div>
 </div>
+<p>Until now, we played the synth using <code class="docutils literal notranslate"><span class="pre">Synth</span></code>, which gets translated into an <a class="reference internal" href="../communication/2-osc.html#sec-osc"><span class="std std-ref">OSC message</span></a>, which tells the server to start the synth immediately.
+Most of the time, this is not what we actually want since the timing can be off.
+Instead, one should use</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">bind</span> <span class="p">{</span> <span class="nc">Synth</span><span class="p">(...)</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>and also</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nx">bind</span> <span class="p">{</span> <span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(...)</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>If you notice inaccurate timings, this might be the problem.
+A more elaborate explanation written by <a class="reference external" href="https://nathan.ho.name/">Nathan Ho</a> can be found <a class="reference external" href="https://scsynth.org/t/why-you-should-always-wrap-synth-and-synth-set-in-server-default-bind/7310/13">here</a>.
+When we play <a class="reference internal" href="../pattern/4-events.html#sec-playing-events"><span class="std std-ref">events</span></a> this problem does not appear because the pattern/event library takes care of using <code class="docutils literal notranslate"><span class="pre">s.bind</span></code>.</p>
+<p>Nathan is also quite opinionated when it comes to <a class="reference internal" href="../pattern/3-pattern.html#sec-pattern"><span class="std std-ref">pattern</span></a>.
+Interestingly, he prefers to stay away from them.</p>
+<blockquote>
+<div><p>I haven’t used Patterns in years. If they don’t appeal to you for whatever reason then you can always use Routine and Synth. – Nathan Ho</p>
+</div></blockquote>
 </section>
 
     <script type="text/x-thebe-config">
@@ -933,10 +961,10 @@ We can also change the tempo of the clock while playing.</p>
             <p class="prev-next-title">Clocks</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../communication/communication.html" title="next page">
+    <a class='right-next' id="next-link" href="4-minimalism.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Communication</p>
+        <p class="prev-next-title">Minimalism</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

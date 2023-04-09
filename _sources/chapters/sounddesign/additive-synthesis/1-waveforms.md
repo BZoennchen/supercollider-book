@@ -92,14 +92,17 @@ The first more complicated and important waveform I want to discuss is the so-ca
 ```
 
 where $A$ is the amplitude and $f$ is the frequency of the wave.
-
+The problem with implementing Eq. {eq}`eq:saw` directly is that infinitely high frequencies are present and in the digital world frequencies above halfe the [Nyquist frequency](theorem-sampling) are projected back into lower most certainly inharmonic frequencies, see section [Sampling](sec-sampling).
+The unit generator [LFSaw](https://doc.sccode.org/Classes/LFSaw.html) is such a non-band-limited sawtooth wave.
+LF stands for low frequency.
+[Saw](https://doc.sccode.org/Classes/Saw.html) is a band-limited sawtooth generator which can be used for high frequencies.
 
 ```{figure} ../../../figs/sounddesign/sawtooth.png
 ---
 width: 400px
 name: fig-sawtooth
 ---
-The sawtooth wave with a frequency and amplitude of 1.
+The non-band-limited sawtooth wave with a frequency and amplitude of 1.
 ```
 
 I generated this plot using ``Python`` but we can do the same in ``sclang``.
@@ -228,6 +231,8 @@ In ``sclang`` we can generate the sound of a [square wave](sec-square-wave) usin
 {Pulse.ar(220!2) * 0.25;}.play;
 ```
 
+SuperCollider provides two versions of a square wave: [Pulse](https://doc.sccode.org/Classes/Pulse.html) a band-limited version and a non-band-limited version [LFPulse](https://doc.sccode.org/Classes/Pulse.html).
+
 (sec-triangle-wave)=
 ## The Triangle Wave
 
@@ -282,17 +287,29 @@ An approximation for the Fourier series of the triangle wave with a frequency an
 The triangle wave is half way between the sine and the square wave, both in softness and in harmonic richness.
 It is pretty soft.
 
-In ``sclang`` we can generate the sound of a [square wave](sec-triangle-wave) using the [UGen](sec-ugens) ``LFTri``:
+In ``sclang`` we can generate the sound of a [triangle wave](sec-triangle-wave) using the [UGen](sec-ugens) ``LFTri``:
 
 ```isc
 {LFTri.ar(220!2) * 0.25;}.play;
 ```
 
+SuperCollider provides only the non-band-limited version of a triangle wave [LFTri](https://doc.sccode.org/Classes/LFTri.html).
+
 ## Summary
+
+Any periodic signal can be constructed from a sum of sine waves. The process of creating complex sounds from sine waves or other constituent parts is called *additive synthesis*.
+The sine wave, sawtooth wave, pulse wave, and triangle waves are classic waveforms since the advent of electronic music.
+They are used everywhere in the music we hear today and were/are the basis of many synthesizers.
+Sawtooth waves, pulse waves, and triangle waves come in bandlimited and
+non-bandlimited forms.
+Non-bandlimited forms can be produce strange artifacts at higher frequencies (see
+[aliasing](sec-aliasing)).
+Bandlimited forms are "safer" but are not as rich harmonically – they are not true
+representation of the waveforms.
 
 From soft (and smooth), to rich (and aggressive), we can order the basic waveforms as follows:
 
-1. [sine wave](sec-sine-wave), 
-2. [triangle wave](sec-triangle-wave), 
-3. [square wave](sec-square-wave) and 
-4. [sawtooth wave](sec-sawtooth-wave)
+1. [sine wave](sec-sine-wave) ([SinOsc](https://doc.sccode.org/Classes/SinOsc.html)), 
+2. [triangle wave](sec-triangle-wave) ([LFTri](https://doc.sccode.org/Classes/LFTri.html)), 
+3. [square wave](sec-square-wave) ([LFPulse](https://doc.sccode.org/Classes/LFPulse.html), [Pluse](https://doc.sccode.org/Classes/Pluse.html)), and 
+4. [sawtooth wave](sec-sawtooth-wave) ([LFSaw](https://doc.sccode.org/Classes/LFSaw.html), [Saw](https://doc.sccode.org/Classes/Saw.html))

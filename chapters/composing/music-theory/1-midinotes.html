@@ -330,6 +330,11 @@ const thebe_selector_output = ".output, .cell_output"
      Routines &amp; Tasks
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/scheduling/4-minimalism.html">
+     Minimalism
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -439,8 +444,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-sine-sum.html">
-     A Sum of Sines
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/2-harmonics.html">
+     Harmonic Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../sounddesign/additive-synthesis/3-inharmonics.html">
+     Inharmonic Series
     </a>
    </li>
   </ul>
@@ -839,7 +849,7 @@ In general, the frequency doubles after each succesive 12 keys.</p>
 Then to compute the fundamental frequency <span class="math notranslate nohighlight">\(f(p+1)\)</span> of the note number <span class="math notranslate nohighlight">\(p+1\)</span> given the frequency <span class="math notranslate nohighlight">\(f(p)\)</span> of the note number <span class="math notranslate nohighlight">\(p\)</span>, we have to multiply <span class="math notranslate nohighlight">\(f(p)\)</span> by <span class="math notranslate nohighlight">\(2^{\frac{1}{12}}\)</span>.
 In other words</p>
 <div class="math notranslate nohighlight" id="equation-eq-note-to-frequency">
-<span class="eqno">(83)<a class="headerlink" href="#equation-eq-note-to-frequency" title="Permalink to this equation">#</a></span>\[  f(p+1) = f(p) \cdot 2^{\frac{1}{12}}.\]</div>
+<span class="eqno">(84)<a class="headerlink" href="#equation-eq-note-to-frequency" title="Permalink to this equation">#</a></span>\[  f(p+1) = f(p) \cdot 2^{\frac{1}{12}}.\]</div>
 <p>Since there are the same number of keys for each octave but higher octaves cover a much larger range of frequencies, we can conclude that high frequencies are likely to appear much sparser in a piano piece.</p>
 </section>
 <section id="midi-notes">
@@ -854,7 +864,7 @@ In general, the note Ai corresponds to the midinote</p>
 \[21 + 12 \cdot i\]</div>
 <p>because the key pattern of a piano repeats itself and each succesive 12 keys corresponds to one <em>octave</em>, see section <a class="reference internal" href="2-intervals.html#sec-intervals"><span class="std std-ref">Intervals</span></a>.
 Consecutive piano keys have consecutive natural number as midi notes.</p>
-<p>Using Eq. <a class="reference internal" href="#equation-eq-note-to-frequency">(83)</a> and the fact that the midi note 69 corresponds to A4 which corresponds to 440 Hz, we can compute the fundamental frequency <span class="math notranslate nohighlight">\(f(p)\)</span> for a specific midi note <span class="math notranslate nohighlight">\(p\)</span> by the following function:</p>
+<p>Using Eq. <a class="reference internal" href="#equation-eq-note-to-frequency">(84)</a> and the fact that the midi note 69 corresponds to A4 which corresponds to 440 Hz, we can compute the fundamental frequency <span class="math notranslate nohighlight">\(f(p)\)</span> for a specific midi note <span class="math notranslate nohighlight">\(p\)</span> by the following function:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     f(p) = 2^\frac{p-69}{12} \cdot 440.

@@ -58,7 +58,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="A Sum of Sines" href="2-sine-sum.html" />
+    <link rel="next" title="Harmonic Series" href="2-harmonics.html" />
     <link rel="prev" title="Additive Synthesis" href="additive-synthesis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -330,6 +330,11 @@ const thebe_selector_output = ".output, .cell_output"
      Routines &amp; Tasks
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../supercollider/scheduling/4-minimalism.html">
+     Minimalism
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -439,8 +444,13 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2-sine-sum.html">
-     A Sum of Sines
+    <a class="reference internal" href="2-harmonics.html">
+     Harmonic Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-inharmonics.html">
+     Inharmonic Series
     </a>
    </li>
   </ul>
@@ -862,7 +872,7 @@ So let us try to understand their timbre by looking at the coefficient of their 
 <span id="sec-sine-wave"></span><h2>The Sine Wave<a class="headerlink" href="#the-sine-wave" title="Permalink to this headline">#</a></h2>
 <p>The sine wave</p>
 <div class="math notranslate nohighlight" id="equation-eq-sine">
-<span class="eqno">(46)<a class="headerlink" href="#equation-eq-sine" title="Permalink to this equation">#</a></span>\[\begin{split}    \begin{split}
+<span class="eqno">(47)<a class="headerlink" href="#equation-eq-sine" title="Permalink to this equation">#</a></span>\[\begin{split}    \begin{split}
     y_\text{sine}(t) &amp;= A \cdot \sin(2\pi \cdot f \cdot t)\\
      &amp;= A \cdot \frac{e^{i 2\pi \cdot f \cdot t} - e^{-i 2\pi \cdot f \cdot t}}{2i}\\
      &amp;= A \cdot \mathbf{Re}\left( -i \cdot e^{i2\pi \cdot f \cdot t} \right)\\
@@ -870,7 +880,7 @@ So let us try to understand their timbre by looking at the coefficient of their 
     \end{split}\end{split}\]</div>
 <p>is the most pure, most basic, and most simple signal.
 The sine or cosine wave is the most basic waveform there is.
-Its <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(46)</a>.
+Its <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(47)</a>.
 Note that I also use the exponetial form introduced in section <a class="reference internal" href="../math/complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a> but don not worry, it is not that important here.
 The sine or cosine wave, consists of only the fundamental frequency <span class="math notranslate nohighlight">\(f\)</span> and is theoretically the basis for all other signals.
 Sine is equals to cosine shifted by <span class="math notranslate nohighlight">\(\pi/2\)</span>.</p>
@@ -892,12 +902,16 @@ It can also be used to add a certain <em>harmonic</em> to a sound.</p>
 <span id="sec-sawtooth-wave"></span><h2>The Sawtooth Wave<a class="headerlink" href="#the-sawtooth-wave" title="Permalink to this headline">#</a></h2>
 <p>The first more complicated and important waveform I want to discuss is the so-called <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a></p>
 <div class="math notranslate nohighlight" id="equation-eq-saw">
-<span class="eqno">(47)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
-<p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.</p>
+<span class="eqno">(48)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.
+The problem with implementing Eq. <a class="reference internal" href="#equation-eq-saw">(48)</a> directly is that infinitely high frequencies are present and in the digital world frequencies above halfe the <a class="reference internal" href="../math/sampling.html#theorem-sampling"><span class="std std-ref">Nyquist frequency</span></a> are projected back into lower most certainly inharmonic frequencies, see section <a class="reference internal" href="../math/sampling.html#sec-sampling"><span class="std std-ref">Sampling</span></a>.
+The unit generator <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a> is such a non-band-limited sawtooth wave.
+LF stands for low frequency.
+<a class="reference external" href="https://doc.sccode.org/Classes/Saw.html">Saw</a> is a band-limited sawtooth generator which can be used for high frequencies.</p>
 <figure class="align-default" id="fig-sawtooth">
 <a class="reference internal image-reference" href="../../../_images/sawtooth.png"><img alt="../../../_images/sawtooth.png" src="../../../_images/sawtooth.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The non-band-limited sawtooth wave with a frequency and amplitude of 1.</span><a class="headerlink" href="#fig-sawtooth" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>I generated this plot using <code class="docutils literal notranslate"><span class="pre">Python</span></code> but we can do the same in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>.
@@ -919,23 +933,23 @@ Let us generate the plot in <a class="reference internal" href="#fig-sawtooth"><
 </div>
 <p>To understand the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> musically, we have to look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-saw-fourier">
-<span class="eqno">(48)<a class="headerlink" href="#equation-eq-saw-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<span class="eqno">(49)<a class="headerlink" href="#equation-eq-saw-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
 <p>We can approximate the series by only summing up the first <span class="math notranslate nohighlight">\(n\)</span> terms:</p>
 <div class="math notranslate nohighlight" id="equation-eq-saw-fourier-n">
-<span class="eqno">(49)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">#</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
+<span class="eqno">(50)<a class="headerlink" href="#equation-eq-saw-fourier-n" title="Permalink to this equation">#</a></span>\[    y_{\text{saw},n}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{n} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).\]</div>
 <figure class="align-default" id="fig-sawtooth-20">
 <a class="reference internal image-reference" href="../../../_images/sawtooth_20.png"><img alt="../../../_images/sawtooth_20.png" src="../../../_images/sawtooth_20.png" style="width: 400px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 23 </span><span class="caption-text">An approximation for the Fourier series of the sawtooth wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-sawtooth-20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(47)</a>.
-However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(48)</a> that</p>
+<p>The evaluation of many sine functions is computational more expensive than evaluating Eq. <a class="reference internal" href="#equation-eq-saw">(48)</a>.
+However, we learn from Eq. <a class="reference internal" href="#equation-eq-saw-fourier">(49)</a> that</p>
 <ol class="simple">
 <li><p>each harmonic of <span class="math notranslate nohighlight">\(k \cdot f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(k\)</span> decrease by <span class="math notranslate nohighlight">\(1/k\)</span>.</p></li>
 </ol>
-<p>We can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(49)</a>.</p>
+<p>We can compute an approximation of the <a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> by the technique of additive synthesis using Eq. <a class="reference internal" href="#equation-eq-saw-fourier-n">(50)</a>.</p>
 <p>Even if the sawtooth wave does not quite sound like a string instrument, its properties are similar to the audio signal generated by string instruments.
 Therefore, the sawtooth wave can be the starting point for modeling the sound of a violin, piano or guitar.
 Apart from noise, the sawtooth wave is the richest sound produced by any basic oscillator.
@@ -950,10 +964,10 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
 <span id="sec-square-wave"></span><h2>The Square Wave<a class="headerlink" href="#the-square-wave" title="Permalink to this headline">#</a></h2>
 <p>Another important waveform is the <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> which is a special case of the pulse wave:</p>
 <div class="math notranslate nohighlight" id="equation-eq-square">
-<span class="eqno">(50)<a class="headerlink" href="#equation-eq-square" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \text{sign}\left( \sin\left( 2\pi \cdot f \cdot t \right) \right)\]</div>
+<span class="eqno">(51)<a class="headerlink" href="#equation-eq-square" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \text{sign}\left( \sin\left( 2\pi \cdot f \cdot t \right) \right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\text{sign}(\cdot)\)</span> is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-sign">
-<span class="eqno">(51)<a class="headerlink" href="#equation-eq-sign" title="Permalink to this equation">#</a></span>\[\begin{split}    \text{sign}(x) = \begin{cases}
+<span class="eqno">(52)<a class="headerlink" href="#equation-eq-sign" title="Permalink to this equation">#</a></span>\[\begin{split}    \text{sign}(x) = \begin{cases}
     +1 &amp; \text{ if } x \geq 0\\
     -1 &amp; \text{ else.}
     \end{cases}\end{split}\]</div>
@@ -965,8 +979,8 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
 </figure>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-square-fourier">
-<span class="eqno">(52)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
-<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-square-fourier">(52)</a> that</p>
+<span class="eqno">(53)<a class="headerlink" href="#equation-eq-square-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{square}(t) = A \cdot \frac{4}{\pi} \cdot \sum_{k=1}^{\infty} \frac{\sin( 2\pi \left[ 2k-1 \right] \cdot f \cdot t)}{2k - 1}\]</div>
+<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-square-fourier">(53)</a> that</p>
 <ol class="simple">
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k-1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k - 1\)</span> decreases with <span class="math notranslate nohighlight">\(4/(2k - 1)\)</span></p></li>
@@ -989,15 +1003,16 @@ Their sound contains mostly odd harmonics.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">Pulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>SuperCollider provides two versions of a square wave: <a class="reference external" href="https://doc.sccode.org/Classes/Pulse.html">Pulse</a> a band-limited version and a non-band-limited version <a class="reference external" href="https://doc.sccode.org/Classes/Pulse.html">LFPulse</a>.</p>
 </section>
 <section id="the-triangle-wave">
 <span id="sec-triangle-wave"></span><h2>The Triangle Wave<a class="headerlink" href="#the-triangle-wave" title="Permalink to this headline">#</a></h2>
 <p>The next important wave is the <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-triangle">
-<span class="eqno">(53)<a class="headerlink" href="#equation-eq-triangle" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \left( 4 \cdot \left| f \cdot (t+1/4) -  \left \lfloor{ \frac{1}{2} + f \cdot (t+1/4)} \right \rfloor \right| - 1 \right),\]</div>
+<span class="eqno">(54)<a class="headerlink" href="#equation-eq-triangle" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \left( 4 \cdot \left| f \cdot (t+1/4) -  \left \lfloor{ \frac{1}{2} + f \cdot (t+1/4)} \right \rfloor \right| - 1 \right),\]</div>
 <p>where <span class="math notranslate nohighlight">\(\left| \cdot \right|\)</span> is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-abs">
-<span class="eqno">(54)<a class="headerlink" href="#equation-eq-abs" title="Permalink to this equation">#</a></span>\[\begin{split}    \left| x \right| = \begin{cases}
+<span class="eqno">(55)<a class="headerlink" href="#equation-eq-abs" title="Permalink to this equation">#</a></span>\[\begin{split}    \left| x \right| = \begin{cases}
     +x &amp; \text{ if } x \geq 0\\
     -x &amp; \text{ else.}
     \end{cases}\end{split}\]</div>
@@ -1009,8 +1024,8 @@ Their sound contains mostly odd harmonics.</p>
 </figure>
 <p>Let’s look at its Fourier series:</p>
 <div class="math notranslate nohighlight" id="equation-eq-triangle-fourier">
-<span class="eqno">(55)<a class="headerlink" href="#equation-eq-triangle-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \frac{8}{\pi^2} \cdot \sum_{k=0}^{\infty} (-1)^k \frac{\sin(2\pi \cdot f \cdot (2k+1) \cdot t)}{(2k+1)^2}\]</div>
-<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(55)</a> that</p>
+<span class="eqno">(56)<a class="headerlink" href="#equation-eq-triangle-fourier" title="Permalink to this equation">#</a></span>\[    y_\text{tri}(t) = A \cdot \frac{8}{\pi^2} \cdot \sum_{k=0}^{\infty} (-1)^k \frac{\sin(2\pi \cdot f \cdot (2k+1) \cdot t)}{(2k+1)^2}\]</div>
+<p>Again we learn from the Fourier series Eq. <a class="reference internal" href="#equation-eq-triangle-fourier">(56)</a> that</p>
 <ol class="simple">
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k+1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k+1\)</span> decreases with <span class="math notranslate nohighlight">\(8/\pi^2(2k + 1)^2\)</span></p></li>
@@ -1024,19 +1039,29 @@ Their sound contains mostly odd harmonics.</p>
 </figure>
 <p>The triangle wave is half way between the sine and the square wave, both in softness and in harmonic richness.
 It is pretty soft.</p>
-<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we can generate the sound of a <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">square wave</span></a> using the <a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">LFTri</span></code>:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we can generate the sound of a <a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a> using the <a class="reference internal" href="../../supercollider/ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> <code class="docutils literal notranslate"><span class="pre">LFTri</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">LFTri</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">;}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
+<p>SuperCollider provides only the non-band-limited version of a triangle wave <a class="reference external" href="https://doc.sccode.org/Classes/LFTri.html">LFTri</a>.</p>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>Any periodic signal can be constructed from a sum of sine waves. The process of creating complex sounds from sine waves or other constituent parts is called <em>additive synthesis</em>.
+The sine wave, sawtooth wave, pulse wave, and triangle waves are classic waveforms since the advent of electronic music.
+They are used everywhere in the music we hear today and were/are the basis of many synthesizers.
+Sawtooth waves, pulse waves, and triangle waves come in bandlimited and
+non-bandlimited forms.
+Non-bandlimited forms can be produce strange artifacts at higher frequencies (see
+<a class="reference internal" href="../math/sampling.html#sec-aliasing"><span class="std std-ref">aliasing</span></a>).
+Bandlimited forms are “safer” but are not as rich harmonically – they are not true
+representation of the waveforms.</p>
 <p>From soft (and smooth), to rich (and aggressive), we can order the basic waveforms as follows:</p>
 <ol class="simple">
-<li><p><a class="reference internal" href="#sec-sine-wave"><span class="std std-ref">sine wave</span></a>,</p></li>
-<li><p><a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a>,</p></li>
-<li><p><a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> and</p></li>
-<li><p><a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a></p></li>
+<li><p><a class="reference internal" href="#sec-sine-wave"><span class="std std-ref">sine wave</span></a> (<a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>),</p></li>
+<li><p><a class="reference internal" href="#sec-triangle-wave"><span class="std std-ref">triangle wave</span></a> (<a class="reference external" href="https://doc.sccode.org/Classes/LFTri.html">LFTri</a>),</p></li>
+<li><p><a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> (<a class="reference external" href="https://doc.sccode.org/Classes/LFPulse.html">LFPulse</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Pluse.html">Pluse</a>), and</p></li>
+<li><p><a class="reference internal" href="#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a> (<a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Saw.html">Saw</a>)</p></li>
 </ol>
 </section>
 </section>
@@ -1075,10 +1100,10 @@ It is pretty soft.</p>
             <p class="prev-next-title">Additive Synthesis</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2-sine-sum.html" title="next page">
+    <a class='right-next' id="next-link" href="2-harmonics.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A Sum of Sines</p>
+        <p class="prev-next-title">Harmonic Series</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

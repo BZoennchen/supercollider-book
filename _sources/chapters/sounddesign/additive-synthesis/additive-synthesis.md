@@ -25,10 +25,12 @@ In contrast, *additive synthesis* gives us granular and independent control over
 We can directly control the power of each frequency of the final result over time ([amplitude modulation](sec-am)).
 In fact, we can also change and detune frequencies over time ([frequency modulation](sec-fm)).
 
-Additive synthesis is suitable for various types of sound, but it suites very well for xylophones, bells, and other metallic instruments, typically inharmonic sounds.
-Using harmonic waveforms, such as a [sawtooth wave](sec-sawtooth-wave), [square wave](sec-square-wave), or [triangle wave](sec-triangle-wave), would not be useful here as those are harmonic waveforms (as we know from the section above).
+Additive synthesis is suitable for various types of sound, but it suits very well for xylophones, bells, and other metallic instruments, typically inharmonic sounds.
+Even if these instruments vibrate inharmonically, they do not necessarily lack pitch.
+For example, bells, xylophones, and even drums can be tuned. 
+Nevertheless, using only harmonic waveforms, such as a [sawtooth wave](sec-sawtooth-wave), [square wave](sec-square-wave), or [triangle wave](sec-triangle-wave), would not be enough to synthesize such instruments.
 
-The following code we generate an approximation of the [sawtooth wave](sec-sawtooth-wave) using 12 harmonics by using *additive synthesis*.
+Using the following code, we can generate an approximation of the [sawtooth wave](sec-sawtooth-wave) using 12 harmonics by using *additive synthesis*.
 We put all odd harmonics in the left and all even harmonics in the right channel.
 Additionally, each harmonic has its distinct randomized envelope.
 Therefore, even if the harmonics are the same, if we run the code multiple times, the sound is different because each time, the envelopes are different.
@@ -61,7 +63,7 @@ audio_path = '../../../sounds/additive-synth-harm-ex1.mp3'
 ipd.Audio(audio_path)
 ```
 
-Let us also listen to some inharmonics, combined with *additive synthesis*.
+Let us also listen to some inharmonics, created by *additive synthesis*.
 We use 20 partials with a random frequency between 150 and 4000.
 Higher frequencies are more likely.
 Again, each inharmonic partial has its individual envelope.
@@ -78,7 +80,7 @@ Ndef(\inharmonics, {
         curve: -4));
 
     inharmonics = Array.fill(partials, {exprand(150, 4000)});
-    sig = SinOsc.ar(inharmonics) * partials.reciprocal * env;
+    sig = SinOsc.ar(inharmonics) * partials.reciprocal * env * 3.0;
     sig = Splay.ar(sig);
     sig;
 }).play;
@@ -97,8 +99,8 @@ We require an oscillator for each of the partials, which can quickly lead to a c
 To create an exciting sound, we need a lot of oscillators, i.e., we need complexity.
 For this reason, *additive synthesis* is hard to realize on analog synthesizers, and even digital synths can reach their limit quite fast.
 
-However, modern computers are getting faster and faster, which might lead to a revival of *additive synthesis* in the future.
+However, modern computers are getting faster and faster, which might lead to a future revival of *additive synthesis*.
 Even if it is the basic technique of sound synthesis, it might become even more important -- especially if we consider the possibilities of generative sound design supported by machine learning techniques.
 
-But before we get ahead of ourselves, let us dive into the very basics of *additive synthesis*.
+Nevertheless, before we get ahead of ourselves, let us dive into the very basics of *additive synthesis*.
 Let us explore the basic waveforms we might want to combine.
