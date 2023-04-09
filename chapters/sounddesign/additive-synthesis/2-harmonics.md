@@ -1,4 +1,5 @@
-# A Sum of Sines
+(sec-harmonic-series)=
+# Harmonic Series
 
 Let us recreate or approximate  the [sawtooth wave](sec-square-wave) without using the ``LFSaw`` or ``Saw`` unit generator.
 Instead, we use a bunch of ``SinOsc`` oscillators.

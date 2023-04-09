@@ -119,3 +119,26 @@ import IPython.display as ipd
 audio_path = '../../../sounds/routine-clock-change.mp3'
 ipd.Audio(audio_path)
 
+
+# Until now, we played the synth using ``Synth``, which gets translated into an [OSC message](sec-osc), which tells the server to start the synth immediately.
+# Most of the time, this is not what we actually want since the timing can be off.
+# Instead, one should use
+# 
+# ```isc
+# s.bind { Synth(...) }
+# ```
+# 
+# and also 
+# 
+# ```isc
+# s.bind { synth.set(...) }
+# ```
+# 
+# If you notice inaccurate timings, this might be the problem.
+# A more elaborate explanation written by [Nathan Ho](https://nathan.ho.name/) can be found [here](https://scsynth.org/t/why-you-should-always-wrap-synth-and-synth-set-in-server-default-bind/7310/13).
+# When we play [events](sec-playing-events) this problem does not appear because the pattern/event library takes care of using ``s.bind``.
+# 
+# Nathan is also quite opinionated when it comes to [pattern](sec-pattern).
+# Interestingly, he prefers to stay away from them.
+# 
+# >I haven't used Patterns in years. If they don't appeal to you for whatever reason then you can always use Routine and Synth. -- Nathan Ho

@@ -27,6 +27,7 @@ sns.set_style("whitegrid")
 # (sec-lti-filters)=
 # # LTI Filters
 # 
+# Any electronic or digital system that boosts/attenuates frequencies in a given signal is called a *filter*.
 # *Linear filters* process time-varying input signals to produce output signals, subject to the constraint of *linearity*.
 # In most cases these linear filters are also time *invariant* (or *shift invariant*) in which case they can be analyzed exactly using [LTI](def-linear-time-invariant) ('linear time-invariant') system theory.
 # 
@@ -501,4 +502,29 @@ ax.legend();
 # 
 # $$x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].$$
 # 
-# TODO
+# ```{admonition} FIR Filter
+# :name: def-fit-filter
+# :class: definition
+# 
+# A filter with a finite impulse response, e.g. echos, is called *final impulse response (FIR)* filter.
+# All filters of the form
+# 
+# \begin{equation}
+# y[n] = \sum\limits_{k=0}^M b_k x[n-k]
+# \end{equation}
+# 
+# are *FIR filters*.
+# 
+# ```
+# 
+# A [one zero filter](sec-one-zero-analysis) is a FIR filter.
+# A [one pole filter]() is a *infinite impulse response (IIR)* filter since the feedback process will create an endless number of decaying impulses.
+# 
+# ```{admonition} IIR Filter
+# :name: def-iir-filter
+# :class: definition
+# 
+# A filter with a infinite impulse response, e.g. echo with feedback, is called *infinite impulse response (IIR)* filter.
+# ```
+# 
+# TODO: Plot impulse responses from all the example filters (similar to the frequency responses)

@@ -93,6 +93,7 @@ I indicate, that the value $y_N[n]$ is only an approximation, since on a compute
 Therefore, we lose information, i.e. accuracy, on two ends:
 first of all in the **time direction** but also in the **amplitude direction**.
 
+(sec-aliasing)=
 ## Aliasing
 
 Calling 
