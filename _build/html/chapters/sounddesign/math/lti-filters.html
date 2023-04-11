@@ -127,7 +127,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../preamble/lost-futures.html">
-   Lost Futures
+   Lost Futures – A Romantic Response
   </a>
  </li>
  <li class="toctree-l1">
@@ -467,7 +467,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../filters/1-phase-shifting.html">
-     Filtering by Delay
+     Filtering by Delays
     </a>
    </li>
    <li class="toctree-l2">
@@ -491,8 +491,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../filters/6-delays.html">
-     Delays
+    <a class="reference internal" href="../filters/6-reverb.html">
+     Reverberation
     </a>
    </li>
   </ul>
@@ -902,7 +902,7 @@ To analyse the behaviour of a <em>linear filter</em> one looks at two different 
 <li><p><strong>Impulse response</strong> (time domain): how does the amplitude over time change.</p></li>
 </ol>
 <section id="frequency-response">
-<h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">#</a></h2>
+<span id="sec-frequency-response"></span><h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">#</a></h2>
 <p>The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
 <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filters</span></a> can be characterized in the frequency domain by the <em><a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a></em> with respect to the input <span class="math notranslate nohighlight">\(x[n]\)</span> and output signal <span class="math notranslate nohighlight">\(y[n]\)</span>.
 As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref"><em>transfer function</em></span></a> and the transform of the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
@@ -911,15 +911,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf161012-5496-424c-8ef5-0d35be26fd96">
-<span class="eqno">(41)<a class="headerlink" href="#equation-cf161012-5496-424c-8ef5-0d35be26fd96" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-96a804e9-1887-4d24-abe6-4adf91fff027">
+<span class="eqno">(41)<a class="headerlink" href="#equation-96a804e9-1887-4d24-abe6-4adf91fff027" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48157eab-1b17-4324-a6de-e6bb1850e823">
-<span class="eqno">(42)<a class="headerlink" href="#equation-48157eab-1b17-4324-a6de-e6bb1850e823" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6d095052-ca8f-48fd-b91e-e1d881d929bd">
+<span class="eqno">(42)<a class="headerlink" href="#equation-6d095052-ca8f-48fd-b91e-e1d881d929bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -979,8 +979,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b003068-d2f8-4737-b592-86411009d14f">
-<span class="eqno">(43)<a class="headerlink" href="#equation-9b003068-d2f8-4737-b592-86411009d14f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a505e020-7fd9-4b09-9f08-dda5c1fb24f5">
+<span class="eqno">(43)<a class="headerlink" href="#equation-a505e020-7fd9-4b09-9f08-dda5c1fb24f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -1094,8 +1094,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15604f73-e70a-47ef-b693-e6e44582b797">
-<span class="eqno">(44)<a class="headerlink" href="#equation-15604f73-e70a-47ef-b693-e6e44582b797" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2cf7dd1d-a02a-490e-a74e-16c754d66ad4">
+<span class="eqno">(44)<a class="headerlink" href="#equation-2cf7dd1d-a02a-490e-a74e-16c754d66ad4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1179,7 +1179,7 @@ For both these filters, the cutoff frequency <span class="math notranslate nohig
 </div>
 </section>
 <section id="impulse-response">
-<h2>Impulse Response<a class="headerlink" href="#impulse-response" title="Permalink to this headline">#</a></h2>
+<span id="sec-impulse-response"></span><h2>Impulse Response<a class="headerlink" href="#impulse-response" title="Permalink to this headline">#</a></h2>
 <p>The fundamental result in <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> system theory is that any LTI system can be characterized entirely by a single function called the system’s <em>impulse response</em> (in the time domain).
 The output of the filter <span class="math notranslate nohighlight">\(y[n]\)</span> is simply the convolution of the input to the filter <span class="math notranslate nohighlight">\(x[n]\)</span> with the system’s <em>impulse response</em> <span class="math notranslate nohighlight">\(h[n]\)</span>.</p>
 <div class="definition admonition" id="def-impulse-response">
@@ -1201,8 +1201,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-660f18a8-cf22-41c5-b3d5-38a9ba63ec6d">
-<span class="eqno">(45)<a class="headerlink" href="#equation-660f18a8-cf22-41c5-b3d5-38a9ba63ec6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5b3b4dfe-74d8-4e09-b895-0d044feb15bd">
+<span class="eqno">(45)<a class="headerlink" href="#equation-5b3b4dfe-74d8-4e09-b895-0d044feb15bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -1217,18 +1217,18 @@ For example, the filter response of our <em>simple filter</em> is</p>
 Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</span> can be expressed as a combination of weighted delta functions, i.e.,</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].\]</div>
-<div class="definition admonition" id="def-fit-filter">
+<div class="definition admonition" id="def-fir-filter">
 <p class="admonition-title">FIR Filter</p>
 <p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5468eec7-46dc-42de-a491-e932d00df503">
-<span class="eqno">(46)<a class="headerlink" href="#equation-5468eec7-46dc-42de-a491-e932d00df503" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f81f24cd-7926-4d45-b795-c7c2ddf294c6">
+<span class="eqno">(46)<a class="headerlink" href="#equation-f81f24cd-7926-4d45-b795-c7c2ddf294c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>
 </div>
 <p>A <a class="reference internal" href="#sec-one-zero-analysis"><span class="std std-ref">one zero filter</span></a> is a FIR filter.
-A <span class="xref myst">one pole filter</span> is a <em>infinite impulse response (IIR)</em> filter since the feedback process will create an endless number of decaying impulses.</p>
+A <a class="reference internal" href="#sec-one-pole-analysis"><span class="std std-ref">one pole filter</span></a> is a <em>infinite impulse response (IIR)</em> filter since the feedback process will create an endless number of decaying impulses.</p>
 <div class="definition admonition" id="def-iir-filter">
 <p class="admonition-title">IIR Filter</p>
 <p>A filter with a infinite impulse response, e.g. echo with feedback, is called <em>infinite impulse response (IIR)</em> filter.</p>

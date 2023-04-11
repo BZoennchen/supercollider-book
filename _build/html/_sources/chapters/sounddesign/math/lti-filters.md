@@ -57,6 +57,7 @@ To analyse the behaviour of a *linear filter* one looks at two different effects
 1. **Frequency response** (frequency domain): how does the amplitude and phase of a frequency $f$ changes.
 2. **Impulse response** (time domain): how does the amplitude over time change.
 
+(sec-frequency-response)=
 ## Frequency Response
 
 The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
@@ -452,6 +453,7 @@ For both these filters, the cutoff frequency $f_c$ is equal to 0 Hz, i.e., all f
 )
 ```
 
+(sec-impulse-response)=
 ## Impulse Response
 
 The fundamental result in [LTI](def-linear-time-invariant) system theory is that any LTI system can be characterized entirely by a single function called the system's *impulse response* (in the time domain).
@@ -507,7 +509,7 @@ Note that any signal $x[\cdot]$ can be expressed as a combination of weighted de
 $$x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].$$
 
 ```{admonition} FIR Filter
-:name: def-fit-filter
+:name: def-fir-filter
 :class: definition
 
 A filter with a finite impulse response, e.g. echos, is called *final impulse response (FIR)* filter.
@@ -522,7 +524,7 @@ are *FIR filters*.
 ```
 
 A [one zero filter](sec-one-zero-analysis) is a FIR filter.
-A [one pole filter]() is a *infinite impulse response (IIR)* filter since the feedback process will create an endless number of decaying impulses.
+A [one pole filter](sec-one-pole-analysis) is a *infinite impulse response (IIR)* filter since the feedback process will create an endless number of decaying impulses.
 
 ```{admonition} IIR Filter
 :name: def-iir-filter

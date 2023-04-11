@@ -2,14 +2,17 @@
 
 >Emancipatory politics must always destroy the appearance of a "natural order", must reveal what is presented as necessary and inevitable to be a mere contingency, just as it must make what was previously deemed to be impossible seem attainable. -- Mark Fisher
 
-This book is about learning to design sound and to compose music using the programming language and compositional environment called SuperCollider developed by James McCartney and many others.
+This book is about learning to design sound and to compose music using the programming language and compositional environment called SuperCollider, which James McCartney and many others developed.
+In this context, [SuperCollider](https://supercollider.github.io/) is seen as a technology to reveal the nature of sound and music.
+Therefore, the book goes beyond learning a programming language and development environment.
+Instead, SuperCollider offers us low-level control, which can lead to a sophisticated low-level understanding of computer music.
 
-The motivation for writing this book comes from my experience as a lecturer in the field of computer science, my belief in the playfulness of coding as an unrecognized and fruitful form of communication, and probably my inability to communicate properly.
+The motivation for writing this book comes from my experience as a lecturer in the field of computer science, my belief in the importance of the playfulness of coding as an unrecognized and fruitful form of communication, and probably my own inability to communicate properly.
 
 Music is a historically grown form of human communication and, as such, worth studying.
 It can evoke strong emotions;
-it can tell stories. 
-It can be cold and dark and frightening, and it can touch us.
+it can tell stories.
+It can be cold, brutal, dark and frightening, and it can touch us.
 Algorithms, on the other hand, are, by definition, calculating.
 They are strict, well-defined formal rules that computers can execute;
 Which they do, unemotionally and relentlessly;
@@ -18,31 +21,37 @@ Both rely on a sequence of actions, and both represent time.
 
 While music has to be listened to and has to be experienced, it is rather unusual to "experience" algorithms.
 Algorithms are analyzed analytically, and their aesthetic beauty stems from their effectiveness, correctness, and elegance.
-I believe that similar to music, a pure analytical contemplation of algorithms conceals a deeper understanding of them.
-Consequently, I believe that computer music can enrich our understanding of algorithms and technology in general.
+I studied complexity theory, automata theory, and other formal subjects to gain a deep analytical understanding of algorithms.
+However, today I believe that similar to music, a pure analytical contemplation of algorithms conceals some understanding of their *being in the world* and our *being* "experiencing" their being.
+It is difficult to describe what I mean because I am bound to written language, which is already an abstraction from the "real" thing.
+Since I think pure analytical can not replace experiences, I believe that *computer music* can enrich our understanding of algorithms and technology in general.
 And, to pick up Fisher's words, it can push music and coding to new emancipatory spaces by destroying the appearance of a "natural order" and thus possibly reinvigorate selfless collaboration.
 
-These words echo a specific set of beliefs, and I will not hide that the source of my motivation to write this book is coupled with a certain belief system which I will partly unfold to the careful reader.
+These words echo a specific set of beliefs, and I will not hide that the source of my motivation to write this book is coupled with a particular belief system that I will partly unfold to the careful reader.
+It would be misleading to tell you, the reader, that I have no agenda.
+Nevertheless, not having an agenda seems impossible.
 
 ## How I Started
 
 I discovered the world of algorithmic composition and sound design using code in late 2021.
 It all started when I watched an energetic and really motivated Sam Aaron presenting his [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi).
 I was immediately hooked, especially given the context: educational live programming for kids!
+Immediately I thought about the playfulness of making music with code.
 
 I started experimenting with Sonic Pi.
-However, soon after playing around with it, I wanted to write my own synths for which it is unsuitable.
+However, soon after playing around with it, I wanted more control;
+I wanted to write my own synths for which it is unsuitable.
 Sonic Pi is perfectly appropriate for sequencing your synth and samples but not so much for creating new exciting instruments.
 You create your synth and samples beforehand and then use Sonic Pi to play with them.
 
-I digged deeper and discovered other interesting tools such as [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/) and, of course, [SuperCollider (SC)](https://supercollider.github.io/).
-I am surprised that I never heard about SC before, even if it matured a long time ago, and there seems to be no natural alternative.
+I dug deeper and discovered other interesting tools such as [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/), and, of course, [SuperCollider (SC)](https://supercollider.github.io/).
+I am surprised that I had never heard about SC before, even if it matured a long time ago, and there seems to be no natural alternative.
 Compared to Sonic Pi, SuperCollider has a much steeper learning curve.
-The language has some awful-looking syntax; it is less accessible, but at the same time, SuperCollider is much more extensible and powerful.
+The language has some aged, thus awful-looking syntax; it is less accessible, but at the same time, SuperCollider is much more extensible and powerful.
 
 I fell in love with SC.
 The language offers fascinating concepts that keep you thinking about signal-flow processing.
-SC supports features well known in modern languages, such as ``Python``, and rather old languages.
+SC supports features well-known in modern languages, such as ``Python``, and rather old languages.
 The IDE feels pretty modern and supportive.
 The documentation is decent, and the community is healthy.
 SC is a powerhouse for discovering new exciting sounds.
@@ -63,7 +72,7 @@ It is insufficient and in its worst manifestations, discriminatory.
 So take this with a grain of salt.
 I can only feed your biased imagination.
 
-From the bottom of my heart, I see myself as an artist of my own troubled life.
+From the bottom of my heart, I see myself as an artist of my own troubled life -- which is a tragedy but in the best sense of the word.
 However, regarding my skills, I am a computer scientist.
 I mean computer scientist in the sense of studying different aspects of computation:
 
@@ -76,11 +85,12 @@ After school, I did practical training as a software developer.
 I worked for four years in the industry.
 Then, in desperation, I finished an additional year in school and finally started studying computer science.
 I finished my Bachelor's degree in 2013, my Master's in 2017, and my Ph.D. in 2021.
-In my Ph.D. thesis, I analyzed different microscopic simulation models for pedestrian streams and developed algorithms to simulate many pedestrians in a large area faster than in real-time.
+In my Ph.D. thesis, I analyzed different microscopic simulation models for pedestrian streams and developed algorithms to simulate many pedestrians in a large area faster than in real time.
+This got me into the subject of *complex systems* which I am still highly interested in.
 During my time as a Ph.D. candidate, I enjoyed teaching.
 Today, I am a software developer for the university who focuses on tools to support our education.
 Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.
-As you might noticed, I like to engage with philosophy in my free time.
+As you might notice, I like to engage with philosophy in my free time.
 
 For other computer scientists interested in the topic of this book, it might be valuable to know which programming experience I had at the time of writing it.
 I am very experienced in ``Java``.
@@ -90,7 +100,8 @@ Furthermore, I can read and understand ``C\C++`` code, but I am not very experie
 I am familiar with GPU programming using ``OpenCL``.
 Currently, I am trying to learn some ``Rust``.
 
-I have no music theory education and do not play an instrument.
+Nor do I have any music theory education or play an instrument.
+I am a self-taught "music theorist".
 So this is a solid contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
 However, I am a big music lover, and I have always wanted to make my own music and never thought programming could lead me to this goal.
 
@@ -113,24 +124,27 @@ Thus, for me, coding music is the ultimate freedom.
 ## Why Writing an Online-Book?
 
 I am very excited!
-I want to learn more about the *algorithmic composition*. 
+I want to learn more about *algorithmic composition*, *sound design* and *computer music*. 
 This book is my attempt to do so;
 To understand something, one has to pass through a grueling learning process.
 One such strategy that works for me is called *the Feynman learning technique*.
 It consists of the following steps:
 
 1. pretend to teach a concept you want to learn about to a student in the sixth grade
-2. identify gaps in your explanation. Go back to the source material to understand it better
-3. organize and simplify
-4. transmit (optional)
+2. identify gaps in your explanation
+3. go back to the source material to understand it better
+4. organize and simplify
+5. transmit (optional)
 
 This book is my attempt to follow *Feynman's technique* imperfectly.
 In the end, someone else might find valuable ideas in this book.
-Currently, I focus solely on [SuperCollider](https://supercollider.github.io/) and *sound design*. 
+Currently, I focus on [SuperCollider](https://supercollider.github.io/), *sound design*, little bit of *music theory* and *algorithmic composition*.
+Within the book, I use ``Python`` to create some of the plots. 
 
 I experiment with SuperCollider and other tools and write this book in my spare time. 
 It is a hobby. 
 Therefore, I will develop and update it over time.
+This will take some time.
 In its current state it is only a skeleton, and I will add new chapters and edit old ones. 
 Therefore, do not expect anything professional.
 
@@ -146,7 +160,7 @@ The book is currently published using [GitHub-Pages](https://bzoennchen.github.i
 
 I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
 The creators of my discoveries and the content of the materials I studied are silent contributors.
-Without the already existing material, I would not be able to learn either SuperCollider or sound design. 
+Without the already existing material, I would not be able to learn either SuperCollider or any of the other topics. 
 
 A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
 

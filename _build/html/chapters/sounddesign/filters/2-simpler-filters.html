@@ -59,7 +59,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Frequency Filters" href="3-frequency-filters.html" />
-    <link rel="prev" title="Filtering by Delay" href="1-phase-shifting.html" />
+    <link rel="prev" title="Filtering by Delays" href="1-phase-shifting.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -127,7 +127,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../preamble/lost-futures.html">
-   Lost Futures
+   Lost Futures – A Romantic Response
   </a>
  </li>
  <li class="toctree-l1">
@@ -467,7 +467,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="1-phase-shifting.html">
-     Filtering by Delay
+     Filtering by Delays
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -491,8 +491,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="6-delays.html">
-     Delays
+    <a class="reference internal" href="6-reverb.html">
+     Reverberation
     </a>
    </li>
   </ul>
@@ -844,16 +844,16 @@ Using <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> gives 
 <div class="math notranslate nohighlight">
 \[y[n] = 0.5 \cdot x[n] - 0.5 \cdot x[n-1].\]</div>
 <p>In other words, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03e496e3-17c0-4ab5-872e-7484204f48c1">
-<span class="eqno">(63)<a class="headerlink" href="#equation-03e496e3-17c0-4ab5-872e-7484204f48c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc21b8a1-c987-48d8-bc9b-170890104677">
+<span class="eqno">(65)<a class="headerlink" href="#equation-dc21b8a1-c987-48d8-bc9b-170890104677" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{x(t) - x(t - \Delta t)}{2\Delta t},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(f_s^{-1}\)</span> seconds.
 To get the <em>difference quotient</em>, we have to multiply by a factor of two.</p>
 <p>To test this result, let us compute the cosine using <code class="docutils literal notranslate"><span class="pre">SinOsc</span></code> and a <code class="docutils literal notranslate"><span class="pre">OneZero</span></code>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04ffc27e-46bc-47f5-964a-62015757029b">
-<span class="eqno">(64)<a class="headerlink" href="#equation-04ffc27e-46bc-47f5-964a-62015757029b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e5d795d2-39af-45e4-a2a7-abeea7900cc1">
+<span class="eqno">(66)<a class="headerlink" href="#equation-e5d795d2-39af-45e4-a2a7-abeea7900cc1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -892,24 +892,24 @@ For a more in-depth analysis of the <a class="reference internal" href="../math/
 Again let us try our best to understand what is going on without using the <a class="reference internal" href="../math/z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a>.</p>
 <p>The documentation states that a one pole filter implements the formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole">
-<span class="eqno">(65)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
+<span class="eqno">(67)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7835d60b-0bc7-446c-89c3-f884835b95fb">
-<span class="eqno">(66)<a class="headerlink" href="#equation-7835d60b-0bc7-446c-89c3-f884835b95fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2e55513-f18d-487d-8c19-dc9bbaa1b9f7">
+<span class="eqno">(68)<a class="headerlink" href="#equation-e2e55513-f18d-487d-8c19-dc9bbaa1b9f7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <code class="docutils literal notranslate"><span class="pre">OnePole</span></code>.
-Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(65)</a>:</p>
+Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\)</span>, then we can rearrange Eq. <a class="reference internal" href="#equation-eq-onepole">(67)</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole2">
-<span class="eqno">(67)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">#</a></span>\[    y[n] = x[n] + \alpha \cdot (y[n-1] - x[n])\]</div>
+<span class="eqno">(69)<a class="headerlink" href="#equation-eq-onepole2" title="Permalink to this equation">#</a></span>\[    y[n] = x[n] + \alpha \cdot (y[n-1] - x[n])\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole3">
-<span class="eqno">(68)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
+<span class="eqno">(70)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(\text{out}[0], \ldots \text{out}[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(\text{in}[0], \ldots \text{in}[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d1c4051-fc34-4798-b432-db845d9deea6">
-<span class="eqno">(69)<a class="headerlink" href="#equation-7d1c4051-fc34-4798-b432-db845d9deea6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-40ded245-160e-4cab-a4db-9c0e350d2f6a">
+<span class="eqno">(71)<a class="headerlink" href="#equation-40ded245-160e-4cab-a4db-9c0e350d2f6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
   &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -918,8 +918,8 @@ y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f00234d-be7f-4e20-8007-83d6b6145953">
-<span class="eqno">(70)<a class="headerlink" href="#equation-8f00234d-be7f-4e20-8007-83d6b6145953" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-93f18656-8301-49df-b014-01839d62d818">
+<span class="eqno">(72)<a class="headerlink" href="#equation-93f18656-8301-49df-b014-01839d62d818" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
@@ -972,7 +972,7 @@ In the <a class="reference external" href="https://en.wikipedia.org/wiki/Low-pas
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Filtering by Delay</p>
+            <p class="prev-next-title">Filtering by Delays</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="3-frequency-filters.html" title="next page">
