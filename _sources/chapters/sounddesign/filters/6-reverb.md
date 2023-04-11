@@ -1,5 +1,5 @@
-(sec-delays)=
-# Delays
+(sec-reverb)=
+# Reverberation
 
 ## Single Reflection
 
