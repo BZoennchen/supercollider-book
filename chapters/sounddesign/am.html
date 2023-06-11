@@ -303,6 +303,11 @@ const thebe_selector_output = ".output, .cell_output"
      Task Proxy
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../supercollider/live-coding/6-tidal.html">
+     TidalCycles
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -879,29 +884,29 @@ But first, let’s start with some math to understand better what is happening.<
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>I use the cosine function in this section instead of the sine because the math becomes a little simpler.
 Our basic waveform might be a simple cosine with an amplitude <span class="math notranslate nohighlight">\(A(t)\)</span> and a frequency <span class="math notranslate nohighlight">\(f\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b03fffaf-1287-4997-bfd3-bb476f5ee33b">
-<span class="eqno">(73)<a class="headerlink" href="#equation-b03fffaf-1287-4997-bfd3-bb476f5ee33b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-da156c9e-6416-4092-882b-e3c4fb93d116">
+<span class="eqno">(73)<a class="headerlink" href="#equation-da156c9e-6416-4092-882b-e3c4fb93d116" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A(t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>In AM the amplitude <span class="math notranslate nohighlight">\(A(t)\)</span> is itself a function over time.
 Let us assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9d2a2b6-0d60-4ec7-8a13-47bd0688b876">
-<span class="eqno">(74)<a class="headerlink" href="#equation-d9d2a2b6-0d60-4ec7-8a13-47bd0688b876" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c30ec9d7-a853-407e-9e3a-90b807f69daf">
+<span class="eqno">(74)<a class="headerlink" href="#equation-c30ec9d7-a853-407e-9e3a-90b807f69daf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A(t) = A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t)
 \end{equation}\]</div>
 <p>then our audio signal is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e937a0d3-20b1-4e16-9507-5abce54361db">
-<span class="eqno">(75)<a class="headerlink" href="#equation-e937a0d3-20b1-4e16-9507-5abce54361db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8f6ac719-b858-4be6-af29-abba45dbd5c9">
+<span class="eqno">(75)<a class="headerlink" href="#equation-8f6ac719-b858-4be6-af29-abba45dbd5c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \left(A_\text{car} + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \right) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>which we can rewrite as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f19f853-7dce-4290-9589-3054acd1f3e4">
-<span class="eqno">(76)<a class="headerlink" href="#equation-8f19f853-7dce-4290-9589-3054acd1f3e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-987d3c7b-4596-4005-ad88-c43e97bc5271">
+<span class="eqno">(76)<a class="headerlink" href="#equation-987d3c7b-4596-4005-ad88-c43e97bc5271" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_\text{car} \cdot \cos(2 \pi f_\text{car} t) + A_\text{mod} \cdot \cos(2 \pi f_\text{mod} t) \cdot \cos(2 \pi f_\text{car} t)
 \end{equation}\]</div>
 <p>We can now use the cosine rule for multiplication, which gives us</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b782794a-8060-4030-9317-9b05002ff3b3">
-<span class="eqno">(77)<a class="headerlink" href="#equation-b782794a-8060-4030-9317-9b05002ff3b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cc7b738c-c1a8-4f32-91a9-28b645a5c19d">
+<span class="eqno">(77)<a class="headerlink" href="#equation-cc7b738c-c1a8-4f32-91a9-28b645a5c19d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y(t) = \ &amp; A_\text{car} \cdot \cos(2 \pi f_\text{car} t) \ + \\
 \ &amp; \frac{1}{2} A_\text{mod} \cdot \cos(2 \pi (f_\text{car} + f_\text{mod}) t) \ + \\
@@ -1013,13 +1018,13 @@ It can be used to create aggressive and conventionally ‘unmusical’ sounds th
 <section id="harmonic-and-inharmonic-timbres">
 <h3>Harmonic and Inharmonic Timbres<a class="headerlink" href="#harmonic-and-inharmonic-timbres" title="Permalink to this headline">#</a></h3>
 <p>Let us introduce a ratio <span class="math notranslate nohighlight">\(r\)</span> between the carrier frequency and the modulation frequency such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c9a1bec-fb4e-4e1d-aef3-f74a21d5833c">
-<span class="eqno">(78)<a class="headerlink" href="#equation-7c9a1bec-fb4e-4e1d-aef3-f74a21d5833c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-50593ff8-5770-4fee-a3cc-93aef72d7403">
+<span class="eqno">(78)<a class="headerlink" href="#equation-50593ff8-5770-4fee-a3cc-93aef72d7403" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = r \cdot f_\text{car}.
 \end{equation}\]</div>
 <p>which results in frequencies <span class="math notranslate nohighlight">\(f_\text{car}\)</span> and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-febfa109-b970-488c-869f-090a24ceb03b">
-<span class="eqno">(79)<a class="headerlink" href="#equation-febfa109-b970-488c-869f-090a24ceb03b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b05447ec-421f-4fb9-b34f-3d9833c1e9d9">
+<span class="eqno">(79)<a class="headerlink" href="#equation-b05447ec-421f-4fb9-b34f-3d9833c1e9d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{car} \pm f_\text{mod} = f_\text{car} \pm r \cdot f_\text{car} = (1 \pm r) \cdot f_\text{car}.
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(r\)</span> should be smaller or equals than <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -1045,8 +1050,8 @@ f_\text{car} \pm f_\text{mod} = f_\text{car} \pm r \cdot f_\text{car} = (1 \pm r
 In general, the relationship is inharmonic, and we increase the inharmonicity if we use a ratio far away from a whole number!</p>
 <p>Remember the frequencies the signal has are <span class="math notranslate nohighlight">\((1 \pm r) \cdot f_\text{car}\)</span> and <span class="math notranslate nohighlight">\(f_\text{car}\)</span>.
 So the coefficients in order they are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8dfa141-ae54-4dad-b5f8-d463911f495c">
-<span class="eqno">(80)<a class="headerlink" href="#equation-a8dfa141-ae54-4dad-b5f8-d463911f495c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98ae29a4-f186-4c50-b801-9e00f2aea65d">
+<span class="eqno">(80)<a class="headerlink" href="#equation-98ae29a4-f186-4c50-b801-9e00f2aea65d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (1 - r), 1, (1 + r).
 \end{equation}\]</div>
 <p>For example, this gives us:</p>
@@ -1077,8 +1082,8 @@ For example:</p>
 <h3>Complex Amplitude Modulation<a class="headerlink" href="#complex-amplitude-modulation" title="Permalink to this headline">#</a></h3>
 <p>Instead of using sine waves we can also use other signals, for example we could use for one or both of the signals (carrier and modulator) a sawtooth wave.
 If the carrier signal consist of frequencies equal to <span class="math notranslate nohighlight">\(f_{\text{car},1}, \ldots, f_{\text{car},n}\)</span> and the modulator consists of frequencies <span class="math notranslate nohighlight">\(f_{\text{mod},1}, \ldots, f_{\text{mod},m}\)</span>, then the resulting signal will consist of frequencies:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6662cb0-e22d-43a2-b8b8-a0e93f1ef148">
-<span class="eqno">(81)<a class="headerlink" href="#equation-b6662cb0-e22d-43a2-b8b8-a0e93f1ef148" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-697141bb-8592-414d-aeb4-742ca27c3b32">
+<span class="eqno">(81)<a class="headerlink" href="#equation-697141bb-8592-414d-aeb4-742ca27c3b32" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_{\text{car},1}, \ldots , f_{\text{car},n}, f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}
 \end{equation}\]</div>
 <p>thus it consists of <span class="math notranslate nohighlight">\((n+1) \cdot m\)</span> frequencies (if nothing cancels out).
