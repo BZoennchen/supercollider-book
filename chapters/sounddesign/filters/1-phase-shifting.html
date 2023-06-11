@@ -121,7 +121,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Philosophy
+  Grounding
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -817,8 +817,8 @@ title="Print to PDF"
 <h1>Filtering by Delays<a class="headerlink" href="#filtering-by-delays" title="Permalink to this headline">#</a></h1>
 <p>Delays are one of the building blocks of music synthesis and musical performances.
 In the digital world and in its basic form, it comes down to playing a signal <span class="math notranslate nohighlight">\(x\)</span> again after a certain amount of time, s.t. the result <span class="math notranslate nohighlight">\(y\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ced901f-86dc-47b4-9e88-5502b68c6c9c">
-<span class="eqno">(58)<a class="headerlink" href="#equation-1ced901f-86dc-47b4-9e88-5502b68c6c9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-881e633d-4c8b-470e-8077-573b7500f013">
+<span class="eqno">(58)<a class="headerlink" href="#equation-881e633d-4c8b-470e-8077-573b7500f013" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \begin{cases} x[n] + \alpha \cdot x[n-k], &amp; \text{ for } n \geq k\\ x[n], &amp; \text{ else } \end{cases}
 \end{equation}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span>.
@@ -839,16 +839,16 @@ Which shows that the term <em>filter</em> is a very general term.</p>
 <h2>Phase Shifting<a class="headerlink" href="#phase-shifting" title="Permalink to this headline">#</a></h2>
 <p>Let us combine two (analog) sine waves.
 First two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0219bcaf-4be7-4a14-910d-9b40154e911a">
-<span class="eqno">(59)<a class="headerlink" href="#equation-0219bcaf-4be7-4a14-910d-9b40154e911a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d814fb2c-c46b-4bcd-8a8f-3b2ae251a614">
+<span class="eqno">(59)<a class="headerlink" href="#equation-d814fb2c-c46b-4bcd-8a8f-3b2ae251a614" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t),
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase-shifted by <span class="math notranslate nohighlight">\(\pi\)</span> that is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae69bfeb-44b6-4831-8433-669df4e88411">
-<span class="eqno">(60)<a class="headerlink" href="#equation-ae69bfeb-44b6-4831-8433-669df4e88411" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-262d4a89-88c7-47e8-b189-f85ee5de8708">
+<span class="eqno">(60)<a class="headerlink" href="#equation-262d4a89-88c7-47e8-b189-f85ee5de8708" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0.
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -860,8 +860,8 @@ Of course, we can not hear any difference between a sine wave and shifted sine w
 Only in combination, the phase plays a role!</p>
 <p>Combining any number of signals, the maximal loudness of the sum of all signal lies within the sum of absolute maximum loudness of each signal and silence.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0197406d-9b58-436d-9543-0e8eb4fbccdb">
-<span class="eqno">(61)<a class="headerlink" href="#equation-0197406d-9b58-436d-9543-0e8eb4fbccdb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a05c82d9-9372-489f-8908-825ed6a18bd9">
+<span class="eqno">(61)<a class="headerlink" href="#equation-a05c82d9-9372-489f-8908-825ed6a18bd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -879,13 +879,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However, the next harmonic with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz is reinforced, i.e., its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.
 In the fact, the amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7b516f0-8d5a-4cef-8da6-280286217186">
-<span class="eqno">(62)<a class="headerlink" href="#equation-f7b516f0-8d5a-4cef-8da6-280286217186" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f8ad60e-c192-4de4-bfff-ebd3255ed6c6">
+<span class="eqno">(62)<a class="headerlink" href="#equation-5f8ad60e-c192-4de4-bfff-ebd3255ed6c6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ad298c8d-f2e7-4de6-b37c-ba3c7bdfa9c2">
-<span class="eqno">(63)<a class="headerlink" href="#equation-ad298c8d-f2e7-4de6-b37c-ba3c7bdfa9c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98f38e2d-ba5a-489e-b0cf-827176f0e144">
+<span class="eqno">(63)<a class="headerlink" href="#equation-98f38e2d-ba5a-489e-b0cf-827176f0e144" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -938,8 +938,8 @@ A <em>feedforward comb filter</em> is also a <a class="reference internal" href=
 <section id="feedback-comb-filter">
 <h2>Feedback Comb Filter<a class="headerlink" href="#feedback-comb-filter" title="Permalink to this headline">#</a></h2>
 <p>A <em>feedback comb filter</em> fulfills the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b08f322-cbd4-4fa6-96cd-00fdf94e9d0d">
-<span class="eqno">(64)<a class="headerlink" href="#equation-5b08f322-cbd4-4fa6-96cd-00fdf94e9d0d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dad9607e-ed1c-47e1-bf58-99fc88137c4f">
+<span class="eqno">(64)<a class="headerlink" href="#equation-dad9607e-ed1c-47e1-bf58-99fc88137c4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \begin{cases} x[n] + \beta \cdot y[n-k], &amp; \text{ for } n \geq k\\ x[n], &amp; \text{ else. } \end{cases}
 \end{equation}\]</div>
 <p>The <a class="reference internal" href="../math/lti-filters.html#sec-impulse-response"><span class="std std-ref">impulse response</span></a> of this type of delay gives us infinite peaks.
