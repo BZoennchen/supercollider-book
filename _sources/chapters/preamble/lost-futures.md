@@ -283,7 +283,7 @@ As individuals, we seem powerless.
 Even if some power structures managed to instigate change, *systems theory* suggests that the effects on the system cannot be predicted, assuming our planet, with all its life and environments, constitutes an *open complex system*.
 We could capitulate, finding fleeting pleasure in *hedonic nihilism*, but that seems insufficient.
 
-My response echoes Nietzsche, and I fully acknowledge the looming danger within his writings. 
+My response echoes Nietzsche, and I fully acknowledge the looming danger within his writings and the abusive application of his paradoxical thought to fit a toxic self-help industry.
 I also recognize the tension between Nietzsche's *superman* and my critique of *elitism* and the right. 
 I am a thief, pilfering those concepts I find valuable. 
 For instance, *life affirmation* as a guiding principle, morality as a *dangerous virus*, the *body* being equally important and enjoyable (and inseparable) as the mind, the *significance of power*, and *overcoming oneself* are lessons I borrow from Nietzsche. 
