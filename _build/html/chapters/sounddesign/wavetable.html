@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Abstract and Physical Synthesis &#8212; Algorithmic Composition</title>
+    <title>Wavetable Synthesis &#8212; Algorithmic Composition</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,10 +54,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Additive Synthesis" href="additive-synthesis/additive-synthesis.html" />
-    <link rel="prev" title="LTI Filters" href="math/lti-filters.html" />
+    <link rel="next" title="Physical Modeling" href="physical-modeling.html" />
+    <link rel="prev" title="Frequency Modulation" href="fm.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -426,8 +428,8 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="abstract-and-physical.html">
    Abstract and Physical Synthesis
   </a>
  </li>
@@ -510,8 +512,8 @@ const thebe_selector_output = ".output, .cell_output"
    Frequency Modulation
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="wavetable.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Wavetable Synthesis
   </a>
  </li>
@@ -703,7 +705,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/chapters/sounddesign/abstract-and-physical.md"
+        <a href="../../_sources/chapters/sounddesign/wavetable.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -752,7 +754,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Abstract and Physical Synthesis</h1>
+                <h1>Wavetable Synthesis</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -764,29 +766,103 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="abstract-and-physical-synthesis">
-<h1>Abstract and Physical Synthesis<a class="headerlink" href="#abstract-and-physical-synthesis" title="Permalink to this headline">#</a></h1>
-<p>Before we are diving into the topic of sound design via sound synthesis it is worth to mention that there are two distinct methods for sound synthesis:</p>
-<ol class="simple">
-<li><p>abstract digital sound synthesis, and</p></li>
-<li><p>physical modeling.</p></li>
-</ol>
-<p>In abstract digitial sound synthesis we try to synthesis sound by focusing <strong>perception</strong> while in physical modeling we focus on the <strong>phyisical world</strong> (objects and their properties) and try to model them via, e.g., differential equations.</p>
-<p>The advantage of physical modeling is that we have well interpretable parameters.
-Therefore, it is much easier for the composer to generate the sound she desires.
-In contrary, abstract synthesis such as <a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>, <a class="reference internal" href="filters/filters.html#sec-filters"><span class="std std-ref">substractive synthesis</span></a> or <a class="reference internal" href="fm.html#sec-fm"><span class="std std-ref">frequency modulation</span></a> lack this interpretability.
-Furthermore, these methods often require thousand of parameters to generate interesting sounds which makes it hard to control them or to explore high-dimensional space of they span.
-However, the downside of <em>physical modeling</em> is that it requires a lot of computation.
-For example, in <em>FM synthesis</em> we achieve a rich sound by using only two oscillators, which is computational cheap.
-To generate the same richness using <em>physical modeling</em> requires much more operations.</p>
-<p>The following techniques fall under the category of <em>abstract digital sound synthesis</em>:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a></p></li>
-<li><p><a class="reference internal" href="filters/filters.html#sec-filters"><span class="std std-ref">subtractive synthesis</span></a></p></li>
-<li><p><a class="reference internal" href="am.html#sec-am"><span class="std std-ref">amplitude modulation</span></a></p></li>
-<li><p><a class="reference internal" href="fm.html#sec-fm"><span class="std std-ref">frequency modulation</span></a></p></li>
-</ul>
-<p>Using <em>abstract modeling</em> we try to construct what we want directly and in <em>physical modeling</em> we try to create a model of ‘the world’ that is capable of generating what we want.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="wavetable-synthesis">
+<h1>Wavetable Synthesis<a class="headerlink" href="#wavetable-synthesis" title="Permalink to this headline">#</a></h1>
+<p>The principle of <em>wavetable synthesis</em> is to exchange computation for memory by pre-computing the complete cycle of a specific waveform, save the values in a buffer and then read values from the buffer instead of computing them on the fly.</p>
+<p>Most SC unit generators are actually wavetables!
+If you want certain harmonics in a signal but for each frequency you use the same envelope, then you can save a lot of performance by using a wavetable instead.</p>
+<p>Creating a wavetable in SuperCollider is easy.
+First we need to allocate a <a class="reference external" href="https://doc.sccode.org/Classes/Buffer.html">Buffer</a> on the server.
+Then we have to write the one period of our waveform into the buffer.
+Then we can use the buffer to read from it at different frequencies.</p>
+<p>For example, the unit generator <a class="reference external" href="https://doc.sccode.org/Classes/Osc.html">Osc</a> is able to write out values from the buffer into the output channel.
+The number of elements in a wavetalbe has to be a power of 2.</p>
+<p>First we create a <strong>client-side</strong> <a class="reference external" href="https://doc.sccode.org/Classes/Signal.html">Signal</a> containing a sinewave.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sig</span> <span class="o">=</span> <span class="nc">Signal</span><span class="p">.</span><span class="nx">sineFill</span><span class="p">(</span><span class="na">size:</span> <span class="mi">1024</span><span class="p">,</span> <span class="na">amplitudes:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="na">phases:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Before we can use the signal, we have to convert it into a wavetable format.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">wt</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sig</span><span class="p">.</span><span class="nx">asWavetable</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then we allocate a <strong>server-side</strong> buffer and load it with the wavetalbe.</p>
+<div class="attention admonition" id="attention-wavetable-buffer">
+<p class="admonition-title">Wavetalbe Buffer Size</p>
+<p>The size of a <em>buffer</em> containing a wavetalbe with <span class="math notranslate nohighlight">\(n\)</span> signalpoints, has to be of size <span class="math notranslate nohighlight">\(2n\)</span>.</p>
+</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">2048</span><span class="p">);</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">loadCollection</span><span class="p">(</span><span class="o">~</span><span class="nx">wt</span><span class="p">);</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we can play it, i.e., the buffer.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">Osc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">b</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Now, let us define a signal with many harmonics.
+And in fact, let us use another method to directly initialize a buffer.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">amps</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">];</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span>
+    <span class="na">server:</span> <span class="nx">s</span><span class="p">,</span>
+    <span class="na">numFrames:</span> <span class="mi">512</span><span class="p">,</span> 
+    <span class="na">numChannels:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">completionMessage:</span> <span class="p">{</span><span class="o">|</span><span class="nx">z</span><span class="o">|</span> <span class="nx">z</span><span class="p">.</span><span class="nx">sine1Msg</span><span class="p">(</span><span class="na">amps:</span> <span class="nx">amps</span><span class="p">);},</span>
+<span class="p">);</span>
+<span class="p">)</span>
+
+<span class="p">{</span><span class="nc">Osc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="na">freq:</span> <span class="mi">200</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Nothing stops us from constructing very complex waveforms:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">sine3</span><span class="p">(</span>
+    <span class="na">freqs:</span> <span class="p">({</span><span class="nx">exprand</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mi">30</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">).</span><span class="nx">sort</span><span class="p">,</span>
+    <span class="na">amps:</span> <span class="p">({</span><span class="nx">exprand</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">).</span><span class="nx">sort</span><span class="p">.</span><span class="nx">reverse</span><span class="p">,</span>
+    <span class="na">phase:</span><span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">pi</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span>
+<span class="p">);</span>
+<span class="p">)</span>
+
+<span class="p">{</span><span class="nc">Osc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="na">freq:</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Since we can transform an envelope <a class="reference external" href="https://doc.sccode.org/Classes/Env.html">Env</a> into a <a class="reference external" href="https://doc.sccode.org/Classes/Signal.html">Signal</a> and a signal into a <a class="reference external" href="https://doc.sccode.org/Classes/Wavetable.html">Wavetable</a>, we can construct our waveform using an envelople!</p>
+<p>Let us create some crazy wavetables!</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// increase the buffer size</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">2048</span><span class="p">);</span>
+
+<span class="p">(</span>
+<span class="kd">var</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">(</span>
+    <span class="na">levels:</span> <span class="p">({</span><span class="nx">rrand</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)}</span><span class="o">!</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]).</span><span class="nx">scramble</span><span class="p">,</span>
+    <span class="na">times:</span> <span class="p">{</span><span class="nx">exprand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">,</span>
+    <span class="na">curve:</span> <span class="p">{</span><span class="nx">rrand</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span><span class="o">!</span><span class="nx">n</span><span class="p">,</span>
+<span class="p">);</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">loadCollection</span><span class="p">(</span><span class="nx">env</span><span class="p">.</span><span class="nx">asSignal</span><span class="p">(</span><span class="mi">1024</span><span class="p">).</span><span class="nx">asWavetable</span><span class="p">);</span>
+<span class="p">)</span>
+
+<span class="p">{</span><span class="nc">LeakDC</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Osc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="na">freq:</span> <span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.01</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Since the waveform might be heavily biased towards the positive or negative, we could use <a class="reference external" href="https://doc.sccode.org/Classes/LeakDC.html">LeakDC</a> to center it at the x-axis.</p>
+<p>Another really useful way to create a signal is the <code class="docutils literal notranslate"><span class="pre">waveFill</span></code> method of an instance of a signal.
+Since it is an instance method, we first have to create a signal.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">sig</span><span class="p">;</span>
+<span class="nx">sig</span> <span class="o">=</span> <span class="nc">Signal</span><span class="p">.</span><span class="nx">newClear</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>
+<span class="nx">sig</span><span class="p">.</span><span class="nx">waveFill</span><span class="p">({</span>
+    <span class="c1">// x (0 to 2pi), y_old (old value here 0), index</span>
+    <span class="kd">arg</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y_old</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">y_new</span> <span class="o">=</span> <span class="p">(</span><span class="nx">sin</span><span class="p">(</span><span class="nx">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">;</span>
+	<span class="nx">y_new</span> <span class="o">=</span> <span class="nx">y_new</span><span class="p">.</span><span class="nx">fold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+	<span class="nx">y_new</span>
+<span class="p">},</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="nx">pi</span><span class="p">);</span>
+<span class="nx">sig</span><span class="p">.</span><span class="nx">plot</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -816,17 +892,17 @@ To generate the same richness using <em>physical modeling</em> requires much mor
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="math/lti-filters.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="fm.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">LTI Filters</p>
+            <p class="prev-next-title">Frequency Modulation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="additive-synthesis/additive-synthesis.html" title="next page">
+    <a class='right-next' id="next-link" href="physical-modeling.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Additive Synthesis</p>
+        <p class="prev-next-title">Physical Modeling</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
