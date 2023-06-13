@@ -345,7 +345,7 @@ As previously stated, various movements are already crafting vibrant visions of 
 Additionally, art can serve as a platform for constructing and contributing to these emerging utopian futures towards which we can strive. 
 In particular, musical performances can ignite the *Dionysian* flame, a counterforce to a calculating *Apollonian* worldview.
 
->Music, if regarded as an expression of the world, is in the highest degree a unversal language that is even related to the universality of concepts much as those are related to particular things. Yet its universality is by no means that empty universality of abstraction. -- Schopenhauer
+>Music, if regarded as an expression of the world, is in the highest degree a universal language that is even related to the universality of concepts much as those are related to particular things. Yet its universality is by no means that empty universality of abstraction. -- Schopenhauer
 
 Enthusiasm, decadence, instinct, chaotic emotions, sexuality, and ecstasy shatter the boundaries of the conceivable by revealing the beauty of the tragedy in which we are all entwined -- that is, the beauty and mystery of life or *Dasein* itself. 
 Music can expose existential tensions and the paradoxical beauty of the complex perversity of erotic desire; elements which our culture is so eager to conceal. 
