@@ -1,6 +1,6 @@
 (sec-ecosystem)=
 # The Ecosystem
-
+ddddd
 [SuperCollider (SC)](https://supercollider.github.io/) is a package and a platform that consists of three components:
 + **scsynth**: a real-time audio server, i.e., the part that creates and plays the sound.
 + ``sclang``: an interpreted programming language for sound creation and signal processing. The user controls the audio server (**scsynth**) by sending Open Sound Control (OSC) messages to it.

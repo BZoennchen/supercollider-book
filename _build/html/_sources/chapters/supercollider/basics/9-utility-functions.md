@@ -203,9 +203,9 @@ Plot of a histogram of ``rand(x)``, ``linrand(x)``, ``exprand(a, b)``, ``bilinra
 
 On the **serve-side** there are corresponding unit generators such as
 
-+ ``Rand``,
-+ ``LinRand``, and
-+ ``ExpRand``.
++ [Rand](https://doc.sccode.org/Classes/Rand.html),
++ [LinRand](https://doc.sccode.org/Classes/LinRand.html), and
++ [ExpRand](https://doc.sccode.org/Classes/ExpRand.html)
 
 
 ## Signal Lagging

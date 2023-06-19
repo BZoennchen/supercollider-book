@@ -84,88 +84,62 @@ I am also active in influencing both the content and structure of our lectures, 
 
 As you may have inferred, philosophy is a significant interest of mine in my leisure time.
 
-After school, I did practical training as a software developer.
-I worked for four years in the industry.
-Then, in desperation, I finished an additional year in school and finally started studying computer science.
-I finished my Bachelor's degree in 2013, my Master's in 2017, and my Ph.D. in 2021.
-In my Ph.D. thesis, I analyzed different microscopic simulation models for pedestrian streams and developed algorithms to simulate many pedestrians in a large area faster than in real time.
-This got me into the subject of *complex systems* which I am still highly interested in.
-During my time as a Ph.D. candidate, I enjoyed teaching.
-Today, I am a software developer for the university who focuses on tools to support our education.
-Furthermore, I try to influence the content as well as the structure of our lectures in a positive way.
-As you might notice, I like to engage with philosophy in my free time.
+As a computer scientist who delved into the topic of this book, my programming experience at the time of writing may be valuable for other readers. 
+I possess a wealth of experience in ``Java`` and have even developed an introductory course for ``Python``. 
+Besides that, I am proficient in ``JavaScript``, ``PHP``, ``Scala``, and ``Go``. 
+While I can read and comprehend ``C\C++`` code, my practical experience in these languages is somewhat limited. 
+I am also well-acquainted with GPU programming, specifically using OpenCL. Currently, I'm in the process of learning ``Rust``.
 
-For other computer scientists interested in the topic of this book, it might be valuable to know which programming experience I had at the time of writing it.
-I am very experienced in ``Java``.
-Furthermore, I developed an introductory course for ``Python``.
-I am also familiar with ``JavaScript``, ``PHP``, ``Scala``, and ``Go``.
-Furthermore, I can read and understand ``C\C++`` code, but I am not very experienced in it.
-I am familiar with GPU programming using ``OpenCL``.
-Currently, I am trying to learn some ``Rust``.
+I don't have any formal education in music theory, nor do I play an instrument. 
+I am, in fact, a self-taught "music theorist". 
+This represents a stark contrast to other significant contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/). 
+However, I have a profound love for music and have always yearned to create my own, never imagining that programming could facilitate this aspiration.
 
-Nor do I have any music theory education or play an instrument.
-I am a self-taught "music theorist".
-So this is a solid contrast to other great contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/).
-However, I am a big music lover, and I have always wanted to make my own music and never thought programming could lead me to this goal.
+I am not a professional musician or a 'professional' artist. But I fervently believe that every individual is capable of creating a universe replete with meaning. We are storytellers thrust into a world that morphs depending on our moods. While we cannot alter our existence, we have the freedom to choose how to navigate it. Do we deny our surroundings, subsequently becoming estranged? Do we rebel against our inherent state of bewilderment? Do we make the place where we exist our home?
 
-I am neither a professional musician nor a "professional" artist.
-However, I strongly believe that every human being is capable of creating a whole universe of meaning.
-We are storytellers thrown (*geworfen*) into a world that changes depending on our mood.
-We can not change our being (*Dasein*), but we can choose how we want to deal with it.
-Do we reject our surroundings, becoming alienated in the process?
-Do we revolt against our fundamental condition of confusion?
-Do we make the place where we live our home?
-
-Music gives me peace.
-It gracefully touches my soul.
-It reminds me that something in this world expresses *the concrete*.
-Something that escapes our calculating minds; something unexplainable.
-Music sets me free.
-Coding sets me free.
-Thus, for me, coding music is the ultimate freedom.
+Music instills a sense of tranquility in me. It tenderly resonates with my soul, reminding me that something in this world embodies 'the concrete' - an element that eludes our analytical minds and defies explanation. Music liberates me. Coding does the same. Consequently, for me, coding music represents the epitome of freedom.
 
 ## Why Writing an Online-Book?
 
-I am very excited!
-I want to learn more about *algorithmic composition*, *sound design* and *computer music*. 
-This book is my attempt to do so;
-To understand something, one has to pass through a grueling learning process.
-One such strategy that works for me is called *the Feynman learning technique*.
-It consists of the following steps:
+I am truly excited! 
+I aspire to delve deeper into *algorithmic composition*, *sound design*, and *computer music*. 
+This book serves as a vehicle for this journey. 
+Grasping any concept demands an arduous learning process. 
+A technique that consistently aids me in this endeavor is known as the Feynman learning technique. It consists of the following steps:
 
-1. pretend to teach a concept you want to learn about to a student in the sixth grade
-2. identify gaps in your explanation
-3. go back to the source material to understand it better
-4. organize and simplify
-5. transmit (optional)
+1. Pretend to teach a concept you wish to understand to a student in the sixth grade.
+2. Identify gaps in your explanation.
+3. Revert to the source material for a deeper understanding.
+4. Organize and simplify.
+5. Transmit (this step is optional).
 
-This book is my attempt to follow *Feynman's technique* imperfectly.
-In the end, someone else might find valuable ideas in this book.
-Currently, I focus on [SuperCollider](https://supercollider.github.io/), *sound design*, little bit of *music theory* and *algorithmic composition*.
-Within the book, I use ``Python`` to create some of the plots. 
+This book is a result of my attempt to adhere to Feynman's technique, albeit imperfectly. 
+I hope that others might find valuable insights within its pages. 
+At present, my focus is on [SuperCollider](https://supercollider.github.io/), *sound design*, a bit of *music theory*, and *algorithmic composition*. 
+I utilize ``Python`` within the book to generate some of the plots.
 
-I experiment with SuperCollider and other tools and write this book in my spare time. 
-It is a hobby. 
-Therefore, I will develop and update it over time.
-This will take some time.
-In its current state it is only a skeleton, and I will add new chapters and edit old ones. 
-Therefore, do not expect anything professional.
+In my spare time, I experiment with SuperCollider and other tools while writing this book. 
+It is a hobby, and as such, I will gradually develop and update it over time.
+Patience will be required as the book, in its current state, is merely a blueprint.
+I will add new chapters and revise old ones incrementally. 
+Hence, professional-grade content should not be expected immediately.
 
-In the future, you might be interested in extending the book with your content. 
-Maybe this project will become a community effort to make SuperCollider, sound design, and other tools and techniques more accessible.
+In the future, you might be intrigued to augment the book with your contributions. 
+This project could potentially evolve into a community-driven effort to make 
+SuperCollider, sound design, and other tools and techniques more accessible.
 
-Another thing I am looking forward to is combining the book with a Jupyter-Kernel for SuperCollider such that the book becomes interactive.
+Another exciting prospect I anticipate is the amalgamation of this book with a Jupyter-Kernel for SuperCollider, making the book interactive.
 
-The source code of the Jupyter-Book can be found inside one of [GitHub](https://github.com/BZoennchen/supercollider-book) repositories.
-The book is currently published using [GitHub-Pages](https://bzoennchen.github.io/supercollider-book/intro.html).
+The source code of the Jupyter-Book can be found in one of the [GitHub](https://github.com/BZoennchen/supercollider-book) repositories. 
+Currently, the book is published using [GitHub-Pages](https://bzoennchen.github.io/supercollider-book/intro.html).
 
 ## Silent Contributors
 
-I want to emphasize that this book is a mixture of my discoveries filtered and altered by my mind.
-The creators of my discoveries and the content of the materials I studied are silent contributors.
-Without the already existing material, I would not be able to learn either SuperCollider or any of the other topics. 
+I would like to underscore that this book is a compilation of my discoveries, each one filtered and influenced by my perspectives. 
+The creators of the material I explored and the content of the resources I studied are silent contributors. 
+Without the pre-existing material, I would not have been able to learn about SuperCollider or any of the other topics.
 
-A special thank goes to [Eli Fieldsteel](https://www.elifieldsteel.com/), who provides multiple excellent courses for [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
+A special note of gratitude is due to [Eli Fieldsteel](https://www.elifieldsteel.com/), who generously provides multiple excellent courses on [SuperCollider](https://supercollider.github.io/) openly and for free via his [YouTube-Channel](https://www.youtube.com/user/elifieldsteel). 
 
 In the following, I list all the material I looked into:
 

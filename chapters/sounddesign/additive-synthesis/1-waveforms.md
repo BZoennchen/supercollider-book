@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-fundamental-waveforms)=
 # Fundamental Waveforms
 
@@ -79,6 +91,13 @@ It can also be used to add a certain *harmonic* to a sound.
 
 ```isc
 {SinOsc.ar(220!2)*0.25}.play;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/sine.mp3'
+ipd.Audio(audio_path)
 ```
 
 (sec-sawtooth-wave)=
@@ -166,6 +185,12 @@ In ``sclang`` we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) 
 {Saw.ar(220!2)*0.25}.play;
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/saw.mp3'
+ipd.Audio(audio_path)
+```
+
 (sec-square-wave)=
 ## The Square Wave
 
@@ -231,6 +256,12 @@ In ``sclang`` we can generate the sound of a [square wave](sec-square-wave) usin
 {Pulse.ar(220!2) * 0.25;}.play;
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/square.mp3'
+ipd.Audio(audio_path)
+```
+
 SuperCollider provides two versions of a square wave: [Pulse](https://doc.sccode.org/Classes/Pulse.html) a band-limited version and a non-band-limited version [LFPulse](https://doc.sccode.org/Classes/Pulse.html).
 
 (sec-triangle-wave)=
@@ -291,6 +322,12 @@ In ``sclang`` we can generate the sound of a [triangle wave](sec-triangle-wave) 
 
 ```isc
 {LFTri.ar(220!2) * 0.25;}.play;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/tri.mp3'
+ipd.Audio(audio_path)
 ```
 
 SuperCollider provides only the non-band-limited version of a triangle wave [LFTri](https://doc.sccode.org/Classes/LFTri.html).

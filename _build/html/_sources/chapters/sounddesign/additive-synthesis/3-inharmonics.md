@@ -32,3 +32,6 @@ Each metal plate is tuned to a certain pitch, i.e. it has to have harmonic conte
 The envelope is percussive with; a short attack and a long release.
 
 To achieve the metallic sound I use a bunch of inharmonics and mix in harmonics to fix the pitch.
+
+
+TODO!
