@@ -34,7 +34,7 @@ x;
 Evaluating
 
 ```isc
-number = 10
+number = 10;
 ```
 
 results in an error because ``number`` is undefined. 

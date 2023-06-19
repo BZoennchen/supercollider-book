@@ -2,44 +2,55 @@
 
 >We might be in a collective state of existential crisis, but we are to busy to notice it.
 
-The prevailing Zeitgeist today is technological.
-This means that while contemporary societies may critique the application of technology, they rarely question the essence of technology itself. 
-The assumption is that humans still wield control over technology and can, therefore, dictate whether it is used for beneficial or harmful purposes.
-This understanding of technology as a neutral entity is inherently humanistic; we perceive it as something distinct from us, something we can command and control precisely. 
-From a subject-object viewpoint, technology is, by definition, non-human. It can be harnessed for good or evil, for the ugly or the beautiful, and it's our prerogative to decide its usage.
+The prevailing zeitgeist today is technological. 
+By this, I mean that while contemporary societies may critique the application of technology, they rarely question its essence. 
+The assumption is that humans maintain control over technology and can therefore determine whether it is used for beneficial or harmful purposes. 
+For instance, the *European Commission* states in their white paper:
 
-However, this perspective is increasingly being contested by advancements in *artificial intelligence*, particularly in the field of machine learning.
-The line between controlling and being controlled is becoming increasingly blurred.
+>Like any technology, AI brings opportunities and risks.
+
+This perception of technology as a neutral entity is inherently *modern*; 
+we view it as something distinct from us, something we can command and control precisely. 
+From a *subject-object* viewpoint, technology is, by definition, non-human. 
+It can be harnessed for good or evil, for the ugly or the beautiful, and it's our prerogative to dictate its usage.
 
 >[...] there is an idea that technology is in its essence something human beings have under their control. In my opinion, that is not possible. Technology is in its essence something that human beings cannot master of their own accord. -- Heidegger
 
-Technology is neither inherently progressive nor repressive. 
-We must reimagine technology as something akin to nature, not strictly separate from us. 
-It serves as an extension of the human body and mind insofar as it influences our *mode of being*. 
-Technology shapes our means of communication and our material realities; it expands realms of possibilities but, simultaneously, shuts out pre-existing lifestyles.
+This *modern* perspective is challenged by *postmodern* and *posthuman* views on technology. With advancements in artificial intelligence, especially in the field of machine learning, the question about our place within a technological society looms large.
 
-For instance, the advent of cars transformed the planning and construction of cities, subsequently making car ownership mandatory in many regions.
-Email revolutionized workplace communication ethics, mandating interaction with emails. 
-I consider it a privilege that my generation was among the last to grow up in an internet-free world. 
-Today's children face a barrage of distracting spectacles. Their desires and attention are funneled into the profit-driven abyss.
+The *mind-body dualism*, leading to the *object-subject distinction*, might be a reasonable theory to base a modern society on, but due to overwhelming evidence, it no longer holds up. 
+Body, mind, technology, and other systems are deeply interconnected. 
+While only minds/bodies can think, different bodies are coupled via language. 
+While machines compute, they are now able to participate in this communication.
 
-Once well-established, technology assumes a dictatorial role, guiding our modes of communication. 
-It influences our everyday life, and if we aim to participate in society, there's no avoiding it. 
+Viewed as an instrumental tool, technology is not strictly separate from us but is coupled with our bodies. 
+It serves as an extension of our psychic and physical systems, influencing our mode of being. 
+Technology shapes our means of communication and our material realities; it expands realms of possibilities, but simultaneously, extinguishes pre-existing lifestyles.
+
+For instance, the advent of cars transformed city planning and construction, subsequently making car ownership a necessity in many regions. 
+Email revolutionized workplace communication ethics, making interaction with emails obligatory. 
+I consider it a privilege that my generation was among the last to grow up in a world free of the internet. 
+Today's children face a barrage of constant distractions. Their desires and attention are funneled into a profit-driven abyss.
+
+Once well-established, technology assumes a commanding role, guiding our modes of communication. 
+It influences our everyday life, and if we aim to participate in society, there's no way to avoid it. 
 We inhabit an age of disruption, where technology evolves so swiftly that it eludes thorough analysis. 
-Everyday people are preoccupied, constantly striving to keep up with an endless stream of news feeds vying for their attention. 
-It becomes challenging to apply any narrative to their experiences. They can't fully comprehend what's happening; they merely move through their day, moment by moment. 
-It's a disorientating state to exist in. 
-Time slips away without deep satisfaction; another day sacrificed to Instagram.
+People are kept busy, constantly striving to keep up with an endless stream of news feeds competing for their attention. 
+It becomes challenging to apply any narrative to their experiences. 
+They can't fully comprehend what's happening; they merely move through their day, moment by moment. 
+It's a disorienting state of existence. Time slips away without deep satisfaction; another day sacrificed to Instagram.
 
-The danger lies in never ceasing to hustle. 
-We need spaces that facilitate our **real** engagement with technology! 
-It's essential to understand how it influences us, how it transforms us, how it can aid us, and how it might harm us.
+The danger lies in the incessant hustle. 
+We need spaces that foster our real engagement with technology! 
+It's crucial to understand how it influences us, how it transforms us, how it can aid us, and how it might harm us. 
+Moreover, in a humane society, people should have the power to decide how and if technological progress should continue.
 
-Following Martin Heidegger, we should draw two distinctions: there are the tools and techniques of modern science, along with all the gadgets created to enhance human comfort, which he refers to as mere technology, and there is the essence of technology, i.e., the structure of the technological world and our way of existing within this world. 
-Heidegger argues that if we solely focus on acquiring a more sophisticated understanding of mere technology—mastering tools, instruments, and techniques, even those that indisputably improve our living standards—without understanding the essence of technology, our knowledge will not liberate us but further enslave us.
+Following Martin Heidegger's perspective, this is no longer the case. 
+He distinguishes two aspects: the tools and techniques of modern science, along with all the devices created to enhance human comfort, which he refers to as *mere technology*, and the *essence of technology*, i.e., the structure of the technological world and our *mode of existence* within it. 
+Heidegger argues that if we focus solely on acquiring a more sophisticated understanding of mere technology -- mastering tools, instruments, and techniques, even those that indisputably improve our living standards -- without understanding the *essence of technology*, our knowledge will not liberate us but further entrap us.
 
-At this point, I must acknowledge that Heidegger was a Nazi, a fact that should be mentioned when discussing his work. 
-Furthermore, it's crucial to examine his philosophy in light of his adherence to Nazism.
+It's important to acknowledge at this juncture that Heidegger was a Nazi, a fact that needs to be underscored when discussing his work. 
+Furthermore, it's critical to scrutinize his philosophy in the context of his affiliation with Nazism.
 
 >How is it that such a brilliant mind was taken
 in by the Nazis? How could Heidegger be so socially irresponsible? It is the
@@ -47,27 +58,27 @@ same problem as with Celan: here is a wonderful writer who was a rotten
 anti-Semite [...] I have shown Heidegger’s brain with a mushroom-like tumor
 growing out of it to make the point. -- Anselm Kiefer
 
-We must consider that Heidegger's concern about global technology initially drove him towards the Nazi party. 
-The Nazis were opposed to the two dominant forms of government of that era, communism and democracy, both of which Heidegger associated with global technology. 
-Therefore, studying Heidegger is both dangerous and complex.
-It demands considerable caution and discernment to appreciate the depth and intricacy of his thought, while remaining cognizant of his association with the Nazis.
+We need to bear in mind that Heidegger's concerns about global technology initially drew him towards the Nazi party. 
+The Nazis stood in opposition to the two prevailing forms of governance during that period -- communism and democracy -- which Heidegger associated with global technology. 
+Hence, studying Heidegger is both hazardous and intricate. 
+It requires great caution and discernment to comprehend the depth and complexity of his thought, all while being acutely aware of his affiliation with the Nazis.
 
-Heidegger posits that technology both reveals and conceals, functioning as an open space between paths and a place where reality manifests in a certain light. 
-The essence of technology (das Gestell) lies in its mode of revealing and concealing. 
-This suggests that technological entities have their unique form of presence, endurance, and interrelationships between parts and wholes. 
-They possess their own means of presenting themselves and the world in which they operate -- technology is dominance and control. 
-However, the crux of the issue is not in any specific machine, process, or resource. 
-Instead, it is challenging (herausfordernd): the manner in which the essence of technology influences our understanding of all matters, and the presence of those matters themselves -- the all-encompassing way we encounter and are encountered by the technological world.
+Heidegger posits that technology both unveils and conceals, functioning as a clearing between paths where reality manifests in a certain light. 
+The essence of technology (das *Gestell*) is in its manner of revealing and concealing. 
+This implies that technological entities have their distinct form of presence, persistence, and relationships between parts and wholes. 
+They have their unique ways of presenting themselves and the world in which they exist—technology is about dominance and control. 
+However, the heart of the issue lies not in any specific machine, process, or resource. 
+Instead, it's *challenging* (*herausfordernd*): the way the *essence of technology* shapes our understanding of all things, and the existence of those things themselves -- the all-encompassing manner in which we encounter and are encountered by the technological world.
 
-The mode of revealing that predominates throughout modern technology does not manifest as a bringing forth in the sense of poiesis (Gestalt). 
-Rather, the revealing that governs modern technology is a challenging (Herausfordern), which makes an unreasonable demand on nature to supply energy that can be extracted and stored as such. 
-It's crucial to note that for Heidegger, the challenge predates the unlocking; thus, the essence of technology precedes natural science. 
-Modern technology is a distraction from our being-in-the-world (Befindlichkeit), which is always contingent on a mood that Heidegger terms Sorge, signifying fear, worry, or care.
+The mode of revealing that prevails in modern technology does not manifest as a bringing forth in the sense of *poiesis* (*Gestalt*). 
+Instead, the revealing that governs modern technology is a *challenging* (*Herausfordern*), which places an unreasonable demand on nature to provide energy that can be extracted and stored. 
+It's important to note that, for Heidegger, the *challenge* precedes the unlocking, thus the *essence of technology* predates natural science. 
+Modern technology is a distraction from our state of *being-in-the-world* (*Befindlichkeit*), which is always contingent on a mood that Heidegger calls *Sorge*, signifying fear, worry, or care.
 
-The nature of being-in-the-world is such that we never elude these concerns, but we frequently attempt to deny them. 
-We distract ourselves from our worries, the foremost of which is death, and consequently live inauthentically. 
-Our relationship with technological tools, techniques, and devices can facilitate this distraction, diverting us from our fundamental experience and luring us into a false sense of security. 
-This can pose a danger if it hinders the lived awareness of our ultimate existence:
+The nature of *being-in-the-world* is such that we can never escape these concerns, but we frequently attempt to deny them. 
+We distract ourselves from our worries, the primary of which is death, and consequently live inauthentically. 
+Our relationship with technological tools, techniques, and devices can aid this distraction, diverting us from our fundamental experience and enticing us into a false sense of security. 
+This can be dangerous if it impedes the lived awareness of our ultimate existence::
 
 >beings in trouble in a world of uncertainty.
 
@@ -99,13 +110,18 @@ Digital technology can be incredible, but when decisions about its deployment an
 These individuals implement a perilous form of a technology-driven society with the economy at its absolute center: a type of digital/computational capitalism where algorithms generate money rather than value.
 
 We are no longer operating in a free market. 
-We're not in a situation where the people have equal access to tools and technology. 
-They no longer maintain control. 
-When a young person has an idea, they naturally approach a financier because they perceive it as the only way to get their product developed. 
+Late-stage capitalism now features a new type of platform economy that resembles feudalism, where peasants work the land of the lords. 
+We're in a situation where people don't have equal access to tools and technology and no longer maintain control. 
+When a young person has an idea, they naturally approach a financier, perceiving it as the only way to get their product developed. 
 Developers and entrepreneurs often start with a genuine desire to improve the world. 
-They believe their contribution will benefit the world in some way and empower not just them and their investors, but also some industry or consumer base. But then they accept funding from problematic sources, which force them into particular actions. 
-Ultimately, at the stock market, business becomes gamified, i.e., companies are no longer focused on their product. 
-Their minds are preoccupied with winning; it becomes a contest - Bezos versus *Sergey Brin* versus *Mark Zuckerberg*.
+They believe their contribution will benefit the world and empower not just them and their investors, but also some industry or consumer base. 
+However, accepting funding from problematic sources often forces them into specific actions. Ultimately, on the stock market, business becomes gamified. 
+Companies shift their focus away from their products and become preoccupied with competition—Bezos versus Sergey Brin versus Mark Zuckerberg.
+
+Additionally, since the digital industry is characterized by non-scarcity, it had to introduce a new business logic that gathers, concentrates, and "protects" knowledge and information. 
+Under the guise of improving customer services, this new business logic aims to provide consumers with exactly what they want. 
+I would argue, however, that the goal is more about manipulating consumers into an endless cycle of mostly subpar consumer goods. 
+As previously discussed, desire is produced, channeled, and confused.
 
 We have to ask:
 
@@ -118,8 +134,8 @@ Nor is it the passenger, even though it could be.
 Instead, it's the shareholder, the investor. 
 *Uber* isn't concerned about creating a robust, sustainable taxi industry.
 
-We must critically analyze the implications of each technology, which means we must abandon the neutral point of view. H
-owever, I'm not advocating for a return to some mythical naturalistic past, some elusive authenticity. 
+We must critically analyze the implications of each technology, which means we must abandon the neutral point of view. #
+However, I'm not advocating for a return to some mythical naturalistic past, some elusive authenticity. 
 This would only lead to disillusionment because such authenticity was never present to begin with. 
 Nature is a splendid beast; it is the real that pursues us; it is who we are. 
 The notion of returning to nature -- withdrawing from altering landscapes, bodies, and psychological systems -- lacks basis from a naturalistic ontological perspective. 
@@ -190,7 +206,7 @@ Art could potentially help liberate us from technology's grasp by charting a new
 >Rather it is here to expand all things, to combine and to make more things attainable.
 >For the artist, it is the edgiest work of all; the biggest, most exciting challenge in a long history of the synthesis between technology and hand and mind and heart. -- *J.D. Jarvis*
 
-Ultimately, it may be the 'energy of earth' that unveils a potential earth-world relationship. 
+Ultimately, it may be the *energy of earth* that unveils a potential earth-world relationship. 
 This could be Heidegger's god, for whom we are waiting and preparing.
 
 >Philosophy will not be able to bring about a direct change of the present state of the world. This is true not only of philosophy but of all merely human meditations and endeavors. Only a god can still save us. I think the only possibility of salvation left to us is to prepare readiness, through thinking and poetry, for the appearance of the god or for the absence of the god during the decline; so that we do not, simply put, die meaningless deaths, but that when we decline, we decline in the face of the absent god. -- Heidegger, Spiegel inverview in 1966

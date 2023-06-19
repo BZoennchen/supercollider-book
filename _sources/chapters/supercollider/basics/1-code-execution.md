@@ -1,26 +1,24 @@
 # Code Execution
 
-The [SuperCollider IDE](sec-scide) is build for interaction.
-If you are familiar with the concept of notebooks, for example, Jupyter notebooks or Mathematica notebooks, you already know what I mean.
-The idea is that you can execute code while developing.
-Instead of writing a complete program, you are constantly stimulated to run small code snippets.
-In live coding, this is embraced even more, but it is also good practice if you learn and explore SuperCollider in general.
+The [SuperCollider IDE](sec-scide) iis designed for interactivity. 
+If you're familiar with the concept of notebooks, such as Jupyter or Mathematica notebooks, you'll grasp what I mean. 
+The idea is to execute code incrementally as you develop. Instead of writing a complete program all at once, you're encouraged to run small code snippets. Each code execution alters your environment, that is, the state of your program. This dynamic interaction is especially evident in live coding, but it's also a useful practice when learning and exploring SuperCollider in general.
 
-SuperCollider initializes an [Environment](https://doc.sccode.org/Classes/Environment.html), i.e., a collection of things that can be accessed via name.
-Interacting with the IDE will manipulate this environment on the fly.
+SuperCollider initializes an [Environment](https://doc.sccode.org/Classes/Environment.html), which is a collection of entities accessible by name. 
+Interacting with the IDE allows you to manipulate this environment in real-time."
 
 ## Triggering the Evaluation
 
-Let's start!
-Let's write some ``sclang`` code and execute it via the REPL (Read–Eval–Print Loop).
-To execute the following line, press ``SHIFT`` + ``RETURN`` while your cursor is at the code line.
+Let's get started! 
+We'll write some ``sclang`` code and execute it via the REPL (Read-Eval-Print Loop). 
+To execute the following line, press ``SHIFT`` + ``RETURN`` while your cursor is on the code line.
 
 ```isc
 "Hello World!".postln;
 ```
 
-Since SuperCollider does not use code cells, we have to define blocks of codes ourselves.
-To execute multiple lines, we have to enclose the code in brackets ``(``, ``)`` and evaluate the code using ``CMD`` + ``RETURN`` on Mac and ``CTRL`` + ``RETURN`` on Windows.
+In SuperCollider, as there is no use of code cells, we must define blocks of code ourselves.
+To execute multiple lines, we need to enclose the code within brackets ``(`` and ``)``, then evaluate the code using ``CMD`` + ``RETURN`` on Mac or ``CTRL`` + ``RETURN`` on Windows.
 
 ```{admonition} Code Execution 
 :name: remark-code-execution
@@ -37,38 +35,38 @@ For example:
 )
 ```
 
-In both cases, you will notice that the last line is printed twice in the post windows.
-SC always prints the last statement on the post window.
+In both scenarios, you'll observe that the last line appears twice in the post window. 
+SuperCollider always prints the last statement in the post window.
 
-Like any other object-oriented language, we call a **method** ``postln`` on the **object** representing a ``String``.
-However, they use different terms in the [SuperCollider documentation](https://doc.sccode.org/).
-The object is the **receiver** of a **message** (method).
+As in any other object-oriented language, we call a **method** named ``postln`` on an **object** that represents a ``String``.
+However, different terminology is used in the [SuperCollider documentation](https://doc.sccode.org/).
+In this context, the object is the **receiver** of a **message** (method).
 
-The object is always the method's first argument (similar to ``Python``).
+The object always functions as the first argument to the method (much like in ``Python``).
 We refer to this object as ``this``.
-For example, we could also use the following syntax:
+For instance, we could also employ the following syntax:
 
 ```isc
 postln("Hello World!");
 ```
 
-A very useful key combination is ``CMD`` + ``d``.
+A very useful hotkey is ``CMD`` + ``d`` (Mac OS) or ``CTRL`` + ``d`` (Windows).
 It will open the documentation of the code your cursor is at.
 
 ```{admonition} Lookup Documentation
 :name: remark-lookup-documentation
 :class: remark
-Use ``CMD`` + ``d`` to look at the documentation of the class or method your cursor is at.
+Use ``CMD`` + ``d`` (Mac OS) or ``CTRL`` + ``d`` (Windows) to look at the documentation of the class or method your cursor is at.
 ```
 
 ## Execution of C++ Code
 
-Let us reverse engineer what happens if we print out a string to the post window.
+Let's reverse-engineer the process that occurs when we print a string to the post window.
 
 ```{admonition} Lookup Source Code
 :name: remark-lookup-source-code
 :class: remark
-Use ``CMD`` + ``i`` to look at the actual implementation of the class or method your cursor is at.
+Use ``CMD`` + ``i`` (Mac OS) or ``CTRL`` + ``i`` to look at the actual implementation of the class or method your cursor is at.
 ```
 
 If we look into the source code of the ``postln`` method by using ``CMD`` + ``i`` and navigate to the class ``Object``, we can digest the following implementation:
@@ -83,8 +81,9 @@ As mentioned, ``this`` is either
 1. the object the method is called on (if we use ``"Hello World!".postln;``) or
 2. the first argument of the method (if we use ``postln("Hello World!");``)
 
-By ``this.asString``, the object is transformed into a ``String`` and ``postln`` of the ``String`` is called.
-Of course in our case the object is already a ``String`` and we directly call ``postln`` of ``String``!
+Calling ``this.asString`` transformes the object into a ``String``.
+Then ``postln`` of that ``String`` is called.
+Of course in our case, the object is already a ``String`` and we directly call ``postln`` of ``String``!
 
 Let's have a look at ``postln`` of the class ``String``:
 
@@ -123,7 +122,8 @@ int prPostLine(struct VMGlobals* g, int numArgsPushed) {
 
 In the [documentation](https://doc.sccode.org/Guides/WritingPrimitives.html), we find the following explanation
 
->``g->sp`` is the top of the stack and is the last argument pushed. ``g->sp - inNumArgsPushed + 1`` is the **receiver** and where the result goes.
+>``g->sp`` is the top of the stack and the last argument pushed. 
+``g->sp - inNumArgsPushed + 1`` is the **receiver** and where the result goes.
 
 In our case, ``g->sp`` is the ``String`` object.
 This interaction between ``sclang`` and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
@@ -131,12 +131,12 @@ As long as we do not write our own [primitives](https://doc.sccode.org/Guides/Wr
 
 ## Order of Execution
 
-In ``sclang`` the code is strictly evaluated from left to right.
+In ``sclang``, the code is strictly evaluated from left to right.
 All operands have the same priority, which might lead to unexpected results.
 The expression
 
 ```isc
-4 + 4 * 5
+4 + 4 * 5 // 40
 ```
 
 returns ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
@@ -147,11 +147,12 @@ returns ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
 ``sclang`` uses a *strictly left to right order of execution*.
 ```
 
-Especially in within control structures this can lead to bugs that are hard to find. 
+Especially within control structures this can lead to bugs that are hard to find. 
 The following code prints ``'ho'`` to the the post window.
 
 ```isc
 (
+// true || false => true && false => false
 if(true || false && false,{
     "hi".postln;
 }, {

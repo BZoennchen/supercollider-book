@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-harmonic-series)=
 # Harmonic Series
 
@@ -21,6 +33,13 @@ Ndef(\saw_approx, {
     sig = (1/pi) * sig!2 * amp;
 }).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/saw-approx.mp3'
+ipd.Audio(audio_path)
 ```
 
 ```{admonition} Client vs Sever
@@ -88,6 +107,12 @@ Ndef(\saw_approx, {
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/saw-approx-env.mp3'
+ipd.Audio(audio_path)
+```
+
 Let us introduce some change over time.
 
 ## Dynamic Frequency Detuning
@@ -153,6 +178,12 @@ Ndef(\saw_approx, {
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/saw-approx-env-noise.mp3'
+ipd.Audio(audio_path)
+```
+
 In my opinion, this already sounds much more interesting.
 Of course, we went beyond *additive synthesis* and used *frequency modulation* but those go hand in hand, especially if the modulation frequency is low.
 
@@ -189,6 +220,14 @@ SynthDef(\saw_approx, {
     Out.ar(0, sig);
 }).add;
 )
+
+Synth(\saw_approx);
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/saw-approx-multi-env-noise.mp3'
+ipd.Audio(audio_path)
 ```
 
 Ok, this doesn't look very easy.
@@ -241,6 +280,12 @@ Pbindef(\melody,
     \degree, Pshuf([0, 2, 5, 6, 8, 11], inf),
 ).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/saw-approx-pattern.mp3'
+ipd.Audio(audio_path)
 ```
 
 ## Changing the Power Distribution
