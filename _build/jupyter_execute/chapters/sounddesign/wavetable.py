@@ -46,12 +46,13 @@
 # Finally, we can play it, i.e., the buffer.
 # 
 # ```isc
-# {Osc.ar(b)}.play;
+# {Osc.ar(b) * 0.5!2}.play;
 # ```
 
 # In[1]:
 
 
+import IPython.display as ipd
 audio_path = '../../sounds/wavetable-sine.mp3'
 ipd.Audio(audio_path)
 
@@ -70,9 +71,16 @@ ipd.Audio(audio_path)
 # );
 # )
 # 
-# {Osc.ar(b, freq: 200)!2}.play;
+# {Osc.ar(b, freq: 200)*0.125!2}.play;
 # ```
-# 
+
+# In[2]:
+
+
+audio_path = '../../sounds/osc-multi-sine.mp3'
+ipd.Audio(audio_path)
+
+
 # Nothing stops us from constructing very complex waveforms:
 # 
 # ```isc
@@ -87,7 +95,14 @@ ipd.Audio(audio_path)
 # 
 # {Osc.ar(b, freq: MouseX.kr(10,1000,1)) * [1, 2.01] * 0.4}.play;
 # ```
-# 
+
+# In[3]:
+
+
+audio_path = '../../sounds/osc-freq-increase.mp3'
+ipd.Audio(audio_path)
+
+
 # Since we can transform an envelope [Env](https://doc.sccode.org/Classes/Env.html) into a [Signal](https://doc.sccode.org/Classes/Signal.html) and a signal into a [Wavetable](https://doc.sccode.org/Classes/Wavetable.html), we can construct our waveform using an envelople!
 # 
 # Let us create some crazy wavetables!
@@ -108,7 +123,14 @@ ipd.Audio(audio_path)
 # 
 # {LeakDC.ar(Osc.ar(b, freq: MouseX.kr(10,1000,1)) * [1, 2.01] * 0.4)}.play;
 # ```
-# 
+
+# In[4]:
+
+
+audio_path = '../../sounds/osc-freq-increase-2.mp3'
+ipd.Audio(audio_path)
+
+
 # Since the waveform might be heavily biased towards the positive or negative, we could use [LeakDC](https://doc.sccode.org/Classes/LeakDC.html) to center it at the x-axis.
 # 
 # Another really useful way to create a signal is the ``waveFill`` method of an instance of a signal.

@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Drones
 
 In this section, we try to create an ambient drone sound.
@@ -16,38 +28,62 @@ Take, for example, two slightly detune [sine waves](sec-sine-wave):
 {SinOsc.ar(90 * [1, 1.01]) * 0.8}.play;
 ```
 
-The frequency difference is $1\%$.
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/sine-low-freq.mp3'
+ipd.Audio(audio_path)
+```
+
+The frequency difference is 1%.
 We hear a *beating* of frequency $0.9$ Hz.
+
 Ok, this drone becomes boring pretty fast, but it is still astonishing how easy it is to create a basic drone.
 Let's try multiple detuned harmonics using a combination of [sawtooth waves](sec-sawtooth-wave).
-A *resonance low pass filter* is used to filter out high frequencies and add additional movement to the sound.
+A *resonance low pass filter* is used to filter out high frequencies.
+Moreover, we add additional movement to the sound using low frequency noise, distortion, and panning.
 [Balance2](https://doc.sccode.org/Classes/Balance2.html) is similar to a panning ([Pan2](https://doc.sccode.org/Classes/Pan2.html)) but for a *stereo signal*.
 We let the stereo signal move from left to right.
 
 ```isc
 (
 SynthDef(\drone_saws, {
-    arg freq = 75;
-    var sig, detuner;
-    sig = Array.fill(4, {arg i;
-        RLPF.ar(
-        in: LFSaw.ar(freq * (i+1+LFNoise1.kr(0.1).bipolar(0.05)) * [1.0, 1.01]).distort, 
-            req: freq*2,
-            rq: SinOsc.kr(0.5).range(0.8, 1.0),
-            mul: SinOsc.kr(0.11).range(0.7, 1.0) * (i+1).reciprocal
-        );
-    }).sum * 5.0;
-    sig = Balance2.ar(sig[0], sig[1], pos: LFNoise1.kr(0.1).bipolar(0.9));
-    Out.ar(0, sig);
+	arg freq = 75;
+	var sig, detuner, env;
+	sig = Array.fill(8, {arg i;
+		var freqNoise = LFNoise1.kr(Rand(0.05, 0.2)).bipolar(1.0).midiratio;
+		RLPF.ar(
+			in: Saw.ar(freq * (i+1).reciprocal * freqNoise * [1.0, 1.01]).distort,
+			freq: freq*(i+1),
+			rq: SinOsc.kr(Rand(0.05, 0.2)).range(0.4, 1.0),
+			mul: SinOsc.kr(0.11).range(0.5, 0.9) * (i+1).reciprocal
+		);
+	}).sum;
+
+	env = EnvGen.kr(Env(
+		levels: [0, 1, 1, 0],
+		times: [\atk.kr(6.0), \sus.kr(4.0), \rel.kr(6.0)]), doneAction: Done.freeSelf);
+
+	sig = Balance2.ar(sig[0], sig[1], pos: LFNoise1.kr(0.1).bipolar(0.85));
+	sig = sig * env * \amp.kr(1.0);
+	Out.ar(0, sig);
 }).add;
 )
-Synth(\drone_saws, [\freq, 80])
+Synth(\drone_saws, [\freq, 200, \amp: 1.2]);
 ```
 
-Our basic wave front will be a [sawtooth wave](sec-sawtooth-wave).
+TODO!
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/saw-drone.mp3'
+ipd.Audio(audio_path)
+```
+
+Our basic waveform is a [sawtooth wave](sec-sawtooth-wave).
 The drone has a long attack and decay.
 In fact, we start without an envelope.
-This time we will use the ``SynthDef`` to define our drone synth.
+This time we will use the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) to define our drone synth.
 
 ```isc
 (
