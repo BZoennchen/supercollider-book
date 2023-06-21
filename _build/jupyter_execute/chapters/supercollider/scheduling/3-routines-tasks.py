@@ -120,7 +120,7 @@ audio_path = '../../../sounds/routine-clock-change.mp3'
 ipd.Audio(audio_path)
 
 
-# Until now, we played the synth using ``Synth``, which gets translated into an [OSC message](sec-osc), which tells the server to start the synth immediately.
+# Until now, we played the synth using [Synth](https://doc.sccode.org/Classes/Synth.html), which gets translated into an [OSC message](sec-osc), which tells the server to start the synth immediately.
 # Most of the time, this is not what we actually want since the timing can be off.
 # Instead, one should use
 # 

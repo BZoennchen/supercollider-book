@@ -38,7 +38,7 @@ For example:
 In both scenarios, you'll observe that the last line appears twice in the post window. 
 SuperCollider always prints the last statement in the post window.
 
-As in any other object-oriented language, we call a **method** named ``postln`` on an **object** that represents a ``String``.
+As in any other object-oriented language, we call a **method** named ``postln`` on an **object** that represents a [String](https://doc.sccode.org/Classes/String.html).
 However, different terminology is used in the [SuperCollider documentation](https://doc.sccode.org/).
 In this context, the object is the **receiver** of a **message** (method).
 
@@ -125,7 +125,7 @@ In the [documentation](https://doc.sccode.org/Guides/WritingPrimitives.html), we
 >``g->sp`` is the top of the stack and the last argument pushed. 
 ``g->sp - inNumArgsPushed + 1`` is the **receiver** and where the result goes.
 
-In our case, ``g->sp`` is the ``String`` object.
+In our case, ``g->sp`` is the [String](https://doc.sccode.org/Classes/String.html) object.
 This interaction between ``sclang`` and ``C++`` reminds me of the interaction between ``Python`` and ``C++``.
 As long as we do not write our own [primitives](https://doc.sccode.org/Guides/WritingPrimitives.html), we can ignore the ``C++`` interaction.
 

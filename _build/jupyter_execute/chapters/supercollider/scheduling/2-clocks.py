@@ -13,11 +13,11 @@
 # + [AppClock](https://doc.sccode.org/Classes/AppClock.html), and
 # + [TempClock](https://doc.sccode.org/Classes/TempoClock.html).
 # 
-# A ``SystemClock`` is more accurate than ``AppClock``, but it cannot call GUI primitives.
-# ``TempoClock``, on the other hand, does not work in seconds but in beats per second (bps).
+# A [SystemClock](https://doc.sccode.org/Classes/SystemClock.html) is more accurate than [AppClock](https://doc.sccode.org/Classes/AppClock.html), but it cannot call GUI primitives.
+# [TempClock](https://doc.sccode.org/Classes/TempoClock.html), on the other hand, does not work in seconds but in beats per second (bps).
 # It is the clock that is supposed to be used to schedule musical events.
 # 
-# Let us define ``TempoClock`` that runs at 120 bpm, i.e., 2 beats per seconds, and lets post ``'Hello!'`` at every beat:
+# Let us define [TempClock](https://doc.sccode.org/Classes/TempoClock.html) that runs at 120 bpm, i.e., 2 beats per seconds, and lets post ``'Hello!'`` at every beat:
 # 
 # ```isc
 # (
@@ -28,7 +28,7 @@
 # )
 # ```
 # 
-# ``TempoClock`` keeps track of time and allows tasks to be scheduled at some point in time in the future (``sched``, ``schedAbs`` or ``play``).
+# [TempClock](https://doc.sccode.org/Classes/TempoClock.html) keeps track of time and allows tasks to be scheduled at some point in time in the future (``sched``, ``schedAbs`` or ``play``).
 # When the time at which a task was scheduled is up, the task is awoken, i.e., its ``awake`` method is evaluated.
 # In case of a [Function](sec-functions), ``awake`` calls ``value`` and in case of a [Routine](https://doc.sccode.org/Classes/Routine.html) it calls ``next``.
 # If the value returned by the function is a number, the task is automatically **re-scheduled** at the time equal to its last scheduled time plus the return value (in beats).
@@ -61,7 +61,7 @@ ipd.Audio(audio_path)
 
 # Using a *gated* envelope makes it difficult to use a plain scheduler since we have to set the gate of the synth to ``0`` manually, i.e. by another scheduled function.
 # For example, the ``default`` instrument is consists of a gated envelople.
-# The following ugly code plays it buy using a ``TempClock``.
+# The following ugly code plays it buy using a [TempClock](https://doc.sccode.org/Classes/TempoClock.html).
 # 
 # ```isc
 # (
@@ -84,11 +84,11 @@ audio_path = '../../../sounds/clock-gated-rand.mp3'
 ipd.Audio(audio_path)
 
 
-# But as we know from section [Playing Pattern](sec-playing-pattern), we can use a ``Pbind`` to play an event pattern.
+# But as we know from section [Playing Pattern](sec-playing-pattern), we can use a [Pbind](https://doc.sccode.org/Classes/Pbind.html) to play an event pattern.
 # In fact we can play it on a specific clock!
 # 
 # The following code should generate the same result.
-# Play around with the ``tempo`` of the ``TempClock`` and listen how the sound changes.
+# Play around with the ``tempo`` of the [TempClock](https://doc.sccode.org/Classes/TempoClock.html) and listen how the sound changes.
 # You can change the ``tempo`` by evaluating the last line.
 # 
 # ```isc

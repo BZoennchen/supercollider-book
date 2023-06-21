@@ -1,7 +1,7 @@
 (sec-proxy-space)=
 # Proxy Space
 
-From the three possibilities (``NoteProxy``, ``Ndef``, and ``ProxySpace``) to interact with server nodes, I prefer the ``ProxySpace``.
+From the three possibilities ([NoteProxy](https://doc.sccode.org/Classes/NoteProxy.html), [Ndef](https://doc.sccode.org/Classes/Ndef.html), and [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html)) to interact with server nodes, I prefer the [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html).
 Note however, that you can do everything also with the two other methods.
 It is just a stylistic choice.
 
@@ -11,7 +11,7 @@ It is just a stylistic choice.
 A proxy space is an [Environments](sec-environments) consisting of node proxies only (instead of normal variables).
 ```
 
-The advatange to use ``ProxySpace`` is a shorter and often cleaner syntax.
+The advatange to use [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html) is a shorter and often cleaner syntax.
 The downside is that we can no longer use *environment variables* for client side code.
 Note however that we can still use *global variables*, e.g. ``a, b, c, d, ...``.
 
@@ -19,7 +19,7 @@ A proxy space is an [Environments](sec-environments), i.e., a collection of thin
 However, each *environment variable* of a proxy space is a node proxy -- it returns placeholders on demand!
 Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
-Using a proxy space frees us from dealing with ``Ndef`` or ``NodeProxy`` explicitly, but we have to deal with it implicitly instead!
+Using a proxy space frees us from dealing with [Ndef](https://doc.sccode.org/Classes/Ndef.html) or [NoteProxy](https://doc.sccode.org/Classes/NoteProxy.html) explicitly, but we have to deal with it implicitly instead!
 
 ## Initialization
 
@@ -276,8 +276,8 @@ In the folling I tried to recreate the sound of a firework:
 ~out.play;
 ```
 
-``Dust`` generates random impulses such that the density of that impulses approximate its frequency arguement, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
-``Ringz`` models resonates at a frequency of ``300`` herz.
+[Dust](https://doc.sccode.org/Classes/Dust.html) generates random impulses such that the density of that impulses approximate its frequency arguement, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
+[Ringz](https://doc.sccode.org/Classes/Ringz.html) models resonates at a frequency of ``300`` herz.
 We add a reverb effect to give the sound some spacial depth.
 The low pass filter has no effect since the cutoff frequency is very high.
 
@@ -295,7 +295,7 @@ The change in cutoff resonance and cutoff frequency happens continuously.
 
 In combination, JITLib and the proxy space offer extreme versatility.
 They make live coding easier and very flexible.
-It gets more interesting when used with [pattern](sec-pattern), and one has multiple ``Pbinds`` sounding together.
+It gets more interesting when used with [pattern](sec-pattern), and one has multiple [Pbinds](https://doc.sccode.org/Classes/Pbinds.html) sounding together.
 
 ## SynthDefs and Pbinds
 
@@ -348,7 +348,7 @@ SynthDef(\beep, {
 )
 ```
 
-Now we use a ``Pbind`` to play a melody.
+Now we use a [Pbind](https://doc.sccode.org/Classes/Pbinds.html) to play a melody.
 
 ```isc
 (
@@ -360,8 +360,8 @@ Now we use a ``Pbind`` to play a melody.
 )
 ```
 
-Note that if you set an argument for the proxy node it will be used regardless of the argument with the same name of the ``Pbind``.
-You can not override it by re-evaluating the ``Pbind``.
+Note that if you set an argument for the proxy node it will be used regardless of the argument with the same name of the [Pbind](https://doc.sccode.org/Classes/Pbinds.html).
+You can not override it by re-evaluating the [Pbind](https://doc.sccode.org/Classes/Pbinds.html).
 
 ```isc
 ~test_beep.set(\freq, 200);
@@ -375,6 +375,6 @@ You can get rid of the 'parent' argument by setting it to ``nill``.
 
 ## Synchronization
 
-In our second routing example we synchronzed our envelopes and ``TChoose`` unit generator by a global clock realized by an ``Impulse`` unit generator.
+In our second routing example we synchronzed our envelopes and [TChoose](https://doc.sccode.org/Classes/TChoose.html) unit generator by a global clock realized by an [Impulse](https://doc.sccode.org/Classes/Impulse.html) unit generator.
 As you saw, this opens up jet another coding style.
-A more straightforward way is to use ``Pbinds`` synchronized by a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html) which I describe in section [Clocks](sec-clocks).
+A more straightforward way is to use [Pbinds](https://doc.sccode.org/Classes/Pbinds.html) synchronized by a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html) which I describe in section [Clocks](sec-clocks).

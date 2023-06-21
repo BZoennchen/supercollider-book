@@ -1,5 +1,5 @@
 (sec-basics)=
-# Basics
+# SCLang Basics
 
 >Without music, life would be a mistake. -- Nietzsche
 

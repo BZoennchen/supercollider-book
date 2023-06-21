@@ -4,8 +4,8 @@
 # (sec-harmonic-series)=
 # # Harmonic Series
 # 
-# Let us recreate or approximate  the [sawtooth wave](sec-square-wave) without using the ``LFSaw`` or ``Saw`` unit generator.
-# Instead, we use a bunch of ``SinOsc`` oscillators.
+# Let us recreate or approximate  the [sawtooth wave](sec-square-wave) without using the [LFSaw](https://doc.sccode.org/Classes/LFTri.html) or [Saw](https://doc.sccode.org/Classes/Saw.html) unit generator.
+# Instead, we use a bunch of [SinOsc](https://doc.sccode.org/Classes/SinOsc.html) oscillators.
 # This gives us full control over the amplitude of each frequency, i.e. full control over the power distribution.
 # 
 # The following code generates the sound of the Fourier series approximation.
@@ -118,7 +118,7 @@ ipd.Audio(audio_path)
 # It chooses a value between 1 and -1 every $1/f$ seconds where $f$ is its frequency.
 # In between these times, values are *linearly interpolated*.
 # 
-# I introduce a ``LFNoise1`` for each harmonic.
+# I introduce a [LFNoise1](http://doc.sccode.org/Classes/LFNoise1.html) for each harmonic.
 # It generates values between $[1-\epsilon; 1+\epsilon]$.
 # Note that for each speaker, the noises are different!
 # It is hard to explain what exactly happens with our ``vibrato`` over time so let us plot an example.

@@ -3,7 +3,7 @@
 
 [Ndef](https://doc.sccode.org/Classes/Ndef.html) is a node proxy definition.
 It gives us a handy way to define a new node proxy.
-``Ndef`` registers synths by key, i.e., all accesses to the registered synths go through the ``Ndef`` class via that key.
+[Ndef](https://doc.sccode.org/Classes/Ndef.html) registers synths by key, i.e., all accesses to the registered synths go through the [Ndef](https://doc.sccode.org/Classes/Ndef.html) class via that key.
 
 ```isc
 Ndef(\a).play;         // play to the hardware output
@@ -14,10 +14,10 @@ Ndef(\a, { SinOsc.ar([350, 351.3], 0, 0.2) });
 Ndef(\a, { Pulse.ar([350, 351.3] / 4, 0.4) * 0.2 });
 ```
 
-Behind every ``Ndef`` there is one single instance of [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html) per server used (usually just the one for the default server).
+Behind every [Ndef](https://doc.sccode.org/Classes/Ndef.html) there is one single instance of [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html) per server used (usually just the one for the default server).
 This proxy space keeps default values for the proxies that can be set.
 
-Combining ``Ndef`` with a [NdefGui](https://doc.sccode.org/Classes/NdefGui.html), a gui for a ``NodeProxy`` or ``Ndef``, provides us with a nice graphical interface to experiment with different arguments of, for example, a ``SynthDef``.
+Combining [Ndef](https://doc.sccode.org/Classes/Ndef.html) with a [NdefGui](https://doc.sccode.org/Classes/NdefGui.html), a gui for a [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) or [Ndef](https://doc.sccode.org/Classes/Ndef.html), provides us with a nice graphical interface to experiment with different arguments of, for example, a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
 The gui generator automatically introduces a slide for each controllable argument.
 We can even specify the range of the argument using a [Spec](https://doc.sccode.org/Classes/Spec.html).
 

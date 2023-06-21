@@ -5,7 +5,7 @@ Open Sound Control (OSC) is a protocol for networking sound synthesizers, comput
 
 OSC is ingrained into SuperCollider.
 It is its core element.
-In fact, whenever we interact with the real-time audio server **scsynth**, for example, when we add a ``SynthDef`` to the server, SuperCollider translates all the code into OSC messages.
+In fact, whenever we interact with the real-time audio server **scsynth**, for example, when we add a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) to the server, SuperCollider translates all the code into OSC messages.
 
 Since OSC is a network protocol, the audio server could run on some other machine in our network.
 This opens up sheer endless collaborative possibilities.
@@ -58,7 +58,7 @@ We can see messages like
 in the post window.
 We receive an [Array](sec-array) of values.
 The first value is the ``path`` of the receiver, the second is the $x$ and the third the $y$ coordinate of our square in the sketch.
-Let's create a ``SynthDef`` such that we can manipulate the arguments of a playing synth by moving our rectangle around:
+Let's create a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) such that we can manipulate the arguments of a playing synth by moving our rectangle around:
 
 ```isc
 (

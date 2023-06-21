@@ -8,7 +8,7 @@ Thinking about multidimensional arrays can be both mind bending and mind expandi
 
 ## Creation
 
-To create a new ``Array`` the class offers many factory methods.
+To create a new [Array](https://doc.sccode.org/Classes/Array.html) the class offers many factory methods.
 
 ```isc
 a = Array.new(maxSize: 3); // [  ]
@@ -102,7 +102,7 @@ a[0]; // 1
 ```
 
 In signal processing, we want to manipulate elements of such a sequence.
-Therefore, an ``Array`` in ``sclang`` is implemented accordingly.
+Therefore, an [Array](https://doc.sccode.org/Classes/Array.html) in ``sclang`` is implemented accordingly.
 
 ## Manipulation
 

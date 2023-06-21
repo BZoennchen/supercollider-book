@@ -31,14 +31,14 @@ However, we can omit the ``new``.
 var numbers = Array(10);
 ```
 
-This calls the *class method* ``new`` of the ``Array`` class.
+This calls the *class method* ``new`` of the [Array](https://doc.sccode.org/Classes/Array.html) class.
 
 ## Class Definition
 
-All classes are ``Objects``, i.e., they inherit from the fundamental base class [Object](https://doc.sccode.org/Classes/Object.html) automatically.
-This makes it necessary to call the constructor of ``Object``.
+All classes are [Objects](https://doc.sccode.org/Classes/Object.html), i.e., they inherit from the fundamental base class [Object](https://doc.sccode.org/Classes/Object.html) automatically.
+This makes it necessary to call the constructor of [Object](https://doc.sccode.org/Classes/Object.html).
 
-To copy the arguments of the constructor to into the object variables we can call ``newCopyArgs`` of ``Object``.
+To copy the arguments of the constructor to into the object variables we can call ``newCopyArgs`` of [Object](https://doc.sccode.org/Classes/Object.html).
 ``Object.newCopyArgs(... args)`` creates a new instance and copies the arguments to the instance variable in **the order that the variables were defined**.
 Of course, class variables will be ignored.
 Therefore, the order is semantically significant!
@@ -91,7 +91,7 @@ Instance variables will *shadow* class variables of the same name.
 
 Classes can contain class methods (static methods) and object methods.
 A class method starts with an ``*``.
-For example, I implemented a new class ``MIDIRecorder`` which offers a *class-method* ``*new`` that calls ``init`` which initializes all the object variables.
+For example, I implemented a new class [MIDIRecorder](https://github.com/BZoennchen/algorithmic-compositions/blob/main/sc/extensions/classes/MIDIRecorder.sc) which offers a *class-method* ``*new`` that calls ``init`` which initializes all the object variables.
 
 ```isc
 MIDIRecorder {
@@ -134,7 +134,7 @@ MIDIRecorder {
 ```
 
 Another significant difference between functions and methods is that for methods, the return value has to be marked by a ``^``.
-The following code depicts the object-method ``reverse`` of ``ArrayedCollection`` which is the super-class of ``Array``:
+The following code depicts the object-method ``reverse`` of [ArrayedCollection](https://doc.sccode.org/Classes/ArrayedCollection.html) which is the super-class of [Array](https://doc.sccode.org/Classes/Array.html):
 
 ```isc
 reverse {
@@ -161,7 +161,7 @@ A method must be added to explicitly give access.
 These methods are called *getter* (returns the variable) and *setter* (sets the value of the variable).
 ``sclang`` allows these methods to be added via a shortcut by adding ``<`` (getter) and/or ``>`` (setter) in front of the variable definition.
 
-Let us look at another example, i.e., the class ``Complex``:
+Let us look at another example, i.e., the class [Complex](https://doc.sccode.org/Classes/Complex.html):
 
 ```isc
 Complex : Number {

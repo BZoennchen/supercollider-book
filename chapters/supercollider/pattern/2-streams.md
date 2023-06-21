@@ -30,8 +30,8 @@ x.next(); // 2
 x.next(); // 3
 ```
 
-In ``sclang`` everything is an [Object](https://doc.sccode.org/Classes/Object.html) and the class ``Object`` defines ``next`` to return the object itself.
-Therefore, every object is a ``Stream`` that streams itself.
+In ``sclang`` everything is an [Object](https://doc.sccode.org/Classes/Object.html) and the class [Object](https://doc.sccode.org/Classes/Object.html) defines ``next`` to return the object itself.
+Therefore, every object is a [Stream](https://doc.sccode.org/Classes/Stream.html) that streams itself.
 Consequently, almost everything can be viewed as a stream.
 A ``5`` is a stream returning ``5``.
 Calling ``next`` on an array will return itself.

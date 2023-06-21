@@ -27,28 +27,25 @@ sns.set_style("whitegrid")
 # (sec-filters)=
 # # Subtractive Synthesis and Filters
 # 
-# In [additive synthesis](sec-additive-synthesis) we start with silence and add more and more simple wave forms together to achieve a complex sound.
-# *Subtractive synthesis* works the opposite.
-# We start with rich / complex signal, such as *white noise* and apply *filters* to reduce, remove, or even amplify the amplitude of certain frequency bands.
-# Consequently, if we talk about subtractive synthesis, we have to talk about **filters**!
+# In [additive synthesis](sec-additive-synthesis), we begin with silence and progressively combine more straightforward waveforms to achieve a complex sound. Subtractive synthesis operates in the opposite way. 
+# We start with a rich, complex signal, such as white noise, and apply *filters* to decrease, eliminate, or even amplify the amplitude of certain frequency bands. 
+# Therefore, when discussing subtractive synthesis, it is imperative to talk about **filters**!
 # 
 # >Any medium through which the music signal passes, whatever its form, can be regarded as a filter. 
 # However, we do not usually think of something as a filter unless it can modify the sound in some way. 
 # For example, speaker wire is not considered a filter, but the speaker is (unfortunately).
 # -- Julius O. Smith
 # 
-# A *digital filter* is just a filter that operates on digital signals, such as sound represented inside a computer.
-# Because of how we normally interprete the term, *filter* our fundamental understanding of filters might be that they make parts of the signal quieter -- which is not the whole story.
+# A *digital filter* simply refers to a filter that operates on digital signals, such as sound represented within a computer.
+# Due to our conventional interpretation of the term filter, our basic understanding might suggest that filters primarily diminish parts of the signal -- but this is not the entire story.
 # With respect to the frequency domain, filters have a 
 # 
 # 1. **amplitude frequency response**, and
 # 2. **phase response**.
 # 
-# If a filter sharply sets the a specific range of frequencies to zero and let the rest untouched it is called *brick wall*.
-# For example, we could compute the [Fourier transform](def-fourier-transform-exp) of a signal and then multiply frequency in that range with zero.
-# For computational complexity and buffering reasons, such ideal filters are rahter unpractical for real-time use.
-# Therefore, most filters work differently.
-# They reduce or strengthen the power of certain frequencies.
+# A filter that drastically reduces a specific range of frequencies to zero, leaving the rest unaffected, is termed a *brick wall*.
+# For instance, we could calculate the [Fourier transform](def-fourier-transform-exp) of a signal and then multiply the frequencies within that range by zero.
+# However, due to computational complexity and buffering constraints, such ideal filters prove to be rather impractical for real-time use. Consequently, most filters operate differently, working to either reduce or amplify the intensity of specific frequencies.
 # 
 # ```{admonition} Filtering and the Fourier transform
 # :name: remark-filtering-and-convolution
@@ -58,7 +55,7 @@ sns.set_style("whitegrid")
 # 
 # ```
 # 
-# For example, if we want to completely filter out all high frequencies up to a *cutoff frequency* $f_c$ without touching the low frequencies $(f \leq f_c)$, our ideal *brick wall filter* would have an amplitude frequency response that looks like the following plot.
+# For instance, if we aim to entirely filter out all high frequencies up to a cutoff frequency $f_c$, without affecting the low frequencies $(f \leq f_c)$, our ideal brick wall filter would exhibit an amplitude frequency response resembling the plot shown below.
 
 # In[2]:
 
@@ -84,14 +81,17 @@ ax.set_ylabel(r'Gain $G(f)$');
 # 
 # Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., $\sin(2\pi t)$ is transformed to $\sin(2\pi t + 0.5\pi)$.
 # Some filters do primarily apply such period shifts and we might not think of them as filters.
-# For example, the *allpass filter* does passes all frequencies untouched but attunes the phases.
+# For example, the *allpass filter* passes all frequencies untouched but attunes phases.
 # 
 # *Lowpass filters* are used everywhere because they can smoothen the harshness of a sound.
-# A lot of filters allow support a feedback cycle, i.e., the output signal of the filter goes back into the filter.
-# Each time the signal is fed into the filter, its level gets reduced such that the feedback eventually comes to an end.
-# Such feedback can be used to synthesis reverberation.
+# 
+# A lot of filters support *feedback*, i.e., the output signal of the filter goes back into it.
+# Each time the signal is fed back, its level gets reduced such that the feedback eventually comes to an end.
+# Such feedback can be used to synthesis [reverberation](sec-reverb).
+# 
 # In combination with an *impulse* (e.g. [Impuse](https://doc.sccode.org/Classes/Impulse.html)) filters can be used to contruct surprising effects.
-# And with ressonance, filters can add many aspects to the timbre of a sound.
+# 
+# And with [ressonance](sec-resonance), filters can add many aspects to the timbre of a sound.
 # 
 # [SuperCollider](https://supercollider.github.io/) offers a large variety of filters.
 # Execute

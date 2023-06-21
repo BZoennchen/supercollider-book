@@ -33,15 +33,18 @@ Such meta concepts are shortcuts for something we do not understand yet.
 The *Platonic* worldview is mystical and religious.
 It introduces something extra, something godly that we do not need.
 And it devalues life as something to overcome instead of something to embrace.
-Call me impulsive, but I despise it more and more.
+Call me impulsive, but after I read *Wittgenstein*, I despise it more and more.
 
 Only because we have never experienced a perfect circle does not mean we can not imagine one.
 I have never experienced a pink elephant, but I can perfectly picture one.
 Does this mean there has to be another perfect world where the idea of a pink elephant lives?
 The world of ideas cripples the fascination with the infinite complexity of what there is.
+Wittgenstein would probalby say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language game.
+He would argue that Plato confused different language games, i.e., the mistake is a missuse of language.
 
 We have never experienced a perfect circle.
 But we found a model called circle that models circle-like objects that we perceived.
+Such an object does not exist like an apple right in front of me does but in the language game of mathematics it exists because we can define it: 
 
 $$K = \{(\cos(\phi), \sin(\phi)) : \phi \in [0;2\pi]\}$$
 
@@ -64,10 +67,11 @@ This does not mean we have to experience negative numbers to find them.
 *Einstein* came up with his theory by virtually thinking about it. 
 Back then, there was no way to experience it.
 But I would argue that he had lived through everything to make his *leap of understanding*.
+He had learned a good fundament, lived in a certain time and had a brilliant mind.
 Similar to thinking about pink elephants, he knew $A$ and $B$ and was able to connect both.
 
-To conclude, in my opinion, mathematics is a product of our *perception* and *understinding*.
-And if we assume that our perception is realized by reality (our biochemical body), than mathematics is real, invented (similar to language), and discovered (it helps us with reality) but might have nothing to do with what is behind our perception, i.e., reality as it is (if there is such thing).
+To conclude, in my opinion, mathematics is revealed to us via *perception* and *understanding* of nature which includes mathematics itself.
+And if we assume that our perception (our biochemical body and its environment) as well as the sensory of machines is real, then mathematics is real, partly invented (similar to language), and partly discovered (it helps us with reality).
 
 ## Why do we need Math?
 

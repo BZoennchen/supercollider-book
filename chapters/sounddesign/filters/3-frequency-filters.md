@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Frequency Filters
 
 When we talk about filters, we usually mean frequency filters.
@@ -45,7 +57,23 @@ Let us compare a [sawtooth wave](sec-sawtooth-wave) with a filtered sawtooth wav
 
 ```isc
 {Saw.ar(440)*0.25}.play
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/plain-saw.mp3'
+ipd.Audio(audio_path)
+```
+
+```isc
 {LPF.ar(Saw.ar(440)*0.25, MouseX.kr(40, 2000))}.play
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lpf-saw.mp3'
+ipd.Audio(audio_path)
 ```
 
 Let us also have a look at how the waveform changes if we reduce the cutoff frequency over time.
@@ -90,6 +118,13 @@ The effect is less obvious, at least with my headphones.
 
 ```isc
 {HPF.ar(Saw.ar(440)*0.25, MouseX.kr(40, 5000))}.play
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/hpf-saw.mp3'
+ipd.Audio(audio_path)
 ```
 
 If we look at a plot using a modulated highpass filter (here we increase the the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.
@@ -162,4 +197,11 @@ Let's have a listen:
 
 ```isc
 {BPF.ar(Saw.ar(440)*0.25, MouseX.kr(40, 2000), MouseY.kr(2.0, 0.01))}.play
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/bpf-saw.mp3'
+ipd.Audio(audio_path)
 ```

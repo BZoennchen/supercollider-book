@@ -21,7 +21,7 @@
 # 
 # There are hundreds of different [UGens](sec-ugens).
 # Basically, they spit out real numbers over time. 
-# For example, ``SineOsc`` samples a sine wave.
+# For example, [SinOsc](https://doc.sccode.org/Classes/SinOsc.html) samples a sine wave.
 # 
 # ```isc
 # ~sine = {arg freq=200; SinOsc.ar(freq, mul: 0.2)};
@@ -46,7 +46,7 @@ audio_path = '../../../sounds/sine-wave.mp3'
 ipd.Audio(audio_path)
 
 
-# ``~sine`` is a function that returns ``SinOsc.ar(freq, mul: 0.2)`` which is a ``BinaryOpUGen``.
+# ``~sine`` is a function that returns ``SinOsc.ar(freq, mul: 0.2)`` which is a [BinaryOpUGen](https://doc.sccode.org/Classes/BinaryOpUGen.html).
 # 
 # ```{admonition} Sound termination
 # :name: attention-sound-termination
@@ -54,7 +54,7 @@ ipd.Audio(audio_path)
 # To terminate all sound press ``CMD`` + ``.``. **This might be the most important shortcut of all.**
 # ```
 # 
-# If we press ``CMD`` + ``i`` while the curser is at ``play()`` and we select the implementation for ``Function``, we can see lookup what ``~sine.play()`` actually does:
+# If we press ``CMD`` + ``i`` while the curser is at ``play()`` and we select the implementation for [Function](https://doc.sccode.org/Classes/Function.html), we can see lookup what ``~sine.play()`` actually does:
 # 
 # ```isc
 # play { arg target, outbus = 0, fadeTime = 0.02, addAction=\addToHead, args;
@@ -82,7 +82,7 @@ ipd.Audio(audio_path)
 # }
 # ```
 # 
-# ``play()`` constructs a new ``SynthDef``, adds it to the server, and generates a synth which is returned.
+# ``play()`` constructs a new [SynthDef](https://doc.sccode.org/Classes/SynthDef.html), adds it to the server, and generates a synth which is returned.
 # The ``fadeTime`` makes sure that the sound ramps up over a certain amount of seconds.
 # For example, we can increase ``fadeTime``:
 # 
@@ -91,4 +91,4 @@ ipd.Audio(audio_path)
 # ```
 # 
 # ``play`` comes in handy if we wanna just try something out -- if we want to explore sounds in a quick and dirty way.
-# For complex synth, we will define our own ``SynthDef``.
+# For complex synth, we will define our own [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).

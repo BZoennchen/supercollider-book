@@ -93,7 +93,7 @@
 # For instance, the [mini notation](https://tidalcycles.org/docs/reference/mini_notation) s its own language within the Tidal language. 
 # However, there are other, superior sources out there to study the possibilities of Tidal.
 # For more information I recommand to have a look at the official website: [TidalCycle](https://tidalcycles.org/).
-# What I aim going to illustrate here is how we can utilize our synth, defined by  ``SynthDef`` in *Tidal*.
+# What I aim going to illustrate here is how we can utilize our synth, defined by  [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) in *Tidal*.
 # 
 # ## Synthesizers
 # 
@@ -114,19 +114,19 @@
 # )
 # ```
 # 
-# SuperDirt offers/requires some default arguments that it uses to control the scheduling of the synth:
+# [SuperDirt](https://github.com/musikinformatik/SuperDirt) offers/requires some default arguments that it uses to control the scheduling of the synth:
 # 
 # + ``out``: the output channel
 # + ``sustain``: the duration of the sound (default is 1)
 # + ``freq``: the fundamental of the synth
-# + ``speed``: controls how fast a sample is played back which will influence the pitch of the sample. Therefore, for a synth one might want to adjust the fundamental by ``speed``(default is 1)
+# + ``speed``: controls how fast a sample is played back which will influence the pitch of the sample. Therefore, for a synth one might want to adjust the fundamental by ``speed`` (default is 1)
 # + ``begin``: controls at what position the playback of the sample will starts (between 0 and 1). Therefore, for a synth one might want to adjust the envelope accordingly (default is 0).
 # + ``end``: controls at what position the playback of the sample will ends (between 0 and 1). Therefore, for a synth one might want to adjust the envelope accordingly (default is 1).
 # + ``pan``: controls the panning (between -1 and 1, default is 0)
 # + ``accelerate``: not sure
 # + ``offset``: not sure
 # 
-# Let us adjust our ``SynthDef`` accodingly by introducing all those arguments and by removing ``amp``.
+# Let us adjust our [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) accodingly by introducing all those arguments and by removing ``amp``.
 # We can keep our custom arguments but we do not require ``amp`` since SuperDirt will control the volume via ``gain``.
 # In addition, we have to replace the unit generator [Out](https://doc.sccode.org/Classes/Out.html) with a more accurate version, that is, [OffsetOut](https://doc.sccode.org/Classes/OffsetOut.html).
 # 
@@ -149,7 +149,7 @@
 # ```
 # 
 # That's it!
-# The ``timeScale`` argument of ``EnvGen`` scales the duration of our synth dependent on ``sustain``.
+# The ``timeScale`` argument of [EnvGen](https://doc.sccode.org/Classes/EnvGen.html) scales the duration of our synth dependent on ``sustain``.
 # Even if we do not use all arguments, we can already use ``\sine_beep``.
 # 
 # ```haskell

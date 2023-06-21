@@ -34,8 +34,8 @@ audio_path = '../../../sounds/event-player-ex1.mp3'
 ipd.Audio(audio_path)
 ```
 
-As already mentioned, ``Pbind`` is a unique ``Pattern`` that generates a ``Stream`` that spits out (musical) ``Events``.
-Using the ``play`` method on the ``Pbind`` pattern, we play all the events the event stream gives us.
+As already mentioned, [Pbind](https://doc.sccode.org/Classes/Pbind.html) is a unique [Pattern](https://doc.sccode.org/Classes/Pattern.html) that generates a [Stream](https://doc.sccode.org/Classes/Stream.html) that spits out (musical) [Events](https://doc.sccode.org/Classes/Event.html).
+Using the ``play`` method on the [Pbind](https://doc.sccode.org/Classes/Pbind.html) pattern, we play all the events the event stream gives us.
 In the above example we play a sequence of three notes 4 times on the ``\default`` instrument each seperated by ``0.4`` beats sustaining ``0.1`` beats.
 
 ``dur`` determines the waiting time between two successive events.
@@ -80,7 +80,7 @@ audio_path = '../../../sounds/event-player-legato.mp3'
 ipd.Audio(audio_path)
 ```
 
-We can call ``stop`` on the ``Stream`` (not the ``Pattern``!) to stop it (or we can hit ``CMD`` + ``.`` / ``Ctrl`` + ``.`` as always).
+We can call ``stop`` on the [Stream](https://doc.sccode.org/Classes/Stream.html) (not the [Pattern](https://doc.sccode.org/Classes/Pattern.html)!) to stop it (or we can hit ``CMD`` + ``.`` / ``Ctrl`` + ``.`` as always).
 
 Now you might ask: what do the events actually look like?
 As already mentioned, each event is filled with default arguments if they are not defined.
@@ -90,12 +90,12 @@ If it is a pattern, it was already transformed into a stream when ``play`` was c
 
 ## Argument Dependence
 
-Since we combine multiple ``Streams`` we may want to influence one value stream by the other.
+Since we combine multiple [Streams](https://doc.sccode.org/Classes/Stream.html) we may want to influence one value stream by the other.
 For example, we might want that the ``amp`` depends on the frequency such that we can reduce the amplitude for higher pitches.
 There are multiple ways to do so.
-One is by using one of the most powerful ``Pattern``, that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
+One is by using one of the most powerful [Pattern](https://doc.sccode.org/Classes/Pattern.html), that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
 
-``Pfunc`` expects a function as an argument and this function is called whenever the respective ``Stream`` generates its next value.
+[Pfunc](https://doc.sccode.org/Classes/Pfunc.html) expects a function as an argument and this function is called whenever the respective [Stream](https://doc.sccode.org/Classes/Stream.html) generates its next value.
 The argument of the ``next`` call is passed to the function.
 
 ```isc
@@ -106,7 +106,7 @@ square.next(5);
 )
 ```
 
-``Pbind`` passes the whole event to this function.
+[Pbind](https://doc.sccode.org/Classes/Pbind.html) passes the whole event to this function.
 Therefore, we can look inside the event, and use the information to compute our value.
 In the following code snippet, we print the ``amp`` so you can see the effect.
 
@@ -122,9 +122,9 @@ p = Pbind(
 )
 ```
 
-``Pfunc`` can do a lot of other things and there is a pattern that is specifically designed for our case.
+[Pfunc](https://doc.sccode.org/Classes/Pfunc.html) can do a lot of other things and there is a pattern that is specifically designed for our case.
 It is called [Pkey](https://doc.sccode.org/Classes/Pkey.html).
-Furthermore, we can use [utility function](sec-utility-debugging)) ``trace`` to post the numbers a pattern spits out.
+Furthermore, we can use [utility function](sec-utility-debugging) ``trace`` to post the numbers a pattern spits out.
 The following code creates exactly the same sound.
 
 ```isc
@@ -141,11 +141,11 @@ p = Pbind(
 
 The third way to do this is to use a global variable.
 However, this seems to be a really dirty method which I do not recommend.
-I think, using ``Pkey`` is the cleanest way to do things.
+I think, using [Pkey](https://doc.sccode.org/Classes/Pkey.html) is the cleanest way to do things.
 
 ## Cascading Pbinds
 
-We can, of course, use multiple ``Pbinds``.
+We can, of course, use multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html).
 
 ```isc
 (
@@ -180,7 +180,7 @@ q = p.play;
 ```
 
 What a masterpiece ;).
-We can generate the same piece using only one ``Pbind``:
+We can generate the same piece using only one [Pbind](https://doc.sccode.org/Classes/Pbind.html):
 
 ```isc
 (
@@ -205,11 +205,11 @@ audio_path = '../../../sounds/event-player-pbind-comb.mp3'
 ipd.Audio(audio_path)
 ```
 
-We can also play multiple ``Pbinds`` in parallel.
-We can imagine that each ``Pbind`` represents one musician in our assemble.
-[Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple ``Pbinds`` in parallel.
+We can also play multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) in parallel.
+We can imagine that each [Pbind](https://doc.sccode.org/Classes/Pbind.html) represents one musician in our assemble.
+[Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) in parallel.
 In this example I use a fixed ``dur`` and [Rest](http://doc.sccode.org/Classes/Rest.html) to adjust the actual duration.
-You can use any symbol to create a ``Rest`` (i.e. do nothing).
+You can use any symbol to create a [Rest](http://doc.sccode.org/Classes/Rest.html) (i.e. do nothing).
 
 ```isc
 (
@@ -257,7 +257,7 @@ audio_path = '../../../sounds/event-player-ppar.mp3'
 ipd.Audio(audio_path)
 ```
 
-Another way to sequence ``Pbinds`` and ``Pattern`` is to use [Pspawner](https://doc.sccode.org/Classes/Pspawner.html).
+Another way to sequence [Pbinds](http://doc.sccode.org/Classes/Pbind.html) and [Pattern](http://doc.sccode.org/Classes/Pattern.html) is to use [Pspawner](https://doc.sccode.org/Classes/Pspawner.html).
 It allows you to play patterns in parallel or in sequence, via a callback function.
 
 ```isc
@@ -300,17 +300,17 @@ audio_path = '../../../sounds/event-player-pspawner.mp3'
 ipd.Audio(audio_path)
 ```
 
-Later we will see that we can organize our piece by using multiple ``Pbind``.
+Later we will see that we can organize our piece by using multiple [Pbind](http://doc.sccode.org/Classes/Pbind.html).
 But for now, let's move on.
 
 ## Dynamic Changes
 
-Ok, so we can define a pattern of events, i.e., a ``Pbind`` and play it.
+Ok, so we can define a pattern of events, i.e., a [Pbind](http://doc.sccode.org/Classes/Pbind.html) and play it.
 But would it not be nice to change the pattern while playing it?
 SuperCollider supports live programming via its powerful [Just In Time programming library (JITLib)](https://doc.sccode.org/Overviews/JITLib.html).
 I will discuss live programming in detail in section [Live Coding](sec-live-coding), but here, I want to mention the [Pbindef](https://doc.sccode.org/Classes/Pbindef.html) class.
 
-``Pbindef`` keeps a reference to a ``Pbind`` in which single keys can be replaced.
+[Pbindef](http://doc.sccode.org/Classes/Pbindef.html) keeps a reference to a [Pbind](http://doc.sccode.org/Classes/Pbind.html) in which single keys can be replaced.
 It plays on when the old stream ends and a new stream is set and schedules the changes to the beat.
 Basically, this means that we can:
 
@@ -318,8 +318,8 @@ Basically, this means that we can:
 2. re-evaluate the code 
 
 and the change will appear soon after without ever stopping the pattern.
-The only difference to ``Pbind`` is that a ``Pbindef`` requires a unique name.
-Use the following ``Pbindef``, change the frequencies and re-evaluate the code.
+The only difference to [Pbind](http://doc.sccode.org/Classes/Pbind.html) is that a [Pbindef](http://doc.sccode.org/Classes/Pbindef.html)  requires a unique name.
+Use the following [Pbindef](http://doc.sccode.org/Classes/Pbindef.html) , change the frequencies and re-evaluate the code.
 Listen to what happens!
 
 ```isc
@@ -334,11 +334,11 @@ Pbindef(\melody,
 ```
 
 There is, however, a pitfall.
-If you are using ``Pbindef`` and you change your style of defining pitch, you might run into problems.
+If you are using [Pbindef](http://doc.sccode.org/Classes/Pbindef.html)  and you change your style of defining pitch, you might run into problems.
 Once you define ``\freq``, there is no way to use any other argument that determines the frequency since it will always be overwritten by ``\freq``.
 For example, try ``\midinote`` in the above example. 
 You will notice that it does not work.
-If you change the name of the ``Pbindef`` it will work as long as you do not define the ``\freq`` argument!
+If you change the name of the [Pbindef](http://doc.sccode.org/Classes/Pbindef.html)  it will work as long as you do not define the ``\freq`` argument!
 Another solution is to set ``\freq`` to ``nil``.
 
 ```{admonition} Overwriting Arguments
@@ -353,7 +353,7 @@ As mentioned in section [Value Conversions](sec-value-conversion), behind the sc
 For example, we can play ``\midinote`` instead of ``\freq``.
 The player will convert the pitch to the correct frequency.
 
-However, we can only take advantage of this support if we name the arguments of the function defined in the ``SynthDef`` appropriately.
+However, we can only take advantage of this support if we name the arguments of the function defined in the [SynthDef](http://doc.sccode.org/Classes/SynthDef.html) appropriately.
 
 ```{admonition} Naming Conventions
 :name: attention-naming-convention
