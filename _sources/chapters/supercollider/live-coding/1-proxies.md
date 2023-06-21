@@ -34,7 +34,7 @@ Synth proxies, i.e. nodes, operate server side.
 
 ## Definition Classes
 
-Definition-classes, such as ``Pdef``, ``Tdef`` and ``Ndef``, bind a symbol to an object in a specific way:
+Definition-classes, such as [Pdef](https://doc.sccode.org/Classes/Pdef.html), [Tdef](https://doc.sccode.org/Classes/Tdef.html) and [Ndef](https://doc.sccode.org/Classes/Ndef.html), bind a symbol to an object in a specific way:
 
 ```isc
 Pdef(\name)         // returns the proxy
@@ -44,7 +44,7 @@ Pdef(\name, object) // sets the source and returns the proxy
 ## Environments
 
 Another way, for server side node proxies, is an environment that returns placeholders on demand.
-``Environments`` manage namespaces, e.g. 
+[Environments](https://doc.sccode.org/Classes/Environment.html) manage namespaces, e.g. 
 
 ```isc
 ~a = 4
@@ -74,4 +74,4 @@ is no longer a standard ``sclang`` variable but a node proxy on the server!
 
 ## Lower Level Proxies
 
-We can also create our own low-level proxy object using ``TaskProxy``, ``PatternProxy`` or ``NodeProxy`` respectively.
+We can also create our own low-level proxy object using [TaskProxy](https://doc.sccode.org/Classes/TaskProxy.html), [PatternProxy](https://doc.sccode.org/Classes/PatternProxy.html) or [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) respectively.

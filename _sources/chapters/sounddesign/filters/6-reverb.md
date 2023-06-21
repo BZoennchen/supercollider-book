@@ -1,16 +1,97 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-reverb)=
 # Reverberation
+
+Reverberation, often shortened to reverb, is a phenomenon where sound waves reflect off surfaces, resulting in a large number of echoes that gradually fade or "decay".
+It gives us a sense of the size and type of space we're in, whether it's a small bathroom or a large cathedral.
+
+The *Haas effect* is an acoustic phenomenon.
+When a sound is followed by another sound separated by a sufficiently short delay ($< 50\,\text{ms}$), listeners perceive a single auditory event; the location of the first-arriving sound dominates its perceived spatial location.
+The lagging sound also affects the perceived location but its effect is suppressed by the first-arriving sound, i.e., the first wave front.
+
+If we start shouting in a big concert hall, we will receive an echo.
+If the time between the initial shouting and the echo is short enough, we perceive *reverberation*.
+The sound wave gets reflected to us, and the reflected wave might get reflected again and again.
+Architects have these reflections in mind when they build a concert hall.
+Moreover, an instrument's timbre is determined by the instrument and how it is played, and in what environment it is played.
+
+Humans are capable of separating sound sources from each other -- even in the absence of localization cues.
+For example, we can usually easily separate an oboe from a flute, and a flute from a violin, even though they play in the same register.
+The melody from the oboe will be heard separately from the melody of the flute.
+Both instrumental lines from a sound stream -- just like the words of a particular person in a party from a stream.
+These streams are examples of foreground streams.
+They carry specific and often different content and meaning, and we can choose to listen to one while excluding the other.
+
+As long as a person is talking, the *reverberation* sounds continuous and has a constant level.
+At that point, it is a background stream.
+However, if we look at the sound signal on an oscilloscope, it is clear that the reverberation is decaying rapidly between syllables.
+When the speaking person stops, the reverberation becomes a foreground stream and is audible as a distinct sound event.
+Under these conditions, it is easy to hear that it is decaying.
+
+The human hearing generally waits 50 milliseconds after a sound event's apparent end, before deciding it is over.
+Therefore, we perceive multiple sound cues within a period smaller than 50 ms as one continuous stream.
+Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.
+
+```{figure} ../../../figs/sounddesign/reverberation.png
+---
+width: 800px
+name: fig-reverberation
+---
+Ideal reverberation profile (according to D. Griesinger).
+Time $t$ is measured in milliseconds.
+```
+
+In *The Theory and Practice of Perceptual Modeling -- How to use Electronic Reverberation to Add Depth and Envelopment Without Reducing Clarity* ([pdf](http://www.davidgriesinger.com/threedpm.pdf)) presented at the *Tonmeister conference (2000)* in Hannover, David Griesinger gives an excellent description of an *ideal reverberation profile for recording*.
+We need a strong early lateral field for producing a sense of distance, a mimimum of energy in the $50-150\,\text{ms}$ region, and adequate reverberant energy after $150\,\text{ms}$.
+Recordings with too much energy in the $50$ to $150,\text{ms}$ region sound muddy.
+This time range must be carefully minimized.
+
+Reverberation can be simulated/approximated by adding [delayed signals](sec-filter-by-delay) that decay over a certain amount of time to the overall output.
 
 ## Single Reflection
 
 [DelayN](https://doc.sccode.org/Classes/DelayN.html) takes an input signal, delays it for ``delayTime`` (in seconds) and outputs the a *delayed copy* (without the original).
+Therefore, it can be useful to introduce a reverb effect.
 
 In the following example we use a *decaying impulse* to generate a repeating exponential envelope.
 The [Impulse](https://doc.sccode.org/Classes/Impulse.html) decays over a period of ``0.2`` seconds.
+[Decay](https://doc.sccode.org/Classes/Decay.html) works similar to [Integrator](https://doc.sccode.org/Classes/Integrator.html) which basically integrate an incoming signal, which is another way of saying that it sums up all past values of the signal. 
+It realizes the following formular:
+
+\begin{equation}
+y[n] = \sum\limits_{i=0}^n \alpha x[i]
+\end{equation}
+
+which is realized inductively by
+
+\begin{equation}
+y[n] = y[n-1] + \alpha x[n].
+\end{equation}
+
+[Decay](https://doc.sccode.org/Classes/Decay.html) operates on the basis of more meaningful parameters which are independent from the *sample rate*.
 We multiply this repeating envelope with a [PinkNoise](sec-pink-noise) to get a simple beat.
+The *decaying impulse* is just a line going to zero.
 
 ```isc
 {Decay.ar(Impulse.ar(1.0), 0.2) * PinkNoise.ar}.play
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/decay-beat.mp3'
+ipd.Audio(audio_path)
 ```
 
 Let's add a *delayed copy*:
@@ -19,10 +100,17 @@ Let's add a *delayed copy*:
 ({
     var sig = Decay.ar(Impulse.ar(1.0), 0.2) * PinkNoise.ar;
     sig + DelayN.ar(sig, 0.5, delaytime: 0.15);
-}.play)
+}.play;
+)
 ```
 
-If you want to modulate the *delay time* you should consider the interpolated versions, i.e. [DelayL](https://doc.sccode.org/Classes/DelayL.html) or [DelayC](https://doc.sccode.org/Classes/DelayC.html).
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/decaying-delayed-impulse.mp3'
+ipd.Audio(audio_path)
+```
+
+If you want to modulate the *delay time* you should consider the interpolated versions, i.e., [DelayL](https://doc.sccode.org/Classes/DelayL.html) or [DelayC](https://doc.sccode.org/Classes/DelayC.html).
 
 (sec-comb-allpass-filter)=
 ## Decaying Reflections
@@ -37,7 +125,14 @@ Let's have a listen:
     var decaytime = 2.0;
     var sig = Decay.ar(Impulse.ar(1.0), 0.5) * PinkNoise.ar;
     sig + CombN.ar(sig, 0.5, delaytime: 0.15, decaytime: decaytime);
-}.play)
+}.play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/decaying-comb-impulse.mp3'
+ipd.Audio(audio_path)
 ```
 
 We can generate some exciting grain sounds by combining *modulated resonance* with a *comb delay line*:
@@ -50,8 +145,14 @@ We can generate some exciting grain sounds by combining *modulated resonance* wi
     sig = BPF.ar(sig, freq: centerFreq, rq: 0.1).distort;
     sig = CombN.ar(sig, 2, delaytime: 2, decaytime: 40);
     sig;
-}.play
+}.play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/grain-saw.mp3'
+ipd.Audio(audio_path)
 ```
 
 The [AllpassN](https://doc.sccode.org/Classes/AllpassN.html) *unit generator* implements a *Schroeder allpass filter*.
@@ -63,7 +164,14 @@ For this reason, they are useful even though do not seem to differ much from *co
     var decaytime = 2.0;
     var sig = Decay.ar(Impulse.ar(1.0), 0.5) * PinkNoise.ar;
     sig + AllpassN.ar(sig, 0.5, delaytime: 0.15, decaytime: decaytime);
-}.play)
+}.play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/decay-allpass.mp3'
+ipd.Audio(audio_path)
 ```
 
 ## Plucking
@@ -115,6 +223,21 @@ SynthDef(\impulse, {
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/pluck-reimpl.mp3'
+ipd.Audio(audio_path)
+```
+
+I also make use of [Groups](https://doc.sccode.org/Classes/Group.html), a concept I did not cover yet.
+[Groups](https://doc.sccode.org/Classes/Group.html) help me to bring the synths in the right order on the audio server.
+``\impulse`` is a synth that outputs impulses of *white noise*.
+This impulse is read by ``\pluck``, therefore, ``\pluck`` has to operate after ``\impulse``.
+Since I add the ``~impulse`` group to the head and the ``~synths`` group to the tail, all synth in the ``~impulse`` group operate before synths in the ``~synths`` group.
+
+The following signal flow graph shows how the output is computed.
+
+
 ```{figure} ../../../figs/sounddesign/filters/pluck.png
 ---
 width: 800px
@@ -134,7 +257,14 @@ Pluck.ar(
     delaytime: 0.002, 
     decaytime: 10, 
     coef: 0.3)
-}.play)
+}.play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/pluck.mp3'
+ipd.Audio(audio_path)
 ```
 
 ## Reverberation
@@ -142,6 +272,8 @@ Pluck.ar(
 SuperCollider offers out of the box *reverberation unit generators*: [FreeVerb](https://doc.sccode.org/Classes/FreeVerb.html), [FreeVerb2](https://doc.sccode.org/Classes/FreeVerb2.html), and [GVerb](https://doc.sccode.org/Classes/GVerb.html).
 
 In this example, I use *grains* sampled from a single sine wave that changes its frequency whenever the envelope is triggered.
+``\gverb`` applies reverb to the grain.
+This time I do not make use of [Groups](https://doc.sccode.org/Classes/Group.html), therefore, I have to be careful of the oder in which I add synth to the audio server.
 
 ```isc
 (
@@ -177,64 +309,13 @@ SynthDef(\gverb, {
 )
 
 (
-SynthDef(\fverb, {
-    arg in, out=0;
-    var sig = FreeVerb.ar(
-        in: In.ar(in, 1), 
-        mix: 0.33,
-        room: 0.7, 
-        damp: 0.7);
-    Out.ar(out, sig!2);
-}).add;
-)
-
-(
 ~gverb = Synth(\gverb, [\in, 4, \out, 0]);
-//~fverb = Synth(\fverb, [\in, 4, \out, 0]);
 ~grains = Synth(\sin_grain, [\out, 4]);
 )
 ```
 
-
-## Ideal Reverberation
-
-The *Haas effect* is an acoustic phenomenon.
-When a sound is followed by another sound separated by a sufficiently short delay ($< 50\,\text{ms}$), listeners perceive a single auditory event; the location of the first-arriving sound dominates its perceived spatial location.
-The lagging sound also affects the perceived location but its effect is suppressed by the first-arriving sound, i.e., the first wave front.
-
-If we start shouting in a big concert hall, we will receive an echo.
-If the time between the initial shouting and the echo is short enough, we perceive *reverberation*.
-The sound wave gets reflected to us, and the reflected wave might get reflected again and again.
-Architects have these reflections in mind when they build a concert hall.
-An instrument's timbre is determined by the instrument and how it is played, and in what environment it is played.
-
-Humans are capable of separating sound sources from each other -- even in the absence of localization cues.
-For example, we can usually easily separate an oboe from a flute, and a flute from a violin, even though they play in the same register.
-The melody from the oboe will be heard separately from the melody of the flute.
-Both instrumental lines from a sound stream -- just like the words of a particular person in a party from a stream.
-These streams are examples of foreground streams.
-They carry specific and often different content and meaning, and we can choose to listen to one while excluding the other.
-
-As long as a person is talking, the *reverberation* sounds continuous and has a constant level.
-At that point, it is a background stream.
-However, if we look at the sound signal on an oscilloscope, it is clear that the reverberation is decaying rapidly between syllables.
-When the speaking person stops, the reverberation becomes a foreground stream and is audible as a distinct sound event.
-Under these conditions, it is easy to hear that it is decaying.
-
-The human hearing generally waits 50 milliseconds after a sound event's apparent end before deciding it is over.
-Therefore, we perceive multiple sound cues within a period smaller than 50 ms as one continuous stream.
-Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.
-
-```{figure} ../../../figs/sounddesign/reverberation.png
----
-width: 800px
-name: fig-reverberation
----
-Ideal reverberation profile (according to D. Griesinger).
-Time $t$ is measured in milliseconds.
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/grain-gverb.mp3'
+ipd.Audio(audio_path)
 ```
-
-In *The Theory and Practice of Perceptual Modeling -- How to use Electronic Reverberation to Add Depth and Envelopment Without Reducing Clarity* David Griesinger gives an excellent description of an *ideal reverberation profile for recording*.
-We need a strong early lateral field for producing a sense of distance, a mimimum of energy in the $50-150\,\text{ms}$ region, and adequate reverberant energy after $150\,\text{ms}$.
-Recordings with too much energy in the $50$ to $150,\text{ms}$ region sound muddy.
-This time range must be carefully minimized.

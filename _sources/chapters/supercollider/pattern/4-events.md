@@ -13,7 +13,7 @@ kernelspec:
 (sec-playing-events)=
 # Musical Event
 
-[Pbind](https://doc.sccode.org/Classes/Pbind.html) is an important ``Pattern``.
+[Pbind](https://doc.sccode.org/Classes/Pbind.html) is an important [Pattern](https://doc.sccode.org/Classes/Pattern.html).
 It models the process of playing an instrument by discrete events in time, realizing a discrete event simulation (DES).
 It streams (musical) [Events](https://doc.sccode.org/Classes/Event.html). 
 
@@ -24,11 +24,11 @@ It streams (musical) [Events](https://doc.sccode.org/Classes/Event.html).
 ```
 
 We define a duration ``dur``, the frequency ``freq``, note ``note`` or ``midinote`` and the ``instrument`` we wanna play, i.e., the synth.
-A ``Pbind`` can then be played by calling ``play`` on it.
+A [Pbind](https://doc.sccode.org/Classes/Pbind.html) can then be played by calling ``play`` on it.
 The method returns an [EventStreamPlayer](https://doc.sccode.org/Classes/EventStreamPlayer.html).
 
-``Events`` extend [Environments](https://doc.sccode.org/Classes/Environment.html).
-``Environments`` manage namespaces.
+[Events](https://doc.sccode.org/Classes/Event.html) extend [Environments](https://doc.sccode.org/Classes/Environment.html).
+[Environments](https://doc.sccode.org/Classes/Environment.html) manage namespaces.
 They are similar to hash maps, hash tables, or a ``Python`` dictionary, i.e., a collection where you can access its elements by name.
 For example, calling a function will create a new local function environment.
 Environments map names to variables and functions.
@@ -51,7 +51,7 @@ Here we define an *environment* with three variables ``a``, ``b``, ``c`` and a f
 ``~a`` is in fact an abbreviation for ``currentEnvironment.at(\a)`` and `` ~a = 100`` for ``currentEnvironment.put(\a, 100)``.
 As you can see we already worked with *environments* without knowing them.
 
-We are not so much interested in *environments* but their subclass ``Event``.
+We are not so much interested in *environments* but their subclass [Event](https://doc.sccode.org/Classes/Event.html).
 *Events* can be defined using a far more compact syntax.
 We just use round brackets:
 
@@ -124,10 +124,10 @@ By decreasing the cutoff frequency over time, high frequencies die out faster wh
 (sec-value-conversion)=
 ## Value Conversions
 
-Playing events with ``Pbind`` (or ``Pbindef``) using other patterns is a compelling but also inviting challenge.
+Playing events with [Pbind](https://doc.sccode.org/Classes/Pbind.html) (or [Pbindef](https://doc.sccode.org/Classes/Pbindef.html)) using other patterns is a compelling but also inviting challenge.
 In my opinion, the main difficulty stems from the fact that each argument of the synth (and/or the ``play`` method) is defined by its own mostly independent stream of numbers.
 This invites you to think about each argument, such as frequency (``\freq``) and duration (``\dur``), independently, which is contrary to the western musical notation where a pair of pitch and duration defines a musical note.
-Another source of confusion is the fact that ``Pbind`` allows you to specify the same class of arguments in different ways.
+Another source of confusion is the fact that [Pbind](https://doc.sccode.org/Classes/Pbind.html) allows you to specify the same class of arguments in different ways.
 For example, you can define the pitch (a specific class) via the frequency argument ``\freq`` a combination of ``\midinote``, ``\harmonic``, and more and other combinations of arguments.
 This flexibility is handy, but it can also feel overwhelming, especially for beginners.
 
@@ -377,7 +377,7 @@ ipd.Audio(audio_path)
 SuperColliders [Scale](https://doc.sccode.org/Classes/Scale.html) is more like a [mode](sec-modes), since we need the ``\root`` to define the actual scale.
 The default value of ``\root`` is 0, i.e., C.
 
-If you are interested in more details, have a look at the source code of the ``Event`` class and its [documentation](https://doc.sccode.org/Classes/Event.html).
+If you are interested in more details, have a look at the source code of the [Event](https://doc.sccode.org/Classes/Event.html) class and its [documentation](https://doc.sccode.org/Classes/Event.html).
 Furthermore, in chapter [Music Theory](sec-music-theory), I give an overview of the basic principles of music theory with examples using SuperCollider.
 
 ```{figure} ../../../figs/supercollider/pattern/pitch-conversion.png
@@ -418,8 +418,8 @@ Doubling the amplitude is approximately equal to adding 3 db.^
 
 ## Custom Instrument
 
-Of course, we can use our own ``SynthDef``, i.e., a custom instrument.
-To utilize all the excellent predefined parameters, our ``SynthDef`` has to use the correct arguments, and we have to name them as intended.
+Of course, we can use our own [SynthDef](https://doc.sccode.org/Classes/SynthDef.html), i.e., a custom instrument.
+To utilize all the excellent predefined parameters, our [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) has to use the correct arguments, and we have to name them as intended.
 
 ```isc
 (
@@ -522,7 +522,7 @@ The duration ``dur`` is the elapsed time after the next event is scheduled while
 ```
 
 This seems to make the ``dur`` argument irrelevant.
-However, we need ``dur`` if we not only play one event but a ``Stream`` of events!
+However, we need ``dur`` if we not only play one event but a [Stream](https://doc.sccode.org/Classes/Stream.html) of events!
 Remember, ``dur`` influences the scheduler of our musical events.
 We can see the effect if we play a stream of events.
 

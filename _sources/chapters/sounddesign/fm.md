@@ -1,7 +1,19 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-fm)=
 # Frequency Modulation
 
-FM is the most common encoding technique for public radio transmission (hence *FM radio*).
+Frequency modulation (FM) is the most common encoding technique for public radio transmission (hence *FM radio*).
 It uses frequencies that are out of the limits of human hearing.
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.
 In other words, we change the frequency of a signal over time.
@@ -20,6 +32,13 @@ He wanted to generate vibrato effects but noticed that when he increased the mod
     sig = amp_car * SinOsc.ar(freq_car + (amp_mod * SinOsc.ar(freq_mod)));
     sig;
 }.play;)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../sounds/fm-simple.mp3'
+ipd.Audio(audio_path)
 ```
 
 Chowning pushed for commercial use but none of the American manufacturers saw the potential of FM.
@@ -68,11 +87,17 @@ Spec.add(\freq_mod, [0.2, 20]);
 Spec.add(\freq_car, [50, 1000]);
 Spec.add(\amp_mod, [1, 1000]);
 Ndef(\fm_low_mod, {
-    var mod = SinOsc.ar(\freq_mod.kr(2)) * \amp_mod.kr(5);
-    SinOsc.ar(\freq_car.kr(200) + mod) * 0.5 ! 2;
+    var mod = SinOsc.ar(\freq_mod.kr(3)) * \amp_mod.kr(5);
+    SinOsc.ar(\freq_car.kr(300) + mod) * 0.25 ! 2;
 }).play;
 )
 Ndef(\fm_low_mod).gui;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/fm-vibrato.mp3'
+ipd.Audio(audio_path)
 ```
 
 In this example we use 
@@ -88,15 +113,31 @@ Those small changes result in a vibration similar to the effect of a violinist m
 ```{admonition} Vibrato
 :name: remark-vibrato-ugen
 :class: remark
-There is a ``UGen`` called [Vibrato](https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html) to introduce vibrato after a delay time.
+There is a unit generator called [Vibrato](https://depts.washington.edu/dxscdoc/Help/Classes/Vibrato.html) to introduce vibrato after a delay time.
 ```
 
 The following sounds similar to the first example above.
 
 ```isc
-// vibrato with 10 Hz wobble, starting after 2 second and ramping up over 1 second
+// vibrato with 10 Hz wobble, 
+// starting after 2 second and ramping up over 1 second
 // the amplitude is 5 percent of the frequency i.e. 300 * 0.05.
-({SinOsc.ar(Vibrato.kr(freq: 300, rate: 10, delay: 2, depth: 0.05, onset: 1));}.play;)
+({
+    SinOsc.ar(Vibrato.kr(
+        freq: 300, 
+        rate: 10, 
+        delay: 2, 
+        depth: 0.05, 
+        onset: 1)
+    ) * 0.25 ! 2;
+}.play;
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/vibrato.mp3'
+ipd.Audio(audio_path)
 ```
 
 If we increase the modulation frequency $f_{\text{mod}}$ further and further such that it approaches, or even exceeds the carrier frequency $f_\text{car}$, we get a different effect.
@@ -114,6 +155,12 @@ Ndef(\fm_low_mod, {
 }).play;
 )
 Ndef(\fm_low_mod).gui;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/fm-distortion.mp3'
+ipd.Audio(audio_path)
 ```
 
 In this case, the vibration becomes a wobbling effect or siren-type sound.
@@ -344,4 +391,10 @@ Pbindef(\melody3,
     \amp, 1.0
 ).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/fm-rustamoff.mp3'
+ipd.Audio(audio_path)
 ```

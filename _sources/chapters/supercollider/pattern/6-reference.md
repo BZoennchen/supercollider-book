@@ -12,7 +12,7 @@ kernelspec:
 
 # Reference
 
-There are many different ``Pattern``, I will only discuss some of them which I find most important.
+There are many different [Pattern](http://doc.sccode.org/Classes/Pattern.html), I will only discuss some of them which I find most important.
 The official [documentation of SuperCollider](https://doc.sccode.org/) is not always super helpful but the tutorial [Understanding Streams, Patterns and Events](https://doc.sccode.org/Tutorials/Streams-Patterns-Events1.html) is an excellent source to get started.
 
 ## Primary Pattern
@@ -328,7 +328,7 @@ This pattern can be used to literally filter another pattern.
 Pselect(func: {|x| x % 2 == 0}, pattern: Pseq((0..20))).asStream.all;
 ```
 
-[Preject](https://doc.sccode.org/Classes/Preject.html) similar to ``Pselect`` but selects the exact opposite items.
+[Preject](https://doc.sccode.org/Classes/Preject.html) similar to [Pselect](http://doc.sccode.org/Classes/Pselect.html) but selects the exact opposite items.
 This pattern can be used to literally filter another pattern.
 
 ```isc

@@ -1,6 +1,6 @@
 (sec-ecosystem)=
 # The Ecosystem
-ddddd
+
 [SuperCollider (SC)](https://supercollider.github.io/) is a package and a platform that consists of three components:
 + **scsynth**: a real-time audio server, i.e., the part that creates and plays the sound.
 + ``sclang``: an interpreted programming language for sound creation and signal processing. The user controls the audio server (**scsynth**) by sending Open Sound Control (OSC) messages to it.
@@ -54,17 +54,17 @@ I encourage readers interested in live coding to check them all out!
 ## The Audio Server
 
 The real-time audio server *scsynth* forms the core of the platform.
-The server uses synth definitions, i.e., ``SynthDefs`` as templates for creating synth nodes.
+The server uses synth definitions, i.e., [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html) as templates for creating synth nodes.
 Those synth instances can then be executed.
-A ``SynthDef`` represents a signal-flow-graph and executing a synth equates with creating an instance of a specific ``SynthDef``, i.e., such a graph.
+A [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) represents a signal-flow-graph and executing a synth equates with creating an instance of a specific [SynthDef](https://doc.sccode.org/Classes/SynthDef.html), i.e., such a graph.
 The user can trigger and influence the execution via [OSC](https://en.wikipedia.org/wiki/Open_Sound_Control) messages.
-For example, one can change the arguments of a ``SynthDef`` while the synth is executed.
+For example, one can change the arguments of a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) while the synth is executed.
 In fact, many ``sclang`` classes abstract away the explicit communication via OSC messages.
 
-Very similar to object-oriented programming, a ``SynthDef`` is a blueprint for a synth instance.
+Very similar to object-oriented programming, a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) is a blueprint for a synth instance.
 The composer
 
-1. defines the blueprint, that is, a ``SynthDef``,
+1. defines the blueprint, that is, a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html),
 2. adds the blueprint to the server,
 3. creates a new instance, that is, a synth,
 4. and executes, controls, and terminates it.

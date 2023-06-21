@@ -179,7 +179,7 @@ Apart from noise, the sawtooth wave is the richest sound produced by any basic o
 Its sound is very *harmonic* since all harmonics are basically present.
 In general, the [sawtooth wave](sec-sawtooth-wave) is a good candidate to start with if you want to create a rich harmonic sound or if you want to apply [subtractive synthesis](sec-filters).
 
-In ``sclang`` we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) using the [UGen](sec-ugens) ``Saw``:
+In ``sclang`` we can generate the sound of a [sawtooth wave](sec-sawtooth-wave) using the [unit generator](sec-ugens) [Saw](https://doc.sccode.org/Classes/Saw.html):
 
 ```isc
 {Saw.ar(220!2)*0.25}.play;
@@ -250,7 +250,7 @@ The more asymetric the wave, the more metallic and nasal the sound.
 The signal of some wind instruments, like the clarinet, is similar to square wave.
 Their sound contains mostly odd harmonics.
 
-In ``sclang`` we can generate the sound of a [square wave](sec-square-wave) using the [UGen](sec-ugens) ``Pulse``:
+In ``sclang`` we can generate the sound of a [square wave](sec-square-wave) using the [unit generator](sec-ugens) [Pulse](https://doc.sccode.org/Classes/Pulse.html):
 
 ```isc
 {Pulse.ar(220!2) * 0.25;}.play;
@@ -318,7 +318,7 @@ An approximation for the Fourier series of the triangle wave with a frequency an
 The triangle wave is half way between the sine and the square wave, both in softness and in harmonic richness.
 It is pretty soft.
 
-In ``sclang`` we can generate the sound of a [triangle wave](sec-triangle-wave) using the [UGen](sec-ugens) ``LFTri``:
+In ``sclang`` we can generate the sound of a [triangle wave](sec-triangle-wave) using the [unit generator](sec-ugens) [LFTri](https://doc.sccode.org/Classes/LFTri.html):
 
 ```isc
 {LFTri.ar(220!2) * 0.25;}.play;

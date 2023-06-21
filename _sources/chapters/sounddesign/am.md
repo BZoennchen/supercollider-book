@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-am)=
 # Amplitude Modulation
 
@@ -75,15 +87,23 @@ Spec.add(\ampmod, [0, 1]);
 
 Ndef(\am, {
     var sig, amp;
-    amp = \ampcar.kr(1) + (\ampmod.kr(1) * SinOsc.ar(\freqmod.kr(5), 0.5*pi));
-
+    amp = \ampcar.kr(1) + (\ampmod.kr(1) * SinOsc.ar(
+            \freqmod.kr(5), 
+            0.5*pi)
+        );
     sig = SinOsc.ar(\freq.kr(200), 0.5*pi);
-
     sig = sig * amp * (1/3) ! 2;
 }).play;
 )
 
 Ndef(\am).gui
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../sounds/am-sine-ex1.mp3'
+ipd.Audio(audio_path)
 ```
 
 Try out different values and observe the resulting sound.
@@ -100,7 +120,7 @@ I use $A_\text{car} = A_\text{mod} = 1$ and $f_\text{car} = 400$ Hz, $f_\text{mo
 
 ## Techniques
 
-In our example above, we used a fixed modulation frequency, i.e., if we change the carrier frequency it stays constant.
+In our example above, we used a fixed modulation frequency, i.e., if we change the carrier frequency the modulation frequency stays constant.
 
 ### Direct Current
 
@@ -132,7 +152,7 @@ name: fig-am-dc-effect
 DC (direct current) results in an offset of the signal.
 ```
 
-This effect can be avoided by using the ``LeakDC`` unit generator
+This effect can be avoided by using the [LeakDC](https://doc.sccode.org/Classes/LeakDC.html) *unit generator* which trys to center a signal on the amplitude-axis.
 
 ```isc
 ({
@@ -153,17 +173,16 @@ gives
 width: 600px
 name: fig-am-avoided-dc-effect
 ---
-We can avoid DC (direct current) by using ``LeacDC``.
+We can avoid DC (direct current) by using [LeakDC](https://doc.sccode.org/Classes/LeakDC.html).
 ```
 
 ### Clangoros Sound
 
-If we play different notes by changing the carrier frequency without changing the modulation frequency, we get a non-harmonic clangorous sound.
-The relationship between the frequency remains a fixed offset, such that for a high carrier/center frequency, the sum and difference frequencies are closer to the center frequency compared to low center frequencies.
+When we play different notes by adjusting the carrier frequency without altering the modulation frequency, we achieve a non-harmonic, clangorous sound.
+The relationship between the frequencies maintains a fixed offset, meaning that for a high carrier or central frequency, the sum and difference frequencies are closer to the center frequency compared to those at lower center frequencies.
 
-For almost all carrier frequencies, there are no harmonics present in the signal.
-This inharmonicity leads to a rather clangorous sound.
-It can be used to create aggressive and conventionally 'unmusical' sounds that change dramatically as one plays up and down the keyboard.
+Across nearly all carrier frequencies, harmonics are absent from the signal.
+This inharmonicity results in a distinctly clangorous sound. It can be utilized to generate aggressive and conventionally "unmusical" sounds that shift dramatically as one progresses up and down the keyboard.
 
 We can control the amount of clangor by raising or lowering the level of the modulator $A_\text{mod}$.
 
@@ -205,7 +224,7 @@ Ndef(\am, {
 We get a harmonic relationship if the ratio is an integer, but this is a special case!
 In general, the relationship is inharmonic, and we increase the inharmonicity if we use a ratio far away from a whole number!
 
-Remember the frequencies the signal has are $(1 \pm r) \cdot f_\text{car}$ and $f_\text{car}$.
+Remember, the frequencies the signal has are $(1 \pm r) \cdot f_\text{car}$ and $f_\text{car}$.
 So the coefficients in order they are:
 
 \begin{equation}
@@ -236,6 +255,12 @@ For example:
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/am-unipolar.mp3'
+ipd.Audio(audio_path)
+```
+
 The effect is very similar.
 
 ### Complex Amplitude Modulation
@@ -260,6 +285,12 @@ Consequently, AM can generate complex signals with a rich frequency spectrum in 
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/am-saw-110.mp3'
+ipd.Audio(audio_path)
+```
+
 ``car`` consists of frequencies of all harmonics of the carrier $200, 400, \ldots$ combined with all harmonics of the modulator $110, 220, 330, \ldots$.
 If we would use $100$ Hz for the fundamental of the modulator, the result would be a signal that does only contain odd harmonics.
 
@@ -271,6 +302,12 @@ If we would use $100$ Hz for the fundamental of the modulator, the result would 
     LeakDC.ar(car!2);
 }.play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/am-saw-100.mp3'
+ipd.Audio(audio_path)
 ```
 
 If we use low modulation frequency, we can achieve some distortion. 
@@ -285,4 +322,10 @@ The following sounds a bit like the sound of a helicopter.
     LeakDC.ar(car!2);
 }.play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/am-distort.mp3'
+ipd.Audio(audio_path)
 ```

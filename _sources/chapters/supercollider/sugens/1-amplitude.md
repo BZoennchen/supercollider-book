@@ -1,16 +1,11 @@
-# Unit Generator Library
+# Amplitude
 
-In the following, I discuss certain ``UGens`` which I had difficulties to understand.
-For all the well documented ``UGens`` such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html), [Saw](https://doc.sccode.org/Classes/Saw.html), [LFTri](https://doc.sccode.org/Classes/LFTri.html), I refer to the [official documentation](https://doc.sccode.org/Guides/Tour_of_UGens.html).
-
-## Amplitude
-
-In the description of the ``UGen`` called [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) we find the following statement:
+In the description of the [UGen](https://doc.sccode.org/Classes/Amplitude.html) called [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) we find the following statement:
 
 >Tracks the peak amplitude of a signal.
 
 I had a hard time to understand what is going on here, especially how one should deal with the arguments ``attackTime`` and ``releaseTime``.
-Why is this ``UGen`` even helpful?
+Why is this [UGen](https://doc.sccode.org/Classes/Amplitude.html)  even helpful?
 Isn't the amplitude of a signal $y(t)$ defined by $|y(t)|$?
 
 Well THE amplitude is not clearly defined at all.
@@ -31,7 +26,7 @@ For example, we say that the following signal
 
 has an amplitude of ``1.0``.
 
-```{figure} ../../figs/supercollider/ugens/amplitude-sine.png
+```{figure} ../../../figs/supercollider/ugens/amplitude-sine.png
 ---
 width: 800px
 name: fig-amplitude-sine
@@ -50,7 +45,7 @@ What about the perceived amplitude of a signal.
 In the example above, we can perceive that the sound gets louder over a time of 0.1 seconds and decays away in 0.2 seconds.
 
 For an increasing and decaying signal we could compute each local maxima and minima, take the absolute value and interpolate in between.
-That is basically what ``Amplitude`` does.
+That is basically what [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) does.
 It computes the perceive loudness, i.e., local amplitude of a signal!
 
 The following code generates another plot, that shows the difference.
@@ -67,19 +62,19 @@ The following code generates another plot, that shows the difference.
 )
 ```
 
-```{figure} ../../figs/supercollider/ugens/all-amplitude-sine.png
+```{figure} ../../../figs/supercollider/ugens/all-amplitude-sine.png
 ---
 width: 800px
 name: fig-all-amplitude-sine
 ---
-A modulated amplitude of a sine wave. At the top the measured perceive loudness using ``Amplitude``. In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
+A modulated amplitude of a sine wave. At the top the measured perceive loudness using [Amplitude](https://doc.sccode.org/Classes/Amplitude.html). In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
 ```
 
-Somehow ``Amplitude`` underestimates the perceive loudness quite a bit.
+Somehow [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) underestimates the perceive loudness quite a bit.
 
-Futhermore, we have to tell ``Amplitude`` the time period the signal loudness increases ``attackTime`` and the time period the amplitude decreases ``releaseTime``.
+Futhermore, we have to tell [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) the time period the signal loudness increases ``attackTime`` and the time period the amplitude decreases ``releaseTime``.
 If we don't know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
-``Amplitude`` seems to analyse each chunk of the signal of size ``attackTime`` + ``releaseTime`` and computes an amplitude value for this time period.
+[Amplitude](https://doc.sccode.org/Classes/Amplitude.html) seems to analyse each chunk of the signal of size ``attackTime`` + ``releaseTime`` and computes an amplitude value for this time period.
 Therefore, if we choose ``attackTime`` + ``releaseTime`` $\approx 1/(c \cdot f)$, where $f$ is the frequency of the signal and $c > 1$, we almost get $|y(t)|$.
 I conclude that these values should be greater than $1/f$.
 
@@ -88,7 +83,7 @@ I conclude that these values should be greater than $1/f$.
 The default values are ``attackTime: 0.01`` and ``releaseTime: 0.01``, so for a signal with a frequency close to $100$ Hz, we should increase these values.
 
 Let's end with an example.
-Here we cut the noisy sound if its amplitude measured by ``Amplitude`` is below 0.2.
+Here we cut the noisy sound if its amplitude measured by [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) is below 0.2.
 
 ```isc
 ({ 
