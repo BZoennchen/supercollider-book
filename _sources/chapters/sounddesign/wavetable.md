@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Wavetable Synthesis
 
 The principle of *wavetable synthesis* is to exchange computation for memory by pre-computing the complete cycle of a specific waveform, save the values in a buffer and then read values from the buffer instead of computing them on the fly.
@@ -44,6 +56,12 @@ Finally, we can play it, i.e., the buffer.
 
 ```isc
 {Osc.ar(b)}.play;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../sounds/wavetable-sine.mp3'
+ipd.Audio(audio_path)
 ```
 
 Now, let us define a signal with many harmonics.
