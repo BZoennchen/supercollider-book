@@ -40,25 +40,25 @@ ipd.Audio(audio_path)
 # ```isc
 # (
 # SynthDef(\drone_saws, {
-# 	arg freq = 75;
-# 	var sig, detuner, env;
-# 	sig = Array.fill(8, {arg i;
-# 		var freqNoise = LFNoise1.kr(Rand(0.05, 0.2)).bipolar(1.0).midiratio;
-# 		RLPF.ar(
-# 			in: Saw.ar(freq * (i+1).reciprocal * freqNoise * [1.0, 1.01]).distort,
-# 			freq: freq*(i+1),
-# 			rq: SinOsc.kr(Rand(0.05, 0.2)).range(0.4, 1.0),
-# 			mul: SinOsc.kr(0.11).range(0.5, 0.9) * (i+1).reciprocal
-# 		);
-# 	}).sum;
+#     arg freq = 75;
+#     var sig, detuner, env;
+#     sig = Array.fill(8, {arg i;
+#         var freqNoise = LFNoise1.kr(Rand(0.05, 0.2)).bipolar(1.0).midiratio;
+#         RLPF.ar(
+#             in: Saw.ar(freq * (i+1).reciprocal * freqNoise * [1.0, 1.01]).distort,
+#             freq: freq*(i+1),
+#             rq: SinOsc.kr(Rand(0.05, 0.2)).range(0.4, 1.0),
+#             mul: SinOsc.kr(0.11).range(0.5, 0.9) * (i+1).reciprocal
+#         );
+#     }).sum;
 # 
-# 	env = EnvGen.kr(Env(
-# 		levels: [0, 1, 1, 0],
-# 		times: [\atk.kr(6.0), \sus.kr(4.0), \rel.kr(6.0)]), doneAction: Done.freeSelf);
+#     env = EnvGen.kr(Env(
+#         levels: [0, 1, 1, 0],
+#         times: [\atk.kr(6.0), \sus.kr(4.0), \rel.kr(6.0)]), doneAction: Done.freeSelf);
 # 
-# 	sig = Balance2.ar(sig[0], sig[1], pos: LFNoise1.kr(0.1).bipolar(0.85));
-# 	sig = sig * env * \amp.kr(1.0);
-# 	Out.ar(0, sig);
+#     sig = Balance2.ar(sig[0], sig[1], pos: LFNoise1.kr(0.1).bipolar(0.85));
+#     sig = sig * env * \amp.kr(1.0);
+#     Out.ar(0, sig);
 # }).add;
 # )
 # Synth(\drone_saws, [\freq, 200, \amp: 1.2]);
