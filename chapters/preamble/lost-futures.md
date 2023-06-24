@@ -465,7 +465,7 @@ We could consider embracing a form of postmodernism that removes certainty from 
 
 >There is no such thing as a script to stick to; no single functional model of relationships; no single dignified or fulfilling lifestyle that is achieved through consumption, affluence or material goods.
 >Rather what human beings can do in the world is enriched by the diversity of their performance in the world by art, by poetry, by love, by a sense of collectivity and a sense of building a shared future. 
->Perhaps doing nothing is the most revolutionary act. -- Diego Ruzzarian
+>Perhaps doing nothing at this moment is the most revolutionary act. -- Diego Ruzzarian
 
 In the face of the inevitability of death, *failing tragically* seems to me much more appealing than being *comfortably numb*. 
 I believe it's essential to accept one's own mortality.
