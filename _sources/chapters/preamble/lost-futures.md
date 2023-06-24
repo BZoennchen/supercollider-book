@@ -2,7 +2,7 @@
 
 >What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' [...] Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
 
-In its formative stage around 1990 -- at a time of postmodern culture and when Fukuyama declared the end of history -- *ghost of cyberculture* alluded to an innovative utopia characterized by extensive collaboration and collective expression, with ideas, knowledge, and power evenly distributed across a decentralized web; the internet was perceived as a gift to humanity. 
+In its formative stage around 1990 -- at a time of postmodern culture and when Fukuyama declared the end of history -- *ghosts of cyberculture* alluded to an innovative utopia characterized by extensive collaboration and collective expression, with ideas, knowledge, and power evenly distributed across a decentralized web; the internet was perceived as a gift to humanity.
 However, the catalyst for its creation — the destructive potential of a nuclear Armageddon — foreshadowed its subsequent instrumentalization.
 
 In the 1960s, computational power was centralized in large mainframe computers, the capabilities of which became a critical factor in the arms race between the U.S. and the Soviet Union. To optimize these resources, it was crucial to share them across a network. 
@@ -15,18 +15,21 @@ These individuals played significant roles in constructing the network that ulti
 >There was no 'Eureka!' moment. It was not like the legendary apple falling on Newton's head [...]. 
 Inventing the World Wide Web involved my growing realisation that there was a power in arranging ideas in an unconstrained, weblike way. And that awareness came to me through preceisely that kind of process. -- Tim Berners-Lee
 
-The opposition to the Cold War establishment, combined with a firm vision of the internet, prompted an ironic transformation. The future seemed bright. 
-Utopian visions of the future were prevalent, dreams that were later amplified by the Hippie movement in 1967. 
+The opposition to the Cold War establishment, combined with a firm vision of the internet, prompted an ironic transformation.
+The future seemed bright. 
+Utopian visions of the future were prevalent, dreams that were later amplified by the Hippie movement in 1967.
 The roots of many tech gurus can be traced back to counterculture environments that advocated individual freedom, non-conformity, free love, drugs, and rock music.
 
 Guided by this vision, counterculturalists and technologists alike came together to reimagine computers as tools for personal liberation, community building in virtual and decidedly alternative spaces, and for exploring bold new social frontiers. 
 Despite the internet never truly escaping from power concentrations, it provided us with a compelling vision of a potential future; a fever dream of an alternative societal structure. 
 But what happened to this dream?
 
-Observing the major cities in the U.S. around 1975, one could distinguish two groups of radical left-wing artists. 
-One group sought to change material realities through collective activism. 
-The other group aimed to change people's minds. 
-While the first group embraced bureaucracy, hierarchies, and organizations, the second group advocated for abolishing all of those structures and turning to small-scale technologies, LSD, etc. However, drugs without purpose are akin to an escape kit without an instruction manual.
+One could argue that it was the Left's failure to act collectively and assertively that was at fault. 
+Certainly, some were striving to transform material realities through collective activism.
+However, others were trying to alter people's mindsets.
+While the former group embraced bureaucracy, hierarchies, and organizations, the latter group campaigned to eliminate all those structures, instead promoting small-scale technologies, LSD, and so on.
+This anarchistic reflex may seem appealing, but individual freedom in a highly interconnected society either stems from collective negotiation or from individual domination over others. 
+Using drugs aimlessly is akin to having an escape kit without an instruction manual.
 
 >Taking MDMA is like improving [Microsoft] Windows: no matter how much tinkering Bill [Gates] does, MS Windows will always be shit because it is built on top of the rickety structure of DOS -- Mark Fisher
 
@@ -45,6 +48,7 @@ Fisher wrote in an essay (2013) about this failure:
 One could argue that the communalist movement triggered a shift away from traditional politics. 
 It redirected the attention to the self -- an existential move -- as the foundation of political change, aligning closely with the rising tide of neoliberal ideology and the Left had no answer to that.
 Whereas JFK once spoke of *obligations* to society, Reagan and Clinton advocated for *personal responsibility* as the ultimate solution to numerous societal issues.
+Not to mention that during this period, dictators, supported by neoliberal ideology and U.S. exceptionalism, subjugated their citizens in South America.
 
 The missing component, perhaps crucial to realizing the *fever dream* of democratizing social, economic, and ecological life, was the capacity for negotiation. 
 A decentralized solution, entailing a restructuring of the communication network, seemed ideal. 
@@ -52,17 +56,22 @@ Instead, the cultish disruption centered on conferring power to the "right" peop
 But the question remained: who determines who the "right" people are?
 Ultimately, the tension between individual freedom and communal unity collapsed under the strain of external pressures and inherited power dynamics.
 
-The cultish ethos is evident in today's *Silicon Valley*. 
-Many representatives of the IT industry argue against regulation, promising a new and improved society. 
+Today, the cultish ethos is evident in *Silicon Valley*. 
+Many representatives of the IT industry argue against regulation, promising a new and improved society.
+-- calling someone a communist is, especially in the U.S., still one of the most powerful linguistic tricks of political attacks.
 Regrettably, this faith in doing good has fostered an anti-democratic mindset characterized by hubris. 
 Simultaneously, a significant portion of the fragmented *working class* venerates their corporate overlords.
 
 >Do not stifle our creativity and we will build you new gadgets.
 
-This has always been about extraordinarily talented individuals, tribes, and rebellions. 
+The cultish ethos has always been about extraordinarily talented individuals, tribes, and rebellions based on identities. 
 It has always been about inspiring tales of self-made individuals advocating for conscious change. 
-It has always been about power for individuals rather than power for the people. 
-And the concentration of power isn't necessarily enforced. People crave dominance; they seek a figurehead to do the dirty work, to obscure the harsh truths about our complex reality, to provide simplistic answers. 
+It has always been about power for individuals rather than power for the people.
+One of the most powerful depiction of this ethos is given by a CIA recruitment video called *I am Unapologetically Me*.
+An institution which destabalized and destroyed many democratic governments feels the need to brand itself as a supporter of free individual expressions.
+
+The concentration of power isn't necessarily enforced.
+People crave dominance; they seek a figurehead to do the dirty work, to obscure the harsh truths about our complex reality, to provide simplistic answers. 
 As a result, paradoxically, the politics of personal responsibility can lead to irresponsibility. 
 In a society where individuals are wholly accountable for their successes and failures, there seems to be less collective concern.
 
@@ -73,9 +82,9 @@ However, the low-paid cafeteria workers around these engineers, who earn wages c
 This reflects the old communal mindset. 
 Form an elitist group, furnish them with a shared mindset and the resources they need to live within that mindset, and you can surround them with an underclass. 
 This elitism, somewhat paradoxically, correlates with esotericism and cults, because such individuals often believe themselves to be special or in possession of exclusive knowledge. 
-This can lead to a form of fascism, the very thing these individuals should vehemently oppose.
+And fascism, or any other ideology predicated on the worship of a few actors -- the very thing these individuals should vehemently oppose -- always looms ominously in the background.
 
-Another example is the *effective altruism* movement, which seeks to maximize societal good effectively. 
+Another example of thus cultist tendency is the *effective altruism* movement, which seeks to maximize societal good effectively. 
 The concept here is to optimize the well-being of others with mathematical precision, employing statistical reasoning. 
 Instead of giving money to the beggar on the street, one should support projects with a broader impact. 
 Sounds reasonable, right? 
@@ -143,7 +152,7 @@ This method, they suggest, can enable individuals to fulfill their personal dest
 We also notice echoes of Norbert Wiener's theories of *cybernetics*. 
 Simultaneously, we observe criticisms of hierarchy reminiscent of Margaret Mead and Erich Fromm, who vehemently resisted fascism and racism. 
 They openly advocated for a sexually diverse world.
-The tech landscape continues to derive influences from an array of contradictory concepts such as elitism, humanism, cybernetics, transhumanism, posthumanism, accelerationism, egalitarianism, eugenics, longtermism (a relatively recent and disconcerting trend), and, naturally, economic, cultural, and spiritual individualism.
+The tech landscape continues to derive influences from an array of contradictory concepts such as elitism, humanism, cybernetics, transhumanism, posthumanism, accelerationism, egalitarianism, eugenics, longtermism, and, naturally, economic, cultural, and spiritual individualism.
 Technological "progress" is perceived as inevitable, and "objective reality" is often mistaken for that which is measurable or observable. 
 As a result, *death* is discriminated against, as it holds no value in a consumerist society composed of individuals.
 
@@ -256,9 +265,9 @@ In our system, the generation and guidance of desire is far more influential tha
 Advertisements carry political weight, occupying the realm of possibilities and, as Niklas Luhmann suggests, constructing a shared world about which we can converse. Despite the aesthetic being immaculate, wholesome, and filled with stylized settings and individuals, the underlying structure persists in its severity. 
 The sick, the sullied, the misaligned, and the existential dread of our *Dasein* are consistently excluded at every level.
 
-In my country, the right is currently gaining traction due to an increase in immigration and some minor regulations geared towards a better energy mix. 
+In my country, the Right is currently gaining traction due to an increase in immigration and some minor regulations geared towards a better energy mix. 
 If a minor shift leads to a right-wing drift, what will transpire when more devastating effects take hold? 
-The right can offer people, battered and affected by their *symbolic misery*, a short-term respite -- another outlet, apart from consumption, to vent their frustrations.
+The Right can offer people, battered and affected by their *symbolic misery*, a short-term respite -- another outlet, apart from consumption, to vent their frustrations.
 
 The rise of someone like Trump, the quintessential postmodern president, might reflect our desperate underlying desire to find a narrative that makes sense of our realities. 
 It suggests an urge to identify cracks in postmodernity and wield a hammer against the unseen glass. 
@@ -278,35 +287,36 @@ And since this greatness is a feature of the past, it can only signify a *white 
 While we might scoff at this logic, we must confront the truth: we are also living by a myth -- the myth of unlimited domination and exploitation of nature by technology, underpinned by an economic system predicated on endless material and productivity growth.
 
 So, is it all over? 
-Is the end already predetermined by our current situation? 
-Is it time to surrender, let it unfold, and witness the outcome? 
+Is the end already predetermined by our current situation, as *accelerists* suggest? 
+Is it time to surrender, let capitalism unfold to its final conclusion, and witness the outcome? 
 As individuals, we seem powerless. 
-Even if some power structures managed to instigate change, *systems theory* suggests that the effects on the system cannot be predicted, assuming our planet, with all its life and environments, constitutes an *open complex system*.
+And even if some power structures managed to instigate change, *systems theory* suggests that the effects on the system cannot be predicted, assuming our planet, with all its life and environments, constitutes an *open complex system*.
 We could capitulate, finding fleeting pleasure in *hedonic nihilism*, but that seems insufficient.
 
-My response echoes Nietzsche, and I fully acknowledge the looming danger within his writings and the abusive application of his paradoxical thought to fit a toxic self-help industry.
-I also recognize the tension between Nietzsche's *superman* and my critique of *elitism* and the right. 
+My response echoes Nietzsche, and I fully acknowledge the looming danger within his writings and the abusive application of his paradoxical thoughts to fit a toxic self-help industry.
+I also recognize the tension between Nietzsche's *superman* and my critique of *elitism* and the Right. 
 I am a thief, pilfering those concepts I find valuable. 
-For instance, *life affirmation* as a guiding principle, morality as a *dangerous virus*, the *body* being equally important and enjoyable (and inseparable) as the mind, the *significance of power*, and *overcoming oneself* are lessons I borrow from Nietzsche. 
-To alter our *complex system*, we must change or disrupt the flow of energy. 
-Rather than investing significant energy into moralizing (without material impact), we should seek power and use it to adjust the *flow of energy*, either by redirecting desires or by reducing the intensity of the established *desire machine*.
+For instance, *life affirmation* as a guiding principle, morality as a *dangerous virus*, the *body* being equally important and enjoyable and inseparable from the mind, the *significance of power*, and constantly *overcoming oneself* are lessons I borrow from Nietzsche. 
+To alter our *complex system*, we must change or disrupt the *flow of energy*. 
+Rather than investing significant energy into moralizing (without material impact), we should seek power and use it to adjust the *flow*, either by redirecting desires or by reducing the intensity of the established *desire machine*.
 
 >[In the speech] MLK talked about the fallacy that certain Christians misunderstood love as a seeding of power, and then Nietzsche came along and rejected Christian morality because he thought it denied someone's vitality, the will to power in a healthy sense. MLK said, 'love without power is sentimental and anemic, and power without love is abusive and corrosive'. I want the left to have [this] Machiavelli[an-side] so that we can have the strategy, ruthlessness, and clarity to actually win these battles and be ruthless with institutions. And then I want us to learn how to be really kind to each other, welcoming of a broad set, and actually have a movement that has the capacity to do that. -- Micheal Brooks
 
 There is a lot unfolding currently. 
-Numerous grassroots movements have sprouted in the past decade, each envisaging a fresh future and forging their unique values. 
+Numerous grassroots movements have sprouted in the past decade, each envisaging a fresh future and forging their unique values.
+On that topic, Western people can learn a lot from the people of South American countries.
 Importantly, they appear to have learned from past missteps, understanding the need for collective action and an inclusive environment. 
 Thus, perhaps there is potential for a reinvigorated *cyberculture*. 
 However, we must begin to reveal, critique, and leverage the production and channeling of desire more explicitly.
-We all acknowledge that advertisement is *deceptive*, but such an understanding significantly undermines its influence.
+We all acknowledge that advertisement is *deceptive*, but such an underestimation significantly undermines its influence.
 
 Mark Fisher conceived the term *Capitalist Realism* to communicate our belief that capitalism is the only feasible economic and political system. 
 As a cultural critic, he posits that this view is reflected in our popular culture, with examples found in films like Blade Runner 2049, Children of Men, The Road, Scarface, Goodfellas, The Irishman, Killing Them Softly, and in music genres such as gangster rap and hip-hop. 
 In these pop-cultural works, the protagonists fully comprehend the underlying system and conclude that it is precisely how it needs to be. 
-The key to advancement in this dystopian society, as often portrayed in rap songs, lies in this understanding.
+The key to advancement in this dystopian society, as often portrayed in rap songs, lies in this understanding -- there are no more *Star Trek-like futures* depicted in the mainstream.
 
 Furthermore, the ideas depicted in these movies are echoes from our past that continue to haunt us. 
-They embody a kind of nostalgia for the future -- our lost futures -- because we have surrendered our ability to envision a different future. 
+They embody a kind of nostalgia for the future -- our lost futures -- because we have surrendered our ability to envision a different one. 
 Flying cars, androids, and robots are visions from the 1950s - 1970s, which prompts the question: where are the fresh ideas? 
 To illustrate Fisher's point, consider the top-grossing movies of 2019: Avengers: Endgame, The Lion King, Frozen II, Toy Story 4, Captain Marvel, Star Wars: The Rise of Skywalker, Spider-Man: Far From Home, Aladdin, Joker, It: Chapter Two.
 
@@ -323,6 +333,39 @@ Our perception of reality no longer aligns with reality itself: Google versus th
 The stark disparity between the newest consumer gadget and people begging for food elicits a peculiar sensation; the absurdity is glaring. 
 Something is fundamentally askew.
 
+However, in a climate of uncertainty, populations are especially deceptive to propaganda and I deeply fear a right-wing rise in the near future.
+Let me quote some passages from the declassified document *Proposed PP Program, Stage Two* -- a manual to "remove covertly, and without bloodshed if possible, the menace of the present communist-controlled government of Guatemala [and] to install and sustain, covertly, a pro-US government".
+I think we can easily spot these old tatics in today's propaganda.
+Note that there was never a communist-controlled government in Guatemala.
+
+>[Under] Political Followers [the] General Approch [is to]:
+>
+>1. create serious worry and fear about personal economic situations
+>2. create feeling that followers' political collaboration is cause of their dire economic prospects
+>3. offer choice between collaboration and misery vs. change political attutude, and prosperity
+>4. offer choice between collaboration and punishment vs. change political attitude, forgiveness, and prosperity
+>
+>[And to the masses the general approach is] principally emotional, supersitious, non-rational propaganda.
+>[...] *mass propaganda* plays on the *sub-conscious*.
+>
+>Mass propaganda deals with principally non-political subjects, such as weather, harvests, natural phenomena, omens, customs, etc.
+>It attempts to disrupt people's sense of what is established and certain; it attempts to make the world look shadowy, unsure and foreboding.
+>It may make a sharp, direct attack; it may deal in veiled allusions; it may be **deliberately self-contradictory**; it may be outlandish.
+>Mass propaganda must be most closely geared to the moment, to the moods, habits, topics of public interest and customs prevailing at the time it is put out.
+>**Rumor** plays a major part in mass propaganda.
+
+With today's technology, widespread propaganda is not only feasible, but it can also be individualized and massively targeted. 
+As this openly accessible document demonstrates, the problem isn't a lack of information, but rather an excess of it.
+The purpose of propaganda isn't to make people believe it.
+Its aim is to foster cynicism to the point where we no longer know what to believe, leading us to the assumption that nothing is true, no facts are dependable, and the world is merely a battlefield of partisan ideologies. 
+In such a world, truth gives way to success as the value to be pursued. The focus shifts to achieving victory, regardless of the cost.
+I believe Hannah Arendt was right about this.
+
+>The aim of totalitarian education has never been to instill convictions but to destroy the capacity to form any. -- Hannah Ardendt
+
+Combating propaganda becomes challenging because an influx of information often fuels it.
+Regardless, I don't have a precise solution, only a call for awareness and, perhaps, the enlistment of our bombarded minds.
+
 Does exploitation of one another stand as the sole means of constructing and maintaining a society worth living in? 
 Is competition and fear the only path to productivity? 
 Perhaps, if we retain the hierarchical structure of our society. 
@@ -331,7 +374,7 @@ Here, I find common ground with crypto enthusiasts.
 I believe that behavior is partly a byproduct of the underlying system, in that a society steeped in suspicion necessitates competition, while a society anchored in trust fosters collaboration.
 
 In the face of impending climate, ecological, and economic disasters, it has become clear that endless material growth is not a sustainable economic strategy. 
-Although it never truly was, the illusion of its feasibility has now been shattered (by the desiring machine itself). 
+Although it never truly was, the illusion of its feasibility has now been shattered (by the desire machine itself). 
 The supposed stability of the current system is merely a fantasy, yet we continue to operate as though it is viable. 
 Much like the people of the late Soviet Union, we persist in acting as if everything is proceeding according to plan, despite the reality of ongoing climate catastrophes and the looming inevitability of more to come. 
 Viewed from this perspective, *Capitalist Realism* is not *The End of History* but an indicator of a faltering system teetering on the brink of collapse. 
@@ -342,8 +385,10 @@ In my mind, there are two potential strategies to dismantle the myth of infinite
 We need a myth of our own, not only to resist a fascist dystopia but also to broaden the scope of conceivable possibilities. 
 If the horizon holds nothing but darkness, the simple act of lighting a candle can revolutionize the world.
 
-As previously stated, various movements are already crafting vibrant visions of the future, a prospect that is truly heartening. 
-Additionally, art can serve as a platform for constructing and contributing to these emerging utopian futures towards which we can strive. 
+As previously stated, various unrecognized movements are already crafting vibrant visions of the future, a prospect that is truly heartening. 
+Additionally, art can serve as a platform for constructing and contributing to these emerging utopian futures towards which we can strive.
+It can also reveal truths buried under information (and meaning).
+(Of course, art can also be an ally of the devil.)
 In particular, musical performances can ignite the *Dionysian* flame, a counterforce to a calculating *Apollonian* worldview.
 
 >Music, if regarded as an expression of the world, is in the highest degree a universal language that is even related to the universality of concepts much as those are related to particular things. Yet its universality is by no means that empty universality of abstraction. -- Schopenhauer
@@ -393,7 +438,7 @@ In this context, I draw from Hegel, despite my skepticism towards a history prog
 I doubt that acting in opposition to the prevailing myth will dismantle it because in doing so, we engage in a *dialectic* that perfectly integrates any resistance. 
 I believe, although without justification, that the solution resides in *creation* and *affirmation*, not in criticism devoid of creation but in the *act of creating to critique*. 
 This hope springs from my inability to predict what the future holds -- uncertainty induces discomfort yet simultaneously fosters hope.
-This time, however, the undertaking needs to be nuanced, one that celebrates diversity.
+This time, however, the undertaking needs to be nuanced, one that celebrates diversity and comradery to every being in need.
 
 *Failing tragical* seems to me much more appealing than being *comfortable numb*.
 I think it is essential to accept ones own demise.
