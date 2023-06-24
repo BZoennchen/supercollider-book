@@ -35,29 +35,30 @@ Using drugs aimlessly is akin to having an escape kit without an instruction man
 
 In his final remarks, Mark Fisher asserts that reliance on ecstasy will inevitably lead to failure, as the human operating system has not been fully dismantled.
 
-Ultimately, this division was harmful because, within a communal system predicated on shared consciousness, charismatic individuals tend to take the lead, and cultural norms start to play out. 
-Distributing resources requires negotiation, which necessitates bureaucracy. 
-The undemocratic impulse to liberate oneself from bureaucracy always looms as an attractive prospect for those intent on realizing their vision of a "good" society.
-As a result, the collective drive lost its momentum, and a sense of disillusionment spread among artists. 
-Instead of attempting to alter existing power structures and material realities, they shifted their focus to critiquing the status quo through personal expressions.
+Ultimately, this division proved detrimental. Within a communal system founded on shared consciousness, charismatic individuals often take the lead and cultural norms begin to assert themselves.
+Additionally, from a materialistic perspective, ideas don't alter material realities, rather material realities give birth to ideas.
+Reality takes precedence, our narratives about it follow.
+Importantly, the distribution of resources calls for negotiation, which in turn necessitates bureaucracy.
+The undemocratic impulse to free oneself from bureaucracy continually presents an alluring prospect to those committed to realizing their ideal version of a "good" society.
+Consequently, the collective drive lost steam, leading to widespread disillusionment among artists. Rather than seeking to change existing power structures and material realities, they redirected their efforts toward critiquing the status quo through personal expressions -- as liberal vehicle.
 
 Fisher wrote in an essay (2013) about this failure:
 
 >The Sixties counterculture might now have been reduced to a series of 'iconic' -- overfamiliar, endlessly circulated, dehistoricized -- aesthetic relics, stripped of political content, but Willis’s work stands as a painful reminder of leftist failure. As Willis makes clear in her introduction to [her 1981 book] *Beginning to See the Light*, she frequently found herself at odds with what she experienced as the authoritarianism and statism of mainstream socialism. While the music she listened to spoke of freedom, socialism seemed to be about centralization and state control. The story of how the counterculture was co-opted by the neoliberal Right is now a familiar one, but the other side of this narrative is the Left’s incapacity to transform itself in the face of the new forms of *desire* to which the counterculture gave voice. -- Mark Fisher
 
 One could argue that the communalist movement triggered a shift away from traditional politics. 
-It redirected the attention to the self -- an existential move -- as the foundation of political change, aligning closely with the rising tide of neoliberal ideology and the Left had no answer to that.
+It redirected the attention to the self -- an existential move -- as the foundation of political change, aligning closely with the rising tide of neoliberal ideology, i.e. the liberation of the market from the state, and the Left had no answer to that.
 Whereas JFK once spoke of *obligations* to society, Reagan and Clinton advocated for *personal responsibility* as the ultimate solution to numerous societal issues.
-Not to mention that during this period, dictators, supported by neoliberal ideology and U.S. exceptionalism, subjugated their citizens in South America.
+Not to mention that during this period, dictators, supported by neoliberal ideology and U.S. exceptionalism, subjugated their citizens in South America to "free" the market at the cost of material realities of the normal citizen.
 
-The missing component, perhaps crucial to realizing the *fever dream* of democratizing social, economic, and ecological life, was the capacity for negotiation. 
+The missing component, perhaps crucial to realizing the *fever dream* of democratizing social, economic, and ecological life, was the capacity for negotiation.
 A decentralized solution, entailing a restructuring of the communication network, seemed ideal. 
 Instead, the cultish disruption centered on conferring power to the "right" people. 
 But the question remained: who determines who the "right" people are?
 Ultimately, the tension between individual freedom and communal unity collapsed under the strain of external pressures and inherited power dynamics.
 
 Today, the cultish ethos is evident in *Silicon Valley*. 
-Many representatives of the IT industry argue against regulation, promising a new and improved society.
+Many representatives of the IT industry argue against regulation, promising a new and improved society
 -- calling someone a communist is, especially in the U.S., still one of the most powerful linguistic tricks of political attacks.
 Regrettably, this faith in doing good has fostered an anti-democratic mindset characterized by hubris. 
 Simultaneously, a significant portion of the fragmented *working class* venerates their corporate overlords.
@@ -187,10 +188,13 @@ He notes in *Symbolic Misery*:
 
 >The question of "culture", as it is formulated in its essence by art, is now more than ever at the heart of the economy, of industry, and of politics: the *sensible* community is today entirely fabricated by the *technologies* of what *Deleuze* called *control societies*; and it is essentially on this front that the international economic struggle is taking place. -- Bernard Stiegler
  
-The mystical aspect of a worker's life no longer finds a place in a *control society*. 
+The mystical aspect of a worker's life no longer finds a place in a *control society*.
 They have the illusion of choice, but only among a set of remarkably similar possibilities.
-No radical options are in sight. 
-The scope of what is considered reasonable has been severely constricted. We've become self-regulating and self-controlling; many of us are left feeling hollow, tormented by the specter of lost futures, and occasionally consumed by nostalgia, while *Rage Against the Machine* seems now unimaginable.
+No radical options are in sight.
+Furthermore, it is getting harder and harder to meet the general life expectancy that was planned for them.
+Finding a stable partner, buying a home, building a family, the rat race expected from them becomes less and less possible.
+The scope of what is considered reasonable has been severely constricted.
+In addition, we've become self-regulating and self-controlling; many of us are left feeling hollow, tormented by the specter of lost futures, and occasionally consumed by nostalgia, while *Rage Against the Machine* seems now unimaginable.
 
 One institution where this erosion of diverse and critical thought can be observed is the university, especially in Europe. 
 The Bologna process has standardized and commodified the education system. 
@@ -306,7 +310,7 @@ There is a lot unfolding currently.
 Numerous grassroots movements have sprouted in the past decade, each envisaging a fresh future and forging their unique values.
 On that topic, Western people can learn a lot from the people of South American countries.
 Importantly, they appear to have learned from past missteps, understanding the need for collective action and an inclusive environment. 
-Thus, perhaps there is potential for a reinvigorated *cyberculture*. 
+Thus, perhaps there is potential for a reinvigorated *cyberculture*.
 However, we must begin to reveal, critique, and leverage the production and channeling of desire more explicitly.
 We all acknowledge that advertisement is *deceptive*, but such an underestimation significantly undermines its influence.
 
@@ -384,6 +388,8 @@ The notion that we can consume our way out of disaster is sheer lunacy.
 In my mind, there are two potential strategies to dismantle the myth of infinite growth: a *second Enlightenment*, which seems highly improbable, and the crafting of a more compelling myth -- that is, the *re-direction of desire*. 
 We need a myth of our own, not only to resist a fascist dystopia but also to broaden the scope of conceivable possibilities. 
 If the horizon holds nothing but darkness, the simple act of lighting a candle can revolutionize the world.
+But upon further reflection, I again realize that ideas alone can't alter material realities.
+Perhaps the best we can do is prepare for these inevitable changes.
 
 As previously stated, various unrecognized movements are already crafting vibrant visions of the future, a prospect that is truly heartening. 
 Additionally, art can serve as a platform for constructing and contributing to these emerging utopian futures towards which we can strive.
@@ -435,11 +441,33 @@ In this context, I draw from Hegel, despite my skepticism towards a history prog
 
 >Contradiction is at the root of all movement and life and is only in so far as it contains contradiction that anything moves and has impulse and activity. -- Hegel
 
-I doubt that acting in opposition to the prevailing myth will dismantle it because in doing so, we engage in a *dialectic* that perfectly integrates any resistance. 
-I believe, although without justification, that the solution resides in *creation* and *affirmation*, not in criticism devoid of creation but in the *act of creating to critique*. 
-This hope springs from my inability to predict what the future holds -- uncertainty induces discomfort yet simultaneously fosters hope.
-This time, however, the undertaking needs to be nuanced, one that celebrates diversity and comradery to every being in need.
+I doubt that acting in opposition to the prevailing myth will dismantle it because in doing so, we engage in a *dialectic* that perfectly integrates any resistance.
+I believe, although without justification, that the solution resides in *creation* and *affirmation*, not in criticism devoid of creation but in the *act of creating to critique*.
 
-*Failing tragical* seems to me much more appealing than being *comfortable numb*.
-I think it is essential to accept ones own demise.
-To come to peace with our own finitude, not to flee reality but instead to be in it, more than ever, and to take on that fight -- to bring dignity, kindness, and love into a *dying world*.
+But wait a moment! 
+Is this a call to action? 
+Every corner of the world seems to be shouting that we must act, that we must hustle, be productive, creative, and so on. 
+Often, I feel overwhelmed by anxiety because of this.
+This anxiety arises from not knowing what's expected of me (Lacan).
+Today we have to be *Everything Everywhere All at Once*. 
+I believe many young people experience this sensation.
+It feels like a pressing social demand to accomplish something, to become someone, to forge a path, to start a family, but without clear instructions on how to fulfill these expectations. 
+This demand can feel like a weight, a burden, a constant pestering that one doesn't know how to respond to.
+But we remain in this *rat race* due to the absence of an alternative vision. 
+The fantasy persists.
+We are told to be more entrepreneurial, to take risks, to travel around the world, to plunge into debt to buy that house.
+We are advised to venture out, find ourselves by purchasing a book, attending a seminar, enrolling in a course, and once we somehow discover "us", we can finally quell that nagging anxiety.
+But there is no such fantastic authentic "us" as we learned to imagine it.
+
+So perhaps, since we are constantly being asked to act, to do, to run, to hurry, to produce, we might want to pause before we once again dive into productivity.
+Maybe what we need is to take a step back, to think, reflect, and question the overarching narratives that have been sold to us as truths, as hegemonic and natural.
+We could consider embracing a form of postmodernism that removes certainty from the knowledge that the prescribed lifestyle is the one we are destined and obligated to fulfill.
+
+>There is no such thing as a script to stick to; no single functional model of relationships; no single dignified or fulfilling lifestyle that is achieved through consumption, affluence or material goods.
+>Rather what human beings can do in the world is enriched by the diversity of their performance in the world by art, by poetry, by love, by a sense of collectivity and a sense of building a shared future. 
+>Perhaps doing nothing at this moment is the most revolutionary act. -- Diego Ruzzarian
+
+In the face of the inevitability of death, *failing tragically* seems to me much more appealing than being *comfortably numb*. 
+I believe it's essential to accept one's own mortality.
+It forces us to stop and to reflect on our desires; on what we *care* about.
+To reconcile with our finite existence, not to evade reality but rather to engage in it more than ever, and to take up that struggle -- to infuse dignity, kindness, and love into a *dying world*.

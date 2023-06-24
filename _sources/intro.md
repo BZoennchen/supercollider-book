@@ -153,6 +153,8 @@ In the following, I list all the material I looked into:
 8. [Introduction to SuperCollider](https://www.logos-verlag.de/cgi-bin/engbuchmid?isbn=4017&lng=eng&id=) by Andrea Valle {cite}`valle:2016`
 9. [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5) by Meinard Müller {cite}`mueller:2015`
 10. [Musimathics](http://www.musimathics.com/) volume 1 & 2 by Gareth Loy {cite}`loy:2006`, {cite}`loy:2007`
+11. [Algorithmic Composition: A Gentle Introduction to Music Composition Using Common LISP and Common Music](https://quod.lib.umich.edu/s/spobooks/bbv9810.0001.001) by Mary Simoni {cite}`simoni:2003`
+12. [Algorithmic Composition: Paradigms of Automated Music Generation](https://link.springer.com/book/10.1007/978-3-211-75540-2) by Gerhard Nierhaus {cite}`nierhaus:2010`
 
 ## Citing this book
 
