@@ -27,32 +27,29 @@ sns.set_style("whitegrid")
 # (sec-complex-numbers)=
 # # Complex Numbers
 # 
-# The history of mathematics is a history of discoveries and inventions.
-# The Greeks were fascinated by geometry.
-# They introduced natural as well as rational numbers but interestingely, left out negative numbers as well as the number zero.
-# Their experience of the world, their perspective on points, lines and shapes, i.e. the classical Euclidean geometry, kept negative values hidden.
-# Negative length or areas were unheared-of.
-# They even seem to know that there might be another kind of number that is not rational but irrational.
-# One story suggests that a student of Pythagoras discovered that there has to be something other than rational number if the known theory of mathematics was correct.
-# He paid with his life. 
+# The history of mathematics is a rich tapestry of discoveries and inventions. 
+# The Greeks, fascinated by geometry, introduced both natural and rational numbers but, intriguingly, neglected to incorporate negative numbers or zero.
+# Their experiences and understanding of the world, their perspectives on points, lines, and shapes -- grounded in classical Euclidean geometry -- kept these concepts hidden. Negative lengths or areas were unheard of.
+# They also seemed aware that there might be another category of number -- the irrational numbers -- beyond the rational.
+# Legend has it that a student of Pythagoras stumbled upon this notion, asserting that something other than rational numbers must exist for the existing mathematical theories to hold true. His audacity cost him his life.
 # 
-# The world evolved and with the idea of credit and debts and the first advanced financial system, came the idea of negative numbers.
-# After all, there has to be a balance between debt and credit;
-# Therefore, there has to be the inverse of a positive number with respect to addition.
+# As the world evolved, so did mathematical concepts.
+# The advent of sophisticated financial systems, underscored by the principles of credit and debt, gave birth to the concept of negative numbers.
+# After all, the balance between debt and credit necessitated the existence of a counterpart to a positive number in terms of addition.
 # 
-# To summaraize, to solve $2x = 4$ we rely on natural numbers.
-# We need negative numbers to solve $2x+4$, rational numbers for $4x = 2$ and real numbers for $x^2 = 2$.
-# So, how do we solve 
+# "In summary, we rely on natural numbers to solve equations like $2x = 4$.
+# We require negative numbers for equations like $2x = -4$, rational numbers for equations such as $4x = 2$, and real numbers to tackle equations like $x^2 = 2$.
+# So, how do we approach the solution for
 # 
 # ```{math}
 # :label: eq:complex:ex1
 # x^2 + 2 = 0?
 # ```
 # 
-# Well, we need [*complex numbers*](def-complex-number).
-# They extend real numbers by defintion but their definition is not arbitrary.
-# Instead, it was carefully craftet such that complex numbers have all necessery properties to be integrated in all known and accepted theories.
-# To define complex numbers, we introduce a special symbol $i$ (some use $j$ instead) which is defined by
+# We require [*complex numbers*](def-complex-number).
+# These numbers extend real numbers by definition, but their definition is not arbitrary.
+# Instead, it has been meticulously crafted so that complex numbers possess all necessary properties to be integrated into all known and accepted theories.
+# To define complex numbers, we introduce a special symbol $i$ (some prefer to use $j$), which is defined as follows:
 # 
 # ```{math}
 # :label: eq:complex:i
@@ -73,8 +70,8 @@ sns.set_style("whitegrid")
 # x = sqrt(n)                    // i*sqrt(2)
 # ```
 # 
-# To make complex numbers useful they have to work with real numbers.
-# For example, what exactly represents the term $i + 3$, where $i$ is a complex number and $3$ a real number?
+# For complex numbers to be useful, they must be compatible with real numbers. 
+# For instance, what does the expression $i + 3$ represent, where $i$ is a complex number and $3$ is a real number?
 # 
 # ```{admonition} Complex Numbers 
 # :name: def-complex-number
@@ -130,7 +127,7 @@ sns.set_style("whitegrid")
 # (sec-complex-plane)=
 # ## Complex Plane
 # 
-# We can represent a complex number $z = a + bi$ by a point $(a, b)$ in the *Cartesian plane* which we then call *complex plane* or $z$*-plane*.
+# We can represent a complex number $z = a + bi$ by a point $(a, b)$ in the *Cartesian plane*, which we then call *complex plane* or $z$*-plane*.
 
 # In[2]:
 
@@ -218,6 +215,7 @@ ax.grid(True);
 # 
 # What happens geometrically if we multiply two complex numbers?
 # If one of the numbers is a real number, we just scale the magnitude.
+# 
 # Let $z_1 = r_1 \cdot (\cos(\alpha) + i \sin(\alpha))$ and $z_2 = r_2 \cdot (\cos(\beta) + i \sin(\beta))$ then
 # 
 # ```{math}
@@ -252,6 +250,7 @@ ax.grid(True);
 # ```
 # 
 # Since $i = 1 \cdot (a \cos(90) + i\sin(90))$ holds, multiplying by $i$ equates to a counterclock rotation by 90 degrees.
+# 
 # Since $-i = 1 \cdot (a \cos(90) - i\sin(90)) = 1 \cdot (a \cos(90) + i\sin(-90))$, dividing by $i$ equates to multiplying by $-i$ thus
 # 
 # $$\frac{1}{i} = -i$$
@@ -297,10 +296,16 @@ ax.grid(True);
 # 
 # ```
 # 
-# One often approximates a function by using only the first $n$ terms of Tayler's serie.
-# What we need is the Taylor series for the sine, cosine and the natural exponential function.
-# We know that $\sin'(t) = \cos(t)$ and $\cos'(t) = - \sin(t)$.
-# Furthermore, $\sin(0) = 0$ and $\cos(0) = 1$.
+# One often approximates a function using only the initial terms of Taylor's series.
+# What we require are the Taylor series for sine, cosine, and the natural exponential functions.
+# We know that 
+# 
+# $$\sin'(t) = \cos(t) \text{ and } \cos'(t) = - \sin(t).$$
+# 
+# Furthermore, 
+# 
+# $$\sin(0) = 0 \text{ and } \cos(0) = 1.$$
+# 
 # Therefore, we get
 # 
 # ```{math}
@@ -343,7 +348,7 @@ ax.grid(True);
 # *Taylor series* that approximates $\cos(x)$ at $x=0$ using $1, 2, 3, 4, 5$ terms.
 # ```
 # 
-# Furthermore, the natural exponential function has a quite nice form too
+# Furthermore, the natural exponential function has a quite nice form too, that is,
 # 
 # ```{math}
 # :label: eq:taylor:euler
@@ -377,12 +382,12 @@ ax.grid(True);
 # \end{split}
 # ```
 # 
-# We arrive at *Euler's formula* which links the hyperbolic functions involving $e$ to trigonomeitric functions involving $\pi$!
+# We arrive at *Euler's formula* which links the hyperbolic functions, involving $e$, to trigonomeitric functions, involving $\pi$!
 # 
 # ````{admonition} Euler's Formula
 # :name: theorem-euler-formula
 # :class: theorem
-# Let $i \phi$ be an imaginary number then
+# Let $i \phi$ be an imaginary number, then
 # 
 # ```{math}
 # :label: eq:euler
@@ -399,7 +404,7 @@ ax.grid(True);
 # 
 # We can immidiatly follow that
 # 
-# $$e^{i\pi} = \cos(\pi) + i \sin(\pi) = -1 + i0 = -1$$
+# $$e^{i\pi} = \cos(\pi) + i \sin(\pi) = -1 + i0 = -1.$$
 # 
 # ```isc
 # exp(Complex(0, pi)) + 1 < 0.00001  // true
@@ -423,7 +428,7 @@ ax.grid(True);
 # 
 # $$z = e^{i\omega} \Rightarrow |z^k| = 1.$$
 # 
-# I illustrate this fact by using $z = e^{i \frac{2\pi}{N}}$, i.e. $\omega = \frac{2\pi}{N}$ and the following plot where the plotted points are defined by
+# I illustrate this fact by using $z = e^{i \frac{2\pi}{N}}$, i.e. $\omega = \frac{2\pi}{N}$ and the following plot, where the plotted points are defined by
 # 
 # $$z^k = e^{i \frac{2\pi}{N} k} \quad \text{ for } k = 0,1,2 \ldots, N-1 \text{ with } N=19.$$
 # 
@@ -465,8 +470,9 @@ ax.grid(True);
 # 
 # $$g(N+1) = \left( e^{i \frac{2\pi}{N}} \right)^{N+1} = e^{i \frac{2\pi (N+1)}{N}} = e^{i 2\pi} \cdot e^{i \frac{2\pi}{N}} = e^{i 0} \cdot e^{i \frac{2\pi}{N}} = 1 \cdot e^{i \frac{2\pi}{N}} = z = g(1).$$
 # 
-# If $|z|$ would be greater than 1, then $z^k$ would grow to infinity and if $|z| < 1$ it would converge to $0$. 
-# Using Eq. {eq}`eq:euler` we can represent our well-known trigonometric functions by exponential functions.
+# If $|z|$ would be greater than 1, then $z^k$ would grow to infinity and if $|z| < 1$, it would converge to $0$.
+# 
+# Using Eq. {eq}`eq:euler`, we can represent our well-known trigonometric functions by exponential functions.
 # We start with
 # 
 # $$(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\phi} + e^{-i\phi}.$$
@@ -541,13 +547,13 @@ ax.grid(True);
 # The phasor is the first red point, i.e. $y(0)$.
 # ```
 # 
-# Remember, we can represent any audio signals by a sum of sinusoid.
-# Since each phasor is also a vector, a sinusoid consisting of multiple frequencies can be represented by a sum of *phasors*.
+# Remember, we can represent any audio signal as a sum of sinusoids. 
+# Since each phasor is also a vector, a sinusoid comprising multiple frequencies can be represented as a sum of *phasors*.
 # 
 # ```{figure} ../../../figs/sounddesign/math/phasor_complex_function.jpeg
 # ---
 # width: 500px
 # name: fig-phasor-complex-function
 # ---
-# A complex sinusoid $y(t)$ defined by 3 **phasors** and 3 differen **frequencies**.
+# A complex sinusoid $y(t)$ defined by 3 phasors and 3 differen frequencies.
 # ```

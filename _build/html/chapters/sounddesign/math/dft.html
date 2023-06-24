@@ -872,6 +872,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-time-fourier-transform">
+   Short-Time Fourier Transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fft-in-supercollider">
    FFT in SuperCollider
   </a>
@@ -925,6 +930,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fast-fourier-transform">
    Fast Fourier Transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-time-fourier-transform">
+   Short-Time Fourier Transform
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1145,19 +1155,82 @@ This helps to reduce the impact, but there is no free lunch because any alternat
 </section>
 <section id="fast-fourier-transform">
 <h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h2>
-<p>TODO</p>
+<p>The <em>fast Fourier rransform (FFT)</em> is an algorithm that computes the <em>discrete Fourier transform (DFT)</em> of a sequence, or its inverse.
+Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa.</p>
+<p>The FFT is an efficient way to compute the DFT.
+It is a <em>divide-and-conquer algorithm</em> that recursively breaks down a DFT of any composite size (a power of 2) into many smaller DFTs.
+This significantly reduces the computational complexity from quadratic <span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span> to almost linear <span class="math notranslate nohighlight">\(\mathcal{O}(n \log(n))\)</span>, which makes it much faster for large sequences.</p>
+<p>Let me give you a simplified version of how the <em>Cooley-Tukey radix-2 decimation in time (DIT) FFT</em> <span id="id1">[<a class="reference internal" href="../../misc/bibliography.html#id16" title="James W. Cooley and John W. Tukey. An algorithm for the machine calculation of complex fourier series. Mathematics of Computation, 19:297-301, 1965.">CT65</a>]</span> works.
+It is one of the most commonly used FFT algorithms.</p>
+<p>The algorithm first divides the discrete input signal into two parts: one for even-indexed points and one for odd-indexed points.
+It computes the DFTs of these two parts recursively.
+Because the index difference for the odd and even parts is twice as big, half as many points are needed for each DFT, which reduces the computation.
+The results of the two smaller DFTs are combined into the DFT of the whole signal using a formula called the <em>butterfly operation</em>.
+The process is repeated until all DFTs are computed.</p>
+<p>For more details I refer to the original publication.</p>
+</section>
+<section id="short-time-fourier-transform">
+<h2>Short-Time Fourier Transform<a class="headerlink" href="#short-time-fourier-transform" title="Permalink to this headline">#</a></h2>
+<p>The Fourier transform yields frequency information that is averaged over the entire time domain.
+Therefore, the information <em>when</em> these frequencies occur is hidden in the transform.
+For instance, if we have the following signal, and we take the transform, there is no way to tell that the signal’s frequency changed at a certain point in time (here it would be after 1 second).</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/dft_17_0.png" src="../../../_images/dft_17_0.png" />
+</div>
+</div>
+<p>To recover the hidden time information, Dennis Gabor introduced in 1946, the short-time Fourier transform (STFT).
+Instead of considering the entire signal, the main idea of the STFT is to consider only a small section of the signal.
+To this end, one fixes a so-called <em>window function</em>, which is a function that is nonzero for only a short period of time (defining the considered section).
+The original signal is then multiplied with that <em>window function</em> to get a <em>windowed signal</em>.
+Then we take the Fourier transform of that windowed signal!</p>
+<p>To obtain frequency information at different time instances, one shifts the <em>window function</em> across time and computes a Fourier transform for each of the resulting <em>windowed singals</em>.</p>
+<p>Similar to the measurement processes in quantum physics, there’s an important and rather conspicuous trade-off: it is impossible to measure all frequencies at all times. If we aim for precise timing, we must choose a small <code class="docutils literal notranslate"><span class="pre">windowsize</span></code>, consequently losing precision in the measured frequencies, meaning we lose low-frequency information.
+Conversely, if the <code class="docutils literal notranslate"><span class="pre">windowsize</span></code> is large, we sacrifice precision in time.</p>
+<p>Often one defines a so called <em>hop distance</em> or <code class="docutils literal notranslate"><span class="pre">hop</span></code> which indicates how far two consecutive windows are apart.
+Usually windows overlap.</p>
+<p>Furthermore, one can use different <em>window functions</em> (<code class="docutils literal notranslate"><span class="pre">wintype</span></code>).
+SuperCollider supports <strong>rectangular</strong> <code class="docutils literal notranslate"><span class="pre">-1</span></code> windowing (simple but typically not recommended), <strong>sine</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code> (default) windowing (typically recommended for phase-vocoder work), or <strong>Hann</strong> windowing <code class="docutils literal notranslate"><span class="pre">1</span></code> (typically recommended for analysis work).
+The <strong>Hann</strong> window looks like a <em>Gaussian bell</em>.
+Compared to the <strong>sine</strong> window, it has an exponential increase and decay, i.e., looks slimmer.</p>
 </section>
 <section id="fft-in-supercollider">
 <h2>FFT in SuperCollider<a class="headerlink" href="#fft-in-supercollider" title="Permalink to this headline">#</a></h2>
-<p>TODO</p>
-<p>To compute the DFT and IDFT in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> we use the FFT and IFFT, respectively.
-For that purpose, SC offers us a <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generator, respectively.</p>
+<p>To compute the DFT and IDFT using the FFT algorithm in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a>, we use the unit generators <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a>, respectively.
+And because the fast Fourier transform algorithm is so efficient, we can do it in real time!
+Therefore, we “work” in frequency space by</p>
+<ol class="simple">
+<li><p>Transforming the signal into the frequency space using the <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> unit generator</p></li>
+<li><p>Manipulating the coefficients as we desire</p></li>
+<li><p>Transforming the signal back to the time domain using the <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generator</p></li>
+</ol>
+<div class="attention admonition" id="attention-fft-ifft-sc">
+<p class="admonition-title">FFT and IFFT Buffers</p>
+<p><a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> unit generators require a buffer to store the frequency-domain data.
+This buffer must have exactly <strong>one</strong> channel.
+Multichannel buffers are never supported.</p>
+<p>To do <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> processing on a multichannel signal, provide an array of mono buffers, one for each channel.
+Then, <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a>/<a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a> will perform <a class="reference internal" href="../../supercollider/synths/1-ugens.html#sec-mce"><span class="std std-ref">multichannel expansion</span></a>, to process each channel separately.</p>
+</div>
+<p>The following example has no effect on the input ‘in’ since we merely transform the signal and then promptly revert it.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">in</span><span class="p">,</span> <span class="nx">chain</span><span class="p">,</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">in</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">)</span>
-    <span class="nx">chain</span> <span class="o">=</span> <span class="nc">FFT</span><span class="p">(</span><span class="nc">LocalBuf</span><span class="p">(</span><span class="mi">2048</span><span class="p">),</span> <span class="nx">in</span><span class="p">);</span>
-    <span class="nc">IFFT</span><span class="p">(</span><span class="nx">chain</span><span class="p">)</span> <span class="c1">// inverse FFT</span>
+    <span class="kd">var</span> <span class="nx">in</span><span class="p">,</span> <span class="nx">out</span><span class="p">,</span> <span class="nx">chain</span><span class="p">,</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">in</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">);</span>
+
+    <span class="nx">chain</span> <span class="o">=</span> <span class="nc">FFT</span><span class="p">(</span>
+        <span class="na">buffer:</span> <span class="nc">LocalBuf</span><span class="p">(</span><span class="mi">2048</span><span class="p">),</span> 
+        <span class="na">in:</span> <span class="nx">in</span><span class="p">,</span> 
+        <span class="na">hop:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="c1">// offset of te next FFT, rnages from &gt; 0 to &lt;= 1.</span>
+        <span class="na">wintype:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">// -1 triangle, 0 sine, 1 Hann</span>
+        <span class="na">active:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// 1 active, &lt;= 0 inactive</span>
+        <span class="na">winsize:</span> <span class="mi">0</span> <span class="c1">// 0 =&gt; equal to the buffer</span>
+    <span class="p">);</span> 	
+
+    <span class="c1">// here we could manipulate the coefficients</span>
+    <span class="nx">chain</span><span class="p">.</span><span class="nx">inspect</span><span class="p">;</span> 
+    <span class="nx">out</span> <span class="o">=</span> <span class="nc">IFFT</span><span class="p">(</span><span class="nx">chain</span><span class="p">);</span> <span class="c1">// inverse FFT</span>
+    <span class="nx">out</span><span class="p">;</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
 </pre></div>

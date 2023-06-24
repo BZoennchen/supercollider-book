@@ -400,24 +400,105 @@ ax[1].set_ylabel(r'$\theta$ (radian)');
 # 
 # ## Fast Fourier Transform
 # 
-# TODO
+# The *fast Fourier rransform (FFT)* is an algorithm that computes the *discrete Fourier transform (DFT)* of a sequence, or its inverse. 
+# Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa.
+# 
+# The FFT is an efficient way to compute the DFT. 
+# It is a *divide-and-conquer algorithm* that recursively breaks down a DFT of any composite size (a power of 2) into many smaller DFTs.
+# This significantly reduces the computational complexity from quadratic $\mathcal{O}(n^2)$ to almost linear $\mathcal{O}(n \log(n))$, which makes it much faster for large sequences.
+# 
+# Let me give you a simplified version of how the *Cooley-Tukey radix-2 decimation in time (DIT) FFT* {cite}`cooley:1965` works.
+# It is one of the most commonly used FFT algorithms.
+# 
+# The algorithm first divides the discrete input signal into two parts: one for even-indexed points and one for odd-indexed points.
+# It computes the DFTs of these two parts recursively.
+# Because the index difference for the odd and even parts is twice as big, half as many points are needed for each DFT, which reduces the computation.
+# The results of the two smaller DFTs are combined into the DFT of the whole signal using a formula called the *butterfly operation*.
+# The process is repeated until all DFTs are computed.
+# 
+# For more details I refer to the original publication.
+# 
+# ## Short-Time Fourier Transform
+# 
+# The Fourier transform yields frequency information that is averaged over the entire time domain.
+# Therefore, the information *when* these frequencies occur is hidden in the transform.
+# For instance, if we have the following signal, and we take the transform, there is no way to tell that the signal's frequency changed at a certain point in time (here it would be after 1 second).
+
+# In[10]:
+
+
+t1=np.linspace(0,1,1000)
+t2=np.linspace(1,2,1000)
+y1=np.sin(2*np.pi*t1)
+y2=np.sin(10*2*np.pi*t2)
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(np.concatenate((t1,t2)),np.concatenate((y1,y2)));
+
+
+# To recover the hidden time information, Dennis Gabor introduced in 1946, the short-time Fourier transform (STFT).
+# Instead of considering the entire signal, the main idea of the STFT is to consider only a small section of the signal.
+# To this end, one fixes a so-called *window function*, which is a function that is nonzero for only a short period of time (defining the considered section).
+# The original signal is then multiplied with that *window function* to get a *windowed signal*.
+# Then we take the Fourier transform of that windowed signal!
+# 
+# To obtain frequency information at different time instances, one shifts the *window function* across time and computes a Fourier transform for each of the resulting *windowed singals*.
+# 
+# Similar to the measurement processes in quantum physics, there's an important and rather conspicuous trade-off: it is impossible to measure all frequencies at all times. If we aim for precise timing, we must choose a small ``windowsize``, consequently losing precision in the measured frequencies, meaning we lose low-frequency information. 
+# Conversely, if the ``windowsize`` is large, we sacrifice precision in time.
+# 
+# Often one defines a so called *hop distance* or ``hop`` which indicates how far two consecutive windows are apart.
+# Usually windows overlap.
+# 
+# Furthermore, one can use different *window functions* (``wintype``).
+# SuperCollider supports **rectangular** ``-1`` windowing (simple but typically not recommended), **sine** ``0`` (default) windowing (typically recommended for phase-vocoder work), or **Hann** windowing ``1`` (typically recommended for analysis work).
+# The **Hann** window looks like a *Gaussian bell*.
+# Compared to the **sine** window, it has an exponential increase and decay, i.e., looks slimmer.
+# 
 # 
 # ## FFT in SuperCollider
 # 
-# TODO
+# To compute the DFT and IDFT using the FFT algorithm in [SuperCollider (SC)](https://supercollider.github.io/), we use the unit generators [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html), respectively.
+# And because the fast Fourier transform algorithm is so efficient, we can do it in real time!
+# Therefore, we "work" in frequency space by
 # 
-# To compute the DFT and IDFT in [SuperCollider (SC)](https://supercollider.github.io/) we use the FFT and IFFT, respectively.
-# For that purpose, SC offers us a [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generator, respectively.
+# 1. Transforming the signal into the frequency space using the [FFT](https://doc.sccode.org/Classes/FFT.html) unit generator
+# 2. Manipulating the coefficients as we desire
+# 3. Transforming the signal back to the time domain using the [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generator
+# 
+# ````{admonition} FFT and IFFT Buffers
+# :name: attention-fft-ifft-sc
+# :class: attention
+# 
+# [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generators require a buffer to store the frequency-domain data. 
+# This buffer must have exactly **one** channel. 
+# Multichannel buffers are never supported.
+# 
+# To do [FFT](https://doc.sccode.org/Classes/FFT.html) processing on a multichannel signal, provide an array of mono buffers, one for each channel. 
+# Then, [FFT](https://doc.sccode.org/Classes/FFT.html)/[IFFT](https://doc.sccode.org/Classes/IFFT.html) will perform [multichannel expansion](sec-mce), to process each channel separately.
+# ````
+# 
+# The following example has no effect on the input 'in' since we merely transform the signal and then promptly revert it.
 # 
 # ```isc
-# 
 # (
 # {
-#     var in, chain, freq = 200;
-#     in = SinOsc.ar(freq)
-#     chain = FFT(LocalBuf(2048), in);
-#     IFFT(chain) // inverse FFT
+#     var in, out, chain, freq = 200;
+#     in = SinOsc.ar(freq);
+# 
+#     chain = FFT(
+#         buffer: LocalBuf(2048), 
+#         in: in, 
+#         hop: 0.5, // offset of te next FFT, rnages from > 0 to <= 1.
+#         wintype: 0, // -1 triangle, 0 sine, 1 Hann
+#         active: 1, // 1 active, <= 0 inactive
+#         winsize: 0 // 0 => equal to the buffer
+#     ); 	
+# 
+#     // here we could manipulate the coefficients
+#     chain.inspect; 
+#     out = IFFT(chain); // inverse FFT
+#     out;
 # }.play;
 # )
-# 
 # ```

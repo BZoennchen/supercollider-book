@@ -56,15 +56,15 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 On a computer we are dealing with digital signals, that is, discrete signals.
 Sampling is the technique to transform a continious function 
 
-$$$y: \mathbb{R} \rightarrow \mathbb{C}$$$
+$$y: \mathbb{R} \rightarrow \mathbb{C}$$
 
 into a discrete representation 
 
-$$y_N: \mathbb{Z} \rightarrow \mathbb{C}$$.
+$$y_{N}: \mathbb{Z} \rightarrow \mathbb{C}.$$
 
 ## Loss of Information
 
-Ok, thats in fact a lie, since we do represent all [complex number](sec-complex-numbers) or irrational numbers can not be represented by floating point numbers.
+Indeed, that's not quite precise enough because we represent all [complex number](sec-complex-numbers) or irrational numbers by floating point numbers.
 Therefore, for complex number $z = a + ib$,
 
 $$a, b \in \mathbb{Q}$$
@@ -89,15 +89,19 @@ lineplot(x2, y2, ax= ax, fig=fig, marker = 'o', ms=7.0, linestyle = 'None')
 fig.suptitle(r'Discretized sine wave using a sample rate of 4 (green), 9 (orange), and 99 (blue).');
 ```
 
-For example, let us assume our *sample rate* (also called sample frequency) $f_s = 2$ Hz.
-And let us assume we want to sample a sine wave $y(t) = \sin(2\pi \cdot f \cdot t)$ of 6 Hz, i.e., $f = 6$.
-Then $y_N[0] \approx y(0), y_N[1] \approx y(0.5), y_N[2] \approx 1.0$ and in general
+For example, let us assume our *sample rate* (also called sample frequency) $f_s$ is 2 hertz (Hz).
+And let us assume we want to sample a sine wave $y(t) = \sin(2\pi \cdot f \cdot t)$ with a frequency of 6 Hz, i.e., $f = 6$.
+Then 
+
+$$y_N[0] \approx y(0), \ y_N[1] \approx y(0.5), \ y_N[2] \approx 1.0$$
+
+and in general
 
 $$y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s)$$
 
 I indicate, that the value $y_N[n]$ is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
-Therefore, we lose information, i.e. accuracy, on two ends:
-first of all in the **time direction** but also in the **amplitude direction**.
+Therefore, we lose information, i.e. accuracy on two ends:
+(1) first of all in the **time direction** but also (2) in the **amplitude direction**.
 
 (sec-aliasing)=
 ## Aliasing
@@ -112,7 +116,7 @@ gives us the *sample rate* of our audio signals.
 On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
 Therefore, a audio signal $y: \mathbb{N} \rightarrow \mathbb{Q}$ represents 1 seconds by 44100 samples (rational numbers)
 
-$$y[i], y[i+1], \ldots y[i+44099]$$
+$$y[i], y[i+1], \ldots, y[i+44099].$$
 
 When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as **aliasing** (different signals become indistinguishable to each other).
 This follows from the so called *Nyquist–Shannon sampling theorem*.
@@ -124,8 +128,8 @@ This follows from the so called *Nyquist–Shannon sampling theorem*.
 If a function $y(t)$ contains no frequencies higher than $f$ hertz, it is completely determined by giving its ordinates at a series of points spaced $1/(2f)$ seconds apart.
 ````
 
-Aliasing can also generate frequencies that are not really there.
-The sample rate has to more than double the highest frequncy of the sampled signal to avoid aliasing.
+Aliasing can also generate frequencies that are not truly present.
+To avoid aliasing, the sampling rate must be more than twice the highest frequency of the sampled signal.
 
 ````{admonition} Aliasing
 :name: def-aliasing
@@ -168,4 +172,4 @@ fig.suptitle(r'The effect of aliasing.');
 ```
 
 The human ear is able to recognize frequencies up to round about 20000 Hz.
-Since we need double the *sample rate*, 44100 gives us a little room. 
+Since we need double the *sample rate*, 44100 gives us a little bit of room. 

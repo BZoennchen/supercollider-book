@@ -840,6 +840,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss-of-information">
+   Loss of Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aliasing">
    Aliasing
   </a>
@@ -864,6 +869,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss-of-information">
+   Loss of Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aliasing">
    Aliasing
   </a>
@@ -885,11 +895,16 @@ title="Print to PDF"
 <p>On a computer we are dealing with digital signals, that is, discrete signals.
 Sampling is the technique to transform a continious function</p>
 <div class="math notranslate nohighlight">
-\[$y: \mathbb{R} \rightarrow \mathbb{C}$\]</div>
+\[y: \mathbb{R} \rightarrow \mathbb{C}\]</div>
 <p>into a discrete representation</p>
 <div class="math notranslate nohighlight">
-\[ \begin{align}\begin{aligned}y_N: \mathbb{Z} \rightarrow \mathbb{C}$$.\\## Loss of Information\\Ok, thats in fact a lie, since we do represent all [complex number](sec-complex-numbers) because irrational numbers can not be represented by floating point numbers.
-Therefore, for complex number $z = a + ib$,\\$$a, b \in \mathbb{Q}\end{aligned}\end{align} \]</div>
+\[y_{N}: \mathbb{Z} \rightarrow \mathbb{C}.\]</div>
+<section id="loss-of-information">
+<h2>Loss of Information<a class="headerlink" href="#loss-of-information" title="Permalink to this headline">#</a></h2>
+<p>Indeed, that’s not quite precise enough because we represent all <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> or irrational numbers by floating point numbers.
+Therefore, for complex number <span class="math notranslate nohighlight">\(z = a + ib\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[a, b \in \mathbb{Q}\]</div>
 <p>holds (most of the time).
 Sampling in the context of audio means that we use equidistant sample points.</p>
 <div class="cell tag_remove-input docutils container">
@@ -897,14 +912,18 @@ Sampling in the context of audio means that we use equidistant sample points.</p
 <img alt="../../../_images/sampling_3_0.png" src="../../../_images/sampling_3_0.png" />
 </div>
 </div>
-<p>For example, let us assume our <em>sample rate</em> (also called sample frequency) <span class="math notranslate nohighlight">\(f_s = 2\)</span> Hz.
-And let us assume we want to sample a sine wave <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> of 6 Hz, i.e., <span class="math notranslate nohighlight">\(f = 6\)</span>.
-Then <span class="math notranslate nohighlight">\(y_N[0] \approx y(0), y_N[1] \approx y(0.5), y_N[2] \approx 1.0\)</span> and in general</p>
+<p>For example, let us assume our <em>sample rate</em> (also called sample frequency) <span class="math notranslate nohighlight">\(f_s\)</span> is 2 hertz (Hz).
+And let us assume we want to sample a sine wave <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> with a frequency of 6 Hz, i.e., <span class="math notranslate nohighlight">\(f = 6\)</span>.
+Then</p>
+<div class="math notranslate nohighlight">
+\[y_N[0] \approx y(0), \ y_N[1] \approx y(0.5), \ y_N[2] \approx 1.0\]</div>
+<p>and in general</p>
 <div class="math notranslate nohighlight">
 \[y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s)\]</div>
 <p>I indicate, that the value <span class="math notranslate nohighlight">\(y_N[n]\)</span> is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
-Therefore, we lose information, i.e. accuracy, on two ends:
-first of all in the <strong>time direction</strong> but also in the <strong>amplitude direction</strong>.</p>
+Therefore, we lose information, i.e. accuracy on two ends:
+(1) first of all in the <strong>time direction</strong> but also (2) in the <strong>amplitude direction</strong>.</p>
+</section>
 <section id="aliasing">
 <span id="sec-aliasing"></span><h2>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this headline">#</a></h2>
 <p>Calling</p>
@@ -915,15 +934,15 @@ first of all in the <strong>time direction</strong> but also in the <strong>ampl
 On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
 Therefore, a audio signal <span class="math notranslate nohighlight">\(y: \mathbb{N} \rightarrow \mathbb{Q}\)</span> represents 1 seconds by 44100 samples (rational numbers)</p>
 <div class="math notranslate nohighlight">
-\[y[i], y[i+1], \ldots y[i+44099]\]</div>
+\[y[i], y[i+1], \ldots, y[i+44099].\]</div>
 <p>When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as <strong>aliasing</strong> (different signals become indistinguishable to each other).
 This follows from the so called <em>Nyquist–Shannon sampling theorem</em>.</p>
 <div class="theorem admonition" id="theorem-sampling">
 <p class="admonition-title">Nyquist–Shannon Sampling Theorem</p>
 <p>If a function <span class="math notranslate nohighlight">\(y(t)\)</span> contains no frequencies higher than <span class="math notranslate nohighlight">\(f\)</span> hertz, it is completely determined by giving its ordinates at a series of points spaced <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds apart.</p>
 </div>
-<p>Aliasing can also generate frequencies that are not really there.
-The sample rate has to more than double the highest frequncy of the sampled signal to avoid aliasing.</p>
+<p>Aliasing can also generate frequencies that are not truly present.
+To avoid aliasing, the sampling rate must be more than twice the highest frequency of the sampled signal.</p>
 <div class="definition admonition" id="def-aliasing">
 <p class="admonition-title">Aliasing</p>
 <p><em>Aliasing</em> is the effect that result from a two small <em>sample rate</em> by which different signals become indistinguishable to each other.</p>
@@ -938,7 +957,7 @@ They are indistinguishable if we use a <em>sample rate</em> that low.</p>
 </div>
 </div>
 <p>The human ear is able to recognize frequencies up to round about 20000 Hz.
-Since we need double the <em>sample rate</em>, 44100 gives us a little room.</p>
+Since we need double the <em>sample rate</em>, 44100 gives us a little bit of room.</p>
 </section>
 </section>
 
