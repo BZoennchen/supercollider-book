@@ -46,7 +46,13 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 
 
 # On a computer we are dealing with digital signals, that is, discrete signals.
-# Sampling is the technique to transform a continious function $y: \mathbb{R} \rightarrow \mathbb{C}$ into a discrete representation by $y_N: \mathbb{Z} \rightarrow \mathbb{C}$.
+# Sampling is the technique to transform a continious function 
+# 
+# $$$y: \mathbb{R} \rightarrow \mathbb{C}$$$
+# 
+# into a discrete representation 
+# 
+# $$y_N: \mathbb{Z} \rightarrow \mathbb{C}$$.
 # 
 # ## Loss of Information
 # 

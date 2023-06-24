@@ -54,11 +54,17 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 ```
 
 On a computer we are dealing with digital signals, that is, discrete signals.
-Sampling is the technique to transform a continious function $y: \mathbb{R} \rightarrow \mathbb{C}$ into a discrete representation by $y_N: \mathbb{Z} \rightarrow \mathbb{C}$.
+Sampling is the technique to transform a continious function 
+
+$$$y: \mathbb{R} \rightarrow \mathbb{C}$$$
+
+into a discrete representation 
+
+$$y_N: \mathbb{Z} \rightarrow \mathbb{C}$$.
 
 ## Loss of Information
 
-Ok, thats in fact a lie, since we do represent all [complex number](sec-complex-numbers) because irrational numbers can not be represented by floating point numbers.
+Ok, thats in fact a lie, since we do represent all [complex number](sec-complex-numbers) or irrational numbers can not be represented by floating point numbers.
 Therefore, for complex number $z = a + ib$,
 
 $$a, b \in \mathbb{Q}$$
