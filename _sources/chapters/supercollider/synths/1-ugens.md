@@ -25,7 +25,7 @@ SynthDef(\sine, sfg).add;
 The server can incorporate the unit generators into a synthesis graph, passing data from one unit generator to another.
 The [UGen](https://doc.sccode.org/Classes/UGen.html) classes, representing unit generators, can be seen as the server-side part of ``sclang``. 
 
-```{figure} ../../../figs/supercollider/ugens/sfg-example.png
+```{figure} ../../../figs/supercollider/ugens/sfg-example-dark.png
 ---
 width: 800px
 name: fig-sfg-example

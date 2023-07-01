@@ -73,7 +73,15 @@ holds (most of the time).
 Sampling in the context of audio means that we use equidistant sample points.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: sampling
+---
 x1 = np.linspace(0, 1, 10)
 y1 = np.sin(2*np.pi*x1)
 
@@ -144,7 +152,15 @@ All these sine waves appear to be a sine wave of 1 Hz.
 They are indistinguishable if we use a *sample rate* that low.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: aliasing
+---
 f = 6
 f_s = 2
 x1 = np.linspace(0, 1, 1000)

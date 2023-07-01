@@ -256,7 +256,15 @@ for $-\pi \leq \omega \leq \pi$.
 The following plot shows the amplitude [frequency response](def-frequency-response) in $\omega$.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-simple-lpf
+---
 t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x: 2 * np.cos(x/2)
 
@@ -275,7 +283,15 @@ $$\mathcal{\Theta}(\omega) = -\frac{\omega T}{2}, \quad -\pi \leq \omega \leq \p
 If we set $T = 1$ the plot looks like the following figure.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-simple-lpf-phase-shift
+---
 t = np.linspace(0, np.pi, 1000)
 phase = lambda x: -x/2
 
@@ -363,7 +379,15 @@ which is similar result we got in the last section!
 Let us plot the *gain* in frequency for $T = 1$ and different $\alpha$:
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-one-zero
+---
 t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x, alpha: (1-np.abs(alpha)) * (1-(alpha/(np.abs(alpha) -1))*np.exp(-1j*x))
 
@@ -420,7 +444,15 @@ $$H(e^{i \omega T}) = \frac{0.5}{1 - 0.5 e^{-i \omega T}} = \frac{1}{2 - e^{-i \
 Let us plot the *gain* in frequency for $T = 1$ and different $\alpha$:
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-one-pole
+---
 t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x, alpha: (1-np.abs(alpha)) / (1-alpha*np.exp(-1j*x))
 

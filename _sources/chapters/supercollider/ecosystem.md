@@ -11,9 +11,9 @@ It was released in 1996.
 In 2002 McCartney transformed it into a free and open software project under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html).
 It is still maintained and developed by an active community.
 
-```{figure} ../../figs/supercollider/ecosystem/architecture.png
+```{figure} ../../figs/supercollider/ecosystem/architecture-dark.png
 ---
-width: 600px
+width: 800px
 name: fig-architecture
 ---
 ```
