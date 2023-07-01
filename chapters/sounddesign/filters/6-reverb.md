@@ -238,7 +238,7 @@ Since I add the ``~impulse`` group to the head and the ``~synths`` group to the 
 The following signal flow graph shows how the output is computed.
 
 
-```{figure} ../../../figs/sounddesign/filters/pluck.png
+```{figure} ../../../figs/sounddesign/filters/sfg-pluck-dark.png
 ---
 width: 800px
 name: fig-pluck

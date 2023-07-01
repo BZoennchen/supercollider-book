@@ -66,7 +66,7 @@ $$y_3[k] = y_1[k] \cdot y_2[k].$$
 The convolution is defined very differently.
 The idea is to mirrow the second function and to compute the weighted sum of a sliding window.
 
-```{figure} ../../../figs/sounddesign/math/array_conv.png
+```{figure} ../../../figs/sounddesign/math/array_conv-dark.png
 ---
 width: 900px
 name: fig-array-conv
@@ -142,7 +142,7 @@ Given two discrete signals $y_1, y_2$, where $y_1$ is defined for $0, \ldots N-1
 where $y : \mathbb{Z} \rightarrow \mathbb{R}$ is periodic.
 ````
 
-```{figure} ../../../figs/sounddesign/math/array_conv_periodic.png
+```{figure} ../../../figs/sounddesign/math/array_conv_periodic-dark.png
 ---
 width: 900px
 name: fig-array-conv-periodic
@@ -218,7 +218,16 @@ In the following plot each row represents one convolution.
 In the first and second column you find the functions $y_1, y_2$ and in the third column the plot shows $y_1 * y_2$.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-convolutions
+    caption: Different continuous convolutions. Functions of the first two columns are convoluted resulting in the third column.
+---
 x = np.linspace(0, 1.5, 1000)
 xp = np.linspace(0, 1.5, 1000*2-1)
 

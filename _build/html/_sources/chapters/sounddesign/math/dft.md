@@ -138,7 +138,15 @@ We get $y[0] = 8$, $y[1] = 4$, $y[2] = 8$, $y[3] = 0$, $y[4] = y[0]$, ...
 Clearly $N = 4$ since we have frequencies of 1 and 2 Hz and a sample frequency $f_s$ of 4 Hz.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: dft-example-1
+---
 y1 = lambda t: 2 * np.cos(2*np.pi*t - np.pi/2)
 y2 = lambda t: 3 * np.cos(4*np.pi*t)
 dc = lambda t: np.ones(len(t))*5
@@ -189,7 +197,15 @@ Complex( -8.8817841970013e-16, 4.0 ) ]
 ```
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: dft-freq-phase
+---
 def dft(y, k):
     N = len(y)
     result = 0
@@ -311,18 +327,28 @@ The imaginary part of the complex numbers is approximately zero because $y(t)$ i
 
 Let us suppose we have the following signal consisting of only one frequency:
 
-$$y(t) = \sin\left(f \cdot 2 \pi \frac{n}{N} \right),$$
+$$y(t) = \sin\left(f \cdot 2 \pi \frac{1}{N} \right),$$
 
 where $N = 16$ and $f = 3/4$.
-If the fundamental analysis period of the DFT is also $N = 16$, i.e., the sampling frequency $f_s$ is $1$ Herz and the fundamental analysis frequency $f_N$ is 1/16 Herz, then $f = 3/4$ is clearly not an integer multiple of the sampling frequency! 
+Let us assume the analysis period of the DFT is only 16 seconds and the sample frequency $f_s$ is $1$ Herz.
+Therefore $f = 4/3$ is clearly not an integer multiple of the sampling frequency.
+Even though we sample one complete period of $y(t)$, computing the DFT will introduce errors.
 
 The following plot shows the actual signal $y(t)$ and the discontinuous signal $y_{\text{dft}}(t)$ 'seen / assumed' by the DFT operation.
 Computing the IDFT gives us the correct sample points, i.e., $y[n] \equiv y_\text{dft}[n]$ holds, but the reconstructed signal $y_\text{idft}(t)$ is incorrect.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: dft-cut
+---
 N = 16
-f = 3/4
+f = 4/3
 f_s = 1/N
 y_f = lambda k, t: np.sin(k/N * 2 * np.pi * t)
 y_one = lambda t: 14/N * np.cos(1/N * 2 * np.pi * t + 2.16259125)
@@ -368,7 +394,15 @@ ax.legend();
 Computing the IDFT gives us the correct values for our samples but if we look at the frequency and phase spectrum we can observe many different frequencies that are present:
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: dft-cut-coeff
+---
 fig, ax = plt.subplots(figsize=(10,6), nrows=2, ncols=1, sharex=True)
 f = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
 ax[0].scatter(f, np.abs(np.array(c_k)), label=r'$|c[n]|$')
@@ -425,7 +459,15 @@ Therefore, the information *when* these frequencies occur is hidden in the trans
 For instance, if we have the following signal, and we take the transform, there is no way to tell that the signal's frequency changed at a certain point in time (here it would be after 1 second).
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-changing-freq
+---
 
 t1=np.linspace(0,1,1000)
 t2=np.linspace(1,2,1000)
@@ -443,6 +485,14 @@ The original signal is then multiplied with that *window function* to get a *win
 Then we take the Fourier transform of that windowed signal!
 
 To obtain frequency information at different time instances, one shifts the *window function* across time and computes a Fourier transform for each of the resulting *windowed singals*.
+Each chunk is *Fourier transformed*, and the complex result is added to a matrix, which records magnitude and phase for each point in time and frequency.
+This can be expressed as:
+
+$$\mathbf{C}[m, k] = \sum\limits_{n = 0}^{N-1} y[n] \cdot e^{-i \frac{2\pi}{N} n k} \cdot w[n-m],$$
+
+where the discrete signal $y$ is multiplied by the window $w$.
+This equation is equal to our definition of the [discrete Fourier transform](def-discrete-fourier-transform) but with the added multiplication of the window $w$.
+$\mathbf{C}$ is no longer a vector but a matrix.
 
 Similar to the measurement processes in quantum physics, there's an important and rather conspicuous trade-off: it is impossible to measure all frequencies at all times. If we aim for precise timing, we must choose a small ``windowsize``, consequently losing precision in the measured frequencies, meaning we lose low-frequency information. 
 Conversely, if the ``windowsize`` is large, we sacrifice precision in time.
@@ -455,50 +505,127 @@ SuperCollider supports **rectangular** ``-1`` windowing (simple but typically no
 The **Hann** window looks like a *Gaussian bell*.
 Compared to the **sine** window, it has an exponential increase and decay, i.e., looks slimmer.
 
+Since we slice over the signal, we get a series of discrete Fourier transforms, one for each timestep.
+Let us compute the *STFT* of the following audio signal.
 
-## FFT in SuperCollider
+```{code-cell} python3
+:tags: [remove-input]
 
-To compute the DFT and IDFT using the FFT algorithm in [SuperCollider (SC)](https://supercollider.github.io/), we use the unit generators [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html), respectively.
-And because the fast Fourier transform algorithm is so efficient, we can do it in real time!
-Therefore, we "work" in frequency space by
+import IPython.display as ipd
+import librosa
 
-1. Transforming the signal into the frequency space using the [FFT](https://doc.sccode.org/Classes/FFT.html) unit generator
-2. Manipulating the coefficients as we desire
-3. Transforming the signal back to the time domain using the [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generator
+filename = librosa.example('nutcracker');
+y, sr = librosa.load(filename);
+ipd.Audio(filename)
+```
 
-````{admonition} FFT and IFFT Buffers
-:name: attention-fft-ifft-sc
-:class: attention
+I use a ``windowsize`` of 2048 samples and a ``hop`` length of 512.
+Furthermore, I use the **Hann** window.
+To convert the ``hop`` length and ``windowsize`` to units of seconds we have to divide it by the sample rate.
 
-[FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html) unit generators require a buffer to store the frequency-domain data. 
-This buffer must have exactly **one** channel. 
-Multichannel buffers are never supported.
+```{code-cell} python3
+:tags: [remove-input]
 
-To do [FFT](https://doc.sccode.org/Classes/FFT.html) processing on a multichannel signal, provide an array of mono buffers, one for each channel. 
-Then, [FFT](https://doc.sccode.org/Classes/FFT.html)/[IFFT](https://doc.sccode.org/Classes/IFFT.html) will perform [multichannel expansion](sec-mce), to process each channel separately.
-````
+filename = librosa.example('nutcracker')
+x, sr = librosa.load(filename)
 
-The following example has no effect on the input 'in' since we merely transform the signal and then promptly revert it.
+hop_length = 512
+n_fft = 2048
+C = librosa.stft(x, n_fft=n_fft, hop_length=hop_length);
+print(f'shape of matrix C is {C.shape}')
+```
 
-```isc
-(
-{
-    var in, out, chain, freq = 200;
-    in = SinOsc.ar(freq);
+This STFT has 1025 frequency bins and 9813 frames/windows in time.
 
-    chain = FFT(
-        buffer: LocalBuf(2048), 
-        in: in, 
-        hop: 0.5, // offset of te next FFT, rnages from > 0 to <= 1.
-        wintype: 0, // -1 triangle, 0 sine, 1 Hann
-        active: 1, // 1 active, <= 0 inactive
-        winsize: 0 // 0 => equal to the buffer
-    ); 	
+(sec-spectrogram)=
+### Spectrogram
 
-    // here we could manipulate the coefficients
-    chain.inspect; 
-    out = IFFT(chain); // inverse FFT
-    out;
-}.play;
-)
+In music processing, we often only care about the spectral magnitude and not the phase content.
+The *spectrogram* shows the the intensity of frequencies over time. 
+A *spectrogram* is simply the squared magnitude of the STFT:
+
+$$\mathbf{S}[m,k] = |\mathbf{C}[m,k]|^2$$
+
+The human perception of sound intensity is logarithmic in nature. 
+Therefore, we are often interested in the log amplitude:
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-spectrogram
+    caption: Spectrogram of the Nutcracker suite. 
+---
+S = librosa.amplitude_to_db(abs(C))
+
+plt.figure(figsize=(15, 5))
+librosa.display.specshow(S, sr=sr, hop_length=hop_length, x_axis='time', y_axis='linear')
+plt.colorbar(format='%+2.0f dB');
+```
+
+### Mel-spectrogram
+
+The *Mel frequency cepstral coefficients* (MFCCs) are a compact representation of the frequency spectrum.
+It reduces the full spectrum to the most important aspects.
+
+MFCCs are used for speech, speaker or sond effect recognition or to analyse music to assign metadata to a song or a certain piece of music.
+In the field of *machine learning*, they offer a nice representation of a sound (espeically since MFCCs as well as spectograms are images thus a convolutional neural network can deal with these representations).
+
+As we know, when we speak or when any sound is produced, different frequencies of sound are created.
+These frequencies when combined form a complex sound wave. The human ear responds more to certain frequencies and less to others.
+Specifically, we are more sensitive to lower frequencies (like a bass guitar) than higher frequencies (like a flute), especially at low volumes.
+This is the concept behind the *Mel scale*, which is a *perceptual scale of pitches* that approximates the human ear's response to different frequencies.
+
+The calculation of the *MFCC* is an elegant method to separate the *excitation signal* and the *impulse response* of the filter.
+After applying the STFT and throwing away the phase information, we takes the logarithm of the amplitude spectrum.
+This step is performed to mimic the human ear's response more closely since our perception of sound is logarithmic in nature.
+Next, we smooth the spectrum and emphasize perceptually meaningful ferquencies.
+To achieve this, we pass the result through a set of band-pass filters called *Mel-filter bank*.
+Basically, we merge neighbourhoods of frequencies into one bin.
+This is to mimic the behavior of the human ear (which is more sensitive to certain frequencies).
+Since the components of the *Mel-spectral vectors* calculated for each frame are hihgly correlated, we try to decorrelate the result to get a more meaningful representation.
+Threfore, we apply a type of *Fourier-related transform* called the *discrete cosine transform* to decorrelate the filter bank coefficients and yield a compressed representation of the filter banks, called the *Mel frequency cepstral coefficients*.
+Alternatively one can use the *principal component analysis PCA* to achieve a similar effect.
+
+```{figure} ../../../figs/sounddesign/math/mfcc-alg-dark.png
+---
+width: 250px
+name: fig-mfcc-alg
+---
+Process to create MFCC features.
+```
+
+The *Mel filter bank* is a collection of overlapping triangular filters that are applied to this spectrum. These filters are not linearly spaced, because they're designed to mimic the nonlinear frequency resolution of the human auditory system, which is more fine-grained at lower frequencies and coarser at higher frequencies.
+
+The *discrete cosine transform (DCT)* is used in the *MFCC* process as a kind of *compression* step to reduce the dimensionality of the output. 
+It is used to transform the *log Mel spectrum* (the output of the Mel filter bank) into the time domain.
+The outputs of each filter in the Mel filter bank are not completely independent of each other; there's often a lot of correlation because the filters overlap.
+The *DCT* is similar to the DFT, but whereas the DFT expresses a signal in terms of complex exponentials (i.e., sinusoids and cosines), the DCT uses only cosines.
+This is useful because the log Mel spectrum is a real-valued signal, and the symmetry of the cosine function allows for a more compact and efficient representation of such signals than complex exponentials.
+DCT essentially *projects* the *log Mel filter bank* coefficients onto a set of *cosine basis functions*. 
+These basis functions are much like the "standard patterns" that the filter bank outputs are compared to.
+
+In the following, I use only 13 *Mel bands* to show the effect.
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: fig-spectrogram
+    caption: MFCC of the Nutcracker suite using only 13 bins.
+---
+M = librosa.feature.melspectrogram(y=x, n_fft=n_fft, hop_length=hop_length, sr=sr, n_mels=13, fmax=8000)
+
+M_dB = librosa.power_to_db(np.abs(M));
+plt.figure(figsize=(15, 5))
+librosa.display.specshow(M_dB, x_axis='time', y_axis='mel', sr=sr, fmax=8000);
+plt.colorbar(format='%+2.0f dB');
 ```

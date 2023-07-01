@@ -67,7 +67,7 @@ Note that we can not define the frequency since noise consist of a wide range of
 
 ```{figure} ../../../figs/sounddesign/whitenoise.png
 ---
-width: 600px
+width: 900px
 name: fig-whitenoise
 ---
 A plot of ``WhiteNoise`` over a duration of 2 milliseconds.
@@ -103,7 +103,7 @@ It generates a high frequency stream of 1, -1 with equal probability.
 
 ```{figure} ../../../figs/sounddesign/clipnoise.png
 ---
-width: 600px
+width: 900px
 name: fig-clipnoise
 ---
 A plot of ``ClipNoise`` over a duration of 2 milliseconds.

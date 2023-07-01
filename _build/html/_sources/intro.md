@@ -2,6 +2,10 @@
 
 >Emancipatory politics must always destroy the appearance of a "natural order", must reveal what is presented as necessary and inevitable to be a mere contingency, just as it must make what was previously deemed to be impossible seem attainable. -- Mark Fisher
 
+```{only} html
+[![](https://img.shields.io/github/stars/BZoennchen/supercollider-book?style=social)](https://github.com/BZoennchen/supercollider-book)
+```
+
 This book delves into the realm of sound design and music composition through the lens of the programming language and compositional environment known as SuperCollider, a creation of James McCartney and numerous other contributors.
 Here, [SuperCollider](https://supercollider.github.io/) is not merely a tool but a conduit for unveiling the essence of sound and music. This book, therefore, transcends the mere learning of a programming language and development environment. 
 SuperCollider offers us a low-level control that can foster a profound understanding of computer music at its roots.
@@ -156,6 +160,13 @@ In the following, I list all the material I looked into:
 11. [Algorithmic Composition: A Gentle Introduction to Music Composition Using Common LISP and Common Music](https://quod.lib.umich.edu/s/spobooks/bbv9810.0001.001) by Mary Simoni {cite}`simoni:2003`
 12. [Algorithmic Composition: Paradigms of Automated Music Generation](https://link.springer.com/book/10.1007/978-3-211-75540-2) by Gerhard Nierhaus {cite}`nierhaus:2010`
 
-## Citing this book
+## Citing this Book
 
-TODO
+```bibtex
+@misc{zoennchen:2022,
+  title = {Algorithmic composition},
+  year = {2022},
+  author = {Benedikt Z{\"o}nnchen},
+  url = {https://bzoennchen.github.io/supercollider-book/intro.html},
+}
+```

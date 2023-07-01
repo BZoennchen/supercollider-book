@@ -107,8 +107,8 @@ In summary, there are three types of variables:
 As their name indicates, variables can be reassigned, and due to the dynamic type system, we can give them any new value at any time.
 
 ````{admonition} Exponential Operator
-:name: sc-exponential
-:class: sc
+:name: remark-exponential
+:class: remark
 Like ``Python``, ``sclang`` supports the exponential operator ``**``.
 
 ```isc

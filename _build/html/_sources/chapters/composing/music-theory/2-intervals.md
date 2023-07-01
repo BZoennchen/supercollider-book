@@ -355,7 +355,7 @@ Many others make the following distinction:
 
 The **perfect fourth** is often regared as dissonant when it involves the lowest voice in the texture, but consonant when it occurs between two upper voices.
 
-```{figure} ../../../figs/composing/piano-keys-intervals.png
+```{figure} ../../../figs/composing/piano-keys-intervals-dark.png
 ---
 width: 800px
 name: fig-piano-keys-intervals

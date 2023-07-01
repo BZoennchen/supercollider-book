@@ -104,6 +104,35 @@ a[0]; // 1
 In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an [Array](https://doc.sccode.org/Classes/Array.html) in ``sclang`` is implemented accordingly.
 
+Sometimes we want to access array elements in a circular fashion.
+``wrapAt`` will wrap around the array if the index is out of bound using the modulo operation.
+
+```isc
+(
+a = [0,2,3,4,5,6,7];
+
+//[ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3 ]
+10.collect { |index|
+    a.wrapAt(index)
+};
+)
+```
+
+If you instead want to go backwards if the index is out of bound, you can use ``foldAt`` instead.
+
+```isc
+(
+a = [1,2,3,4,5,6,7];
+
+// [ 1, 2, 3, 4, 5, 6, 7, 6, 5, 4 ]
+10.collect { |index|
+    a.foldAt(index)
+};
+)
+```
+
+Note that we use ``|index|`` here, which is a shorthand for ``arg index;``.
+
 ## Manipulation
 
 To **set** a specific value we can use the default syntax well-known for almost all existing programming languages:

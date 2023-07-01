@@ -138,7 +138,15 @@ Complex(2, 1) / Complex(3, 2)
 We can represent a complex number $z = a + bi$ by a point $(a, b)$ in the *Cartesian plane*, which we then call *complex plane* or $z$*-plane*.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: complex-plane
+---
 r = np.arange(0, (1.0/(2*np.pi))*(np.pi/4-0.2), 0.001)
 theta = 2 * np.pi * r
 
@@ -442,7 +450,15 @@ $$z^k = e^{i \frac{2\pi}{N} k} \quad \text{ for } k = 0,1,2 \ldots, N-1 \text{ w
 All points lie on the red unit circle.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 450px
+  figure:
+    name: complex-plane-e
+---
 r = np.arange(0, 1.05, 0.05)
 r2 = np.arange(0, 1.05, 0.01)
 theta = 2 * np.pi * r

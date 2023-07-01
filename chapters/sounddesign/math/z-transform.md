@@ -120,7 +120,15 @@ The following plot shows *zeros* in blue and *poles* in orange.
 The *region of convergence (ROC)* (in blue) is outside of the (red) circle of radius $\alpha$.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 500px
+  figure:
+    name: fig-z-transform-1
+---
 r = np.arange(0, 1.2, 0.01)
 theta = 2 * np.pi * r
 
@@ -154,7 +162,15 @@ $$X(z) = \frac{z^2 + 1/2 z + z^2 - 1/4 z}{(z-1/4)(z+1/2)} = \frac{2z(z+1/8)}{(z-
 All *zeros* ($z = 0$, $z = -1/8$) and *poles* ($z = 1/4$, $z = -1/2$) are on the real-axis.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 500px
+  figure:
+    name: fig-z-transform-2
+---
 r = np.arange(0, 1.2, 0.01)
 theta = 2 * np.pi * r
 
@@ -222,7 +238,15 @@ $$z_k = \alpha \cdot e^{i \frac{2\pi}{N} k}, \quad k = 1, 2, 3, \ldots, N-1.$$
 The following plot shows *poles* and *zeros* for some $\alpha \in \mathbb{R}^+$.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 500px
+  figure:
+    name: fig-z-transform-3
+---
 r = np.arange(0, 1.2, 0.01)
 theta = 2 * np.pi * r
 
@@ -385,7 +409,15 @@ I draw one such line in blue and some of the points.
 Imagine the grey point connected to the cross going around on the unit circle.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 500px
+  figure:
+    name: fig-z-transform-4
+---
 r = np.arange(0, 1.2, 0.01)
 theta = 2 * np.pi * r
 

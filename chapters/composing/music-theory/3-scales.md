@@ -185,7 +185,14 @@ ipd.Audio(audio_path)
 Its *sparsity* (using only seven notes per octave) gives each note in the scale a distinctive tone, while its *asymmetry* is an important property that gives each note in the scale a unique relation to the other notes.
 Together, *sparsity* and *asymmetry* provide the listener with a clear orientation within the scale.
 
-```{figure} ../../../figs/composing/piano-keys-major-scales.png
+```{figure} ../../../figs/composing/piano-keys-major-scales-1.png
+---
+width: 800px
+name: fig-piano-keys-major-scales-1
+---
+```
+
+```{figure} ../../../figs/composing/piano-keys-major-scales-2.png
 ---
 width: 800px
 name: fig-piano-keys-major-scales
@@ -318,7 +325,14 @@ The *minor scale* is also called **natural minor** and is also known as the *Aol
 
 This gives us: C, D, Eb, F, G, Ab, Bb.
 
-```{figure} ../../../figs/composing/piano-keys-minor-scales.png
+```{figure} ../../../figs/composing/piano-keys-minor-scales-1.png
+---
+width: 800px
+name: fig-piano-keys-minor-scales-1
+---
+```
+
+```{figure} ../../../figs/composing/piano-keys-minor-scales-2.png
 ---
 width: 800px
 name: fig-piano-keys-minor-scales
@@ -527,7 +541,7 @@ They are widely used in all areas of music compositions.
 Interestingly, for each *major scale* there is a corresponding *minor scale* which consists of the exact same *pitch classes*, e.g. **C** (C major) corresponds to **Am** (A minor).
 This relationship is often depicted as the so called *circle of fifth*, we computed with by adding **perfect fifths**.
 
-```{figure} ../../../figs/composing/circle-of-fifths.png
+```{figure} ../../../figs/composing/circle-of-fifths-dark.png
 ---
 width: 800px
 name: fig-circle-of-fifths

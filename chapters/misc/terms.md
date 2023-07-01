@@ -12,7 +12,7 @@ These vibrations cause air molecules to oscillate.
 They bump into each other at some areas (compression) and tend to leave other areas (rarefaction).
 A pattern of lower and higher molecule density emerges.
 
-```{figure} ../../figs/sounddesign/terms/molecules.png
+```{figure} ../../figs/sounddesign/terms/molecules-dark.png
 ---
 width: 400px
 name: fig-molecules
