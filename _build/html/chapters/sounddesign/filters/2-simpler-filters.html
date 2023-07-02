@@ -550,16 +550,16 @@ Using <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> gives 
 <div class="math notranslate nohighlight">
 \[y[n] = 0.5 \cdot x[n] - 0.5 \cdot x[n-1].\]</div>
 <p>In other words, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dea212ba-8c24-4adb-9697-b830f0554f2a">
-<span class="eqno">(65)<a class="headerlink" href="#equation-dea212ba-8c24-4adb-9697-b830f0554f2a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7ab68e73-d9ff-4236-ae71-0c92fe4f78e6">
+<span class="eqno">(65)<a class="headerlink" href="#equation-7ab68e73-d9ff-4236-ae71-0c92fe4f78e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{x(t) - x(t - \Delta t)}{2\Delta t},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(f_s^{-1}\)</span> seconds.
 To get the <em>difference quotient</em>, we have to multiply by a factor of two.</p>
 <p>To test this result, let us compute the cosine using <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a> and a <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9eae8914-0e0b-488f-b2b5-0bae6ff921a1">
-<span class="eqno">(66)<a class="headerlink" href="#equation-9eae8914-0e0b-488f-b2b5-0bae6ff921a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ec8bb27-a188-4c41-8069-0ce2567e2228">
+<span class="eqno">(66)<a class="headerlink" href="#equation-4ec8bb27-a188-4c41-8069-0ce2567e2228" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -602,8 +602,8 @@ Again let us try our best to understand what is going on without using the <a cl
 <span class="eqno">(67)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ecced3c-b7c3-4d93-81a4-9cc9820e40d5">
-<span class="eqno">(68)<a class="headerlink" href="#equation-2ecced3c-b7c3-4d93-81a4-9cc9820e40d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6d8a5842-1fe4-4c11-802a-a58e712efc1e">
+<span class="eqno">(68)<a class="headerlink" href="#equation-6d8a5842-1fe4-4c11-802a-a58e712efc1e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>.
@@ -615,8 +615,8 @@ Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\
 <span class="eqno">(70)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(y[0], \ldots y[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(x[0], \ldots x[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5162fe1a-1328-41d2-953d-bdf5b4b30533">
-<span class="eqno">(71)<a class="headerlink" href="#equation-5162fe1a-1328-41d2-953d-bdf5b4b30533" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf7b4bdf-dc61-4329-a290-754dd8690cfd">
+<span class="eqno">(71)<a class="headerlink" href="#equation-cf7b4bdf-dc61-4329-a290-754dd8690cfd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
   &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -625,8 +625,8 @@ y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9904dcfb-6a64-489c-ab63-425792704d9a">
-<span class="eqno">(72)<a class="headerlink" href="#equation-9904dcfb-6a64-489c-ab63-425792704d9a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1968bc41-c722-484f-b97f-2e1be8e61c45">
+<span class="eqno">(72)<a class="headerlink" href="#equation-1968bc41-c722-484f-b97f-2e1be8e61c45" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
