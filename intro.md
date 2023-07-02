@@ -164,7 +164,7 @@ In the following, I list all the material I looked into:
 
 ```bibtex
 @misc{zoennchen:2022,
-  title = {{A}lgorithmic {C}omposition using {SuperCollider}},
+  title = {{A}lgorithmic {C}omposition with {SuperCollider}},
   year = {2022},
   author = {Benedikt Z{\"o}nnchen},
   url = {https://bzoennchen.github.io/supercollider-book/intro.html},
