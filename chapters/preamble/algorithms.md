@@ -1,5 +1,14 @@
 # Algorithms
 
+Since algorithms describe a sequence of executable instructions, they have a strange relation to time.
+In *Algorithmic Music and the Philosophy of Time* Julian Rohrhuber states that
+
+>an algorithm is on the *verge of time*: [...] it is strictly structural -- a formal, unchanging entity. Not only formal, however, but a formula that prescribes steps to be made one after another, depending on one another. It is a formula that exists in order to unfold, in the form of a process, in time and over time, and dependent on its past inputs. -- Julian Rohrhuber
+
+Like any algorithm, Euclid's algorithm is a description of a causal path into the future even though there is no physical time mentioned explicitly.
+Instead the algorithms is there to be executed, i.e., to be transformed into a program.
+Apart from this timely quality, an algorithm is like a written story: it can unfold but is also unchanging; its content does not change but it can unfold logically. 
+
 The origin of the term *algorithm* was obscure for quite a while.
 Historians only late discovered that the term emerged from a slight modification of the name of the renowned Persian author Abu Ja'far Muhammad ibn Musa al-Khwarizmi. 
 This name was Latinized to Algorismi and later translated into Middle High German as Algorismus. 
@@ -52,14 +61,7 @@ Since this relation is recursive, we can subtract the greater from the smaller n
 An algorithm is a finite sequence of explicitly described executable instructions, such as a text or program code, designed to yield a finite output within a finite number of steps for a specific finite input.
 Importantly, it uses only a finite amount of memory space at any point during its execution.
 
-Since algorithms describe a sequence of executable instructions, they have a strange relation to time.
-In *Algorithmic Music and the Philosophy of Time* Julian Rohrhuber states that
 
->an algorithm is on the *verge of time*: [...] it is strictly structural -- a formal, unchanging entity. Not only formal, however, but a formula that prescribes steps to be made one after another, depending on one another. It is a formula that exists in order to unfold, in the form of a process, in time and over time, and dependent on its past inputs. -- Julian Rohrhuber
-
-Like any algorithm, Euclid's algorithm is a description of a causal path into the future even though there is no physical time mentioned explicitly.
-Instead the algorithms is there to be executed, i.e., to be transformed into a program.
-Apart from this timely quality, an algorithm is like a written story: it can unfold but is also unchanging; its content does not change but it can unfold logically. 
 
 
 
