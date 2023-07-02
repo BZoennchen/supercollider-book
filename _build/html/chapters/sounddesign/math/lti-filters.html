@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>LTI Filters &#8212; Algorithmic Composition</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/sounddesign/math/lti-filters';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
+    <link rel="prev" title="Z-Transform" href="z-transform.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grounding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/lost-futures.html">Lost Futures – A Romantic Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/technology-and-art.html">Technology and Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/algorithms.html">Algorithms</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/ecosystem.html">The Ecosystem</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/basics/basics.html">SCLang Basics</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/1-code-execution.html">Code Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/2-variables.html">Variables and Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/3-arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/4-functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/5-control-structures.html">Control Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/6-classes.html">Classes and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/7-playing.html">Playing Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/8-environments.html">Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/basics/9-utility-functions.html">Utility Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/synths/synths.html">Synthesizers</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/synths/1-ugens.html">Unit Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/synths/2-sc-synths.html">SC Synthesizers</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/pattern/pattern.html">Playing Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/pattern/1-the-instrument.html">The Instrument and its Artist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/pattern/2-streams.html">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/pattern/3-pattern.html">Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/pattern/4-events.html">Musical Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/pattern/5-event-player.html">Event Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/pattern/6-reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/live-coding/live-coding.html">Live Coding</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/live-coding/1-proxies.html">Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/live-coding/2-proxy-space.html">Proxy Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/live-coding/3-node-proxies.html">Node Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/live-coding/4-node-proxy-defs.html">Node Proxy Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/live-coding/5-task-proxies.html">Task Proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/live-coding/6-tidal.html">TidalCycles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/scheduling/scheduling.html">Scheduling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/scheduling/1-connecting-times.html">The Entanglement of Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/scheduling/2-clocks.html">Clocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/scheduling/3-routines-tasks.html">Routines &amp; Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/scheduling/4-minimalism.html">Minimalism</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/communication/communication.html">Communication</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/communication/1-midi.html">Musical Instrument Digital Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/communication/2-osc.html">Open Sound Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../supercollider/sugens/sugens.html">Special Unit Generators</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/sugens/1-amplitude.html">Amplitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../supercollider/sugens/2-triggers.html">Demand Unit Generators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Sound Design</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Mathematical Foundation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sampling.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-series.html">Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dft.html">Discrete Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="z-transform.html">Z-Transform</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">LTI Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../abstract-and-physical.html">Abstract and Physical Synthesis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../additive-synthesis/additive-synthesis.html">Additive Synthesis</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../additive-synthesis/1-waveforms.html">Fundamental Waveforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../additive-synthesis/2-harmonics.html">Harmonic Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../additive-synthesis/3-inharmonics.html">Inharmonic Series</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filters/filters.html">Subtractive Synthesis and Filters</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filters/1-phase-shifting.html">Filtering by Delays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters/2-simpler-filters.html">Basic Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters/3-frequency-filters.html">Frequency Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters/4-resonance.html">Responses and Resonance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters/5-control-filters.html">Control Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters/6-reverb.html">Reverberation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../am.html">Amplitude Modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fm.html">Frequency Modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wavetable.html">Wavetable Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fft.html">FFT Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physical-modeling.html">Physical Modeling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/intro.html">Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/drones.html">Drones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/percussive-sound.html">Percussive Sound</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Composing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/music-theory/music-theory.html">Music Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/1-midinotes.html">Notes &amp; Midi Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/2-intervals.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/3-scales.html">Scales &amp; Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/4-chords.html">Chords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/5-tuning.html">Tuning System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/6-analysis.html">Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../misc/terms.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BZoennchen/supercollider-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BZoennchen/supercollider-book/edit/master/chapters/sounddesign/math/lti-filters.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BZoennchen/supercollider-book/issues/new?title=Issue%20on%20page%20%2Fchapters/sounddesign/math/lti-filters.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/sounddesign/math/lti-filters.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>LTI Filters</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-response">Frequency Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-zero-filter">One Zero Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-pole-filter">One Pole Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell tag_remove-input docutils container">
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="lti-filters">
+<span id="sec-lti-filters"></span><h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">#</a></h1>
+<p>Any electronic or digital system that boosts/attenuates frequencies in a given signal is called a <em>filter</em>.
+<em>Linear filters</em> process time-varying input signals to produce output signals, subject to the constraint of <em>linearity</em>.
+In most cases these linear filters are also time <em>invariant</em> (or <em>shift invariant</em>) in which case they can be analyzed exactly using <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> (‘linear time-invariant’) system theory.</p>
+<div class="definition admonition" id="def-linear-time-invariant">
+<p class="admonition-title">Linear Time-invariant Filters (LTI)</p>
+<p>Let <span class="math notranslate nohighlight">\(x(t)\)</span> be the input signal and <span class="math notranslate nohighlight">\(y(t)\)</span> be the output signal of a filter.
+Then a filter is <em>linear time-invariant</em> if the following two conditions hold:</p>
+<ol class="arabic simple">
+<li><p>Linearity: <span class="math notranslate nohighlight">\(a \cdot x(t)\)</span> translates to <span class="math notranslate nohighlight">\(a \cdot y(t)\)</span> and <span class="math notranslate nohighlight">\(x_1(t) + x_2(t)\)</span> translate to <span class="math notranslate nohighlight">\(y_1(t) + y_2(t)\)</span> (superposition principle).</p></li>
+<li><p>Time-invariant: whether we apply an input to the filter now or some time later does not matter. The filters effect does not change over time.</p></li>
+</ol>
+</div>
+<p>For example, if we modulate the cutoff frequency of a filter, it is no longer <em>time-invariant</em>.
+To analyse the behaviour of a <em>linear filter</em> one looks at two different effects.</p>
+<ol class="arabic simple">
+<li><p><strong>Frequency response</strong> (frequency domain): how does the amplitude and phase of a frequency <span class="math notranslate nohighlight">\(f\)</span> changes.</p></li>
+<li><p><strong>Impulse response</strong> (time domain): how does the amplitude over time change.</p></li>
+</ol>
+<section id="frequency-response">
+<span id="sec-frequency-response"></span><h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">#</a></h2>
+<p>The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
+<a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filters</span></a> can be characterized in the frequency domain by the <em><a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a></em> with respect to the input <span class="math notranslate nohighlight">\(x[n]\)</span> and output signal <span class="math notranslate nohighlight">\(y[n]\)</span>.
+As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref"><em>transfer function</em></span></a> and the transform of the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
+In other words, convolution in the time domain is equivalent to multiplication in the frequency domain.</p>
+<p>If <span class="math notranslate nohighlight">\(H(z)\)</span> is the <em>transfer function</em> of the filter, then plugging in <span class="math notranslate nohighlight">\(e^{i \omega}\)</span> into <span class="math notranslate nohighlight">\(H(\cdot)\)</span> gives us the <em>frequency response</em> <span class="math notranslate nohighlight">\(H(e^{i \omega})\)</span>.</p>
+<div class="definition admonition" id="def-frequency-response">
+<p class="admonition-title">Frequency response</p>
+<p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5a69ab09-139d-4438-b02f-d2f3acf20351">
+<span class="eqno">(41)<a class="headerlink" href="#equation-5a69ab09-139d-4438-b02f-d2f3acf20351" title="Permalink to this equation">#</a></span>\[\begin{equation}
+H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
+</div>
+<p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f639611d-4054-42df-b4e3-eac6b1a316aa">
+<span class="eqno">(42)<a class="headerlink" href="#equation-f639611d-4054-42df-b4e3-eac6b1a316aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+G(\omega) = \frac{O(\omega)}{I(\omega)}.
+\end{equation}\]</div>
+<div class="theorem admonition" id="def-gain-lti-theorem">
+<p class="admonition-title">Gain of LTI Filters</p>
+<p>If the input to any <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filter</span></a> is a complex waveform <span class="math notranslate nohighlight">\(A \cdot e^{i \omega t}\)</span>, the output will be some constant times the input <span class="math notranslate nohighlight">\(B \cdot e^{i\omega t}\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[G(\omega) = \frac{B}{A}.\]</div>
+</div>
+<p>The default <em>low-</em> and <em>highpass filters</em> ugens (<code class="docutils literal notranslate"><span class="pre">LPF</span></code> and  <code class="docutils literal notranslate"><span class="pre">HPF</span></code> respectively) of <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, filter frequencies above or below some <em>cutoff frequency</em>.
+They are <em>2nd order Butterworth low-/highpass filter</em>.</p>
+<figure class="align-default" id="fig-butterworth-filter">
+<a class="reference internal image-reference" href="../../../_images/butterworth-filter.png"><img alt="../../../_images/butterworth-filter.png" src="../../../_images/butterworth-filter.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, <a class="reference external" href="https://commons.wikimedia.org/w/index.php?curid=735081">link</a>.</span><a class="headerlink" href="#fig-butterworth-filter" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
+The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
+Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../../misc/terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
+Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
+The top plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 28</span></a> shows the reduction in amplitude.</p>
+<p>The second effect of the filter is a phase shift; compare the bottom plot of <a class="reference internal" href="#fig-butterworth-filter"><span class="std std-numref">Fig. 28</span></a>.
+This effect is crucial if we combine multiple filters because they interact!
+In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!</p>
+<p>The following code is an example of a band pass filter.
+First, we use a lowpass and high pass filter; then a band pass filter.
+The results sound very similar but not identical.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+
+<span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+</pre></div>
+</div>
+<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.
+The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BRF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+</pre></div>
+</div>
+</section>
+<section id="analysis-of-a-simple-filter">
+<span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
+Let use start with a very <em>simple filter</em>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-04c5d3ab-e3e7-4f2d-afed-f63f7b9c00a9">
+<span class="eqno">(43)<a class="headerlink" href="#equation-04c5d3ab-e3e7-4f2d-afed-f63f7b9c00a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
+\end{equation}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
+Our <em>simple filter</em> is a <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear and time-invariant</span></a> filter.
+The <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> unit generator is a flexible version of this filter.</p>
+<p>You might suspect that, since it is the simplest possible <em>lowpass filter</em>, it is also somehow the worst possible lowpass filter.
+How bad is it?
+In what sense is it bad? How do we even know it is a lowpass filter at all?
+The answers to these and related questions will become apparent when we find the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of this filter.</p>
+<p>Our goal is to use a test singal that consists of only one frequency and then reformulate <span class="math notranslate nohighlight">\(y[n]\)</span> such that we arrive at</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y[n] = H(e^{i \omega}) \cdot x[n],
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(H(\omega)\)</span> has to be independent of <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>We start by using test signals, i.e., we define <span class="math notranslate nohighlight">\(x[n]\)</span> to be a sinusoid containing <strong>one</strong> specific frequency <span class="math notranslate nohighlight">\(f\)</span>.
+Therefore, we assume:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+x[n] = A \cdot e^{i(2\pi f n T + \phi)}.
+\end{equation*}\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// here we test for f = f_s / 5</span>
+<span class="p">(</span>	
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span>
+  <span class="p">[</span><span class="nx">sig</span><span class="p">,</span> <span class="nc">OneZero</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="na">coef:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">mul:</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="p">}.</span><span class="nx">plot</span><span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Let us simplify by assuming <span class="math notranslate nohighlight">\(A = 1\)</span>, <span class="math notranslate nohighlight">\(\phi = 0\)</span> and <span class="math notranslate nohighlight">\(\omega = 2\pi f\)</span> thus</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+x[n] = e^{i \omega n T}.
+\end{equation*}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(y[n]\)</span> is defined by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{split}
+y[n] &amp;= e^{i \omega n T} + e^{i \omega (n-1) T}\\
+&amp;= e^{i \omega n T} + e^{i \omega n T} \cdot e^{-i \omega n T}\\
+&amp;= (1 + e^{-i \omega T}) \cdot e^{i \omega n T}\\
+&amp;= (1 + e^{-i \omega T}) \cdot x[n] = H(e^{i \omega}) \cdot x[n]
+\end{split}
+\end{equation*}\]</div>
+<p>We get the same solution as we got using the <a class="reference internal" href="z-transform.html#sec-simple-filter-example"><span class="std std-ref">Z-transform</span></a>.
+The <em>gain</em> for this filter is</p>
+<div class="math notranslate nohighlight">
+\[G(\omega) = |(1 + e^{-i \omega T})|\]</div>
+<p>and the phase response is</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{\Theta}(\omega) = \angle 1 + e^{-i \omega T}.\]</div>
+<p>We can further manipulate the formula for the <em>gain</em> by the following:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{split}
+1 + e^{-i \omega T} &amp;= e^0 + e^{-i \omega T}\\
+&amp;= (e^{i\omega T / 2} + e^{-i \omega T / 2}) \cdot e^{-i \omega T / 2}
+\end{split}
+\end{equation*}\]</div>
+<p>using</p>
+<div class="math notranslate nohighlight">
+\[\cos(\phi) = \frac{e^{i\phi} - e^{-i \phi} }{2}\]</div>
+<p>we get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{split}
+1 + e^{-i \omega T} &amp;= 2 \cdot \cos(\omega T / 2) \cdot e^{-i \omega T / 2}
+\end{split}
+\end{equation*}\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[G(\omega) = |2 \cdot \cos(\omega T / 2) \cdot e^{-i \omega T / 2}| = 2|\cos(\omega T / 2)|.\]</div>
+<p>Because of the <a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a>, we can assume that we only look at frequencies <span class="math notranslate nohighlight">\(f\)</span> such that <span class="math notranslate nohighlight">\(-f_s/2 \leq f \leq +f_s / 2\)</span> holds.
+Therefore, the equation simplifies to</p>
+<div class="math notranslate nohighlight">
+\[2\cos(\omega T / 2)\]</div>
+<p>for <span class="math notranslate nohighlight">\(-\pi \leq \omega \leq \pi\)</span>.
+The following plot shows the amplitude <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> in <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="fig-simple-lpf">
+<a class="reference internal image-reference" href="../../../_images/2e4769bac7e98195048da7a51840357683db92b7aa1837d1a12de3603bf72256.png"><img alt="../../../_images/2e4769bac7e98195048da7a51840357683db92b7aa1837d1a12de3603bf72256.png" src="../../../_images/2e4769bac7e98195048da7a51840357683db92b7aa1837d1a12de3603bf72256.png" style="width: 900px;" /></a>
+</figure>
+</div>
+</div>
+<p>Secondly we look at the <em>phase response</em></p>
+<div class="math notranslate nohighlight">
+\[\mathcal{\Theta}(\omega) = -\frac{\omega T}{2}, \quad -\pi \leq \omega \leq \pi.\]</div>
+<p>If we set <span class="math notranslate nohighlight">\(T = 1\)</span> the plot looks like the following figure.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="fig-simple-lpf-phase-shift">
+<a class="reference internal image-reference" href="../../../_images/ea5b88390ef3736278c3dc713cb463caf310020446f58b82738c57d8cf234861.png"><img alt="../../../_images/ea5b88390ef3736278c3dc713cb463caf310020446f58b82738c57d8cf234861.png" src="../../../_images/ea5b88390ef3736278c3dc713cb463caf310020446f58b82738c57d8cf234861.png" style="width: 900px;" /></a>
+</figure>
+</div>
+</div>
+<p>This <em>lowpass filter</em> has no phase delay at 0 Hz and a maximum delay of <span class="math notranslate nohighlight">\(-(\pi/2)T\)</span> at the Nyquist frequency.
+<strong>Note that both responses rely on the sample period</strong> <span class="math notranslate nohighlight">\(T = = 1 / f_s\)</span>.
+If we increase the sample rate, the loss in power of high frequencies decreases!
+To achieve a similar result, we have to adapt the coefficients of the filter equation accordingly.</p>
+<div class="remark admonition" id="remark-low-level-filter">
+<p class="admonition-title">Low and High Level Filters</p>
+<p>The <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of low level SuperCollider filters such as <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>, <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FOS.html">FOS</a>, <a class="reference external" href="https://doc.sccode.org/Classes/SOS.html">SOS</a> rely the sample rate <span class="math notranslate nohighlight">\(f_s\)</span>.
+High level filters such as <a class="reference external" href="https://doc.sccode.org/Classes/LPF.html">LPF</a> and <a class="reference external" href="https://doc.sccode.org/Classes/HPF.html">HPF</a> do not!</p>
+</div>
+<p>Furthermore, the phase shift depends on <span class="math notranslate nohighlight">\(\omega\)</span>.
+It looks like this might lead to a phase distortion, however, this frequency-dependent delay is counteracted because doubling the frequency of the input halves its period, balancing the growth in retardation introduced by the filter.
+This linear dependence is actually necessary.</p>
+<div class="definition admonition" id="def-linear-phase-filter">
+<p class="admonition-title">Linear Phase Filters</p>
+<p>If the phase response of the filter is a linear (straight-line) function of frequency (excluding phase wraps at <span class="math notranslate nohighlight">\(\pm 180\)</span> degree), the filter is said to be <em>linear phase</em>.</p>
+</div>
+<p>Filters that are not linear phase can introduce <em>phase distortion</em>.</p>
+<div class="definition admonition" id="def-form-lti-filter">
+<p class="admonition-title">General Form of a LTI Filter</p>
+<p>A LTI Filter may be expressed in general as follows:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4e1f2a74-23d1-4196-a5b9-12c6926223ad">
+<span class="eqno">(44)<a class="headerlink" href="#equation-4e1f2a74-23d1-4196-a5b9-12c6926223ad" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
+&amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
+&amp;= G(\omega) A \cdot e^{i(\omega n T + \Theta(\omega) + \phi)}
+\end{split}
+\end{equation}\]</div>
+</div>
+<p>Thus, a filter can be characterized as circular motion with radius <span class="math notranslate nohighlight">\(G(\omega) A\)</span> and phase <span class="math notranslate nohighlight">\(\Theta(\omega)+\phi\)</span>.
+The particular kind of filter implemented depends only on the definition of <span class="math notranslate nohighlight">\(G(\omega)\)</span> and <span class="math notranslate nohighlight">\(\Theta(\omega)\)</span>.</p>
+</section>
+<section id="one-zero-filter">
+<span id="sec-one-zero-analysis"></span><h2>One Zero Filter<a class="headerlink" href="#one-zero-filter" title="Permalink to this headline">#</a></h2>
+<p>In SuperCollider the <em>one zero filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> realizes the following formula:</p>
+<div class="math notranslate nohighlight">
+\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot x[n-1], \quad -1 \leq \alpha \leq 1\]</div>
+<p>we have <span class="math notranslate nohighlight">\(N = 0\)</span> and <span class="math notranslate nohighlight">\(M = 1, a_0 = 1, b_0 = (1 - |\alpha|), b_1 = \alpha\)</span>.
+We can use the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref">transfer function</span></a> of <a class="reference internal" href="#def-form-lti-filter"><span class="std std-ref">LTI filters</span></a> to analyse the effects of the filter.
+Using the Z-transform, we get</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |\alpha| + \alpha \cdot z^{-1} = H(z).\]</div>
+<p>There is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = \infty\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = \frac{\alpha}{|\alpha|-1}\)</span>.
+Therefore,</p>
+<p><span class="math notranslate nohighlight">\(H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)\)</span></p>
+<p>If we evaluate the <a class="reference internal" href="z-transform.html#theorem-transfer-function"><span class="std std-ref">transfer function</span></a> <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we get the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a>:</p>
+<div class="math notranslate nohighlight">
+\[H(e^{i \omega T}) = 0.5 \cdot (1 + e^{-i\omega T})\]</div>
+<p>which is similar result we got in the last section!</p>
+<p>Let us plot the <em>gain</em> in frequency for <span class="math notranslate nohighlight">\(T = 1\)</span> and different <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="fig-one-zero">
+<a class="reference internal image-reference" href="../../../_images/a8dbd2bed8522d8ba122ffb062e85ae46c10f29cd572cdae8d1426efff9690bf.png"><img alt="../../../_images/a8dbd2bed8522d8ba122ffb062e85ae46c10f29cd572cdae8d1426efff9690bf.png" src="../../../_images/a8dbd2bed8522d8ba122ffb062e85ae46c10f29cd572cdae8d1426efff9690bf.png" style="width: 900px;" /></a>
+</figure>
+</div>
+</div>
+<p>The unit generator <a class="reference external" href="http://doc.sccode.org/Classes/OneZero.html">OneZero</a> got his name by the fact that it has <strong>one zero</strong>.</p>
+<p>Remember that the filter completely filters <span class="math notranslate nohighlight">\(f_s/2\)</span>.
+But since <span class="math notranslate nohighlight">\(f_s = 44100\)</span> the overall effect of the filter hardly audible.
+Without a <em>pole</em> the filtering effect is weak.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
+    <span class="nc">OneZero</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="nx">alpha</span><span class="p">)</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="one-pole-filter">
+<span id="sec-one-pole-analysis"></span><h2>One Pole Filter<a class="headerlink" href="#one-pole-filter" title="Permalink to this headline">#</a></h2>
+<p>In SuperCollider the <em>one pole filter</em> <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> realizes the following formula:</p>
+<div class="math notranslate nohighlight">
+\[y[n] - \alpha \cdot y[n-1] = (1 - |\alpha|) \cdot x[n], \quad -1 \leq \alpha \leq 1\]</div>
+<p>we have <span class="math notranslate nohighlight">\(N = 1\)</span> and <span class="math notranslate nohighlight">\(M = 0, a_0 = 1, a_1 = -\alpha, b_0 = (1 - |\alpha|)\)</span>
+Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}} = H(z).\]</div>
+<p>There is a <em>pole</em> at <span class="math notranslate nohighlight">\(z = \alpha\)</span> and a <em>zero</em> at <span class="math notranslate nohighlight">\(z = \infty\)</span>.
+Therefore,</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}}.\]</div>
+<p>If we evaluate <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we can see the <em>frequency response</em>:</p>
+<div class="math notranslate nohighlight">
+\[H(e^{i \omega T}) = \frac{0.5}{1 - 0.5 e^{-i \omega T}} = \frac{1}{2 - e^{-i \omega T}}.\]</div>
+<p>Let us plot the <em>gain</em> in frequency for <span class="math notranslate nohighlight">\(T = 1\)</span> and different <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="fig-one-pole">
+<a class="reference internal image-reference" href="../../../_images/9762b432344a9e19b2c67519c6ae35c3a7b5b1eaa8684b8dd0289d6fde057bcd.png"><img alt="../../../_images/9762b432344a9e19b2c67519c6ae35c3a7b5b1eaa8684b8dd0289d6fde057bcd.png" src="../../../_images/9762b432344a9e19b2c67519c6ae35c3a7b5b1eaa8684b8dd0289d6fde057bcd.png" style="width: 900px;" /></a>
+</figure>
+</div>
+</div>
+<p>This explains the name of the unit generator <a class="reference external" href="http://doc.sccode.org/Classes/OneZero.html">OnePole</a>.
+It got his name by the fact that it has <strong>one pole</strong>.
+Compared to the <em>one zero filter</em> it is able to have a much steeper drop / increase in <em>gain</em>.
+Similar to the <em>one zero filter</em> it is a low pass filter for positive <span class="math notranslate nohighlight">\(\alpha\)</span> and high pass filter for negative <span class="math notranslate nohighlight">\(\alpha\)</span>.
+For both these filters, the cutoff frequency <span class="math notranslate nohighlight">\(f_c\)</span> is equal to 0 Hz, i.e., all frequencies are effected.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">alpha</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">;</span>
+    <span class="nc">OnePole</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="mf">0.95</span><span class="p">)</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="impulse-response">
+<span id="sec-impulse-response"></span><h2>Impulse Response<a class="headerlink" href="#impulse-response" title="Permalink to this headline">#</a></h2>
+<p>The fundamental result in <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> system theory is that any LTI system can be characterized entirely by a single function called the system’s <em>impulse response</em> (in the time domain).
+The output of the filter <span class="math notranslate nohighlight">\(y[n]\)</span> is simply the convolution of the input to the filter <span class="math notranslate nohighlight">\(x[n]\)</span> with the system’s <em>impulse response</em> <span class="math notranslate nohighlight">\(h[n]\)</span>.</p>
+<div class="definition admonition" id="def-impulse-response">
+<p class="admonition-title">Impulse Response</p>
+<p>The <em>impulse response</em>, or <em>impulse response function (IRF)</em>, of a filter is its output when presented with a brief input signal, called an <em>impulse</em> <span class="math notranslate nohighlight">\(\delta(t)\)</span>.
+(In the discrete case we write <span class="math notranslate nohighlight">\(\delta[n]\)</span> instead.)</p>
+</div>
+<p>The <em>Dirac delta distribution</em> (<span class="math notranslate nohighlight">\(\delta\)</span> distribution), also known as <em>unit impulse</em>, is a generalized function or distribution over the real numbers, whose value is zero everywhere expect at zero, and whose integral over the entire real line is equal to one:</p>
+<div class="math notranslate nohighlight">
+\[\delta(t) = 0 \Rightarrow t \neq 0 \qquad \int_{-\infty}^\infty \delta(t) dt = 1.\]</div>
+<p>Strictly speaking <span class="math notranslate nohighlight">\(\delta(t)\)</span> not a function because it is not defined for <span class="math notranslate nohighlight">\(\delta(0)\)</span>.
+One can define</p>
+<div class="math notranslate nohighlight">
+\[\delta(t) = \lim\limits_{b \rightarrow 0} \frac{1}{|b| \sqrt{\pi}} e^{-(x/b)^2}.\]</div>
+<p>Interestingly, the Dirac delta function is the neutral element of the <a class="reference internal" href="convolution.html#sec-convolution"><span class="std std-ref">convolution</span></a>, that is,</p>
+<div class="math notranslate nohighlight">
+\[(y * \delta) = (\delta * y) = y.\]</div>
+<p>In the discrete case, things are more intuitive via the <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta[n]\)</span>.</p>
+<div class="definition admonition" id="def-kronecker-delta">
+<p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
+<p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a588486-68ef-4737-9a0e-279ddea0b9e3">
+<span class="eqno">(45)<a class="headerlink" href="#equation-0a588486-68ef-4737-9a0e-279ddea0b9e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\delta[n] = \begin{cases}
+1, &amp; \text{if } n = 0,\\
+0, &amp; \text{otherwise}.
+\end{cases}
+\end{equation}\]</div>
+</div>
+<p>It is the discrete analog of the <em>Dirac delta function</em>.
+For example, the filter response of our <em>simple filter</em> is</p>
+<div class="math notranslate nohighlight">
+\[y[n] = \delta[n] + \delta[n-1], n = 0, 1, 2, \ldots\]</div>
+<p>which gives us <span class="math notranslate nohighlight">\(y[0] = y[1] = 1\)</span> and <span class="math notranslate nohighlight">\(y[n] = 0\)</span> for all <span class="math notranslate nohighlight">\(n \geq 2\)</span>.
+Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</span> can be expressed as a combination of weighted delta functions, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].\]</div>
+<div class="definition admonition" id="def-fir-filter">
+<p class="admonition-title">FIR Filter</p>
+<p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
+All filters of the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ab9b2bae-1175-45a3-b970-13615242299d">
+<span class="eqno">(46)<a class="headerlink" href="#equation-ab9b2bae-1175-45a3-b970-13615242299d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y[n] = \sum\limits_{k=0}^M b_k x[n-k]
+\end{equation}\]</div>
+<p>are <em>FIR filters</em>.</p>
+</div>
+<p>A <a class="reference internal" href="#sec-one-zero-analysis"><span class="std std-ref">one zero filter</span></a> is a FIR filter.
+A <a class="reference internal" href="#sec-one-pole-analysis"><span class="std std-ref">one pole filter</span></a> is a <em>infinite impulse response (IIR)</em> filter since the feedback process will create an endless number of decaying impulses.</p>
+<div class="definition admonition" id="def-iir-filter">
+<p class="admonition-title">IIR Filter</p>
+<p>A filter with a infinite impulse response, e.g. echo with feedback, is called <em>infinite impulse response (IIR)</em> filter.</p>
+</div>
+<p>TODO: Plot impulse responses from all the example filters (similar to the frequency responses)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/sounddesign/math"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="z-transform.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Z-Transform</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../abstract-and-physical.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Abstract and Physical Synthesis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-response">Frequency Response</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-zero-filter">One Zero Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-pole-filter">One Pole Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Benedikt Zönnchen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC BY-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

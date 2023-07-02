@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Playing Sound &#8212; Algorithmic Composition</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/supercollider/basics/7-playing';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Environments" href="8-environments.html" />
+    <link rel="prev" title="Classes and Objects" href="6-classes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grounding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/lost-futures.html">Lost Futures – A Romantic Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/technology-and-art.html">Technology and Art</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/algorithms.html">Algorithms</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ecosystem.html">The Ecosystem</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="basics.html">SCLang Basics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1-code-execution.html">Code Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-variables.html">Variables and Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4-functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5-control-structures.html">Control Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6-classes.html">Classes and Objects</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Playing Sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8-environments.html">Environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9-utility-functions.html">Utility Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../synths/synths.html">Synthesizers</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../synths/1-ugens.html">Unit Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../synths/2-sc-synths.html">SC Synthesizers</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pattern/pattern.html">Playing Patterns</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pattern/1-the-instrument.html">The Instrument and its Artist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pattern/2-streams.html">Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pattern/3-pattern.html">Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pattern/4-events.html">Musical Event</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pattern/5-event-player.html">Event Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pattern/6-reference.html">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../live-coding/live-coding.html">Live Coding</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../live-coding/1-proxies.html">Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../live-coding/2-proxy-space.html">Proxy Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../live-coding/3-node-proxies.html">Node Proxies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../live-coding/4-node-proxy-defs.html">Node Proxy Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../live-coding/5-task-proxies.html">Task Proxy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../live-coding/6-tidal.html">TidalCycles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../scheduling/scheduling.html">Scheduling</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scheduling/1-connecting-times.html">The Entanglement of Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduling/2-clocks.html">Clocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduling/3-routines-tasks.html">Routines &amp; Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduling/4-minimalism.html">Minimalism</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../communication/communication.html">Communication</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../communication/1-midi.html">Musical Instrument Digital Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication/2-osc.html">Open Sound Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sugens/sugens.html">Special Unit Generators</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sugens/1-amplitude.html">Amplitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sugens/2-triggers.html">Demand Unit Generators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Sound Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sounddesign/math/intro.html">Mathematical Foundation</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/sampling.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/complex.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/fourier-series.html">Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/fourier-transform.html">Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/dft.html">Discrete Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/convolution.html">Convolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/z-transform.html">Z-Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/math/lti-filters.html">LTI Filters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sounddesign/abstract-and-physical.html">Abstract and Physical Synthesis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sounddesign/additive-synthesis/additive-synthesis.html">Additive Synthesis</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html">Fundamental Waveforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/additive-synthesis/2-harmonics.html">Harmonic Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/additive-synthesis/3-inharmonics.html">Inharmonic Series</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sounddesign/filters/filters.html">Subtractive Synthesis and Filters</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">Filtering by Delays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/2-simpler-filters.html">Basic Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">Frequency Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/4-resonance.html">Responses and Resonance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/5-control-filters.html">Control Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/6-reverb.html">Reverberation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sounddesign/am.html">Amplitude Modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sounddesign/fm.html">Frequency Modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sounddesign/wavetable.html">Wavetable Synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sounddesign/fft.html">FFT Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sounddesign/physical-modeling.html">Physical Modeling</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../sounddesign/cookbook/intro.html">Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/cookbook/drones.html">Drones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/cookbook/percussive-sound.html">Percussive Sound</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Composing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/music-theory/music-theory.html">Music Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/1-midinotes.html">Notes &amp; Midi Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/2-intervals.html">Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/3-scales.html">Scales &amp; Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/4-chords.html">Chords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/5-tuning.html">Tuning System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/6-analysis.html">Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../misc/terms.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../misc/bibliography.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BZoennchen/supercollider-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BZoennchen/supercollider-book/edit/master/chapters/supercollider/basics/7-playing.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BZoennchen/supercollider-book/issues/new?title=Issue%20on%20page%20%2Fchapters/supercollider/basics/7-playing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/chapters/supercollider/basics/7-playing.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Playing Sound</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="playing-sound">
+<h1>Playing Sound<a class="headerlink" href="#playing-sound" title="Permalink to this headline">#</a></h1>
+<p>Let us create the most simple sound possible: the sound of a sine wave.
+First, we define a function that returns a so-called unit generator <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> that starts when we call <code class="docutils literal notranslate"><span class="pre">play()</span></code>.
+In fact <code class="docutils literal notranslate"><span class="pre">play()</span></code> is shorthand for</p>
+<ol class="arabic simple">
+<li><p>transforming our <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> into a full <a class="reference internal" href="../synths/2-sc-synths.html#sec-synths"><span class="std std-ref">SynthDef</span></a> (synth definition),</p></li>
+<li><p>adding it to the audio server and</p></li>
+<li><p>executing it by generating a synth on it.</p></li>
+</ol>
+<div class="attention admonition" id="attention-protect-your-ears">
+<p class="admonition-title">Protect your ears!</p>
+<p><a class="reference external" href="https://supercollider.github.io/">SC</a> will not protect you from any wrongdoing.
+It will play the sound you defined, and if this sound can hurt your ears, you have to be sure to protect them.
+It is good practice to use headphones far away from your ears if you do not know what sound to expect!</p>
+</div>
+<p>There are hundreds of different <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a>.
+Basically, they spit out real numbers over time.
+For example, <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a> samples a sine wave.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sine</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">,</span> <span class="na">mul:</span> <span class="mf">0.2</span><span class="p">)};</span>
+<span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If we execute this code, we get a warning that the server <code class="docutils literal notranslate"><span class="pre">localhost</span></code> is not running.
+We have to boot the real-time audio server <strong>scsynth</strong> first:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Server</span><span class="p">.</span><span class="nx">local</span><span class="p">.</span><span class="nx">boot</span><span class="p">;</span>  <span class="c1">// boots the local server on your machine</span>
+<span class="c1">//s.boot;           // is equivalent</span>
+<span class="o">~</span><span class="nx">sine</span> <span class="o">=</span> <span class="p">{</span><span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">freq</span><span class="p">,</span> <span class="na">mul:</span> <span class="mf">0.2</span><span class="p">)};</span>
+<span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+                <audio  controls="controls" >
+                    <source src="data:audio/mpeg;base64,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" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+              </div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">~sine</span></code> is a function that returns <code class="docutils literal notranslate"><span class="pre">SinOsc.ar(freq,</span> <span class="pre">mul:</span> <span class="pre">0.2)</span></code> which is a <a class="reference external" href="https://doc.sccode.org/Classes/BinaryOpUGen.html">BinaryOpUGen</a>.</p>
+<div class="attention admonition" id="attention-sound-termination">
+<p class="admonition-title">Sound termination</p>
+<p>To terminate all sound press <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">.</span></code>. <strong>This might be the most important shortcut of all.</strong></p>
+</div>
+<p>If we press <code class="docutils literal notranslate"><span class="pre">CMD</span></code> + <code class="docutils literal notranslate"><span class="pre">i</span></code> while the curser is at <code class="docutils literal notranslate"><span class="pre">play()</span></code> and we select the implementation for <a class="reference external" href="https://doc.sccode.org/Classes/Function.html">Function</a>, we can see lookup what <code class="docutils literal notranslate"><span class="pre">~sine.play()</span></code> actually does:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">play</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">outbus</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">fadeTime</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span> <span class="nx">addAction</span><span class="o">=</span><span class="ss">\addToHead</span><span class="p">,</span> <span class="nx">args</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">def</span><span class="p">,</span> <span class="nx">synth</span><span class="p">,</span> <span class="nx">server</span><span class="p">,</span> <span class="nx">bytes</span><span class="p">,</span> <span class="nx">synthMsg</span><span class="p">;</span>
+    <span class="nx">target</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">asTarget</span><span class="p">;</span>
+    <span class="nx">server</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">server</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">server</span><span class="p">.</span><span class="nx">serverRunning</span><span class="p">.</span><span class="nx">not</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">(</span><span class="s2">&quot;server &#39;&quot;</span> <span class="o">++</span> <span class="nx">server</span><span class="p">.</span><span class="nx">name</span> <span class="o">++</span> <span class="s2">&quot;&#39; not running.&quot;</span><span class="p">).</span><span class="nx">warn</span><span class="p">;</span> <span class="o">^</span><span class="kc">nil</span>
+    <span class="p">};</span>
+    <span class="nx">def</span> <span class="o">=</span> <span class="nb">this</span><span class="p">.</span><span class="nx">asSynthDef</span><span class="p">(</span>
+        <span class="na">fadeTime:</span><span class="nx">fadeTime</span><span class="p">,</span>
+        <span class="na">name:</span> <span class="nc">SystemSynthDefs</span><span class="p">.</span><span class="nx">generateTempName</span>
+    <span class="p">);</span>
+    <span class="nx">synth</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">.</span><span class="nx">basicNew</span><span class="p">(</span><span class="nx">def</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">server</span><span class="p">);</span>
+        <span class="c1">// if notifications are enabled on the server,</span>
+        <span class="c1">// use the n_end signal to remove the temp synthdef</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">server</span><span class="p">.</span><span class="nx">notified</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nc">OSCFunc</span><span class="p">({</span>
+            <span class="nx">server</span><span class="p">.</span><span class="nx">sendMsg</span><span class="p">(</span><span class="ss">\d_free</span><span class="p">,</span> <span class="nx">def</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+        <span class="p">},</span> <span class="s1">&#39;/n_end&#39;</span><span class="p">,</span> <span class="nx">server</span><span class="p">.</span><span class="nx">addr</span><span class="p">,</span> <span class="na">argTemplate:</span> <span class="p">[</span><span class="nx">synth</span><span class="p">.</span><span class="nx">nodeID</span><span class="p">]).</span><span class="nx">oneShot</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">synthMsg</span> <span class="o">=</span> <span class="nx">synth</span><span class="p">.</span><span class="nx">newMsg</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="p">[</span><span class="ss">\i_out</span><span class="p">,</span> <span class="nx">outbus</span><span class="p">,</span> <span class="ss">\out</span><span class="p">,</span> <span class="nx">outbus</span><span class="p">]</span> <span class="o">++</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">addAction</span><span class="p">);</span>
+    <span class="nx">def</span><span class="p">.</span><span class="nx">doSend</span><span class="p">(</span><span class="nx">server</span><span class="p">,</span> <span class="nx">synthMsg</span><span class="p">);</span>
+    <span class="o">^</span><span class="nx">synth</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">play()</span></code> constructs a new <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>, adds it to the server, and generates a synth which is returned.
+The <code class="docutils literal notranslate"><span class="pre">fadeTime</span></code> makes sure that the sound ramps up over a certain amount of seconds.
+For example, we can increase <code class="docutils literal notranslate"><span class="pre">fadeTime</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">sineplay</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sine</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="na">fadeTime:</span> <span class="mf">2.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">play</span></code> comes in handy if we wanna just try something out – if we want to explore sounds in a quick and dirty way.
+For complex synth, we will define our own <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/supercollider/basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="6-classes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Classes and Objects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="8-environments.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Environments</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Benedikt Zönnchen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">CC BY-SA 4.0</a>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
