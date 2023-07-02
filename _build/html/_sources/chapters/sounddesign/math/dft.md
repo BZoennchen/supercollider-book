@@ -619,7 +619,7 @@ mystnb:
   image:
     width: 900px
   figure:
-    name: fig-spectrogram
+    name: fig-mfcc
     caption: MFCC of the Nutcracker suite using only 13 bins.
 ---
 M = librosa.feature.melspectrogram(y=x, n_fft=n_fft, hop_length=hop_length, sr=sr, n_mels=13, fmax=8000)

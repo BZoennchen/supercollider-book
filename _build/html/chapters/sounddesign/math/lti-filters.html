@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
@@ -542,15 +543,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8892f931-2445-4f49-b261-b124ac5752c4">
-<span class="eqno">(41)<a class="headerlink" href="#equation-8892f931-2445-4f49-b261-b124ac5752c4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b80930aa-3c2c-4943-a628-84e6aba1dc34">
+<span class="eqno">(41)<a class="headerlink" href="#equation-b80930aa-3c2c-4943-a628-84e6aba1dc34" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplutide frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8db068de-bffb-48bb-897d-67c34a1fdc3b">
-<span class="eqno">(42)<a class="headerlink" href="#equation-8db068de-bffb-48bb-897d-67c34a1fdc3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9748248-5b44-45d3-9e0b-132f1e8d6b52">
+<span class="eqno">(42)<a class="headerlink" href="#equation-a9748248-5b44-45d3-9e0b-132f1e8d6b52" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -610,8 +611,8 @@ The following example rejects frequencies between 200 and 300 Hz, i.e., the inve
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99c1b577-d3b3-434a-9ad3-95da1b483f88">
-<span class="eqno">(43)<a class="headerlink" href="#equation-99c1b577-d3b3-434a-9ad3-95da1b483f88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-addaa268-fd8d-46e9-89fe-503e6137bb84">
+<span class="eqno">(43)<a class="headerlink" href="#equation-addaa268-fd8d-46e9-89fe-503e6137bb84" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -729,8 +730,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-852fa0c4-dc23-4993-a1d9-ea86dd6c3e7a">
-<span class="eqno">(44)<a class="headerlink" href="#equation-852fa0c4-dc23-4993-a1d9-ea86dd6c3e7a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-19b0fbc0-1181-440b-bb5c-b93fe1ee6620">
+<span class="eqno">(44)<a class="headerlink" href="#equation-19b0fbc0-1181-440b-bb5c-b93fe1ee6620" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -840,8 +841,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-04e6bef7-d213-48f2-895f-1f0301080c5b">
-<span class="eqno">(45)<a class="headerlink" href="#equation-04e6bef7-d213-48f2-895f-1f0301080c5b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-044d65e2-b301-4ba2-86f9-ed0a3514e77b">
+<span class="eqno">(45)<a class="headerlink" href="#equation-044d65e2-b301-4ba2-86f9-ed0a3514e77b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -860,8 +861,8 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 <p class="admonition-title">FIR Filter</p>
 <p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-769a49c6-94c4-4ab9-b61d-445460b188b2">
-<span class="eqno">(46)<a class="headerlink" href="#equation-769a49c6-94c4-4ab9-b61d-445460b188b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-afabce71-2fc6-40a2-a4ea-67c9b514b02f">
+<span class="eqno">(46)<a class="headerlink" href="#equation-afabce71-2fc6-40a2-a4ea-67c9b514b02f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>

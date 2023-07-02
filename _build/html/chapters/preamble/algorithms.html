@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
@@ -64,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/preamble/algorithms';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -496,6 +499,62 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="algorithms">
 <h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">#</a></h1>
+<p>The origin of the term <em>algorithm</em> was obscure for quite a while.
+Historians only late discovered that the term emerged from a slight modification of the name of the renowned Persian author Abu Ja’far Muhammad ibn Musa al-Khwarizmi.
+This name was Latinized to Algorismi and later translated into Middle High German as Algorismus.
+In more recent times, the word was linked with the Greek term <em>arithmetic</em>, thus giving rise to the term <em>algorithm</em>.</p>
+<p>For an extended period, <em>algorithm</em> was primarily associated with a combination of arithmetic operations, including addition, subtraction, multiplication, and division.
+Around 1950, the term began to reference Euclid’s celebrated algorithm for determining the greatest common divisor.
+Consequently, the concept of an algorithm as a combination of purely arithmetic operations started to fade.
+Instead, algorithms started to incorporate combinatorial operations and control structures.</p>
+<p>In contemporary times, we correlate the term <em>algorithm</em> with concepts such as recipe, computational instruction, process, procedure, method, routine, and so forth.</p>
+<p>Let us have a look to Euclid’s famous algorithm.
+Given two natural numbers <span class="math notranslate nohighlight">\(n, m \in \mathbb{N}\)</span>, we want to find the greatest common divsor <span class="math notranslate nohighlight">\(d\)</span> of those two numbers, that is,</p>
+<div class="math notranslate nohighlight">
+\[\exists k_1, k_2 \in \mathbb{N} : n = k_1 \cdot d \ \land \ m = k_2 \cdot d\]</div>
+<p>and <span class="math notranslate nohighlight">\(d\)</span> is the largest number that fulfills this condition.
+Clearly, if one of the numbers is a multiple of the other, we are done.
+Otherwise, one number, let’s say <span class="math notranslate nohighlight">\(n\)</span>, has to be larger.</p>
+<p>Interestingly, we can subtract <span class="math notranslate nohighlight">\(m\)</span> from <span class="math notranslate nohighlight">\(n\)</span> while keeping the greatest common divisor unchanged meaning that <span class="math notranslate nohighlight">\(n-m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> have the same common divisor than <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span>.
+We can show this by the following equation</p>
+<div class="math notranslate nohighlight">
+\[n-m = (k_1 \cdot d) - (k_2 \cdot d) = (k_1 - k_2) \cdot d\]</div>
+<p>Since <span class="math notranslate nohighlight">\(n &gt; m\)</span> we can follow <span class="math notranslate nohighlight">\(k_1 - k_2 &gt; 0\)</span>.
+Imagine two sticks of length <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span>.
+If there is another stick <span class="math notranslate nohighlight">\(d\)</span> that divides both sticks, then it has to divide the shorter stick.
+Therefore, it has to divide the rest (<span class="math notranslate nohighlight">\(n-m\)</span>) of the longer stick as well.
+Since this relation is recursive, we can subtract the greater from the smaller number until the smaller divides the larger.</p>
+<div class="proof algorithm admonition" id="alg-euclid">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Eucld’s Algorithm)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong> Two numbers <span class="math notranslate nohighlight">\(n, m \in \mathbb{N}\)</span>.</p>
+<p><strong>Output</strong> The greatest common divisor of <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span>.</p>
+<ol class="arabic simple">
+<li><p>While <span class="math notranslate nohighlight">\(n &lt; m \ \lor \ m &lt; n\)</span></p>
+<ol class="arabic simple">
+<li><p>If <span class="math notranslate nohighlight">\(m &gt; n\)</span></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(t \leftarrow m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m \leftarrow n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n \leftarrow t\)</span></p></li>
+</ol>
+</li>
+<li><p><span class="math notranslate nohighlight">\(n \leftarrow n - m\)</span></p></li>
+</ol>
+</li>
+<li><p>return <span class="math notranslate nohighlight">\(m\)</span></p></li>
+</ol>
+</section>
+</div><p>An algorithm is a finite sequence of explicitly described executable instructions, such as a text or program code, designed to yield a finite output within a finite number of steps for a specific finite input.
+Importantly, it uses only a finite amount of memory space at any point during its execution.</p>
+<p>Since algorithms describe a sequence of executable instructions, they have a strange relation to time.
+In <em>Algorithmic Music and the Philosophy of Time</em> Julian Rohrhuber states that</p>
+<blockquote>
+<div><p>an algorithm is on the <em>verge of time</em>: […] it is strictly structural – a formal, unchanging entity. Not only formal, however, but a formula that prescribes steps to be made one after another, depending on one another. It is a formula that exists in order to unfold, in the form of a process, in time and over time, and dependent on its past inputs. – Julian Rohrhuber</p>
+</div></blockquote>
+<p>Like any algorithm, Euclid’s algorithm is a description of a causal path into the future even though there is no physical time mentioned explicitly.
+Instead the algorithms is there to be executed, i.e., to be transformed into a program.
+Apart from this timely quality, an algorithm is like a written story: it can unfold but is also unchanging; its content does not change but it can unfold logically.</p>
 <p>TODO</p>
 </section>
 
