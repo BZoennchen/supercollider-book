@@ -17,10 +17,17 @@ kernelspec:
 >It is a formula that exists in order to unfold, in the form of a process, in time and over time, and dependent on its past inputs. -- Julian Rohrhuber
 
 I am deeply fascinated by algorithms. 
-My critique of [technology](sec-technology-and-art), which will also permeate this section, arises from a place of love and appreciation. 
-Following my Ph.D., I penned an article titled [Informatics - A Love Letter](https://bzoennchen.github.io/Pages/2021/06/08/Informatics-a-love-letter.html) in which I unabashedly express my gratitude towards the discipline. 
-For me, informatics or computer science is both an art and a science that has vastly expanded my realm of possibilities. 
-Perhaps for this reason, I am driven to safeguard this craft from potential decline.
+My critique of [technology](sec-technology-and-art), which will also permeate this section, arises from a place of love and appreciation.
+Technological advancements have liberated us humans from the constraints of nature.
+And it is unlikely that many individuals would choose to reside in an era prior to the *industrial revolution*.
+However, as already mentioned, technology may have set us on an immutable course of existence that could ultimately lead to disaster.
+
+For me personally, technology is lifesaving and emancipatory.
+Following my Ph.D., I even penned an article titled [Informatics - A Love Letter](https://bzoennchen.github.io/Pages/2021/06/08/Informatics-a-love-letter.html) in which I unabashedly express my gratitude towards the discipline. 
+Informatics or computer science is both an art and a science that has vastly expanded my realm of possibilities.
+It also seems glaringly obvious that if we want to find a solution to the escalating impacts of climate change, we will depend on technology.
+Any other solution could be so detrimental that I can't even begin to envision the consequences.
+Perhaps for these reasons, I am driven to safeguard this craft from potential decline.
 
 ## Introduction
 
@@ -245,7 +252,7 @@ Digital spaces are imbued with values, determined by the control and regulation 
 *Cyberspace*, as it's often termed, have never been free from regulation, despite common misconceptions.
 Rather than being shaped by traditional architectural forms meant to regulate physical spaces, digital spaces are regulated by *source code*.
 The design of websites or applications, dictated by this code, significantly influences the behavior of their users.
-In other words, the very structure of these platforms functions as a form of regulation, guiding user interactions and activities.
+In other words, the very structure of these platforms function as a form of regulation, guiding user interactions and activities.
 In {cite}`lessig:2006` Lawrence Lessig states:
 
 >Codes constitute cyberspaces; spaces enable and disable individuals and groups. The selections about code are therefore in part a selection about who, what, and, most important, what ways of life will be enabled and disabled. -- Lawrence Lessig
