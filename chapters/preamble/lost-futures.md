@@ -2,7 +2,9 @@
 
 >What, if some day or night a demon were to steal after you into your loneliest loneliness and say to you: 'This life as you now live it and have lived it, you will have to live once more and innumerable times more' [...] Would you not throw yourself down and gnash your teeth and curse the demon who spoke thus? Or have you once experienced a tremendous moment when you would have answered him: 'You are a god and never have I heard anything more divine. -- Nietzsche
 
-In its formative stage around 1990 -- at a time of postmodern culture and when Fukuyama declared the end of history -- *ghosts of cyberculture* alluded to an innovative utopia characterized by extensive collaboration and collective expression, with ideas, knowledge, and power evenly distributed across a decentralized web; the internet was perceived as a gift to humanity.
+## The Fever Dream
+
+In its formative stage around 1990 -- at a time of *postmodern culture* and when Fukuyama declared the end of history -- *ghosts of cyberculture* alluded to an innovative utopia characterized by extensive collaboration and collective expression, with ideas, knowledge, and power evenly distributed across a decentralized web; the internet was perceived as a gift to humanity.
 However, the catalyst for its creation — the destructive potential of a nuclear Armageddon — foreshadowed its subsequent instrumentalization.
 
 In the 1960s, computational power was centralized in large mainframe computers, the capabilities of which became a critical factor in the arms race between the U.S. and the Soviet Union. To optimize these resources, it was crucial to share them across a network. 
@@ -21,23 +23,24 @@ Utopian visions of the future were prevalent, dreams that were later amplified b
 The roots of many tech gurus can be traced back to counterculture environments that advocated individual freedom, non-conformity, free love, drugs, and rock music.
 
 Guided by this vision, counterculturalists and technologists alike came together to reimagine computers as tools for personal liberation, community building in virtual and decidedly alternative spaces, and for exploring bold new social frontiers. 
-Despite the internet never truly escaping from power concentrations, it provided us with a compelling vision of a potential future; a fever dream of an alternative societal structure. 
+Despite the internet never truly escaping from power concentrations, it provided many people with a compelling vision of a potential future; a fever dream of an alternative societal structure. 
 But what happened to this dream?
 
-One could argue that it was the Left's failure to act collectively and assertively that was at fault. 
-Certainly, some were striving to transform material realities through collective activism.
-However, others were trying to alter people's mindsets.
-While the former group embraced bureaucracy, hierarchies, and organizations, the latter group campaigned to eliminate all those structures, instead promoting small-scale technologies, LSD, and so on.
-This anarchistic reflex may seem appealing, but individual freedom in a highly interconnected society either stems from collective negotiation or from individual domination over others. 
-Using drugs aimlessly is akin to having an escape kit without an instruction manual.
+## Ecstatic Individualism
+
+One might contend that the fault lay in the Left's inability to take collective and assertive action.
+Undeniably, some were actively working to reshape material realities through collective activism, while others focused on changing people's perspectives. 
+The former group accepted bureaucracy, hierarchy, and organization, whereas the latter worked to dismantle these structures, advocating for small-scale technologies, the use of LSD, and so forth. 
+While this anarchistic impulse might appear attractive, personal freedom in a tightly interconnected society either arises from collective negotiation or from individual dominance over others. 
+Unstructured drug use equates to having an escape kit bereft of an operational guide
 
 >Taking MDMA is like improving [Microsoft] Windows: no matter how much tinkering Bill [Gates] does, MS Windows will always be shit because it is built on top of the rickety structure of DOS -- Mark Fisher
 
 In his final remarks, Mark Fisher asserts that reliance on ecstasy will inevitably lead to failure, as the human operating system has not been fully dismantled.
 
 Ultimately, this division proved detrimental. Within a communal system founded on shared consciousness, charismatic individuals often take the lead and cultural norms begin to assert themselves.
-Additionally, from a materialistic perspective, ideas don't alter material realities, rather material realities give birth to ideas.
-Reality takes precedence, our narratives about it follow.
+Additionally, from a *materialistic* perspective, ideas don't alter material realities, rather material realities give birth to ideas which inform further matieral changes.
+Reality takes precedence, our narratives about it follows.
 Importantly, the distribution of resources calls for negotiation, which in turn necessitates bureaucracy.
 The undemocratic impulse to free oneself from bureaucracy continually presents an alluring prospect to those committed to realizing their ideal version of a "good" society.
 Consequently, the collective drive lost steam, leading to widespread disillusionment among artists. Rather than seeking to change existing power structures and material realities, they redirected their efforts toward critiquing the status quo through personal expressions -- as liberal vehicle.
@@ -57,10 +60,13 @@ Instead, the cultish disruption centered on conferring power to the "right" peop
 But the question remained: who determines who the "right" people are?
 Ultimately, the tension between individual freedom and communal unity collapsed under the strain of external pressures and inherited power dynamics.
 
+## Today's Cults
+
 Today, the cultish ethos is evident in *Silicon Valley*. 
 Many representatives of the IT industry argue against regulation, promising a new and improved society.
 Regrettably, this faith in doing good has fostered an anti-democratic mindset characterized by hubris. 
-Simultaneously, a significant portion of the fragmented *working class* venerates their corporate overlords -- calling someone a communist is, especially in the U.S., still one of the most powerful linguistic tricks of political attacks.
+Simultaneously, a significant portion of the fragmented *working class* venerates their corporate overlords.
+And the ones who are left behind and do not benefit from any of this progress, tend to the Right while liberals are mistaken to be "the Left".
 
 >Do not stifle our creativity and we will build you new gadgets.
 
@@ -70,19 +76,22 @@ It has always been about power for individuals rather than power for the people.
 One of the most powerful depiction of this ethos is given by a CIA recruitment video called *I am Unapologetically Me*.
 An institution which destabalized and destroyed many democratic governments feels the need to brand itself as a supporter of free individual expressions.
 
-The concentration of power isn't necessarily enforced.
-People crave dominance; they seek a figurehead to do the dirty work, to obscure the harsh truths about our complex reality, to provide simplistic answers. 
-As a result, paradoxically, the politics of personal responsibility can lead to irresponsibility. 
-In a society where individuals are wholly accountable for their successes and failures, there seems to be less collective concern.
+The accumulation of power isn't always imposed; 
+often, it is sought after. 
+People have an innate tendency to strive for supremacy and often look for a figurehead to undertake the unpleasant tasks, to veil the harsh realities of our intricate world, and to deliver oversimplified answers. 
+Consequently, the politics of *personal responsibility* can paradoxically culminate in irresponsibility. 
+In a society where individuals are held entirely accountable for their successes and failures, there tends to be a reduced sense of collective concern. 
+We take pleasure in picturing ourselves as self-sufficient and independent. 
+However, the reality is that we are constantly rolling the dice, and we heavily rely on social services, industry, and most importantly, other people.
 
-Take Google, for example.
-It's a company that treats its engineers quite well, offers flexible workspaces, and has cultivated a culture of collaboration and creativity reminiscent of a commune (except, of course, the workers do not own the company). 
-However, the low-paid cafeteria workers around these engineers, who earn wages close to the minimum and often struggle to obtain proper health insurance, are exploited.
+Cults reside somewhere between isolation and communal unity, fulfilling members' needs for a robust group identity.
+Consider Google as an instance. 
+It's a company that treats its engineers exceptionally well, provides adaptable work environments, and has fostered a collaborative and creative culture akin to a commune (except, of course, the workers do not own the company). Nevertheless, the low-paid cafeteria workers surrounding these engineers, who earn near-minimum wages and often grapple to secure appropriate health insurance, are exploited.
 
-This reflects the old communal mindset. 
-Form an elitist group, furnish them with a shared mindset and the resources they need to live within that mindset, and you can surround them with an underclass. 
-This elitism, somewhat paradoxically, correlates with esotericism and cults, because such individuals often believe themselves to be special or in possession of exclusive knowledge. 
-And fascism, or any other ideology predicated on the worship of a few actors -- the very thing these individuals should vehemently oppose -- always looms ominously in the background.
+This reflects the old communal mindset.
+Form an elitist group, furnish them with a shared mindset and the resources they need to live within that mindset, and you can surround them with an underclass.
+This elitism, somewhat paradoxically, correlates with esotericism and cults, because such individuals often believe themselves to be special or in possession of exclusive knowledge.
+Consequently, fascism, or any other ideology hinged on the idolization of a few individuals -- the very thing these individuals should vehemently oppose -- always looms ominously in the background.
 
 Another example of this cultist tendency is the *effective altruism* movement, which seeks to maximize societal good effectively. 
 The concept here is to optimize the well-being of others with mathematical precision, employing statistical reasoning. 
@@ -118,6 +127,8 @@ I am convinced that effective altruists genuinely wish to do good in the world; 
 However, their approach reveals a profound mistrust in institutions and the general populace.
 Instead of seeking reform or leading rebellions, they attempt to infiltrate systems and wield concentrated power on an individualistic level.
 
+## The Progress of Tomorrow?
+
 Does the concentration of power and wealth inevitably lead to evil?
 In an objectivly moral sense, most certainly not.
 The consolidation of power, knowledge, and capital has undoubtedly sparked innovation and an impressive array of consumer goods.
@@ -126,13 +137,28 @@ This question cannot be objectively answered as it largely depends on individual
 However, it may be worth questioning our concept of "progress" within the context of the *Hegelian dialectic*. 
 In fact, our perception of this "progress" may only exist because we think *dialectically*.
 Has the rise of information technology and the evolution of the military-industrial complex significantly improved our lives? 
+
 As material and intellectual wealth becomes increasingly polarized, with the disparity between the haves and the have-nots widening and the *middle class* dwindling, we need to question our assumptions.
+It is crucial, then, to challenge our presuppositions. 
+Despite the relentless optimism of some who claim that the world is improving, much evidence contradicts this, even from an economic standpoint. 
+According to many economists, poverty levels haven't significantly shifted over the last century. 
+Moreover, we are hurtling towards greater inequality. Thomas Piketty contends in his extensive 696-page book, *Capital in the Twenty-First Century* {cite}`piketty:2014`, that there are two main drivers of this trend:
+
+1. High-income managers leverage their power to augment their earnings further. Their income does not correspond to their productivity.
+2. In capitalist systems, income generated through capital tends to grow relatively faster than the overall economy.
+
+While the first factor might be more infuriating, Piketty thinks the latter is the more significant issue.
+For me, inequality isn't about possessing luxurious items or globe-trotting. 
+Rather, it's about meeting basic needs, promoting overall wellbeing, ensuring education for all, and diffusing power -- essentially, saving and fortifying democracies.
+
 Is it truly inevitable that large corporations must be owned by a select few? 
 Would society benefit if each of us owned a stake in the infrastructure for which we are accountable? 
-If we held ownership, wouldn't we become more concerned with the methods of production, instead of hiding behind a dominant 'big brother'?
+If we held ownership, wouldn't we become more concerned with the methods of production, instead of hiding behind a dominant *big brother*?
 How did our spiritual world "progress"?
 What experiences are now possible and which are impossible?
 Are we the Nietzschian *Last Man*, satisfied but blind for the wonders happening right in front of us. 
+
+## Extreme Consumerism
 
 Despite the presence of occasional rebellious elements, I have come to realize that the technological explosion has amplified the extent of monetization and commercialization in our society. 
 We have witnessed extraordinary innovation, yet the fundamental issues of inequality and diversity, which were central to the 1960s' counterculture, remain unresolved.
@@ -289,29 +315,7 @@ And since this greatness is a feature of the past, it can only signify a *white 
 
 While we might scoff at this logic, we must confront the truth: we are also living by a myth -- the myth of unlimited domination and exploitation of nature by technology, underpinned by an economic system predicated on endless material and productivity growth.
 
-So, is it all over? 
-Is the end already predetermined by our current situation, as *accelerists* suggest? 
-Is it time to surrender, let capitalism unfold to its final conclusion, and witness the outcome? 
-As individuals, we seem powerless. 
-And even if some power structures managed to instigate change, *systems theory* suggests that the effects on the system cannot be predicted, assuming our planet, with all its life and environments, constitutes an *open complex system*.
-We could capitulate, finding fleeting pleasure in *hedonic nihilism*, but that seems insufficient.
-
-My response echoes Nietzsche, and I fully acknowledge the looming danger within his writings and the abusive application of his paradoxical thoughts to fit a toxic self-help industry.
-I also recognize the tension between Nietzsche's *superman* and my critique of *elitism* and the Right. 
-I am a thief, pilfering those concepts I find valuable. 
-For instance, *life affirmation* as a guiding principle, morality as a *dangerous virus*, the *body* being equally important and enjoyable and inseparable from the mind, the *significance of power*, and constantly *overcoming oneself* are lessons I borrow from Nietzsche. 
-To alter our *complex system*, we must change or disrupt the *flow of energy*. 
-Rather than investing significant energy into moralizing (without material impact), we should seek power and use it to adjust the *flow*, either by redirecting desires or by reducing the intensity of the established *desire machine*.
-
->[In the speech] MLK talked about the fallacy that certain Christians misunderstood love as a seeding of power, and then Nietzsche came along and rejected Christian morality because he thought it denied someone's vitality, the will to power in a healthy sense. MLK said, 'love without power is sentimental and anemic, and power without love is abusive and corrosive'. I want the left to have [this] Machiavelli[an-side] so that we can have the strategy, ruthlessness, and clarity to actually win these battles and be ruthless with institutions. And then I want us to learn how to be really kind to each other, welcoming of a broad set, and actually have a movement that has the capacity to do that. -- Micheal Brooks
-
-There is a lot unfolding currently. 
-Numerous grassroots movements have sprouted in the past decade, each envisaging a fresh future and forging their unique values.
-On that topic, Western people can learn a lot from the people of South American countries.
-Importantly, they appear to have learned from past missteps, understanding the need for collective action and an inclusive environment. 
-Thus, perhaps there is potential for a reinvigorated *cyberculture*.
-However, we must begin to reveal, critique, and leverage the production and channeling of desire more explicitly.
-We all acknowledge that advertisement is *deceptive*, but such an underestimation significantly undermines its influence.
+## Sparks of the Real
 
 Mark Fisher conceived the term *Capitalist Realism* to communicate our belief that capitalism is the only feasible economic and political system. 
 As a cultural critic, he posits that this view is reflected in our popular culture, with examples found in films like Blade Runner 2049, Children of Men, The Road, Scarface, Goodfellas, The Irishman, Killing Them Softly, and in music genres such as gangster rap and hip-hop. 
@@ -368,6 +372,32 @@ I believe Hannah Arendt was right about this.
 
 Combating propaganda becomes challenging because an influx of information often fuels it.
 Regardless, I don't have a precise solution, only a call for awareness and, perhaps, the enlistment of our bombarded minds.
+
+## Rebellion of Makers 
+
+So, is it all over? 
+Is the end already predetermined by our current situation, as *accelerists* suggest? 
+Is it time to surrender, let capitalism unfold to its final conclusion, and witness the outcome? 
+As individuals, we seem powerless. 
+And even if some power structures managed to instigate change, *systems theory* suggests that the effects on the system cannot be predicted, assuming our planet, with all its life and environments, constitutes an *open complex system*.
+We could capitulate, finding fleeting pleasure in *hedonic nihilism*, but that seems insufficient.
+
+My response echoes Nietzsche, and I fully acknowledge the looming danger within his writings and the abusive application of his paradoxical thoughts to fit a toxic self-help industry.
+I also recognize the tension between Nietzsche's *superman* and my critique of *elitism* and the Right. 
+I am a thief, pilfering those concepts I find valuable. 
+For instance, *life affirmation* as a guiding principle, morality as a *dangerous virus*, the *body* being equally important and enjoyable and inseparable from the mind, the *significance of power*, and constantly *overcoming oneself* are lessons I borrow from Nietzsche. 
+To alter our *complex system*, we must change or disrupt the *flow of energy*. 
+Rather than investing significant energy into moralizing (without material impact), we should seek power and use it to adjust the *flow*, either by redirecting desires or by reducing the intensity of the established *desire machine*.
+
+>[In the speech] MLK talked about the fallacy that certain Christians misunderstood love as a seeding of power, and then Nietzsche came along and rejected Christian morality because he thought it denied someone's vitality, the will to power in a healthy sense. MLK said, 'love without power is sentimental and anemic, and power without love is abusive and corrosive'. I want the left to have [this] Machiavelli[an-side] so that we can have the strategy, ruthlessness, and clarity to actually win these battles and be ruthless with institutions. And then I want us to learn how to be really kind to each other, welcoming of a broad set, and actually have a movement that has the capacity to do that. -- Micheal Brooks
+
+There is a lot unfolding currently. 
+Numerous grassroots movements have sprouted in the past decade, each envisaging a fresh future and forging their unique values.
+On that topic, Western people can learn a lot from the people of South American countries.
+Importantly, they appear to have learned from past missteps, understanding the need for collective action and an inclusive environment. 
+Thus, perhaps there is potential for a reinvigorated *cyberculture*.
+However, we must begin to reveal, critique, and leverage the production and channeling of desire more explicitly.
+We all acknowledge that advertisement is *deceptive*, but such an underestimation significantly undermines its influence.
 
 Does exploitation of one another stand as the sole means of constructing and maintaining a society worth living in? 
 Is competition and fear the only path to productivity? 
@@ -443,24 +473,24 @@ In this context, I draw from Hegel, despite my skepticism towards a history prog
 I doubt that acting in opposition to the prevailing myth will dismantle it because in doing so, we engage in a *dialectic* that perfectly integrates any resistance.
 I believe, although without justification, that the solution resides in *creation* and *affirmation*, not in criticism devoid of creation but in the *act of creating to critique*.
 
-But wait a moment! 
-Is this a call to action? 
-Every corner of the world seems to be shouting that we must act, that we must hustle, be productive, creative, and so on. 
-Often, I feel overwhelmed by anxiety because of this.
-This anxiety arises from not knowing what's expected of me (Lacan).
-Today we have to be *Everything Everywhere All at Once*. 
-I believe many young people experience this sensation.
-It feels like a pressing social demand to accomplish something, to become someone, to forge a path, to start a family, but without clear instructions on how to fulfill these expectations. 
-This demand can feel like a weight, a burden, a constant pestering that one doesn't know how to respond to.
-But we remain in this *rat race* due to the absence of an alternative vision. 
-The fantasy persists.
-We are told to be more entrepreneurial, to take risks, to travel around the world, to plunge into debt to buy that house.
-We are advised to venture out, find ourselves by purchasing a book, attending a seminar, enrolling in a course, and once we somehow discover "us", we can finally quell that nagging anxiety.
-But there is no such fantastic authentic "us" as we learned to imagine it.
+Pause for a moment! 
+Is this a call for action? 
+It appears that every corner of the globe is demanding action, insisting on hustle, productivity, creativity, and more. 
+Often, I find myself submerged in a sea of anxiety, born from the unknown -- the uncertainty of what is expected of me (Lacan). 
+It feels like we need to be everything, everywhere, all at once in today's world. 
+I suspect this is a feeling shared by many young individuals. 
+It's like there's a pervasive social expectation to achieve something, to carve out an *identity*, to blaze a trail, to establish a family, but without a clear roadmap to success. 
+This pressure can feel heavy, oppressive, an incessant nagging to which we don't know how to react. 
+Yet we continue to engage in this relentless competition due to the lack of an alternative vision. 
+The fantasy continues to entice us. 
+We're encouraged to embrace an entrepreneurial spirit, to take risks, to globetrot, to accumulate debt for that dream home. 
+We're prompted to venture out, to "find ourselves" by buying a book, attending a seminar, or enrolling in a course, with the promise that once we discover this elusive "self", we can finally silence that gnawing anxiety.
+However, the fantastical, authentic "self" we're taught to envisage doesn't really exist.
 
-So perhaps, since we are constantly being asked to act, to do, to run, to hurry, to produce, we might want to pause before we once again dive into productivity.
-Maybe what we need is to take a step back, to think, reflect, and question the overarching narratives that have been sold to us as truths, as hegemonic and natural.
-We could consider embracing a form of postmodernism that removes certainty from the knowledge that the prescribed lifestyle is the one we are destined and obligated to fulfill.
+So, given that we are constantly implored to act, to produce, to rush, to perform, perhaps we should allow ourselves a pause before diving headlong into productivity again. 
+It could be beneficial to take a step back, to contemplate, reflect, and question the dominant narratives that have been presented to us as unassailable truths, as hegemonic and inevitable. 
+We might consider adopting a form of *postmodernism* that strips away the certainty from the notion that the prescribed lifestyle is the one we're bound and obliged to embrace.
+And we might be able to traverse this desert of meaninglessness by fabricating new narratives, while fully conscious of their artificiality -- transforming from the leon into a child.
 
 >There is no such thing as a script to stick to; no single functional model of relationships; no single dignified or fulfilling lifestyle that is achieved through consumption, affluence or material goods.
 >Rather what human beings can do in the world is enriched by the diversity of their performance in the world by art, by poetry, by love, by a sense of collectivity and a sense of building a shared future. 
