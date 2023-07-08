@@ -127,7 +127,7 @@ I am convinced that effective altruists genuinely wish to do good in the world; 
 However, their approach reveals a profound mistrust in institutions and the general populace.
 Instead of seeking reform or leading rebellions, they attempt to infiltrate systems and wield concentrated power on an individualistic level.
 
-## The Progress of Tomorrow?
+## Rising Tension
 
 Does the concentration of power and wealth inevitably lead to evil?
 In an objectivly moral sense, most certainly not.
@@ -158,6 +158,7 @@ How did our spiritual world "progress"?
 What experiences are now possible and which are impossible?
 Are we the Nietzschian *Last Man*, satisfied but blind for the wonders happening right in front of us. 
 
+(sec-consumerism)=
 ## Extreme Consumerism
 
 Despite the presence of occasional rebellious elements, I have come to realize that the technological explosion has amplified the extent of monetization and commercialization in our society. 
@@ -373,7 +374,7 @@ I believe Hannah Arendt was right about this.
 Combating propaganda becomes challenging because an influx of information often fuels it.
 Regardless, I don't have a precise solution, only a call for awareness and, perhaps, the enlistment of our bombarded minds.
 
-## Rebellion of Makers 
+## A Rebellion of Makers 
 
 So, is it all over? 
 Is the end already predetermined by our current situation, as *accelerists* suggest? 
