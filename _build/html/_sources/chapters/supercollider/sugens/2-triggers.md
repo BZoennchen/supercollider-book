@@ -10,6 +10,7 @@ kernelspec:
   name: python3
 ---
 
+(sec-demand-ugens)=
 # Demand Unit Generators
 
 In this section, I wish to discuss the ability to modify (discrete) arguments directly on the **audio server**.

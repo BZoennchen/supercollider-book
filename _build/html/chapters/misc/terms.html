@@ -186,6 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../supercollider/synths/synths.html">Synthesizers</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../supercollider/synths/1-ugens.html">Unit Generators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../supercollider/synths/2-sc-synths.html">SC Synthesizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supercollider/synths/3-busses.html">Busses</a></li>
 </ul>
 </li>
 </ul>
@@ -542,7 +543,7 @@ A pattern of lower and higher molecule density emerges.</p>
 <figure class="align-default" id="fig-molecules">
 <a class="reference internal image-reference" href="../../_images/molecules-dark.png"><img alt="../../_images/molecules-dark.png" src="../../_images/molecules-dark.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 65 </span><span class="caption-text">A pattern of lower and higher molecule density.</span><a class="headerlink" href="#fig-molecules" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 66 </span><span class="caption-text">A pattern of lower and higher molecule density.</span><a class="headerlink" href="#fig-molecules" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>On a larger scale, this change in air pressure is a mechanical wave that travels from the oscillating object, called <em>oscillator</em>, to other objects.
@@ -573,13 +574,13 @@ For example, a complete concert orchestra and a thunder have roughly the power o
 <p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meters.
 The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f4bb154-bc6b-4e07-b6e1-25fb1848140c">
-<span class="eqno">(94)<a class="headerlink" href="#equation-2f4bb154-bc6b-4e07-b6e1-25fb1848140c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a9c8072-7011-4a15-b31a-f91349b80c6e">
+<span class="eqno">(94)<a class="headerlink" href="#equation-4a9c8072-7011-4a15-b31a-f91349b80c6e" title="Permalink to this equation">#</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c873fcf4-1548-4e78-a3a7-5d27cc8a41bb">
-<span class="eqno">(95)<a class="headerlink" href="#equation-c873fcf4-1548-4e78-a3a7-5d27cc8a41bb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed73a1fb-1633-45a3-8bcf-c6b125d550a0">
+<span class="eqno">(95)<a class="headerlink" href="#equation-ed73a1fb-1633-45a3-8bcf-c6b125d550a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>At that intensity we start suffering.</p>
@@ -600,8 +601,8 @@ It is convenient to start with</p>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
 <p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1653d3c8-652c-450b-9436-7e07a47b65c1">
-<span class="eqno">(96)<a class="headerlink" href="#equation-1653d3c8-652c-450b-9436-7e07a47b65c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b2c68d62-1ac4-4d09-8766-3898d39545a0">
+<span class="eqno">(96)<a class="headerlink" href="#equation-b2c68d62-1ac4-4d09-8766-3898d39545a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -646,8 +647,8 @@ It is measured in phons.</p>
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is a <strong>sinusoid</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ace5736-3a21-4ee7-92f2-0ae907740b74">
-<span class="eqno">(97)<a class="headerlink" href="#equation-2ace5736-3a21-4ee7-92f2-0ae907740b74" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-087f4f42-0c04-4de2-8061-9280b369e3e1">
+<span class="eqno">(97)<a class="headerlink" href="#equation-087f4f42-0c04-4de2-8061-9280b369e3e1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the <em>period</em> <span class="math notranslate nohighlight">\(T\)</span>.
@@ -715,7 +716,7 @@ In SuperCollider we create envelopes by combining envelope generators <a class="
 <figure class="align-default" id="fig-adrs-env">
 <a class="reference internal image-reference" href="../../_images/adsr-env.png"><img alt="../../_images/adsr-env.png" src="../../_images/adsr-env.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 66 </span><span class="caption-text">ADSR envelope with an attack of 1 second, decay of 2 seconds, a sustain (level) of 0.6 and a release of 4 seconds.</span><a class="headerlink" href="#fig-adrs-env" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 67 </span><span class="caption-text">ADSR envelope with an attack of 1 second, decay of 2 seconds, a sustain (level) of 0.6 and a release of 4 seconds.</span><a class="headerlink" href="#fig-adrs-env" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Another simpler envelope is the percussive envelope (for modelling percussive instruments) which has only two stages: a very short attack, and medium decay.</p>

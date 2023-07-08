@@ -207,7 +207,7 @@ On the **serve-side** there are corresponding unit generators such as
 + [LinRand](https://doc.sccode.org/Classes/LinRand.html), and
 + [ExpRand](https://doc.sccode.org/Classes/ExpRand.html)
 
-
+(sec-signal-lagging)=
 ## Signal Lagging
 
 We are sometimes in a situation where we want to change the output of a signal from one value to another but we desire a smooth transition, e.g., to avoid clicks.

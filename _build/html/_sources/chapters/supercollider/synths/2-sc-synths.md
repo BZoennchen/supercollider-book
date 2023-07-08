@@ -184,3 +184,120 @@ But when we play the second synth multiple times, numbers change.
 You can ``poll`` any unit generator.
 It will frequently print the values of the generator to the post windows.
 ```
+
+## Named Controls
+
+Arguments of a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) can be defined in different ways.
+Similar to function we can either use the signal word ``arg`` 
+
+```isc
+(
+SynthDef(\beep, {
+  arg freq=440, amp=1.0;
+  ...
+}).add;
+)
+```
+
+or we can rely on the bar ``|``
+
+```isc
+(
+SynthDef(\mysynth, {
+  |freq=440, amp=1.0|
+}).add;
+)
+```
+
+However, there exists an alternate approach.
+Instead of employing "standard" variables, we have the option to utilize [NamedControls](https://doc.sccode.org/Classes/NamedControl.html).
+Essentially, these are variables that can be controlled via [OSC messages](sec-osc).
+Given the syntax shortcuts that create [NamedControls](https://doc.sccode.org/Classes/NamedControl.html) from a name or symbol, they are extremely convenient to use.
+You can define such a control in the following manner:
+
+```isc
+\name.ar(values, lags, spec)
+\name.kr(values, lags, fixedLag, spec)
+\name.ir(values, lags, spec)
+\name.tr(values, lags, spec)
+```
+
+The two characters after the ``.`` determine the rate and type of the [NamedControls](https://doc.sccode.org/Classes/NamedControl.html).
+Using ``ar`` adds a new instance of [AudioControl](https://doc.sccode.org/Classes/AudioControl.html) at *audio rate*, ``kr`` or ``ir`` adds a new instance of [Control](https://doc.sccode.org/Classes/Control.html), either with continuous *control rate* signal ``kr`` or a static value ``ir`` and using ``tr`` add a new instance of [TrigControl](https://doc.sccode.org/Classes/TrigControl.html).
+The static value of ``ir`` is set at the time the synth starts up, and is subsequently unchangeable.
+A [Control](https://doc.sccode.org/Classes/Control.html) is a [unit generator](sec-ugens) that can be set and routed externally to interact with a running Synth.
+
+```{admonition} Named Control
+:class: remark
+If one uses the same [NamedControls](https://doc.sccode.org/Classes/NamedControl.html) in a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) multiple times, its ``value`` and all other arguments have to be identical
+```
+
+If ``lags`` are given, the [Lag](https://doc.sccode.org/Classes/Lag.html) unit generator is applied and if ``fixedLag`` is set to be ``true`` a [LagControl](https://doc.sccode.org/Classes/LagControl.html) is used, meaning that ``lags`` can not be modulated at the advantage that fewer unit generators are required.
+I already discussed the lagging of a signal in section [Signal Lagging](sec-signal-lagging).
+
+Note that ``\freq.ir(440)`` appears twice in the following code.
+
+```isc
+(
+SynthDef(\beep, {
+  var sig, env;
+
+  sig = Saw.ar(\freq.ir(440)!2);
+  env = Env.perc.ar(doneAction: Done.freeSelf);
+  sig = LPF.ar(sig, \freq.ir(440) * 3);
+  Out.ar(0, sig * env * \amp.ir(1.0));
+}).add;
+)
+
+~synth = Synth(\beep, [\freq: 300]) // works just fine
+~synth.set(\freq, 500)              // has no effect!!!
+```
+
+Using ``ir`` is less powerful than using "standard" arguments because we can not change the value of a static named control after the synth has started.
+
+```isc
+(
+SynthDef(\beep, {
+  var sig, env;
+
+  sig = Saw.ar(\freq.kr(440)!2);
+  env = Env.perc.ar(doneAction: Done.freeSelf);
+  sig = LPF.ar(sig, \freq.kr(440) * 3);
+  Out.ar(0, sig * env * \amp.kr(1.0));
+}).add;
+)
+
+~synth = Synth(\beep, [\freq: 300]) // works just fine
+~synth.set(\freq, 500)              // works just fine
+```
+
+Named controls in control rate, i.e. ``kr``, are like knops and buttons of a MIDI device.
+When we want to play around with the named controls of our synth we can a graphical user interface ``gui`` that immitates the control components of such a MIDI device.
+To do so we have to utilize [Ndef](https://doc.sccode.org/Classes/Ndef.html) instead of [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
+Furthermore, we can define the range of possible values using ``specs``.
+
+```isc
+(
+Spec.add(\freq, [100, 2000, \exp]);
+Ndef(\beep, {
+  var sig, env;
+
+  sig = Saw.ar(\freq.kr(440)!2);
+  env = Env.perc.ar(doneAction: Done.freeSelf);
+  sig = LPF.ar(sig, \freq.kr(440) * 3);
+  sig = sig * \amp.kr(1.0) * env;
+}).gui;
+)
+```
+
+Since we use ``\exp`` the range of the values for ``\freq`` is exponentially mapped on the slider.
+In {numref}`Fig. {number} <fig-ndef-gui>` you can see that the slider's position is way to the right but the frequency value is only ``659.43``.
+
+```{figure} ../../../figs/supercollider/synths/ndef-gui.png
+---
+width: 800px
+name: fig-ndef-gui
+---
+After executing the code on the left, the popup window on the right will show up.
+Pressing "play" initializes all required ingredients. Pressing "send" will actually create the sound.
+```
