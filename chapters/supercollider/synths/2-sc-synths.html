@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/supercollider/synths/2-sc-synths';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Playing Patterns" href="../pattern/pattern.html" />
+    <link rel="next" title="Busses" href="3-busses.html" />
     <link rel="prev" title="Unit Generators" href="1-ugens.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -184,6 +184,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="synths.html">Synthesizers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1-ugens.html">Unit Generators</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">SC Synthesizers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3-busses.html">Busses</a></li>
 </ul>
 </li>
 </ul>
@@ -496,6 +497,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sever-vs-client">Sever vs Client</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-controls">Named Controls</a></li>
 </ul>
             </nav>
         </div>
@@ -659,6 +661,106 @@ But when we play the second synth multiple times, numbers change.</p>
 It will frequently print the values of the generator to the post windows.</p>
 </div>
 </section>
+<section id="named-controls">
+<h2>Named Controls<a class="headerlink" href="#named-controls" title="Permalink to this headline">#</a></h2>
+<p>Arguments of a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> can be defined in different ways.
+Similar to function we can either use the signal word <code class="docutils literal notranslate"><span class="pre">arg</span></code></p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+  <span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">;</span>
+  <span class="p">...</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>or we can rely on the bar <code class="docutils literal notranslate"><span class="pre">|</span></code></p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\mysynth</span><span class="p">,</span> <span class="p">{</span>
+  <span class="o">|</span><span class="nx">freq</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">1.0</span><span class="o">|</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>However, there exists an alternate approach.
+Instead of employing “standard” variables, we have the option to utilize <a class="reference external" href="https://doc.sccode.org/Classes/NamedControl.html">NamedControls</a>.
+Essentially, these are variables that can be controlled via <a class="reference internal" href="../communication/2-osc.html#sec-osc"><span class="std std-ref">OSC messages</span></a>.
+Given the syntax shortcuts that create <a class="reference external" href="https://doc.sccode.org/Classes/NamedControl.html">NamedControls</a> from a name or symbol, they are extremely convenient to use.
+You can define such a control in the following manner:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="ss">\name</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span> <span class="nx">lags</span><span class="p">,</span> <span class="nx">spec</span><span class="p">)</span>
+<span class="ss">\name</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span> <span class="nx">lags</span><span class="p">,</span> <span class="nx">fixedLag</span><span class="p">,</span> <span class="nx">spec</span><span class="p">)</span>
+<span class="ss">\name</span><span class="p">.</span><span class="k">ir</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span> <span class="nx">lags</span><span class="p">,</span> <span class="nx">spec</span><span class="p">)</span>
+<span class="ss">\name</span><span class="p">.</span><span class="k">tr</span><span class="p">(</span><span class="nx">values</span><span class="p">,</span> <span class="nx">lags</span><span class="p">,</span> <span class="nx">spec</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The two characters after the <code class="docutils literal notranslate"><span class="pre">.</span></code> determine the rate and type of the <a class="reference external" href="https://doc.sccode.org/Classes/NamedControl.html">NamedControls</a>.
+Using <code class="docutils literal notranslate"><span class="pre">ar</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/AudioControl.html">AudioControl</a> at <em>audio rate</em>, <code class="docutils literal notranslate"><span class="pre">kr</span></code> or <code class="docutils literal notranslate"><span class="pre">ir</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/Control.html">Control</a>, either with continuous <em>control rate</em> signal <code class="docutils literal notranslate"><span class="pre">kr</span></code> or a static value <code class="docutils literal notranslate"><span class="pre">ir</span></code> and using <code class="docutils literal notranslate"><span class="pre">tr</span></code> add a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/TrigControl.html">TrigControl</a>.
+The static value of <code class="docutils literal notranslate"><span class="pre">ir</span></code> is set at the time the synth starts up, and is subsequently unchangeable.
+A <a class="reference external" href="https://doc.sccode.org/Classes/Control.html">Control</a> is a <a class="reference internal" href="1-ugens.html#sec-ugens"><span class="std std-ref">unit generator</span></a> that can be set and routed externally to interact with a running Synth.</p>
+<div class="remark admonition">
+<p class="admonition-title">Named Control</p>
+<p>If one uses the same <a class="reference external" href="https://doc.sccode.org/Classes/NamedControl.html">NamedControls</a> in a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> multiple times, its <code class="docutils literal notranslate"><span class="pre">value</span></code> and all other arguments have to be identical</p>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">lags</span></code> are given, the <a class="reference external" href="https://doc.sccode.org/Classes/Lag.html">Lag</a> unit generator is applied and if <code class="docutils literal notranslate"><span class="pre">fixedLag</span></code> is set to be <code class="docutils literal notranslate"><span class="pre">true</span></code> a <a class="reference external" href="https://doc.sccode.org/Classes/LagControl.html">LagControl</a> is used, meaning that <code class="docutils literal notranslate"><span class="pre">lags</span></code> can not be modulated at the advantage that fewer unit generators are required.
+I already discussed the lagging of a signal in section <a class="reference internal" href="../basics/9-utility-functions.html#sec-signal-lagging"><span class="std std-ref">Signal Lagging</span></a>.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">\freq.ir(440)</span></code> appears twice in the following code.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">ir</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">);</span>
+  <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="ss">\freq</span><span class="p">.</span><span class="k">ir</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="k">ir</span><span class="p">(</span><span class="mf">1.0</span><span class="p">));</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">])</span> <span class="c1">// works just fine</span>
+<span class="o">~</span><span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>              <span class="c1">// has no effect!!!</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">ir</span></code> is less powerful than using “standard” arguments because we can not change the value of a static named control after the synth has started.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">);</span>
+  <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">sig</span> <span class="o">*</span> <span class="nx">env</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">));</span>
+<span class="p">}).</span><span class="nx">add</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">300</span><span class="p">])</span> <span class="c1">// works just fine</span>
+<span class="o">~</span><span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>              <span class="c1">// works just fine</span>
+</pre></div>
+</div>
+<p>Named controls in control rate, i.e. <code class="docutils literal notranslate"><span class="pre">kr</span></code>, are like knops and buttons of a MIDI device.
+When we want to play around with the named controls of our synth we can a graphical user interface <code class="docutils literal notranslate"><span class="pre">gui</span></code> that immitates the control components of such a MIDI device.
+To do so we have to utilize <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a> instead of <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>.
+Furthermore, we can define the range of possible values using <code class="docutils literal notranslate"><span class="pre">specs</span></code>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nc">Spec</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="ss">\exp</span><span class="p">]);</span>
+<span class="nc">Ndef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
+
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">);</span>
+  <span class="nx">env</span> <span class="o">=</span> <span class="nc">Env</span><span class="p">.</span><span class="nx">perc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">doneAction:</span> <span class="nc">Done</span><span class="p">.</span><span class="nx">freeSelf</span><span class="p">);</span>
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">440</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">*</span> <span class="ss">\amp</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="nx">env</span><span class="p">;</span>
+<span class="p">}).</span><span class="nx">gui</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Since we use <code class="docutils literal notranslate"><span class="pre">\exp</span></code> the range of the values for <code class="docutils literal notranslate"><span class="pre">\freq</span></code> is exponentially mapped on the slider.
+In <a class="reference internal" href="#fig-ndef-gui"><span class="std std-numref">Fig. 7</span></a> you can see that the slider’s position is way to the right but the frequency value is only <code class="docutils literal notranslate"><span class="pre">659.43</span></code>.</p>
+<figure class="align-default" id="fig-ndef-gui">
+<a class="reference internal image-reference" href="../../../_images/ndef-gui.png"><img alt="../../../_images/ndef-gui.png" src="../../../_images/ndef-gui.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">After executing the code on the left, the popup window on the right will show up.
+Pressing “play” initializes all required ingredients. Pressing “send” will actually create the sound.</span><a class="headerlink" href="#fig-ndef-gui" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -702,11 +804,11 @@ It will frequently print the values of the generator to the post windows.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../pattern/pattern.html"
+       href="3-busses.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Playing Patterns</p>
+        <p class="prev-next-title">Busses</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -731,6 +833,7 @@ It will frequently print the values of the generator to the post windows.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sever-vs-client">Sever vs Client</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-controls">Named Controls</a></li>
 </ul>
   </nav></div>
 
