@@ -499,6 +499,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closures">Closures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicating">Duplicating</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compositions">Compositions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-common-pitfall">A Common Pitfall</a></li>
 </ul>
@@ -629,6 +630,44 @@ Furthermore, there is another rather strange shortcut:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>If your arguments are the elements of an array you can also call the function and unpack the array using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="o">|</span>
+    <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">add</span><span class="p">.(</span><span class="o">*</span><span class="nx">values</span><span class="p">)</span> <span class="c1">// returns 11</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="duplicating">
+<h2>Duplicating<a class="headerlink" href="#duplicating" title="Permalink to this headline">#</a></h2>
+<p>To test for the first <code class="docutils literal notranslate"><span class="pre">n</span></code> prime numbers starting from zero to <code class="docutils literal notranslate"><span class="pre">n-1</span></code> there is a very short expression one can use:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="c1">// [ false, false, true, true, false, true, false, true, false, false ]</span>
+<span class="p">{</span><span class="o">|</span><span class="nx">k</span><span class="o">|</span><span class="nx">k</span><span class="p">.</span><span class="nx">isPrime</span><span class="p">}</span><span class="o">!</span><span class="nx">n</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This can be even shortened:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="c1">// [ false, false, true, true, false, true, false, true, false, false ]</span>
+<span class="nx">_</span><span class="p">.</span><span class="nx">isPrime</span><span class="o">!</span><span class="nx">n</span><span class="p">;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">!</span></code> operator functions identically to the <code class="docutils literal notranslate"><span class="pre">.dup</span></code> method.
+It returns an <a class="reference internal" href="3-arrays.html#sec-array"><span class="std std-ref">Array</span></a> consisting of the results from <code class="docutils literal notranslate"><span class="pre">n</span></code> evaluations of the given function.
+If the function has a single argument, it will utilize values within the range from 0 to <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.
+If the function has multiple arguments, this still holds true, but we must duplicate it via an array with an equivalent number of arguments.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">|</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="o">|</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">)}.</span><span class="nx">dup</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span> <span class="c1">// [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]</span>
+<span class="p">{</span><span class="o">|</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="o">|</span><span class="p">(</span><span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">)}</span><span class="o">!</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>      <span class="c1">// [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]</span>
+</pre></div>
+</div>
+<p>Later we will utilize <code class="docutils literal notranslate"><span class="pre">dup</span></code> to construct a complex graph consisting of many <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">unit generators</span></a> with a few lines of code, a technique that is called <a class="reference internal" href="../synths/1-ugens.html#sec-mce"><span class="std std-ref">multichannel expension</span></a>.</p>
 </section>
 <section id="compositions">
 <span id="sec-function-composition"></span><h2>Compositions<a class="headerlink" href="#compositions" title="Permalink to this headline">#</a></h2>
@@ -744,6 +783,7 @@ To fix both problems, we have to use a function instead:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closures">Closures</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicating">Duplicating</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compositions">Compositions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-common-pitfall">A Common Pitfall</a></li>
 </ul>
