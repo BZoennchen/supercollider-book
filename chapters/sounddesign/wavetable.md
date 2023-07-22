@@ -10,6 +10,7 @@ kernelspec:
   name: python3
 ---
 
+(sec-wavetable)=
 # Wavetable Synthesis
 
 The principle of *wavetable synthesis* is to exchange computation for memory by pre-computing the complete cycle of a specific waveform, save the values in a buffer and then read values from the buffer instead of computing them on the fly.

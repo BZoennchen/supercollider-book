@@ -595,27 +595,36 @@ Similar to <code class="docutils literal notranslate"><span class="pre">numpy</s
 <span class="p">)</span>
 </pre></div>
 </div>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> as a shorthand for <code class="docutils literal notranslate"><span class="pre">.at</span></code>:</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="nx">a</span> <span class="o">@</span> <span class="mi">3</span> <span class="c1">// 4</span>
+<span class="nx">a</span> <span class="o">@</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="c1">// [2, 4]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p>In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an <a class="reference external" href="https://doc.sccode.org/Classes/Array.html">Array</a> in <code class="docutils literal notranslate"><span class="pre">sclang</span></code> is implemented accordingly.</p>
 <p>Sometimes we want to access array elements in a circular fashion.
-<code class="docutils literal notranslate"><span class="pre">wrapAt</span></code> will wrap around the array if the index is out of bound using the modulo operation.</p>
+<code class="docutils literal notranslate"><span class="pre">wrapAt</span></code> will wrap around the array if the index is out of bound using the modulo operation.
+Alternatively, you can use the <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code>-operator.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">];</span>
 
-<span class="c1">//[ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3 ]</span>
+<span class="c1">// [ 0, 2, 3, 4, 5, 6, 7, 0, 2, 3 ]</span>
 <span class="mi">10</span><span class="p">.</span><span class="nx">collect</span> <span class="p">{</span> <span class="o">|</span><span class="nx">index</span><span class="o">|</span>
-    <span class="nx">a</span><span class="p">.</span><span class="nx">wrapAt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nx">wrapAt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="c1">// alternative: a @@ index</span>
 <span class="p">};</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>If you instead want to go backwards if the index is out of bound, you can use <code class="docutils literal notranslate"><span class="pre">foldAt</span></code> instead.</p>
+<p>If you instead want to go backwards if the index is out of bound, you can use <code class="docutils literal notranslate"><span class="pre">foldAt</span></code> instead.
+Alternatively, you can use the <code class="docutils literal notranslate"><span class="pre">&#64;|&#64;</span></code>-operator.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">];</span>
 
-<span class="c1">// [ 1, 2, 3, 4, 5, 6, 7, 6, 5, 4 ]</span>
+<span class="c1">// [ 0, 2, 3, 4, 5, 6, 7, 6, 5, 4 ]</span>
 <span class="mi">10</span><span class="p">.</span><span class="nx">collect</span> <span class="p">{</span> <span class="o">|</span><span class="nx">index</span><span class="o">|</span>
-    <span class="nx">a</span><span class="p">.</span><span class="nx">foldAt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span>
+    <span class="nx">a</span><span class="p">.</span><span class="nx">foldAt</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="c1">// alternative: a @|@ index</span>
 <span class="p">};</span>
 <span class="p">)</span>
 </pre></div>

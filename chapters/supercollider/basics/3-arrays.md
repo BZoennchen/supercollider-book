@@ -101,32 +101,43 @@ a[0]; // 1
 )
 ```
 
+We can also use ``@`` as a shorthand for ``.at``:
+
+```isc
+(
+a @ 3 // 4
+a @ [1,3] // [2, 4]
+)
+```
+
 In signal processing, we want to manipulate elements of such a sequence.
 Therefore, an [Array](https://doc.sccode.org/Classes/Array.html) in ``sclang`` is implemented accordingly.
 
 Sometimes we want to access array elements in a circular fashion.
 ``wrapAt`` will wrap around the array if the index is out of bound using the modulo operation.
+Alternatively, you can use the ``@@``-operator.
 
 ```isc
 (
 a = [0,2,3,4,5,6,7];
 
-//[ 1, 2, 3, 4, 5, 6, 7, 1, 2, 3 ]
+// [ 0, 2, 3, 4, 5, 6, 7, 0, 2, 3 ]
 10.collect { |index|
-    a.wrapAt(index)
+    a.wrapAt(index) // alternative: a @@ index
 };
 )
 ```
 
 If you instead want to go backwards if the index is out of bound, you can use ``foldAt`` instead.
+Alternatively, you can use the ``@|@``-operator.
 
 ```isc
 (
 a = [1,2,3,4,5,6,7];
 
-// [ 1, 2, 3, 4, 5, 6, 7, 6, 5, 4 ]
+// [ 0, 2, 3, 4, 5, 6, 7, 6, 5, 4 ]
 10.collect { |index|
-    a.foldAt(index)
+    a.foldAt(index) // alternative: a @|@ index
 };
 )
 ```
