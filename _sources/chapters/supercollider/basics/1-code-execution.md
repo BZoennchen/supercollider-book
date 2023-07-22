@@ -160,3 +160,12 @@ if(true || false && false,{
 })
 )
 ```
+
+The following two statements are equivalent:
+
+```isc
+a = 5; b = 7; c = 12;
+
+a * (b+c);
+b + c * a;
+```

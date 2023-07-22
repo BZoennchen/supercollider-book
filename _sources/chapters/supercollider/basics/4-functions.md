@@ -133,6 +133,52 @@ add.(b: 11) // returns 16
 )
 ```
 
+If your arguments are the elements of an array you can also call the function and unpack the array using the ``*`` operator:
+
+```isc
+(
+var values = [2, 9];
+var add = {|a, b|
+    a + b;
+};
+add.(*values) // returns 11
+)
+```
+
+## Duplicating
+
+To test for the first ``n`` prime numbers starting from zero to ``n-1`` there is a very short expression one can use:
+
+```isc
+(
+var n = 10;
+// [ false, false, true, true, false, true, false, true, false, false ]
+{|k|k.isPrime}!n;
+)
+```
+
+This can be even shortened:
+
+```isc
+(
+var n = 10;
+// [ false, false, true, true, false, true, false, true, false, false ]
+_.isPrime!n;
+)
+``````
+
+The ``!`` operator functions identically to the ``.dup`` method.
+It returns an [Array](sec-array) consisting of the results from ``n`` evaluations of the given function. 
+If the function has a single argument, it will utilize values within the range from 0 to ``n-1``.
+If the function has multiple arguments, this still holds true, but we must duplicate it via an array with an equivalent number of arguments.
+
+```isc
+{|x,y|(x+y)}.dup([3,3]); // [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]
+{|x,y|(x+y)}![3,3];      // [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]
+```
+
+Later we will utilize ``dup`` to construct a complex graph consisting of many [unit generators](sec-ugens) with a few lines of code, a technique that is called [multichannel expension](sec-mce).
+
 (sec-function-composition)=
 ## Compositions
 

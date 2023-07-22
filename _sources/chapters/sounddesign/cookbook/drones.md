@@ -16,12 +16,12 @@ In this section, we try to create an ambient drone sound.
 Drones are great building blocks.
 They can stand on their own or be part of the background texture of our sound.
 They can be stale or slowly moving using modulation at control rate.
-Due to multichannel expansion and *unit generator argument modulation* SuperCollider is a powerful tool for creating all kinds of drones.
+Due to multichannel expansion and *unit generator argument modulation*, SuperCollider is a powerful tool for creating all kinds of drones.
 I find it much more challenging to create an exciting melody than to construct interesting drones.
 
 A fundamental building block of drones is the *beating effect*.
 If we combine two *waveforms* of slightly detuned frequency, we can clearly hear the difference in frequency.
-The result is a *beating effect*.
+The result is a *beating effect* where the frequency of the beating is the difference of the two detuned frequencies.
 Take, for example, two slightly detune [sine waves](sec-sine-wave):
 
 ```isc
@@ -36,14 +36,37 @@ ipd.Audio(audio_path)
 ```
 
 The frequency difference is 1%.
-We hear a *beating* of frequency $0.9$ Hz.
+We hear a *beating* of frequency $(1.01-1.0) \cdot 90 = 0.9$ Hz.
+Switching to a sawtooth wave makes the sound more drone-like.
+
+```isc
+{LPF.ar(Saw.ar(90 * [1, 1.01]), 90*2)}.play;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/saw-simple-drone.mp3'
+ipd.Audio(audio_path)
+```
+
+## Sawtooth Waves
 
 Ok, this drone becomes boring pretty fast, but it is still astonishing how easy it is to create a basic drone.
 Let's try multiple detuned harmonics using a combination of [sawtooth waves](sec-sawtooth-wave).
+In the following I use sawtooth waves with frequencies $f_1, \ldots f_n$, where
+
+$$f_i(t) \approx f \cdot \frac{1}{i} \cdot (1+\epsilon(t))$$
+
+with $f$ being the fundamental frequency and $\epsilon(t) \in [-0.06;0.06]$.
+The sawtooth resonates at frequency 
+
+$$f \cdot i.$$
+
 A *resonance low pass filter* is used to filter out high frequencies.
-Moreover, we add additional movement to the sound using low frequency noise, distortion, and panning.
+Moreover, I added additional movement to the sound using low frequency modulation, noise, distortion, and panning.
 [Balance2](https://doc.sccode.org/Classes/Balance2.html) is similar to a panning ([Pan2](https://doc.sccode.org/Classes/Pan2.html)) but for a *stereo signal*.
-We let the stereo signal move from left to right.
+I let the stereo signal move from left to right.
 
 ```isc
 (
@@ -69,88 +92,60 @@ SynthDef(\drone_saws, {
     Out.ar(0, sig);
 }).add;
 )
+
 Synth(\drone_saws, [\freq, 200, \amp: 1.2]);
 ```
 
-TODO!
-
 ```{code-cell} python3
 :tags: [remove-input]
-audio_path = '../../../sounds/saw-drone.mp3'
+audio_path = '../../../sounds/drone-saws.mp3'
 ipd.Audio(audio_path)
 ```
 
-Our basic waveform is a [sawtooth wave](sec-sawtooth-wave).
-The drone has a long attack and decay.
-In fact, we start without an envelope.
-This time we will use the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) to define our drone synth.
+## Triangle Waves
+
+Other waveforms can also help us to construct a nice drone sound.
+The following example, which I found on the [sccode website](https://sccode.org/1-4SS), uses four (low-frequency) [triangle waves](sec-triangle-wave), i.e., [LFTri](https://doc.sccode.org/Classes/LFTri.html).
 
 ```isc
 (
-SynthDef(\drone, {
-    var sig, amp;
-	amp = 0.5;
-	sig = Saw.ar(\freq.kr(150)) * amp;
-    Out.ar(0, sig);
-}).play;
+{
+    FreeVerb.ar(
+        (1-LFTri.ar(Line.ar(147,5147,1200,1,0,2)))
+        * (1-LFTri.ar(Line.ar(1117,17,1200,1,0,2)))
+        * (1-LFTri.ar(100))
+        * (1-LFTri.ar([55,55.1]))
+        *0.05
+        ,0.7
+        ,1
+    );
+}.play
 )
 ```
 
-That's our basic [sawtooth wave](sec-sawtooth-wave) which does not sound very drone-like.
-A drone has a lot of movement.
-Our first step is to change the frequency of the drone over time but not too much.
-Since we want this sine like wobble effect, we use a sine wave for the frequency modulation.
-But to add additional movement, we modulate the frequency of the frequency modulation randomly:
+Since there is a lot of duplicated code we can simplify its implementation:
 
 ```isc
-(
-SynthDef(\drone, {
-    var sig, amp, freqmod;
-	amp = 0.5;
-	freqmod = SinOsc.kr(LFNoise0.kr(1)).range(1-\detune.kr(0.01), 1+\detune.kr(0.01));
-	sig = Saw.ar(\freq.kr(150) * freqmod) * amp;
-	Out.ar(0, sig);
-}).play;
+({
+    h={|f| 1-LFTri.ar(f)};
+    l={|s,e| Line.ar(s,e,1200,1,0,2)};
+    FreeVerb.ar(h.(l.(147,5147))*h.(l.(1117,17))*h.(100)*h.([55,55.1])*0.05,0.7,1);
+}.play;
 )
 ```
 
-We can reduce the harshness by using a ``VarSaw`` instead of ``Saw``.
-``VarSaw`` let's us modulate its ``width`` by which we can control how much it is shaped like a [triangle wave](sec-triangle-wave).
-
-```isc
-(
-SynthDef(\drone, {
-    var sig, amp, freqmod, widthmod;
-	amp = 0.85;
-	freqmod = SinOsc.kr(LFNoise0.kr(1)).range(1-\detune.kr(0.01), 1+\detune.kr(0.01));
-	widthmod = SinOsc.kr(LFNoise0.kr(1)).range(0.35, 0.65);
-	sig = VarSaw.ar(\freq.kr(150) * freqmod) * amp;
-	Out.ar(0, sig);
-}).play;
-)
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/drones-tri-waves.mp3'
+ipd.Audio(audio_path)
 ```
 
-Let's duplicate to create some sort of unison:
+The function $h(f)$ generates a signal $h(f)(t)$ that oscillates in a linear fashion, ascending from 0 to 2 and then descending back to 0, and so on.
+$l(s,e)(t)$ on the other hand is a line that goes from $s$ to $e$ in 1200 seconds, i.e, 20 minutes.
+Let us reduce this duration to 30 seconds and listen again:
 
-```isc
-(
-SynthDef(\drone, {
-    var sig, amp, freqmod, widthmod, n = 3;
-	amp = 0.85;
-
-	sig = Array.fill(n, {
-		arg i;
-		freqmod = SinOsc.kr(LFNoise0.kr(1)).range(1-\detune.kr(0.01), 1+\detune.kr(0.01));
-		widthmod = SinOsc.kr(LFNoise0.kr(1)).range(0.35, 0.65);
-		sig = VarSaw.ar((i+1)*\freq.kr(150) * freqmod) * (i+1).reciprocal;
-	}) * amp;
-
-	sig = Splay.ar(sig);
-	sig = Balance2.ar(sig[0], sig[1], SinOsc.kr(LFNoise0.kr(0.1).range(0.05,0.2))*0.1);
-    //sig;
-	Out.ar(0, sig);
-}).play;
-)
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/drone-tri-wave-short.mp3'
+ipd.Audio(audio_path)
 ```
-
-TODO
