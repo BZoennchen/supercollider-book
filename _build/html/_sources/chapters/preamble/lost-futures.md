@@ -4,8 +4,8 @@
 
 ## The Fever Dream
 
-In its formative stage around 1990 -- at a time of *postmodern culture* and when Fukuyama declared the end of history -- *ghosts of cyberculture* alluded to an innovative utopia characterized by extensive collaboration and collective expression, with ideas, knowledge, and power evenly distributed across a decentralized web; the internet was perceived as a gift to humanity.
-However, the catalyst for its creation — the destructive potential of a nuclear Armageddon — foreshadowed its subsequent instrumentalization.
+In its formative stage around 1990---at a time of *postmodern culture* and when Fukuyama declared the end of history---*ghosts of cyberculture* alluded to an innovative utopia characterized by extensive collaboration and collective expression, with ideas, knowledge, and power evenly distributed across a decentralized web; the internet was perceived as a gift to humanity.
+However, the catalyst for its creation---the destructive potential of a nuclear Armageddon---foreshadowed its subsequent instrumentalization.
 
 In the 1960s, computational power was centralized in large mainframe computers, the capabilities of which became a critical factor in the arms race between the U.S. and the Soviet Union. To optimize these resources, it was crucial to share them across a network. 
 Given this context, it's no surprise that computers initially loomed in our collective imagination as ominous tools of the Cold War. 
@@ -22,8 +22,8 @@ The future seemed bright.
 Utopian visions of the future were prevalent, dreams that were later amplified by the Hippie movement in 1967.
 The roots of many tech gurus can be traced back to counterculture environments that advocated individual freedom, non-conformity, free love, drugs, and rock music.
 
-Guided by this vision, counterculturalists and technologists alike came together to reimagine computers as tools for personal liberation, community building in virtual and decidedly alternative spaces, and for exploring bold new social frontiers. 
-Despite the internet never truly escaping from power concentrations, it provided many people with a compelling vision of a potential future; a fever dream of an alternative societal structure. 
+Guided by this vision, counterculturalists and technologists alike came together to reimagine computers as tools for personal liberation, to build communities in virtual and decidedly alternative spaces, and to explore bold new social frontiers. 
+Despite the internet never truly escaping power concentration, it provided many people with a compelling vision of a potential future; a fever dream of an alternative societal structure. 
 But what happened to this dream?
 
 ## Ecstatic Individualism
@@ -43,14 +43,14 @@ Additionally, from a *materialistic* perspective, ideas don't alter material rea
 Reality takes precedence, our narratives about it follows.
 Importantly, the distribution of resources calls for negotiation, which in turn necessitates bureaucracy.
 The undemocratic impulse to free oneself from bureaucracy continually presents an alluring prospect to those committed to realizing their ideal version of a "good" society.
-Consequently, the collective drive lost steam, leading to widespread disillusionment among artists. Rather than seeking to change existing power structures and material realities, they redirected their efforts toward critiquing the status quo through personal expressions -- as liberal vehicle.
+Consequently, the collective drive lost steam, leading to widespread disillusionment among artists. Rather than seeking to change existing power structures and material realities, they redirected their efforts toward critiquing the status quo through personal expressions---as liberal vehicle.
 
 Fisher wrote in an essay (2013) about this failure:
 
 >The Sixties counterculture might now have been reduced to a series of 'iconic' -- overfamiliar, endlessly circulated, dehistoricized -- aesthetic relics, stripped of political content, but Willis’s work stands as a painful reminder of leftist failure. As Willis makes clear in her introduction to [her 1981 book] *Beginning to See the Light*, she frequently found herself at odds with what she experienced as the authoritarianism and statism of mainstream socialism. While the music she listened to spoke of freedom, socialism seemed to be about centralization and state control. The story of how the counterculture was co-opted by the neoliberal Right is now a familiar one, but the other side of this narrative is the Left’s incapacity to transform itself in the face of the new forms of *desire* to which the counterculture gave voice. -- Mark Fisher
 
 One could argue that the communalist movement triggered a shift away from traditional politics. 
-It redirected the attention to the self -- an existential move -- as the foundation of political change, aligning closely with the rising tide of neoliberal ideology, i.e. the liberation of the market from the state, and the Left had no answer to that.
+It redirected the attention to the self---an existential move---as the foundation of political change, aligning closely with the rising tide of neoliberal ideology, i.e. the liberation of the market from the state, and the Left had no answer to that.
 Whereas JFK once spoke of *obligations* to society, Reagan and Clinton advocated for *personal responsibility* as the ultimate solution to numerous societal issues.
 Not to mention that during this period, dictators, supported by neoliberal ideology and U.S. exceptionalism, subjugated their citizens in South America to "free" the market at the cost of material realities of normal citizen.
 
@@ -63,7 +63,7 @@ Ultimately, the tension between individual freedom and communal unity collapsed 
 ## Today's Cults
 
 Today, the cultish ethos is evident in *Silicon Valley*. 
-Many representatives of the IT industry argue against regulation, promising a new and improved society.
+Many representatives of the IT industry argue against regulation, promising a new and improved society or for a specific kind of regulation to secure their monopoles.
 Regrettably, this faith in doing good has fostered an anti-democratic mindset characterized by hubris. 
 Simultaneously, a significant portion of the fragmented *working class* venerates their corporate overlords.
 And the ones who are left behind and do not benefit from any of this progress, tend to the Right while liberals are mistaken to be "the Left".
@@ -91,7 +91,7 @@ It's a company that treats its engineers exceptionally well, provides adaptable 
 This reflects the old communal mindset.
 Form an elitist group, furnish them with a shared mindset and the resources they need to live within that mindset, and you can surround them with an underclass.
 This elitism, somewhat paradoxically, correlates with esotericism and cults, because such individuals often believe themselves to be special or in possession of exclusive knowledge.
-Consequently, fascism, or any other ideology hinged on the idolization of a few individuals -- the very thing these individuals should vehemently oppose -- always looms ominously in the background.
+Consequently, fascism, or any other ideology hinged on the idolization of a few individuals---the very thing these individuals should vehemently oppose---always looms ominously in the background.
 
 Another example of this cultist tendency is the *effective altruism* movement, which seeks to maximize societal good effectively. 
 The concept here is to optimize the well-being of others with mathematical precision, employing statistical reasoning. 
@@ -118,7 +118,7 @@ If it's not, the entire system simply represents another form of power concentra
 Regardless of the underlying system, what truly matters is more equitable wealth distribution.
 And pseudonymization isn't the solution; in fact, it's quite the opposite. 
 The idea that fewer regulations lead to a "better" society has been disproven time and time again. 
-What really matters is the mode of negotiation -- whether it's central or decentralized, direct or indirect, fair or unfair, informed or uninformed.
+What really matters is the mode of negotiation---whether it's central or decentralized, direct or indirect, fair or unfair, informed or uninformed.
 
 The perils of power concentration are evident within both the *crypto* and *effective altruism* movements, as exemplified by the case of Bankman-Fried.
 A staunch crypto enthusiast and advocate of the effective altruism movement, Bankman-Fried was once its wealthiest member. 
@@ -144,12 +144,12 @@ Despite the relentless optimism of some who claim that the world is improving, m
 According to many economists, poverty levels haven't significantly shifted over the last century. 
 Moreover, we are hurtling towards greater inequality. Thomas Piketty contends in his extensive 696-page book, *Capital in the Twenty-First Century* {cite}`piketty:2014`, that there are two main drivers of this trend:
 
-1. High-income managers leverage their power to augment their earnings further. Their income does not correspond to their productivity.
+1. High-income managers leverage their power to augment their earnings further (while their income does not correspond to their productivity).
 2. In capitalist systems, income generated through capital tends to grow relatively faster than the overall economy.
 
 While the first factor might be more infuriating, Piketty thinks the latter is the more significant issue.
 For me, inequality isn't about possessing luxurious items or globe-trotting. 
-Rather, it's about meeting basic needs, promoting overall wellbeing, ensuring education for all, and diffusing power -- essentially, saving and fortifying democracies.
+Rather, it's about meeting basic needs, promoting overall wellbeing, ensuring education and the possibility to take part in society (inclusion), and diffusing power---essentially, saving and fortifying democracies.
 
 Is it truly inevitable that large corporations must be owned by a select few? 
 Would society benefit if each of us owned a stake in the infrastructure for which we are accountable? 
@@ -170,39 +170,47 @@ According to Jean Baudrillard, the practical use of commodities is overshadowed 
 These symbols, or *the code*, can be exchanged just like currency. 
 Baudrillard's theory holds water in our current societal context. 
 Objects and events are burdened with layers of meaning and significance, while tangible yet mundane politics are often stripped of their importance.
-News has ceased to be a simple reporting of events; it has morphed into a cascade of interpretations and discussions about these interpretations -- reality is just to boring.
+Or more precisely, while politics may assure itself and its citizens of its importance, the reality of our world being a complex system often limits the reach and impact of political actions. Increasingly, it becomes evident that a significant portion of politics is, in fact, theatrical.
+News has ceased to be a simple reporting of events; it has morphed into a cascade of interpretations and discussions about these interpretations---reality is just to boring; everything is now a *spectacle*.
 Rather than trying to report what was perceived, we are prone to simplifying narratives and clearly delineating good and evil. 
 Instead of exercising our political freedom through voting, protesting, and revolting, or exploring and creating freely, we celebrate the last form of freedom we seem to acknowledge: *consumption*.
 
-The machine of acceleration is ruthless, exploitative, instrumentally rational, yet broadly irrational and utterly uncontrollable. We have seen ideas put forth by Ruth Benedict and Gregory Bateson suggesting that we should construct multimedia environments where individuals can discover their identities by selecting images and sounds from their surroundings. 
+The machine of acceleration is ruthless, exploitative, instrumentally rational, yet broadly irrational and utterly uncontrollable.
+It seems that steering it in a specific direction is impossible.
+We have seen ideas put forth by Ruth Benedict and Gregory Bateson suggesting that we should construct multimedia environments where individuals can discover their identities by selecting images and sounds from their surroundings. 
 This method, they suggest, can enable individuals to fulfill their personal destinies, thereby fostering a more democratic, less hierarchical, and more egalitarian society.
-We also notice echoes of Norbert Wiener's theories of *cybernetics*. 
-Simultaneously, we observe criticisms of hierarchy reminiscent of Margaret Mead and Erich Fromm, who vehemently resisted fascism and racism. 
+We also notice echoes of Norbert Wiener's theories of *cybernetics* and Niklas Luhmann's *social system theory* which excludes "the human" from its analysis.
+Simultaneously, we observe criticisms of hierarchy and a nostalgic call to *humanism* reminiscent of Margaret Mead and Erich Fromm, who vehemently resisted fascism and racism. 
 They openly advocated for a sexually diverse world.
 The tech landscape continues to derive influences from an array of contradictory concepts such as elitism, humanism, cybernetics, transhumanism, posthumanism, accelerationism, egalitarianism, eugenics, longtermism, and, naturally, economic, cultural, and spiritual individualism.
-Technological "progress" is perceived as inevitable, and "objective reality" is often mistaken for that which is measurable or observable. 
-As a result, *death* is discriminated against, as it holds no value in a consumerist society composed of individuals.
+However, technological "progress" is perceived as inevitable, and "objective reality" is often mistaken for that which is measurable or observable. 
+As a consequence, *death* is discriminated against, given it holds no value in a consumerist society composed of individuals. 
+We should question ourselves: is the *death of death* desirable, and if so, why?
 
 What about the role of art in all of this? 
 Well the history of popular art is a history of capitalist production.
 The unbridled power of creative expression built upon the collaborative framework of social relations has been slowly but surely subsumed by the same death machine that is now drowning the future of every human yet to be born.
 I maintain a radical viewpoint that art can never be considered entirely innocent, given its origins in a world driven by commercial commodities.
 Its manifestation is always shaped by its profit-oriented surroundings.
-Even if its creators manage to isolate themselves from this world, the audience cannot. 
+Even if its creators manage to isolate themselves from this world, the audience cannot.
+Art should not only a horizon of the possible but should extend it;
+
+>In the twentieth century, one encounters artworks that seek to cancel the difference between a real and an imagined reality by presenting themselves in ways that make them indistinguishable from real objects. Should we take this trend as an internal reaction of art against itself? [...] No ordinary object insists on being taken for an ordinary thing, but a work that does so betrays itself by this very effort. The function of art in such a case is to reproduce the difference of art. But the mere fact that art seeks to cancel this difference and fails in its effort to do so perhaps says more about art than could any excuse or critique. -- Niklas Luhmann
+
 Money, which often serves as a proxy for divine comparability, inevitably corrupts art.
 Moreover, capitalism thrusts us into an endless cycle of ceaseless consumption and monotonous replication. 
-Most of us have lost the ability to create and express our internal realities; instead, we consume what is presented to us.
+Most of us have lost the ability to open new horizons of possibilities; instead, we consume what is presented to us and thus narrowing down alternatives to what is presented.
 Granted, there may be brief periods when authentic creativity can surface.
 However, shortly thereafter, its uniqueness is obliterated as it is incorporated into a quantifiable and sellable product.
-Money is indifferent - a trait that is simultaneously its beauty and its horror.
+Money is indifferent---a trait that is simultaneously its beauty and its horror.
 
 Through a continuous process of decontextualizing, copying, altering, and recontextualizing, this indifference permeates all things. 
 This could be one reason why my reality feels less substantial than it should be. 
-After all, indifference is the antithesis of life itself, which is defined by differentiation -- bodies, cells, planets, cultures, and their environments.
+After all, indifference is the antithesis of life itself, which is defined by differentiation---bodies, cells, planets, cultures, and their environments.
 
 And herein lies a glimmer of hope amidst the distraction, for our very existence, or *Dasein*, cannot be dissected and fully comprehended.
 It is the final mystery that, hopefully, we will never unravel.
-Since science deconstructs phenomena into their constituent parts, it is blind for *Dasein*.
+Natural science will always have a blind spot to the phenomena thus it is and, in fact, has to be blind for *Dasein*.
 Science necessitates quantification and measurement; 
 it must remain oblivious to *Dasein*. 
 Moreover, science presupposes *Dasein*. 
@@ -247,7 +255,7 @@ When the collective's wellbeing relies on the altruism of unelected individuals 
 
 The generation of 1967 is perfectly aligned with today's consumerism.
 When I discuss consumerism, I am referring to developed countries that wield their power over the workers in the developing world, which suffer often horrendously.
-Large buildings packed with luxuriant abundance of consumer goods, food, clothing, and -- most importantly -- symbolic signifiers were the primary landscape of the urban environment of the last decades.
+Large buildings packed with luxuriant abundance of consumer goods, food, clothing, and---most importantly---symbolic signifiers were the primary landscape of the urban environment of the last decades.
 Streets oversaturated and overcrowded decorated with bright and colorful store windows.
 Glimmering illustrations, neon-light symbols, alternating smells, restless music, a meaningless mess merged into a psychodelic noise of symobls overdosed with meaning.
 It is the magical negation of scarcity.
@@ -266,7 +274,7 @@ Products are now viewed as portals to an alternate reality.
 
 With our current world reaching the brink of its limits, new frontiers beyond Earth must be established, whether in the form of a *Metaverse* or another planet.
 Becoming a crypto investor is to escape the status quo that has overcoded the Earth by going into space.
-Here's the punchline: McDonald's, Apple, Gucci, BMW, and cryptocurrency evangelists are all marketing the same product that communism does - the eradication of alienation.
+Here's the punchline: McDonald's, Apple, Gucci, BMW, and cryptocurrency evangelists are all marketing the same product that communism does---the eradication of alienation.
 
 >People all over the world spend countless hours of their lives every week being fed entertainment in the forms of movies, TV shows, newspapers, YouTube videos, the internet. 
 And it is ludicrous to believe that this stuff doesn’t alter our brains. 
@@ -280,6 +288,14 @@ Politics and governments are built on this; corporations are built on this; inte
 and we hate each other; 
 and we are calling each other liars and evil because it’s all become marketing, and we want to win; because we are lonely and empty and scared. 
 And we are led to believe winning will change all that. But there is no winning -- Charlie Kaufman
+
+Speaking in Baudrillardian terms: Through the colonization of the last frontier---our immediate consciousness---companies are constructing a virtual yet hyper-realistic world that suggests there is no truth behind it.
+This process is evolving so rapidly that meaningful analysis becomes impossible.
+Our children will navigate a "meta"-reality, and they won't believe that the world depicted on their screens and other devices is real.
+I even doubt that they will consciously believe the stories of adverts.
+Instead they run the risk of becoming cynical; of perceiving the real world as virtual.
+Threfore, they may consider everything as a scene to be observed, and all their actions as performances that can be captured and reviewed at any given moment.
+This would deny them a live of moments and turn it into a plan for later presentations.
 
 To keep the machine running, capitalism needs desires that it can satisfy.
 Therefore, it has to channel desires into products.
@@ -297,7 +313,7 @@ The sick, the sullied, the misaligned, and the existential dread of our *Dasein*
 
 In my country, the Right is currently gaining traction due to an increase in immigration and some minor regulations geared towards a better energy mix. 
 If a minor shift leads to a right-wing drift, what will transpire when more devastating effects take hold? 
-The Right can offer people, battered and affected by their *symbolic misery*, a short-term respite -- another outlet, apart from consumption, to vent their frustrations.
+The Right can offer people, battered and affected by their *symbolic misery*, a short-term respite---another outlet, apart from consumption, to vent their frustrations.
 
 The rise of someone like Trump, the quintessential postmodern president, might reflect our desperate underlying desire to find a narrative that makes sense of our realities. 
 It suggests an urge to identify cracks in postmodernity and wield a hammer against the unseen glass. 
@@ -314,7 +330,7 @@ The *rusted-out tombstone factories* do not symbolize factory production as one 
 Instead, they encode the *greatness of America and its people*. 
 And since this greatness is a feature of the past, it can only signify a *white greatness*.
 
-While we might scoff at this logic, we must confront the truth: we are also living by a myth -- the myth of unlimited domination and exploitation of nature by technology, underpinned by an economic system predicated on endless material and productivity growth.
+While we might scoff at this logic, we must confront the truth: we are also living by a myth---the myth of unlimited domination and exploitation of nature by technology, underpinned by an economic system predicated on endless material and productivity growth.
 
 ## Sparks of the Real
 
@@ -324,7 +340,7 @@ In these pop-cultural works, the protagonists fully comprehend the underlying sy
 The key to advancement in this dystopian society, as often portrayed in rap songs, lies in this understanding -- there are no more *Star Trek-like futures* depicted in the mainstream.
 
 Furthermore, the ideas depicted in these movies are echoes from our past that continue to haunt us. 
-They embody a kind of nostalgia for the future -- our lost futures -- because we have surrendered our ability to envision a different one. 
+They embody a kind of nostalgia for the future---our lost futures---because we have surrendered our ability to envision a different one. 
 Flying cars, androids, and robots are visions from the 1950s - 1970s, which prompts the question: where are the fresh ideas? 
 To illustrate Fisher's point, consider the top-grossing movies of 2019: Avengers: Endgame, The Lion King, Frozen II, Toy Story 4, Captain Marvel, Star Wars: The Rise of Skywalker, Spider-Man: Far From Home, Aladdin, Joker, It: Chapter Two.
 
@@ -404,18 +420,24 @@ Does exploitation of one another stand as the sole means of constructing and mai
 Is competition and fear the only path to productivity? 
 Perhaps, if we retain the hierarchical structure of our society. 
 However, with today's technology, we can establish diverse forms of governance. 
-Here, I find common ground with crypto enthusiasts. 
+Here, I find common ground with crypto enthusiasts and systems theory. 
 I believe that behavior is partly a byproduct of the underlying system, in that a society steeped in suspicion necessitates competition, while a society anchored in trust fosters collaboration.
+This collaboration, however, can not rely on *moral values*---those no longer really exist.
+Instead, social systems have to be re-integrated into the Earth system.
+I see the chance that this, if we want to surive, has to lead to a system that is less-exploitive to its environment (which consists also of us humans).
 
 In the face of impending climate, ecological, and economic disasters, it has become clear that endless material growth is not a sustainable economic strategy. 
-Although it never truly was, the illusion of its feasibility has now been shattered (by the desire machine itself). 
+Although it never truly was, the illusion of its feasibility has now been shattered (by the desire machine itself).
 The supposed stability of the current system is merely a fantasy, yet we continue to operate as though it is viable. 
 Much like the people of the late Soviet Union, we persist in acting as if everything is proceeding according to plan, despite the reality of ongoing climate catastrophes and the looming inevitability of more to come. 
-Viewed from this perspective, *Capitalist Realism* is not *The End of History* but an indicator of a faltering system teetering on the brink of collapse. 
+Viewed from this perspective, *Capitalist Realism* is not *The End of History* but an indicator of a faltering system teetering on the brink of collapse.
 It is apparent that our rampant over-consumption must be curtailed dramatically, yet the system's survival depends on continuous consumption -- it is, in essence, built upon it. 
 The notion that we can consume our way out of disaster is sheer lunacy.
+One significant reason we seem to fail to adapt lies in communication issues: our social systems do not couple effectively with the Earth system.
+The Earth system's communication doesn't sufficiently stimulate communication within our social system.
+As a result, we attempt to artificially amplify it, but these efforts have yet to yield substantial success.
 
-In my mind, there are two potential strategies to dismantle the myth of infinite growth: a *second Enlightenment*, which seems highly improbable, and the crafting of a more compelling myth -- that is, the *re-direction of desire*. 
+In my mind, there are two potential strategies to dismantle the myth of infinite growth: a *second Enlightenment*, which seems highly improbable, and the crafting of a more compelling myth---that is, the *re-direction of desire*. 
 We need a myth of our own, not only to resist a fascist dystopia but also to broaden the scope of conceivable possibilities. 
 If the horizon holds nothing but darkness, the simple act of lighting a candle can revolutionize the world.
 But upon further reflection, I again realize that ideas alone can't alter material realities.
@@ -429,7 +451,7 @@ In particular, musical performances can ignite the *Dionysian* flame, a counterf
 
 >Music, if regarded as an expression of the world, is in the highest degree a universal language that is even related to the universality of concepts much as those are related to particular things. Yet its universality is by no means that empty universality of abstraction. -- Schopenhauer
 
-Enthusiasm, decadence, instinct, chaotic emotions, sexuality, and ecstasy shatter the boundaries of the conceivable by revealing the beauty of the tragedy in which we are all entwined -- that is, the beauty and mystery of life or *Dasein* itself. 
+Enthusiasm, decadence, instinct, chaotic emotions, sexuality, and ecstasy shatter the boundaries of the conceivable by revealing the beauty of the tragedy in which we are all entwined---that is, the beauty and mystery of life or *Dasein* itself. 
 Music can expose existential tensions and the paradoxical beauty of the complex perversity of erotic desire; elements which our culture is so eager to conceal. 
 As Jeff Baker, an ethnomusicologist, writes:
 
@@ -445,7 +467,7 @@ At the root of most conflicts between art and socialism and capitalism is a lack
 The tension between freedom and state control, individuality and the need for community, and the desire to love others versus the temptation for self-gratification, are often glossed over by both individualistic and collectivist *metanarratives*, i.e., universal truths.
 
 We are in need of spaces where these tensions can be expressed openly, without reduction or oversimplification.
-Above all, we need environments where paradoxes -- like freedom and obedience, or aesthetic/metaphysical goods and political ones -- can exist without downplaying or dismissing any of the conflicting elements they encompass.
+Above all, we need environments where paradoxes and differences---like freedom and obedience, or aesthetic/metaphysical goods and political ones---can exist without downplaying or dismissing any of the conflicting elements they encompass.
 
 >Every living thing needs to be surrounded by an atmosphere, a mysterious circle of mist;
 >if one robs it of this veil, if one condemns religion, an art, a genius to orbit a star without an atmosphere;
@@ -474,10 +496,10 @@ In this context, I draw from Hegel, despite my skepticism towards a history prog
 I doubt that acting in opposition to the prevailing myth will dismantle it because in doing so, we engage in a *dialectic* that perfectly integrates any resistance.
 I believe, although without justification, that the solution resides in *creation* and *affirmation*, not in criticism devoid of creation but in the *act of creating to critique*.
 
-Pause for a moment! 
+But wait and pause for a moment! 
 Is this a call for action? 
 It appears that every corner of the globe is demanding action, insisting on hustle, productivity, creativity, and more. 
-Often, I find myself submerged in a sea of anxiety, born from the unknown -- the uncertainty of what is expected of me (Lacan). 
+Often, I find myself submerged in a sea of anxiety, born from the unknown---the uncertainty of what is expected of me (Lacan). 
 It feels like we need to be everything, everywhere, all at once in today's world. 
 I suspect this is a feeling shared by many young individuals. 
 It's like there's a pervasive social expectation to achieve something, to carve out an *identity*, to blaze a trail, to establish a family, but without a clear roadmap to success. 
@@ -491,7 +513,7 @@ However, the fantastical, authentic "self" we're taught to envisage doesn't real
 So, given that we are constantly implored to act, to produce, to rush, to perform, perhaps we should allow ourselves a pause before diving headlong into productivity again. 
 It could be beneficial to take a step back, to contemplate, reflect, and question the dominant narratives that have been presented to us as unassailable truths, as hegemonic and inevitable. 
 We might consider adopting a form of *postmodernism* that strips away the certainty from the notion that the prescribed lifestyle is the one we're bound and obliged to embrace.
-And we might be able to traverse this desert of meaninglessness by fabricating new narratives, while fully conscious of their artificiality -- transforming from the leon into a child.
+And we might be able to traverse this desert of meaninglessness by fabricating new narratives, while fully conscious of their artificiality---transforming from the leon into a child.
 
 >There is no such thing as a script to stick to; no single functional model of relationships; no single dignified or fulfilling lifestyle that is achieved through consumption, affluence or material goods.
 >Rather what human beings can do in the world is enriched by the diversity of their performance in the world by art, by poetry, by love, by a sense of collectivity and a sense of building a shared future. 
@@ -500,4 +522,4 @@ And we might be able to traverse this desert of meaninglessness by fabricating n
 In the face of the inevitability of death, *failing tragically* seems to me much more appealing than being *comfortably numb*. 
 I believe it's essential to accept one's own mortality.
 It forces us to stop and to reflect on our desires; on what we *care* about.
-To reconcile with our finite existence, not to evade reality but rather to engage in it more than ever, and to take up that struggle -- to infuse dignity, kindness, and love into a *dying world*.
+To reconcile with our finite existence, not to evade reality but rather to engage in it more than ever, and to take up that struggle---to infuse dignity, kindness, and love into a *dying world*.

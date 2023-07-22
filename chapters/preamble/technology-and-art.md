@@ -1,7 +1,7 @@
 (sec-technology-and-art)=
 # Technology and Art
 
->We might be in a collective state of existential crisis, but we are to busy to notice it.
+>The message of TV is quite independent of the program. The effect of the program is incidental. -- Marshall McLuhan
 
 ## Introduction
 
@@ -55,18 +55,18 @@ Moreover, in a humane society, people should have the power to decide how and if
 Following Martin Heidegger's perspective, this is no longer the case. 
 He distinguishes two aspects: the tools and techniques of modern science, along with all the devices created to enhance human comfort, which he refers to as *mere technology*, and the *essence of technology* (*Gestell*), i.e., the structure of the technological world and our *mode of existence* within it. 
 To consider technology *essentially* is to see it as an event to which we belong: the structuring, ordering, and requisitioning of everything around us, and of ourselves.
-Heidegger argues that if we focus solely on acquiring a more sophisticated understanding of *mere technology* -- mastering tools, instruments, and techniques, even those that indisputably improve our living standards -- without understanding the *essence of technology*, our knowledge will not liberate us but further entrap us.
+Heidegger argues that if we focus solely on acquiring a more sophisticated understanding of *mere technology*---mastering tools, instruments, and techniques, even those that indisputably improve our living standards---without understanding the *essence of technology*, our knowledge will not liberate us but further entrap us.
 
 It is imperative at this point to recognize that Heidegger was a Nazi, an aspect that should be prominently emphasized while discussing his contributions.
-In his seminal book, Being and Time {cite}`heidegger:1927`, Heidegger audaciously posited that Western philosophy, dating back to Plato, had neglected or bypassed the fundamental question of what it truly means for something *to be* -- to exist for us before any philosophical or scientific examination. 
+In his seminal book, Being and Time {cite}`heidegger:1927`, Heidegger audaciously posited that Western philosophy, dating back to Plato, had neglected or bypassed the fundamental question of what it truly means for something *to be*---to exist for us before any philosophical or scientific examination. 
 Throughout his writings, he attempted to elucidate how Western civilization, following the advent of Greek philosophy, had been steadily moving towards *nihilism*. 
-He was of the view that the contemporary cultural and intellectual crisis -- our descent into nihilism -- was inextricably tied to this *oblivion of being*. 
+He was of the view that the contemporary cultural and intellectual crisis---our descent into nihilism---was inextricably tied to this *oblivion of being*. 
 Only a renaissance of being and the sphere in which it is revealed might rescue *modern* humanity.
 Some people regard him as the most inventive and influential thinker of his time, while others dismiss him as an obfuscator and an impostor. 
 
 It is essential to analyze his philosophy within the backdrop of his association with Nazism.
 Heidegger’s thought always was and remained *illiberal*, tending to encompass all matters, philosophy and politics among them, in a single perspective, ignoring the freedom of most people to act independently.
-But if, as Heidegger hoped, his works are to help us understand the challenges technology presents, we must study him both carefully and cautiously -- carefully, to appreciate the depth and complexity of his thought, and cautiously, in light of his association with the Nazis.
+But if, as Heidegger hoped, his works are to help us understand the challenges technology presents, we must study him both carefully and cautiously---carefully, to appreciate the depth and complexity of his thought, and cautiously, in light of his association with the Nazis.
 
 >How is it that such a brilliant mind was taken
 in by the Nazis? How could Heidegger be so socially irresponsible? It is the
@@ -75,11 +75,11 @@ anti-Semite [...] I have shown Heidegger’s brain with a mushroom-like tumor
 growing out of it to make the point. -- Anselm Kiefer
 
 In his later writings on technology {cite}`heidegger:1954`, which mainly concern us in this essay, Heidegger draws attention to technology’s place in bringing about our decline by constricting our experience of things as they are. 
-He argues that we now view nature, and increasingly human beings too, only technologically -- that is, we see nature and people only as raw material for technical operations.
+He argues that we now view nature, and increasingly human beings too, only technologically---that is, we see nature and people only as raw material for technical operations.
 We might escape this bondage, Heidegger argues, not by rejecting technology, but by perceiving its danger.
 
 We need to bear in mind that Heidegger's concerns about global technology initially drew him towards the Nazi party. 
-The Nazis stood in opposition to the two prevailing forms of governance during that period -- communism and democracy -- which Heidegger associated with global technology. 
+The Nazis stood in opposition to the two prevailing forms of governance during that period---communism and democracy---which Heidegger associated with global technology. 
 Hence, studying Heidegger is both hazardous and intricate. 
 It requires great caution and discernment to comprehend the depth and complexity of his thought, all while being acutely aware of his affiliation with the Nazis.
 
@@ -95,9 +95,9 @@ Later, Heidegger posits that technology both unveils and conceals, functioning a
 The *essence of technology* (das *Gestell*) is in its manner of revealing and concealing. 
 It is a way in which we encounter entities generally, including nature, ourselves, and, indeed, everything.
 This implies that technological entities have their distinct form of presence, persistence, and relationships between parts and wholes. 
-They have their unique ways of presenting themselves and the world in which they exist -- technology is about dominance and control. 
+They have their unique ways of presenting themselves and the world in which they exist---technology is about dominance and control. 
 However, the heart of the issue lies not in any specific machine, process, or resource. 
-Instead, technology is *challenging* (*herausfordernd*): the way the *essence of technology* shapes our understanding of all things, and the existence of those things themselves -- the all-encompassing manner in which we encounter and are encountered by the technological world.
+Instead, technology is *challenging* (*herausfordernd*): the way the *essence of technology* shapes our understanding of all things, and the existence of those things themselves---the all-encompassing manner in which we encounter and are encountered by the technological world.
 
 Heidegger observes that because of technology, 
 
@@ -115,7 +115,7 @@ It's important to note that, for Heidegger, the *challenge* precedes the unlocki
 It was technological thinking that first understood nature in such a way that nature could be challenged to unlock its forces and energy.
 Modern technology is a distraction from our state of *being-in-the-world* (*Befindlichkeit*), which is always contingent on a mood that Heidegger calls *Sorge*, i.e., signifying fear, worry, or care.
 
->Modern technology is not applied natural science, far more is modern natural science the application of the essence of technology. [Nature is therefore] the fundamental piece of inventory of the technological standing reserve — and nothing else. -- Martin Heidegger
+>Modern technology is not applied natural science, far more is modern natural science the application of the essence of technology. [Nature is therefore] the fundamental piece of inventory of the technological standing reserve---and nothing else. -- Martin Heidegger
 
 The nature of *being-in-the-world* is such that we can never escape these concerns, but we frequently attempt to deny them. 
 We distract ourselves from our worries, the primary of which is death, and consequently live inauthentically. 
@@ -191,7 +191,7 @@ Developers and entrepreneurs often start with a genuine desire to improve the wo
 They believe their contribution will benefit the world and empower not just them and their investors, but also some industry or consumer base. 
 However, accepting funding from problematic sources often forces them into specific actions. 
 Ultimately, on the stock market, business becomes gamified. 
-Companies shift their focus away from their products and become preoccupied with competition -- Bezos versus Sergey Brin versus Mark Zuckerberg.
+Companies shift their focus away from their products and become preoccupied with competition---Bezos versus Sergey Brin versus Mark Zuckerberg.
 
 Additionally, since the digital industry is characterized by non-scarcity, it had to introduce a new business logic that gathers, concentrates, and "protects" knowledge and information. 
 Under the guise of improving customer services, this new business logic aims to provide consumers with exactly what they want. 
@@ -213,7 +213,7 @@ We must critically analyze the implications of each technology, which means we m
 However, I'm not advocating for a return to some mythical naturalistic past, some elusive authenticity. 
 This would only lead to disillusionment because such authenticity was never present to begin with. 
 Nature is a splendid beast; it is *the real* that pursues us.
-The notion of returning to nature -- withdrawing from altering landscapes, bodies, and psychological systems -- lacks basis from a naturalistic ontological perspective. 
+The notion of returning to nature---withdrawing from altering landscapes, bodies, and psychological systems---lacks basis from a naturalistic ontological perspective. 
 There's no reason why we shouldn't challenge its normative power, particularly when constructed power structures masquerade as natural! 
 But, heeding Heidegger, we must acknowledge that 
 
@@ -229,7 +229,7 @@ Is it beneficial to us? Who is in control of it? What are its intended goals?
 Does it truly function as anticipated? What new possibilities does it create? 
 Does it harbor artistic potential? What existing realities does it dismantle?
 Moreover, and perhaps most crucially, can we perceive it as more than just a tool? 
-Can we appreciate it in its entirety -- as it presents itself to us, without reducing it to its constituent parts, functions, and effects? I am a proponent of a culture of mindful engagement -- a society of informed participants within the sphere of technology. 
+Can we appreciate it in its entirety---as it presents itself to us, without reducing it to its constituent parts, functions, and effects? I am a proponent of a culture of mindful engagement---a society of informed participants within the sphere of technology. 
 A capable society should possess the authority to reject technological progress in favor of cultural advancement.
 
 We must understand how we can be manipulated, what is beneficial for us, and what our needs are. 
@@ -239,7 +239,7 @@ Today, much of our communication lacks this synchronization.
 This communication is superficial and abstract, leaving us feeling hollow and increasingly fatigued.
 However, approaching this issue from a scientific perspective, that is, socializing because we understand it's beneficial for us, misinterprets the essence of the matter as we would be treating togetherness as a *mere tool*, i.e., technology!
 
->The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- *Mark Fisher*
+>The 21st century is oppressed by a crushing sense of finitude and exhaustion. -- Mark Fisher
 
 We exist within a constant churn of emails, calendars, and Zoom meetings, often neglecting the things that truly bring us happiness: engaging in conversations with others, playing with our children, and expressing love. 
 Concurrently, there persists an ever-present *fear of missing out*: can I seize this opportunity before it's entirely gone? 
