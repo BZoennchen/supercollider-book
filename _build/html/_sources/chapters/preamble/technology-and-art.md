@@ -29,7 +29,7 @@ While machines compute, they are now able to participate in this communication {
 
 Viewed as an instrumental tool, technology is not strictly separate from us but is coupled with our bodies. 
 It serves as an extension of our psychic and physical systems, influencing our mode of being. 
-Technology shapes our means of communication and our material realities; it expands realms of possibilities, but simultaneously, extinguishes pre-existing lifestyles.
+Technology shapes our means of communication and our material realities; it expands realms of possibilities, but simultaneously, extinguishes pre-existing modes.
 
 For instance, the advent of cars transformed city planning and construction, subsequently making car ownership a necessity in many regions. 
 Email revolutionized workplace communication ethics, making interaction with emails obligatory. 
@@ -57,13 +57,13 @@ He distinguishes two aspects: the tools and techniques of modern science, along 
 To consider technology *essentially* is to see it as an event to which we belong: the structuring, ordering, and requisitioning of everything around us, and of ourselves.
 Heidegger argues that if we focus solely on acquiring a more sophisticated understanding of *mere technology*---mastering tools, instruments, and techniques, even those that indisputably improve our living standards---without understanding the *essence of technology*, our knowledge will not liberate us but further entrap us.
 
-It is imperative at this point to recognize that Heidegger was a Nazi, an aspect that should be prominently emphasized while discussing his contributions.
-In his seminal book, Being and Time {cite}`heidegger:1927`, Heidegger audaciously posited that Western philosophy, dating back to Plato, had neglected or bypassed the fundamental question of what it truly means for something *to be*---to exist for us before any philosophical or scientific examination. 
+In his seminal book, *Being and Time* {cite}`heidegger:1927`, Heidegger audaciously posited that Western philosophy, dating back to Plato, had neglected or bypassed the fundamental question of what it truly means for something *to be*---to exist for us before any philosophical or scientific examination. 
 Throughout his writings, he attempted to elucidate how Western civilization, following the advent of Greek philosophy, had been steadily moving towards *nihilism*. 
 He was of the view that the contemporary cultural and intellectual crisis---our descent into nihilism---was inextricably tied to this *oblivion of being*. 
 Only a renaissance of being and the sphere in which it is revealed might rescue *modern* humanity.
 Some people regard him as the most inventive and influential thinker of his time, while others dismiss him as an obfuscator and an impostor. 
 
+It is imperative at this point to recognize that Heidegger was a Nazi, an aspect that should be prominently emphasized while discussing his contributions.
 It is essential to analyze his philosophy within the backdrop of his association with Nazism.
 Heidegger’s thought always was and remained *illiberal*, tending to encompass all matters, philosophy and politics among them, in a single perspective, ignoring the freedom of most people to act independently.
 But if, as Heidegger hoped, his works are to help us understand the challenges technology presents, we must study him both carefully and cautiously---carefully, to appreciate the depth and complexity of his thought, and cautiously, in light of his association with the Nazis.
@@ -74,7 +74,7 @@ same problem as with Celan: here is a wonderful writer who was a rotten
 anti-Semite [...] I have shown Heidegger’s brain with a mushroom-like tumor
 growing out of it to make the point. -- Anselm Kiefer
 
-In his later writings on technology {cite}`heidegger:1954`, which mainly concern us in this essay, Heidegger draws attention to technology’s place in bringing about our decline by constricting our experience of things as they are. 
+In his later writings on technology {cite}`heidegger:1954`, which mainly concern us in this section, Heidegger draws attention to technology’s place in bringing about our decline by constricting our experience of things as they are. 
 He argues that we now view nature, and increasingly human beings too, only technologically---that is, we see nature and people only as raw material for technical operations.
 We might escape this bondage, Heidegger argues, not by rejecting technology, but by perceiving its danger.
 
@@ -103,7 +103,7 @@ Heidegger observes that because of technology,
 
 >all distances in time and space are shrinking [and] yet the hasty setting aside of all distances brings no nearness; for nearness does not consist in a small amount of distance. -- Martin Heidegger
 
-We seem to have become nearly incapable of experiencing this nearness, let alone comprehending it, as all things increasingly manifest to us in a technological fashion:we perceive and interact with them as what Heidegger describes as a *standing reserve*, akin to supplies in a storeroom, items of inventory awaiting direction and mobilization, assembly and disassembly, positioning and dismissal. 
+We seem to have become nearly incapable of experiencing this nearness, let alone comprehending it, as all things increasingly manifest to us in a technological fashion: we perceive and interact with them as what Heidegger describes as a *standing reserve*, akin to supplies in a storeroom, items of inventory awaiting direction and mobilization, assembly and disassembly, positioning and dismissal. 
 Everything presents itself merely as an energy source or as a subject for our orchestration. 
 We even perceive human abilities as if they were merely instruments for technological procedures, as when a laborer becomes nothing more than a tool for production.
 Leaders, planners, along with the rest of us, are mere human assets to be managed, reorganized, and discarded. 
@@ -135,15 +135,28 @@ However, in our everyday lives, that distance is not neutral or abstract.
 Instead, it is an aspect of our concern with the tree and the house, reflected in the experience of walking, seeing the tree’s shape grow larger as we approach it, and feeling an increasing separation from the house as we walk away from it. 
 In the scientific account, things become indifferent to our concerns (Sorge); by representing both the distance and the objects as simple mathematical entities or philosophical concepts, we lose our authentic experience of nearness and distance.
 
+Today the representational character of the digital shapes the physical.
+Speaking in Baudrillardian terms, through the colonization of the last frontier---our immediate consciousness---companies are constructing a virtual yet *hyper-realistic world* that suggests there is no truth behind it.
+This process is evolving so rapidly that meaningful analysis becomes impossible.
+Our children will navigate a "meta"-reality.
+They won't believe that the world depicted on their screens and other devices is real---that is not the danger!
+I also doubt that they will consciously believe the fake stories of this realm saturated by advertisement.
+Instead they run the risk of becoming cynical; of perceiving the real world as virtual.
+Threfore, they may consider everything as a scene to be observed, and all their actions as performances that can be captured and reviewed at any given moment.
+This would deny them a live of moments and turn it into a plan for later presentations.
+Kids sense the digital world in a peculiar, allusive, and meta-like state.
+This is why their memes are perpetually ironic, detached, self-referential, and buried beneath twenty layers of irony; the truth is completely dead to them.
+They look at a *postmodern* president and culture and ask: what on earth is this?
+They see Coca Cola advertisements that are knowingly winking and smiling at them, and they see through this nonsense.
+
 The *challenging* essence of technology implies that functioning things lead to more functioning things.
 Everything is *challenged* to serve as a systematic resource for technological application, which we subsequently utilize as a resource for further application, perpetuating a cycle. 
 For instance, we *challenge* land to produce coal, considering the land as nothing more than a coal deposit. 
 The coal is then stockpiled, always ready to unleash the stored solar heat it contains, which is then called upon for warmth, which subsequently is commanded to yield steam whose pressure drives the wheels that sustain a factory's operations. 
 The factories themselves are *challenged* to create tools through which machines are once again put into service and preserved. 
-If a market exists (constructed by directing desire, i.e., marketing), we will likely have to adapt to yet another technological illusion.
+If a market exists (constructed by channeled desire, i.e., marketing), we will likely have to adapt to yet another technological illusion.
 This chain does not move toward anything that has its own presence, but, instead, "only enters into its *circuit*", and is "regulating and securing" natural resources and energies in this never-ending fashion.
-Under this perspective we can ask: Is it the public that wants to transfer another significant part of reality into a Metaverse? 
-No one asked for it, but we built it because we can, because we are challenged to do so.
+No one asked for the Metaverse, but we will built it anyways because we are *challenged* to do so.
 
 >A success is that type of consequence that itself remains assigned to the yielding of further consequences. -- Martin Heidegger
 
@@ -151,7 +164,7 @@ Alternative ways of comprehending distance and time, beyond the increasingly pre
 they no longer appear to be modes of understanding but at best, indistinct poetic portrayals. 
 While many critics of technology highlight its apparent dangers, Heidegger underscores a different type of peril: the potential of technology to obstruct us from hearing "the call of a more primal truth".
 The issue is not solely that technology impedes our access to this sphere, but that it causes us to entirely forget the existence of this realm.
-Nevertheless, Heidegger posits that by acknowledging this danger allows, we're able to discern and then address what has been neglected. 
+Nevertheless, Heidegger posits that by acknowledging this danger, we might be able to discern and then address what has been neglected. 
 The realization of our essence as receptive to this sphere, and of technology as merely one avenue through which things can manifest, is the roadmap for keeping technology within its appropriate confines. 
 The thought that unfolds the potential for a *turn* away from technology and towards its fundamental domain is the recognition of its hazard.
 
@@ -172,10 +185,10 @@ However, I believe that we can cultivate a reflexive understanding that enables 
 
 >It certainly is not a matter of condemning the industrial and technological fate of humanity. Rather, it is a case of reinventing this fate. -- Bernard Stiegler
 
-In addition to the crucial distinction between *mere technology* and the *essence of technology*, we must also examine material reality. 
+In addition to the crucial distinction between *mere technology* and the *essence of technology*, we must also examine material realities. 
 Who controls the production of mere technology and to what end? 
-I believe that digital technology is potent and could help solve many of humanity's problems, from climate change to income distribution, sensor-based agricultural practices, food, education, and the eradication of racialization, gender discrimination, ableism, and classism.
-Digital technology can be incredible, but when decisions about its deployment and use are exclusively in the hands of businesspeople, we encounter a problem.
+I believe that digital technology is potent and could support us to solve many of humanity's problems, from climate change to income distribution, sensor-based agricultural practices, food, education, and the eradication of racialization, gender discrimination, ableism, and classism.
+Digital technology can be incredible, but when decisions about its development, deployment, and use are exclusively in the hands of businesspeople, we encounter a problem.
 These individuals implement a perilous form of a technology-driven society with the economy at its absolute center: a type of digital/computational capitalism where algorithms generate money rather than value.
 
 Additionally, it may be worth considering Heidegger's perspective on technology, which I am unable to elaborate fully upon here.
@@ -193,10 +206,10 @@ However, accepting funding from problematic sources often forces them into speci
 Ultimately, on the stock market, business becomes gamified. 
 Companies shift their focus away from their products and become preoccupied with competition---Bezos versus Sergey Brin versus Mark Zuckerberg.
 
-Additionally, since the digital industry is characterized by non-scarcity, it had to introduce a new business logic that gathers, concentrates, and "protects" knowledge and information. 
+Additionally, since the digital industry is characterized by non-scarcity, it had to introduce a new business logic that gathers, concentrates, and protects knowledge and information. 
 Under the guise of improving customer services, this new business logic aims to provide consumers with exactly what they want. 
 I would argue, however, that the goal is more about manipulating consumers into an endless cycle of mostly subpar consumer goods. 
-As previously discussed in [Extreme Consumerism](sec-consumerism), desire is produced, channeled, and confused.
+Desire is produced, channeled, and confused.
 
 We have to ask:
 
@@ -244,7 +257,7 @@ However, approaching this issue from a scientific perspective, that is, socializ
 We exist within a constant churn of emails, calendars, and Zoom meetings, often neglecting the things that truly bring us happiness: engaging in conversations with others, playing with our children, and expressing love. 
 Concurrently, there persists an ever-present *fear of missing out*: can I seize this opportunity before it's entirely gone? 
 Analyzing *mere technology* through an honest scientific lens is valuable, yet it doesn't address the crux of Heidegger's observations. 
-To comprehend the *essence of technology*, we might need to grapple with its and our being-in-the-world and time.
+To comprehend the *essence of technology*, we might need to grapple with its and our timely *being in the world*.
 
 What engenders a degree of optimism in me is the younger generation.
 Despite the rising suicide rates, arguably linked to social media usage, I've noticed a trend of increased caution towards technology among some individuals. 
@@ -258,7 +271,7 @@ Art can, so to speak, unify them.
 Unlike technology, artistic works offer numerous paths and are more open in their *revealing*. 
 An artwork opens up pathways, relationships, and possibilities. 
 Art can elucidate the meaning of technology, enabling us to develop an open relationship with it. 
-For instance, a piece of art can expose our uncertainty about whether technology can be disregarded, or whether it embodies a seductive cosmic force that we're incapable of resisting.
+A piece of art can expose our uncertainty about whether technology can be disregarded, or whether it embodies a seductive cosmic force that we're incapable of resisting.
 
 ## Turning Away from Danger
 
@@ -270,7 +283,7 @@ Consequently, the artist's duty is to disclose and explore this process *phenome
 She is the one who crafts aesthetic symbols, setting the stage for a possible future. 
 The approach should involve neither prejudice nor antagonism, but rather sincere engagement with technology and its creators. 
 After all, the artifacts of our past aren't natural occurrences but are crafted by people. 
-Yet, what has transpired and what will occur are guided by the horizon of possibility, which is *enframed* (gestellt) by technology and unveiled by artistic works.
+Yet, what has transpired and what will occur are guided by the horizon of possibilities, which is *enframed* (gestellt) by technology and unveiled by artistic works.
 
 Our thought process should acknowledge the *challenge* posed by technology.
 We must enter the realm where things can show themselves to us truthfully in a manner not limited to the technological.

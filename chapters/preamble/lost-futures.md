@@ -245,18 +245,6 @@ and we hate each other;
 and we are calling each other liars and evil because it’s all become marketing, and we want to win; because we are lonely and empty and scared. 
 And we are led to believe winning will change all that. But there is no winning -- Charlie Kaufman
 
-Speaking in Baudrillardian terms, through the colonization of the last frontier---our immediate consciousness---companies are constructing a virtual yet hyper-realistic world that suggests there is no truth behind it.
-This process is evolving so rapidly that meaningful analysis becomes impossible.
-Our children will navigate a "meta"-reality, and they won't believe that the world depicted on their screens and other devices is real.
-I also doubt that they will consciously believe the stories of adverts.
-Instead they run the risk of becoming cynical; of perceiving the real world as virtual.
-Threfore, they may consider everything as a scene to be observed, and all their actions as performances that can be captured and reviewed at any given moment.
-This would deny them a live of moments and turn it into a plan for later presentations.
-Kids sense the digital world in a peculiar, allusive, and meta-like state.
-This is why their memes are perpetually ironic, detached, self-referential, and buried beneath twenty layers of irony; truth is completely dead to them.
-They look at a *postmodern* president and culture and ask: what on earth is this?
-They see Coca Cola advertisements that are knowingly winking and smiling at them, and they see through this, to put it mildly, nonsense---forget it, leave me alone with your cheerfulness and just give me that drink.
-
 To keep the machine running, capitalism needs desires that it can satisfy.
 Therefore, it has to channel desires into products.
 But desire is not only something that is just there.
