@@ -1,7 +1,7 @@
 (sec-technology-and-art)=
 # Technology and Art
 
-Marshall McLuhan the 'high priest of popcult and metaphysician of media' of the 1960-ths famously stated that the media is the message.
+Marshall McLuhan the "high priest of popcult and metaphysician of media" of the 1960-ths famously stated that the media is the message.
 McLuhan combined philosophy with literature, pop culture and media analysis.
 Instead of focussing of the content of communication, he argued that the type of communication be it the internet, the radio or the TV, i.e., the technology itself is what really matters.
 
