@@ -164,6 +164,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grounding</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preamble/technology-and-art.html">Technology and Art</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preamble/algorithms.html">Algorithms</a></li>
 </ul>
@@ -550,16 +551,16 @@ Using <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> gives 
 <div class="math notranslate nohighlight">
 \[y[n] = 0.5 \cdot x[n] - 0.5 \cdot x[n-1].\]</div>
 <p>In other words, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8cb633fb-08e5-47af-ab74-462fe2892c42">
-<span class="eqno">(65)<a class="headerlink" href="#equation-8cb633fb-08e5-47af-ab74-462fe2892c42" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-263101a3-9b1a-4f5c-abfa-0039ccf75ceb">
+<span class="eqno">(65)<a class="headerlink" href="#equation-263101a3-9b1a-4f5c-abfa-0039ccf75ceb" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{x(t) - x(t - \Delta t)}{2\Delta t},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(f_s^{-1}\)</span> seconds.
 To get the <em>difference quotient</em>, we have to multiply by a factor of two.</p>
 <p>To test this result, let us compute the cosine using <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a> and a <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be08e364-20b5-494d-9af4-cd4c55f7d338">
-<span class="eqno">(66)<a class="headerlink" href="#equation-be08e364-20b5-494d-9af4-cd4c55f7d338" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7de519e9-0e5d-4d79-9c9d-cf699f7d36fe">
+<span class="eqno">(66)<a class="headerlink" href="#equation-7de519e9-0e5d-4d79-9c9d-cf699f7d36fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -602,8 +603,8 @@ Again let us try our best to understand what is going on without using the <a cl
 <span class="eqno">(67)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d156ea9-4e6e-4077-9d78-450781f16d7d">
-<span class="eqno">(68)<a class="headerlink" href="#equation-9d156ea9-4e6e-4077-9d78-450781f16d7d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e31b1cd1-02cc-459f-8d7f-32765cf73098">
+<span class="eqno">(68)<a class="headerlink" href="#equation-e31b1cd1-02cc-459f-8d7f-32765cf73098" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>.
@@ -615,8 +616,8 @@ Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\
 <span class="eqno">(70)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(y[0], \ldots y[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(x[0], \ldots x[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3621cf6-d400-4c1a-abe4-d5575d1a4960">
-<span class="eqno">(71)<a class="headerlink" href="#equation-b3621cf6-d400-4c1a-abe4-d5575d1a4960" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f42d65c3-1b43-4e43-94bd-0a6e94bcfded">
+<span class="eqno">(71)<a class="headerlink" href="#equation-f42d65c3-1b43-4e43-94bd-0a6e94bcfded" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
   &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -625,8 +626,8 @@ y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fdeb941-52ca-44ac-a53d-cf07f6627e3a">
-<span class="eqno">(72)<a class="headerlink" href="#equation-0fdeb941-52ca-44ac-a53d-cf07f6627e3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc7c3acb-8a9b-4351-a509-e45752c9af61">
+<span class="eqno">(72)<a class="headerlink" href="#equation-fc7c3acb-8a9b-4351-a509-e45752c9af61" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
