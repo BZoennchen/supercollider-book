@@ -1,5 +1,5 @@
 (sec-midi)=
-# Musical Instrument Digital Interface
+# MIDI
 
 In the article [An introduction to MIDI](https://web.archive.org/web/20120830211425/http://www.doc.ic.ac.uk/~nd/surprise_97/journal/vol1/aps2/), *Andrew Swift* states that the musical instrument digital interface is a technical standard (a sort of agreement) that describes a communications protocol, digital interface, and electrical connectors that connect a wide variety of electronic musical instruments, computers, and related audio devices for playing, editing, and recording music.
 

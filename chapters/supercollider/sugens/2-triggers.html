@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Demand Unit Generators &#8212; Algorithmic Composition</title>
+    <title>Demand UGens &#8212; Algorithmic Composition</title>
   
   
   
@@ -217,13 +217,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../communication/communication.html">Communication</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../communication/1-midi.html">Musical Instrument Digital Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../communication/2-osc.html">Open Sound Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication/1-midi.html">MIDI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../communication/2-osc.html">OSC</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="sugens.html">Special Unit Generators</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="1-amplitude.html">Amplitude</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Demand Unit Generators</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Demand UGens</a></li>
 </ul>
 </li>
 </ul>
@@ -483,7 +483,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Demand Unit Generators</h1>
+    <h1>Demand UGens</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -497,8 +497,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="demand-unit-generators">
-<span id="sec-demand-ugens"></span><h1>Demand Unit Generators<a class="headerlink" href="#demand-unit-generators" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="demand-ugens">
+<span id="sec-demand-ugens"></span><h1>Demand UGens<a class="headerlink" href="#demand-ugens" title="Permalink to this headline">#</a></h1>
 <p>In this section, I wish to discuss the ability to modify (discrete) arguments directly on the <strong>audio server</strong>.</p>
 <p>We’ve learned about instantiating <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synths</a> using either (1) <a class="reference internal" href="../pattern/pattern.html#sec-playing-pattern"><span class="std std-ref">patterns</span></a> iin conjunction with <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> or <a class="reference external" href="https://doc.sccode.org/Classes/Pbindef.html">Pbindef</a>, or (2) other <a class="reference internal" href="../scheduling/scheduling.html#sec-scheduling"><span class="std std-ref">scheduling techniques</span></a> like <a class="reference external" href="https://doc.sccode.org/Classes/Routine.html">Routine</a> while communicating with the audio server, for example:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">x</span> <span class="o">=</span> <span class="nc">Synth</span><span class="p">(</span><span class="ss">\default</span><span class="p">,</span> <span class="p">[</span><span class="ss">\freq</span><span class="o">:</span> <span class="mi">64</span><span class="p">.</span><span class="nx">midicps</span><span class="p">]);</span>

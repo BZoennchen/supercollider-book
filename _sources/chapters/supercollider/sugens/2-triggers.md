@@ -11,7 +11,7 @@ kernelspec:
 ---
 
 (sec-demand-ugens)=
-# Demand Unit Generators
+# Demand UGens
 
 In this section, I wish to discuss the ability to modify (discrete) arguments directly on the **audio server**.
 

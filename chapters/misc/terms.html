@@ -217,13 +217,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../supercollider/communication/communication.html">Communication</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../supercollider/communication/1-midi.html">Musical Instrument Digital Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../supercollider/communication/2-osc.html">Open Sound Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supercollider/communication/1-midi.html">MIDI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supercollider/communication/2-osc.html">OSC</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../supercollider/sugens/sugens.html">Special Unit Generators</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../supercollider/sugens/1-amplitude.html">Amplitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../supercollider/sugens/2-triggers.html">Demand Unit Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../supercollider/sugens/2-triggers.html">Demand UGens</a></li>
 </ul>
 </li>
 </ul>
@@ -573,13 +573,13 @@ For example, a complete concert orchestra and a thunder have roughly the power o
 <p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meters.
 The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8b1a90d4-1510-4335-9b24-75818ceef998">
-<span class="eqno">(94)<a class="headerlink" href="#equation-8b1a90d4-1510-4335-9b24-75818ceef998" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a5df2206-b940-45f6-bd2e-fa4ca6dc102d">
+<span class="eqno">(94)<a class="headerlink" href="#equation-a5df2206-b940-45f6-bd2e-fa4ca6dc102d" title="Permalink to this equation">#</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a65c5635-7535-41fb-af52-d6f979444e79">
-<span class="eqno">(95)<a class="headerlink" href="#equation-a65c5635-7535-41fb-af52-d6f979444e79" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8f423115-1c4f-44bc-9428-2a88c783ab50">
+<span class="eqno">(95)<a class="headerlink" href="#equation-8f423115-1c4f-44bc-9428-2a88c783ab50" title="Permalink to this equation">#</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>At that intensity we start suffering.</p>
@@ -600,8 +600,8 @@ It is convenient to start with</p>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
 <p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb258da2-8eba-45e2-9bc3-4a8e68b94e6f">
-<span class="eqno">(96)<a class="headerlink" href="#equation-cb258da2-8eba-45e2-9bc3-4a8e68b94e6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d852eb3b-8518-4707-90f5-b50bd844633f">
+<span class="eqno">(96)<a class="headerlink" href="#equation-d852eb3b-8518-4707-90f5-b50bd844633f" title="Permalink to this equation">#</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -646,8 +646,8 @@ It is measured in phons.</p>
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is a <strong>sinusoid</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-284576a1-22fd-4a8b-9d94-6ffb9353570f">
-<span class="eqno">(97)<a class="headerlink" href="#equation-284576a1-22fd-4a8b-9d94-6ffb9353570f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-575fb00b-5ea9-4ce7-9c4b-a2901e34c687">
+<span class="eqno">(97)<a class="headerlink" href="#equation-575fb00b-5ea9-4ce7-9c4b-a2901e34c687" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the <em>period</em> <span class="math notranslate nohighlight">\(T\)</span>.
