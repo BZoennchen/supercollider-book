@@ -10,6 +10,7 @@ kernelspec:
   name: python3
 ---
 
+(sec-algorithms)=
 # Algorithms
 
 >An algorithm is on the *verge of time*: [...] it is strictly structural -- a formal, unchanging entity.
@@ -33,7 +34,7 @@ Perhaps for these reasons, I am driven to safeguard this craft from potential de
 
 Since algorithms describe a sequence of executable instructions, they have a strange relation to time.
 On the one hand an algorithm is a description of a causal path into the future even though there is no physical time mentioned explicitly.
-Instead, the algorithms is there to be executed, i.e., to be transformed into a running program.
+Instead, the algorithm is there to be executed, i.e., to be transformed into a running program.
 Apart from this timely quality, an algorithm is like a story: it can unfold but is also unchanging; its content does not change but it can unfold logically.
 This is, in fact, very similar to a musical piece which can be performed in time but also exists independet of it.
 
@@ -46,12 +47,12 @@ Historians only late discovered that the term emerged from a slight modification
 At that time *algorism* meant "the specific step-by-step method of performing written elementary arithmetic".
 The name was Latinized to *algorismi* and later translated into middle high German as *Algorismus*.
 In more recent times, the word was linked with the Greek term *arithmetic*, thus giving rise to the term *algorithm*.
-For an extended period, the term *algorithm* was primarily associated with a combination of arithmetic operations, including addition, subtraction, multiplication, and division. 
 
+For an extended period, the term *algorithm* was primarily associated with a combination of arithmetic operations, including addition, subtraction, multiplication, and division. 
 Around 1950, the term began to reference Euclid's celebrated algorithm for determining the greatest common divisor.
 Consequently, the concept of an algorithm as a combination of purely arithmetic operations started to fade.
 Instead, algorithms started to incorporate combinatorial operations and control structures.
-At the same time the development of scientific computation and early high level programming languages, such as Algol58 and its derivatives (short for ALGOrithmic Language) took palce.
+At the same time, the development of scientific computation and early high level programming languages, such as Algol58 and its derivatives (short for ALGOrithmic Language) took palce.
 From that time on, an *algorithm* was understood to be a set of defined steps that if followed in the correct order will computationally process input (instructions and/or data) to produce a desired outcome {cite}`miyazaki:2012`.
 
 The efficiency of an algorithm can be enhanced by either refining the logic component or by improving the control over its use, including altering data structures (input) to improve efficiency.
@@ -59,7 +60,7 @@ For many problems, one can prove certain optimal time and space complexities.
 For instance, we know that sorting $n$ cards requires $\mathcal{O}(n\log(n))$ time and $\mathcal{O}(n)$ space.
 
 As reasoned logic, the formulation of an algorithm is, in theory at least, independent of programming languages and the machines that execute them;
-The theoretical fundament of algorithms, computer as well as programming languages is the (universal) *Turing machine* (1937) and the *lambda calculus* (1932) which are both equivalent.
+The theoretical fundament of algorithms, computer as well as programming languages is the (universal) *Turing machine* (1937) and the *lambda calculus* (1932).
 Importantly, *Turing machines* and the *lambda calculus* are equivalent in computational power: each can efficiently simulate the other.
 
 In contemporary times, we correlate the term *algorithm* with concepts such as recipe, computational instruction, process, procedure, method, routine, and so forth.
@@ -68,7 +69,6 @@ Today, algorithms are the threads that tie together most of the subfields of com
 ## Euclid's Algorithm
 
 Since it is one of the first discovered algorithms, let us have a look at Euclid's famous algorithm.
-
 Given two natural numbers $n, m \in \mathbb{N}$, we want to find the greatest common divsor $d$ of those two numbers, that is,
 
 $$\exists k_1, k_2 \in \mathbb{N} : n = k_1 \cdot d \ \land \ m = k_2 \cdot d$$
@@ -77,7 +77,7 @@ and $d$ is the largest number that fulfills this condition.
 Clearly, if one of the numbers is a multiple of the other, we are done.
 Otherwise, one number, let's say $n$, has to be larger.
 
-Interestingly, we can subtract $m$ from $n$ while keeping the greatest common divisor unchanged meaning that $n-m$ and $n$ have the same common divisor than $n$ and $m$.
+Interestingly, we can subtract $m$ from $n$ while keeping the greatest common divisor unchanged meaning that $n-m$ and $n$ have the same common divisor as $n$ and $m$.
 We can show this by the following equation
 
 $$n-m = (k_1 \cdot d) - (k_2 \cdot d) = (k_1 - k_2) \cdot d$$
