@@ -643,8 +643,16 @@ A world stripped of its spirituality will be a cruel one, in the sense that it w
 Another film director which is even more relatable to Heidegger's philosophy is Terrence Malick which is no surprise since he once attempted a doctorate on Heidegger, Kierkegaard, and Wittgenstein at Harvard.
 His films often hew closely to and examine---in both narrative and form---ideas about the essence of humanity and phenomenology advanced by Heidegger.
 This can be seen in his existential style but also his use of ever questioning voice-overs which I see as *Dasein's* questioning of *Being*.
+The whispering turns the film into poetry in motion.
+
 Malick, like no other, depicts a practical world of phenomena instead of a world of facts and linearly progressing story.
-He let's us experience the *mystical of the ordinary* which is, in fact, *extraordinary*.
+He let's us experience the mystical of *the ordinary* which is, in fact, *extraordinary*.
+The camera is constantly moving.
+It follows the characters at different angles but also lingers and wanders away.
+Thereby, the camera focuses on the world that surrounds our characters.
+The camera seems to be more interested in exploring the beauty and mystery of the world of the characters than the characters themselves---much like Malick is not really interested in his own story.
+The camera looks at beings as they are thus revealing the multiplicity of *Being*.
+
 
 >All of [Malick's] movies are about worlds. [...] Each film is about some aspect of the world. -- Hubert Dreyfus
 
@@ -653,6 +661,12 @@ Film gives us a meaningful world at the same time that it mirrors our own growin
 Moviegoers are simultaneously engaged and disengaged.
 With regard to the former, we can say that cinema gives us what, in our everyday lives, we take for granted or do not acknowledge, mainly because it is too difficult to do so.
 It gives us precisely what Malick claimed to have been looking for as a student in his philosophy classes, namely, a sense of the world, if not exactly a complete knowledge of one's place in it.
+
+Instead of insisting, Malick is insightful. 
+Instead of filling spaces, he opens them up.
+By being playful, wasteful as well as ambiguous his craft goes against the utilitarian method.
+Especially in his later works, there is barely any structure or dialog.
+He hasn't bounded his work within the 'technical' language of film like a poet who does not bound his work to the normal use of language. 
 
 If one wants to get a better understanding of Heidegger's kind of thinking, experiencing the childhood portrayed in *The Tree of Life* is a good place to start.
 It is a meditation on *Being*.
