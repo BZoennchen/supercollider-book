@@ -1,3 +1,4 @@
+(sec-variables)=
 # Variables and Scope
 
 Here we encounter the first inconvenience. 
