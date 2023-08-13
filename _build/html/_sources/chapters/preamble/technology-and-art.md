@@ -684,7 +684,7 @@ Malick's *nature* is calculating, selfish, and alien---it fights and dominates t
 
 >physical life in a world abandoned by the spirit. Organized unreality. The soul a hindrance in one’s dealings here. A burden. A mere quantity of thoughts and desires. -- Terrence Malick
 
-*Grace*, on the other hand, is forgiveness, selfless, playful, and intimate.
+*Grace*, on the other hand, is forgiveness, vulnerable, selfless, playful, and intimate.
 It is the spiritual which, for Malick, seem to erode out of the limits of understanding.
 Some call its source God, but Malick notes:
 
@@ -696,7 +696,7 @@ It happens in every instant of time.
 The same power which burns the stars burns equally in us.
 Our being is a miracle, equal with the creation of the universe, and like the universe, each day is created anew.
 
-We can also observe the soldiers in *The Thin Red Line* which are *thrown* onto a Pacific island in World War II and are aware of the thin line between *Being* and *Nothing*.
+In *The Thin Red Line* we can observe the soldiers which are *thrown* onto a Pacific island in World War II and are aware of the thin line between *Being* and *Nothing*.
 Nowhere in Malick's works is the transitory nature of the world more thoroughly explored than in this movie.
 Theses soldiers struggle with existential questions and anxiety because they are forcefully confronted with death; they imagine their life from the end---what Heidegger called *Vorlaufen zum eigenen Tode*.
 The American and Japanese soldiers as well as the Melanesian people caught in the middle of a conflict represent a reminder of our constant vulnerability to the collapse of our way of life, i.e., our existential fragility of human worlds.

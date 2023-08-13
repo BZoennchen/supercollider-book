@@ -189,6 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/synths/3-busses.html">Busses</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Music Concrète</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
 <ul class="nav bd-sidenav">
@@ -556,8 +557,8 @@ We get</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \alpha^n \cdot u[n] = \alpha^n \cdot 1 = \alpha^n.\]</div>
 <p>In this case, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b78224d9-6d00-45c4-8e6d-5b851723035f">
-<span class="eqno">(36)<a class="headerlink" href="#equation-b78224d9-6d00-45c4-8e6d-5b851723035f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e49fc128-7afe-4e9b-861e-ee5cc4d3ab87">
+<span class="eqno">(36)<a class="headerlink" href="#equation-e49fc128-7afe-4e9b-861e-ee5cc4d3ab87" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 = \sum\limits_{n = 0}^\infty \alpha^n z^{-n}\\
@@ -703,8 +704,8 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 <section id="lti-analysis">
 <h2>LTI Analysis<a class="headerlink" href="#lti-analysis" title="Permalink to this headline">#</a></h2>
 <p>The general form for a difference equation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22eb0d39-c3dd-47b2-b9de-790c66e18199">
-<span class="eqno">(37)<a class="headerlink" href="#equation-22eb0d39-c3dd-47b2-b9de-790c66e18199" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbd1a554-260e-45ac-8c01-3ef204b19420">
+<span class="eqno">(37)<a class="headerlink" href="#equation-cbd1a554-260e-45ac-8c01-3ef204b19420" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <section id="transfer-function">
@@ -723,13 +724,13 @@ Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k
 <div class="theorem admonition" id="theorem-transfer-function">
 <p class="admonition-title">Transfer Function of LTI Filters</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2077fb0-0414-4a6f-8fe5-4141007184de">
-<span class="eqno">(38)<a class="headerlink" href="#equation-f2077fb0-0414-4a6f-8fe5-4141007184de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d795df6b-128e-4175-96eb-03e6cfc2b2df">
+<span class="eqno">(38)<a class="headerlink" href="#equation-d795df6b-128e-4175-96eb-03e6cfc2b2df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dbcbb476-a9a3-41b7-8dc0-f9474a50fce4">
-<span class="eqno">(39)<a class="headerlink" href="#equation-dbcbb476-a9a3-41b7-8dc0-f9474a50fce4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-83fa3085-5a44-4340-aac1-c76bf16a8dc9">
+<span class="eqno">(39)<a class="headerlink" href="#equation-83fa3085-5a44-4340-aac1-c76bf16a8dc9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}},
 \end{equation}\]</div>
 </div>
@@ -742,8 +743,8 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
 <div class="theorem admonition" id="theorem-transfer-function-impulse-response">
 <p class="admonition-title">Transfer Funktio and Impulse Response</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em> is the Z-transform of the impulse response of the filter, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d1eb998c-d521-4dfb-b0b0-5403d16588a1">
-<span class="eqno">(40)<a class="headerlink" href="#equation-d1eb998c-d521-4dfb-b0b0-5403d16588a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-508e8d5a-3903-4226-86df-218db81ed974">
+<span class="eqno">(40)<a class="headerlink" href="#equation-508e8d5a-3903-4226-86df-218db81ed974" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \mathcal{Z}\{h[n]\}
 \end{equation}\]</div>
 </div>
