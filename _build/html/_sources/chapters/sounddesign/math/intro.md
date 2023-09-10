@@ -22,39 +22,66 @@ an experience that requires *a priori categories*.
 
 The difficulty in grasping that question is that we are thrown into math, as *Heidegger* would say.
 Teachers tell us what it is and how it works.
-We use it before we reflect on it or understand it; it is *ready to hand*.
+We use it before we reflect on it or understand it; it is *ready-to-hand* (*zuhanden*).
 Math, similar to language, is like a virus or parasite that circulates through the human mind and reproduces itself like an *autopoietic system*.
 It is closed and gets irritated by new observations such that it extends or adapts itself (through us).
 
-Because it happens within us, animals, and even plants -- yes, there is a plant that can count -- it is part of whatever there is.
-In that sense I agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes.
-Furthermore, I don't think we need some eternal *Platonic* space of perfect ideas that is hidden somewhere.
-Such meta concepts are shortcuts for something we do not understand yet.
-The *Platonic* worldview is mystical and religious.
+The late Wittgenstein argues that the meaning of words is determined by their use.
+This seems like a trivial observation but his claim was in fact very radical because it rejects the view that words refer to some essences.
+Furthermore, it offers arguments agains the view that language can describe reality accurately.
+The use of a word changes over time. 
+Words disappear and new words are created.
+For Wittgenstein, the fact that language is ambigious wasn't a downside but a feature---a view which is uncontroversial today.
+Reality is a mess and language is flexibel enough not to accurately descrite the mess but to navigate through it.
+
+Take for example the word *game*.
+Many games share common characteristics and properties but whenever you think there is a good definition that fits all games, we can find counter examples.
+It is quite difficult to work out the *essence of games*.
+So what is a game?
+A game is what we call a game and we call those things and activities 'game' because it is (socially) useful to do so.
+It helps us navigate through the mess.
+At some point in time, someone called foodball a 'game' and that description kept being used because it was useful and made sense at the time and place.
+Our language is deeply connected to social practices.
+There would be no words, no language, and no thinking without the social.
+
+Wittgenstein brings up the example of a beatle in a box.
+Imagine a group of people each box in everyone's box is they call a *beetle*.
+However, no one is ever allowed to in anyone elses box.
+They can only look into their own box.
+However, they can talk meaningful about *beetles* even though they don't know what others have in their boxes or indeed if there is anything in them at all.
+The thing in each person's box is irrelevant to the *shared public meaning* of the term 'beetles'.
+The words meaning is determined by the use people make of the term and not the *private* something hidden away from view.
+Whatever is or isn't in each person's box is irrelevant.
+It cancels out.
+Wittgenstein uses this analogy to go agains the assumption that experiences are private to us.
+We think that no one knows my personal color or pain experiences.
+In other words, no one can see the *beetle* in my box.
+But the meaning of sensation words such as pain and color isn't given by referring to some private inner introspective something---a sensation to which you alone have access to.
+In his view there cannot be more to the *public meaning* of our language than we are capable of teaching each other.
+The private something---the beetle---may or may not exist and may or may not be different from other beetles, cannot have a role in that teaching because we cannot get at it.
+
+If this is true, then the same has to be the case for mathematical terms such as numbers.
+With this view, the word *two* does not point to some essence or abstract idea that 'lives' in Plato's world of ideas.
+Instead it is a result of social practices.
+It is a term born out of social practice to communicate such that it helps us to navigate the mess.
+This, of course, tells us nothing about the question of the ontological existence of the number two.
+But Wittgenstein would probably say, that to ask for such a thing is impossible.
+The only thing we have is experience, social practice and language which we constructed over time not to describe reality but to navigate through it.
+
+I partly agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes and thinks that there is still something absolut and pure to establish and ground.
+I don't think we need some eternal *Platonic* space of perfect ideas that is hidden somewhere.
+Such meta-concepts are shortcuts for something we do not understand yet or something we can deal with by describing it in this way.
+The *Platonic* worldview is mystical, religious, absolute and in some sense too certain.
 It introduces something extra, something godly that we do not need.
 And it devalues life as something to overcome instead of something to embrace.
-Call me impulsive, but after I read *Wittgenstein*, I despise it more and more.
+Call me impulsive, but after I read Nietzsche, Heidegger, and Wittgenstein, I despise the *Platonic* worldview more and more.
 
-Only because we have never experienced a perfect circle does not mean we can not imagine one.
-I have never experienced a pink elephant, but I can perfectly picture one.
-Does this mean there has to be another perfect world where the idea of a pink elephant lives?
-The world of ideas cripples the fascination with the infinite complexity of what there is.
-Wittgenstein would probalby say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language game.
-He would argue that Plato confused different language games, i.e., the mistake is a missuse of language.
-
-We have never experienced a perfect circle.
-But we found a model called circle that models circle-like objects that we perceived.
-Such an object does not exist like an apple right in front of me does but in the language game of mathematics it exists because we can define it: 
-
-$$K = \{(\cos(\phi), \sin(\phi)) : \phi \in [0;2\pi]\}$$
-
-However, this perception is most undoubtedly incorrect and definitively subjective.
-The abstraction is an objectified version that we often silently agree on because our experiences endorse it.
 *Platon* believed that these abstractions are more accurate than what we perceive.
 He thought that the perception of a chair is an obscuration of the perfect idea that shines through it.
+Thereby contradictiong Wittgenstein by establishing an essence of the chair.
 I think it is the other way around, and instead of perfect and imperfect, I use the terms *concrete* and *abstract*.
 The chair is *concrete*, but our perception of it has nothing to do with it with the exception that it enables us to deal with it.
-Our perception is the first *abstraction* born out of *Kant's* understanding -- we are able to perceive it as one thing.
+Our perception is the first *abstraction* born out of *Kant's* understanding---we are able to perceive it as one thing.
 The *second-order abstraction* of it, e.g., using the word *chair*, is a silent agreement of a set of perceptions we call *chair*.
 For a number, e.g. the number one, this is similar.
 
@@ -69,9 +96,36 @@ Back then, there was no way to experience it.
 But I would argue that he had lived through everything to make his *leap of understanding*.
 He had learned a good fundament, lived in a certain time and had a brilliant mind.
 Similar to thinking about pink elephants, he knew $A$ and $B$ and was able to connect both.
+In other words, he had the imagination to come up with a concept that was useful enough that it rendered Newton's theory 'wrong' or maybe to use a better term *inaccurate*.
 
-To conclude, in my opinion, mathematics is revealed to us via *perception* and *understanding* of nature which includes mathematics itself.
-And if we assume that our perception (our biochemical body and its environment) as well as the sensory of machines is real, then mathematics is real, partly invented (similar to language), and partly discovered (it helps us with reality).
+Only because we have never experienced a perfect circle does not mean we can not find a description of one.
+I have never experienced a pink elephant, but I can perfectly picture one.
+Does this mean there has to be another perfect world where the idea of a pink elephant lives?
+The world of ideas cripples the fascination with the infinite complexity of what there is.
+It trys to bind the infinite to the finite, Kierkegaard might say. 
+Wittgenstein would probalby say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language game.
+He would argue that Plato confused different language games, i.e., the mistake is a missuse of language.
+
+We have never experienced a perfect circle.
+But we found a model called circle that models circle-like objects that we perceived.
+Such an object does not exist, like an apple right in front of me but it is a good abstraction of circle-like things. 
+
+$$K = \{(\cos(\phi), \sin(\phi)) : \phi \in [0;2\pi]\}$$
+
+The abstraction is an objectified version that we often silently agree on because our experiences endorse it.
+In that sense it is not really objective, rather we call things objective we all agree on.
+The language game of mathematics is one most people agree on because it turned out so amazingly useful.
+Because mathematics is unreasonable useful in describing nature we are tempted to believe that there has to be traces of an objective truth.
+I belive this.
+But at the time of writing I also believe that we cannot prove this and we can never know with certainty.
+Our language and we as creatures are finite.
+Therefore, grasping the infinite is impossible.
+Reality will always be a mystery.
+However, we can tinker with it and see where it goes.
+
+To conclude, in Wittgensteinian view, in the beginning mathematics was invented according to social practices: the differentiation of one thing from another thing; the handling of multiply things which all named by the same word; the exchange of goods and services.
+It required a close observation of nature and there might be traces of an objective truth in it but we can never know.
+Therefore, I claim that mathematics is invented but this invention is closely bound to observations of nature and therefore it is also discovered.
 
 ## Why do we need Math?
 

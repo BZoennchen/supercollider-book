@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-# Music Concrète
+# Sampling
 
 The most common definition for concrète music, what you will hear in an electro-acoustic music course, is compostion using recordings of real sounds as raw material.
 This definition takes its meaning partly as a distinction from analog electronic sounds which are purely electronic.
@@ -59,6 +59,7 @@ sampleRate: 48000.0
 ```
 
 Since there are ``8645952`` frames and the sample rate is 48.0 kHz the sample is ``8645952 / 48000.0 = 180.124`` seconds long.
+In section [Wavetable Synthesis](sec-wavetable), I discuss more functions of the [Buffers](https://doc.sccode.org/Classes/Buffer.html).
 
 ## Playing Buffers
 

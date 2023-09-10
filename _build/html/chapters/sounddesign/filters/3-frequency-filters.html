@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/synths/3-busses.html">Busses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Music Concrète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Sampling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
 <ul class="nav bd-sidenav">
@@ -226,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/sugens/2-triggers.html">Demand UGens</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/bela/intro.html">Bela</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sound Design</span></p>
 <ul class="current nav bd-sidenav">
@@ -248,6 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="filters.html">Subtractive Synthesis and Filters</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="noise.html">Noise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1-phase-shifting.html">Filtering by Delays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2-simpler-filters.html">Basic Filters</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Frequency Filters</a></li>
@@ -530,7 +532,7 @@ So they do not usually affect the perceived and subjective pitch.</p>
 <figure class="align-default" id="fig-lpf-graph">
 <a class="reference internal image-reference" href="../../../_images/lpf-graph.png"><img alt="../../../_images/lpf-graph.png" src="../../../_images/lpf-graph.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">The gain over frequency of a signal filtered by a lowpass filter.</span><a class="headerlink" href="#fig-lpf-graph" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">The gain over frequency of a signal filtered by a lowpass filter.</span><a class="headerlink" href="#fig-lpf-graph" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In nature, low frequencies tend to die out much slower than high frequencies.
@@ -581,7 +583,7 @@ In principle, the gain in amplitude over frequencies has a steeper slope.</p>
 <figure class="align-default" id="fig-lpf-saw">
 <a class="reference internal image-reference" href="../../../_images/lpf-saw.png"><img alt="../../../_images/lpf-saw.png" src="../../../_images/lpf-saw.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 42 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).</span><a class="headerlink" href="#fig-lpf-saw" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).</span><a class="headerlink" href="#fig-lpf-saw" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>We can observer that the maximum amplitude of the filtered signal decreases with the cutoff frequency.</p>
@@ -594,7 +596,7 @@ They can make the sound more clear which can be especially useful for your <em>l
 <figure class="align-default" id="fig-hpf-graph">
 <a class="reference internal image-reference" href="../../../_images/hpf-graph.png"><img alt="../../../_images/hpf-graph.png" src="../../../_images/hpf-graph.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 43 </span><span class="caption-text">The gain over frequency of a signal filtered by a highpass filter.</span><a class="headerlink" href="#fig-hpf-graph" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">The gain over frequency of a signal filtered by a highpass filter.</span><a class="headerlink" href="#fig-hpf-graph" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The effect is less obvious, at least with my headphones.</p>
@@ -623,7 +625,7 @@ They can make the sound more clear which can be especially useful for your <em>l
 <figure class="align-default" id="fig-hpf-saw">
 <a class="reference internal image-reference" href="../../../_images/hpf-saw.png"><img alt="../../../_images/hpf-saw.png" src="../../../_images/hpf-saw.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated highpass filter (bottom).</span><a class="headerlink" href="#fig-hpf-saw" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated highpass filter (bottom).</span><a class="headerlink" href="#fig-hpf-saw" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -638,7 +640,7 @@ It is a combination of a lowpass and highpass filter.</p>
 <figure class="align-default" id="fig-bpf-graph">
 <a class="reference internal image-reference" href="../../../_images/bpf-graph.png"><img alt="../../../_images/bpf-graph.png" src="../../../_images/bpf-graph.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">The gain over frequency of a signal filtered by a bandpass filter.</span><a class="headerlink" href="#fig-bpf-graph" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">The gain over frequency of a signal filtered by a bandpass filter.</span><a class="headerlink" href="#fig-bpf-graph" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> offers us the <a class="reference internal" href="../../supercollider/synths/1-ugens.html#def-ugen"><span class="std std-ref">UGen</span></a> called <a class="reference external" href="https://doc.sccode.org/Classes/BPF.html">BPF</a>.
@@ -659,7 +661,7 @@ Here we only change the <em>center frequency</em> from 220 Hz to 880 Hz.</p>
 <figure class="align-default" id="fig-bpf-saw">
 <a class="reference internal image-reference" href="../../../_images/bpf-saw.png"><img alt="../../../_images/bpf-saw.png" src="../../../_images/bpf-saw.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).</span><a class="headerlink" href="#fig-bpf-saw" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated bandpass filter (bottom).</span><a class="headerlink" href="#fig-bpf-saw" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Let’s have a listen:</p>

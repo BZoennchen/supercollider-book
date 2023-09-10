@@ -31,7 +31,7 @@ If we should call these techniques *algorithmic compositions* is at least debata
 2. combine familiar concepts, and
 3. transform ideas to create something new.
 
-As the composer *Herbert Brün* put it:
+As the composer *Herbert Brün* puts it:
 
 >Whereas the human mind, conscious of its conceived purpose, approaches even an artificial system with a selective attitude and so becomes aware of only the preconceived implications of the system, the computers would show the total of available content. Revealing far more than only the tendencies of the human mind, this nonselective picture of the mind-created system should be of significant importance. -- *Herbert Brün* (1970)
 
@@ -44,7 +44,7 @@ However, it remains true that machines can help us to get rid of our personal bi
 
 SuperCollider can be used to build a kind of *artificial system*.
 It provides us not only with a context in which we can compose music but is general and powerful enough to construct a new one.
-However, with great power comes great responsibility.
+However, as we know form comics: with great power comes great responsibility.
 In contrast to *digital audio workstations (DAWs)* such as *Reason* or *Ableton*, SuperCollider is far less restrictive;
 there is no *preferred* way of working.
 Such compulsion can be liberating.

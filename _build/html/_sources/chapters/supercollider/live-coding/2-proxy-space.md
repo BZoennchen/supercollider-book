@@ -1,7 +1,7 @@
 (sec-proxy-space)=
 # Proxy Space
 
-From the three possibilities ([NoteProxy](https://doc.sccode.org/Classes/NoteProxy.html), [Ndef](https://doc.sccode.org/Classes/Ndef.html), and [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html)) to interact with server nodes, I prefer the [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html).
+From the three possibilities ([NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html), [Ndef](https://doc.sccode.org/Classes/Ndef.html), and [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html)) to interact with server nodes, I prefer the [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html).
 Note however, that you can do everything also with the two other methods.
 It is just a stylistic choice.
 
@@ -19,7 +19,7 @@ A proxy space is an [Environments](sec-environments), i.e., a collection of thin
 However, each *environment variable* of a proxy space is a node proxy -- it returns placeholders on demand!
 Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
-Using a proxy space frees us from dealing with [Ndef](https://doc.sccode.org/Classes/Ndef.html) or [NoteProxy](https://doc.sccode.org/Classes/NoteProxy.html) explicitly, but we have to deal with it implicitly instead!
+Using a proxy space frees us from dealing with [Ndef](https://doc.sccode.org/Classes/Ndef.html) or [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) explicitly, but we have to deal with it implicitly instead!
 
 ## Initialization
 
