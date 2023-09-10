@@ -189,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../synths/3-busses.html">Busses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../sampling/intro.html">Music Concrète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sampling/intro.html">Sampling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
 <ul class="current nav bd-sidenav">
@@ -228,6 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../sugens/2-triggers.html">Demand UGens</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../bela/intro.html">Bela</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sound Design</span></p>
 <ul class="nav bd-sidenav">
@@ -250,6 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../sounddesign/filters/filters.html">Subtractive Synthesis and Filters</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/noise.html">Noise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/1-phase-shifting.html">Filtering by Delays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/2-simpler-filters.html">Basic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html">Frequency Filters</a></li>
@@ -516,7 +518,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="proxy-space">
 <span id="sec-proxy-space"></span><h1>Proxy Space<a class="headerlink" href="#proxy-space" title="Permalink to this headline">#</a></h1>
-<p>From the three possibilities (<a class="reference external" href="https://doc.sccode.org/Classes/NoteProxy.html">NoteProxy</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/ProxySpace.html">ProxySpace</a>) to interact with server nodes, I prefer the <a class="reference external" href="https://doc.sccode.org/Classes/ProxySpace.html">ProxySpace</a>.
+<p>From the three possibilities (<a class="reference external" href="https://doc.sccode.org/Classes/NodeProxy.html">NodeProxy</a>, <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/ProxySpace.html">ProxySpace</a>) to interact with server nodes, I prefer the <a class="reference external" href="https://doc.sccode.org/Classes/ProxySpace.html">ProxySpace</a>.
 Note however, that you can do everything also with the two other methods.
 It is just a stylistic choice.</p>
 <div class="definition admonition" id="def-proxy-space">
@@ -530,7 +532,7 @@ Note however that we can still use <em>global variables</em>, e.g. <code class="
 However, each <em>environment variable</em> of a proxy space is a node proxy – it returns placeholders on demand!
 Therefore, a proxy space hides some of the functionality of JITLib.
 It makes it easier and neater when it comes to creating or rewriting node proxies.
-Using a proxy space frees us from dealing with <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a> or <a class="reference external" href="https://doc.sccode.org/Classes/NoteProxy.html">NoteProxy</a> explicitly, but we have to deal with it implicitly instead!</p>
+Using a proxy space frees us from dealing with <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a> or <a class="reference external" href="https://doc.sccode.org/Classes/NodeProxy.html">NodeProxy</a> explicitly, but we have to deal with it implicitly instead!</p>
 <section id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">#</a></h2>
 <p>To push a proxy space onto the stack, we first have to boot the server because the proxy space lives and operates on an audio server instance of <em>scsynth</em>.

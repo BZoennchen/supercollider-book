@@ -189,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/synths/3-busses.html">Busses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Music Concrète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Sampling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
 <ul class="nav bd-sidenav">
@@ -228,6 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/sugens/2-triggers.html">Demand UGens</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/bela/intro.html">Bela</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sound Design</span></p>
 <ul class="current nav bd-sidenav">
@@ -250,6 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../filters/filters.html">Subtractive Synthesis and Filters</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../filters/noise.html">Noise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../filters/1-phase-shifting.html">Filtering by Delays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../filters/2-simpler-filters.html">Basic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../filters/3-frequency-filters.html">Frequency Filters</a></li>
@@ -557,8 +559,8 @@ We get</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \alpha^n \cdot u[n] = \alpha^n \cdot 1 = \alpha^n.\]</div>
 <p>In this case, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e49fc128-7afe-4e9b-861e-ee5cc4d3ab87">
-<span class="eqno">(36)<a class="headerlink" href="#equation-e49fc128-7afe-4e9b-861e-ee5cc4d3ab87" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-86f1abaa-d0a0-4f8f-841c-4d2dfb872c73">
+<span class="eqno">(36)<a class="headerlink" href="#equation-86f1abaa-d0a0-4f8f-841c-4d2dfb872c73" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 = \sum\limits_{n = 0}^\infty \alpha^n z^{-n}\\
@@ -704,8 +706,8 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 <section id="lti-analysis">
 <h2>LTI Analysis<a class="headerlink" href="#lti-analysis" title="Permalink to this headline">#</a></h2>
 <p>The general form for a difference equation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cbd1a554-260e-45ac-8c01-3ef204b19420">
-<span class="eqno">(37)<a class="headerlink" href="#equation-cbd1a554-260e-45ac-8c01-3ef204b19420" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-34aa5708-07a3-425e-b5f3-e89d38cfec0e">
+<span class="eqno">(37)<a class="headerlink" href="#equation-34aa5708-07a3-425e-b5f3-e89d38cfec0e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <section id="transfer-function">
@@ -724,13 +726,13 @@ Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k
 <div class="theorem admonition" id="theorem-transfer-function">
 <p class="admonition-title">Transfer Function of LTI Filters</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d795df6b-128e-4175-96eb-03e6cfc2b2df">
-<span class="eqno">(38)<a class="headerlink" href="#equation-d795df6b-128e-4175-96eb-03e6cfc2b2df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5a0ffc48-dd59-48c2-aeef-ce246ffb9da3">
+<span class="eqno">(38)<a class="headerlink" href="#equation-5a0ffc48-dd59-48c2-aeef-ce246ffb9da3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83fa3085-5a44-4340-aac1-c76bf16a8dc9">
-<span class="eqno">(39)<a class="headerlink" href="#equation-83fa3085-5a44-4340-aac1-c76bf16a8dc9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2d9acc09-0ce9-4161-bdc2-03d93aeed89b">
+<span class="eqno">(39)<a class="headerlink" href="#equation-2d9acc09-0ce9-4161-bdc2-03d93aeed89b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}},
 \end{equation}\]</div>
 </div>
@@ -743,8 +745,8 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
 <div class="theorem admonition" id="theorem-transfer-function-impulse-response">
 <p class="admonition-title">Transfer Funktio and Impulse Response</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em> is the Z-transform of the impulse response of the filter, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-508e8d5a-3903-4226-86df-218db81ed974">
-<span class="eqno">(40)<a class="headerlink" href="#equation-508e8d5a-3903-4226-86df-218db81ed974" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36c14507-184d-4fb4-a98a-fa53a28a180c">
+<span class="eqno">(40)<a class="headerlink" href="#equation-36c14507-184d-4fb4-a98a-fa53a28a180c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \mathcal{Z}\{h[n]\}
 \end{equation}\]</div>
 </div>

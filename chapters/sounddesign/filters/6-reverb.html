@@ -189,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/synths/3-busses.html">Busses</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Music Concrète</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/sampling/intro.html">Sampling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider II</span></p>
 <ul class="nav bd-sidenav">
@@ -228,6 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../supercollider/sugens/2-triggers.html">Demand UGens</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../supercollider/bela/intro.html">Bela</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sound Design</span></p>
 <ul class="current nav bd-sidenav">
@@ -250,6 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="filters.html">Subtractive Synthesis and Filters</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="noise.html">Noise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1-phase-shifting.html">Filtering by Delays</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2-simpler-filters.html">Basic Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="3-frequency-filters.html">Frequency Filters</a></li>
@@ -541,7 +543,7 @@ Early reflections can be used to alter the timbre of a sound; to make it louder,
 <figure class="align-default" id="fig-reverberation">
 <a class="reference internal image-reference" href="../../../_images/reverberation.png"><img alt="../../../_images/reverberation.png" src="../../../_images/reverberation.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Ideal reverberation profile (according to D. Griesinger).
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Ideal reverberation profile (according to D. Griesinger).
 Time <span class="math notranslate nohighlight">\(t\)</span> is measured in milliseconds.</span><a class="headerlink" href="#fig-reverberation" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -558,17 +560,17 @@ Therefore, it can be useful to introduce a reverb effect.</p>
 The <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a> decays over a period of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> seconds.
 <a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> works similar to <a class="reference external" href="https://doc.sccode.org/Classes/Integrator.html">Integrator</a> which basically integrate an incoming signal, which is another way of saying that it sums up all past values of the signal.
 It realizes the following formular:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf415193-178e-46b6-b51f-f5bc55c83b50">
-<span class="eqno">(73)<a class="headerlink" href="#equation-bf415193-178e-46b6-b51f-f5bc55c83b50" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c37f7cb0-6df6-40b8-844f-30bdc4007a8e">
+<span class="eqno">(73)<a class="headerlink" href="#equation-c37f7cb0-6df6-40b8-844f-30bdc4007a8e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{i=0}^n \alpha x[i]
 \end{equation}\]</div>
 <p>which is realized inductively by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ecc648e-e309-4d64-9309-204c6fb2dd67">
-<span class="eqno">(74)<a class="headerlink" href="#equation-5ecc648e-e309-4d64-9309-204c6fb2dd67" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c5dae140-7876-4cb6-8215-01a6ff92d69d">
+<span class="eqno">(74)<a class="headerlink" href="#equation-c5dae140-7876-4cb6-8215-01a6ff92d69d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = y[n-1] + \alpha x[n].
 \end{equation}\]</div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> operates on the basis of more meaningful parameters which are independent from the <em>sample rate</em>.
-We multiply this repeating envelope with a <a class="reference internal" href="../cookbook/percussive-sound.html#sec-pink-noise"><span class="std std-ref">PinkNoise</span></a> to get a simple beat.
+We multiply this repeating envelope with a <a class="reference internal" href="noise.html#sec-pink-noise"><span class="std std-ref">PinkNoise</span></a> to get a simple beat.
 The <em>decaying impulse</em> is just a line going to zero.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">Decay</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Impulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="nc">PinkNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">}.</span><span class="nx">play</span>
 </pre></div>
@@ -730,7 +732,7 @@ Since I add the <code class="docutils literal notranslate"><span class="pre">~im
 <figure class="align-default" id="fig-pluck">
 <a class="reference internal image-reference" href="../../../_images/sfg-pluck-dark.png"><img alt="../../../_images/sfg-pluck-dark.png" src="../../../_images/sfg-pluck-dark.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Signal-flow graph of the construction above.</span><a class="headerlink" href="#fig-pluck" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Signal-flow graph of the construction above.</span><a class="headerlink" href="#fig-pluck" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Using <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> instread, generates a slightly different sound:</p>
