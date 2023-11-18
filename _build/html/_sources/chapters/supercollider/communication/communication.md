@@ -1,5 +1,7 @@
 # Communication
 
+>Humans can not communicate. Only communication can communicate. -- Niklas Luhmann
+
 In this section, I introduce ways to communicate with SuperCollider, i.e., the client (``sclang``) and the audio server (**scsynth**).
 There are two primary possibilities:
 

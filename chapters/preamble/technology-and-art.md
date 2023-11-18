@@ -14,22 +14,22 @@ Lastly, I want to touch on the role of art in all of this.
 
 ## Spaces of (Im)Possibilities
 
-The prevailing zeitgeist today is technological. 
-By this, I mean that while contemporary societies may critique the specific applications of technology, they rarely question its essence. 
+The prevailing zeitgeist today is technological.
+By this, I mean that while contemporary societies may critique the specific applications of technology, they rarely question its essence.
+While the general Western public acknowledges technological missteps, such as the industrial extermination executed by the Nazis and made possible by technological inventions, technological progress is seen as general progress.
+The misuse of technological tools is a matter of personal or social repsonsibility.
 The assumption is that humans maintain control over technology and can therefore determine whether it is used for beneficial or harmful purposes. 
 Technology is often viewed as having both positive and negative effects, with its impact largely dependent on who controls it.
-Many people see technology as a *mere tool*, adhering to the notion that guns don't kill people, but people do.
+Thus technology is a *mere tool*, adhering to the notion that guns don't kill people, but people do.
 For instance, the *European Commission* states in their white paper:
 
 >Like any technology, AI brings opportunities and risks. -- {cite}`eu:2020`
 
 Janina Loh refers to this view as the *Neutrality Thesis of Technology* {cite}`loh:2019`.
 We view technology as something distinct from us, something we can command and control precisely.
-This view is inherently *modern*;
-The modern project is partly the emancipation of humanity from the harsh environment determined by nature through science and technology.
-In other words, technology is the means to an end that is our emancipation from nature.
-
-This view requires a clear distinction between the *subject* and the *object* where the *object* is by definition, non-human.
+If we understand the modern project as the emancipation of humanity from the harsh environment determined by nature through science and technology, then this view is inherently *modern*.
+With this perspective, technology is the means to an end that is our emancipation from nature.
+It relies on the concept of the *subject* as an autonomous entity ruling over *objects*.
 The *object* can be harnessed for good or evil, for the ugly or the beautiful, and it's our prerogative to dictate its usage.
 
 >[...] there is an idea that technology is in its essence something human beings have under their control. In my opinion, that is not possible. Technology is in its essence something that human beings cannot master of their own accord. -- Martin Heidegger
@@ -37,13 +37,14 @@ The *object* can be harnessed for good or evil, for the ugly or the beautiful, a
 The distinct subject-object differentiation might form a rational foundation for a worldview, enabling one to navigate through life ordinarily.
 Via Kant and other thinkers of the *Enlightenment*, it led to a libertarian Western society that, in theory, safeguards an individual's right to a fulfilling life. 
 However, the model of a society as merely the sum of all individuals no longer encapsulates its complexity and dynamics due to overwhelming evidence.
-The same applies to technology.
-The dynamic relationship is far more intricate than the simple notion of a group of subjects agreeing on and controlling the use of technology.
+And the same applies to technology.
+The dynamic relationship is far more intricate than the simple notion of a group of subjects negotiating and controlling the use of technology.
 
-This viewpoint is especially challenged by *postmodern* and *posthuman* views on technology and with the advancements in *artificial intelligence*, especially in the field of *machine learning*, the question about our place within a technological society looms large.
+This viewpoint is especially challenged by *postmodern* and *posthuman* views on technology and with the advancements in *artificial intelligence*, especially in the field of *machine learning*.
+The question about our place within a technological society looms large.
 While machines compute and humans think, machines are now able to participate in communication {cite}`esposito:2022`.
-And since, according to Niklas Luhmann, society is, in fact, all of the communication that is happening, *artificial communication* is now part of society. 
-I think it is reasonable to construct a theory where bodies, minds, technology, and other systems are deeply interconnected. 
+And since, according to Niklas Luhmann, society is, in fact, all of the communication that is happening, *artificial communication* may now part of society. 
+I think it is reasonable to construct a worldview where bodies, minds, technology, and other systems are deeply interconnected. 
 
 Lawrence Lessig outlines four regulatory mechanisms that influence the behavior of individuals and institutions: the law, norms, the market, and architectures {cite}`lessig:2006`.
 He posits that, paradoxically, no society can exist without some form of regulation and Niklas Luhmann adds that there is no society without norms.
@@ -64,7 +65,6 @@ But even if "We hold these truth to be self-evident, that all men are created eq
 There is no divine force or absolute natural law establishing or guaranteeing these rights.
 In fact, the enforcement of *Human Rights* require a certain kind of power imbalance such that one party can enforce these rights, if necessary violently.
 Therefore, it is a dangerous path to use military intervention to enforce those rights if a society does not stabilize these rights via their communication.
-
 
 Luhmann emphasis has shifted from norms to decisions.
 Yet, these decisions are informed by norms, which are themselves constructed through decisions.
@@ -201,9 +201,8 @@ But it would also be a mistake to dive into his work without knowing about his a
 
 ## The Essence of Technology
 
-Heidegger goes a hell lot further than McLuhan.
 In *Being and Time* (1927) {cite}`heidegger:1927` Heidegger argues *phenomenologically* that theoretical activities such as the natural sciences depend on views of time and space that narrow the understanding implicit in how we deal with the ordinary world of action and concern.
-We cannot construct meaningful distance and direction, or understand the opportunities for action, from science’s neutral and mathematical understanding of space and time.
+We cannot construct meaningful distance and direction, or understand the opportunities for action, from science's neutral and mathematical understanding of space and time.
 Indeed, this detached and supposedly *objective* scientific view of the world restricts our everyday understanding. 
 Our ordinary use of things and our *concernful dealings* within the world are pathways to a more fundamental and more truthful understanding of world and being than the sciences provide; 
 science flattens the richness of ordinary concern.
@@ -219,7 +218,7 @@ To find a pre-scientific view on the matter, he goes back to ancient times.
 In his view, the Greeks used the term *techne* to denote what we now call technology.
 However, their concept of *techne* embraced both *art* and *technique*, something akin to our modern notion of *craft*.
 For the Greeks, *techne* implied the act of bringing something into existence.
-It was not about an engineer constructing an object; rather, the craftsman's role was to assist in the emergence of something, so to say helping the material to take on a new form.
+It was not about an engineer constructing an object; rather, the craftsman's role was to assist in the emergence of something, so to say helping the material to take on a *form*.
 A craftsman would never consider themselves as the absolute origin of the reality of what they were creating.
 In Heidegger's view, they would perceive themselves as facilitating the process of something coming into existence.
 
@@ -233,7 +232,7 @@ Therefore, technology unveils the world in a particular way---it reveals the wor
 
 The *essence of technology* as *enframing* (*Gestell*) is in its manner of *revealing* and *concealing*. 
 It is a way in which we encounter entities generally, including nature, ourselves, and, indeed, everything.
-Heidegger claims that the *Gestell*, which becomes pervasively evident in our times with the advent of such technologies as the nuclear bomb, has been operating and developing itself from long ago, being itself the root of modern science’s instrumental character and its understanding of nature in terms of measurable extension. 
+Heidegger claims that the *Gestell*, which becomes pervasively evident in our times with the advent of such technologies as the nuclear bomb, has been operating and developing itself from long ago, being itself the root of modern science's instrumental character and its understanding of nature in terms of measurable extension. 
 This implies that technological entities have their distinct form of presence, persistence, and relationships between parts and wholes. 
 They have their unique ways of presenting themselves and the world in which they exist---technology is about dominance and control. 
 However, the heart of the issue lies not in any specific machine, process, or resource. 
@@ -245,7 +244,8 @@ We seem to have become nearly incapable of experiencing this nearness, let alone
 Everything presents itself merely as an energy source or as a subject for our orchestration. 
 We even perceive human abilities as if they were merely instruments for technological procedures, as when a labourer becomes nothing more than a tool for production.
 Leaders, planners, along with the rest of us, are mere human assets to be managed, reorganized, and discarded. 
-Every single entity that manifests itself technologically thereby forfeits its unique autonomy and form. We dismiss, conceal, or simply fail to perceive, other potentialities.
+Every single entity that manifests itself technologically thereby forfeits its unique autonomy and form.
+We dismiss, conceal, or simply fail to perceive, other potentialities.
 
 The mode of revealing that prevails in modern technology does not manifest as a bringing forth in the sense of *poiesis* (*Gestalt*). 
 Instead, the revealing that governs modern technology is a *challenging* (*Herausfordern*) one, which places an unreasonable demand on nature to provide energy that can be extracted and stored. 
@@ -254,7 +254,7 @@ It was technological thinking that first understood nature in such a way that na
 
 >Modern technology is not applied natural science, far more is modern natural science the application of the essence of technology. [Nature is therefore] the fundamental piece of inventory of the technological standing reserve---and nothing else. -- Martin Heidegger
 
-The nature of *being-in-the-world* (*Dasein*)---Heidegger's concept of a human being---is such that we can never escape concerns about our dealings (*Sorge*), which originates from our finitude, but we frequently attempt to deny them. 
+The nature of *being-in-the-world* (*Dasein*)---basically Heidegger's concept of a human being---is such that we can never escape concerns about our dealings (*Sorge*), which originates from our finitude, but we frequently attempt to deny them. 
 We distract ourselves from our worries, the primary of which is death, and consequently live *in-authentically*. 
 Our relationship with technological tools, techniques, and devices can aid this distraction, diverting us from our fundamental experience and enticing us into a false sense of security. 
 This can be dangerous if it impedes the lived awareness of our ultimate existence
@@ -304,9 +304,13 @@ Luhmann might point out that *technological progress* is a *value* stabilized vi
 We communicate about the installation of nuclear power plants and buy new gadgets which is a kind of communication.
 However, this does not explain why we believe in this *value*.
 I would argue that many people would willingly hit the pause button on all technological progress, at least temporarily.
-No one asked for the Metaverse, but we will built it anyways because we are *challenged* to do so.
-While many might argue that this is more related to our economic system, I find it hard to attribute the cause solely to *capitalism*.
-Heidegger might say that, similar to modern science, capitalism is a result of the *essence of technology*.
+No one asked for the *Metaverse*, but we will built it anyways because we are *challenged* to do so.
+Luhmann probabobly would offer a more nuanced explanation: interdependent self-generating social systems which "feed" us into them.
+Heidegger's argument seems quite reductive but it captures my personal feeling of a more and more thinner reality.
+
+Marxists might argue that my feeling is more related to our socio-economic system.
+However, I find it hard to attribute the cause solely to *capitalism*.
+Heidegger may argue that, similar to modern science, capitalism or Luhmann's *functional differentiation* of social systems is a result of the *essence of technology*.
 
 >A success is that type of consequence that itself remains assigned to the yielding of further consequences. -- Martin Heidegger
 
@@ -587,6 +591,185 @@ In a certain sense, their worlds changed the world that has become our world.
 In the absence of the exact words to describe the new world, it is perceived in its strangeness.
 This is how truth is established in the workings of the artwork. 
 
+## Medium and Form
+
+>There neither a medium without form nor a form without medium.
+>The difference of mutual dependency and independency is pivotal. -- Niklas Luhmann {cite}`luhmann:1986`
+
+It is difficult to make sense of modern art, such as the toneless music, with an Heideggerian viewpoint.
+The German sociologist Niklas Luhmann gives a more abstract framework to work with using the difference between medium and form.
+
+According to Luhmann, a medium consists of a large number of elements or, in the case of the time dimension, of events.
+In fact, there are so many elements within a medium that any cognition has to operate by selection.
+Forms, on the other hand, emerge by the concentration of dependency relations between elements.
+These relations have to be supported by the medium.
+The *loose coupling* and *separability* of elements of the medium lead to this effect.
+We do not perceive the medium itself but the form which coordinates elements within the medium.
+
+Luhmann defines medium in relation to form, i.e., relatively.
+According to him, a *medium* is any set of loosely coupled elements that, if rigidly coupled, build a *form*.
+Only by the detour of observing the form, can an observer relate to the medium.
+The form catches attention and refers to the medium.
+
+Sound is the form of the air.
+When the air is too thin, we recognize it because the creation of the form fails---no sound can be perceived.
+The relation between form and its medium is selection.
+For example, a sentence is a selection from a language, i.e., its medium.
+The same is true for the form of art, i.e., an artwork.
+
+From a point of information theory {cite}`shannon:1948`, a form reduces the entropy of its medium.
+It reduces the number of possible connections.
+Each drawn stroke, each played note, each move in a performance reduces the possibilities of what can be drawn, played, or performed next.
+The horizon of the possible gets narrowed down.
+Similar to Heidegger's understanding of a craftsman, the artist brings the medium into form and the medium 'uses' the artist to become a form.
+In its final stage, the artwork is confronted by the expectation of the audience and it has to convince---it has to make sense.
+
+We can say that every artwork is **contingent**; other fixations, combinations and recombinations, that is, other forms of the medium would have also been possible.
+
+Here's the corrected text with typos and grammatical errors fixed:
+
+"There is neither a medium without form nor a form without medium.
+The difference of mutual dependency and independency is pivotal. -- Niklas Luhmann {cite}luhmann:1986
+
+According to the German sociologist Niklas Luhmann, a medium consists of a large number of elements or, in the case of the time dimension, of events.
+In fact, there are so many elements within a medium that any cognition has to operate by selection.
+Forms, on the other hand, emerge by the concentration of dependency relations between elements.
+These relations have to be supported by the medium.
+The loose coupling and separability of elements of the medium lead to this effect.
+We do not perceive the medium itself but the form which coordinates elements within the medium.
+
+Luhmann defines medium in relation to form, i.e., relatively.
+According to him, a medium is any set of loosely coupled elements that, if rigidly coupled, build a form.
+Only by the detour of observing the form, can an observer relate to the medium.
+The form catches attention and refers to the medium.
+
+Sound is the form of the air.
+When the air is too thin, we recognize it because the creation of the form fails—no sound can be perceived.
+The relation between form and its medium is selection.
+For example, a sentence is a selection from a language, i.e., its medium.
+The same is true for the form of art, i.e., an artwork.
+
+From a point of information theory, a form reduces the entropy of its medium.
+It reduces the number of possible connections.
+Each drawn stroke, each played note, each move in a performance reduces the possibilities of what can be drawn, played, or performed next.
+The horizon of the possible gets narrowed down.
+Similar to Heidegger's understanding of a craftsman, the artist brings the medium into form and the medium 'uses' the artist to become a form.
+In its final stage, the artwork is confronted by the expectation of the audience and it has to convince—it has to make sense.
+
+We can say that every artwork is contingent; other forms of the medium would have also been possible.
+The work and its creator are confronted with the question of why it is what it is, and why it is not different from what it is.
+Its singularity aspiration will be investigated and it has to stand its ground against other works of art and other possible realizations within their medium.
+Critics will judge the artwork and the market will determine if they were right.
+
+Luhmann is not so much interested in historical or cultural *horizons of the possible* but he asks a more general question:
+
+>What is art beyond certain culturalistic, stylistic dependencies and genres?
+
+But to answer this general question, in a typical Luhmannian fashion, he uses a very abstract framework:
+
+>Artworks are not just traces of human activity [...].
+>Neither do they arise as simple relicts of purposeful behavior like tools, houses, streets or radioactive radiation.
+>They serve [...] as transmission of sense. -- Niklas Luhmann
+
+A medium cannot take on any form but only those which can be composed by its elements.
+Form and medium share the same elements.
+The difference consists solely in the loose and rigid coupling of elements.
+How the medium passes the form to its elements depends on the properties of the medium itself.
+The medium opens the possibilities of giving form and narrows it down at the same time.
+
+The elements of a medium are rather independent.
+For example, the color of a pixel of an image is technically independent of the colors of all other pixels.
+Only because of this property can images picture almost anything.
+We can arrange pixels as we desire.
+Money is a medium since payments can be made in almost any denomination and they are independent of the sense and means of other payments.
+The medium is very oblivious and the artist can utilize this property of the medium to manipulate the form.
+The low interdependency of the medium opens a space of fiction and simulation---of stories about unicorns.
+
+Luhmann understands the artwork as communication of order in a form arrangement which does not happen by itself.
+However, art does not utilize the medium to transmit a real order of the real world to the senses.
+Instead, art forms its mediums to create a **contingent alternative version of reality**.
+It does this by exploring the different possibilities of ordering elements within the medium.
+Through art, we can explore new possibilities of the acoustic and optical world and make them available and experiential.
+Thereby we gain more non-obvious possible ways of ordering the world.
+
+In the relation between medium and form, the more rigid form prevails because it is less movable.
+However, this is a risky endeavor for the form.
+It might decay or, if it is reproducible, evolve.
+Within forms, this assertive property repeats.
+Sand adjusts to the stone, not the other way around.
+
+According to Luhmann, a form can create a medium, Luhmann refers to a second-order medium.
+Sound is a form of air but tones, which are sound, make up the medium of music.
+In principle, any tone can follow or can be combined with any other tone except the form of the music piece "decides" otherwise.
+Importantly, music functions as communication only for those who can recognize (and inform each other about) the difference between medium and form; only those who can hear the uncoupled space within the played music; only those who listen and recognize that, through its tonality, the music makes much more sounds possible than normally expected but it is disciplined by the form.
+
+>Art establishes rules of inclusion that serves the difference of medium and form as medium. -- Niklas Luhmann
+
+A form might establish a medium of art by using it for the purpose of expression.
+The more rigid form forces through greater flexibility but it is at risk of failing, it can be criticized, surpassed, or be put into the museum.
+
+Luhmann further argues that the art system (as a social system), like any social system, differentiates itself from its environment.
+It is no longer part of religion or politics but does its own thing on its own terms.
+Importantly, the difference between medium and form can function as a medium.
+It can be the *released possibility* for the combination of mediums and forms for the forming through *communication*.
+
+A precondition is *second-order observation*.
+One has to be able to observe what others observe.
+Through second-order observation, the concrete bond between observer and artwork "as it is" dissolves.
+If you observe an artwork, you can speculate about the artist's intention.
+Once you can observe that others have their interpretation and you know that they know that you know about this fact.
+They know that you can observe their interpretation and they can observe yours.
+At the same time, the artist is aware of this too and it might prompt the artist to talk about her work.
+
+Communication about works of art and the artwork itself are interdependent.
+There is no art without communication and one can only communicate about art if there is an artwork to talk about.
+This strange loop, this self-referential relation, sets the system of art in motion.
+In a typical Luhmannian fashion: the paradox becomes a generator in time!
+An artwork signals to the observer that it earns attention.
+
+The constructive liberties of such a social system are grounded solely in communication.
+If communication functions everything else is secondary.
+Crucial is the condition of symbolic generalization, that is, the property of the medium to exceed the diversity of things and the condition of unification to enable communication.
+If there is no generalization, we cannot talk about artworks and if the medium is unable to exceed diversity, there is nothing novel to communicate about---dissolution and recombination enable diversity and the selection of the particular.
+
+Information can only be transmitted if the artwork could be different.
+That which is not is always also indicated by what is.
+The artwork fixes all possibilities and we can talk about reasons why it is constructed or performed this way and not any other way.
+This seems consistent with the information theory of Claude Shannon {cite}`shannon:1948`.
+To communicate about art we have to be aware of these liberties and we have to use them because, again, to gain information one has to eliminate uncertainty---artworks have to surprise us.
+
+By the *re-entry* {cite}`brown:1969` communication about art can become a form of art.
+Acknowledging the properties of the medium, events within the system of art have to be loosely coupled and there have to exist plenty of them.
+This includes the system of art itself!
+Consequently, art will be mocked by observers, exhibitors, buyers, and, in the end, by itself.
+Dissolution can become an end in itself thus the medium no longer serves the form but the form serves the medium.
+In that stage, form wants to show that it is in fact a medium.
+For an observer, this kind of art is paradoxical.
+Luhmann remarks that this path is narrow but the consideration of the dissolution of paradoxes can become fruitful.
+
+It is plausible that there are limits to art determined by the limits of "natural" mediums, e.g., what we can see and hear.
+But what are the limits of art with respect to society?
+If a piece of art shows "facts" realistically, it indicates its flipside, its unmarked space, its contingency: reality could be different.
+Therefore, we should be careful to judge the motionless dance, the toneless music, or the empty canvas.
+These works of art rely on second-order observation and the re-entry.
+But it is a risky business!
+Whether these works are recognized as art is contingent.
+
+The difference between medium and form can be driven into the improbable but only if within the frame in which the communication of the form can succeed.
+
+Art that heavily utilizes second-order observation seems to be the kind of art that tends to critique and to persue the channeling of attention for the sake of it.
+In a Nietzschian sense, it is *negates* and does not *affirm*.
+Contemporary art wants to subvert standards and conformities to make what is absent visible---to break free, to dissolve;
+Andy Warhol presents the mondane as artwork effectivly following the logic of the re-entry.
+Communication about art, i.e., what it is, becomes a work of art---it gets reintroduced into the system.
+That is why modern art feels less real, because it is further and further away from physical mediums of perception (air, wood, ink).
+Second-order evaluation is of course fuled by the fact that art is not only highly commodified.
+Furthermore, the artist becomes increasingly relevant and he or she forms an identity in the mode of profilicit---curating a profile based on the evaluation by the *golbal village* which is in contrast to the goal of subversion.
+What we get is a film like Barbie---the simulation of subversion.
+
+Personally, the differentiation of the art system feels like a great loss to me!
+Where is the craftsman, the genius that radically affirms life, greatness, the mystical and the eternity?
+
 ## Heideggerian Cinema
 
 Let me look into the works of Andrei Tarkovsky, Terrence Malick and Michael Haneke with an Heideggerian perspective.
@@ -652,7 +835,6 @@ It follows the characters at different angles but also lingers and wanders away.
 Thereby, the camera focuses on the world that surrounds our characters.
 The camera seems to be more interested in exploring the beauty and mystery of the world of the characters than the characters themselves---much like Malick is not really interested in his own story.
 The camera looks at beings as they are thus revealing the multiplicity of *Being*.
-
 
 >All of [Malick's] movies are about worlds. [...] Each film is about some aspect of the world. -- Hubert Dreyfus
 
@@ -963,8 +1145,9 @@ Furthermore, I see potential in *algorithmic art* to unconceal technology but on
 
 From Benjamin I take that technology changed the creation, consumption and evaluation of art into a mass-event.
 The *aura*, in many cases, is lost.
-Instead of *exchange value* artworks have now *symbolic value* as well.
+Instead of *exchange value* artworks have now *symbolic value* that no longer symbolize anything mysticaland or incomprehensible.
 They often no longer stand for themselves but, like Heidegger's equipment which is interconnected within a web of tools, practices and purposes, artworks (as products) are more and more interconnected to other signifiers and derive their meaning not by unconcealing *earth* and *worlds* but their connection within this web---like words in a language but with the exception that these symbols are not grounded in anything "earthly" (heimatlich).
+In Luhmann's terminology, contemporary artworks are forms of society (understood as all of communication).
 From Nietzsche and Tarkovsky I take that it is enough for art to serve life.
 
 ## Turning Away from Danger
@@ -1001,4 +1184,4 @@ This could be Heidegger's god, for whom we are waiting and preparing for.
 
 But will it be too late? 
 Will *earth* totally conceal the *world*?
-Imagining this is out of my horizon and it horrifies me.
+The future is looking grim but imagining the catastrophe is out of my horizon but it horrifies me.

@@ -10,7 +10,12 @@ Like a *calculator* they take in some argument $x$ and return some value $y(x)$,
 They can incorporate time, for example, if we consider differential equations, but nothing unfolds within a mathematical function.
 Time can only be modeled by a mathematical object but is not implicitely relevant for the computation of a function.
 
-While being a finite and static description, algorithms, on the other hand, describe processes that unfold in time.
+One exception to this rule is the logic developed by Georg Spencer-Brown in his mostly ignored work *The Laws of Form* {cite}`brown:1969`.
+Spencer-Brown introduces the concept of the *re-entry* by resolving self-referential paradoxes in time.
+While the self-referential relation is a pardox in the static world, it becomes a self-generating process in the dynamic world.
+This leads quite naturally to the formalization of an unfolding process, thus it is surprising that his work was mostly ignored by the computer science community.
+
+While being a finite and static description, algorithms, describe such processes that unfold in time.
 In many instances they are stateful, they do work, they transform or construct something step by step in a specific order.
 If we reason about algorithm, we reason about time.
 We even reason about the amount of time an algorihm requires and call this *time complexity*.
