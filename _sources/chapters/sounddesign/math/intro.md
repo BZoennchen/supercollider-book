@@ -103,7 +103,7 @@ I have never experienced a pink elephant, but I can perfectly picture one.
 Does this mean there has to be another perfect world where the idea of a pink elephant lives?
 The world of ideas cripples the fascination with the infinite complexity of what there is.
 It trys to bind the infinite to the finite, Kierkegaard might say. 
-Wittgenstein would probalby say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language game.
+Wittgenstein would probalby say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language games.
 He would argue that Plato confused different language games, i.e., the mistake is a missuse of language.
 
 We have never experienced a perfect circle.
@@ -127,7 +127,7 @@ To conclude, in Wittgensteinian view, in the beginning mathematics was invented 
 It required a close observation of nature and there might be traces of an objective truth in it but we can never know.
 Therefore, I claim that mathematics is invented but this invention is closely bound to observations of nature and therefore it is also discovered.
 
-## Why do we need Math?
+## Do we need Math?
 
 Do we need the math of signal processing to design and make a sound?
 Well, I suppose we don't.
@@ -162,3 +162,6 @@ It should tell a story; it should be imbued with emotions, passion, and struggle
 
 The mathematical foundation of signal processing can help us to get closer to the concrete and to get even more control over the creative process.
 It can help us not only to understand but experience the process.
+Coming back to my introduction of the book: technical tools open as well as close spaces of possibilities.
+They turn the ship such that the *horizon of the possible* changes and they have agency over us, they call us to act and to deal with the world in a certain way.
+Math in that sense can also conceal aspects of artistic craftsmanship.
