@@ -1,7 +1,7 @@
 (sec-medium-and-form)=
 # Medium and Form
 
->There neither a medium without form nor a form without medium.
+>There is neither a medium without form nor a form without medium.
 >The difference of mutual dependency and independency is pivotal. -- Niklas Luhmann {cite}`luhmann:1986`
 
 According to the German sociologist Niklas Luhmann, a medium consists of a large number of elements or, in the case of the time dimension, of events.
