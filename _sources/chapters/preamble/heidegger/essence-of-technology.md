@@ -56,7 +56,9 @@ It was technological thinking that first understood nature in such a way that na
 
 The nature of *being-in-the-world* (*Dasein*)---basically Heidegger's concept of a human being---is such that we can never escape concerns about our dealings (*Sorge*), which originates from our finitude, but we frequently attempt to deny them. 
 We distract ourselves from our worries, the primary of which is death, and consequently live *in-authentically*. 
-Our relationship with technological tools, techniques, and devices can aid this distraction, diverting us from our fundamental experience and enticing us into a false sense of security. 
+To live *authentically* means not to "live as you truly are" but to live with the *certainty of the end of all possiblities* on your side.  
+Death is not just an endpoint but a companion---a reminder that gives our life meaning and let's us *care*.
+Our relationship with technological tools, techniques, and devices can aid a distraction, diverting us from our fundamental experience and enticing us into a false sense of security. 
 This can be dangerous if it impedes the lived awareness of our ultimate existence
 
 >as beings in trouble in a world of uncertainty.
@@ -132,7 +134,7 @@ This phenomenological way of thinking about objects as they appear to us was alr
 
 Equipment vanishes from our *world*.
 Only if it breaks or fails to perform as expected it introduces itself again as *present-at-hand* (*vorhanden*).
-Otherwise, it simply serves as a medium through which we experience our world.
+Otherwise, it simply serves as a *medium* through which we experience our world.
 For Heidegger, technology withdraws from our attention and becomes transparent.
 And if it does, it is all the more genuinely what it is.
 In that sense, it needs us to be.
