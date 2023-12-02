@@ -5,7 +5,7 @@ While Tarkovsky and Malick are existential filmmakers, Haneke is more of a criti
 However, all three try to ask questions rather than providing answers.
 
 Tarkovsky thought of art as revealing the *transcedental*.
-He he thought art is the only way to it.
+He thought art is the only way to it.
 
 >It appears as a revelation, as a momentary, passionate wish to grasp intuitively and at a stroke all the laws of this world---its beauty and ugliness, its compassion and cruelty, its infinity and its limitations. -- Andrei Tarkovsky
 
@@ -58,7 +58,7 @@ His films often hew closely to and examine---in both narrative and form---ideas 
 This can be seen in his existential style but also his use of ever questioning voice-overs which I see as *Dasein's* questioning of *Being*.
 The whispering turns the film into poetry in motion.
 
-Malick, like no other, depicts a practical world of phenomena instead of a world of facts and linearly progressing story.
+Malick, like no other, depicts a practical world of phenomena instead of a world of facts and a linearly progressing story.
 He let's us experience the mystical of *the ordinary* which is, in fact, *extraordinary*.
 The camera is constantly moving.
 It follows the characters at different angles but also lingers and wanders away.
@@ -96,7 +96,7 @@ Malick's *nature* is calculating, selfish, and alien---it fights and dominates t
 
 >physical life in a world abandoned by the spirit. Organized unreality. The soul a hindrance in one’s dealings here. A burden. A mere quantity of thoughts and desires. -- Terrence Malick
 
-*Grace*, on the other hand, is forgiveness, vulnerable, selfless, playful, and intimate.
+*Grace*, on the other hand, is forgiving, vulnerable, selfless, playful, and intimate.
 It is the spiritual which, for Malick, seem to erode out of the limits of understanding.
 Some call its source God, but Malick notes:
 
@@ -139,7 +139,7 @@ The film also provides us with scenes where we can feel the filmmaker's own wres
 And, of course, a world breaks down forever.
 
 It is in our human nature to love the story of a person who did great things: saved lives, wrote books, stood against the dictator who wiped out millions of lives.
-It is less common for us to celebrate a man who threw away a good life and simply refused to do what he knew he could not, and paid with his life.
+It is less common for us to celebrate a man or woman who threw away a good life and simply refused to do what he knew he could not, and paid with his life.
 *A Hidden Life* dares us to imagine that the latter is at least as important as the former---and maybe more so.
 
 Most certainly, Malick's works questions that we ought to have made ourselves answer.
@@ -221,7 +221,7 @@ This is what these works depict but also can cause to the observing audience.
 They are good examples of the struggle between *world* and *earth*.
 They are never semiotically exhausted or depleted, i.e., finally made totally intelligible.
 
-Heidegger's view on art is interesting but seems also quite narrow.
+Overall Heidegger's view on art is interesting but seems also quite narrow.
 There is much to be gleaned from Kant's idea of *aesthetics* being a subjective judgment of taste.
 We cannot ignore that a beautiful form can also be shown to be an attribute of art. 
 That isn't to say that aesthetics has it right either, however, to completely ignore it cuts short all that art can be.
@@ -231,7 +231,8 @@ If not, does this mean it is not a work of art?
 
 >God has given us music so that above all it can lead us upwards. Music unites all qualities: it can exalt us, divert us, cheer us up, or break the hardest of hearts with the softest of its melancholy tones. But its principal task is to lead our thoughts to higher things, to elevate, even to make us tremble [...] The musical art often speaks in sounds more penetrating than the words of poetry, and takes hold of the most hidden crevices of the hear [...] Song elevates our being and leads us to the good and the true. If, however, music serves only as a diversion or as a kind of vain ostentation it is sinful and harmful. -- (a very young) Friedrich Nietzsche
 
-Heidegger's description of art seems ancient and a more explainable but also abstract framework was presented by Niklas Luhman, for example in his text *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`.
+Heidegger's description of art seems ancient.
+As already discussed, a more explainable but also abstract framework was presented by Niklas Luhman, for example in his text *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`.
 What I take from Heidegger is that art can unconceal *world* and *earth*.
 Furthermore, I think that art can elucidate the *essence of technology*, enabling us to develop an open relationship with it.
 A piece of art can expose our uncertainty about whether technology can be disregarded, or whether it embodies a seductive cosmic force that we're incapable of resisting.

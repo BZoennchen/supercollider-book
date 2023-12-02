@@ -17,7 +17,7 @@ Heidegger insisted that we must
 
 But before we can talk about that I have to include an important disclaimer!
 
-While discussing the philosophical contributions of Heidegger, it is essential to also acknowledge his association with *National Socialism*.
+While discussing the philosophical contributions of Heidegger, it is essential to acknowledge his association with *National Socialism*.
 He actively endorsed this ideology and exploited it as a mechanism for acquiring control, influence, and power.
 For instance, he employed the services of the Gestapo (the Geheime Staatspolizei) to sideline his colleagues.
 In other instances, he helped students to move away from the danger.
@@ -27,7 +27,7 @@ Instead, he attempted to obfuscate and justify his actions, which is particularl
 
 Moreover, many argue that it is impossible to separate Heidegger's politics from his philosophy---they are intertwined, and I tend to agree, at least to some extent.
 Thus, engaging with Heidegger's work can be a perilous undertaking, even if many of his ideas are incompatible with Nazism.
-Perhaps it was his concern with technology that spiraled into fear and desperation, leading him to view Nazism as a means to escape the prevailing technological mode of being in his time.
+Maybe it was his concern with technology that spiraled into fear and desperation, leading him to view Nazism as a means to escape the prevailing technological mode of being in his time.
 
 >Heidegger is, so to speak, the Hegelian of our time, who was also a Nazi, among other things. The worst part is that in Germany and all over the world, for example in South America, France, and Spain, Heidegger is admired and imitated. [...] He usually writes things that one cannot understand at all, and that too, for pages on end! -- Karl Popper
 

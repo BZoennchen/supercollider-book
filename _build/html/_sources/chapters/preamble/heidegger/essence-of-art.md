@@ -5,21 +5,20 @@ If, at this point, you get an idea of Heidegger's phenomenologically thinking, i
 >The artist is the origin of the work. The work is the origin of the artist. Neither is without the other. Nevertheless, neither is the sole support of the other. In themselves and in their interrelations artist and work *are* each of them by virtue of a third thing which is prior to both, namely, that which also gives artist and work of art their names---art. -- Martin Heidegger
 
 Art, as a *mode of Being*, makes both artist and artwork ontologically possible.
-And if we are to discover the *essence of art* we must discover it by phenomenologically investigating artworks, but here we arrive at our second *strange loop*, i.e., another circle since what art is should be inferable from the work but what the work is, we can come to know only from the *essence of art*.
-These circles reminds me of Hofstadter's self-referential and paradoxical *strange loops* from his book *Gödel, Escher, Bach: an Eternal Golden Braid* {cite}`hofstadter:1979`.
+And if we are to discover the *essence of art* we must discover it by phenomenologically investigating artworks, but here we arrive at a *strange loop*, i.e., a paradox since what art is should be inferable from the work but what the work is, we can come to know only from the *essence of art*.
+These *loops* remind me of Hofstadter's self-referential and paradoxical *strange loops* from his book *Gödel, Escher, Bach: an Eternal Golden Braid* {cite}`hofstadter:1979`.
 And it was Husserl (and to an extend Kierkegaard) who already thought of consciousness (or the self) as a *strange loop* relating itself to itself and constantly going back and forth between seeing phenomena and self-relating---a never ending circle which constitutes consciousness seemingly out of nothing.
 I think what Heidegger means is that we are thrown into a process that already started.
-We enter the circle at some point and move on it which will reveal both the 'artist' and the 'artwork' more and more but this process never ends.
+We enter the circle at some point and move on it which will reveal both the *artist* and the *artwork* more and more but this process never ends.
 What an artist and the artwork is, is never fully defined.
 
 To talk about art in an Heidegerian sense, I have to clarify what he understands by tools and objects.
 Heidegger differentiates between what others may call "substances"---that are more thing-like and *present-at-hand* (*vorhanden*) entities (raw material, stones, water in a river, etc.)---and tools or equipment (useful things) that are generally *ready-to-hand* (*zuhanden*) and connected within a network of other tools and purposes.
-Interestingly, in his view, artwork is *present-at-hand*, i.e., have a very thingly character.
+Interestingly, in his view, artworks are *present-at-hand*, i.e., have a very thingly character.
 This seems to be a gross reduction of artworks.
 How can it be that the great works of art are like a purposeless stone in a see of stones?
 Isn't *a thing* anything?
-Surely tools are things and stones are things and dirt is a thing.
-But a tool is more than a thing.
+Surely tools are things and stones are things and dirt is a thing but a tool is more than a thing.
 I will come back to this "issue".
 
 >There is something stony in a work of architecture, wooden in a carving, colored in a painting, spoken in a linguistic work, sonorous in a musical composition. -- Martin Heidegger
@@ -28,14 +27,15 @@ In my view, great artworks reveal a mystical truth that is unexplainable; these 
 They escape language or any other abstraction or symbolic representation.
 Any analysis or critique has to be incomplete and shallow of what the artwork is.
 Therefore, if the *essence of technology* is *enframing* (Gestell) (with the human subject at its center) then the *essence of art* might be the opposite.
-It might be that which can not be *enframed* and which is able to unconcealed a new horizon of possibilities.
+It might be that which can not be *enframed* and which is able to unconceal a new *horizon of possibilities*.
 In fact, Heidegger argues in his essay *The Origin of the Work of Art* {cite}`heidegger:1950` that
 
 >to be a work [of art] means to set up a world. -- Martin Heidegger
 
 In other words, *setting up of a world* is one of the essential feature of the *Being of the work of art*.
+This is close to Luhmann's view when he says that art forms its medium to create a contingent alternative version of reality.
 
-But what does he mean by that?
+But what does Heidegger mean by that?
 Let us look at Heidegger's example of a Greek temple.
 The Greek temple brought about a world---it is an event of truth.
 The temple, in its standing there, first gives to things their look and to men their outlook on themselves.
@@ -59,7 +59,8 @@ But who creates or sustains this horizon?
 This, in short, was Heidegger's question to his former mentor.
 For Heidegger, the nature or the limits of the world were less important than the practical experience of the world itself, an experience peculiar to *Dasein*.
 Heidegger resisted Husserl's latent tendency toward abstraction and sought to ground his reflections in an analysis of everyday behavior.
-However, both philosophers viewed the limits of knowledge and meaning through the lens of practical experience, that is, through living and being in the world.
+Luhmann went the opposite way, i.e., towards an abstract theory.
+However, both philosophers (Husserl and Heidegger) viewed the limits of knowledge and meaning through the lens of practical experience, that is, through living and being in the world.
 
 Heidegger interprets in *Being and Time* {cite}`heidegger:1927` the world not as a collection of things or entities, as Cartesian metaphysicians would have it, but as a phenomenon imbued with pre-reflective meaning and understanding.
 The objective world---the world of objects---is in fact derivative: it abstracts from a world of practical, absorbed engagement.
@@ -69,7 +70,7 @@ It orients, situates , guides and directs our lives in particular ways.
 The temple established an epochal understanding of Being on the basis of which the Greeks meaningfully understood the beings they encountered and the event in their lives, thereby, giving them as a people a history or a destiny.
 World is best associated with unconcealment, the clearing and intelligibility.
 But bringing a new world into being will conceal another one.
-So, in Heidegger's idea of art, the artist captures a snap shot of a *world* at any given moment. 
+So, in Heidegger's idea of art, the artist captures a snapshot of a *world* at any given moment. 
 Once the work is removed from the context in which it was created, it can expose and recreate that past (or future) world for those who view it.
 
 In contrast, *earth* (*Heimat*) is the homeland, in which the temple stands, but also the rock upon which the temple stands, and the temple stones themselves.
@@ -105,6 +106,7 @@ The rocks that may have been concealed from our attention before, because they u
 They are at one with the temple, but still we know they are rocks.
 They shine out at us.
 Their true nature is revealed in the tension between the rocks trying to be a temple but remaining rooted as *earth*.
+Again, this is similar to Luhmann's claim that the *form* (the temple) reveals the *medium* (earth).
 
 The world is usually invisible or transparent to us in our everyday activities.
 It becomes visible through the opacity of earth in an artwork.
