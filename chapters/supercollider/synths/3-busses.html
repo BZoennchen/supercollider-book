@@ -518,18 +518,18 @@ For example, one synth might be dedicated to applying reverberation to the sound
 Using a more modular implementation requires a good understanding of the <em>signal-flow</em>, i.e., where is the signal created and where does it flow in which order.</p>
 <p>SuperCollider uses a <em>node tree</em> for organizing this flow and we can visualize it via <code class="docutils literal notranslate"><span class="pre">Server.local.plotTree;</span></code> or <code class="docutils literal notranslate"><span class="pre">s.plotTree;</span></code>
 The signal flows from the <em>head</em> of the tree to its <em>tail</em>.
-This wording seems, since one would expect the terms <em>root</em> and <em>leafs</em>.
-Just remember that the order from <em>head</em> to <em>tail</em> because it is important if create your synth on the audio server.</p>
+This wording seems confusing, since one would expect the terms <em>root</em> and <em>leafs</em>.
+Just remember that the order goes from <em>head</em> to <em>tail</em> because it is important if you create your synth on the audio server.</p>
 <div class="remark admonition">
 <p class="admonition-title">Note Tree</p>
 <p>In SuperCollider the signal flows from the <em>head</em> of the <em>node tree</em> to its <em>tail</em>.</p>
 </div>
-<p>If our synth do not represent of the whole signal flow graph, there has to be a possibility to read and write the signal.
+<p>If our synth does not represent the whole signal flow graph, there has to be a possibility to read the signal and to somehow manipuate it.
 For this purpose there are so called busses.
-Infact, when we use the <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> unit generator we actually write a signal to a Bus.</p>
+In fact, when we use the <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> unit generator we actually write a signal to a <a class="reference external" href="https://doc.sccode.org/Classes/Bus.html">Bus</a>.</p>
 <div class="definition admonition">
 <p class="admonition-title">Bus</p>
-<p>A <a class="reference external" href="https://doc.sccode.org/Classes/Bus.html">Bus</a> in SuperCollider is simply a place or a location to which signals can be written and from which signals can be read.
+<p>A <a class="reference external" href="https://doc.sccode.org/Classes/Bus.html">Bus</a> in SuperCollider is simply a place or a location (on the server) to which signals can be written and from which signals can be read.
 It is a location where audio (or control signals) can exist where multiple processes can share it.</p>
 </div>
 <p>When we boot the audio server, by default SuperCollider creates a bunch of busses for us.
@@ -541,15 +541,18 @@ That is the reason why write <code class="docutils literal notranslate"><span cl
 A stereo signal requires two busses and the <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> unit generator takes care of that.</p>
 <p>Let’s construct a simple example using three synths:</p>
 <ol class="arabic simple">
-<li><p>An impulse,</p></li>
-<li><p>A percussive saw wave triggered by the impulse, and</p></li>
-<li><p>A reverb effect.</p></li>
+<li><p>an impulse,</p></li>
+<li><p>a percussive saw wave triggered by the impulse, and</p></li>
+<li><p>a reverb effect.</p></li>
 </ol>
-<p>The reverb effect should process the signal last, positioning it at the tail.
-The impulse should be at the head, and the saw wave should be at the bottom.
+<p>The reverb effect should process the signal in the last stage.
+Therefore we have to positioning it at the tail.
+The impulse should be at the head, and the saw wave should be in between.
 At this point it is not necissary that you fully understand these <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a>.
 When ever <code class="docutils literal notranslate"><span class="pre">\impuse</span></code> outputs an impulse, i.e., trigger, <a class="reference external" href="https://doc.sccode.org/Classes/TExpRand.html">TExpRand</a> spits out a value between 40 and 100.
-It is a so called <a class="reference internal" href="../sugens/2-triggers.html#sec-demand-ugens"><span class="std std-ref">demand unit generator</span></a>.</p>
+It is a so called <a class="reference internal" href="../sugens/2-triggers.html#sec-demand-ugens"><span class="std std-ref">demand unit generator</span></a>.
+I use <a class="reference external" href="https://doc.sccode.org/Classes/Dust.html">Dust</a> as a random impulse.
+Its frequency determines the density of the randomly generated impulses.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\impulse</span><span class="p">,{</span>
     <span class="nc">Out</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\out</span><span class="p">.</span><span class="k">ir</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nc">Dust</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="ss">\freq</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">2</span><span class="p">)));</span>
@@ -577,7 +580,7 @@ It is a so called <a class="reference internal" href="../sugens/2-triggers.html#
 </div>
 <p>The <a class="reference external" href="https://doc.sccode.org/Classes/In.html">In</a> unit generator read a signal from a bus and its counterpart <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> writes the signal to a bus.
 Note that our default values would not work because each synth would write to bus 0.
-In the following, I use [Bus] objects that are handy to organize busses client-side.
+In the following, I use <a class="reference external" href="https://doc.sccode.org/Classes/Bus.html">Bus</a> objects that are handy to organize busses client-side.
 However, these objects have no effect on the server, i.e., they do not acutally create new busses but manage bus numbers.
 If we execute the following, we do not hear any sound:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -668,7 +671,7 @@ Let me show you what happens if we read and write to the same bus, i.e. bus 0.</
               </div></div>
 </div>
 <p>It still works but we can hear all three synths.
-Especially the impulse stands out here.
+Especially the impulse, the short click, stands out here.
 If we replace all <a class="reference external" href="https://doc.sccode.org/Classes/In.html">Out</a> by <a class="reference external" href="https://doc.sccode.org/Classes/ReplaceOut.html">ReplaceOut</a> within our synth definitions, the above code creates the desired result.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\impulse</span><span class="p">,{</span>

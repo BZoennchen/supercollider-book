@@ -35,7 +35,7 @@ ipd.Audio(audio_path)
 ```
 
 As already mentioned, [Pbind](https://doc.sccode.org/Classes/Pbind.html) is a unique [Pattern](https://doc.sccode.org/Classes/Pattern.html) that generates a [Stream](https://doc.sccode.org/Classes/Stream.html) that spits out (musical) [Events](https://doc.sccode.org/Classes/Event.html).
-Using the ``play`` method on the [Pbind](https://doc.sccode.org/Classes/Pbind.html) pattern, we play all the events the event stream gives us.
+By using the ``play`` method on the [Pbind](https://doc.sccode.org/Classes/Pbind.html) pattern, we play all the events the (event) stream gives us.
 In the above example we play a sequence of three notes 4 times on the ``\default`` instrument each seperated by ``0.4`` beats sustaining ``0.1`` beats.
 
 ``dur`` determines the waiting time between two successive events.
@@ -90,11 +90,10 @@ If it is a pattern, it was already transformed into a stream when ``play`` was c
 
 ## Argument Dependence
 
-Since we combine multiple [Streams](https://doc.sccode.org/Classes/Stream.html) we may want to influence one value stream by the other.
+Since we combine multiple [Streams](https://doc.sccode.org/Classes/Stream.html), we may want to influence one value stream by the other.
 For example, we might want that the ``amp`` depends on the frequency such that we can reduce the amplitude for higher pitches.
 There are multiple ways to do so.
 One is by using one of the most powerful [Pattern](https://doc.sccode.org/Classes/Pattern.html), that is [Pfunc](https://doc.sccode.org/Classes/Pfunc.html).
-
 [Pfunc](https://doc.sccode.org/Classes/Pfunc.html) expects a function as an argument and this function is called whenever the respective [Stream](https://doc.sccode.org/Classes/Stream.html) generates its next value.
 The argument of the ``next`` call is passed to the function.
 
@@ -102,7 +101,7 @@ The argument of the ``next`` call is passed to the function.
 (
 var pattern = Pfunc({arg val; val*val;});
 var square = pattern.asStream();
-square.next(5);
+square.next(5); // 25
 )
 ```
 
@@ -209,7 +208,7 @@ We can also play multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) in
 We can imagine that each [Pbind](https://doc.sccode.org/Classes/Pbind.html) represents one musician in our assemble.
 [Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) in parallel.
 In this example I use a fixed ``dur`` and [Rest](http://doc.sccode.org/Classes/Rest.html) to adjust the actual duration.
-You can use any symbol to create a [Rest](http://doc.sccode.org/Classes/Rest.html) (i.e. do nothing).
+You can use any symbol to create a [Rest](http://doc.sccode.org/Classes/Rest.html) (i.e. to do nothing).
 
 ```isc
 (
@@ -300,9 +299,6 @@ audio_path = '../../../sounds/event-player-pspawner.mp3'
 ipd.Audio(audio_path)
 ```
 
-Later we will see that we can organize our piece by using multiple [Pbind](http://doc.sccode.org/Classes/Pbind.html).
-But for now, let's move on.
-
 ## Dynamic Changes
 
 Ok, so we can define a pattern of events, i.e., a [Pbind](http://doc.sccode.org/Classes/Pbind.html) and play it.
@@ -319,7 +315,7 @@ Basically, this means that we can:
 
 and the change will appear soon after without ever stopping the pattern.
 The only difference to [Pbind](http://doc.sccode.org/Classes/Pbind.html) is that a [Pbindef](http://doc.sccode.org/Classes/Pbindef.html)  requires a unique name.
-Use the following [Pbindef](http://doc.sccode.org/Classes/Pbindef.html) , change the frequencies and re-evaluate the code.
+Use the following [Pbindef](http://doc.sccode.org/Classes/Pbindef.html) to change the frequencies and re-evaluate the code.
 Listen to what happens!
 
 ```isc

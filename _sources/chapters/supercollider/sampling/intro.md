@@ -12,6 +12,8 @@ kernelspec:
 
 # Sampling
 
+>Electronic music used pure sounds, completely calibrated. You had to think digitally, as it were, in a way that allowed you to extend serial ideas into other parameters through technology. -- Luc Ferrari
+
 The most common definition for concrète music, what you will hear in an electro-acoustic music course, is compostion using recordings of real sounds as raw material.
 This definition takes its meaning partly as a distinction from analog electronic sounds which are purely electronic.
 The attraction is the richness and complexity of the source.
@@ -96,7 +98,7 @@ SynthDef(\playbuff, {
 ```
 
 The unit generator [BufRateScale](https://doc.sccode.org/Classes/BufRateScale.html) computes and returns a ratio by which the playback of a soundfile is to be scaled.
-This can be important if the sampling rate of the file differ from the sampling rate of the audio server scsynth.
+This can be important if the sampling rate of the file differs from the sampling rate of the audio server scsynth.
 If the sampling rate of the server is greater, the file would be played back faster resulting in an increased pitch.
 Via ``rate`` we can control the actual playback rate, i.e. the pitch.
 Note that a negative rate plays the sample backwards as expected.
@@ -141,14 +143,14 @@ audio_path = '../../../sounds/sampling2.mp3'
 ipd.Audio(audio_path)
 ```
 
-If we use a very short attack and release we get closer what one calls *granular synthesis*, i.e., a sound synthesis method that operates on the *microsound* time scale.
+If we use a very short attack and release we get closer to what one calls **granular synthesis**, i.e., a sound synthesis method that operates on the *microsound* time scale.
 The samples are split into small pieces of around 1 to 100 milliseconds in duration.
 These small pieces are called *grains*.
 Multiple *grains* may be layered on top of each other, and may play at different speeds, phases, volume, and frequency, among other parameters.
 Greek composer Iannis Xenakis is known as the inventor of the granular synthesis technique.
 
 >All sound, even continuous musical variation, is conceived as an assemblage of a large number of elementary sounds adequately disposed in time.
->In the attack, body, and decline of a complex sound, thousands of pure sounds appear in a more or less short interval of time.
+>In the attack, body, and decline of a complex sound, thousands of pure sounds appear in a more or less short interval of time. -- Iannis Xenakis
 
 In the following example each grain is 0.01 + 0.05 = 0.06 that is 60 milliseconds long.
 
@@ -276,7 +278,7 @@ ipd.Audio(audio_path)
 ## Recording
 
 Recording can be done via the graphical user interface of the SuperCollider IDE.
-However, by utilizing the [RecordBuf](https://doc.sccode.org/Classes/RecordBuf.html) [unit generator](sec-ugens) you can record into a [Buffer](https://doc.sccode.org/Classes/Buffer.html) (in my case 180.124).
+However, by utilizing the [RecordBuf](https://doc.sccode.org/Classes/RecordBuf.html) [unit generator](sec-ugens) you can record into a [Buffer](https://doc.sccode.org/Classes/Buffer.html).
 
 ```isc
 // a four second 1 channel Buffer
@@ -296,6 +298,5 @@ The *space of possibilities* is almost limitless.
 
 [PlayBuf](https://doc.sccode.org/Classes/PlayBuf.html) and [RecordBuf](https://doc.sccode.org/Classes/RecordBuf.html) have a ``loop`` argument, set to 0 (no loop) by default. 
 To loop playback, set this value to 1. 
-In the case of RecordBuf a loop is applied to playback and record.
+In that case, a loop is applied to playback and record.
 If ``loop`` is equal 1 and ``preLevel`` is set to 0.5 and we continue to keep recording than the existing loop (pre-recorded material) will slowly fade away.
-[BufRd](https://doc.sccode.org/Classes/BufRd.html)

@@ -1,7 +1,10 @@
 # Proxies
 
-[SuperCollider](https://supercollider.github.io/) supports live programming via its powerful [Just In Time programming library (JITLib)](https://doc.sccode.org/Overviews/JITLib.html).
-It allows the use of dynamic modification and interconnection of proxies.
+A [Synth](sec-synths) in [SuperCollider](https://supercollider.github.io/) consists of a network of [UGens](sec-ugens) whose shape cannot be changed once it has started playing. 
+Although this makes for a very efficient design, it limits interactivity.
+The [Just In Time programming library (JITLib)](https://doc.sccode.org/Overviews/JITLib.html) {cite}`campo:2005,rohrhuber:2009,wilson:2011` attempts to overcome this limitation by introducing proxies, abstract placeholders which allow seamlessly switching between different audio graph definitions. 
+When a new Synth definition is assigned to the proxy, the previous synth is stopped and a new one starts, usually using a cross-fade.
+This allows the use of dynamic modification and interconnection of proxies.
 
 ```{admonition} Proxy
 :name: def-proxy

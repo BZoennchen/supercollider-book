@@ -546,7 +546,7 @@ We finally make use of <a class="reference external" href="https://doc.sccode.or
               </div></div>
 </div>
 <p>As already mentioned, <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> is a unique <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> that generates a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> that spits out (musical) <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.
-Using the <code class="docutils literal notranslate"><span class="pre">play</span></code> method on the <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> pattern, we play all the events the event stream gives us.
+By using the <code class="docutils literal notranslate"><span class="pre">play</span></code> method on the <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> pattern, we play all the events the (event) stream gives us.
 In the above example we play a sequence of three notes 4 times on the <code class="docutils literal notranslate"><span class="pre">\default</span></code> instrument each seperated by <code class="docutils literal notranslate"><span class="pre">0.4</span></code> beats sustaining <code class="docutils literal notranslate"><span class="pre">0.1</span></code> beats.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dur</span></code> determines the waiting time between two successive events.
 Thereby, we do not play all events instantly.
@@ -594,16 +594,16 @@ As we learned, if this value is a number, the number itself is returned.
 If it is a pattern, it was already transformed into a stream when <code class="docutils literal notranslate"><span class="pre">play</span></code> was called and will return what the recursive evaluation of <code class="docutils literal notranslate"><span class="pre">next</span></code> gives us.</p>
 <section id="argument-dependence">
 <h2>Argument Dependence<a class="headerlink" href="#argument-dependence" title="Permalink to this headline">#</a></h2>
-<p>Since we combine multiple <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a> we may want to influence one value stream by the other.
+<p>Since we combine multiple <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a>, we may want to influence one value stream by the other.
 For example, we might want that the <code class="docutils literal notranslate"><span class="pre">amp</span></code> depends on the frequency such that we can reduce the amplitude for higher pitches.
 There are multiple ways to do so.
-One is by using one of the most powerful <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a>, that is <a class="reference external" href="https://doc.sccode.org/Classes/Pfunc.html">Pfunc</a>.</p>
-<p><a class="reference external" href="https://doc.sccode.org/Classes/Pfunc.html">Pfunc</a> expects a function as an argument and this function is called whenever the respective <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> generates its next value.
+One is by using one of the most powerful <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a>, that is <a class="reference external" href="https://doc.sccode.org/Classes/Pfunc.html">Pfunc</a>.
+<a class="reference external" href="https://doc.sccode.org/Classes/Pfunc.html">Pfunc</a> expects a function as an argument and this function is called whenever the respective <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> generates its next value.
 The argument of the <code class="docutils literal notranslate"><span class="pre">next</span></code> call is passed to the function.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">pattern</span> <span class="o">=</span> <span class="nc">Pfunc</span><span class="p">({</span><span class="kd">arg</span> <span class="nx">val</span><span class="p">;</span> <span class="nx">val</span><span class="o">*</span><span class="nx">val</span><span class="p">;});</span>
 <span class="kd">var</span> <span class="nx">square</span> <span class="o">=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nb">asStream</span><span class="p">();</span>
-<span class="nx">square</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nx">square</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// 25</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -705,7 +705,7 @@ We can generate the same piece using only one <a class="reference external" href
 We can imagine that each <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a> represents one musician in our assemble.
 <a class="reference external" href="http://doc.sccode.org/Classes/Ppar.html">Ppar</a> is a pattern that allows us to play multiple <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbinds</a> in parallel.
 In this example I use a fixed <code class="docutils literal notranslate"><span class="pre">dur</span></code> and <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> to adjust the actual duration.
-You can use any symbol to create a <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> (i.e. do nothing).</p>
+You can use any symbol to create a <a class="reference external" href="http://doc.sccode.org/Classes/Rest.html">Rest</a> (i.e. to do nothing).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\snare</span><span class="p">,{</span><span class="kd">arg</span> <span class="nx">hcutoff</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">,</span> <span class="nx">lcutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">1.4</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">env</span><span class="p">,</span> <span class="nx">hat</span><span class="p">,</span> <span class="nx">bass</span><span class="p">,</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">cutoff</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
@@ -798,8 +798,6 @@ It allows you to play patterns in parallel or in sequence, via a callback functi
                 </audio>
               </div></div>
 </div>
-<p>Later we will see that we can organize our piece by using multiple <a class="reference external" href="http://doc.sccode.org/Classes/Pbind.html">Pbind</a>.
-But for now, let’s move on.</p>
 </section>
 <section id="dynamic-changes">
 <h2>Dynamic Changes<a class="headerlink" href="#dynamic-changes" title="Permalink to this headline">#</a></h2>
@@ -816,7 +814,7 @@ Basically, this means that we can:</p>
 </ol>
 <p>and the change will appear soon after without ever stopping the pattern.
 The only difference to <a class="reference external" href="http://doc.sccode.org/Classes/Pbind.html">Pbind</a> is that a <a class="reference external" href="http://doc.sccode.org/Classes/Pbindef.html">Pbindef</a>  requires a unique name.
-Use the following <a class="reference external" href="http://doc.sccode.org/Classes/Pbindef.html">Pbindef</a> , change the frequencies and re-evaluate the code.
+Use the following <a class="reference external" href="http://doc.sccode.org/Classes/Pbindef.html">Pbindef</a> to change the frequencies and re-evaluate the code.
 Listen to what happens!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbindef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span>

@@ -1,15 +1,21 @@
 (sec-ecosystem)=
 # The Ecosystem
 
+>[The fundamental contribution of the computer to music is that it empowers the composer to] hear that which could not be heard without the computer, to think that which could not be thought without the computer and to learn that which could not be learned without the computer. 
+>The computer can allow a composer to write music that goes beyond that which she is already capable of. -- Paul Berg {cite}`berg:1987`
+
 [SuperCollider (SC)](https://supercollider.github.io/) is a package and a platform that consists of three components:
-+ **scsynth**: a real-time audio server, i.e., the part that creates and plays the sound.
-+ ``sclang``: an interpreted programming language for sound creation and signal processing. The user controls the audio server (**scsynth**) by sending Open Sound Control (OSC) messages to it.
++ **scsynth**: a real-time audio server or synthesis engine, i.e., the part that creates and plays the sound. It is written in ``C++`` and combines UGens according to pre-made declarative descriptions, [SynthDefs](sec-synths), instantiating them as [Synth](sec-synths), which can be dynamically created and destroyed. scsynth is a separate process and communicates with sclang via [Open Sound Control](sec-osc) (OSC) messages.
++ ``sclang``: an interpreted object-oriented programming language (OOP) for sound creation and signal processing with some features of functional programming. The user controls the audio server (**scsynth**) by sending OSC messages to it.
 + **scide**: a powerful Integrated Development Environment (IDE) for programming in ``sclang``. It offers an integrated help system, analyzing tools, and extensive documentation.
 
 [SuperCollider (SC)](https://supercollider.github.io/) is written in ``C++`` and was developed by James McCartney.
 It was released in 1996.
 In 2002 McCartney transformed it into a free and open software project under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html).
 It is still maintained and developed by an active community.
+
+Blocks of code are evaluated in real-time by the sclang interpreter. 
+The SuperCollider standard class library includes, besides the general purpose abstractions such as collections, powerful procedures for algorithmic creation of [UGen](sec-ugens) graphs and rich abstractions for musical events ([routines](sec-routines-tasks), [patterns](sec-playing-pattern), etc.).
 
 ```{figure} ../../figs/supercollider/ecosystem/architecture-dark.png
 ---
