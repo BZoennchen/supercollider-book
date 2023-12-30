@@ -523,8 +523,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="proxies">
 <h1>Proxies<a class="headerlink" href="#proxies" title="Permalink to this headline">#</a></h1>
-<p><a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> supports live programming via its powerful <a class="reference external" href="https://doc.sccode.org/Overviews/JITLib.html">Just In Time programming library (JITLib)</a>.
-It allows the use of dynamic modification and interconnection of proxies.</p>
+<p>A <a class="reference internal" href="../synths/2-sc-synths.html#sec-synths"><span class="std std-ref">Synth</span></a> in <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> consists of a network of <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">UGens</span></a> whose shape cannot be changed once it has started playing.
+Although this makes for a very efficient design, it limits interactivity.
+The <a class="reference external" href="https://doc.sccode.org/Overviews/JITLib.html">Just In Time programming library (JITLib)</a> <span id="id1">[<a class="reference internal" href="../../misc/bibliography.html#id48" title="Alberto de Campo and Julian Rohrhuber. Algorithms today: notes on language desgin for just in time programming. In International Computer Music Conference. 2005.">dCR05</a>, <a class="reference internal" href="../../misc/bibliography.html#id47" title="Julian Rohrhuber and Alberto de Campo. Improvising formalisation: conversational programming and live coding. In New Computational Paradigms for Computer Music. 2009.">RdC09</a>, <a class="reference internal" href="../../misc/bibliography.html#id4" title="Scott Wilson, David Cottle, and Nick Collins. The SuperCollider Book. The MIT Press, 2011. ISBN 978-0-262-23269-2.">WCC11</a>]</span> attempts to overcome this limitation by introducing proxies, abstract placeholders which allow seamlessly switching between different audio graph definitions.
+When a new Synth definition is assigned to the proxy, the previous synth is stopped and a new one starts, usually using a cross-fade.
+This allows the use of dynamic modification and interconnection of proxies.</p>
 <div class="definition admonition" id="def-proxy">
 <p class="admonition-title">Proxy</p>
 <p>A <em>proxy</em> is a placeholder that is used to operate on something that does not yet exist.</p>

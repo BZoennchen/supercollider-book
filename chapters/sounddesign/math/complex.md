@@ -37,15 +37,15 @@ sns.set_style("whitegrid")
 
 The history of mathematics is a rich tapestry of discoveries and inventions. 
 The Greeks, fascinated by geometry, introduced both natural and rational numbers but, intriguingly, neglected to incorporate negative numbers or zero.
-Their experiences and understanding of the world, their perspectives on points, lines, and shapes -- grounded in classical Euclidean geometry -- kept these concepts hidden. Negative lengths or areas were unheard of.
-They also seemed aware that there might be another category of number -- the irrational numbers -- beyond the rational.
+Their experiences and understanding of the world, their perspectives on points, lines, and shapes -- grounded in classical Euclidean geometry---kept these concepts hidden. Negative lengths or areas were unheard of.
+They also seemed aware that there might be another category of number---the irrational numbers---beyond the rational.
 Legend has it that a student of Pythagoras stumbled upon this notion, asserting that something other than rational numbers must exist for the existing mathematical theories to hold true. His audacity cost him his life.
 
 As the world evolved, so did mathematical concepts.
 The advent of sophisticated financial systems, underscored by the principles of credit and debt, gave birth to the concept of negative numbers.
 After all, the balance between debt and credit necessitated the existence of a counterpart to a positive number in terms of addition.
 
-"In summary, we rely on natural numbers to solve equations like $2x = 4$.
+We rely on natural numbers to solve equations like $2x = 4$.
 We require negative numbers for equations like $2x = -4$, rational numbers for equations such as $4x = 2$, and real numbers to tackle equations like $x^2 = 2$.
 So, how do we approach the solution for
 
@@ -297,7 +297,7 @@ To arrive at the formula we first have to do some work.
 ```{admonition} Taylor Sries 
 :name: def-taylor-series
 :class: definition
-Let $y(t)$ be a real or comlex-valued function that is infinitely differentiable at a real or complex number $z$, then 
+Let $y(t)$ be a real or comlex-valued function that is infinitely differentiable at a real or complex number $z,$ then 
 
 \begin{equation}
 \begin{split}

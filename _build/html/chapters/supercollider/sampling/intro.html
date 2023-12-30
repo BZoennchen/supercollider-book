@@ -523,6 +523,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sampling">
 <h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p>Electronic music used pure sounds, completely calibrated. You had to think digitally, as it were, in a way that allowed you to extend serial ideas into other parameters through technology. – Luc Ferrari</p>
+</div></blockquote>
 <p>The most common definition for concrète music, what you will hear in an electro-acoustic music course, is compostion using recordings of real sounds as raw material.
 This definition takes its meaning partly as a distinction from analog electronic sounds which are purely electronic.
 The attraction is the richness and complexity of the source.
@@ -593,7 +596,7 @@ Let’s define a minimal <a class="reference external" href="https://doc.sccode.
 </pre></div>
 </div>
 <p>The unit generator <a class="reference external" href="https://doc.sccode.org/Classes/BufRateScale.html">BufRateScale</a> computes and returns a ratio by which the playback of a soundfile is to be scaled.
-This can be important if the sampling rate of the file differ from the sampling rate of the audio server scsynth.
+This can be important if the sampling rate of the file differs from the sampling rate of the audio server scsynth.
 If the sampling rate of the server is greater, the file would be played back faster resulting in an increased pitch.
 Via <code class="docutils literal notranslate"><span class="pre">rate</span></code> we can control the actual playback rate, i.e. the pitch.
 Note that a negative rate plays the sample backwards as expected.
@@ -637,14 +640,14 @@ I choose to start the sample 160 seconds in, that is, at position <code class="d
                 </audio>
               </div></div>
 </div>
-<p>If we use a very short attack and release we get closer what one calls <em>granular synthesis</em>, i.e., a sound synthesis method that operates on the <em>microsound</em> time scale.
+<p>If we use a very short attack and release we get closer to what one calls <strong>granular synthesis</strong>, i.e., a sound synthesis method that operates on the <em>microsound</em> time scale.
 The samples are split into small pieces of around 1 to 100 milliseconds in duration.
 These small pieces are called <em>grains</em>.
 Multiple <em>grains</em> may be layered on top of each other, and may play at different speeds, phases, volume, and frequency, among other parameters.
 Greek composer Iannis Xenakis is known as the inventor of the granular synthesis technique.</p>
 <blockquote>
 <div><p>All sound, even continuous musical variation, is conceived as an assemblage of a large number of elementary sounds adequately disposed in time.
-In the attack, body, and decline of a complex sound, thousands of pure sounds appear in a more or less short interval of time.</p>
+In the attack, body, and decline of a complex sound, thousands of pure sounds appear in a more or less short interval of time. – Iannis Xenakis</p>
 </div></blockquote>
 <p>In the following example each grain is 0.01 + 0.05 = 0.06 that is 60 milliseconds long.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -768,7 +771,7 @@ For each cycle of the saw wave this is repeated.</p>
 <section id="recording">
 <h2>Recording<a class="headerlink" href="#recording" title="Permalink to this headline">#</a></h2>
 <p>Recording can be done via the graphical user interface of the SuperCollider IDE.
-However, by utilizing the <a class="reference external" href="https://doc.sccode.org/Classes/RecordBuf.html">RecordBuf</a> <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">unit generator</span></a> you can record into a <a class="reference external" href="https://doc.sccode.org/Classes/Buffer.html">Buffer</a> (in my case 180.124).</p>
+However, by utilizing the <a class="reference external" href="https://doc.sccode.org/Classes/RecordBuf.html">RecordBuf</a> <a class="reference internal" href="../synths/1-ugens.html#sec-ugens"><span class="std std-ref">unit generator</span></a> you can record into a <a class="reference external" href="https://doc.sccode.org/Classes/Buffer.html">Buffer</a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// a four second 1 channel Buffer</span>
 <span class="nx">d</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">44100</span> <span class="o">*</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> 
 
@@ -784,9 +787,8 @@ We can combine purely synthesized signal with multiple audio files played back v
 The <em>space of possibilities</em> is almost limitless.</p>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/PlayBuf.html">PlayBuf</a> and <a class="reference external" href="https://doc.sccode.org/Classes/RecordBuf.html">RecordBuf</a> have a <code class="docutils literal notranslate"><span class="pre">loop</span></code> argument, set to 0 (no loop) by default.
 To loop playback, set this value to 1.
-In the case of RecordBuf a loop is applied to playback and record.
-If <code class="docutils literal notranslate"><span class="pre">loop</span></code> is equal 1 and <code class="docutils literal notranslate"><span class="pre">preLevel</span></code> is set to 0.5 and we continue to keep recording than the existing loop (pre-recorded material) will slowly fade away.
-<a class="reference external" href="https://doc.sccode.org/Classes/BufRd.html">BufRd</a></p>
+In that case, a loop is applied to playback and record.
+If <code class="docutils literal notranslate"><span class="pre">loop</span></code> is equal 1 and <code class="docutils literal notranslate"><span class="pre">preLevel</span></code> is set to 0.5 and we continue to keep recording than the existing loop (pre-recorded material) will slowly fade away.</p>
 </section>
 </section>
 

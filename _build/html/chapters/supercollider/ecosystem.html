@@ -523,16 +523,22 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-ecosystem">
 <span id="sec-ecosystem"></span><h1>The Ecosystem<a class="headerlink" href="#the-ecosystem" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div><p>[The fundamental contribution of the computer to music is that it empowers the composer to] hear that which could not be heard without the computer, to think that which could not be thought without the computer and to learn that which could not be learned without the computer.
+The computer can allow a composer to write music that goes beyond that which she is already capable of. – Paul Berg <span id="id1">[<a class="reference internal" href="../misc/bibliography.html#id45" title="Paul Berg. PILE – a language for sound synthesis. Foundations of Computer Music, pages 64–108, 1987.">Ber87</a>]</span></p>
+</div></blockquote>
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is a package and a platform that consists of three components:</p>
 <ul class="simple">
-<li><p><strong>scsynth</strong>: a real-time audio server, i.e., the part that creates and plays the sound.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sclang</span></code>: an interpreted programming language for sound creation and signal processing. The user controls the audio server (<strong>scsynth</strong>) by sending Open Sound Control (OSC) messages to it.</p></li>
+<li><p><strong>scsynth</strong>: a real-time audio server or synthesis engine, i.e., the part that creates and plays the sound. It is written in <code class="docutils literal notranslate"><span class="pre">C++</span></code> and combines UGens according to pre-made declarative descriptions, <a class="reference internal" href="synths/2-sc-synths.html#sec-synths"><span class="std std-ref">SynthDefs</span></a>, instantiating them as <a class="reference internal" href="synths/2-sc-synths.html#sec-synths"><span class="std std-ref">Synth</span></a>, which can be dynamically created and destroyed. scsynth is a separate process and communicates with sclang via <a class="reference internal" href="communication/2-osc.html#sec-osc"><span class="std std-ref">Open Sound Control</span></a> (OSC) messages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sclang</span></code>: an interpreted object-oriented programming language (OOP) for sound creation and signal processing with some features of functional programming. The user controls the audio server (<strong>scsynth</strong>) by sending OSC messages to it.</p></li>
 <li><p><strong>scide</strong>: a powerful Integrated Development Environment (IDE) for programming in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>. It offers an integrated help system, analyzing tools, and extensive documentation.</p></li>
 </ul>
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a> is written in <code class="docutils literal notranslate"><span class="pre">C++</span></code> and was developed by James McCartney.
 It was released in 1996.
 In 2002 McCartney transformed it into a free and open software project under the <a class="reference external" href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License</a>.
 It is still maintained and developed by an active community.</p>
+<p>Blocks of code are evaluated in real-time by the sclang interpreter.
+The SuperCollider standard class library includes, besides the general purpose abstractions such as collections, powerful procedures for algorithmic creation of <a class="reference internal" href="synths/1-ugens.html#sec-ugens"><span class="std std-ref">UGen</span></a> graphs and rich abstractions for musical events (<a class="reference internal" href="scheduling/3-routines-tasks.html#sec-routines-tasks"><span class="std std-ref">routines</span></a>, <a class="reference internal" href="pattern/pattern.html#sec-playing-pattern"><span class="std std-ref">patterns</span></a>, etc.).</p>
 <figure class="align-default" id="fig-architecture">
 <a class="reference internal image-reference" href="../../_images/architecture-dark.png"><img alt="../../_images/architecture-dark.png" src="../../_images/architecture-dark.png" style="width: 800px;" /></a>
 </figure>

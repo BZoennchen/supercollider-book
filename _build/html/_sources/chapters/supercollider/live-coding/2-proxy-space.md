@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (sec-proxy-space)=
 # Proxy Space
 
@@ -47,11 +59,22 @@ We can still use *global variables*, that is, single letters except for ``s``.
 If we need more variables, we can fix this problem but let us move on for now.
 
 Let us create a first node proxy and lets play it.
+If you evaluate the last line, the sound will fade away.
 
 ```isc
 ~sound = {Resonz.ar(Pulse.ar(5), Array.exprand(4, 120, 2500), 0.005).sum!2};
+
 ~sound.fadeTime = 4.0;
 ~sound.play;
+
+~sound = {};
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/lp-res-pulse.mp3'
+ipd.Audio(audio_path)
 ```
 
 We can stop it and modify it on the fly by changing the function.
@@ -98,6 +121,7 @@ The latter two methods do not offer a fade time parameter, and for ``play``, the
 One can not play a paused proxy and one can not resume a stopped proxy.
 
 We can set these arguments without touching the proxy if we specify arguments using named controls.
+Note that after you use ``.set(\freq, val)`` or ``.xset(\freq, val)`` re-evaluating ``{SinOsc.ar(\freq.kr(333))*0.3!2}`` does not set the frequency back to ``333``.
 
 ```isc
 ~sine = {SinOsc.ar(\freq.kr(333))*0.3!2};
@@ -106,6 +130,13 @@ We can set these arguments without touching the proxy if we specify arguments us
 ~sine.xset(\freq, 190);
 ~sine.set(\freq, 100);
 ~sine.gui; // we can make use of the same gui
+~sine = {};
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-sine-freqs.mp3'
+ipd.Audio(audio_path)
 ```
 
 Using ``set`` will change the value immediately while ``xset`` uses the ``fadeTime`` to crossfade between the current and the new value.
@@ -128,6 +159,12 @@ Of course, we can combine multiple proxies by building a signal-flow graph on th
 
 ~tri = {~amp * LFTri.ar(350)*[1.0,1.003]};
 ~tri.play;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-sine-saw.mp3'
+ipd.Audio(audio_path)
 ```
 
 As you can see, the output of one proxy can be used as an argument of multiple other proxies.
@@ -197,12 +234,21 @@ b = 60.0; // bpm
 
 ~bass = {SinOsc.ar(TChoose.kr(~trigger2, [70, 65, 67]))!2 * 0.5 * ~env2;}
 ~bass.play;
+
+~bleep = {};
+~bass = {};
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-impulses.mp3'
+ipd.Audio(audio_path)
 ```
 
 It is not very musical and kind of boring but it demonstrate how we can route different node proxies together.
 [PulseDivider](https://doc.sccode.org/Classes/PulseDivider.html) comes in handy because it outputs an impuls every time it receives a certain amount of impulses.
 Thus we can divide pulses into fewer one per beat.
-Also note that our ``doneAction`` of the envolved envelopes is set to ``Done.none`` because we do not want to free the synsth -- it is running all the time.
+Also note that our ``doneAction`` of the envolved envelopes is set to ``Done.none`` because we do not want to free the synsth---it is running all the time.
 [TChoose](https://doc.sccode.org/Classes/TChoose.html) chooses randomly one of the values of the array whenever it is triggered.
 Our clock ``~clock`` runs at 60 beats per minutes times 16 such that we divide each beat into 16 parts.
 
@@ -222,6 +268,12 @@ These lines result in a sound produced of a sine and sawtooth wave added togethe
 ~out[0] = {SinOsc.ar(\freq.kr(300)) * 0.25};
 ~out[10] = {LFTri.ar(\freq.kr(500)) * 0.25};
 ~out.play;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-chains.mp3'
+ipd.Audio(audio_path)
 ```
 
 If we set the ``\freq`` argument for the node proxy it will be set for all its slots.
@@ -254,6 +306,12 @@ Listen to the following:
 ~out.play;
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-filtering.mp3'
+ipd.Audio(audio_path)
+```
+
 The sine wave's amplitude is modulated by ``~out[10]``.
 When we filter a signal, we get the so called *wet signal* while the original is the *dry* one.
 If we go 100% wet, the dry signal disappears.
@@ -261,6 +319,12 @@ Let us try 50% wet:
 
 ```isc
 ~out.set(\wet10, 0.5);
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-chaining-wet.mp3'
+ipd.Audio(audio_path)
 ```
 
 We can clearly hear both signals.
@@ -276,6 +340,12 @@ In the folling I tried to recreate the sound of a firework:
 ~out.play;
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-fireworks.mp3'
+ipd.Audio(audio_path)
+```
+
 [Dust](https://doc.sccode.org/Classes/Dust.html) generates random impulses such that the density of that impulses approximate its frequency arguement, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
 [Ringz](https://doc.sccode.org/Classes/Ringz.html) models resonates at a frequency of ``300`` herz.
 We add a reverb effect to give the sound some spacial depth.
@@ -289,6 +359,12 @@ Let us now introduce modulation for the resonance frequency and the cutoff filte
 
 ~out <<>.freq ~randFreq;
 ~out <<>.cutofffreq ~randcutoff;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-fireworks-cutoff.mp3'
+ipd.Audio(audio_path)
 ```
 
 The change in cutoff resonance and cutoff frequency happens continuously.
@@ -360,14 +436,20 @@ Now we use a [Pbind](https://doc.sccode.org/Classes/Pbinds.html) to play a melod
 )
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/lp-pbind.mp3'
+ipd.Audio(audio_path)
+```
+
 Note that if you set an argument for the proxy node it will be used regardless of the argument with the same name of the [Pbind](https://doc.sccode.org/Classes/Pbinds.html).
-You can not override it by re-evaluating the [Pbind](https://doc.sccode.org/Classes/Pbinds.html).
+You cannot override it by re-evaluating the [Pbind](https://doc.sccode.org/Classes/Pbinds.html).
 
 ```isc
 ~test_beep.set(\freq, 200);
 ```
 
-You can get rid of the 'parent' argument by setting it to ``nill``.
+You can get rid of the 'parent' argument by setting it to ``nil``.
 
 ```isc
 ~test_beep.set(\freq, nil);

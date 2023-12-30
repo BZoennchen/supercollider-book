@@ -26,9 +26,9 @@ Even as someone who is not educated in the history of art or any other field of 
 In my opinion, good art reveals something unspeakable about my own *throwness*.
 It irritates, it breaks rules and laws by giving us a glimpse into the *infinite*.
 Confronted with something beyond understanding, we stand there in awe; feeling relieved and in total connection with what is.
-This description is an unspecific expression of a feeling but that is the point: I cannot write down what I means.
+This description is an unspecific expression of a feeling but that is the point: I cannot write down what it means to me.
 
-The German sociologist Niklas Luhmann gave rather theoretical but much more helpful analysis of art by relating it to his concept of medium and form.
+The German sociologist Niklas Luhmann gave us a rather theoretical but much more helpful analysis of art by relating it to his concept of medium and form.
 According to him, a medium consists of a large number of elements or, in the case of the time dimension, events.
 In fact, there are so many elements within a medium that any cognition has to operate by selection.
 Forms, on the other hand, emerge by the concentration of dependency relations between elements.
@@ -180,7 +180,7 @@ If communication 'happens' everything else is secondary.
 Crucial is the condition of symbolic generalization, that is, **the property of the medium to exceed the diversity of things** and the condition of **unification** to enable communication.
 If art does not exeed the diversity of things, there is nothing worth communicating about and if there is no unification, sense and language fail as medium of communication---dissolution and recombination enable diversity and the selection of the particular.
 
-Information can only be transmitted if the artwork could be different and *that which is not* is always also indicated by *that what is*.
+Information can only be transmitted if the artwork could be different and *that which is not* is always also indicated by *that which is*.
 The artwork fixes all possibilities and we can talk about reasons why it is constructed or performed this way and not any other way.
 This seems consistent with the information theory of Claude Shannon {cite}`shannon:1948`.
 To communicate about art we have to be aware of these liberties and we have to use them because, again, to gain information one has to eliminate uncertainty---artworks have to surprise us.
@@ -213,3 +213,153 @@ Second-order evaluation is of course fueled by the fact that art is highly commo
 Furthermore, the artist becomes increasingly the center of communication and he or she forms an identity in the mode of *profilicity*---curating a profile based on the evaluation by the *global village*.
 Therefore, subversion becomes impossible.
 What we get is a film like Barbie---the simulation of subversion.
+
+## Code as Form
+
+A computer program can be seen as a collection of commands or statements of advice.
+Computer scientists, like me, emphasise the humanist perspective that a programming language is an inherently precise and rigid medium of expression.
+Different from natural languages, programming languages are unambiguous.
+Any syntactical error will lead to non-execution (compiled code) or an abrubt termination (interpreted code)---the computer stops making sense of the given advice.
+
+From this rigidity and formality, programmers extrapolate the believe that if they can implement something, they really understand it.
+The reasoning goes like the following:
+
+1. **Major premise:** Programming languages are unambiguous.
+2. **Implication:** Therefore, if one writes a program, it will do something particular
+3. **Implication:** Therefore, if the idea that should be realized is vague, i.e., the programmer has no particular result in mind, the program won't do what she or he wants.
+4. **Conclusion:** A correct program proofs the clarity of the programmers idea.
+
+It is true that one has to be very precise with respect to syntax.
+No spelling or punctuation errors are allowed.
+But it is perfectly false that this makes programmers have a precise idea of what her program will do.
+It is especially false to assume that programmers just write down their idea from start to finish much like it is false to believe that painters, poets or writers realize their idea from start to finish.
+
+Look at the following algorithm.
+I assume that, for most readers, it is very unclear what the algorithm computes.
+
+```{prf:algorithm} Newton's Algorithm to Approximate $\sqrt{2}$
+:label: alg-newton
+
+**Output** Approximation of $\sqrt{2}$
+
+1. $x \leftarrow 2$
+2. $r \leftarrow 1$
+3. $v \leftarrow 1$
+
+4. While $|v| > 0.001$
+    1. $m \leftarrow x / r$
+    2. $t \leftarrow r + m$
+    3. $r \leftarrow t / 2$
+    4. $u \leftarrow r^2$
+    5. $v \leftarrow x - u$
+5. return $r$
+```
+
+Can we unravel the mystery hidden behind the complexity of these statements?
+We can see that if $x$ and $u$ are similar, the computatation stops.
+Since $u \leftarrow r^2$ and $x = 2$ the computation stops when $r$ is close to $\sqrt{2}$.
+
+How is $r$ computed?
+Well, if we substitude all the variables we get
+
+$$r \leftarrow t / 2 \Rightarrow r \leftarrow (r+m)/2 \Rightarrow r \leftarrow \left(r+\frac{x}{r}\right) \cdot \frac{1}{2}$$
+
+and since $x = 2$, we get
+
+$$r \leftarrow \left(r+\frac{2}{r}\right) \cdot \frac{1}{2}.$$
+
+Substituting $r$ for $\sqrt{2}$ gives us
+
+$$r \leftarrow \left(\sqrt{2}+\frac{2}{\sqrt{2}}\right) \cdot \frac{1}{2} = \frac{4}{2\sqrt{2}} = \frac{2}{\sqrt{2}} = \frac{\sqrt{2}^2}{\sqrt{2}} = \sqrt{2}.$$
+
+Therefore, if $r$ would be exactly $\sqrt{2}$ (which is impossible since it is a irrational number) then $r$ would not change.
+
+Let's say $r = (\sqrt{2} \pm \epsilon)$ then we get
+
+$$r \leftarrow \left((\sqrt{2} \pm \epsilon)+\frac{2}{\sqrt{2} \pm \epsilon}\right) \cdot \frac{1}{2}$$
+
+We know that for small $\epsilon$ the sum is close to $2\sqrt{2}$ and each of the summands is close to $0.5\sqrt{2}$.
+From the formula we can see that the first summand is about $\epsilon$ larger or smaller than $\sqrt{2}$.
+So what about the second summand?
+Clearly it is the opposite, i.e., if $\epsilon > 0$ the second summand is smaller than $\sqrt{2}$.
+
+If $r = \sqrt{2} + \epsilon$, we want $r$ to go down thus 
+
+$$\frac{2}{\sqrt{2} + \epsilon} < \sqrt{2} + \epsilon$$
+
+should hold. This follows from the following inequation:
+
+$$2 < 2 + 2\sqrt{2}\epsilon + \epsilon^2 = (\sqrt{2} + \epsilon)^2.$$
+
+On the other hand, if $r = \sqrt{2} - \epsilon$, we want the opposite, thus 
+
+$$\frac{2}{\sqrt{2} - \epsilon} > \sqrt{2} - \epsilon$$
+
+should hold.
+This follows from the following inequation, which holds for $\epsilon < 2\sqrt{2}$:
+
+$$2 > 2 - 2\sqrt{2}\epsilon + \epsilon^2 = (\sqrt{2} - \epsilon)^2.$$
+
+If we look at the starting value for $r$ and all the operations, we can clearly see that $r$ will never be negative thus $\epsilon < 2\sqrt{2}$ holds for the execution of the algorithm.
+
+We did a lot of work and thinking to analyse Newton's algorithm.
+In the end we figured out that $r$ approches $\sqrt{2}$. 
+We still don't know how fast $r$ converges towards $\sqrt{2}$.
+It is likely that Newton started with mathematical equations before writing down the statements of advice.
+If we just implement the steps without a proper analysis we do not really understand what is going on and simply looking at the algorithm does not help either.
+
+These kind of algorithms echo the humanistic perspective: Humans are in total control by advicing the computer precisely what commands it should execute.
+The *form* is the written down algorithm in a specific language (medium), e.g. ``sclang``---the SuperCollider programming language.
+
+```isc
+(
+x = 2;
+r = 1;
+v = 1000;
+while({abs(v) > 0.001}, 
+{
+  m = x / r;
+  t = r + m;
+  r = t / 2;
+  u = r * r;
+  v = x - u;
+});
+r.postln; // 1.4142156862745
+)
+```
+
+In any programming language, there exists an inherent intelligence.
+This is due to the fact that the language allows only a specific range of statements to be syntactically correct, thereby enforcing its own logic. 
+The structure and rules of the language dictate how programmers can express commands and algorithms, guiding them to adhere to its logical framework. 
+This intrinsic design ensures that programming adheres to a consistent and rational set of principles, which is a fundamental aspect of how these languages function and are understood.
+
+Libraries in programming are repositories of intelligence, created by numerous developers. 
+When a large language model (LLM) like ChatGPT solves a problem using ``Python`` code, we should not imply that it understands the problem.
+This limitation often also applies to programmers. 
+Both scenarios reflect the illusion of having a direct and complete understanding of reality, which is likely impossible.
+
+Programming is almost always a collective, cultural effort. 
+In such an environment, it's rare for any single individual to fully grasp every aspect. 
+This collaborative nature of programming means that solutions and advancements are often the result of pooled knowledge and shared expertise, rather than the sole understanding or capability of one person.
+This reality underscores the interconnectedness and complexity inherent in both programming and our broader attempts to comprehend and interact with the world.
+
+## Artistic Coding
+
+In the realm of artistic or creative coding, the perception of programming as a rigorous and precise activity dissolves. 
+Here, artists use code akin to a musical instrument. 
+For instance, when utilizing creative coding libraries such as [p5.js](https://p5js.org/) or [nannou](https://nannou.cc/) for visual projects, the process is rarely about transcribing a preconceived idea directly. 
+Instead, it begins with something simple: a circle, a line, a loop, or a combination of these elements.
+
+The approach involves tinkering and experimenting, repeatedly running the program to observe how changes affect the visuals. 
+This method is more exploratory and iterative, allowing the artist to evolve their work organically through trial and error. 
+It's a dynamic process where the outcome is often discovered through the act of coding itself, rather than being strictly planned from the outset.
+The artist helps the artwork to come into being.
+It is a contigent process.
+What comes next depends on the horizon of the possible, i.e. the language, libraries and what is already present.
+
+The concept of exploratory and iterative development in creative coding also applies to the acoustic domain and, notably, to live programming. 
+An interesting aspect of live programming is how it exposes the technology behind the artwork, especially when something unexpected occurs and the system 'breaks'. 
+In such moments, the distinction between *form* and *medium* becomes clear.
+
+In live programming, the process and the technology used are as much a part of the artistic expression as the final product. 
+When glitches or errors occur, they reveal the underlying mechanisms and constraints of the technology, offering a unique insight into the medium itself. This contrast between the artistic intent (form) and the tools and methods used (medium) is a key characteristic of creative coding, highlighting the dynamic interplay between the artist's vision and the technology employed.

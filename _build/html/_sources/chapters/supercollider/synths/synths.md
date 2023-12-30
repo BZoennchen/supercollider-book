@@ -1,5 +1,7 @@
 # Synthesizers
 
+>I got reconnect properly with computers [...] I didn't have to use someone else's idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. -- Jonny Greenwood
+
 A synthesizer is an electronic musical instrument that generates audio signals. 
 Synthesizers create new sounds through various forms of signal generation, manipulation, and modulation. 
 They are used in many different genres, from pop and rock to electronic and experimental music.

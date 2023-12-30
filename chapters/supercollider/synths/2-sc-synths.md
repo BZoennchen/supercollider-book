@@ -13,8 +13,6 @@ kernelspec:
 (sec-synths)=
 # SC Synthesizers
 
->I got reconnect properly with computers [...] I didn't have to use someone else's idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. -- *Jonny Greenwood*
-
 The concept of synth definitions and synth is central to SuperCollider.
 Everything is built around this fundamental concept.
 It can be confusing for beginners because there is a big difference between a synth as we know it in the real world and an instance of [Synth](https://doc.sccode.org/Classes/Synth.html).
@@ -30,7 +28,7 @@ Instead of introducing a new class for each new instrument which would lead to t
 ``sclang`` borrows this concept from functional programming languages.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
-We generate synths by calling the defining function with different arguments to do so.
+We generate synths by calling the defining function with different arguments.
 
 ```{admonition} SynthDef
 :name: def-synth-def
@@ -59,7 +57,7 @@ It is the process that generates sound via the audio server.
 
 We use ``sclang`` to define a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
 It is defined on the client, and we must send it to the audio server.
-To generate sound, we have to tell the server to create a synth via one of its known [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html).
+To generate sound, we have to tell the server to create a synth of one of its known [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html).
 
 The normal workflow goes as follows:
 
@@ -132,7 +130,7 @@ The ``doneAction`` tells the server to remove the played synth.
 :name: hint-free-synths
 :class: remark
 The audio server does not know when to cleanup your synth.
-You have to tell the server explicitly -- there is no automatic garbage collection.
+You have to tell the server explicitly---there is no automatic garbage collection.
 ```
 
 We can also **store** the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) permanently on our hard drive by calling ``store()`` instead of ``add()``.
@@ -167,7 +165,7 @@ Synth(\crndsine);
 Synth(\srndsine);
 ```
 
-Both [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html) look similar but ``\crndsine`` uses a client-side random generator, whereas ``\srndsine`` uses a server-side one, that is, the ``UGen`` called [Random](https://doc.sccode.org/Classes/Random.html).
+Both [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html) look similar but ``\crndsine`` uses a client-side random generator, whereas ``\srndsine`` uses a server-side one, that is, the ``UGen`` called [Rand](https://doc.sccode.org/Classes/Rand.html).
 There is no such thing as a server-side ``rrand`` function!
 Its evaluation is part of the definition of the signal-flow graph.
 Since ``rrand`` is evaluated when we add the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html), each synth of this [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) will generate a randomly chosen sound which is the same for **all** synths constructed by this added [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) object.
@@ -175,8 +173,8 @@ Therefore, if we want a [Synth](https://doc.sccode.org/Classes/Synth.html) that 
 
 In the example above we use the ``poll`` functions which polls frequently values from unit generators to the client and post them to the post window.
 This can be helpful to see what is going on, i.e., to debug server-side code.
-Whenever we play the first the exact same number gets posted.
-But when we play the second synth multiple times, numbers change.
+Whenever we play ``\crndsine`` the exact same number gets posted.
+But when we play the second synth, i.e. ``\srndsine`` multiple times, numbers change.
 
 ```{admonition} Server-side Debugging
 :name: hint-server-side-debugging
@@ -188,7 +186,7 @@ It will frequently print the values of the generator to the post windows.
 ## Named Controls
 
 Arguments of a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) can be defined in different ways.
-Similar to function we can either use the signal word ``arg`` 
+Similar to functions, we can either use the signal word ``arg`` 
 
 ```isc
 (
@@ -199,7 +197,7 @@ SynthDef(\beep, {
 )
 ```
 
-or we can rely on the bar ``|``
+or we can rely on the bar ``|..|``
 
 ```isc
 (
@@ -223,16 +221,16 @@ You can define such a control in the following manner:
 ```
 
 The two characters after the ``.`` determine the rate and type of the [NamedControls](https://doc.sccode.org/Classes/NamedControl.html).
-Using ``ar`` adds a new instance of [AudioControl](https://doc.sccode.org/Classes/AudioControl.html) at *audio rate*, ``kr`` or ``ir`` adds a new instance of [Control](https://doc.sccode.org/Classes/Control.html), either with continuous *control rate* signal ``kr`` or a static value ``ir`` and using ``tr`` add a new instance of [TrigControl](https://doc.sccode.org/Classes/TrigControl.html).
+Using ``ar`` adds a new instance of [AudioControl](https://doc.sccode.org/Classes/AudioControl.html) at *audio rate*, ``kr`` or ``ir`` adds a new instance of [Control](https://doc.sccode.org/Classes/Control.html), either with continuous *control rate* signal ``kr`` or a static value ``ir`` and using ``tr`` adds a new instance of [TrigControl](https://doc.sccode.org/Classes/TrigControl.html).
 The static value of ``ir`` is set at the time the synth starts up, and is subsequently unchangeable.
-A [Control](https://doc.sccode.org/Classes/Control.html) is a [unit generator](sec-ugens) that can be set and routed externally to interact with a running Synth.
+A [Control](https://doc.sccode.org/Classes/Control.html) is a [unit generator](sec-ugens) that can be set and routed externally to interact with a running synth.
 
 ```{admonition} Named Control
 :class: remark
 If one uses the same [NamedControls](https://doc.sccode.org/Classes/NamedControl.html) in a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) multiple times, its ``value`` and all other arguments have to be identical
 ```
 
-If ``lags`` are given, the [Lag](https://doc.sccode.org/Classes/Lag.html) unit generator is applied and if ``fixedLag`` is set to be ``true`` a [LagControl](https://doc.sccode.org/Classes/LagControl.html) is used, meaning that ``lags`` can not be modulated at the advantage that fewer unit generators are required.
+If ``lags`` is given, the [Lag](https://doc.sccode.org/Classes/Lag.html) unit generator is applied and if ``fixedLag`` is set to be ``true`` a [LagControl](https://doc.sccode.org/Classes/LagControl.html) is used, meaning that ``lags`` can not be modulated at the advantage that fewer unit generators are required.
 I already discussed the lagging of a signal in section [Signal Lagging](sec-signal-lagging).
 
 Note that ``\freq.ir(440)`` appears twice in the following code.
@@ -272,7 +270,7 @@ SynthDef(\beep, {
 ```
 
 Named controls in control rate, i.e. ``kr``, are like knops and buttons of a MIDI device.
-When we want to play around with the named controls of our synth we can a graphical user interface ``gui`` that immitates the control components of such a MIDI device.
+When we want to play around with the named controls of our synth we can utilize a graphical user interface ``gui`` that immitates the control components of such a MIDI device.
 To do so we have to utilize [Ndef](https://doc.sccode.org/Classes/Ndef.html) instead of [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
 Furthermore, we can define the range of possible values using ``specs``.
 

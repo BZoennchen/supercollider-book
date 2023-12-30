@@ -1,7 +1,7 @@
 (sec-basics)=
 # SCLang Basics
 
->Without music, life would be a mistake. -- Nietzsche
+>Without music, life would be a mistake. -- Friedrich Nietzsche
 
 In this section, I will provide a starting point to allow readers to begin experimenting with SuperCollider.
 However, it's important to understand the content of this entire chapter, as it lays the foundation for subsequent discussions. 

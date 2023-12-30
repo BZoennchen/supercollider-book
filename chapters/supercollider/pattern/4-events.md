@@ -27,9 +27,8 @@ We define a duration ``dur``, the frequency ``freq``, note ``note`` or ``midinot
 A [Pbind](https://doc.sccode.org/Classes/Pbind.html) can then be played by calling ``play`` on it.
 The method returns an [EventStreamPlayer](https://doc.sccode.org/Classes/EventStreamPlayer.html).
 
-[Events](https://doc.sccode.org/Classes/Event.html) extend [Environments](https://doc.sccode.org/Classes/Environment.html).
-[Environments](https://doc.sccode.org/Classes/Environment.html) manage namespaces.
-They are similar to hash maps, hash tables, or a ``Python`` dictionary, i.e., a collection where you can access its elements by name.
+[Events](https://doc.sccode.org/Classes/Event.html) extend [Environments](https://doc.sccode.org/Classes/Environment.html) which manage namespaces.
+They are similar to hash maps, hash tables, or a ``Python`` dictionary, i.e., a collection where you can access elements by name.
 For example, calling a function will create a new local function environment.
 Environments map names to variables and functions.
 
@@ -61,6 +60,13 @@ var event = (\dur: 1, \freq: 600); // define an event
 event[\dur].postln; // 1
 event.play; // play the event
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/play-event.mp3'
+ipd.Audio(audio_path)
 ```
 
 What is going on here?
@@ -112,12 +118,11 @@ SynthDef(\default, {
         XLine.kr(Rand(4000,5000), Rand(2500,3200), 1) // cutoff
     ) * Linen.kr(gate, 0.01, 0.7, 0.3, 2); // * envelope
     OffsetOut.ar(out, Pan2.ar(z, pan, amp));
-}
+});
 ```
 
 It is a filtered randomly distorted [sawtooth wave](sec-sawtooth-wave) with variable duty multiplied by a percussive envelope.
 Two slightly detuned waves are generated and mixed a single channel which is then panned into both speakers.
-
 The cutoff frequency of the [low pass filter](sec-lowpass-filter) decreases over the time span of 1 second and is initialized with random values.
 By decreasing the cutoff frequency over time, high frequencies die out faster which is natural.
 
@@ -126,9 +131,9 @@ By decreasing the cutoff frequency over time, high frequencies die out faster wh
 
 Playing events with [Pbind](https://doc.sccode.org/Classes/Pbind.html) (or [Pbindef](https://doc.sccode.org/Classes/Pbindef.html)) using other patterns is a compelling but also inviting challenge.
 In my opinion, the main difficulty stems from the fact that each argument of the synth (and/or the ``play`` method) is defined by its own mostly independent stream of numbers.
-This invites you to think about each argument, such as frequency (``\freq``) and duration (``\dur``), independently, which is contrary to the western musical notation where a pair of pitch and duration defines a musical note.
+This invites you to think about each argument, such as frequency (``\freq``) and duration (``\dur``), independently, which is contrary to the western musical notation where a pair, namely pitch and duration, defines a musical note.
 Another source of confusion is the fact that [Pbind](https://doc.sccode.org/Classes/Pbind.html) allows you to specify the same class of arguments in different ways.
-For example, you can define the pitch (a specific class) via the frequency argument ``\freq`` a combination of ``\midinote``, ``\harmonic``, and more and other combinations of arguments.
+For example, you can define the pitch (a specific class) via the frequency argument ``\freq`` a combination of ``\midinote``, ``\harmonic``, and other combinations of arguments.
 This flexibility is handy, but it can also feel overwhelming, especially for beginners.
 
 ```{admonition} Naming Convention of Synth Arguments
@@ -145,7 +150,7 @@ Furthermore, it gives us information about all the default values.
 These values are also discussed in the official [pattern guide](https://doc.sccode.org/Tutorials/A-Practical-Guide/PG_07_Value_Conversions.html).
 Another source of explanation can be found in the documentation of the [Event](https://doc.sccode.org/Classes/Event.html) class under section *Useful keys for notes*.
 
-SuperCollider provides the specification of the different parameters that influence the scheduling and the play of a single synth.
+SuperCollider provides specification of different parameters that influence the scheduling and the execution of a single synth.
 But it provides different ways to express the same thing and converts it to a specific item.
 For example, a synth only knows frequencies, but you do not have to think in terms of frequencies.
 Instead, you can think in terms of midi notes, and the event player will transform your midi note into the respective frequency.
@@ -227,6 +232,13 @@ holds, where $t_0$ is the time when the whole sequence got scheduled.
 (\instrument: \default, \dur: 0.2, \freq: 300, \lag: 2).play;
 ```
 
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/play-event-lag.mp3'
+ipd.Audio(audio_path)
+```
+
 One very specific argument one can use is ``\strum``.
 It breaks a chord into multiple single notes which can be very handy.
 The default value is 0, i.e., no delay.
@@ -245,7 +257,6 @@ Pbind(
 
 ```{code-cell} python3
 :tags: [remove-input]
-import IPython.display as ipd
 audio_path = '../../../sounds/event-strum.mp3'
 ipd.Audio(audio_path)
 ```
@@ -279,7 +290,7 @@ We will see the effect of the different timing parameters later on when we actua
 As already mentioned, we do not have to work with frequencies.
 In fact, there are many ways to define the pitch of the event, i.e., the played synth, and many of them are more relevant for musicians who are used to them.
 
-One of the concepts is the so-called *midi notes*.
+One of the concepts are the so-called *midi notes*.
 It is baked into [MIDI](sec-midi).
 This system assigns ascending numbers to the keys of a piano, defining C3 to be the midi note 60.
 The argument works together with ``\ctranspose`` and ``\harmonics``.
@@ -313,6 +324,12 @@ The function/message ``midicps`` transforms a midi note into its frequency, see 
     \harmonic: 3
 ).play;
 )
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/play-event-midi.mp3'
+ipd.Audio(audio_path)
 ```
 
 Is equivalent to

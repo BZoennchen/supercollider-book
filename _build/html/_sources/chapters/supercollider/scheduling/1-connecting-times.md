@@ -10,10 +10,17 @@ Like a *calculator* they take in some argument $x$ and return some value $y(x)$,
 They can incorporate time, for example, if we consider differential equations, but nothing unfolds within a mathematical function.
 Time can only be modeled by a mathematical object but is not implicitely relevant for the computation of a function.
 
-One exception to this rule is the logic developed by Georg Spencer-Brown in his mostly ignored work *The Laws of Form* {cite}`brown:1969`.
+One exception to this rule is the logic developed by George Spencer-Brown in his mostly ignored work *Laws of Form* {cite}`brown:1969`.
 Spencer-Brown introduces the concept of the *re-entry* by resolving self-referential paradoxes in time.
 While the self-referential relation is a pardox in the static world, it becomes a self-generating process in the dynamic world.
-This leads quite naturally to the formalization of an unfolding process, thus it is surprising that his work was mostly ignored by the computer science community.
+This leads quite naturally to the formalization of an unfolding process, that replaces the definition of a static limit, e.g. the imaginary number $i^2 = -1$ is defined as a program
+
+\begin{equation*}
+i \leftarrow -1/i.
+\end{equation*}
+
+It is surprising that his work was mostly ignored by the computer science community.
+
 
 While being a finite and static description, algorithms, describe such processes that unfold in time.
 In many instances they are stateful, they do work, they transform or construct something step by step in a specific order.
@@ -22,10 +29,10 @@ We even reason about the amount of time an algorihm requires and call this *time
 However, it is not a specific time period but an estimation of the number of steps an algorithm requires.
 It measures not a specific time but some or many potential time(s) in which the decribed process happens.
 Therefore, without mentioning time explicitly, algorithms are a logical representation of it.
-And if they are executed, their logical time gets connected to a physical time. 
+And if they are executed, their *logical time* gets connected to a *physical time*. 
 
 If we compose or play music, we reason about the physical time, i.e., the relation between time intervals.
-Your ears are very sensitive to rhythms and small deviations immidiatly strike us.
+Our ears are very sensitive to rhythms and small deviations immidiatly strike us.
 Therefore, we very carefully make sure that everything is synchronized as inteded and everyone plays in time.
 Combining the act of composing or playing music with the act of developing algorithms leads us to an interesting entanglement of two worlds.
-We do not only combine two activities but two concepts of time: the logical with the physical!
+We do not only combine two activities but two concepts of time: the *logical* with the *physical*!

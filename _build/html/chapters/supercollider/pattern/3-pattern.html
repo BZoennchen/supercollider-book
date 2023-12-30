@@ -511,26 +511,26 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pattern">
 <span id="sec-pattern"></span><h1>Pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">#</a></h1>
-<p><a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is an abstract class that is the base for the patterns library.
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is an abstract class that is the base for the pattern library.
 The classes of the pattern library form a rich and concise score language for music.
 Patterns are the <em>stateless</em> blueprint of streams.</p>
 <p>Calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> on a <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> transforms it into a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a>.
 As already mentioned, all simple objects respond to this interface, by returning themselves.
 Consequently, most objects are <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> that define a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> representing an infinite sequence of that object.</p>
-<div class="remark admonition" id="remark-pattern-and-streams">
+<div class="definition admonition" id="definition-pattern-and-streams">
 <p class="admonition-title">Pattern and Streams</p>
 <p>Similar to classes and objects, a <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> is the <em>stateless blueprint</em> for a <em>stateful</em> <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a>.</p>
 </div>
 <p>The difference between <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> and (its) <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> becomes clear if we think in musical terms.
 A composition is a specific <a class="reference external" href="https://doc.sccode.org/Classes/Pattern.html">Pattern</a> and a performance is a <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Stream</a> of that pattern.
 Playing a piano can be seen as a stream of specific <a class="reference external" href="https://doc.sccode.org/Classes/Event.html">Events</a>.
-We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.</p>
-<p>The incredible power of patterns lies in their ability to combine them.
-Similar to unit generators, they are very flexible.
-Let us look at a non-trivial example, where we combine multiple <a class="reference external" href="https://doc.sccode.org/Classes/Prand.html">Prand</a> with a <a class="reference external" href="https://doc.sccode.org/Classes/Pseq.html">Pseq</a> multiplied by <code class="docutils literal notranslate"><span class="pre">10</span></code>.
+We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.
+The incredible power of patterns lies in their ability build more complex pattern by combining different patterns, very similar to the <a class="reference external" href="https://en.wikipedia.org/wiki/Decorator_pattern">decorator pattern</a>.
+Similar to unit generators, they are very flexible.</p>
+<p>Let us look at a non-trivial example, where we combine multiple <a class="reference external" href="https://doc.sccode.org/Classes/Prand.html">Prand</a> with a <a class="reference external" href="https://doc.sccode.org/Classes/Pseq.html">Pseq</a> multiplied by <code class="docutils literal notranslate"><span class="pre">10</span></code>.
 <a class="reference external" href="https://doc.sccode.org/Classes/Prand.html">Prand</a> expects an <em>array</em> of values and picks one of the elements at random whenever <code class="docutils literal notranslate"><span class="pre">next</span></code> is called.
 <a class="reference external" href="https://doc.sccode.org/Classes/Pseq.html">Pseq</a> on the other hand, also expects an <em>array</em> and picks each element in consecutive order.
-<em>Pattern</em> can be configured such that the <em>stream</em> repeats a certain amount of time.
+Most patterns can be configured such that the <em>stream</em> <code class="docutils literal notranslate"><span class="pre">repeats</span></code> a certain amount of time.
 We can also configure them to repeat an infinite <code class="docutils literal notranslate"><span class="pre">inf</span></code> amount of times.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">p</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="nc">Prand</span><span class="p">((</span><span class="mi">5</span><span class="p">..</span><span class="mi">7</span><span class="p">)),</span> <span class="nc">Prand</span><span class="p">((</span><span class="mi">1</span><span class="p">..</span><span class="mi">4</span><span class="p">))],</span> <span class="na">repeats:</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
 <span class="nx">q</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nb">asStream</span><span class="p">();</span>
@@ -598,7 +598,7 @@ Well, they can be combined, and all regular math functions can manipulate them i
 In our first example, we multiplied the <a class="reference external" href="https://doc.sccode.org/Classes/Pseq.html">Pseq</a>-pattern by <code class="docutils literal notranslate"><span class="pre">10</span></code> (calling <code class="docutils literal notranslate"><span class="pre">asStream</span></code> returns a <a class="reference external" href="https://doc.sccode.org/Classes/BinaryOpStream.html">BinaryOpStream</a>).
 Patterns are compelling for building complex <a class="reference external" href="https://doc.sccode.org/Classes/Stream.html">Streams</a>.
 Therefore, they offer us a very comfortable way of building melodies without dealing with threads directly; more on that in section <a class="reference internal" href="5-event-player.html#sec-event-player"><span class="std std-ref">Event Player</span></a>.
-The pattern library abstracts away the thread creation, synchronization, joining, termination, and clean-up task – one of the most challenging problems in computer programming.</p>
+The pattern library abstracts away the thread creation, synchronization, joining, termination, and clean-up task—one of the most challenging problems in computer programming.</p>
 <p>Let us look at the following <em>pattern-free</em> example.
 Instead of using a pattern, we create an infinite loop.
 Within the loop, we play a random midi note and sleep for <code class="docutils literal notranslate"><span class="pre">0.2</span></code> seconds.</p>
@@ -619,7 +619,7 @@ Within the loop, we play a random midi note and sleep for <code class="docutils 
 When our piece becomes more complicated and we use and manipulate multiple parameters of our synth, the code becomes hard to read and interact with.
 For example, we might want to play notes with different durations, i.e., schedule musical events at non-equidistant times.
 We will see how we can replace threading by modeling a composition by a <em>discrete musical event simulation</em>.</p>
-<p>Like functions, patterns support many mathematical operations including composition.</p>
+<p>As mentioned, like functions, patterns support many mathematical operations including composition.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">a</span> <span class="o">=</span> <span class="nc">Pfunc</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">x</span><span class="p">;</span> <span class="nx">x</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">};</span>
 <span class="nx">b</span> <span class="o">=</span> <span class="nc">Pfunc</span> <span class="p">{</span> <span class="kd">arg</span> <span class="nx">x</span><span class="p">;</span> <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">{</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">};</span>

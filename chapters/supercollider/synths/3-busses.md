@@ -21,21 +21,21 @@ Using a more modular implementation requires a good understanding of the *signal
 
 SuperCollider uses a *node tree* for organizing this flow and we can visualize it via ``Server.local.plotTree;`` or ``s.plotTree;``
 The signal flows from the *head* of the tree to its *tail*.
-This wording seems, since one would expect the terms *root* and *leafs*.
-Just remember that the order from *head* to *tail* because it is important if create your synth on the audio server.
+This wording seems confusing, since one would expect the terms *root* and *leafs*.
+Just remember that the order goes from *head* to *tail* because it is important if you create your synth on the audio server.
 
 ```{admonition} Note Tree
 :class: remark
 In SuperCollider the signal flows from the *head* of the *node tree* to its *tail*.
 ```
 
-If our synth do not represent of the whole signal flow graph, there has to be a possibility to read and write the signal.
+If our synth does not represent the whole signal flow graph, there has to be a possibility to read the signal and to somehow manipuate it.
 For this purpose there are so called busses.
-Infact, when we use the [Out](https://doc.sccode.org/Classes/Out.html) unit generator we actually write a signal to a Bus.
+In fact, when we use the [Out](https://doc.sccode.org/Classes/Out.html) unit generator we actually write a signal to a [Bus](https://doc.sccode.org/Classes/Bus.html).
 
 ```{admonition} Bus
 :class: definition
-A [Bus](https://doc.sccode.org/Classes/Bus.html) in SuperCollider is simply a place or a location to which signals can be written and from which signals can be read.
+A [Bus](https://doc.sccode.org/Classes/Bus.html) in SuperCollider is simply a place or a location (on the server) to which signals can be written and from which signals can be read.
 It is a location where audio (or control signals) can exist where multiple processes can share it.
 ```
 
@@ -50,15 +50,18 @@ A stereo signal requires two busses and the [Out](https://doc.sccode.org/Classes
 
 Let's construct a simple example using three synths:
 
-1. An impulse,
-2. A percussive saw wave triggered by the impulse, and
-3. A reverb effect.
+1. an impulse,
+2. a percussive saw wave triggered by the impulse, and
+3. a reverb effect.
    
-The reverb effect should process the signal last, positioning it at the tail.
-The impulse should be at the head, and the saw wave should be at the bottom.
+The reverb effect should process the signal in the last stage.
+Therefore we have to positioning it at the tail.
+The impulse should be at the head, and the saw wave should be in between.
 At this point it is not necissary that you fully understand these [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html).
 When ever ``\impuse`` outputs an impulse, i.e., trigger, [TExpRand](https://doc.sccode.org/Classes/TExpRand.html) spits out a value between 40 and 100.
 It is a so called [demand unit generator](sec-demand-ugens).
+I use [Dust](https://doc.sccode.org/Classes/Dust.html) as a random impulse.
+Its frequency determines the density of the randomly generated impulses.
 
 ```isc
 (
@@ -88,7 +91,7 @@ SynthDef(\reverb,{
 
 The [In](https://doc.sccode.org/Classes/In.html) unit generator read a signal from a bus and its counterpart [Out](https://doc.sccode.org/Classes/Out.html) writes the signal to a bus.
 Note that our default values would not work because each synth would write to bus 0.
-In the following, I use [Bus] objects that are handy to organize busses client-side.
+In the following, I use [Bus](https://doc.sccode.org/Classes/Bus.html) objects that are handy to organize busses client-side.
 However, these objects have no effect on the server, i.e., they do not acutally create new busses but manage bus numbers.
 If we execute the following, we do not hear any sound:
 
@@ -188,7 +191,7 @@ ipd.Audio(audio_path)
 ```
 
 It still works but we can hear all three synths.
-Especially the impulse stands out here.
+Especially the impulse, the short click, stands out here.
 If we replace all [Out](https://doc.sccode.org/Classes/In.html) by [ReplaceOut](https://doc.sccode.org/Classes/ReplaceOut.html) within our synth definitions, the above code creates the desired result.
 
 ```isc

@@ -13,7 +13,7 @@ kernelspec:
 (sec-pattern)=
 # Pattern
 
-[Pattern](https://doc.sccode.org/Classes/Pattern.html) is an abstract class that is the base for the patterns library. 
+[Pattern](https://doc.sccode.org/Classes/Pattern.html) is an abstract class that is the base for the pattern library. 
 The classes of the pattern library form a rich and concise score language for music.
 Patterns are the *stateless* blueprint of streams.
 
@@ -22,8 +22,8 @@ As already mentioned, all simple objects respond to this interface, by returning
 Consequently, most objects are [Pattern](https://doc.sccode.org/Classes/Pattern.html) that define a [Stream](https://doc.sccode.org/Classes/Stream.html) representing an infinite sequence of that object.
 
 ```{admonition} Pattern and Streams
-:name: remark-pattern-and-streams
-:class: remark
+:name: definition-pattern-and-streams
+:class: definition
 Similar to classes and objects, a [Pattern](https://doc.sccode.org/Classes/Pattern.html) is the *stateless blueprint* for a *stateful* [Stream](https://doc.sccode.org/Classes/Stream.html).
 ```
 
@@ -31,13 +31,13 @@ The difference between [Pattern](https://doc.sccode.org/Classes/Pattern.html) an
 A composition is a specific [Pattern](https://doc.sccode.org/Classes/Pattern.html) and a performance is a [Stream](https://doc.sccode.org/Classes/Stream.html) of that pattern. 
 Playing a piano can be seen as a stream of specific [Events](https://doc.sccode.org/Classes/Event.html).
 We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.
-
-The incredible power of patterns lies in their ability to combine them.
+The incredible power of patterns lies in their ability build more complex pattern by combining different patterns, very similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern).
 Similar to unit generators, they are very flexible.
+
 Let us look at a non-trivial example, where we combine multiple [Prand](https://doc.sccode.org/Classes/Prand.html) with a [Pseq](https://doc.sccode.org/Classes/Pseq.html) multiplied by ``10``.
 [Prand](https://doc.sccode.org/Classes/Prand.html) expects an *array* of values and picks one of the elements at random whenever ``next`` is called.
 [Pseq](https://doc.sccode.org/Classes/Pseq.html) on the other hand, also expects an *array* and picks each element in consecutive order.
-*Pattern* can be configured such that the *stream* repeats a certain amount of time.
+Most patterns can be configured such that the *stream* ``repeats`` a certain amount of time.
 We can also configure them to repeat an infinite ``inf`` amount of times.
 
 ```isc
@@ -109,7 +109,7 @@ Well, they can be combined, and all regular math functions can manipulate them i
 In our first example, we multiplied the [Pseq](https://doc.sccode.org/Classes/Pseq.html)-pattern by ``10`` (calling ``asStream`` returns a [BinaryOpStream](https://doc.sccode.org/Classes/BinaryOpStream.html)).
 Patterns are compelling for building complex [Streams](https://doc.sccode.org/Classes/Stream.html).
 Therefore, they offer us a very comfortable way of building melodies without dealing with threads directly; more on that in section [Event Player](sec-event-player).
-The pattern library abstracts away the thread creation, synchronization, joining, termination, and clean-up task -- one of the most challenging problems in computer programming.
+The pattern library abstracts away the thread creation, synchronization, joining, termination, and clean-up task---one of the most challenging problems in computer programming.
 
 Let us look at the following *pattern-free* example.
 Instead of using a pattern, we create an infinite loop.
@@ -134,7 +134,7 @@ When our piece becomes more complicated and we use and manipulate multiple param
 For example, we might want to play notes with different durations, i.e., schedule musical events at non-equidistant times.
 We will see how we can replace threading by modeling a composition by a *discrete musical event simulation*.
 
-Like functions, patterns support many mathematical operations including composition.
+As mentioned, like functions, patterns support many mathematical operations including composition.
 
 ```isc
 (

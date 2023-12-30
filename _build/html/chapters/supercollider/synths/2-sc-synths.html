@@ -524,9 +524,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sc-synthesizers">
 <span id="sec-synths"></span><h1>SC Synthesizers<a class="headerlink" href="#sc-synthesizers" title="Permalink to this headline">#</a></h1>
-<blockquote>
-<div><p>I got reconnect properly with computers […] I didn’t have to use someone else’s idea of what a delay, or a reverb, or a sequencer shoud do, or should sound like; I could start from the ground, and think in terms of sound and maths. It was like coming off the rails. – <em>Jonny Greenwood</em></p>
-</div></blockquote>
 <p>The concept of synth definitions and synth is central to SuperCollider.
 Everything is built around this fundamental concept.
 It can be confusing for beginners because there is a big difference between a synth as we know it in the real world and an instance of <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a>.</p>
@@ -540,7 +537,7 @@ If we instanciate a <a class="reference external" href="https://doc.sccode.org/C
 <code class="docutils literal notranslate"><span class="pre">sclang</span></code> borrows this concept from functional programming languages.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
-We generate synths by calling the defining function with different arguments to do so.</p>
+We generate synths by calling the defining function with different arguments.</p>
 <div class="definition admonition" id="def-synth-def">
 <p class="admonition-title">SynthDef</p>
 <p>An instance of <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> represents a factory of a parameterizable signal-flow-graph.
@@ -563,7 +560,7 @@ It is the process that generates sound via the audio server.</p>
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">#</a></h2>
 <p>We use <code class="docutils literal notranslate"><span class="pre">sclang</span></code> to define a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>.
 It is defined on the client, and we must send it to the audio server.
-To generate sound, we have to tell the server to create a synth via one of its known <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a>.</p>
+To generate sound, we have to tell the server to create a synth of one of its known <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a>.</p>
 <p>The normal workflow goes as follows:</p>
 <ol class="arabic simple">
 <li><p>define (all) your <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> via <code class="docutils literal notranslate"><span class="pre">sclang</span></code></p></li>
@@ -628,7 +625,7 @@ The <code class="docutils literal notranslate"><span class="pre">doneAction</spa
 <div class="remark admonition" id="hint-free-synths">
 <p class="admonition-title">Cleaning up Synth</p>
 <p>The audio server does not know when to cleanup your synth.
-You have to tell the server explicitly – there is no automatic garbage collection.</p>
+You have to tell the server explicitly—there is no automatic garbage collection.</p>
 </div>
 <p>We can also <strong>store</strong> the <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> permanently on our hard drive by calling <code class="docutils literal notranslate"><span class="pre">store()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add()</span></code>.
 This call will create the file <code class="docutils literal notranslate"><span class="pre">sineWave.scsyndef</span></code> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> directory which can be found in your <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> application directory.
@@ -659,15 +656,15 @@ The relationship between server- and client-side code becomes more evident if we
 <span class="nc">Synth</span><span class="p">(</span><span class="ss">\srndsine</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Both <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a> look similar but <code class="docutils literal notranslate"><span class="pre">\crndsine</span></code> uses a client-side random generator, whereas <code class="docutils literal notranslate"><span class="pre">\srndsine</span></code> uses a server-side one, that is, the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://doc.sccode.org/Classes/Random.html">Random</a>.
+<p>Both <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a> look similar but <code class="docutils literal notranslate"><span class="pre">\crndsine</span></code> uses a client-side random generator, whereas <code class="docutils literal notranslate"><span class="pre">\srndsine</span></code> uses a server-side one, that is, the <code class="docutils literal notranslate"><span class="pre">UGen</span></code> called <a class="reference external" href="https://doc.sccode.org/Classes/Rand.html">Rand</a>.
 There is no such thing as a server-side <code class="docutils literal notranslate"><span class="pre">rrand</span></code> function!
 Its evaluation is part of the definition of the signal-flow graph.
 Since <code class="docutils literal notranslate"><span class="pre">rrand</span></code> is evaluated when we add the <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>, each synth of this <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> will generate a randomly chosen sound which is the same for <strong>all</strong> synths constructed by this added <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> object.
 Therefore, if we want a <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a> that generates a random sound whenever it is created, we need server-side randomness using a suitable <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGen</a>, in this case, <a class="reference external" href="https://doc.sccode.org/Classes/Rand.html">Rand</a>.</p>
 <p>In the example above we use the <code class="docutils literal notranslate"><span class="pre">poll</span></code> functions which polls frequently values from unit generators to the client and post them to the post window.
 This can be helpful to see what is going on, i.e., to debug server-side code.
-Whenever we play the first the exact same number gets posted.
-But when we play the second synth multiple times, numbers change.</p>
+Whenever we play <code class="docutils literal notranslate"><span class="pre">\crndsine</span></code> the exact same number gets posted.
+But when we play the second synth, i.e. <code class="docutils literal notranslate"><span class="pre">\srndsine</span></code> multiple times, numbers change.</p>
 <div class="remark admonition" id="hint-server-side-debugging">
 <p class="admonition-title">Server-side Debugging</p>
 <p>You can <code class="docutils literal notranslate"><span class="pre">poll</span></code> any unit generator.
@@ -677,7 +674,7 @@ It will frequently print the values of the generator to the post windows.</p>
 <section id="named-controls">
 <h2>Named Controls<a class="headerlink" href="#named-controls" title="Permalink to this headline">#</a></h2>
 <p>Arguments of a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> can be defined in different ways.
-Similar to function we can either use the signal word <code class="docutils literal notranslate"><span class="pre">arg</span></code></p>
+Similar to functions, we can either use the signal word <code class="docutils literal notranslate"><span class="pre">arg</span></code></p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\beep</span><span class="p">,</span> <span class="p">{</span>
   <span class="kd">arg</span> <span class="nx">freq</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">1.0</span><span class="p">;</span>
@@ -686,7 +683,7 @@ Similar to function we can either use the signal word <code class="docutils lite
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>or we can rely on the bar <code class="docutils literal notranslate"><span class="pre">|</span></code></p>
+<p>or we can rely on the bar <code class="docutils literal notranslate"><span class="pre">|..|</span></code></p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\mysynth</span><span class="p">,</span> <span class="p">{</span>
   <span class="o">|</span><span class="nx">freq</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span><span class="o">=</span><span class="mf">1.0</span><span class="o">|</span>
@@ -706,14 +703,14 @@ You can define such a control in the following manner:</p>
 </pre></div>
 </div>
 <p>The two characters after the <code class="docutils literal notranslate"><span class="pre">.</span></code> determine the rate and type of the <a class="reference external" href="https://doc.sccode.org/Classes/NamedControl.html">NamedControls</a>.
-Using <code class="docutils literal notranslate"><span class="pre">ar</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/AudioControl.html">AudioControl</a> at <em>audio rate</em>, <code class="docutils literal notranslate"><span class="pre">kr</span></code> or <code class="docutils literal notranslate"><span class="pre">ir</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/Control.html">Control</a>, either with continuous <em>control rate</em> signal <code class="docutils literal notranslate"><span class="pre">kr</span></code> or a static value <code class="docutils literal notranslate"><span class="pre">ir</span></code> and using <code class="docutils literal notranslate"><span class="pre">tr</span></code> add a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/TrigControl.html">TrigControl</a>.
+Using <code class="docutils literal notranslate"><span class="pre">ar</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/AudioControl.html">AudioControl</a> at <em>audio rate</em>, <code class="docutils literal notranslate"><span class="pre">kr</span></code> or <code class="docutils literal notranslate"><span class="pre">ir</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/Control.html">Control</a>, either with continuous <em>control rate</em> signal <code class="docutils literal notranslate"><span class="pre">kr</span></code> or a static value <code class="docutils literal notranslate"><span class="pre">ir</span></code> and using <code class="docutils literal notranslate"><span class="pre">tr</span></code> adds a new instance of <a class="reference external" href="https://doc.sccode.org/Classes/TrigControl.html">TrigControl</a>.
 The static value of <code class="docutils literal notranslate"><span class="pre">ir</span></code> is set at the time the synth starts up, and is subsequently unchangeable.
-A <a class="reference external" href="https://doc.sccode.org/Classes/Control.html">Control</a> is a <a class="reference internal" href="1-ugens.html#sec-ugens"><span class="std std-ref">unit generator</span></a> that can be set and routed externally to interact with a running Synth.</p>
+A <a class="reference external" href="https://doc.sccode.org/Classes/Control.html">Control</a> is a <a class="reference internal" href="1-ugens.html#sec-ugens"><span class="std std-ref">unit generator</span></a> that can be set and routed externally to interact with a running synth.</p>
 <div class="remark admonition">
 <p class="admonition-title">Named Control</p>
 <p>If one uses the same <a class="reference external" href="https://doc.sccode.org/Classes/NamedControl.html">NamedControls</a> in a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> multiple times, its <code class="docutils literal notranslate"><span class="pre">value</span></code> and all other arguments have to be identical</p>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">lags</span></code> are given, the <a class="reference external" href="https://doc.sccode.org/Classes/Lag.html">Lag</a> unit generator is applied and if <code class="docutils literal notranslate"><span class="pre">fixedLag</span></code> is set to be <code class="docutils literal notranslate"><span class="pre">true</span></code> a <a class="reference external" href="https://doc.sccode.org/Classes/LagControl.html">LagControl</a> is used, meaning that <code class="docutils literal notranslate"><span class="pre">lags</span></code> can not be modulated at the advantage that fewer unit generators are required.
+<p>If <code class="docutils literal notranslate"><span class="pre">lags</span></code> is given, the <a class="reference external" href="https://doc.sccode.org/Classes/Lag.html">Lag</a> unit generator is applied and if <code class="docutils literal notranslate"><span class="pre">fixedLag</span></code> is set to be <code class="docutils literal notranslate"><span class="pre">true</span></code> a <a class="reference external" href="https://doc.sccode.org/Classes/LagControl.html">LagControl</a> is used, meaning that <code class="docutils literal notranslate"><span class="pre">lags</span></code> can not be modulated at the advantage that fewer unit generators are required.
 I already discussed the lagging of a signal in section <a class="reference internal" href="../basics/9-utility-functions.html#sec-signal-lagging"><span class="std std-ref">Signal Lagging</span></a>.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">\freq.ir(440)</span></code> appears twice in the following code.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -748,7 +745,7 @@ I already discussed the lagging of a signal in section <a class="reference inter
 </pre></div>
 </div>
 <p>Named controls in control rate, i.e. <code class="docutils literal notranslate"><span class="pre">kr</span></code>, are like knops and buttons of a MIDI device.
-When we want to play around with the named controls of our synth we can a graphical user interface <code class="docutils literal notranslate"><span class="pre">gui</span></code> that immitates the control components of such a MIDI device.
+When we want to play around with the named controls of our synth we can utilize a graphical user interface <code class="docutils literal notranslate"><span class="pre">gui</span></code> that immitates the control components of such a MIDI device.
 To do so we have to utilize <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a> instead of <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>.
 Furthermore, we can define the range of possible values using <code class="docutils literal notranslate"><span class="pre">specs</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
