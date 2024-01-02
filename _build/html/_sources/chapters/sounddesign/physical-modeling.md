@@ -291,3 +291,6 @@ Some useful filter UGens for modelling instrument bodies and oscillators for sou
 + [Decay](https://doc.sccode.org/Classes/Decay.html)
 + [Formant](https://doc.sccode.org/Classes/Formant.html)
 + [Formlet](https://doc.sccode.org/Classes/Formlet.html)
++ [Srping](https://doc.sccode.org/Classes/Spring.html)
++ [Ball](https://doc.sccode.org/Classes/Ball.html)
++ [TBall](https://doc.sccode.org/Classes/TBall.html)

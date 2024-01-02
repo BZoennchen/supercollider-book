@@ -30,6 +30,7 @@ PI = np.pi
 TWO_PI = 2*PI
 NUM = 44000
 show = False
+cmap='coolwarm'
 
 sns.set_theme('paper')
 sns.set_style("whitegrid")
@@ -563,10 +564,11 @@ mystnb:
 S = librosa.amplitude_to_db(abs(C))
 
 plt.figure(figsize=(15, 5))
-librosa.display.specshow(S, sr=sr, hop_length=hop_length, x_axis='time', y_axis='linear')
+librosa.display.specshow(S, sr=sr, hop_length=hop_length, x_axis='time', y_axis='linear', cmap=cmap)
 plt.colorbar(format='%+2.0f dB');
 ```
 
+(sec-mel-spectrogram)=
 ### Mel-spectrogram
 
 The *Mel frequency cepstral coefficients* (MFCCs) are a compact representation of the frequency spectrum.
@@ -579,6 +581,7 @@ As we know, when we speak or when any sound is produced, different frequencies o
 These frequencies when combined form a complex sound wave. The human ear responds more to certain frequencies and less to others.
 Specifically, we are more sensitive to lower frequencies (like a bass guitar) than higher frequencies (like a flute), especially at low volumes.
 This is the concept behind the *Mel scale*, which is a *perceptual scale of pitches* that approximates the human ear's response to different frequencies.
+
 
 The calculation of the *MFCC* is an elegant method to separate the *excitation signal* and the *impulse response* of the filter.
 After applying the STFT and throwing away the phase information, we takes the logarithm of the amplitude spectrum.
@@ -626,6 +629,6 @@ M = librosa.feature.melspectrogram(y=x, n_fft=n_fft, hop_length=hop_length, sr=s
 
 M_dB = librosa.power_to_db(np.abs(M));
 plt.figure(figsize=(15, 5))
-librosa.display.specshow(M_dB, x_axis='time', y_axis='mel', sr=sr, fmax=8000);
+librosa.display.specshow(M_dB, x_axis='time', y_axis='mel', sr=sr, fmax=8000, cmap=cmap);
 plt.colorbar(format='%+2.0f dB');
 ```
