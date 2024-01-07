@@ -59,9 +59,9 @@ They were introduced with the [musical instrument digital interface (MIDI)](sec-
 The different piano keys are numbered in an ascending order from left to right.
 A higher midi note corresponds to a higher pitch.
 The note A0 corresponds to the midi note 21, B0 corresponds to the note 22 and A1 corresponds to 33.
-In general, the note Ai corresponds to the midinote
+In general, the note A$k$ corresponds to the midinote
 
-$$21 + 12 \cdot i$$
+$$21 + 12 \cdot k, \quad k \in \mathbb{N}_0$$
 
 because the key pattern of a piano repeats itself and each succesive 12 keys corresponds to one *octave*, see section [Intervals](sec-intervals).
 Consecutive piano keys have consecutive natural number as midi notes.
@@ -83,7 +83,7 @@ Using Eq. {eq}`eq:note:to:frequency` and the fact that the midi note 69 correspo
 
 There are twelve piano keys within an octave are C, C#/Bb, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B.
 This is equivalent to the [chromatic sacle](sec-chromatic-scale).
-The letter gives us the *ptich class / tone* while number tells us in which *octave* we are.
+The letter gives us the *ptich class / tone* while the number tells us in which *octave* we are.
 The combination determines the actual *pitch*.
 
 Since any piano key corresponds to at least one note, there is a function that gives us a midi note for a given note, for the [tuning](sec-tuning) of a piano.

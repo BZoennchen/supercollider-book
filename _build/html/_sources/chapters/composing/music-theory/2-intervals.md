@@ -149,9 +149,9 @@ As we know, frequency is expressed in a logarithmic scale.
 Along that scale the distance between a given frequency and its double (an **octave**) is divided into 1200 equal parts, each of these parts is one **cent**.
 A semitone is the smallest interval of two different notes playable on the piano, i.e., the distance between two consecutive keys or one **half step** or a **minor second (m2)**.
 
-In [12-TET](sec-tet-tuning), a [tuning system](sec-tuning) in which all semitones have the same size, the size of one semitone is exactly 100 cents. 
+In [12-TET](sec-tet-tuning), a [tuning system](sec-tuning) in which all semitones cover the same distance, the distance from to the other semitone is exactly 100 cents. 
 Hence, in 12-TET the cent can be also defined as one hundredth of a semitone.
-Mathematically, the size in cents of the interval from frequency $f_1$ to frequency $f_2$ is
+Mathematically, the distance in cents of the interval from frequency $f_1$ to frequency $f_2$ is
 
 $$1200 \cdot \log_2\left( \frac{f_1}{f_2} \right).$$
 
@@ -177,8 +177,7 @@ Therefore, our perception ability widely outperforms the variants a musician can
 In music theory, intervals are the relationship between any two notes.
 Therefore, we limit ourselves to a few amount of possible intervals.
 But this limitations results in a good distinction between [notes](sec-notes), [chords](sec-chords), and [scales](sec-scales).
-The name of the interval has two parts.
-First, the **type** of the interval and second the **distance** the two notes are from each other.
+The name of an interval has two parts: the **quality** and the **distance** between the two or more notes of the interval.
 
 ### Distance
 
@@ -198,10 +197,10 @@ display(im)
 ```
 
 This is true regardless of the [scale](sec-scales) we are using!
-If we are in the key of C major (all white keys on the piano), F4 to C5 are 7 semitones (**perfect**) apart, while G4 to D5 are also 7 semitones apart.
+If we are in the key of C major (all white keys on the piano), F4 to C5 are 7 semitones (**perfect fifth**) apart, while G4 to D5 are also 7 semitones apart.
 Lowering the note C5 to C5b results in an interval F4-C5b of 6 semitones, i.e. a **diminished fifth**.
 The distance on the staff stays the same but we add a little $b$ symbol to indicate the modification.
-Highering the note C5 to C5# results in an interval F4-C5# of 8 semitones, i.e. a **augmented fifth**.
+Raising the note C5 to C5# results in an interval F4-C5# of 8 semitones, i.e. a **augmented fifth**.
 The distance on the staff stays the same but we add a little $\#$ symbol to indicate the modification.
 The staff below shows all four (vertical) intervals:
 
@@ -315,12 +314,12 @@ For example, $6/5 = 1.2$ becomes $\sqrt[3]{2} \approx 1.1892$.
 | Perfect fifth (P5)                 | V         | 1.498                         | 3:2                   | 7         |
 | Minor sixth (m6)                   | vi        | 1.587                         | 8:5                   | 8         |
 | Major sixth (M6)                   | VI        | 1.682                         | 5:3                   | 9         |
-| Minor seventh (m7)                 | vii       | 1.781                         | 16:9	              | 10        |
+| Minor seventh (m7)                 | vii       | 1.781                         | 16:9	                 | 10        |
 | Major seventh (M7)                 | VII       | 1.888                         | 15:8                  | 11        |
 | Octave (P8)                        | VIII      | 2                             | 2:1                   | 12        |
 
 Let us listen to each interval.
-The following code plays each interval from C to X in ascending order, i.e., X = C#, D, D#, E and so on.
+The following code plays each interval from [C;X] in ascending order, i.e., X = C#, D, D#, E and so on.
 
 ```isc
 (
