@@ -509,7 +509,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-time-fourier-transform">Short-Time Fourier Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side-computation">Client Side Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-side-computation">Server Side Computation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mel-frequency-cepstral-coefficients">Mel Frequency Cepstral Coefficients</a></li>
 </ul>
             </nav>
@@ -527,8 +528,53 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="fft-processing">
 <h1>FFT Processing<a class="headerlink" href="#fft-processing" title="Permalink to this headline">#</a></h1>
 <p>Before we start I highly recommand that you read section <a class="reference internal" href="math/dft.html#sec-dft"><span class="std std-ref">Discrete Fourier Transform</span></a> since this section depends on it.</p>
-<section id="short-time-fourier-transform">
-<h2>Short-Time Fourier Transform<a class="headerlink" href="#short-time-fourier-transform" title="Permalink to this headline">#</a></h2>
+<section id="client-side-computation">
+<h2>Client Side Computation<a class="headerlink" href="#client-side-computation" title="Permalink to this headline">#</a></h2>
+<p>Let me first repeat the example from <a class="reference internal" href="math/dft.html#sec-dft"><span class="std std-ref">Discrete Fourier Transform</span></a> using the same sample rate of 4 Hz.
+First, we define the function</p>
+<div class="math notranslate nohighlight">
+\[y[n] = 5 + 2 \cos(\pi/3 n - \pi/2) + 3 \cos(\pi n)\]</div>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">y</span> <span class="o">=</span> <span class="p">{</span> <span class="o">|</span><span class="nx">t</span><span class="o">|</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">pi</span><span class="o">*</span><span class="nx">t</span><span class="o">-</span><span class="p">(</span><span class="nx">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="nx">cos</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="nx">pi</span> <span class="o">*</span> <span class="nx">t</span><span class="p">))}</span>
+</pre></div>
+</div>
+<p>Then we use the <code class="docutils literal notranslate"><span class="pre">fft</span></code> call of a <a class="reference external" href="https://doc.sccode.org/Classes/Signal.html">Signal</a> which works for real and imaginary signals.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="n">var</span> <span class="n">size</span><span class="p">,</span> <span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">,</span> <span class="n">cosTable</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">result</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">sampleRate</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">duration</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="n">sampleRate</span> <span class="o">*</span> <span class="n">duration</span><span class="p">;</span>
+<span class="p">(</span><span class="s2">&quot;size: &quot;</span> <span class="o">++</span> <span class="n">size</span><span class="p">)</span><span class="o">.</span><span class="n">postln</span><span class="p">;</span>
+
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">Array</span><span class="o">.</span><span class="n">series</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sampleRate</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">({</span><span class="o">|</span><span class="n">t</span><span class="o">|</span> <span class="n">y</span><span class="o">.</span><span class="p">(</span><span class="n">t</span><span class="p">)});</span>
+<span class="n">real</span> <span class="o">=</span> <span class="n">Signal</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]});</span>
+<span class="n">imag</span> <span class="o">=</span> <span class="n">Signal</span><span class="o">.</span><span class="n">newClear</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<span class="n">cosTable</span> <span class="o">=</span> <span class="n">Signal</span><span class="o">.</span><span class="n">fftCosTable</span><span class="p">(</span><span class="n">size</span><span class="p">);</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">,</span> <span class="n">cosTable</span><span class="p">);</span>
+
+<span class="p">(</span><span class="s2">&quot;signal: &quot;</span><span class="o">++</span><span class="n">real</span><span class="p">)</span><span class="o">.</span><span class="n">postln</span><span class="p">;</span>
+<span class="p">(</span><span class="s2">&quot;magintutes: &quot;</span><span class="o">++</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">magnitude</span><span class="o">/</span><span class="n">size</span><span class="p">))</span><span class="o">.</span><span class="n">postln</span><span class="p">;</span>
+<span class="p">(</span><span class="s2">&quot;phases: &quot;</span><span class="o">++</span><span class="n">result</span><span class="o">.</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">postln</span><span class="p">;</span>
+<span class="n">nil</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cosTable</span></code> precomputes a table that speeds up the <code class="docutils literal notranslate"><span class="pre">fft</span></code> execution.
+Furthermore, since we have a real-valued signal, our <code class="docutils literal notranslate"><span class="pre">imag</span></code> signal contains just zeros.
+The output should show the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size</span><span class="p">:</span> <span class="mf">8.0</span>
+<span class="n">signal</span><span class="p">:</span> <span class="n">Signal</span><span class="p">[</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span>
+<span class="n">magintutes</span><span class="p">:</span> <span class="p">[</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span>
+<span class="n">phases</span><span class="p">:</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5707963267949</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5707963267949</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that we divide the magnitude by the size of the signal to get the actual amplitudes of the Fourier series <code class="docutils literal notranslate"><span class="pre">y</span></code> and that</p>
+<div class="math notranslate nohighlight">
+\[1.5707963267949 \approx \frac{\pi}{2}.\]</div>
+<p>TODO</p>
+</section>
+<section id="server-side-computation">
+<h2>Server Side Computation<a class="headerlink" href="#server-side-computation" title="Permalink to this headline">#</a></h2>
 <p>To compute the DFT and IDFT using the FFT algorithm in <a class="reference external" href="https://supercollider.github.io/">SuperCollider (SC)</a>, we use the unit generators <a class="reference external" href="https://doc.sccode.org/Classes/FFT.html">FFT</a> and <a class="reference external" href="https://doc.sccode.org/Classes/IFFT.html">IFFT</a>, respectively.
 And because the fast Fourier transform algorithm is so efficient, we can do it in real time!
 Therefore, we “work” in frequency space by</p>
@@ -658,6 +704,7 @@ Consequently, a pattern of active frequencies is repeated.</p>
 </div>
 </div>
 <p>You might notice the repeating frequncy pattern.</p>
+<p>TODO</p>
 </section>
 <section id="mel-frequency-cepstral-coefficients">
 <h2>Mel Frequency Cepstral Coefficients<a class="headerlink" href="#mel-frequency-cepstral-coefficients" title="Permalink to this headline">#</a></h2>
@@ -730,6 +777,7 @@ Every 0.1 second we read from the control bus and store the data in an <span cla
 </figure>
 </div>
 </div>
+<p>TODO</p>
 </section>
 </section>
 
@@ -800,7 +848,8 @@ Every 0.1 second we read from the control bus and store the data in an <span cla
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#short-time-fourier-transform">Short-Time Fourier Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-side-computation">Client Side Computation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-side-computation">Server Side Computation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mel-frequency-cepstral-coefficients">Mel Frequency Cepstral Coefficients</a></li>
 </ul>
   </nav></div>

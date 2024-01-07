@@ -561,7 +561,7 @@ Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</sp
 <span class="math notranslate nohighlight">\(y[n]\)</span> is periodic and so is <span class="math notranslate nohighlight">\(c^*[k]\)</span>.</p>
 <div class="definition admonition" id="def-discrete-fourier-transform">
 <p class="admonition-title">Discrete Fourier Transform (DFT)</p>
-<p>The <em>discrete Foruier transform (DFT)</em> transforms of a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span> into another sequence of complex numbers <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span>, such that</p>
+<p>The <em>discrete Foruier transform (DFT)</em> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span> into another sequence of complex numbers <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span>, such that</p>
 <div class="math notranslate nohighlight">
 \[c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},\]</div>
 <p>where <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, N-1\)</span> are the coefficients of the <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
@@ -638,7 +638,7 @@ The following code is inefficient but suffice for our purposes.</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">c_k</span></code> contains the values of our coefficients, i.e. <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, 1, 2, 3\)</span> <strong>Hz</strong>, i.e.,</p>
 <div class="math notranslate nohighlight">
-\[c[0] = 20, c[1] = -4i, c[2] = 12, c[3] = +4i.\]</div>
+\[c[0] = 20, \ c[1] = -4i, \ c[2] = 12, \ c[3] = +4i.\]</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="../../../_images/b5d9edb679b349fa3cfac8013b5c55a28edfa549158444a257b4940fbb455636.png" src="../../../_images/b5d9edb679b349fa3cfac8013b5c55a28edfa549158444a257b4940fbb455636.png" />
@@ -648,12 +648,15 @@ The following code is inefficient but suffice for our purposes.</p>
 Since <span class="math notranslate nohighlight">\(y(t)\)</span> is a real-valued function we already know that</p>
 <div class="math notranslate nohighlight">
 \[c[n] \equiv \overline{c[N-n]}.\]</div>
-<p>and the amplitude is given by</p>
+<p>and the <strong>amplitude</strong> is given by</p>
 <div class="math notranslate nohighlight">
-\[\frac{2}{N} \cdot c[n], \text{ if there is another } c[N-n] \]</div>
+\[\frac{2}{N} \cdot |c[n]|, \text{ if there is another } c[N-n] \]</div>
 <p>otherwise it is</p>
 <div class="math notranslate nohighlight">
-\[\frac{1}{N} \cdot c[n]\]</div>
+\[\frac{1}{N} \cdot |c[n]|\]</div>
+<p>The <strong>phase</strong> is given by the <a class="reference external" href="https://de.wikipedia.org/wiki/Arctan2">arctan2</a></p>
+<div class="math notranslate nohighlight">
+\[\text{arctan2}(\text{Im}(c[n]), \text{Re}(c[n])).\]</div>
 <p>Furthermore, because of <em><a class="reference internal" href="sampling.html#theorem-sampling"><span class="std std-ref">Nyquist–Shannon sampling theorem</span></a></em>, we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
 In general, all <span class="math notranslate nohighlight">\(c[n]\)</span> with <span class="math notranslate nohighlight">\(n &gt; \frac{N}{2}\)</span> are <strong>invalid</strong> because of <em><a class="reference internal" href="sampling.html#def-aliasing"><span class="std std-ref">aliasing</span></a></em>.
 Therefore, <span class="math notranslate nohighlight">\(c[3] = 4i\)</span> is ‘’incorrect’’.
@@ -663,7 +666,7 @@ Therefore,</p>
 \[c[1] = 2 \cdot 4i = 8i.\]</div>
 <p>In summary, we get</p>
 <div class="math notranslate nohighlight">
-\[A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3.\]</div>
+\[A_0 = \frac{1}{N} |c[0]| = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3.\]</div>
 <p>Furthermore, <strong>we can perfectly reconstruct the original continuous harmonic signal</strong> <span class="math notranslate nohighlight">\(y(t)\)</span>!</p>
 <p>Now you might wonder what happened to the <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> <span class="math notranslate nohighlight">\(c[1] = -4i\)</span>?
 Remember, multiplying by <span class="math notranslate nohighlight">\(i\)</span> equates to a counterclockwise rotation by 90 degrees.
