@@ -218,6 +218,12 @@ and $\phi$ using
 \phi = \cos^{-1}(a/r).
 \end{equation}
 
+Furthermore we can compute $\phi$ if only $a$ and $b$ are given using the [arctan2](https://de.wikipedia.org/wiki/Arctan2) function
+
+\begin{equation}
+\phi = \text{arctan2}(b, a).
+\end{equation}
+
 ```isc
 (
 var theta = 0.25*pi;

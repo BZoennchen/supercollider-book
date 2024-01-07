@@ -87,7 +87,7 @@ $y[n]$ is periodic and so is $c^*[k]$.
 :name: def-discrete-fourier-transform
 :class: definition
 
-The *discrete Foruier transform (DFT)* transforms of a sequence of $N$ *complex numbers* $y[0], \ldots, y[N-1]$ into another sequence of complex numbers $c[0], \ldots, c[N-1]$, such that
+The *discrete Foruier transform (DFT)* transforms a sequence of $N$ *complex numbers* $y[0], \ldots, y[N-1]$ into another sequence of complex numbers $c[0], \ldots, c[N-1]$, such that
 
 $$c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},$$
 
@@ -222,7 +222,7 @@ c_k = [dft(y_n, k) for k in range(len(y_n))]
 
 ``c_k`` contains the values of our coefficients, i.e. $c[k]$ for $k = 0, 1, 2, 3$ **Hz**, i.e.,
 
-$$c[0] = 20, c[1] = -4i, c[2] = 12, c[3] = +4i.$$
+$$c[0] = 20, \ c[1] = -4i, \ c[2] = 12, \ c[3] = +4i.$$
 
 ```{code-cell} python3
 :tags: [remove-input]
@@ -250,13 +250,17 @@ Since $y(t)$ is a real-valued function we already know that
 
 $$c[n] \equiv \overline{c[N-n]}.$$
 
-and the amplitude is given by 
+and the **amplitude** is given by 
 
-$$\frac{2}{N} \cdot c[n], \text{ if there is another } c[N-n] $$
+$$\frac{2}{N} \cdot |c[n]|, \text{ if there is another } c[N-n] $$
 
 otherwise it is
 
-$$\frac{1}{N} \cdot c[n]$$
+$$\frac{1}{N} \cdot |c[n]|$$
+
+The **phase** is given by the [arctan2](https://de.wikipedia.org/wiki/Arctan2)
+
+$$\text{arctan2}(\text{Im}(c[n]), \text{Re}(c[n])).$$
 
 Furthermore, because of *[Nyquist–Shannon sampling theorem](theorem-sampling)*, we can not compute the amplitude (and phase) of frequencies greater than 2 Hz.
 In general, all $c[n]$ with $n > \frac{N}{2}$ are **invalid** because of *[aliasing](def-aliasing)*.
@@ -268,7 +272,7 @@ $$c[1] = 2 \cdot 4i = 8i.$$
 
 In summary, we get
 
-$$A_0 = \frac{1}{N} c[0] = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3.$$
+$$A_0 = \frac{1}{N} |c[0]| = \frac{20}{4} = 5, \quad A_1 = \frac{2}{4} c[1] = \frac{8}{4} = 2, \quad A_2 = \frac{1}{4} c[2] = \frac{12}{4} = 3.$$
 
 Furthermore, **we can perfectly reconstruct the original continuous harmonic signal** $y(t)$!
 

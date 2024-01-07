@@ -37,7 +37,59 @@ sns.set_style("whitegrid")
 
 Before we start I highly recommand that you read section [Discrete Fourier Transform](sec-dft) since this section depends on it.
 
-## Short-Time Fourier Transform
+## Client Side Computation
+
+Let me first repeat the example from [Discrete Fourier Transform](sec-dft) using the same sample rate of 4 Hz.
+First, we define the function 
+
+$$y[n] = 5 + 2 \cos(\pi/3 n - \pi/2) + 3 \cos(\pi n)$$
+
+```isc
+y = { |t| 5 + (2 * cos(2*pi*t-(pi/2))) + (3 * cos(4 * pi * t))}
+```
+
+Then we use the ``fft`` call of a [Signal](https://doc.sccode.org/Classes/Signal.html) which works for real and imaginary signals.
+
+```
+(
+var size, real, imag, cosTable, tmp, result;
+var sampleRate = 4;
+var duration = 2.0;
+
+size = sampleRate * duration;
+("size: " ++ size).postln;
+
+tmp = Array.series(size, 0, sampleRate.reciprocal).collect({|t| y.(t)});
+real = Signal.fill(size, {|i| tmp[i]});
+imag = Signal.newClear(size);
+cosTable = Signal.fftCosTable(size);
+result = fft(real, imag, cosTable);
+
+("signal: "++real).postln;
+("magintutes: "++(result.magnitude/size)).postln;
+("phases: "++result.phase).postln;
+nil
+)
+```
+
+``cosTable`` precomputes a table that speeds up the ``fft`` execution.
+Furthermore, since we have a real-valued signal, our ``imag`` signal contains just zeros.
+The output should show the following:
+
+```
+size: 8.0
+signal: Signal[ 8.0, 4.0, 8.0, 0.0, 8.0, 4.0, 8.0, 0.0 ]
+magintutes: [ 5.0, 0.0, 1.0, 0.0, 3.0, 0.0, 1.0, 0.0 ]
+phases: [ 0.0, 0.0, -1.5707963267949, 0.0, 0.0, 0.0, 1.5707963267949, 0.0 ]
+```
+
+Note that we divide the magnitude by the size of the signal to get the actual amplitudes of the Fourier series ``y`` and that 
+
+$$1.5707963267949 \approx \frac{\pi}{2}.$$
+
+TODO
+
+## Server Side Computation
 
 To compute the DFT and IDFT using the FFT algorithm in [SuperCollider (SC)](https://supercollider.github.io/), we use the unit generators [FFT](https://doc.sccode.org/Classes/FFT.html) and [IFFT](https://doc.sccode.org/Classes/IFFT.html), respectively.
 And because the fast Fourier transform algorithm is so efficient, we can do it in real time!
@@ -211,6 +263,8 @@ plt.colorbar(format='%+2.0f dB');
 
 You might notice the repeating frequncy pattern.
 
+TODO
+
 ## Mel Frequency Cepstral Coefficients
 
 I introduced the [mel-spectogram](sec-mel-spectrogram) in the section [discrete Fourier transform](sec-dft) and I recommand reading it before you continue.
@@ -305,3 +359,5 @@ def plot_mfcc(mfccs):
 
 plot_mfcc(mfccs)
 ```
+
+TODO

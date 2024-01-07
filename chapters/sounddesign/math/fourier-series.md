@@ -607,7 +607,7 @@ $$
 
 Here we have used the following notations:
 
-$$c_0 = \frac{a_0}{2}, c_n = \frac{a_n - ib_n}{2}, c_{-n} = \frac{a_n + ib_n}{2}.$$
+$$c_0 = \frac{a_0}{2}, \ c_n = \frac{a_n - ib_n}{2}, \ c_{-n} = \frac{a_n + ib_n}{2}.$$
 
 We finally arrive at the *Fourier series in its exponential form*.
 
