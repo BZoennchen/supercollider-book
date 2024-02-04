@@ -38,14 +38,15 @@ I was instantly captivated, especially by the context in which it was placed: ed
 
 I eagerly started experimenting with Sonic Pi. 
 However, soon after getting to grips with it, I craved more control; 
-I yearned to craft my own synths, a task for which Sonic Pi wasn't particularly suited. 
+I yearned to craft my own synths---a task for which Sonic Pi wasn't particularly suited. 
 While Sonic Pi is superb for sequencing your synth and samples, it doesn't offer the same level of flexibility when it comes to creating novel instruments. 
 The process involves preparing your synth and samples beforehand, then using Sonic Pi to manipulate them.
 
 I delved deeper and stumbled upon other intriguing tools like [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/), and of course, [SuperCollider (SC)](https://supercollider.github.io/).
 It's surprising that SuperCollider, despite its maturity and lack of a natural alternative, had not crossed my path earlier.
 
-When compared with Sonic Pi, SuperCollider presents a more challenging learning curve. Its language possesses certain archaic, thus somewhat displeasing, syntax aspects. 
+When compared with Sonic Pi, SuperCollider presents a more challenging learning curve.
+Its language possesses certain archaic thus somewhat displeasing, syntax aspects. 
 This makes it less accessible, yet, at the same time, SuperCollider is considerably more extendable and powerful.
 
 SuperCollider quickly won me over. 
@@ -91,15 +92,16 @@ As you may have inferred, philosophy is a significant interest of mine in my lei
 As a computer scientist who delved into the topic of this book, my programming experience at the time of writing may be valuable for other readers. 
 I possess a wealth of experience in ``Java`` and have even developed an introductory course for ``Python``. 
 Besides that, I am proficient in ``JavaScript``, ``PHP``, ``Scala``, and ``Go``. 
-While I can read and comprehend ``C\C++`` code, my practical experience in these languages is somewhat limited. 
-I am also well-acquainted with GPU programming, specifically using OpenCL. Currently, I'm in the process of learning ``Rust``.
+While I can read and comprehend ``C/C++`` code, my practical experience in these languages is somewhat limited. 
+I am also well-acquainted with GPU programming, particularly with OpenCL. Currently, I'm in the process of learning ``Rust``.
 
 I don't have any formal education in music theory, nor do I play an instrument. 
-I am, in fact, a self-taught "music theorist". 
+I am, in fact, a self-taught music theorist. 
 This represents a stark contrast to other significant contributors, such as [Eli Fieldsteel](https://www.elifieldsteel.com/). 
 However, I have a profound love for music and have always yearned to create my own, never imagining that programming could facilitate this aspiration.
 
-I am not a professional musician or a 'professional' artist. But I fervently believe that every individual is capable of creating a universe replete with meaning. We are storytellers thrust into a world that morphs depending on our moods. While we cannot alter our existence, we have the freedom to choose how to navigate it. Do we deny our surroundings, subsequently becoming estranged? Do we rebel against our inherent state of bewilderment? Do we make the place where we exist our home?
+I am neither a professional musician nor a professional artist. 
+But I fervently believe that every individual is capable of creating a universe replete with meaning. We are storytellers thrust into a world that morphs depending on our moods. While we cannot alter our existence, we have the freedom to choose how to navigate it. Do we deny our surroundings, subsequently becoming estranged? Do we rebel against our inherent state of bewilderment? Do we make the place where we exist our home?
 
 Music instills a sense of tranquility in me. It tenderly resonates with my soul, reminding me that something in this world embodies 'the concrete' - an element that eludes our analytical minds and defies explanation. Music liberates me. Coding does the same. Consequently, for me, coding music represents the epitome of freedom.
 
@@ -139,7 +141,7 @@ Currently, the book is published using [GitHub-Pages](https://bzoennchen.github.
 
 ## Silent Contributors
 
-I would like to underscore that this book is a compilation of my discoveries, each one filtered and influenced by my perspectives. 
+I would like to underscore that this book is a compilation of my discoveries, each one filtered and influenced by my perspectives, i.e. partly the result of *second-order observation*.
 The creators of the material I explored and the content of the resources I studied are silent contributors. 
 Without the pre-existing material, I would not have been able to learn about SuperCollider or any of the other topics.
 
