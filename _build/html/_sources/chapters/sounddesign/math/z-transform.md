@@ -355,7 +355,7 @@ The *transfer function* $H : \mathbb{C} \rightarrow \mathbb{C}$ of a *linear fil
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}
 
-defined by
+is defined by
 
 \begin{equation}
 H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}},
@@ -369,7 +369,7 @@ If $b_0 \neq 0$ then
 H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits_{k=1}^N (1 - d_k z^{-1})}
 \end{equation*}
 
-where $c_k$ for $k = 1, 2, \ldots M$ are zeros and $d_k, for $k = 1, 2, \ldots N$ are poles.
+where $c_k$ for $k = 1, 2, \ldots M$ are zeros and $d_k$, for $k = 1, 2, \ldots N$ are poles.
 
 ```{admonition} Transfer Funktio and Impulse Response
 :name: theorem-transfer-function-impulse-response

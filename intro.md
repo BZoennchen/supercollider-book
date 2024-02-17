@@ -8,9 +8,9 @@
 
 This book delves into the realm of sound design and music composition through the lens of the programming language and compositional environment known as SuperCollider, a creation of James McCartney and numerous other contributors.
 Here, [SuperCollider](https://supercollider.github.io/) is not merely a tool but a conduit for unveiling the essence of sound and music. This book, therefore, transcends the mere learning of a programming language and development environment. 
-SuperCollider offers us a low-level control that can foster a profound understanding of computer music at its roots.
+SuperCollider offers us low-level control that can foster a profound understanding of computer music at its roots.
 
-The impetus behind this book draws from my experiences as a computer science lecturer, my firm belief in the oft-overlooked creative potential inherent in coding, and perhaps my own struggles with effective communication.
+The impetus behind this book draws from my experiences as a computer science lecturer, my firm belief in the often overlooked creative potential inherent in coding, and perhaps my own struggles with effective communication.
 
 Music, a form of human communication that has evolved over time, is undeniably worth exploring. 
 It can stir profound emotions, narrate tales, and touch us deeply, despite its capacity to be stark, brutal, and eerie. 
@@ -23,11 +23,15 @@ While music demands to be listened to and experienced, it's less common to *expe
 They are often subject to analytical scrutiny, their aesthetic allure arising from their efficiency, correctness, and elegance. 
 My studies in complexity theory, automata theory, and other formal areas were geared towards gaining a deep analytical comprehension of algorithms.
 However, I now believe that similar to music, a purely analytical approach to algorithms conceals some facets of their being-in-the-world and our *Dasein* as we experience their existence. 
-Describing precisely what I mean is challenging, given the inherent limitations of written language, which is an abstraction of the real experience. 
+Describing precisely what I mean is challenging, given the inherent limitations of written language, which is always already an abstraction of the real thing. 
 Since I believe that a purely analytical approach cannot replace experiential knowledge, I posit that *computer music* can augment our understanding of algorithms and technology as a whole. 
 To echo Fisher's sentiments, it can propel music and coding into new emancipatory realms by dismantling the illusion of a *natural order*, potentially rejuvenating selfless collaboration.
 
-The sentiments expressed here resonate with a specific set of beliefs, and I make no attempt to disguise that my motivation for penning this book is intertwined with a particular belief system, which I will gradually reveal to the attentive reader. 
+The sentiments expressed here resonate with a set of beliefs, and I make no attempt to disguise that my motivation for penning this book is intertwined those beliefs, personal struggles and contradictions.
+I am not the kind of person who is blessed with certainty.
+Rather I doubt, reconsider, and struggle to find a definite answer.
+The ambiguity in my mind may shine through the text and I encourage the reader to question everything stated.
+Like any text, it is a perspective that necisarrily has blind spots.
 It would be deceptive to assert that I approach this work without any agenda. 
 Indeed, the prospect of not possessing an agenda seems quite improbable.
 

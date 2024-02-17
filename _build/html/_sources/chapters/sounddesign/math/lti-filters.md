@@ -37,7 +37,7 @@ sns.set_style("whitegrid")
 
 Any electronic or digital system that boosts/attenuates frequencies in a given signal is called a *filter*.
 *Linear filters* process time-varying input signals to produce output signals, subject to the constraint of *linearity*.
-In most cases these linear filters are also time *invariant* (or *shift invariant*) in which case they can be analyzed exactly using [LTI](def-linear-time-invariant) ('linear time-invariant') system theory.
+In most cases these linear filters are also time *invariant* (or *shift invariant*) in which case they can be analyzed exactly using [LTI](def-linear-time-invariant) (linear time-invariant) system theory.
 
 ```{admonition} Linear Time-invariant Filters (LTI)
 :name: def-linear-time-invariant
@@ -46,8 +46,8 @@ In most cases these linear filters are also time *invariant* (or *shift invarian
 Let $x(t)$ be the input signal and $y(t)$ be the output signal of a filter.
 Then a filter is *linear time-invariant* if the following two conditions hold:
 
-1. Linearity: $a \cdot x(t)$ translates to $a \cdot y(t)$ and $x_1(t) + x_2(t)$ translate to $y_1(t) + y_2(t)$ (superposition principle).
-2. Time-invariant: whether we apply an input to the filter now or some time later does not matter. The filters effect does not change over time.
+1. **Linearity**: $a \cdot x(t)$ translates to $a \cdot y(t)$ and $x_1(t) + x_2(t)$ translate to $y_1(t) + y_2(t)$ (superposition principle).
+2. **Timeinvarianze**: whether we apply an input to the filter now or some time later does not matter. The filters effect does not change over time.
 
 ```
 
@@ -65,19 +65,19 @@ The frequency response of a filter tells us how it effects the amplitude and pha
 As a result of the properties of these transforms, the output of the system in the frequency domain is the product of the [*transfer function*](sec-trensfer-function) and the transform of the input $x[n]$.
 In other words, convolution in the time domain is equivalent to multiplication in the frequency domain.
 
-If $H(z)$ is the *transfer function* of the filter, then plugging in $e^{i \omega}$ into $H(\cdot)$ gives us the *frequency response* $H(e^{i \omega})$.
+If $H(z), z \in \mathbb{C}$ is the *transfer function* of the filter, then plugging in $e^{i \omega}, \omega \in \mathbb{R}$ into $H(\cdot)$ gives us the *frequency response* $H(e^{i \omega})$.
 
 ```{admonition} Frequency response
 :name: def-frequency-response
 :class: definition
 
-The *frequency response* of a *linear filter* be represented in one formula (see section [Complex Numbers](sec-complex-numbers))
+The *frequency response* of a *linear filter* can be represented in one formula (see section [Complex Numbers](sec-complex-numbers))
 
 \begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}
 
-where $G(\omega) = |H(e^{i \omega})|$ is the *amplutide frequency response* and $\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})$ the *phase response* of the filter.
+where $G(\omega) = |H(e^{i \omega})|$ is the *amplitude frequency response* and $\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})$ the *phase response* of the filter.
 
 ```
 
@@ -91,30 +91,86 @@ G(\omega) = \frac{O(\omega)}{I(\omega)}.
 :name: def-gain-lti-theorem
 :class: theorem
 
-If the input to any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i \omega t}$, the output will be some constant times the input $B \cdot e^{i\omega t}$ and 
+If the input to any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i \omega t}$, the output will be some constant times the input $B \cdot e^{i\omega t}$ and $G(\omega)$ is defined by
 
 $$G(\omega) = \frac{B}{A}.$$
 
 ```
 
-The default *low-* and *highpass filters* ugens (``LPF`` and  ``HPF`` respectively) of ``sclang``, filter frequencies above or below some *cutoff frequency*.
+The default *low-* and *highpass filters* unit generators (``LPF`` and  ``HPF`` respectively) of ``sclang``, filter frequencies above or below some *cutoff frequency*.
 They are *2nd order Butterworth low-/highpass filter*.
+The gain $G(\omega)$ of the a $n$-order Butterworth low-/highpass filter is defined by:
 
-```{figure} ../../../figs/sounddesign/filters/butterworth-filter.png
----
-width: 600px
-name: fig-butterworth-filter
----
-Frequency response of a first-order Butterworth lowpass filter. By Alejo2083 - Own work, CC BY-SA 3.0, [link](https://commons.wikimedia.org/w/index.php?curid=735081).
-```
+$$G(\omega) = \frac{1}{\sqrt{1+ \omega^{2n}}}.$$
 
-The *[frequency response](def-frequency-response)* of a *2nd order Butterworth lowpass filter* is illustrated above. 
+The *[frequency response](def-frequency-response)* of a *2nd order Butterworth lowpass filter* is illustrated above.
+$n$ is the order as well as the number of *poles* of the filter.
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 Well, that is not entirely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
 Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of {numref}`Fig. {number} <fig-butterworth-filter>` shows the reduction in amplitude.
+The top plot of shows the reduction in amplitude.
 
-The second effect of the filter is a phase shift; compare the bottom plot of {numref}`Fig. {number} <fig-butterworth-filter>`.
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-gain-butterworth
+    caption: Gain of the Butterworth filters of order $n$ where the cutoff frequency is equal to 1.0.
+---
+omega = np.linspace(-np.pi, np.pi, 1000)
+gain = lambda x, n: 1 / (np.sqrt(1+np.power(x, 2*n)))
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(omega, np.abs(gain(omega, 1)), label=r'$n = 1$')
+ax.plot(omega, np.abs(gain(omega, 2)), label=r'$n = 2$')
+ax.plot(omega, np.abs(gain(omega, 5)), label=r'$n = 5$')
+ax.set_xticks([-np.pi, 0, 1.0, np.pi])
+ax.set_xticklabels([r'$-\pi$', r'0', r'1', r'$+\pi$']);
+ax.set_ylabel(r'Gain $G(\omega)$')
+ax.set_xlabel(r'$\omega$ $(2\pi f)$')
+ax.legend();
+```
+
+If $\omega_c$ is the cutoff frequency and $G_0$ is the DC gain (gain at zero frequency), than the gain is
+
+$$G(\omega) = \frac{G_0}{\sqrt{1+ \left(\frac{i\omega}{i \omega_c}\right)^{2n}}}.$$
+
+Thus the plot above illustrates the gain for a cutoff frequency $\omega_c=1$.
+We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-gain-butterworth-log-scale
+    caption: Gain in dB of the Butterworth lowpass filters of order $n$ on a log-scale where the cutoff frequency is equal to 1.0.
+---
+omega = np.logspace(start=-2, stop=2, base=10, num=1000)
+gain = lambda x, n: 1 / (np.sqrt(1+np.power(x, 2*n)))
+db = lambda x, n: 20 * np.log10(gain(x, n))
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(omega, db(omega, 1), label=r'$n = 1$')
+ax.plot(omega, db(omega, 2), label=r'$n = 2$')
+ax.plot(omega, db(omega, 5), label=r'$n = 5$')
+ax.set_xscale('log')
+ax.set_xticks([0.01, 0.1, 1, 10, 100])
+ax.set_xticklabels([r'$0.01$', r'$0.1$', r'$1.0$', r'$10$', r'$100$'])
+ax.set_ylabel(r'Gain $G(\omega)$ in dB')
+ax.set_xlabel(r'$\omega$ $(2\pi f)$')
+ax.set_ylim(-100, 5)
+ax.legend();
+```
+
+The second effect of the filter is a phase shift.
 This effect is crucial if we combine multiple filters because they interact!
 In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!
 
@@ -261,7 +317,7 @@ tags:
     - remove-input
 mystnb:
   image:
-    width: 900px
+    width: 600px
   figure:
     name: fig-simple-lpf
 ---
@@ -288,7 +344,7 @@ tags:
     - remove-input
 mystnb:
   image:
-    width: 900px
+    width: 600px
   figure:
     name: fig-simple-lpf-phase-shift
 ---
@@ -306,7 +362,7 @@ ax.set_xlabel(r'$\omega$');
 ```
 
 This *lowpass filter* has no phase delay at 0 Hz and a maximum delay of $-(\pi/2)T$ at the Nyquist frequency.
-**Note that both responses rely on the sample period** $T = = 1 / f_s$.
+**Note that both responses rely on the sample period** $T = 1 / f_s$.
 If we increase the sample rate, the loss in power of high frequencies decreases!
 To achieve a similar result, we have to adapt the coefficients of the filter equation accordingly.
 
@@ -368,7 +424,7 @@ $$\mathcal{Z}\{ y[n] \} = \frac{(1 - |\alpha|) + \alpha \cdot z^{-1}}{1} = 1 - |
 There is a *pole* at $z = \infty$ and a *zero* at $z = \frac{\alpha}{|\alpha|-1}$.
 Therefore,
 
-$H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)$
+$$H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)$$
 
 If we evaluate the [transfer function](theorem-transfer-function) $H(z)$ for $\alpha = 0.5$ at the frequncies of interest we get the [frequency response](def-frequency-response):
 
@@ -384,9 +440,10 @@ tags:
     - remove-input
 mystnb:
   image:
-    width: 900px
+    width: 600px
   figure:
     name: fig-one-zero
+    caption: Gain of zero one filters with respect to the parameter $\alpha$. There is no parameter for the cutoff frequency.
 ---
 t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x, alpha: (1-np.abs(alpha)) * (1-(alpha/(np.abs(alpha) -1))*np.exp(-1j*x))
@@ -410,6 +467,40 @@ The unit generator [OneZero](http://doc.sccode.org/Classes/OneZero.html) got his
 Remember that the filter completely filters $f_s/2$.
 But since $f_s = 44100$ the overall effect of the filter hardly audible.
 Without a *pole* the filtering effect is weak.
+This can be illustrated by using $T = 1/f_s$ with $f_s = 44 100$ for the plot combined with a log-scale:
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-one-zero-log-scale
+    caption: Gain of zero one (lowpass) filters in dB with respect to the parameter $\alpha$ on a log-scale using $T = 1 / 44100$. There is no parameter for the cutoff frequency.
+---
+t = np.logspace(start=-2, stop=4, base=10, num=1000)
+f_s = 44_100
+T = 1.0 / f_s
+gain = lambda x, alpha: np.abs((1-np.abs(alpha)) * (1-(alpha/(np.abs(alpha) -1))*np.exp(-1j*x*T)))
+#gain = lambda x, alpha: (1-np.abs(alpha)) / np.sqrt((1 - alpha * np.cos(x * T))**2.0 + (alpha * np.sin(x * T))**2.0)
+db = lambda x, alpha: 20 * np.log10(gain(x, alpha))
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, db(t, 0.5), label=r'$\alpha = 0.5$')
+ax.plot(t, db(t, 0.1), label=r'$\alpha = 0.6$')
+ax.plot(t, db(t, 0.99), label=r'$\alpha = 0.4$')
+#ax.plot(t, db(t, 0.8), label=r'$\alpha = 0.8$')
+#ax.plot(t, db(t, -0.5), label=r'$\alpha = -0.5$')
+#ax.plot(t, db(t, -0.8), label=r'$\alpha = -0.8$')
+ax.set_xscale('log')
+ax.set_xticks([0.01, 0.1, 1, 10, 100, 1000, 10000])
+ax.set_xticklabels([r'$0.01$', r'$0.1$', r'$1.0$', r'$10$', r'$100$', r'$1000$', r'$10000$'])
+ax.set_ylabel(r'Gain $G(\omega)$ in dB')
+ax.set_xlabel(r'$\omega$ $(2\pi f)$')
+ax.legend();
+```
 
 ```isc
 (
@@ -449,9 +540,10 @@ tags:
     - remove-input
 mystnb:
   image:
-    width: 900px
+    width: 600px
   figure:
     name: fig-one-pole
+    caption: Gain of one pole filters with respect to the parameter $\alpha$. There is no parameter for the cutoff frequency.
 ---
 t = np.linspace(-np.pi, np.pi, 1000)
 gain = lambda x, alpha: (1-np.abs(alpha)) / (1-alpha*np.exp(-1j*x))
@@ -476,11 +568,47 @@ Compared to the *one zero filter* it is able to have a much steeper drop / incre
 Similar to the *one zero filter* it is a low pass filter for positive $\alpha$ and high pass filter for negative $\alpha$.
 For both these filters, the cutoff frequency $f_c$ is equal to 0 Hz, i.e., all frequencies are effected.
 
+If we use a sample frequency $f_s = 44 100$ Hz, then we get the following realistic result below.
+As you can see, we have to choose $\alpha$ close to $1.0$ to achieve a drop in gain across audible frequencies.
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-one-pole-log-scale
+    caption: Gain of one pole (lowpass) filters in dB with respect to the parameter $\alpha$ on a log-scale using $T = 1 / 44100$. There is no parameter for the cutoff frequency.
+---
+t = np.logspace(start=-2, stop=4, base=10, num=1000)
+f_s = 44_100
+T = 1.0 / f_s
+gain = lambda x, alpha: np.abs((1-np.abs(alpha)) / (1-alpha*np.exp(-1j*x*T)))
+#gain = lambda x, alpha: (1-np.abs(alpha)) / np.sqrt((1 - alpha * np.cos(x * T))**2.0 + (alpha * np.sin(x * T))**2.0)
+db = lambda x, alpha: 20 * np.log10(gain(x, alpha))
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, db(t, 0.8), label=r'$\alpha = 0.8$')
+ax.plot(t, db(t, 0.95), label=r'$\alpha = 0.95$')
+ax.plot(t, db(t, 0.97), label=r'$\alpha = 0.97$')
+#ax.plot(t, db(t, 0.8), label=r'$\alpha = 0.8$')
+#ax.plot(t, db(t, -0.5), label=r'$\alpha = -0.5$')
+#ax.plot(t, db(t, -0.8), label=r'$\alpha = -0.8$')
+ax.set_xscale('log')
+ax.set_xticks([0.01, 0.1, 1, 10, 100, 1000, 10000])
+ax.set_xticklabels([r'$0.01$', r'$0.1$', r'$1.0$', r'$10$', r'$100$', r'$1000$', r'$10000$'])
+ax.set_ylabel(r'Gain $G(\omega)$ in dB')
+ax.set_xlabel(r'$\omega$ $(2\pi f)$')
+ax.legend();
+```
+
 ```isc
 (
 {
-    var alpha = 0.9;
-    OnePole.ar(WhiteNoise.ar(0.3!2), 0.95)
+    var alpha = 0.95;
+    OnePole.ar(WhiteNoise.ar(0.3!2), alpha)
 }.play;
 )
 ```

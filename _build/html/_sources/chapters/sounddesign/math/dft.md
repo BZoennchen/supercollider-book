@@ -336,8 +336,8 @@ $$y(t) = \sin\left(f \cdot 2 \pi \frac{1}{N} \right),$$
 
 where $N = 16$ and $f = 3/4$.
 Let us assume the analysis period of the DFT is only 16 seconds and the sample frequency $f_s$ is $1$ Herz.
-Therefore $f = 4/3$ is clearly not an integer multiple of the sampling frequency.
-Even though we sample one complete period of $y(t)$, computing the DFT will introduce errors.
+Therefore $f = 3/4$ is clearly not an integer multiple of the sampling frequency.
+Even though we sample one complete period of $y(t)$, computing the DFT will introduce errors because we introduce a *discontinuity*!
 
 The following plot shows the actual signal $y(t)$ and the discontinuous signal $y_{\text{dft}}(t)$ 'seen / assumed' by the DFT operation.
 Computing the IDFT gives us the correct sample points, i.e., $y[n] \equiv y_\text{dft}[n]$ holds, but the reconstructed signal $y_\text{idft}(t)$ is incorrect.

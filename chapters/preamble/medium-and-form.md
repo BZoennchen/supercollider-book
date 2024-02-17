@@ -22,21 +22,21 @@ import IPython.display as ipd
 >The difference of mutual dependency and independency is pivotal. -- Niklas Luhmann {cite}`luhmann:1986`
 
 What is art, and what qualifies a creation as a work of art? 
-Even without formal education in art history or aesthetics, I find this question compelling.
+Even without a formal education in art history or aesthetics, I find this question compelling.
 In my view, good art communicates an ineffable truth about our existence.
 It challenges and disrupts by offering a glimpse into what we may call infinite or illusionary.
 In the presence of the truly transcendent, we stand in awe, feeling both a sense of relief and a profound connection to the essence of being.
 This description may be a vague articulation of a sensation, but that is precisely the point: The essence of what art means to me is beyond the confines of language.
 
-The German sociologist Niklas Luhmann gave us a rather abstract but helpful analysis of art by relating it to his concept of *medium* and *form* inspired by Fritz Heider.
-According to him, a medium consists of: a large number of elements or, in the context of time, events.
+The German sociologist Niklas Luhmann gives us a rather abstract but helpful analysis of art by relating it to his concept of *medium* and *form* inspired by Fritz Heider.
+According to him, a medium consists of a large number of elements or, in the context of time, events.
 There are so many elements within a medium that cognition must necessarily operate by selection.
-The term 'element' should not be mistaken for natural constants like particles or souls, which can be objectively observed. 
+The term *element* should not be mistaken for natural constants like particles or souls, which can be objectively observed. 
 Instead, elements are units that are constructed---distinguished by an observing system.
 Moreover, these elements cannot determine themselves; they are subjected to what is known as *coupling*.
 Forms, conversely, arise through the concentration of dependency relations between elements, which the medium itself must support. 
 It is the *loose coupling* and *separability* of a medium's elements that lead to the emergence of form. 
-We do not perceive the medium itself, but rather the form, which coordinates elements within the medium.
+We do not perceive the medium itself, but rather the form which coordinates elements within the medium.
 
 Luhmann's constructivism replaces concepts of inside and outside, of object and subject, with the distinction between medium and form, which is always constructed by a system. 
 Medium and form require a system reference; without it, they do not exist.
@@ -49,7 +49,6 @@ Luhmann's constructivism replaces the thing-oriented or thing-ontological differ
 Medium and form require a systemreference without they do not exist.
 They are not *things for themselves*!
 Like information they are a systeminternal product.
-Furthermore, there is no medium without form and no form without medium.
 The loose coupling of elements of a medium refers to an open majority of possible relations or connections which are still compatible with the unit of an element, e.g. the number of sensible sentences which can be formed by a given word.
 
 Luhmann defines medium in relation to form, i.e., relatively.
@@ -364,9 +363,9 @@ This reality underscores the interconnectedness and complexity inherent in both 
 
 ## Artistic Coding
 
-In the realm of artistic or creative coding, the perception of programming as a rigorous and precise activity dissolves. 
+In the realm of artistic or creative coding, the perception of programming as a rigorous and precise activity completely dissolves. 
 Here, artists use code akin to a musical instrument. 
-For instance, when utilizing creative coding libraries such as [p5.js](https://p5js.org/) or [nannou](https://nannou.cc/) for visual projects, the process is rarely about transcribing a preconceived idea directly. 
+For instance, when utilizing creative coding libraries such as [p5.js](https://p5js.org/), [Processing](https://processing.org/) or [nannou](https://nannou.cc/) for visual projects, the process is rarely about transcribing a preconceived idea directly. 
 Instead, it begins with something simple: a circle, a line, a loop, or a combination of these elements.
 
 The approach involves tinkering and experimenting, repeatedly running the program to observe how changes affect the visuals. 
@@ -376,7 +375,7 @@ The artist helps the artwork to come into being.
 It is a contigent process.
 What comes next depends on the horizon of the possible, i.e. the language, libraries and what is already present.
 
-For me, the allure of (classical) generative art lies in the exploration of simple rules and the emergent complexity produced by repetition and recusion.
+For me, the allure of (classical) generative art lies in the exploration of simple rules and the emergent complexity produced by repetition and recursion.
 One example was a piece for which I limited myself to draw only perpendicular lines.
 I start drawing a line and while the line is drawn there is a probability, that another line will be drawn starting at the current endpoint.
 This line has to be perpendicular to its parent.
