@@ -97,117 +97,6 @@ $$G(\omega) = \frac{B}{A}.$$
 
 ```
 
-The default *low-* and *highpass filters* unit generators (``LPF`` and  ``HPF`` respectively) of ``sclang``, filter frequencies above or below some *cutoff frequency*.
-They are *2nd order Butterworth low-/highpass filter*.
-The gain $G(\omega)$ of the a $n$-order Butterworth low-/highpass filter is defined by:
-
-$$G(\omega) = \frac{1}{\sqrt{1+ \omega^{2n}}}.$$
-
-The *[frequency response](def-frequency-response)* of a *2nd order Butterworth lowpass filter* is illustrated above.
-$n$ is the order as well as the number of *poles* of the filter.
-The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not entirely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
-Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of shows the reduction in amplitude.
-
-```{code-cell} python3
----
-tags: 
-    - remove-input
-mystnb:
-  image:
-    width: 600px
-  figure:
-    name: fig-gain-butterworth
-    caption: Gain of the Butterworth filters of order $n$ where the cutoff frequency is equal to 1.0.
----
-omega = np.linspace(-np.pi, np.pi, 1000)
-gain = lambda x, n: 1 / (np.sqrt(1+np.power(x, 2*n)))
-
-fig, ax = plt.subplots(figsize=(10,5))
-ax.plot(omega, np.abs(gain(omega, 1)), label=r'$n = 1$')
-ax.plot(omega, np.abs(gain(omega, 2)), label=r'$n = 2$')
-ax.plot(omega, np.abs(gain(omega, 5)), label=r'$n = 5$')
-ax.set_xticks([-np.pi, 0, 1.0, np.pi])
-ax.set_xticklabels([r'$-\pi$', r'0', r'1', r'$+\pi$']);
-ax.set_ylabel(r'Gain $G(\omega)$')
-ax.set_xlabel(r'$\omega$ $(2\pi f)$')
-ax.legend();
-```
-
-If $\omega_c$ is the cutoff frequency and $G_0$ is the DC gain (gain at zero frequency), than the gain is
-
-$$G(\omega) = \frac{G_0}{\sqrt{1+ \left(\frac{i\omega}{i \omega_c}\right)^{2n}}}.$$
-
-Thus the plot above illustrates the gain for a cutoff frequency $\omega_c=1$.
-We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.
-
-```{code-cell} python3
----
-tags: 
-    - remove-input
-mystnb:
-  image:
-    width: 600px
-  figure:
-    name: fig-gain-butterworth-log-scale
-    caption: Gain in dB of the Butterworth lowpass filters of order $n$ on a log-scale where the cutoff frequency is equal to 1.0.
----
-omega = np.logspace(start=-2, stop=2, base=10, num=1000)
-gain = lambda x, n: 1 / (np.sqrt(1+np.power(x, 2*n)))
-db = lambda x, n: 20 * np.log10(gain(x, n))
-
-fig, ax = plt.subplots(figsize=(10,5))
-ax.plot(omega, db(omega, 1), label=r'$n = 1$')
-ax.plot(omega, db(omega, 2), label=r'$n = 2$')
-ax.plot(omega, db(omega, 5), label=r'$n = 5$')
-ax.set_xscale('log')
-ax.set_xticks([0.01, 0.1, 1, 10, 100])
-ax.set_xticklabels([r'$0.01$', r'$0.1$', r'$1.0$', r'$10$', r'$100$'])
-ax.set_ylabel(r'Gain $G(\omega)$ in dB')
-ax.set_xlabel(r'$\omega$ $(2\pi f)$')
-ax.set_ylim(-100, 5)
-ax.legend();
-```
-
-The second effect of the filter is a phase shift.
-This effect is crucial if we combine multiple filters because they interact!
-In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!
-
-The following code is an example of a band pass filter.
-First, we use a lowpass and high pass filter; then a band pass filter.
-The results sound very similar but not identical.
-
-```isc
-({
-    var sig = LFSaw.ar(500) ! 2 * 0.5;
-    sig = HPF.ar(sig, 200);
-    sig = LPF.ar(sig, 300);
-    sig
-}.play;)
-
-({
-    var sig = LFSaw.ar(500) ! 2 * 0.5;
-    var bandwidth = 100;
-    var cuttoffFeq = 200;
-    sig = BPF.ar(sig, 250, rq: bandwidth / cuttoffFeq);
-    sig
-}.play;)
-```
-
-For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter ``BRF``.
-The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.
-
-```isc
-({
-    var sig = LFSaw.ar(500) ! 2 * 0.5;
-    var bandwidth = 100;
-    var cuttoffFeq = 200;
-    sig = BRF.ar(sig, 250, rq: bandwidth / cuttoffFeq);
-    sig
-}.play;)
-```
-
 (sec-analysis-simple-filter)=
 ## Analysis of a Simple Filter
 
@@ -611,6 +500,119 @@ ax.legend();
     OnePole.ar(WhiteNoise.ar(0.3!2), alpha)
 }.play;
 )
+```
+
+## Butterworth Filter
+
+The default *low-* and *highpass filters* unit generators (``LPF`` and  ``HPF`` respectively) of ``sclang``, filter frequencies above or below some *cutoff frequency*.
+They are *2nd order Butterworth low-/highpass filter*.
+The gain $G(\omega)$ of the a $n$-order Butterworth low-/highpass filter is defined by:
+
+$$G(\omega) = \frac{1}{\sqrt{1+ \omega^{2n}}}.$$
+
+The *[frequency response](def-frequency-response)* of a *2nd order Butterworth lowpass filter* is illustrated above.
+$n$ is the order as well as the number of *poles* of the filter.
+The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
+Well, that is not entirely true because the cutoff frequency is also reduced by 6 [decibel (dB)](sec-intensity), so the reduction starts a little bit below the cutoff frequency.
+Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
+The top plot of shows the reduction in amplitude.
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-gain-butterworth
+    caption: Gain of the Butterworth filters of order $n$ where the cutoff frequency is equal to 1.0.
+---
+omega = np.linspace(-np.pi, np.pi, 1000)
+gain = lambda x, n: 1 / (np.sqrt(1+np.power(x, 2*n)))
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(omega, np.abs(gain(omega, 1)), label=r'$n = 1$')
+ax.plot(omega, np.abs(gain(omega, 2)), label=r'$n = 2$')
+ax.plot(omega, np.abs(gain(omega, 5)), label=r'$n = 5$')
+ax.set_xticks([-np.pi, 0, 1.0, np.pi])
+ax.set_xticklabels([r'$-\pi$', r'0', r'1', r'$+\pi$']);
+ax.set_ylabel(r'Gain $G(\omega)$')
+ax.set_xlabel(r'$\omega$ $(2\pi f)$')
+ax.legend();
+```
+
+If $\omega_c$ is the cutoff frequency and $G_0$ is the DC gain (gain at zero frequency), than the gain is
+
+$$G(\omega) = \frac{G_0}{\sqrt{1+ \left(\frac{i\omega}{i \omega_c}\right)^{2n}}}.$$
+
+Thus the plot above illustrates the gain for a cutoff frequency $\omega_c=1$.
+We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-gain-butterworth-log-scale
+    caption: Gain in dB of the Butterworth lowpass filters of order $n$ on a log-scale where the cutoff frequency is equal to 1.0.
+---
+omega = np.logspace(start=-2, stop=2, base=10, num=1000)
+gain = lambda x, n: 1 / (np.sqrt(1+np.power(x, 2*n)))
+db = lambda x, n: 20 * np.log10(gain(x, n))
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(omega, db(omega, 1), label=r'$n = 1$')
+ax.plot(omega, db(omega, 2), label=r'$n = 2$')
+ax.plot(omega, db(omega, 5), label=r'$n = 5$')
+ax.set_xscale('log')
+ax.set_xticks([0.01, 0.1, 1, 10, 100])
+ax.set_xticklabels([r'$0.01$', r'$0.1$', r'$1.0$', r'$10$', r'$100$'])
+ax.set_ylabel(r'Gain $G(\omega)$ in dB')
+ax.set_xlabel(r'$\omega$ $(2\pi f)$')
+ax.set_ylim(-100, 5)
+ax.legend();
+```
+
+The second effect of the filter is a phase shift.
+This effect is crucial if we combine multiple filters because they interact!
+In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!
+
+The following code is an example of a band pass filter.
+First, we use a lowpass and high pass filter; then a band pass filter.
+The results sound very similar but not identical.
+
+```isc
+({
+    var sig = LFSaw.ar(500) ! 2 * 0.5;
+    sig = HPF.ar(sig, 200);
+    sig = LPF.ar(sig, 300);
+    sig
+}.play;)
+
+({
+    var sig = LFSaw.ar(500) ! 2 * 0.5;
+    var bandwidth = 100;
+    var cuttoffFeq = 200;
+    sig = BPF.ar(sig, 250, rq: bandwidth / cuttoffFeq);
+    sig
+}.play;)
+```
+
+For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter ``BRF``.
+The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.
+
+```isc
+({
+    var sig = LFSaw.ar(500) ! 2 * 0.5;
+    var bandwidth = 100;
+    var cuttoffFeq = 200;
+    sig = BRF.ar(sig, 250, rq: bandwidth / cuttoffFeq);
+    sig
+}.play;)
 ```
 
 (sec-impulse-response)=
