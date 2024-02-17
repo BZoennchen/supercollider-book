@@ -508,6 +508,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-zero-filter">One Zero Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-pole-filter">One Pole Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
 </ul>
             </nav>
@@ -552,15 +553,15 @@ In other words, convolution in the time domain is equivalent to multiplication i
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency response</p>
 <p>The <em>frequency response</em> of a <em>linear filter</em> can be represented in one formula (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c91f565d-2c11-40f0-bc83-6f41530f99a7">
-<span class="eqno">(42)<a class="headerlink" href="#equation-c91f565d-2c11-40f0-bc83-6f41530f99a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f1c5f1ab-2e4c-4998-b2b2-7a8c0f98dc0b">
+<span class="eqno">(42)<a class="headerlink" href="#equation-f1c5f1ab-2e4c-4998-b2b2-7a8c0f98dc0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega}) = \underbrace{G(\omega)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega) = |H(e^{i \omega})|\)</span> is the <em>amplitude frequency response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega) = \angle H(e^{i \omega})\)</span> the <em>phase response</em> of the filter.</p>
 </div>
 <p>The <em>gain</em> <span class="math notranslate nohighlight">\(G(\omega)\)</span> in frequency <span class="math notranslate nohighlight">\(f = \frac{\omega}{2 \pi}\)</span> is equal to the frequency amplitude of the input signal divided by the frequency amplitude of the output signal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10c47166-26d7-4920-8a09-c7c96a927d5a">
-<span class="eqno">(43)<a class="headerlink" href="#equation-10c47166-26d7-4920-8a09-c7c96a927d5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a5b7e534-c4f3-46fc-937d-1d22f61f04ab">
+<span class="eqno">(43)<a class="headerlink" href="#equation-a5b7e534-c4f3-46fc-937d-1d22f61f04ab" title="Permalink to this equation">#</a></span>\[\begin{equation}
 G(\omega) = \frac{O(\omega)}{I(\omega)}.
 \end{equation}\]</div>
 <div class="theorem admonition" id="def-gain-lti-theorem">
@@ -569,82 +570,13 @@ G(\omega) = \frac{O(\omega)}{I(\omega)}.
 <div class="math notranslate nohighlight">
 \[G(\omega) = \frac{B}{A}.\]</div>
 </div>
-<p>The default <em>low-</em> and <em>highpass filters</em> unit generators (<code class="docutils literal notranslate"><span class="pre">LPF</span></code> and  <code class="docutils literal notranslate"><span class="pre">HPF</span></code> respectively) of <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, filter frequencies above or below some <em>cutoff frequency</em>.
-They are <em>2nd order Butterworth low-/highpass filter</em>.
-The gain <span class="math notranslate nohighlight">\(G(\omega)\)</span> of the a <span class="math notranslate nohighlight">\(n\)</span>-order Butterworth low-/highpass filter is defined by:</p>
-<div class="math notranslate nohighlight">
-\[G(\omega) = \frac{1}{\sqrt{1+ \omega^{2n}}}.\]</div>
-<p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
-<span class="math notranslate nohighlight">\(n\)</span> is the order as well as the number of <em>poles</em> of the filter.
-The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
-Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../../misc/terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
-Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of shows the reduction in amplitude.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<figure class="align-default" id="fig-gain-butterworth">
-<a class="reference internal image-reference" href="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png"><img alt="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png" src="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Gain of the Butterworth filters of order <span class="math notranslate nohighlight">\(n\)</span> where the cutoff frequency is equal to 1.0.</span><a class="headerlink" href="#fig-gain-butterworth" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</div>
-</div>
-<p>If <span class="math notranslate nohighlight">\(\omega_c\)</span> is the cutoff frequency and <span class="math notranslate nohighlight">\(G_0\)</span> is the DC gain (gain at zero frequency), than the gain is</p>
-<div class="math notranslate nohighlight">
-\[G(\omega) = \frac{G_0}{\sqrt{1+ \left(\frac{i\omega}{i \omega_c}\right)^{2n}}}.\]</div>
-<p>Thus the plot above illustrates the gain for a cutoff frequency <span class="math notranslate nohighlight">\(\omega_c=1\)</span>.
-We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<figure class="align-default" id="fig-gain-butterworth-log-scale">
-<a class="reference internal image-reference" href="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png"><img alt="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png" src="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Gain in dB of the Butterworth lowpass filters of order <span class="math notranslate nohighlight">\(n\)</span> on a log-scale where the cutoff frequency is equal to 1.0.</span><a class="headerlink" href="#fig-gain-butterworth-log-scale" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-</div>
-</div>
-<p>The second effect of the filter is a phase shift.
-This effect is crucial if we combine multiple filters because they interact!
-In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!</p>
-<p>The following code is an example of a band pass filter.
-First, we use a lowpass and high pass filter; then a band pass filter.
-The results sound very similar but not identical.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
-    <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
-
-<span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
-    <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
-</pre></div>
-</div>
-<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.
-The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
-<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
-    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BRF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
-    <span class="nx">sig</span>
-<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
-</pre></div>
-</div>
 </section>
 <section id="analysis-of-a-simple-filter">
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66580bfb-1cd0-4000-9468-19ac626055c7">
-<span class="eqno">(44)<a class="headerlink" href="#equation-66580bfb-1cd0-4000-9468-19ac626055c7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8bbb3b2c-21bb-467a-bc27-7182175d54a6">
+<span class="eqno">(44)<a class="headerlink" href="#equation-8bbb3b2c-21bb-467a-bc27-7182175d54a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -762,8 +694,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>A LTI Filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba7859cc-200f-4f57-b32e-18f2676d2ed7">
-<span class="eqno">(45)<a class="headerlink" href="#equation-ba7859cc-200f-4f57-b32e-18f2676d2ed7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4fcd792e-21dd-4570-af76-fed9b798efef">
+<span class="eqno">(45)<a class="headerlink" href="#equation-4fcd792e-21dd-4570-af76-fed9b798efef" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega) \cdot e^{i \mathcal{\Theta}(\omega)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -798,7 +730,7 @@ Therefore,</p>
 <figure class="align-default" id="fig-one-zero">
 <a class="reference internal image-reference" href="../../../_images/a8dbd2bed8522d8ba122ffb062e85ae46c10f29cd572cdae8d1426efff9690bf.png"><img alt="../../../_images/a8dbd2bed8522d8ba122ffb062e85ae46c10f29cd572cdae8d1426efff9690bf.png" src="../../../_images/a8dbd2bed8522d8ba122ffb062e85ae46c10f29cd572cdae8d1426efff9690bf.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Gain of zero one filters with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-zero" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Gain of zero one filters with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-zero" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -813,7 +745,7 @@ This can be illustrated by using <span class="math notranslate nohighlight">\(T 
 <figure class="align-default" id="fig-one-zero-log-scale">
 <a class="reference internal image-reference" href="../../../_images/d2367680902ad2cd08cd41943b7bc7c612ef32b3560eb6b888f3035ef9c37f5a.png"><img alt="../../../_images/d2367680902ad2cd08cd41943b7bc7c612ef32b3560eb6b888f3035ef9c37f5a.png" src="../../../_images/d2367680902ad2cd08cd41943b7bc7c612ef32b3560eb6b888f3035ef9c37f5a.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Gain of zero one (lowpass) filters in dB with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span> on a log-scale using <span class="math notranslate nohighlight">\(T = 1 / 44100\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-zero-log-scale" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Gain of zero one (lowpass) filters in dB with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span> on a log-scale using <span class="math notranslate nohighlight">\(T = 1 / 44100\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-zero-log-scale" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -849,7 +781,7 @@ Therefore,</p>
 <figure class="align-default" id="fig-one-pole">
 <a class="reference internal image-reference" href="../../../_images/9762b432344a9e19b2c67519c6ae35c3a7b5b1eaa8684b8dd0289d6fde057bcd.png"><img alt="../../../_images/9762b432344a9e19b2c67519c6ae35c3a7b5b1eaa8684b8dd0289d6fde057bcd.png" src="../../../_images/9762b432344a9e19b2c67519c6ae35c3a7b5b1eaa8684b8dd0289d6fde057bcd.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Gain of one pole filters with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-pole" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Gain of one pole filters with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-pole" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -866,7 +798,7 @@ As you can see, we have to choose <span class="math notranslate nohighlight">\(\
 <figure class="align-default" id="fig-one-pole-log-scale">
 <a class="reference internal image-reference" href="../../../_images/50c7a503b3ff1f54a9e56a4916febbe6643d3ce9006f51f3dc14a4076180f8ff.png"><img alt="../../../_images/50c7a503b3ff1f54a9e56a4916febbe6643d3ce9006f51f3dc14a4076180f8ff.png" src="../../../_images/50c7a503b3ff1f54a9e56a4916febbe6643d3ce9006f51f3dc14a4076180f8ff.png" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Gain of one pole (lowpass) filters in dB with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span> on a log-scale using <span class="math notranslate nohighlight">\(T = 1 / 44100\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-pole-log-scale" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Gain of one pole (lowpass) filters in dB with respect to the parameter <span class="math notranslate nohighlight">\(\alpha\)</span> on a log-scale using <span class="math notranslate nohighlight">\(T = 1 / 44100\)</span>. There is no parameter for the cutoff frequency.</span><a class="headerlink" href="#fig-one-pole-log-scale" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -877,6 +809,78 @@ As you can see, we have to choose <span class="math notranslate nohighlight">\(\
     <span class="nc">OnePole</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.3</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> <span class="nx">alpha</span><span class="p">)</span>
 <span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="butterworth-filter">
+<h2>Butterworth Filter<a class="headerlink" href="#butterworth-filter" title="Permalink to this headline">#</a></h2>
+<p>The default <em>low-</em> and <em>highpass filters</em> unit generators (<code class="docutils literal notranslate"><span class="pre">LPF</span></code> and  <code class="docutils literal notranslate"><span class="pre">HPF</span></code> respectively) of <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, filter frequencies above or below some <em>cutoff frequency</em>.
+They are <em>2nd order Butterworth low-/highpass filter</em>.
+The gain <span class="math notranslate nohighlight">\(G(\omega)\)</span> of the a <span class="math notranslate nohighlight">\(n\)</span>-order Butterworth low-/highpass filter is defined by:</p>
+<div class="math notranslate nohighlight">
+\[G(\omega) = \frac{1}{\sqrt{1+ \omega^{2n}}}.\]</div>
+<p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order Butterworth lowpass filter</em> is illustrated above.
+<span class="math notranslate nohighlight">\(n\)</span> is the order as well as the number of <em>poles</em> of the filter.
+The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
+Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../../misc/terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
+Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
+The top plot of shows the reduction in amplitude.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="fig-gain-butterworth">
+<a class="reference internal image-reference" href="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png"><img alt="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png" src="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Gain of the Butterworth filters of order <span class="math notranslate nohighlight">\(n\)</span> where the cutoff frequency is equal to 1.0.</span><a class="headerlink" href="#fig-gain-butterworth" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>If <span class="math notranslate nohighlight">\(\omega_c\)</span> is the cutoff frequency and <span class="math notranslate nohighlight">\(G_0\)</span> is the DC gain (gain at zero frequency), than the gain is</p>
+<div class="math notranslate nohighlight">
+\[G(\omega) = \frac{G_0}{\sqrt{1+ \left(\frac{i\omega}{i \omega_c}\right)^{2n}}}.\]</div>
+<p>Thus the plot above illustrates the gain for a cutoff frequency <span class="math notranslate nohighlight">\(\omega_c=1\)</span>.
+We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="fig-gain-butterworth-log-scale">
+<a class="reference internal image-reference" href="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png"><img alt="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png" src="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Gain in dB of the Butterworth lowpass filters of order <span class="math notranslate nohighlight">\(n\)</span> on a log-scale where the cutoff frequency is equal to 1.0.</span><a class="headerlink" href="#fig-gain-butterworth-log-scale" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The second effect of the filter is a phase shift.
+This effect is crucial if we combine multiple filters because they interact!
+In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!</p>
+<p>The following code is an example of a band pass filter.
+First, we use a lowpass and high pass filter; then a band pass filter.
+The results sound very similar but not identical.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">HPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+
+<span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
+</pre></div>
+</div>
+<p>For completeness I also want to mention the inverse filter of a band pass filter: the band reject filter <code class="docutils literal notranslate"><span class="pre">BRF</span></code>.
+The following example rejects frequencies between 200 and 300 Hz, i.e., the inverse operation as before.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
+    <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">!</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">bandwidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">cuttoffFeq</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+    <span class="nx">sig</span> <span class="o">=</span> <span class="nc">BRF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nx">sig</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="na">rq:</span> <span class="nx">bandwidth</span> <span class="o">/</span> <span class="nx">cuttoffFeq</span><span class="p">);</span>
+    <span class="nx">sig</span>
+<span class="p">}.</span><span class="nx">play</span><span class="p">;)</span>
 </pre></div>
 </div>
 </section>
@@ -903,8 +907,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3d17b19f-ebe7-44f4-b185-61ed86479744">
-<span class="eqno">(46)<a class="headerlink" href="#equation-3d17b19f-ebe7-44f4-b185-61ed86479744" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-615a98c4-2e8e-40eb-8baf-7d6bec0a1a97">
+<span class="eqno">(46)<a class="headerlink" href="#equation-615a98c4-2e8e-40eb-8baf-7d6bec0a1a97" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -923,8 +927,8 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 <p class="admonition-title">FIR Filter</p>
 <p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8cab38c-5c15-4f4e-947f-f0ca472fecac">
-<span class="eqno">(47)<a class="headerlink" href="#equation-d8cab38c-5c15-4f4e-947f-f0ca472fecac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc8ab476-e178-496a-84ed-c8d88fb1e0cb">
+<span class="eqno">(47)<a class="headerlink" href="#equation-fc8ab476-e178-496a-84ed-c8d88fb1e0cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>
@@ -1010,6 +1014,7 @@ A <a class="reference internal" href="#sec-one-pole-analysis"><span class="std s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-zero-filter">One Zero Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-pole-filter">One Pole Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
 </ul>
   </nav></div>
