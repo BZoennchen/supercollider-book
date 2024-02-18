@@ -66,7 +66,16 @@ Filtering can be achieved by multiplication in the spectural domain and by convo
 For instance, if we aim to entirely filter out all high frequencies up to a cutoff frequency $f_c$, without affecting the low frequencies $(f \leq f_c)$, our ideal brick wall filter would exhibit an amplitude frequency response resembling the plot shown below.
 
 ```{code-cell} python3
-:tags: [remove-input]
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 600px
+  figure:
+    name: fig-brick-wall-sub
+---
+
 f_s = 3
 f_c = 2
 t = np.linspace(0, f_s, 1000)
