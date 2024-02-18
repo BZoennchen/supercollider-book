@@ -602,8 +602,8 @@ ipd.Audio(audio_path)
 ```isc
 (
 {
-    var alpha = 0.95;
-    OneZero.ar(WhiteNoise.ar(0.3!2), alpha)
+  var alpha = 0.95;
+  OneZero.ar(WhiteNoise.ar(0.3!2), alpha);
 }.play;
 )
 ```
