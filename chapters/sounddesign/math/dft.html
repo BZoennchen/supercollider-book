@@ -517,6 +517,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mel-spectrogram">Mel-spectrogram</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-dft-and-dtft">Difference between DFT and DTFT</a></li>
 </ul>
             </nav>
         </div>
@@ -542,7 +543,8 @@ That is, we are dealing with <strong>discrete signals</strong>.</p>
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
 <p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal, we switch from the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
 If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal, we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
-For audio signals, the DTFT is not that relevant.</p>
+Because of there similarity, one can easily confuse DFT with the DTFT thus I included a <a class="reference internal" href="#sec-dft-vs-dtft"><span class="std std-ref">Difference between DFT and DTFT</span></a> at the bottom.</p>
+<p>For audio signals, the DTFT is not that relevant.</p>
 <div class="definition admonition" id="def-fourier-series-exp-discrete">
 <p class="admonition-title">Discrete Fourier Series (DFS)</p>
 <p>The <em>discrete Foruier series</em> <span class="math notranslate nohighlight">\(y: \mathbb{Z} \rightarrow \mathbb{C}\)</span> in <em>exponential form</em> of a periodic and discrete function <span class="math notranslate nohighlight">\(y[n]\)</span> is defined by</p>
@@ -825,7 +827,7 @@ Therefore, we are often interested in the log amplitude:</p>
 <figure class="align-default" id="fig-spectrogram">
 <a class="reference internal image-reference" href="../../../_images/b7d711fae7c18114866cbcf5ef9cc84979d34ce6978ffeec7cbb0f02af84365d.png"><img alt="../../../_images/b7d711fae7c18114866cbcf5ef9cc84979d34ce6978ffeec7cbb0f02af84365d.png" src="../../../_images/b7d711fae7c18114866cbcf5ef9cc84979d34ce6978ffeec7cbb0f02af84365d.png" style="width: 900px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Spectrogram of the Nutcracker suite.</span><a class="headerlink" href="#fig-spectrogram" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Spectrogram of the Nutcracker suite.</span><a class="headerlink" href="#fig-spectrogram" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -854,7 +856,7 @@ Alternatively one can use the <em>principal component analysis PCA</em> to achie
 <figure class="align-default" id="fig-mfcc-alg">
 <a class="reference internal image-reference" href="../../../_images/mfcc-alg-dark.png"><img alt="../../../_images/mfcc-alg-dark.png" src="../../../_images/mfcc-alg-dark.png" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Process to create MFCC features.</span><a class="headerlink" href="#fig-mfcc-alg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Process to create MFCC features.</span><a class="headerlink" href="#fig-mfcc-alg" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <em>Mel filter bank</em> is a collection of overlapping triangular filters that are applied to this spectrum. These filters are not linearly spaced, because they’re designed to mimic the nonlinear frequency resolution of the human auditory system, which is more fine-grained at lower frequencies and coarser at higher frequencies.</p>
@@ -871,12 +873,30 @@ These basis functions are much like the “standard patterns” that the filter 
 <figure class="align-default" id="fig-mfcc">
 <a class="reference internal image-reference" href="../../../_images/adb2a757054ffc510fbbb1327ed9030e77856d2e407f8c6214ca93873855fe69.png"><img alt="../../../_images/adb2a757054ffc510fbbb1327ed9030e77856d2e407f8c6214ca93873855fe69.png" src="../../../_images/adb2a757054ffc510fbbb1327ed9030e77856d2e407f8c6214ca93873855fe69.png" style="width: 900px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">MFCC of the Nutcracker suite using only 13 bins.</span><a class="headerlink" href="#fig-mfcc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">MFCC of the Nutcracker suite using only 13 bins.</span><a class="headerlink" href="#fig-mfcc" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </div>
 </section>
+</section>
+<section id="difference-between-dft-and-dtft">
+<span id="sec-dft-vs-dtft"></span><h2>Difference between DFT and DTFT<a class="headerlink" href="#difference-between-dft-and-dtft" title="Permalink to this headline">#</a></h2>
+<p><strong>Application:</strong> The <strong>DTFT</strong> is applied to discrete-time signals that are usually obtained from sampling a continuous-time signal. These discrete-time signals are defined over an infinte number of points. The <strong>DFT</strong> is applied to discrete signals but is particularly useful for signals that are finite in length or are considered to be periodic with a specific period. This makes it ideal for practical computational applications.</p>
+<p><strong>Frequency domain representation:</strong> The <strong>DTFT</strong> transforms a discrete-time signal into a continuous function of frequency. The frequency domain representation is continuous and periodic. The <strong>DFT</strong> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> points into another sequence of <span class="math notranslate nohighlight">\(N\)</span> points. Both the input and the output of the DFT are discrete. The frequency domain representation is also discrete and periodic.</p>
+<p><strong>Mathematical representation:</strong> The <strong>DTFT</strong> of a signal <span class="math notranslate nohighlight">\(x[n]\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[X(\omega) = \sum_{n=-\infty}^\infty x[n]e^{-i \omega n},\]</div>
+<p>where <span class="math notranslate nohighlight">\(i\)</span> is the imaginary unit, <span class="math notranslate nohighlight">\(n\)</span> the time index, and <span class="math notranslate nohighlight">\(\omega\)</span> the angular frequency in radians per sample.
+The <strong>DFT</strong> of a singal <span class="math notranslate nohighlight">\(x[n]\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[X[k] = \sum_{n=0}^{N-1} x[n]e^{-i \frac{2 \pi}{N} k n},\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of points in the DFT, <span class="math notranslate nohighlight">\(k\)</span> is the nindex in the frequency domain, and <span class="math notranslate nohighlight">\(n\)</span> the time index.</p>
+<p><strong>Purpose:</strong>: The <strong>DTFT</strong> is used to analyze the frequency components of discrete signals that are theoretically infinite in length. The DFT is widely used for signal processing, including filtering, signal analysis, and in the implementation of Fast Fourier Transform (FFT) algorithms for efficient computation.</p>
+<p>DTFT is for infinite-length discrete-time signals and results in a continuous frequency spectrum, while DFT is for finite-length signals and results in a discrete frequency spectrum.
+DTFT’s frequency domain is continuous, whereas DFT’s frequency domain is discrete.
+DTFT is more theoretical and used for analysis, while DFT is practical and used for computational analysis, especially in digital signal processing.
+Both of these transforms play crucial roles in signal processing, each suited to different types of problems and analysis.</p>
 </section>
 </section>
 
@@ -960,6 +980,7 @@ These basis functions are much like the “standard patterns” that the filter 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mel-spectrogram">Mel-spectrogram</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-dft-and-dtft">Difference between DFT and DTFT</a></li>
 </ul>
   </nav></div>
 
