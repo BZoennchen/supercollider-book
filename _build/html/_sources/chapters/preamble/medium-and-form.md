@@ -13,6 +13,24 @@ kernelspec:
 ```{code-cell} python3
 :tags: [remove-input]
 import IPython.display as ipd
+
+import numpy as np
+import scipy.integrate as integrate
+import scipy.special as special
+from scipy.integrate import quad
+import matplotlib.pyplot as plt
+import scipy.special
+import seaborn as sns
+
+dpi = 300
+transparent = True
+PI = np.pi
+TWO_PI = 2*PI
+NUM = 44000
+show = False
+
+sns.set_theme('talk')
+sns.set_style("whitegrid")
 ```
 
 (sec-medium-and-form)=
@@ -344,6 +362,41 @@ while({abs(v) > 0.001},
 });
 r.postln; // 1.4142156862745
 )
+```
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 400px
+  figure:
+    name: fig-newton-convergence
+    caption: The value $r$ converges towards $\sqrt{2}$.
+---
+steps = []
+values = []
+step = 1
+x = 2
+r = 1
+v = 1000
+while abs(v) > 0.000001:
+    steps.append(step)
+    step += 1
+    m = x / r
+    t = r + m
+    r = t / 2
+    u = r * r
+    v = x - u
+    values.append(r)
+    
+plt.figure()
+plt.plot(steps, values)
+plt.xlabel('iteration step')
+plt.ylabel(r'$r$')
+plt.yticks([1.5, 1.48, 1.46, 1.44, 2**0.5, 1.40], [1.5, 1.48, 1.46, 1.44, r'$\sqrt{2}$', 1.40]);
+plt.xticks([1, 2, 3, 4], [1, 2, 3, 4]);
 ```
 
 In any programming language, there exists an inherent intelligence.

@@ -30,6 +30,7 @@ show = False
 
 sns.set_theme('talk')
 sns.set_style("whitegrid")
+sns.set(font_scale=1.0)
 ```
 
 (sec-z-transform)=
@@ -40,7 +41,7 @@ One important mathematical concept for understanding and designing filters is th
 
 The *Z-transform* converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain ($z$-domain or $z$-plane) representation.
 It can be considered as a discrete-time equivalent of the Laplace transform.
-The *Z-transform* is a generalization of the *discrete-time Fourier transform (DTFT)* (not to be confused with the discrete Fourier transform).
+The *Z-transform* is a generalization of the *discrete-time Fourier transform (DTFT)* (not to be confused with the discrete Fourier transform), see [Difference between DFT and DTFT](sec-dft-vs-dtft).
 
 ````{admonition} (Unilateral) Z-Transform
 :name: def-fourier-transform-exp
@@ -314,7 +315,75 @@ $$x[n] = 2\delta[0] -\left( \frac{1}{2} \right)^n u[n].$$
 
 ## Partial Fraction Expansion
 
-TODO
+Given a rational function in the Z-domain, which typically represents a system's transfer function or a signal's Z-transform, the goal is to express it as a sum of simpler fractions. The process involves the following steps:
+
+1. Factor the denominator: Write the denominator of the Z-domain function as a product of its factors. If the factors are not real, they will appear as conjugate pairs.
+2. Decompose the function: Express the original function as a sum of simpler fractions, where each fraction has one of the factors from the denominator as its own denominator. The numerators of these simpler fractions are constants or polynomials (typically constants in Z-transform applications) to be determined.
+3. Find the constants: Use algebraic techniques, such as equating coefficients or substituting specific values of $z$, to solve for the constants (or coefficients in the numerators) in the simpler fractions.
+4. Inverse Z-Transform: Apply the inverse Z-Transform to each simpler fraction separately. Since the inverse Z-Transform of many basic fractions is well-known, this step is greatly simplified by the partial fraction expansion.
+
+The case of first-oder terms is the simplest and most fundamental:
+
+$$H(z) = \frac{B(z)}{A(z)} = \sum\limits_{k=1}^N \frac{r_k}{1- p_k z^{-1}},$$
+
+where 
+
+$$B(z) = b_0 + b_1 z^{-1} + b_2z^{-2} + \ldots + b_m z^{-M}$$
+
+and 
+
+$$A(z) = 1 + a_1 z^{-1} + a_2 z^{-2} + \ldots + a_N z^{-N}$$
+
+and $M < N$. $p_k$ are the poles of the [transfer function](sec-trensfer-function), and each numerator $r_k$ is called *residue* of pole $p_k$.
+Both the poles and their residues may be complex. The poles may be found by factoring the polynomial $A(z)$ into first-order terms.
+The residue $r_k$ corresponding to pole $p_k$ may be found analytically as
+
+$$r_k = (1- p_k z^{-1}) H(z)|_{z = p_k}$$
+
+when the poles $p_k$ are distinct.
+Thus, it is the "residue" left over after multiplying $H(z)$ by the pole term $(1- p_k z^{-1})$ and letting $z$ approach $p_k$.
+In a partial fraction expansion, the $k^{\text{th}}$ residue $r_k$ can be thought of as simply the *coefficient* of the $k^{\text{th}}$ one-pole term $r_k/(1-p_k z^{-1})$ in the PFE.
+
+### Example
+
+Consider the two-pole filter
+
+$$H(z) = \frac{1}{(1-z^{-1}) (1- 0.5 z^{-1})}$$
+
+The poles are $p_1 = 1$ and $p_2 = 0.5$. The corresponding residues are then
+
+$$r_1 = (1-z^{-1}) H(z)|_{z=1} = \frac{1-z^{-1}}{(1-z^{-1}) (1-0.5 z^{-1})}\bigg|_{z=1} = \frac{1}{1-0.5 z^{-1}}\bigg|_{z=1} = 2$$
+
+and 
+
+$$r_2 = (1-0.5z^{-1}) H(z)|_{z=0.5} = \frac{1-0.5z^{-1}}{(1-z^{-1}) (1-0.5 z^{-1})}\bigg|_{z=0.5} = \frac{1}{1-z^{-1}}\bigg|_{z=0.5} = -1.$$
+
+Therefore, we can conlcude that 
+
+$$H(z) = \frac{2}{^-z^{-1}} - \frac{1}{1-0.5z^{}-1}.$$
+
+### Complex Example
+
+Consider the filter defined by 
+
+$$H(z) = \frac{a}{1+z^{-2}}, \quad a \in \mathbb{C}.$$
+
+The poles are $p_1 = i$ and $p_2 = -i$ since $i^{-2} = (-i)^{-2} = i^{2} = 1$.
+Thus we can rewrite $H(z)$ in factored form
+
+$$H(z) = \frac{a}{(1-i z^{-1}) (1+i z^{-1})}.$$
+
+We can use the same equation to get the residues:
+
+$$r_1 = (1-iz^{-1}) H(z)|_{z=i} = \frac{a}{1+i z^{-1}}\bigg|_{z=i} = \frac{a}{2},$$
+
+and
+
+$$r_2 =  (1+iz^{-1}) H(z)|_{z=-i} = \frac{a}{1-i z^{-1}}\bigg|_{z=-i} = \frac{a}{2}$$
+
+Therefore we arrive at
+
+$$H(z) = \frac{a/2}{1-i z^{-1}} + \frac{a/2}{1+iz^{-1}}.$$
 
 ## Properties of the Z-Transform
 
@@ -322,14 +391,14 @@ TODO
 
 ## LTI Analysis
 
-The general form for a difference equation is given by 
+The general form for a difference equation is given by (and representing a linear time-invariant filter)
 
 \begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}
 
 (sec-trensfer-function)=
-### Transfer Function
+### Transfer Function of LTI Filters
 
 If we take the Z-transform of both sides we get:
 

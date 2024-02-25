@@ -507,10 +507,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#region-of-convergence">Region of Convergence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poles-and-zeros">Poles and Zeros</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-series-expansion">Power Series Expansion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fraction-expansion">Partial Fraction Expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fraction-expansion">Partial Fraction Expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-example">Complex Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-z-transform">Properties of the Z-Transform</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti-analysis">LTI Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-function">Transfer Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-function-of-lti-filters">Transfer Function of LTI Filters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-filter-equation-to-transfer-function">Example 1: Filter Equation to Transfer Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-transfer-function-to-filter-equation">Example 2: Transfer Function to Filter Equation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-and-causality">Stability and Causality</a></li>
@@ -539,7 +543,7 @@ document.write(`
 <a class="reference internal" href="lti-filters.html#def-linear-time-invariant"><span class="std std-ref">Linear time-variant filters (LTI)</span></a> in the form of infinite (IIR) and finite impulse response (FIR) filters described by difference equations play an important role in signal processing, i.e., sound design, and these filters can be analyzed using the <em>Z-transform</em>.</p>
 <p>The <em>Z-transform</em> converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain (<span class="math notranslate nohighlight">\(z\)</span>-domain or <span class="math notranslate nohighlight">\(z\)</span>-plane) representation.
 It can be considered as a discrete-time equivalent of the Laplace transform.
-The <em>Z-transform</em> is a generalization of the <em>discrete-time Fourier transform (DTFT)</em> (not to be confused with the discrete Fourier transform).</p>
+The <em>Z-transform</em> is a generalization of the <em>discrete-time Fourier transform (DTFT)</em> (not to be confused with the discrete Fourier transform), see <a class="reference internal" href="dft.html#sec-dft-vs-dtft"><span class="std std-ref">Difference between DFT and DTFT</span></a>.</p>
 <div class="definition admonition" id="def-fourier-transform-exp">
 <p class="admonition-title">(Unilateral) Z-Transform</p>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be a discrete-time signal, then the (unilateral) <em>Z-transform</em> of <span class="math notranslate nohighlight">\(x[n]\)</span> is the formal power series</p>
@@ -564,8 +568,8 @@ We get</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \alpha^n \cdot u[n] = \alpha^n \cdot 1 = \alpha^n.\]</div>
 <p>In this case, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-114a6837-a49d-49f9-b168-62a80193e496">
-<span class="eqno">(37)<a class="headerlink" href="#equation-114a6837-a49d-49f9-b168-62a80193e496" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-98d69817-c0be-4842-95fd-0aeb8fe4c538">
+<span class="eqno">(37)<a class="headerlink" href="#equation-98d69817-c0be-4842-95fd-0aeb8fe4c538" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 = \sum\limits_{n = 0}^\infty \alpha^n z^{-n}\\
@@ -604,7 +608,7 @@ The <em>region of convergence (ROC)</em> (in blue) is outside of the (red) circl
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-1">
-<a class="reference internal image-reference" href="../../../_images/02b72ce7b107e71da60dffa1d3712420ae11ba6b0f0944762a65d0304277f87d.png"><img alt="../../../_images/02b72ce7b107e71da60dffa1d3712420ae11ba6b0f0944762a65d0304277f87d.png" src="../../../_images/02b72ce7b107e71da60dffa1d3712420ae11ba6b0f0944762a65d0304277f87d.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/70746ae8dd27fe1426826b234d5c7d18c3e06ca4ea9a884b839e619ca4985045.png"><img alt="../../../_images/70746ae8dd27fe1426826b234d5c7d18c3e06ca4ea9a884b839e619ca4985045.png" src="../../../_images/70746ae8dd27fe1426826b234d5c7d18c3e06ca4ea9a884b839e619ca4985045.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -618,7 +622,7 @@ The <em>region of convergence (ROC)</em> (in blue) is outside of the (red) circl
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-2">
-<a class="reference internal image-reference" href="../../../_images/118bd55e07f859920700f19aef7e7cc604c78cc51910b1bae0bd1518e3b63b5b.png"><img alt="../../../_images/118bd55e07f859920700f19aef7e7cc604c78cc51910b1bae0bd1518e3b63b5b.png" src="../../../_images/118bd55e07f859920700f19aef7e7cc604c78cc51910b1bae0bd1518e3b63b5b.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/cc5f490f4f61aa6ef1d35ce92006b30e55ac02875c585860a2878f88cd76ecfe.png"><img alt="../../../_images/cc5f490f4f61aa6ef1d35ce92006b30e55ac02875c585860a2878f88cd76ecfe.png" src="../../../_images/cc5f490f4f61aa6ef1d35ce92006b30e55ac02875c585860a2878f88cd76ecfe.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -660,7 +664,7 @@ Therefore,</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-3">
-<a class="reference internal image-reference" href="../../../_images/41abeb28301c5a1a32caa84d871b6399e26c691a709ff89089bdbeb5668f92e5.png"><img alt="../../../_images/41abeb28301c5a1a32caa84d871b6399e26c691a709ff89089bdbeb5668f92e5.png" src="../../../_images/41abeb28301c5a1a32caa84d871b6399e26c691a709ff89089bdbeb5668f92e5.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/10e7e0f348fbe23c334213542eb45e7f9cc502ecc82c893620217bd72464ebf4.png"><img alt="../../../_images/10e7e0f348fbe23c334213542eb45e7f9cc502ecc82c893620217bd72464ebf4.png" src="../../../_images/10e7e0f348fbe23c334213542eb45e7f9cc502ecc82c893620217bd72464ebf4.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -702,7 +706,64 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 </section>
 <section id="partial-fraction-expansion">
 <h2>Partial Fraction Expansion<a class="headerlink" href="#partial-fraction-expansion" title="Permalink to this headline">#</a></h2>
-<p>TODO</p>
+<p>Given a rational function in the Z-domain, which typically represents a system’s transfer function or a signal’s Z-transform, the goal is to express it as a sum of simpler fractions. The process involves the following steps:</p>
+<ol class="arabic simple">
+<li><p>Factor the denominator: Write the denominator of the Z-domain function as a product of its factors. If the factors are not real, they will appear as conjugate pairs.</p></li>
+<li><p>Decompose the function: Express the original function as a sum of simpler fractions, where each fraction has one of the factors from the denominator as its own denominator. The numerators of these simpler fractions are constants or polynomials (typically constants in Z-transform applications) to be determined.</p></li>
+<li><p>Find the constants: Use algebraic techniques, such as equating coefficients or substituting specific values of <span class="math notranslate nohighlight">\(z\)</span>, to solve for the constants (or coefficients in the numerators) in the simpler fractions.</p></li>
+<li><p>Inverse Z-Transform: Apply the inverse Z-Transform to each simpler fraction separately. Since the inverse Z-Transform of many basic fractions is well-known, this step is greatly simplified by the partial fraction expansion.</p></li>
+</ol>
+<p>The case of first-oder terms is the simplest and most fundamental:</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{B(z)}{A(z)} = \sum\limits_{k=1}^N \frac{r_k}{1- p_k z^{-1}},\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[B(z) = b_0 + b_1 z^{-1} + b_2z^{-2} + \ldots + b_m z^{-M}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[A(z) = 1 + a_1 z^{-1} + a_2 z^{-2} + \ldots + a_N z^{-N}\]</div>
+<p>and <span class="math notranslate nohighlight">\(M &lt; N\)</span>. <span class="math notranslate nohighlight">\(p_k\)</span> are the poles of the <a class="reference internal" href="#sec-trensfer-function"><span class="std std-ref">transfer function</span></a>, and each numerator <span class="math notranslate nohighlight">\(r_k\)</span> is called <em>residue</em> of pole <span class="math notranslate nohighlight">\(p_k\)</span>.
+Both the poles and their residues may be complex. The poles may be found by factoring the polynomial <span class="math notranslate nohighlight">\(A(z)\)</span> into first-order terms.
+The residue <span class="math notranslate nohighlight">\(r_k\)</span> corresponding to pole <span class="math notranslate nohighlight">\(p_k\)</span> may be found analytically as</p>
+<div class="math notranslate nohighlight">
+\[r_k = (1- p_k z^{-1}) H(z)|_{z = p_k}\]</div>
+<p>when the poles <span class="math notranslate nohighlight">\(p_k\)</span> are distinct.
+Thus, it is the “residue” left over after multiplying <span class="math notranslate nohighlight">\(H(z)\)</span> by the pole term <span class="math notranslate nohighlight">\((1- p_k z^{-1})\)</span> and letting <span class="math notranslate nohighlight">\(z\)</span> approach <span class="math notranslate nohighlight">\(p_k\)</span>.
+In a partial fraction expansion, the <span class="math notranslate nohighlight">\(k^{\text{th}}\)</span> residue <span class="math notranslate nohighlight">\(r_k\)</span> can be thought of as simply the <em>coefficient</em> of the <span class="math notranslate nohighlight">\(k^{\text{th}}\)</span> one-pole term <span class="math notranslate nohighlight">\(r_k/(1-p_k z^{-1})\)</span> in the PFE.</p>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<p>Consider the two-pole filter</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{1}{(1-z^{-1}) (1- 0.5 z^{-1})}\]</div>
+<p>The poles are <span class="math notranslate nohighlight">\(p_1 = 1\)</span> and <span class="math notranslate nohighlight">\(p_2 = 0.5\)</span>. The corresponding residues are then</p>
+<div class="math notranslate nohighlight">
+\[r_1 = (1-z^{-1}) H(z)|_{z=1} = \frac{1-z^{-1}}{(1-z^{-1}) (1-0.5 z^{-1})}\bigg|_{z=1} = \frac{1}{1-0.5 z^{-1}}\bigg|_{z=1} = 2\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[r_2 = (1-0.5z^{-1}) H(z)|_{z=0.5} = \frac{1-0.5z^{-1}}{(1-z^{-1}) (1-0.5 z^{-1})}\bigg|_{z=0.5} = \frac{1}{1-z^{-1}}\bigg|_{z=0.5} = -1.\]</div>
+<p>Therefore, we can conlcude that</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{2}{^-z^{-1}} - \frac{1}{1-0.5z^{}-1}.\]</div>
+</section>
+<section id="complex-example">
+<h3>Complex Example<a class="headerlink" href="#complex-example" title="Permalink to this headline">#</a></h3>
+<p>Consider the filter defined by</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{a}{1+z^{-2}}, \quad a \in \mathbb{C}.\]</div>
+<p>The poles are <span class="math notranslate nohighlight">\(p_1 = i\)</span> and <span class="math notranslate nohighlight">\(p_2 = -i\)</span> since <span class="math notranslate nohighlight">\(i^{-2} = (-i)^{-2} = i^{2} = 1\)</span>.
+Thus we can rewrite <span class="math notranslate nohighlight">\(H(z)\)</span> in factored form</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{a}{(1-i z^{-1}) (1+i z^{-1})}.\]</div>
+<p>We can use the same equation to get the residues:</p>
+<div class="math notranslate nohighlight">
+\[r_1 = (1-iz^{-1}) H(z)|_{z=i} = \frac{a}{1+i z^{-1}}\bigg|_{z=i} = \frac{a}{2},\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[r_2 =  (1+iz^{-1}) H(z)|_{z=-i} = \frac{a}{1-i z^{-1}}\bigg|_{z=-i} = \frac{a}{2}\]</div>
+<p>Therefore we arrive at</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{a/2}{1-i z^{-1}} + \frac{a/2}{1+iz^{-1}}.\]</div>
+</section>
 </section>
 <section id="properties-of-the-z-transform">
 <h2>Properties of the Z-Transform<a class="headerlink" href="#properties-of-the-z-transform" title="Permalink to this headline">#</a></h2>
@@ -710,13 +771,13 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 </section>
 <section id="lti-analysis">
 <h2>LTI Analysis<a class="headerlink" href="#lti-analysis" title="Permalink to this headline">#</a></h2>
-<p>The general form for a difference equation is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7923918a-8f43-4989-9094-f484a08d23d3">
-<span class="eqno">(38)<a class="headerlink" href="#equation-7923918a-8f43-4989-9094-f484a08d23d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>The general form for a difference equation is given by (and representing a linear time-invariant filter)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-305796bd-461d-4789-b8e5-4dfb925b3460">
+<span class="eqno">(38)<a class="headerlink" href="#equation-305796bd-461d-4789-b8e5-4dfb925b3460" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
-<section id="transfer-function">
-<span id="sec-trensfer-function"></span><h3>Transfer Function<a class="headerlink" href="#transfer-function" title="Permalink to this headline">#</a></h3>
+<section id="transfer-function-of-lti-filters">
+<span id="sec-trensfer-function"></span><h3>Transfer Function of LTI Filters<a class="headerlink" href="#transfer-function-of-lti-filters" title="Permalink to this headline">#</a></h3>
 <p>If we take the Z-transform of both sides we get:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -731,13 +792,13 @@ Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k
 <div class="theorem admonition" id="theorem-transfer-function">
 <p class="admonition-title">Transfer Function of LTI Filters</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0a058b8-2c5a-49f1-a59a-d00b396f4822">
-<span class="eqno">(39)<a class="headerlink" href="#equation-f0a058b8-2c5a-49f1-a59a-d00b396f4822" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1d7524ab-766d-4490-a5ee-b888e020657e">
+<span class="eqno">(39)<a class="headerlink" href="#equation-1d7524ab-766d-4490-a5ee-b888e020657e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6c56ebe-ab1d-41ab-90f4-d8c856be3ef9">
-<span class="eqno">(40)<a class="headerlink" href="#equation-b6c56ebe-ab1d-41ab-90f4-d8c856be3ef9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-32287d11-b734-4849-8fe9-a5d0e9ade757">
+<span class="eqno">(40)<a class="headerlink" href="#equation-32287d11-b734-4849-8fe9-a5d0e9ade757" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}},
 \end{equation}\]</div>
 </div>
@@ -750,8 +811,8 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
 <div class="theorem admonition" id="theorem-transfer-function-impulse-response">
 <p class="admonition-title">Transfer Funktio and Impulse Response</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em> is the Z-transform of the impulse response of the filter, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fec821e-c42d-4b12-93b6-2d498fb278f0">
-<span class="eqno">(41)<a class="headerlink" href="#equation-0fec821e-c42d-4b12-93b6-2d498fb278f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-75d5bd03-2a56-4d3f-abbe-1ae7daa50e9e">
+<span class="eqno">(41)<a class="headerlink" href="#equation-75d5bd03-2a56-4d3f-abbe-1ae7daa50e9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \mathcal{Z}\{h[n]\}
 \end{equation}\]</div>
 </div>
@@ -780,7 +841,7 @@ Imagine the grey point connected to the cross going around on the unit circle.</
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-4">
-<a class="reference internal image-reference" href="../../../_images/2c028757e704399ff60d3c3c9f93219dd4ddf9a6d600befc06bf808740a58bfe.png"><img alt="../../../_images/2c028757e704399ff60d3c3c9f93219dd4ddf9a6d600befc06bf808740a58bfe.png" src="../../../_images/2c028757e704399ff60d3c3c9f93219dd4ddf9a6d600befc06bf808740a58bfe.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/fa81f287415ecdda294844de2d509e6a6387ab19a42209007a4389966a807d98.png"><img alt="../../../_images/fa81f287415ecdda294844de2d509e6a6387ab19a42209007a4389966a807d98.png" src="../../../_images/fa81f287415ecdda294844de2d509e6a6387ab19a42209007a4389966a807d98.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -891,10 +952,14 @@ Imagine the grey point connected to the cross going around on the unit circle.</
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#region-of-convergence">Region of Convergence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poles-and-zeros">Poles and Zeros</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-series-expansion">Power Series Expansion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fraction-expansion">Partial Fraction Expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-fraction-expansion">Partial Fraction Expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-example">Complex Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-the-z-transform">Properties of the Z-Transform</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti-analysis">LTI Analysis</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-function">Transfer Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transfer-function-of-lti-filters">Transfer Function of LTI Filters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-filter-equation-to-transfer-function">Example 1: Filter Equation to Transfer Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-transfer-function-to-filter-equation">Example 2: Transfer Function to Filter Equation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-and-causality">Stability and Causality</a></li>

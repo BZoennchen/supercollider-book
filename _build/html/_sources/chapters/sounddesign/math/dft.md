@@ -65,6 +65,8 @@ That is, we are dealing with **discrete signals**.
 
 To deal with a **periodic** and **discrete** signal, we switch from the *[Fourier transform](def-fourier-transform-exp)* to the *[discrete Fourier transform](def-discrete-fourier-transform)*.
 If we want to handle a **non-periodic** and **discrete** signal, we apply the *discrete-time Fourier transform (DTFT)* instead.
+Because of there similarity, one can easily confuse DFT with the DTFT thus I included a [Difference between DFT and DTFT](sec-dft-vs-dtft) at the bottom.
+
 For audio signals, the DTFT is not that relevant.
 
 ````{admonition} Discrete Fourier Series (DFS)
@@ -636,3 +638,28 @@ plt.figure(figsize=(15, 5))
 librosa.display.specshow(M_dB, x_axis='time', y_axis='mel', sr=sr, fmax=8000, cmap=cmap);
 plt.colorbar(format='%+2.0f dB');
 ```
+
+(sec-dft-vs-dtft)=
+## Difference between DFT and DTFT
+
+**Application:** The **DTFT** is applied to discrete-time signals that are usually obtained from sampling a continuous-time signal. These discrete-time signals are defined over an infinte number of points. The **DFT** is applied to discrete signals but is particularly useful for signals that are finite in length or are considered to be periodic with a specific period. This makes it ideal for practical computational applications.
+
+**Frequency domain representation:** The **DTFT** transforms a discrete-time signal into a continuous function of frequency. The frequency domain representation is continuous and periodic. The **DFT** transforms a sequence of $N$ points into another sequence of $N$ points. Both the input and the output of the DFT are discrete. The frequency domain representation is also discrete and periodic.
+
+**Mathematical representation:** The **DTFT** of a signal $x[n]$ is given by 
+
+$$X(\omega) = \sum_{n=-\infty}^\infty x[n]e^{-i \omega n},$$
+
+where $i$ is the imaginary unit, $n$ the time index, and $\omega$ the angular frequency in radians per sample.
+The **DFT** of a singal $x[n]$ is given by 
+
+$$X[k] = \sum_{n=0}^{N-1} x[n]e^{-i \frac{2 \pi}{N} k n},$$
+
+where $N$ is the number of points in the DFT, $k$ is the nindex in the frequency domain, and $n$ the time index.
+
+**Purpose:**: The **DTFT** is used to analyze the frequency components of discrete signals that are theoretically infinite in length. The DFT is widely used for signal processing, including filtering, signal analysis, and in the implementation of Fast Fourier Transform (FFT) algorithms for efficient computation.
+
+DTFT is for infinite-length discrete-time signals and results in a continuous frequency spectrum, while DFT is for finite-length signals and results in a discrete frequency spectrum. 
+DTFT's frequency domain is continuous, whereas DFT's frequency domain is discrete.
+DTFT is more theoretical and used for analysis, while DFT is practical and used for computational analysis, especially in digital signal processing.
+Both of these transforms play crucial roles in signal processing, each suited to different types of problems and analysis.
