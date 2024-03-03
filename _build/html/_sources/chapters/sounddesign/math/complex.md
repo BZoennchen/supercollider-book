@@ -57,13 +57,19 @@ x^2 + 2 = 0?
 We require [*complex numbers*](def-complex-number).
 These numbers extend real numbers by definition, but their definition is not arbitrary.
 Instead, it has been meticulously crafted so that complex numbers possess all necessary properties to be integrated into all known and accepted theories.
-To define complex numbers, we introduce a special symbol $i$ (some prefer to use $j$), which is defined as follows:
+To define complex numbers, we introduce a special symbol $i$ (some prefer to use $j$), which is defined as follows *imaginary number*:
 
 ```{math}
 :label: eq:complex:i
 i^2 := -1.
 ```
 
+We can define $i$ in a self-referential manner and it was Spencer-Brown {cite}`brown:1969` who thought about such paradoxical definitions as generator:
+
+$$i \leftarrow -1/i.$$
+
+Assuming, we initialize $i$ with one, this generator would generate the following oscillation: $-1, 1, -1, 1, \ldots $ which is an interesting perspective.
+However, in general, we just use the static definition above without the need for the involvement of time.
 Again, complex numbers are invented but they are also discovered because everything works out, i.e., they have all the rich mathematical properties we desire and require.
 Let us solve Eq. {eq}`eq:complex:ex1`:
 
@@ -271,7 +277,6 @@ The product of two complex numbers is the product of their magnitudes and the su
 ```
 
 Since $i = 1 \cdot (a \cos(90) + i\sin(90))$ holds, multiplying by $i$ equates to a counterclock rotation by 90 degrees.
-
 Since $-i = 1 \cdot (a \cos(90) - i\sin(90)) = 1 \cdot (a \cos(90) + i\sin(-90))$, dividing by $i$ equates to multiplying by $-i$ thus
 
 $$\frac{1}{i} = -i$$
@@ -307,12 +312,12 @@ Let $y(t)$ be a real or comlex-valued function that is infinitely differentiable
 
 \begin{equation}
 \begin{split}
-T_{y(z)}(t) &= f(z) + \frac{y'(z)}{1!}(t-z) + \frac{y''(z)}{2!}(t-z)^2 + \frac{y'''(z)}{3!}(t-z) + \ldots \\
+T_{y(z)}(t) &= y(z) + \frac{y'(z)}{1!}(t-z) + \frac{y''(z)}{2!}(t-z)^2 + \frac{y'''(z)}{3!}(t-z) + \ldots \\
 &= \sum\limits_{k=0}^{\infty} \frac{y^{(k)}(z)}{k!}(t-z) = y(t)
 \end{split}
 \end{equation}
 
-is the *Taylor series* of $f(t)$ at $t = z$.
+is the *Taylor series* of $y(t)$ at $t = z$.
 If $z = 0$ the series is also called *Maclaurin series*.
 
 ```
@@ -380,7 +385,7 @@ e^t &= T_{e^0}(t) = \sum\limits_{k=0}^{\infty} \frac{\text{exp}^{(k)}(0)}{k!}t^k
 ```
 
 since $\text{exp}^{(k)}(t) = \text{exp}(t)$ for all $k \in \mathbb{N}_0$ and $e^0 = 1$.
-Note that we donte $e^x$ by $\text{exp}(t)$.
+Note that we donte $e^t$ by $\text{exp}(t)$.
 
 ```{figure} ../../../figs/sounddesign/math/taylor_exp.png
 ---
@@ -493,13 +498,13 @@ ax.text(0,1.8,r'Re',size=20)
 
 ax.grid(True);
 ```
-Furthermore, we can see that the discrete function $g(k): \mathbb{Z} \rightarrow \mathbb{C}, g(z) = z^k$ is periodic and that its period is $N$:
+Furthermore, we can see that the discrete function $g(k): \mathbb{Z} \rightarrow \mathbb{C}, \ g(z) = z^k$ is periodic and that its period is $N$:
 
 $$g(N+1) = \left( e^{i \frac{2\pi}{N}} \right)^{N+1} = e^{i \frac{2\pi (N+1)}{N}} = e^{i 2\pi} \cdot e^{i \frac{2\pi}{N}} = e^{i 0} \cdot e^{i \frac{2\pi}{N}} = 1 \cdot e^{i \frac{2\pi}{N}} = z = g(1).$$
 
 If $|z|$ would be greater than 1, then $z^k$ would grow to infinity and if $|z| < 1$, it would converge to $0$.
 
-Using Eq. {eq}`eq:euler`, we can represent our well-known trigonometric functions by exponential functions.
+Using Euler's formula, i.e. Eq. {eq}`eq:euler`, we can represent our well-known trigonometric functions by exponential functions.
 We start with
 
 $$(\cos(\phi) + i\sin(\phi)) + (\cos(\phi) - i\sin(\phi)) = 2 \cos(\phi) = e^{i\phi} + e^{-i\phi}.$$
@@ -510,7 +515,7 @@ Therefore, we get
 \cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2}.
 \end{equation}
 
-For the sine we start with
+For the sine, we start with
 
 $$(\cos(\phi) + i\sin(\phi)) - (\cos(\phi) - i\sin(\phi)) = 2i \sin(\phi) = e^{i\pi} - e^{-i\pi}.$$
 

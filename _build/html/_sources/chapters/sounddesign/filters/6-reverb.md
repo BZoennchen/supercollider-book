@@ -16,8 +16,107 @@ kernelspec:
 Reverberation, often shortened to reverb, is a phenomenon where sound waves reflect off surfaces, resulting in a large number of echoes that gradually fade or "decay".
 It gives us a sense of the size and type of space we're in, whether it's a small bathroom or a large cathedral.
 
-The *Haas effect* is an acoustic phenomenon.
-When a sound is followed by another sound separated by a sufficiently short delay ($< 50\,\text{ms}$), listeners perceive a single auditory event; the location of the first-arriving sound dominates its perceived spatial location.
+Reverberation depends on our capability to recognize events in time.
+As we know, our conscious is blind for very slow and vey fast processes with repect to time.
+We can think about and measure day and night, month, year and the air pressure change of the weather but we can not perceive them immediately.
+Furthermore, if pulses arrive in a distance smaller than 60 milliseconds, we can hear a sound but we can nor perceive the dynamic---the underlying movement in time.
+Our sense of time relates to the rhythms of the body, e.g., our heart beating, our breathing and walking speed (which decreases with age).
+
+There are different time constants known from perceptual psychology which determine the perception of the human hearing:
+
++ Two arbitrary acoustic signals within **2 ms** or less are perceived as simultaneous.
++ Multiple **similar** acoustic signals within about **40 ms** can blend to one perception. If the signals are different a occultation might occur.
++ Two similar acoustic signals within about **100 ms** or more are preceived as an echo.
++ The *integration time* of our hearing, that is, the time interval over that we sum up acoustic signals to control the sensation of loudness, amounts to about **300 ms**.
+
+Let test this.
+Firt we introduce a synth that is just simple decaying impulse.
+
+```isc
+(
+SynthDef(\imp, {
+    var sig = Decay.ar(Impulse.ar(0), 0.2) * PinkNoise.ar;
+    DetectSilence.ar(sig, doneAction: Done.freeSelf);
+    Out.ar(0, sig!2);
+}).add;
+)
+```
+
+Let's play the synth two times with a delay of 2 ms. I at least can not hear the second impulse.
+
+```isc
+(
+fork {
+    Synth(\imp);
+    (2.0 / 1000.0).wait;
+    Synth(\imp);
+}
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+import IPython.display as ipd
+audio_path = '../../../sounds/2ms-imp.mp3'
+ipd.Audio(audio_path)
+```
+
+Let us play it within 40 ms. I can hear two impulses. However, they are however blended together.
+
+```isc
+(
+fork {
+    Synth(\imp);
+    (40.0 / 1000.0).wait;
+    Synth(\imp);
+}
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/40ms-imp.mp3'
+ipd.Audio(audio_path)
+```
+
+Using an interval of 100 ms creates an echo effect.
+
+```isc
+(
+fork {
+    Synth(\imp);
+    (100.0 / 1000.0).wait;
+    Synth(\imp);
+}
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/100ms-imp.mp3'
+ipd.Audio(audio_path)
+```
+
+And, to be consistent, let's listen into the effect of an interval of 300 ms.
+
+```isc
+(
+fork {
+    Synth(\imp);
+    (300.0 / 1000.0).wait;
+    Synth(\imp);
+}
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/300ms-imp.mp3'
+ipd.Audio(audio_path)
+```
+
+
+The effect of perceiving a single auditory event if  a sound is followed by another sound separated by a sufficiently short delay smaller than 40 ms is also called the *Haas effect*.
 The lagging sound also affects the perceived location but its effect is suppressed by the first-arriving sound, i.e., the first wave front.
 
 If we start shouting in a big concert hall, we will receive an echo.
@@ -39,8 +138,8 @@ However, if we look at the sound signal on an oscilloscope, it is clear that the
 When the speaking person stops, the reverberation becomes a foreground stream and is audible as a distinct sound event.
 Under these conditions, it is easy to hear that it is decaying.
 
-The human hearing generally waits 50 milliseconds after a sound event's apparent end, before deciding it is over.
-Therefore, we perceive multiple sound cues within a period smaller than 50 ms as one continuous stream.
+The human hearing generally waits about 40 milliseconds after a sound event's apparent end, before deciding it is over.
+Therefore, we perceive multiple sound cues within a period smaller than 40 ms as one continuous stream.
 Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.
 
 ```{figure} ../../../figs/sounddesign/reverberation.png

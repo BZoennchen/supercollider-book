@@ -1,12 +1,12 @@
 (sec-music-theory)=
-# Music Theory
+# Western Music Theory
 
 >I was lucky enough to be shown a Penderecki score and played polymorphia by a tutor. It was just really exciting. I didn't know you are allowed to do that. I didn't know you could be that free and you can just think of 48 musicians as being able to do anything. -- *Jonny Greenwood*
 
 Faced with the need to communicate, humans developed languages, i.e., vowel and consonant sounds and the astonishing capability to recognize them.
 It seems that, consequently, our ears developed into highly sophisticated analyzers of frequency, loudness, harmony, and dissonance because, with languages, came the need to acknowledge slight differences in air pressure.
 Differentiation is a necessary condition to build an entity and its environment, i.e., what we can differentiate from the entity.
-It reduces complexity to a point at which reality emerges -- without complexity reduction, i.e. pattern recognition, reality would be an unstructured muddy sea of noise.
+It reduces complexity to a point at which reality emerges---without complexity reduction, i.e. pattern recognition, reality would be an unstructured muddy sea of noise.
 Differentiation makes us but also disconnects us, a contrast we always struggle with and for which we employed music to overcome it, at least for a moment. 
 
 Our hearing capabilities enable us to enjoy the art of music.
@@ -23,7 +23,7 @@ In its essence, it studies the cognition and perception of human beings;
 our (biased) *aestehtic experiences*.
 
 Music theory developed historically a long time ago and has matured since then.
-Consequently, there are numerous terms, often for the same thing, which makes it hard to start diving into it.
+Consequently, there are numerous terms, often for the same thing, which makes it hard to start diving into it---at least for me.
 But to communicate ideas and concepts, an elaborate terminology is a valuable bridge in the same way mathematical notations allow us to convey ideas quickly and unambiguously.
 One must learn music theory terminology to understand the literature and communicate musical ideas effectively.
 

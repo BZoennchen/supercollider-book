@@ -67,7 +67,7 @@ In 1822 *Jean-Baptise Joseph Fourier* discovered a truly remarkable *transformat
 He claimed that any function, whether continuous or discontinuous, can be transformed into a series of sines.
 That important work was corrected to
 
->Almost any periodic function can be represented by a Fourier series that converges.
+>almost any periodic function can be represented by a Fourier series that converges.
 
 and expanded upon by others to provide the foundation for various forms of the Fourier transform used since.
 
@@ -79,7 +79,7 @@ Especially since the re-discovery of the *fast Fourier transform (FFT)* in 1965 
 There are so many applications of the FFT, from solving differential equations to radar and sonar, studying crystal structures, WiFi, and 5G.
 It is no surprise that the mathematician *Gilbert Strang* called the FFT
 
->The most important numerical algorithm of our lifetime. -- Gilbert Strang
+>the most important numerical algorithm of our lifetime. -- Gilbert Strang
 
 But why is that?
 Well, it is all about computation speed!
@@ -217,7 +217,7 @@ In the synthetic case, we get exaclty what we expected, i.e., 5 peaks, four *har
 (sec-similarity-of-functions)=
 ## Similarity of Periodic Functions
 
-Let us start from the assumption that the *[Fourier Theorem](theorem-fourier-synthesis)* is correct (which it is).
+Let us start from the assumption that the *[Fourier theorem](theorem-fourier-synthesis)* is correct (which it is).
 So we assume, that we can built any periodic vibration using a combination of sinusiods whose frequencies are integer multiple of a fundamental frequcency.
 Our job is to find the correct **amplitudes** and **phases** of these sinusiods.
 Let's ignore the phase for a moment.
@@ -524,7 +524,7 @@ can be constructed by an infinite sum
 
 ## Fourier Analysis
 
-Until know we assumed that all *phase shifts* are zero.
+Until now, we assumed that all *phase shifts* are zero.
 Then we concluded that if we compute the integral of signal $y(t)$ multiplied with a sinusoid of the same phase we get:
 
 1. either $1/(2n)$, where $n \in \mathbb{N}$ is the **frequency** of the sinusoid (similarity)
@@ -535,12 +535,12 @@ Let us start with an analog signal first $y(t)$.
 And let us reconsider the *[Fourier series](def-fourier-series)*:
 
 ```{math}
-y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right)
+y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right).
 ```
 
-We multiply some term of the sum of $y_N(t)$ with our signal $y(t)$ and integrate it over the period of our signal, to compute the measure of similarity:
+We multiply some term of the sum of $y_N(t)$ with our signal $y(t)$ and integrate over the period of our signal to compute the measure of similarity:
 
-$$X_n(\phi) = \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) dt, \quad \phi \in [0;2\pi].$$
+$$X_n(\phi) = \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi\right) dt, \quad \phi \in [0;2\pi].$$
 
 Following our discussion at the start of section [Similarity of Periodic Functions](sec-similarity-of-functions), at the maximum of $X_n(\phi)$ the integral is equal to the **amplitude** $A_n \cdot \frac{T}{2}$.
 If the respective sinusoid is part of the *Fourier series* 
@@ -563,7 +563,7 @@ We can simplify $X_n(\phi)$:
 \begin{split}
 X_n(\phi) &= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) dt\\
 &= \cos(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right)dt}_{a_n} + \sin(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)dt}_{b_n}\\
-&= \cos(\phi) \cdot a_n + \sin(\phi) \cdot b_n
+&= \cos(\phi) \cdot a_n + \sin(\phi) \cdot b_n.
 \end{split}
 \end{equation*}
 
