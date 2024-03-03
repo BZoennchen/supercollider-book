@@ -302,13 +302,18 @@ One can derive deep enjoyment from improving a skill, achieving goals, or uncove
 Similarly, we can perceive the earth and its inhabitants instrumentally (as a means to an end) or appreciate them for what they are (as ends in themselves).
 
 Therefore, I favor the Kantian notion extended to all beings as well as things---never viewing anything merely as a mean to an end, but always as an end in itself. 
+But I also acknowledge Richard Rorty for pointing out that such *ethical principle* can not be seen as an absolute rule but something we can consider when we try to make the right decision.
+There is no authority, no rule, no algorithm that will forever and in any situation provide us with the right answer.
+What we think is right or wrong is contingent on how we grow up---on our culture, history, and environment.
+The answer is neither *absolutism* nor *absolute relativism* but the willingness to acknowledge to myself, that my conscience is the internalized consciousness of a specific historical-contingent culture.
 Furthermore, just as *instrumental play* can enrich *free play*, such as by enabling other forms of *free play* via the acquisition of new skills and habits, I also believe that the scientific perspective, which necessitates objectifying entities and often neglects the broader context, can still enhance our appreciation of the whole.
-Nonetheless, it remains challenging to dismiss Heidegger's concerns espeically if we keep in mind that, because of seeing earth as *standing reserve*, we destroyed the ground that feeds us.
 
+Nonetheless, it remains challenging to dismiss Heidegger's concerns especially if we keep in mind that, because of seeing earth as *standing reserve*, we are currently destroying the ground that feeds us.
 Can we become aware of our instrumental thinking, of our own *will to power*?
 We are at a point in time where the *standing reserve* seems to break under the pressure of dominance.
 We are likely to encounter significant issues if we believe that technology alone, i.e., further *instrumental thinking* will resolve all of today's major *challenges*, while it undeniably contributes to many of them.
 Thinking in cause and effect to the end of day will not provide us with the wisdom to overcome the breaking down of *earth*.
+At the same time, throwing our tools away will not change the way we think and see the world.
 
 >It certainly is not a matter of condemning the industrial and technological fate of humanity. Rather, it is a case of reinventing this fate. -- Bernard Stiegler
 
@@ -322,11 +327,16 @@ Art, as a *mode of Being*, makes both artist and artwork ontologically possible.
 And if we are to discover the *essence of art* we must discover it by phenomenologically investigating artworks, but here we arrive at a *strange loop*, i.e., a paradox since what art is should be inferable from the work but what the work is, we can come to know only from the *essence of art*.
 These *loops* remind me of Hofstadter's self-referential and paradoxical *strange loops* from his book *Gödel, Escher, Bach: an Eternal Golden Braid* {cite}`hofstadter:1979`.
 And it was Husserl (and to an extend Kierkegaard) who already thought of consciousness (or the self) as a *strange loop* relating itself to itself and constantly going back and forth between seeing phenomena and self-relating---a never ending circle which constitutes consciousness seemingly out of nothing.
-I think what Heidegger means is that we are thrown into a process that already started.
+In the field of *systems theory*, *cypbernetics*, and especially in Luhmann's *social system theory*, we probably find one of the most sophisticated self-referential concepts. 
+
+Heidegger was onto something but while reading his text about art, it felt incomplete and rather vague.
+There is no complete and consistent theory to find.
+However, this was probably not his goal.
+I think what he means by the introduced paradox is that we are *thrown* into a process that already started.
 We enter the circle at some point and move on it which will reveal both the *artist* and the *artwork* more and more but this process never ends.
 What an artist and the artwork is, is never fully defined.
 
-To talk about art in an Heidegerian sense, I have to clarify what he understands by tools and objects.
+To talk about art in an Heidegerian sense, I have to clarify what he understands by tools or equipment and objects.
 Heidegger differentiates between what others may call "substances"---that are more thing-like and *present-at-hand* (*vorhanden*) entities (raw material, stones, water in a river, etc.)---and tools or equipment (useful things) that are generally *ready-to-hand* (*zuhanden*) and connected within a network of other tools and purposes.
 Interestingly, in his view, artworks are *present-at-hand*, i.e., have a very thingly character.
 This seems to be a gross reduction of artworks.
@@ -337,17 +347,18 @@ I will come back to this "issue".
 
 >There is something stony in a work of architecture, wooden in a carving, colored in a painting, spoken in a linguistic work, sonorous in a musical composition. -- Martin Heidegger
 
-This quote perfectly mimics Luhmann's view that artworks reveals the difference between *form* (building) and *medium* (stone).
+This quote perfectly mimics Luhmann's view that artworks reveal the difference between *form* (building) and *medium* (stone).
 In my view, great artworks reveal a (mystical) truth that is unexplainable; these works let us question without ever coming to a final conclusion.
+They present an internal logic that is alien to our world.
 They escape language or any other abstraction or symbolic representation but give the observer the possbility to make sense of their internal structure.
 Any analysis or critique has to be incomplete and shallow of what the artwork is.
-Therefore, if the *essence of technology* is *enframing* (Gestell) (with the human subject at its center) then the *essence of art* might be the opposite.
+Therefore, if the *essence of technology* is *enframing* (Gestell) then the *essence of art* might be the opposite.
 It might be that which can not be *enframed* and which is able to unconceal a new *horizon of possibilities*.
 In fact, Heidegger argues in his essay *The Origin of the Work of Art* {cite}`heidegger:1950` that
 
 >to be a work [of art] means to set up a world. -- Martin Heidegger
 
-In other words, *setting up of a world* is one of the essential feature of the *Being of the work of art*.
+In other words, *setting up a world* is one of the essential feature of the *Being of the work of art*.
 This is close to Luhmann's view when he says that art forms its medium to create a contingent alternative version of reality.
 
 But what does Heidegger mean by that?
@@ -369,7 +380,7 @@ Sandra Lee Bartky has summed it up well in the following way:
 
 >Heidegger’s use of the term "world" carries with it the sense not only of *life-world* (*Lebenswelt*) but of *historical epoch* as well, with the suggestion that the life-world is an historical structure. -- Sandra Lee Bartky
 
-Husserl came to believe that the *world* was what we have in common---a universal horizon but one rooted in a shared, existential space, what he called *Lebenswelt* (life-world).
+Husserl came to believe that the *world* was what we have in common---a universal horizon but one rooted in a shared existential space, what he called *Lebenswelt* (life-world).
 But who creates or sustains this horizon?
 This, in short, was Heidegger's question to his former mentor.
 For Heidegger, the nature or the limits of the world were less important than the practical experience of the world itself, an experience peculiar to *Dasein*.
@@ -385,11 +396,9 @@ It orients, situates , guides and directs our lives in particular ways.
 The temple established an epochal understanding of Being on the basis of which the Greeks meaningfully understood the beings they encountered and the event in their lives, thereby, giving them as a people a history or a destiny.
 World is best associated with unconcealment, the clearing and intelligibility.
 But bringing a new world into being will conceal another one.
-So, in Heidegger's idea of art, the artist captures a snapshot of a *world* at any given moment. 
-Once the work is removed from the context in which it was created, it can expose and recreate that past (or future) world for those who view it.
 
 In contrast, *earth* (*Heimat*) is the homeland, in which the temple stands, but also the rock upon which the temple stands, and the temple stones themselves.
-It is best described in terms of concealment, hiddenness and unintelligibility---it is similar to Lacan's concept of the *real* which evades all symbolic representation while pushing back against it.
+It is best described in terms of concealment, hiddenness and unintelligibility---I think it shares similarities with Lacan's concept of *the real* which evades all symbolic representation while pushing back against it.
 The *real* is located beyond language and conceptual understanding, yet, always present in some sense.
 The *real* is something you find always at the same place.
 However you mess about, it is always in the same place, you bring it with you, stuck to the sole of your shoe without any means of exiling it.
@@ -450,6 +459,8 @@ In fact, it could be argued that Heidegger’s attitude towards music is antagon
 He attacks the emotionality of music.
 For example, about Wagner he says that his project was not just the predominance of music with respect to the other arts in his work that made him fail, but the problem inherent in aesthetics itself; namely, the reason why music was allowed to aspire to such a position.
 Aesthetics is only a part of a greater movement in history---that of nihilism.
+This is revleaning since right-wingers often praise 'great' artwoks which are great in an aesthetic sense and complain about more abstract and conceptual artworks which they see as a *degeneration* of art.
+One can argue that Heidegger too is drawn to the aesthetic of a certain kind of lifestyle.
 
 However, I believe there is more to music than Heidegger recognized. 
 His perspective might have been too focused on the particular music of his era.
@@ -469,7 +480,7 @@ This is how truth is established in the workings of the artwork.
 ## Heideggerian Cinema
 
 Let me look into the works of Andrei Tarkovsky, Terrence Malick and Michael Haneke with an Heideggerian perspective.
-While Tarkovsky and Malick are existential filmmakers, Haneke is more of a critique of his own profession.
+While Tarkovsky and Malick are existential filmmakers, Haneke is more of a critique of his own profession thus more *postmodern*.
 However, all three try to ask questions rather than providing answers.
 
 Tarkovsky thought of art as revealing the *transcedental*.
@@ -620,6 +631,7 @@ And knowing the world and being open to the terror of anxiety were two sides of 
 
 Next I want to include Michael Haneke because he, like no one else, uses film to unconceal the *blurriness* of reality and contemporary cinema.
 It's probably more Luhmannian cinema than Heidegerrian.
+Most of his works are an attempt to make the *medium* via its *forms* visible.
 
 >It's the duty of art to ask questions, not to provide answers. And if you want a clearer answer, I'll have to pass. -- Michael Haneke
 
@@ -648,9 +660,12 @@ It is no longer the case that Barbie is a mirror of humanity, i.e., constructed 
 In itself this is neither good nor bad but it should give us thought for pause.
 If reality imitates media, we should be aware of what we consume!
 
-In *Funny Games*, Haneke shows us senseless violence like we see in so many movies today.
+In *Funny Games*, Haneke shows us senseless violence like we see in so many movies and news shows today.
 But his violence is violent.
 It hurts, it is unpleasant, disturbing, and soul crushing.
+It goes against the Nietzschian perspective that greatness requires suffering.
+No! Haneka shows us, suffering is just suffering.
+There is nothing great to find there; it is a horrific banality.
 While watching the movie one wants to scream towards the protagonists but one has to keep watching helplessness.
 Leonard Maltin called the movie ``nonsensical and highly unpleasant'' but that is exactly the point.
 Haneke wants to provoke and he wants to deconstruct the violent cinema.
@@ -672,7 +687,7 @@ Haneka highlights this cloud of untruth.
 There is no single explanation of human suffering, it just is---all that remain is what we do with it.
 
 I find Haneke's project important.
-However, if such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence in reference to the medium itself, e.g. by breaking the fourth wall, will lead to the same old effect, that is, more violence, is questionable.
+However, if such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence in reference to the medium itself---e.g. by breaking the fourth wall---will lead to the same old effect, that is, more violence is questionable.
 
 I think, similar to the Greek temple, films from these directors can open worlds by bringing us back into existential time, i.e., bringing us to reflecting on (our) *Being* or what it means to be.
 And when this question shines through, it can upset our entire world.
@@ -683,9 +698,9 @@ This experience of *world collapse* is equivalent to the realization that the ce
 It can be triggered by external events that awaken us from practicality into awareness and contemplation---by the failing or surprising equipment---so to speak.
 The feeling itself is not related to anything concrete.
 Instead, it is defined by an absence.
-It relates to the nothing---to the void.
+It relates to the nothing; to the void.
 When the noise no longer drowns out the inner voice, a dialogue with our own mortality begins.
-This is what these works depict but also can cause to the observing audience.
+This is what these works depict but can also cause to the observing audience.
 They are good examples of the struggle between *world* and *earth*.
 They are never semiotically exhausted or depleted, i.e., finally made totally intelligible.
 
@@ -699,7 +714,7 @@ If not, does this mean it is not a work of art?
 
 >God has given us music so that above all it can lead us upwards. Music unites all qualities: it can exalt us, divert us, cheer us up, or break the hardest of hearts with the softest of its melancholy tones. But its principal task is to lead our thoughts to higher things, to elevate, even to make us tremble [...] The musical art often speaks in sounds more penetrating than the words of poetry, and takes hold of the most hidden crevices of the hear [...] Song elevates our being and leads us to the good and the true. If, however, music serves only as a diversion or as a kind of vain ostentation it is sinful and harmful. -- (a very young) Friedrich Nietzsche
 
-Heidegger's description of art seems ancient.
+Heidegger's description of art lacks clarity which might be deliberate or is my own lack of understanding.
 As already discussed, a more explainable but also abstract framework was presented by Niklas Luhman, for example in his text *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`.
 What I take from Heidegger is that art can unconceal *world* and *earth*.
 Furthermore, I think that art can elucidate the *essence of technology*, enabling us to develop an open relationship with it.
@@ -709,28 +724,47 @@ It can set up a new meaning-giving world and, according Tarkovsky, can ultimatel
 >The allotted function of art is not, as is often assumed, to put across ideas, to propagate thoughts, to serve as example.
 >The aim of art is to prepare a person for death, to plough and harrow his soul, rendering it capable of turning to good. -- Andrei Tarkovsky
 
-
 ## Turning Away from Danger
 
-We are obliged to perpetually reflect on the *essence of technology* and its *danger*. 
-I believe it's not a matter of outright resistance or unconditional acceptance, but rather of informed ambivalence, deliberate retreat, and vigilant anticipation.
+I feel a great tension between Heidegger's description of technology and my own understanding of it.
+Technological tools saved my life.
+Equipment gives me the ability to explore the world on my own terms.
+So many technological tools are serve an emancipatory purpose and make the live of many people less miserable---a development politicians on the far right want to reverse.
+They try to inject fear from *transhumanism* into the public discourse with arguments that remind me of Heidegger's texts.
+
+I cannot see a clear line between 'good' and 'bad' types of technolgical tools.
+When the alphabet was introduced, Plato harbored concerns that it would lead to the erosion of memory. 
+To some extent, his fears were justified; people began to lose their capacity to memorize and orally transmit great stories. 
+However, his apprehension was not entirely accurate, as the advent of writing allowed these narratives to be documented, effectively externalizing memory. 
+So is the alphabet a bad type of technology?
+I suppose most of us will disagree.
+In my view, it is crucial to continuously seek out new *weapons of emancipation* while recognizing that these tools invariably wield an influence over us that is beyond our control.
+
+Were I agree is Heidegger's description of a network of equipment and our place in it.
+The crushing reality that we are less in control than we often assume.
+We have to recognize and deal with the fact that we are situated in a culture and environment that is shaped by technology.
+We are obliged to perpetually reflect on the *essence of technology* and its *danger*.
+But we should also reflect on the great danger of labelling something *unnatural* or *natural*.
+Over the history we have learned to accept more and more people to our ingroup, not because of some absolute principle but because of better and vivid imagination, and we should be proud of that.
+
+It's not a matter of outright resistance or unconditional acceptance, but rather of informed ambivalence, deliberate retreat, and vigilant anticipation.
 As Luhmann rightfully emphasised: Our society is **contingent**, that is, everything that is could be different.
-Modern society is more and more unpredictable on a global, but also on a personal level.
+Modern society is more and more unpredictable on a global scale, but also on a personal level.
 We can not predict our state over ten years.
 Our perspective into the future is very different from ancient times.
-I must believe that there is the possibility that our *mode of seeing* the world can change into something radical different.
 
+I must believe that there is the possibility that our *mode of seeing* the world can change into something radical different.
 It is attention to technology as a *mode of seeing* that might help us.
 Other kinds of *revealing*, and attention to the realm of *truth* and *being* as such, will allow us to experience the technological within its own bounds.
 Consequently, the artist's duty is to disclose and explore this process *phenomenologically*. 
 She is the one who crafts aesthetic symbols, setting the stage for a possible future. 
 The approach should involve neither prejudice nor antagonism, but rather *sincere engagement* with technology and its creators. 
 After all, the artifacts of our past aren't natural occurrences but are crafted by people. 
-Yet, what has transpired and what will occur are guided by the horizon of possibilities, which is *enframed* (gestellt) by technology and unveiled by artistic works.
+Yet, what has transpired and what will occur are guided by the *horizon of possibilities*, which is *enframed* (gestellt) by technology and unveiled by artistic works.
 
 Our thought process should acknowledge the *challenge* posed by technology.
 We must enter the realm where things can show themselves to us truthfully in a manner not limited to the technological.
-We must resist our automatic acceptance of the *challenge* and the current state of "progress", as it tends to instill a sense of powerlessness towards instigating change. 
+We must resist our automatic acceptance of the *challenge* and the status quo as it tends to instill a sense of powerlessness towards instigating change. 
 There is neither room for bittersweet melancholy nor illusions that minor local changes will be adequate.
 
 Echoing the words of Mark Fisher: I'm not apprehensive about a zombie apocalypse; rather, my concern lies in the ease with which people can envisage such an apocalypse, in contrast to visualizing life a decade or two hence. 
@@ -749,6 +783,6 @@ This could be Heidegger's god, for whom we are waiting and preparing for.
 
 >[...] where the danger is, there grows also what saves. -- Friedrich Hölderlin
 
-But will it be too late? 
+But will it be too late?
 Will *earth* totally conceal the *world*?
-The future is looking grim but imagining the catastrophe is out of my horizon but it horrifies me.
+The future is looking grim but imagining the catastrophe is out of my horizon but thinking about it makes me horrified.

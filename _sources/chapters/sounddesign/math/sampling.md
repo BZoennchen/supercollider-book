@@ -147,7 +147,7 @@ To avoid aliasing, the sampling rate must be more than twice the highest frequen
 ````
 
 In the example above we can observe aliasing.
-We can see that a sample rate of 2 Hz is too low to capture $y(t) = \sin(2\pi \cdot f \cdot t)$ for $f = 2, 3, 6$ Hz.
+We can see that a sample rate of 1 Hz is too low to capture $y(t) = \sin(2\pi \cdot f \cdot t)$ for $f = 2, 3, 6$ Hz.
 All these sine waves appear to be a sine wave of 1 Hz.
 They are indistinguishable if we use a *sample rate* that low.
 

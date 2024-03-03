@@ -168,10 +168,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Grounding</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../preamble/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preamble/heidegger.html">The Essence of Technology and Art</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preamble/medium-and-form.html">Medium and Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preamble/algorithms.html">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../preamble/horizon-of-the-possible.html">Spaces of (Im)Possibilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../preamble/heidegger.html">The Essence of Technology and Art</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">SuperCollider I</span></p>
 <ul class="nav bd-sidenav">
@@ -279,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Composing</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/music-theory/music-theory.html">Music Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/music-theory/music-theory.html">Western Music Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/1-midinotes.html">Notes &amp; Midi Notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/2-intervals.html">Intervals</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/3-scales.html">Scales &amp; Keys</a></li>
@@ -559,16 +559,16 @@ Using <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> gives 
 <div class="math notranslate nohighlight">
 \[y[n] = 0.5 \cdot x[n] - 0.5 \cdot x[n-1].\]</div>
 <p>In other words, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-299f7ab8-3dc0-4bbe-a81e-3b411b6dd8ea">
-<span class="eqno">(66)<a class="headerlink" href="#equation-299f7ab8-3dc0-4bbe-a81e-3b411b6dd8ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-071f8a57-7209-4f3d-b030-124432e52256">
+<span class="eqno">(66)<a class="headerlink" href="#equation-071f8a57-7209-4f3d-b030-124432e52256" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{x(t) - x(t - \Delta t)}{2\Delta t},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(f_s^{-1}\)</span> seconds.
 To get the <em>difference quotient</em>, we have to multiply by a factor of two.</p>
 <p>To test this result, let us compute the cosine using <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a> and a <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e688c058-ad1a-4698-b525-f179448fc357">
-<span class="eqno">(67)<a class="headerlink" href="#equation-e688c058-ad1a-4698-b525-f179448fc357" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cba46e87-a991-41a8-b597-bcf85b36f9cb">
+<span class="eqno">(67)<a class="headerlink" href="#equation-cba46e87-a991-41a8-b597-bcf85b36f9cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -611,8 +611,8 @@ Again let us try our best to understand what is going on without using the <a cl
 <span class="eqno">(68)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f740e45-6aca-4705-87bb-ab80c817d09b">
-<span class="eqno">(69)<a class="headerlink" href="#equation-0f740e45-6aca-4705-87bb-ab80c817d09b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d0e1367-af37-4e89-89f6-043cd3f9265b">
+<span class="eqno">(69)<a class="headerlink" href="#equation-5d0e1367-af37-4e89-89f6-043cd3f9265b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>.
@@ -624,8 +624,8 @@ Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\
 <span class="eqno">(71)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(y[0], \ldots y[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(x[0], \ldots x[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5700b5c-a4ac-40f2-bbaf-ca846a33c534">
-<span class="eqno">(72)<a class="headerlink" href="#equation-b5700b5c-a4ac-40f2-bbaf-ca846a33c534" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fe64ca0c-6d51-4490-be04-4cdaf2b0c988">
+<span class="eqno">(72)<a class="headerlink" href="#equation-fe64ca0c-6d51-4490-be04-4cdaf2b0c988" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
   &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -634,8 +634,8 @@ y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea431041-2def-4039-8b1c-41bc7530479a">
-<span class="eqno">(73)<a class="headerlink" href="#equation-ea431041-2def-4039-8b1c-41bc7530479a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f72411aa-f7be-4e75-bbf2-0fa57a075045">
+<span class="eqno">(73)<a class="headerlink" href="#equation-f72411aa-f7be-4e75-bbf2-0fa57a075045" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
