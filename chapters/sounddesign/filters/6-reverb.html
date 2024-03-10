@@ -288,7 +288,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/6-analysis.html">Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/1-markov-chains.html">Markov Chains</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -663,13 +666,13 @@ Therefore, it can be useful to introduce a reverb effect.</p>
 The <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a> decays over a period of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> seconds.
 <a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> works similar to <a class="reference external" href="https://doc.sccode.org/Classes/Integrator.html">Integrator</a> which basically integrate an incoming signal, which is another way of saying that it sums up all past values of the signal.
 It realizes the following formular:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e95bcce6-4999-432e-aca5-31dfcadf590f">
-<span class="eqno">(74)<a class="headerlink" href="#equation-e95bcce6-4999-432e-aca5-31dfcadf590f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15cee690-dcb1-4854-b6f8-b88ad73978ef">
+<span class="eqno">(74)<a class="headerlink" href="#equation-15cee690-dcb1-4854-b6f8-b88ad73978ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{i=0}^n \alpha x[i]
 \end{equation}\]</div>
 <p>which is realized inductively by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25ec4516-d9ac-49d5-9c7e-6d4749091f75">
-<span class="eqno">(75)<a class="headerlink" href="#equation-25ec4516-d9ac-49d5-9c7e-6d4749091f75" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9631ab0c-7c90-4234-968d-a47a0cd1bac6">
+<span class="eqno">(75)<a class="headerlink" href="#equation-9631ab0c-7c90-4234-968d-a47a0cd1bac6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = y[n-1] + \alpha x[n].
 \end{equation}\]</div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> operates on the basis of more meaningful parameters which are independent from the <em>sample rate</em>.
