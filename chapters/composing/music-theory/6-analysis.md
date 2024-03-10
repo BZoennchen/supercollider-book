@@ -20,13 +20,15 @@ from PIL import Image
 (sec-piece-analysis)=
 # Analysis
 
+Let us look at different pieces and let us try to figure out which which key is used, which chords are played, and maybe why the choices make sense.
+
 ## Prelude I
 
 Every pianist played Bach's *Prelude I in C major* at least ten times.
 It is made to learn the keys of the piano, especially major and minor chords, but it is also a beautiful and simple piece of music.
 
 (1-4) The piece starts and ends at the tonic C, more preceisly at **C** (**I**), that is, C-E-G.
-In the above voices, Bach uses an arpeggio that relentlessly keeps moving through the piece.
+In the top voice, Bach uses an arpeggio that relentlessly keeps moving through the piece.
 Going from **C**=C-E-F (**I**) to **Dm**=D-F-A (**ii**) to D-F-G in the first three top bars and C-E, C-D and B-D in the bottom bars.
 Combining **Dm** with C gives us a D minor seventh chord, i.e., **Dm7**.
 Furthermore, adding the B to D-F-G gives us G major seventh (G-B-D)-F, i.e. the dominant seventh.

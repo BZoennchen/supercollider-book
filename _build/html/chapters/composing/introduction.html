@@ -288,7 +288,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="music-theory/6-analysis.html">Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="algorithmic-composition/1-markov-chains.html">Markov Chains</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -513,7 +516,7 @@ document.write(`
 </div></blockquote>
 <p>This quote by <em>Ada Lovelace</em>, one of the most famous and first programmers of all time, shows that the foundations of <em>algorithmic</em> and <em>artificial compositions</em> are over a thousand years old.
 It is remarkable how she already envisioned complex algorithmic composition executed by <em>the engine</em>.</p>
-<p>Around 1026 the music theoretician and Benedictine <em>Guido d’Arezzo</em> developed one of the first techniques to construct melodies semi-automatically by parsing Latin text into chords.
+<p>Around 1026 the music theoretician and Benedictine <em>Guido d’Arezzo</em> developed one of the first known techniques to construct melodies semi-automatically by parsing Latin text into chords.
 He mapped each vowel contained in the Latin text to a specific pitch determined by a table.
 His method supplied three choices for each vowel such that for a text with <span class="math notranslate nohighlight">\(n\)</span> vowels, there were <span class="math notranslate nohighlight">\(3^n\)</span> possible outcomes.
 <em>Guido’s</em> intention was to ease his students from the burden of an unlimited space of possibilities;
@@ -521,16 +524,27 @@ giving them freedom by structure.
 There was still room for personal taste but not so much to feel overwhelmed.
 Even in those early days, algorithms were employed to limit and explore the space of possible melodies.
 It also shows that composing was a compelling task in the past.</p>
-<p>This has not fundamentally changed, even if we have more tools than ever at our hands.
+<p>This has not fundamentally changed, even if we have more tools than ever at our hands inspired by a diverse set of fields ranging from probabilistic approaches, generative grammars, to neural networks.
 The process of composing, and deciding how to go about it, can be one of the most challenging things about algorithmic composition.
 The jump from modifying simple examples to producing a full-scale piece can be tricky because there is no single or best way to do things.
 We run into the <em>burden of freedom</em>.
 Furthermore, we must think about time and how we can connect the physical with the logical.</p>
-<p>In the field of <em>machine learning</em> we made significant progress using generative models to output arguable beautiful melodies.
+<p>Now, before we can move on we have to talk about the elephant in the room, that is, <em>deep learning</em>.
+Where symbolic approaches lean more towards the intelligence of algorithms, machine learning, especially deep learning, leans towards the intelligence within the data.
+Researchers and developers made significant progress in the field of deep learning using generative models to output arguable impressive results.
 For example, <a class="reference external" href="https://magenta.tensorflow.org/studio/standalone#continue">Continue</a> (from <a class="reference external" href="https://magenta.tensorflow.org/">Google’s Magenta</a> project) uses a recurrent neural network (RNN) to generate notes that are likely to follow your drum beat or melody.
-<a class="reference external" href="https://openai.com/">OpenAI</a> released <a class="reference external" href="https://openai.com/blog/musenet/">MuseNet</a>, a deep neural network that can generate 4-minute musical compositions with ten different instruments and can combine styles from country to Mozart to the Beatles.
-If we should call these techniques <em>algorithmic compositions</em> is at least debatable because the algorithm that generates is not defined by the artist but by the model architecture and the data the model is trained on.</p>
-<p><em>Artificial “intelligence” systems</em> might not be creative by themselves, but they can help us to</p>
+<a class="reference external" href="https://openai.com/">OpenAI</a> released <a class="reference external" href="https://openai.com/blog/musenet/">MuseNet</a>, a deep neural network that can generate 4-minute musical compositions with ten different instruments and can combine styles from country to Mozart to the Beatles.</p>
+<p>One fundamental problem I see with systems that purely rely on deep learning models is that they often offer little possibility to make the medium visible.
+Especially if they are large and use a prompt-based interface, forms of the medium, at least for me, tend to be uninteresting.
+They do not show the algorithms, data, or training process behind the scenes.
+By definition, deep learning models try to imitate the logic and structure of the data they were trained on.
+They learn rich representations of the data which are part of the so-called <em>latent space</em>.
+Each dimension of the latent space, if it is semantically well-structured, represents a fundamental charactersitics of the training data.
+Thus by navigating within the latent space, one can get novel and interesting results.
+However, if this is only possible via text descriptions, the model tends to output results that are likely thus rather uninteresting.
+The lack of direct control over the navigation through the latent space offers non-experts an easy way to get good results and experts frustratingly opaque and uncontrolable kind of interaction.</p>
+<p>If we should call these techniques <em>algorithmic compositions</em> is at least debatable because the algorithm that generates is not defined by the artist but by the model architecture and the data the model is trained on.</p>
+<p>In general, <em>artificial “intelligence” systems</em>, by which I mean systems that are based on machine learning or other symbolic methods, might not be creative by themselves, but they can help us to</p>
 <ol class="arabic simple">
 <li><p>explore the conceptual space</p></li>
 <li><p>combine familiar concepts, and</p></li>
