@@ -86,7 +86,7 @@ To find a pre-scientific view on the matter, he goes back to ancient times.
 In his view, the Greeks used the term *techne* to denote what we now call technology.
 However, their concept of *techne* embraced both *art* and *technique*, something akin to our modern notion of *craft*.
 For the Greeks, *techne* implied the act of bringing something into existence.
-It was not about an engineer constructing an object; rather, the craftsman's role was to assist in the emergence of something, so to say helping the material to take on a *form*.
+It was not about an engineer constructing an object; rather, the craftsman's role was to assist in the emergence of something, or, so to speak, helping the material to take on a *form*.
 A craftsman would never consider themselves as the absolute origin of the reality of what they were creating.
 In Heidegger's view, they would perceive themselves as facilitating the process of something coming into existence.
 
@@ -174,7 +174,7 @@ Luhmann might point out that *technological progress* is a *value* stabilized vi
 We communicate about the installation of nuclear power plants and buy new gadgets which is a kind of communication.
 However, this does not explain why we believe in this *value*.
 I would argue that many people would willingly hit the pause button on all technological progress, at least temporarily.
-No one asked for the *Metaverse*, but we will built it anyways because we are *challenged* to do so.
+No one asked for the *Metaverse*, but we will build it anyways because we are *challenged* to do so.
 Luhmann probabobly would offer a more nuanced explanation: interdependent self-generating social systems which "feed" us into them.
 Heidegger's argument seems quite reductive but it captures my personal feeling of a reality that feels thinner and thinner.
 
