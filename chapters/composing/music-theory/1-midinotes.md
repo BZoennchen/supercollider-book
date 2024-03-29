@@ -1,7 +1,7 @@
 (sec-notes)=
 # Notes & Midi Notes
 
-While notes are introduced by musicians a long time ago, midi notes---rather recent invention---becoming especially popular with the introduction of analog and digital synthesizer.
+While notes are introduced by musicians a long time ago, midi notes---a rather recent invention---became especially popular with the introduction of analog and digital synthesizers.
 Both are motivated and related to piano keys.
 
 ```{figure} ../../../figs/composing/piano-keys.png
@@ -54,7 +54,7 @@ Since there are the same number of keys for each octave but higher octaves cover
 ## Midi Notes
 
 *Midi notes* are just a numbering convention for piano keys.
-They were introduced with the [musical instrument digital interface (MIDI)](sec-midi) and realise a bijetive mapping from a subset of natural numbers to piano keys.
+They were introduced with the [musical instrument digital interface (MIDI)](sec-midi) and realise a bijective mapping from a subset of natural numbers to piano keys.
 
 The different piano keys are numbered in an ascending order from left to right.
 A higher midi note corresponds to a higher pitch.
@@ -63,7 +63,7 @@ In general, the note A$k$ corresponds to the midinote
 
 $$21 + 12 \cdot k, \quad k \in \mathbb{N}_0$$
 
-because the key pattern of a piano repeats itself and each succesive 12 keys corresponds to one *octave*, see section [Intervals](sec-intervals).
+because the key pattern of a piano repeats itself and each succesive 12 keys corresponds to one *octave* (see section [Intervals](sec-intervals)).
 Consecutive piano keys have consecutive natural number as midi notes.
 
 Using Eq. {eq}`eq:note:to:frequency` and the fact that the midi note 69 corresponds to A4 which corresponds to 440 Hz, we can compute the fundamental frequency $f(p)$ for a specific midi note $p$ by the following function:
