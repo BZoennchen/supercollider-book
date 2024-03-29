@@ -28,10 +28,10 @@ Instead, the so called *Bessel function* tells us that the first zero point is 4
 The next odd harmonic of the vibrating string has five equally spaced sections, and oscillates at exactly five times the fundamental frequency.
 The equivalence for the circular drum skin has zero points at 27.8 percent and 63.8 percent of distance from the center to the rim, and it oscillates at a frequency 3.6 times that of the fundamental.
 
-If, for some reason, we do not hit the drum exactly in the cente ---how dare we are--- it vibrates in completely different ways.
+If, for some reason, we do not hit the drum exactly at the center---how dare we are--- it vibrates in completely different ways.
 Hitting a drum will result in a number of simultaneously different oscillation modes.
 However, they will all have different amplitudes and decay rates.
-This makes the drum's sound enormously complex and practical impossible to emulate using the types of waveforms produced by a simple harmonic oscillator.
+This makes the drum's sound enormously complex and practically impossible to emulate using the types of waveforms produced by a simple harmonic oscillator.
 To make things even more difficult, a real drum skin will have slight variations in tension across its surface.
 Hitting a drum harder will result in a higher pitch.
 Therefore, the fundamental frequency is in some way related to the displacement of the membrane.
@@ -39,7 +39,7 @@ Therefore, the fundamental frequency is in some way related to the displacement 
 So what shall we do?
 Admit defeat and concede?
 Well, yes and no!
-We can not emulate a drum by recreating each of its harmonics, for example by using [additive synthesis](sec-additive-synthesis), that would be impossible because it would be too computational expensive.
+We can not emulate a drum by recreating each of its harmonics, for example by using [additive synthesis](sec-additive-synthesis)---that would be impossible because it would be too computational expensive.
 What we need is noise!
 
 
@@ -48,7 +48,7 @@ What we need is noise!
 
 ### Drums
 
-To generate a drum like sound we start with the following components:
+To generate a drum-like sound we start with the following components:
 
 1. a noise generator,
 2. a sine wave,
@@ -123,7 +123,7 @@ Ndef(\breeze, {
 
 ### Bells
 
-Very different from string and wind instruments, bells consists of many inharmonic partials.
+Very different from string and wind instruments, bells consist of many inharmonic partials.
 In the section [additive synthesis](sec-additive-synthesis), we already constructed the sound of a bell using the sum of multiple sine waves ``SinOsc``:
 
 ```isc
