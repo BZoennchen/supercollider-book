@@ -171,7 +171,7 @@ Each (in)harmonic $h_i(t)$ is a sine wave with an amplitude $A_i(t)$, that is, a
 The signal can be seen as a **superposition** of all (in)harmonic $h_i(t)$ for $i = 0, 1, \ldots,$.
 There are infinitely many different $h_i$ thus infinitely many different sounds which represent the same note.
 
-For example, both of the flowing synths generate the same note but have very different timbres:
+For example, both of the following synths generate the same note but have very different timbres:
 
 ```isc
 ({
