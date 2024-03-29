@@ -20,7 +20,7 @@ Listening to music reveals the human condition: being in the world in time. We l
 In the future, we might add machines and algorithms to that list.
 Music theory is the study of theoretical aspects as well as practices and possibilities of music and its notation in a cultural and historical context.
 In its essence, it studies the cognition and perception of human beings; 
-our (biased) *aestehtic experiences*.
+our (biased) *aesthetic experiences*.
 
 Music theory developed historically a long time ago and has matured since then.
 Consequently, there are numerous terms, often for the same thing, which makes it hard to start diving into it---at least for me.
@@ -35,11 +35,11 @@ Being a little shizo is sometimes necessary to overcome the limits of our imagin
 A good example is the dissolution and evolution of musical rules in the *Western music tradition*.
 This tradition guides classical as well as popular music, but we sometimes need to remember that these rules constrain us to only one specific set of our vast space of possibilities.
 Importantly, these rules for generating well-received music changed over the centuries.
-They tend to open up from a narrow perspective, starting from *Pythagoreanism* (600 BC) to the *Gregorian mode* (early middle ages until 1600), the *major-minor-tonality* (1700-1900), *Schoneberg's* *atonality* and *serialism* (1900-1940) and *Penderecki's* (1933-2020) experimental compositions that are radical explorations of timbre.
+They tend to open up from a narrow perspective, starting from *Pythagoreanism* (600 BC) to the *Gregorian mode* (early middle ages until 1600), the *major-minor-tonality* (1700-1900), *Schoenberg's* *atonality* and *serialism* (1900-1940) and *Penderecki's* (1933-2020) experimental compositions that are radical explorations of timbre.
 
 In summary, music theory provides us with terminology to effectively convey and absorb musical ideas and concepts.
 It provides knowledge about the relation of numbers and how these relations may affect the listener.
 But it can also be limiting if taken too literally.
 For example, it emerged alongside the musician and its analog instrument.
-Therefore, until recently, its literature does not provide us with musical aspects that can not be realized by musicians that are constrained by their physical as well as mental ability to play an instrument -- a piano with 48 keys per octave is just not practical.
+Therefore, until recently, its literature does not provide us with musical aspects that can not be realized by musicians that are constrained by their physical as well as mental ability to play an instrument---a piano with 48 keys per octave is just not practical.
 Consequently, music theory is a valuable subject to grasp, but it should never be taken as definitive truth.

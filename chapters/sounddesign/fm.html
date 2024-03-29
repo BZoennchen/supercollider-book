@@ -289,7 +289,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/1-markov-chains.html">Markov Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/1-dice-music.html">Dice Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/2-markov-chains.html">Markov Chain Music</a></li>
 </ul>
 </li>
 </ul>
@@ -560,19 +561,19 @@ As a consequence of the success of <em>FM synthesis</em>, the company sold milli
 <section id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fdf9960-376d-4bb1-8218-f404ec49ba94">
-<span class="eqno">(85)<a class="headerlink" href="#equation-7fdf9960-376d-4bb1-8218-f404ec49ba94" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-79e3843a-e54c-4f62-a5a1-7eabc054cb43">
+<span class="eqno">(85)<a class="headerlink" href="#equation-79e3843a-e54c-4f62-a5a1-7eabc054cb43" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00da9ab4-1b5f-412d-b20b-6f39a4a17812">
-<span class="eqno">(86)<a class="headerlink" href="#equation-00da9ab4-1b5f-412d-b20b-6f39a4a17812" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eddb815b-b95f-4e9a-9b9a-8c18fd8b3858">
+<span class="eqno">(86)<a class="headerlink" href="#equation-eddb815b-b95f-4e9a-9b9a-8c18fd8b3858" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4166588b-d11c-42b4-9579-7a8aa5f9df9e">
-<span class="eqno">(87)<a class="headerlink" href="#equation-4166588b-d11c-42b4-9579-7a8aa5f9df9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4cbb5194-1309-4b30-940a-7531bce53505">
+<span class="eqno">(87)<a class="headerlink" href="#equation-4cbb5194-1309-4b30-940a-7531bce53505" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -785,8 +786,8 @@ The larger the index, the larger the bandwidth.</p>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a04bccc7-fdb9-4095-9d5a-8e8720491bd9">
-<span class="eqno">(88)<a class="headerlink" href="#equation-a04bccc7-fdb9-4095-9d5a-8e8720491bd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad16debd-e0dc-4c51-98d7-8ab70d54ba53">
+<span class="eqno">(88)<a class="headerlink" href="#equation-ad16debd-e0dc-4c51-98d7-8ab70d54ba53" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </section>

@@ -289,7 +289,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/1-markov-chains.html">Markov Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/1-dice-music.html">Dice Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/2-markov-chains.html">Markov Chain Music</a></li>
 </ul>
 </li>
 </ul>
@@ -707,8 +708,8 @@ A typical choice is</p>
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency, Amplitude, and Phase Response</p>
 <p>The <em>frequency response</em> of a <em>linear time-invariant filter</em> can be represented in one formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31404d64-7a32-483a-b4f4-079b45fb3868">
-<span class="eqno">(43)<a class="headerlink" href="#equation-31404d64-7a32-483a-b4f4-079b45fb3868" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3d6a0332-9d4e-4b93-966e-e590a9b57b9b">
+<span class="eqno">(43)<a class="headerlink" href="#equation-3d6a0332-9d4e-4b93-966e-e590a9b57b9b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega T)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega T) := |H(e^{i \omega T})|\)</span> is the <em>amplitude (frequency) response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega T) := \angle H(e^{i \omega T})\)</span> the <em>phase response</em> of the filter.</p>
@@ -718,8 +719,8 @@ H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrac
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b91f5fd-bf02-41bd-9a0d-582ff77908eb">
-<span class="eqno">(44)<a class="headerlink" href="#equation-9b91f5fd-bf02-41bd-9a0d-582ff77908eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b7dc7691-7100-482e-acd8-7b32359a33b0">
+<span class="eqno">(44)<a class="headerlink" href="#equation-b7dc7691-7100-482e-acd8-7b32359a33b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -839,8 +840,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>An LTI filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a785ab3a-2e9d-43ff-bbc2-7e6d38048d69">
-<span class="eqno">(45)<a class="headerlink" href="#equation-a785ab3a-2e9d-43ff-bbc2-7e6d38048d69" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d705f51a-61bc-4f44-831e-9ef4c2be5b08">
+<span class="eqno">(45)<a class="headerlink" href="#equation-d705f51a-61bc-4f44-831e-9ef4c2be5b08" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega T) \cdot e^{i \mathcal{\Theta}(\omega T)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1125,8 +1126,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3da8eae4-6f54-494c-8d53-70def150509a">
-<span class="eqno">(46)<a class="headerlink" href="#equation-3da8eae4-6f54-494c-8d53-70def150509a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2750d88c-354b-4ed8-9d2c-04da052b703c">
+<span class="eqno">(46)<a class="headerlink" href="#equation-2750d88c-354b-4ed8-9d2c-04da052b703c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -1145,8 +1146,8 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 <p class="admonition-title">FIR Filter</p>
 <p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4524ba59-69e3-4629-80cd-3d1fbbacd31c">
-<span class="eqno">(47)<a class="headerlink" href="#equation-4524ba59-69e3-4629-80cd-3d1fbbacd31c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-09694416-6584-4534-a8d7-a1e95df0b023">
+<span class="eqno">(47)<a class="headerlink" href="#equation-09694416-6584-4534-a8d7-a1e95df0b023" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>
