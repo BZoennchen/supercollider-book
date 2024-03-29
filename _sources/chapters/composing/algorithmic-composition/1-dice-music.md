@@ -22,7 +22,7 @@ The Musikalisches Würfelspiel (German for *musical dice game*) was popular in t
 Typically, composers would prepare a set of musical phrases and use a dice to randomly put them in sequence.
 
 ```{prf:algorithm} Dice Music
-:label: alg-euclid
+:label: alg-dice-music
 
 **Inputs:** The desired length of the piece $n \in \mathbb{N}$.
 
