@@ -26,7 +26,7 @@ If we push multiple piano keys, the color of the sound we perceive will be deter
 In that regard, compared to the exact pitches, *intervals* are much more important.
 But instead of similarity we consider *consonant* and *dissonant* combinations of [notes](sec-notes) or more preceisly pitches.
 In fact, two sound waves with very similar fundamental frequencies are dissonant. For example, pressing two consecutive piano keys results in a dissonant vibration because the sound waves do not overlap so much.
-The first one vibrates with a frequency of $f$ herz and the second with a frequency of $f \cdot \sqrt[12]{2} \approx f \cdot 1.0594$ herz.
+The first one vibrates with a frequency of $f$ hertz and the second with a frequency of $f \cdot \sqrt[12]{2} \approx f \cdot 1.0594$ hertz.
 
 Building beautiful *melodies* with proper *harmonization* revolves around finding suitable sequences of sets of intervals.
 Musicians play with and balance *dissonance* and *consonance*.
@@ -87,7 +87,7 @@ The number after the letter of a note indicates its octave.
 For example, F4 means F (the key) in octave 4, while C5 means a C in octave 5.
 F4 and F5 are in the same *pitch class* but have different pitches.
 
-Compare the sound of the following two pattern.
+Compare the sound of the following two patterns.
 Which melody sounds more consonant and why?
 Can you hear the difference?
 
@@ -133,7 +133,7 @@ ipd.Audio(audio_path)
 ```
 
 The second example sounds rather consonant because all ratios are simple fractions of whole numbers.
-It is however not necessary that ratios have to be simple rather they have to approximate simple fractions of whole numbers!
+It is however not necessary that ratios have to be simple; rather they have to approximate simple fractions of whole numbers!
 For example, the ratio of a **perfect fifth**, i.e. the most consonant interval other than **unison** and **octave**, in [12-TET](sec-tet-tuning) is equal to
 
 $$2^{7/12} \approx 1.4983070 \approx 1.5 \approx \frac{3}{2}$$
@@ -155,8 +155,8 @@ Mathematically, the distance in cents of the interval from frequency $f_1$ to fr
 
 $$1200 \cdot \log_2\left( \frac{f_1}{f_2} \right).$$
 
-Notable, pitch can be perceived in a (logarithmic) range which is approximately the same for each person.
-In a range from 10 to 25 **cents**, depending on the listeners hearing and musical education or exposer, pitch differences can be perceived.
+Notably, pitch can be perceived in a (logarithmic) range which is approximately the same for each person.
+In a range from 10 to 25 **cents**, depending on the listener’s hearing and musical education or exposure, pitch differences can be perceived.
 In terms of a center frequency $f$, this gives us an interval defined by
 
 \begin{equation*}
@@ -222,7 +222,7 @@ im = im.crop((170, 310, 500, 450))
 display(im)
 ```
 
-A **third** can be 5 semitones (**augmented**) **third** e.g. C to E#, 4 semitones (**major**) **third**, e.g. C to E, 3 semitones (**minor**) **third**, e.g. E to G or 2 semitones apart, e.g. E to Gb (**diminished**) **third**.
+A **third** can be 5 semitones (**augmented** **third**) e.g. C to E#, 4 semitones (**major** **third**), e.g. C to E, 3 semitones (**minor** **third**), e.g. E to G or 2 semitones apart, e.g. E to Gb (**diminished** **third**).
 Note that the augmented third C to E# can also be written as C to F but in this case we would call it a **perfect fourth**!
 The staff below shows all four (vertical) intervals:
 
@@ -280,7 +280,7 @@ $$12 - 7 + 2 = 7.$$
 
 All other intervals are less consonant.
 The inversion of a minor interval is major and vice versa and the inversion of an augmented invertal is a dimished interval.
-For example, a major third (4 semitones becames)
+For example, a major third (4 semitones) becomes
 
 $$12-4 + 2 = 10$$
 
@@ -352,14 +352,14 @@ Many others make the following distinction:
 + **Imperfect consonance** (major and minor third and sixths)
 + **Dissonance** (all seconds, sevenths, and diminished and augmented intervals)
 
-The **perfect fourth** is often regared as dissonant when it involves the lowest voice in the texture, but consonant when it occurs between two upper voices.
+The **perfect fourth** is often regarded as dissonant when it involves the lowest voice in the texture, but consonant when it occurs between two upper voices.
 
 ```{figure} ../../../figs/composing/piano-keys-intervals-dark.png
 ---
 width: 800px
 name: fig-piano-keys-intervals
 ---
-Piano keys: the octave in blue, the perfect fourth in red, and the minor third in green. Note that only the distance between keys, i.e., their relation matters!
+Piano keys: the octave in blue, the perfect fourth in red, and the minor third in green. Note that only the distance between keys (i.e., their relation) matters!
 ```
 
 Let's compare one of the most dissonant intervals, the **tritone**
