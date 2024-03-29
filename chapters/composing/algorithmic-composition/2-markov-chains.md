@@ -16,7 +16,7 @@ kernelspec:
 import IPython.display as ipd
 ```
 
-# Markov Chains
+# Markov Chain Music
 
 A *Markov chain* is a mathematical model for stochastic processes describing a sequence of possible events.
 Importantly the model assumes that the probability of each event depends only on the state attained in the previous event which is a strong assumption.
@@ -196,6 +196,14 @@ Since I am lazy to compute probabilities I, use normalized weights.
 )
 ```
 
+```{figure} ../../../figs/composing/markov-chain-ex2.png
+---
+width: 600px
+name: fig-markov-chain-ex2
+---
+The Markov chain of this example. Each node represents a degree and duration. There is a low probability that the transition from the green box to the orange box happens.
+```
+
 Let's use some custom [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) that produces harmonic tones:
 
 ```isc
@@ -283,6 +291,66 @@ $$m^{n+1}$$
 transitions in the most extreme scenario, where $m$ represents the total number of states.
 
 Crafting an $n^{th}$-order chain manually becomes exceedingly intricate when $n$ exceeds 2. Fortunately, with today's computational resources, learning higher-order Markov chains from existing data sets has become relatively straightforward. However, transitioning to higher-order chains doesn't guarantee enhanced or more captivating outcomes. As the order increases, the model tends to fit more closely to the specific data set, a phenomenon known as overfitting. This condition entails nearly perfect memorization of the data set, which paradoxically diminishes the model's capacity to generate novel and original outputs.
+
+## Learning the Chain
+
+Instead of defining the chain by hand, one can use a corpus of pieces and extract the transition and its probability from it.
+Let say we have the following piece defined by pairs of midi note and duration.
+
+```isc
+(
+~notes = [
+    [74, 0.5],
+    [67, 0.25], [69, 0.25], [71, 0.25], [72, 0.25],
+    [74, 0.5], [67, 0.5], [67, 0.5],
+    [76, 0.5],
+    [72, 0.25], [74, 0.25], [76, 0.25], [78, 0.25],
+    [79, 0.5], [67, 0.5], [67, 0.5],
+    [72, 0.5],
+    [74, 0.25], [72, 0.25], [71, 0.25], [69, 0.25],
+    [71, 0.5],
+    [72, 0.25], [71, 0.25], [69, 0.25], [67, 0.25],
+    
+    [66, 0.5],
+    [67, 0.25], [69, 0.25], [71, 0.25], [67, 0.25],
+    [71, 0.5],[69, 1],
+    
+    [74, 0.5],
+    [67, 0.25], [69, 0.25], [71, 0.25], [72, 0.25],
+    [74, 0.5], [67, 0.5], [67, 0.5],
+    [76, 0.5],
+    [72, 0.25], [74, 0.25], [76, 0.25], [78, 0.25],
+    [79, 0.5], [67, 0.5], [67, 0.5],
+    [72, 0.5],
+    [74, 0.25], [72, 0.25], [71, 0.25], [69, 0.25],
+    [71, 0.5],
+    [72, 0.25], [71, 0.25], [69, 0.25], [67, 0.25],
+    
+    [69, 0.5],
+    [71, 0.25], [69, 0.25], [67, 0.25], [66, 0.25],
+    [67, 1.5]
+]
+)
+```
+
+```isc
+{
+~notes.do ({ |pair|
+    Synth(\saw_approx, [freq: pair[0].midicps, rel: 1.1]);
+    pair[1].wait;
+});
+}.fork;
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/bach-ex1.mp3'
+ipd.Audio(audio_path)
+```
+
+
+
+TODO
 
 ## Summary
 

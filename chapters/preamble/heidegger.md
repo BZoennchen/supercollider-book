@@ -687,7 +687,7 @@ Haneka highlights this cloud of untruth.
 There is no single explanation of human suffering, it just is---all that remain is what we do with it.
 
 I find Haneke's project important.
-However, if such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence in reference to the medium itself---e.g. by breaking the fourth wall---will lead to the same old effect, that is, more violence is questionable.
+However, it is questionable whether such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence, in reference to the medium itself---for example, by breaking the fourth wall---will merely lead to the same old effect: more violence.
 
 I think, similar to the Greek temple, films from these directors can open worlds by bringing us back into existential time, i.e., bringing us to reflecting on (our) *Being* or what it means to be.
 And when this question shines through, it can upset our entire world.

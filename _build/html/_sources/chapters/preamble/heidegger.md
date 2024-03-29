@@ -86,7 +86,7 @@ To find a pre-scientific view on the matter, he goes back to ancient times.
 In his view, the Greeks used the term *techne* to denote what we now call technology.
 However, their concept of *techne* embraced both *art* and *technique*, something akin to our modern notion of *craft*.
 For the Greeks, *techne* implied the act of bringing something into existence.
-It was not about an engineer constructing an object; rather, the craftsman's role was to assist in the emergence of something, so to say helping the material to take on a *form*.
+It was not about an engineer constructing an object; rather, the craftsman's role was to assist in the emergence of something, or, so to speak, helping the material to take on a *form*.
 A craftsman would never consider themselves as the absolute origin of the reality of what they were creating.
 In Heidegger's view, they would perceive themselves as facilitating the process of something coming into existence.
 
@@ -174,7 +174,7 @@ Luhmann might point out that *technological progress* is a *value* stabilized vi
 We communicate about the installation of nuclear power plants and buy new gadgets which is a kind of communication.
 However, this does not explain why we believe in this *value*.
 I would argue that many people would willingly hit the pause button on all technological progress, at least temporarily.
-No one asked for the *Metaverse*, but we will built it anyways because we are *challenged* to do so.
+No one asked for the *Metaverse*, but we will build it anyways because we are *challenged* to do so.
 Luhmann probabobly would offer a more nuanced explanation: interdependent self-generating social systems which "feed" us into them.
 Heidegger's argument seems quite reductive but it captures my personal feeling of a reality that feels thinner and thinner.
 
@@ -301,10 +301,10 @@ instead, there exists a tension between the two.
 One can derive deep enjoyment from improving a skill, achieving goals, or uncovering solutions to complex problems. 
 Similarly, we can perceive the earth and its inhabitants instrumentally (as a means to an end) or appreciate them for what they are (as ends in themselves).
 
-Therefore, I favor the Kantian notion extended to all beings as well as things---never viewing anything merely as a mean to an end, but always as an end in itself. 
-But I also acknowledge Richard Rorty for pointing out that such *ethical principle* can not be seen as an absolute rule but something we can consider when we try to make the right decision.
+Therefore, I favor the Kantian notion extended to all beings as well as things---never viewing anything merely as a means to an end, but always as an end in itself. 
+But I also acknowledge Richard Rorty for pointing out that such an *ethical principle* can not be seen as an absolute rule but something we can consider when we try to make the right decision.
 There is no authority, no rule, no algorithm that will forever and in any situation provide us with the right answer.
-What we think is right or wrong is contingent on how we grow up---on our culture, history, and environment.
+What we think is right or wrong is contingent on how we grow up---in our culture, history, and environment.
 The answer is neither *absolutism* nor *absolute relativism* but the willingness to acknowledge to myself, that my conscience is the internalized consciousness of a specific historical-contingent culture.
 Furthermore, just as *instrumental play* can enrich *free play*, such as by enabling other forms of *free play* via the acquisition of new skills and habits, I also believe that the scientific perspective, which necessitates objectifying entities and often neglects the broader context, can still enhance our appreciation of the whole.
 
@@ -441,9 +441,9 @@ Furthermore, it is only through the transparency of the world that earth can str
 The happening of truth in the work of art and the Being of the work of art is essentially the instigation of the *strife* between world and earth.
 A great work of art intensifies this *strife* while establishing it.
 
-That is why Heidegger, claims that artworks are more "thingly" than tools.
+That is why Heidegger claims that artworks are more "thingly" than tools.
 They do not withdraw but stay *present-at-hand* for *Dasein* because they are unfixable. 
-Art can be thought of in terms of *Being*, *truth*, *world*, *earth* and *strife* and, according to Heidegger, the two essential features of great artwork are setting up of a world and setting forth of *earth*.
+Art can be thought of in terms of *Being*, *truth*, *world*, *earth* and *strife*, and according to Heidegger, the two essential features of great artwork are setting up of a world and setting forth of *earth*.
 Furthermore, an epochal understanding of *Being* and a particular world are opened and held opened in *Dasein's* clearing by a specific being, i.e., a work of art.
 
 We haven't really touched on the aesthetics of art; its beauty and ugliness or subjective quality.
@@ -459,7 +459,7 @@ In fact, it could be argued that Heidegger’s attitude towards music is antagon
 He attacks the emotionality of music.
 For example, about Wagner he says that his project was not just the predominance of music with respect to the other arts in his work that made him fail, but the problem inherent in aesthetics itself; namely, the reason why music was allowed to aspire to such a position.
 Aesthetics is only a part of a greater movement in history---that of nihilism.
-This is revleaning since right-wingers often praise 'great' artwoks which are great in an aesthetic sense and complain about more abstract and conceptual artworks which they see as a *degeneration* of art.
+This is revealing since right-wingers often praise 'great' artwoks which are great in an aesthetic sense and complain about more abstract and conceptual artworks which they see as a *degeneration* of art.
 One can argue that Heidegger too is drawn to the aesthetic of a certain kind of lifestyle.
 
 However, I believe there is more to music than Heidegger recognized. 
@@ -547,8 +547,8 @@ The camera looks at beings as they are thus revealing the multiplicity of *Being
 
 >All of [Malick's] movies are about worlds. [...] Each film is about some aspect of the world. -- Hubert Dreyfus
 
-And according to Martin Woessner in *What Is Heideggerian Cinema? Film, Philosophy, and Cultural Mobility* {cite}`woessner:2011`:
-Film gives us a meaningful world at the same time that it mirrors our own growing alienation from the world.
+And according to Martin Woessner in *What Is Heideggerian Cinema? Film, Philosophy, and Cultural Mobility* {cite}`woessner:2011`,
+film gives us a meaningful world at the same time that it mirrors our own growing alienation from the world.
 Moviegoers are simultaneously engaged and disengaged.
 With regard to the former, we can say that cinema gives us what, in our everyday lives, we take for granted or do not acknowledge, mainly because it is too difficult to do so.
 It gives us precisely what Malick was looking for as a student in his philosophy classes, namely, a sense of the world, if not exactly a complete knowledge of one's place in it.
@@ -571,7 +571,7 @@ While being a very personal movie, Malick wishes that
 
 In his filmography Malick develops the concept of *grace* and *nature* which is most prominent in *The Tree of Life*.
 I would argue that *nature* is closely related to the *essence of technology* being the instrumental and rational aspect of seeing and thinking.
-Malick's *nature* is calculating, selfish, and alien---it fights and dominates to survive; the wolf hunting the lamp, land fighting the ocean, plants fighting plants, humans dominating humans in
+Malick's *nature* is calculating, selfish, and alien---it fights and dominates to survive; the wolf hunting the lamb, land fighting the ocean, plants fighting plants, humans dominating humans in
 
 >physical life in a world abandoned by the spirit. Organized unreality. The soul a hindrance in one’s dealings here. A burden. A mere quantity of thoughts and desires. -- Terrence Malick
 
@@ -589,7 +589,7 @@ Our being is a miracle, equal with the creation of the universe, and like the un
 
 In *The Thin Red Line* we can observe the soldiers which are *thrown* onto a Pacific island in World War II and are aware of the thin line between *Being* and *Nothing*.
 Nowhere in Malick's works is the transitory nature of the world more thoroughly explored than in this movie.
-Theses soldiers struggle with existential questions and anxiety because they are forcefully confronted with death; they imagine their life from the end---what Heidegger called *Vorlaufen zum eigenen Tode*.
+These soldiers struggle with existential questions and anxiety because they are forcefully confronted with death; they imagine their life from the end---what Heidegger called *Vorlaufen zum eigenen Tode*.
 The American and Japanese soldiers as well as the Melanesian people caught in the middle of a conflict represent a reminder of our constant vulnerability to the collapse of our way of life, i.e., our existential fragility of human worlds.
 For the philosopher Dreyfus the film is a concrete and historical example of the freedom of *Dasein* at work, a clear example of the groundless ground of human
 action.
@@ -598,15 +598,15 @@ Its central aim to investigate the meaning of the world itself, something connec
 In that sense, it is not only a film of a battle between nations but a clash of different worlds.
 It is also a film about our increasing inability to recognize that the world itself is a delicate and fragile balance predicated on, but ultimately pointing beyond, human agency.
 
-According to the topic of the *essence of technology* Malick's *The New World* might be closest to the question at hand.
+According to the topic of the *essence of technology*, Malick's *The New World* might be closest to the question at hand.
 What *The New World* recounts is the transformation of the natural world into an artificial world.
 Scenes of indigenous dwelling are juxtaposed with scenes of colonial misery, the former depicting balance and harmony with the environment, the latter only struggle and strife---existence against, not with, nature.
-Malick uses the Pocahonta-myth to explore the origins of modern world, in which mortals begin to exaggerate their role in the delicate and fragile interaction of the interaction between the earth, the sky, divinities, and mortals---throwing it off balance.
+Malick uses the Pocahontas myth to explore the origins of modern world, in which mortals begin to exaggerate their role in the delicate and fragile interaction of the interaction between the earth, the sky, divinities, and mortals---throwing it off balance.
 An uprooted Pocahontas wanders through the rationalized English garden, perplexed by how the Europeans have tamed and reshaped the trees of nature.
 We can suggest that the colonists brought not only industry and civilization but also the metaphysics that created the objective and rational world, i.e. Decartes's philosophy, and with the *essence of technology*---seeing the world as *standing reserve*.
 In this way, America comes into being.
 
-And in his latest work *A Hiden Life*, Malick seems to try to find a moral compass within Heidegger's work by deconstructing religion and nationalism by looking at someone who refuses to fight.
+And in his latest work *A Hidden Life*, Malick seems to try to find a moral compass within Heidegger's work by deconstructing religion and nationalism by looking at someone who refuses to fight.
 It is a film about goodness and courage, without recognition.
 An attempt that is more close to Kierkegaard and goes probably against Heidegger's intentions because he seems to provide no such compass or moral considerations.
 Here we find an *ordinary* farmer with a profoundly unspectacular life.
@@ -621,7 +621,7 @@ It is in our human nature to love the story of a person who did great things: sa
 It is less common for us to celebrate a man or woman who threw away a good life and simply refused to do what he knew he could not, and paid with his life.
 *A Hidden Life* dares us to imagine that the latter is at least as important as the former---and maybe more so.
 
-Most certainly, Malick's works questions that we ought to have made ourselves answer.
+Most certainly, Malick's works question that we ought to have made ourselves answer.
 Undoubtedly, they are important questions since they get to the heart of *disengagement* and *alienation*.
 These are inherently modern questions, unfamiliar to traditional societies and cultures.
 They are also questions one asks only in a state of anxiety.
@@ -646,7 +646,7 @@ By doing so Haneke exposes the dangerous effect of an existence informed by medi
 He shows deep seeded interest in the world beyond what we see at the screen.
 By framing subjects out of the line of sight or using off-screen sounds, he draws attention to the materiality outside of the frame.
 This is the place where the most traumatic events occur.
-Thereby, Haneka is bringing into question the context of an image.
+Thereby, Haneke is bringing into question the context of an image.
 If we are aware of violence but are incapable of seeing it, is that image still violent?
 If we spent our time surrounded by real acts of terror in our media, does this makes our life terrifying?
 Personal stories bleed into social decay and vice versa.
@@ -667,7 +667,7 @@ It goes against the Nietzschian perspective that greatness requires suffering.
 No! Haneka shows us, suffering is just suffering.
 There is nothing great to find there; it is a horrific banality.
 While watching the movie one wants to scream towards the protagonists but one has to keep watching helplessness.
-Leonard Maltin called the movie ``nonsensical and highly unpleasant'' but that is exactly the point.
+Leonard Maltin called the movie “nonsensical and highly unpleasant'' but that is exactly the point.
 Haneke wants to provoke and he wants to deconstruct the violent cinema.
 And he won't give as relief, causal rationalization, or the morally guilty.
 Violence stays brutally nonsensical.
@@ -687,7 +687,7 @@ Haneka highlights this cloud of untruth.
 There is no single explanation of human suffering, it just is---all that remain is what we do with it.
 
 I find Haneke's project important.
-However, if such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence in reference to the medium itself---e.g. by breaking the fourth wall---will lead to the same old effect, that is, more violence is questionable.
+However, it is questionable whether such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence, in reference to the medium itself---for example, by breaking the fourth wall---will merely lead to the same old effect: more violence.
 
 I think, similar to the Greek temple, films from these directors can open worlds by bringing us back into existential time, i.e., bringing us to reflecting on (our) *Being* or what it means to be.
 And when this question shines through, it can upset our entire world.
@@ -714,7 +714,7 @@ If not, does this mean it is not a work of art?
 
 >God has given us music so that above all it can lead us upwards. Music unites all qualities: it can exalt us, divert us, cheer us up, or break the hardest of hearts with the softest of its melancholy tones. But its principal task is to lead our thoughts to higher things, to elevate, even to make us tremble [...] The musical art often speaks in sounds more penetrating than the words of poetry, and takes hold of the most hidden crevices of the hear [...] Song elevates our being and leads us to the good and the true. If, however, music serves only as a diversion or as a kind of vain ostentation it is sinful and harmful. -- (a very young) Friedrich Nietzsche
 
-Heidegger's description of art lacks clarity which might be deliberate or is my own lack of understanding.
+Heidegger's description of art lacks clarity which might be deliberate or might be my own lack of understanding.
 As already discussed, a more explainable but also abstract framework was presented by Niklas Luhman, for example in his text *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`.
 What I take from Heidegger is that art can unconceal *world* and *earth*.
 Furthermore, I think that art can elucidate the *essence of technology*, enabling us to develop an open relationship with it.
