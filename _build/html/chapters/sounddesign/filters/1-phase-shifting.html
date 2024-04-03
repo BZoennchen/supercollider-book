@@ -271,6 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../fft.html">FFT Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physical-modeling.html">Physical Modeling</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/intro.html">Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/superdirt.html">SuperDirt Synths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cookbook/drones.html">Drones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cookbook/percussive-sound.html">Percussive Sound</a></li>
 </ul>
@@ -291,6 +292,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/1-dice-music.html">Dice Music</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/2-markov-chains.html">Markov Chain Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/3-fractals.html">Fractal Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/4-evolution.html">Evolutionary Music</a></li>
 </ul>
 </li>
 </ul>
@@ -526,8 +529,8 @@ document.write(`
 <span id="sec-filter-by-delay"></span><h1>Filtering by Delays<a class="headerlink" href="#filtering-by-delays" title="Permalink to this headline">#</a></h1>
 <p>Delays are one of the building blocks of music synthesis and musical performances.
 In the digital world and in its basic form, it comes down to playing a signal <span class="math notranslate nohighlight">\(x\)</span> again after a certain amount of time, s.t. the result <span class="math notranslate nohighlight">\(y\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f1a7aa3-8850-4672-9c65-6cdf23806b36">
-<span class="eqno">(59)<a class="headerlink" href="#equation-0f1a7aa3-8850-4672-9c65-6cdf23806b36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-db584e4c-67da-44ca-81c0-d4834216c8b8">
+<span class="eqno">(59)<a class="headerlink" href="#equation-db584e4c-67da-44ca-81c0-d4834216c8b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \begin{cases} x[n] + \alpha \cdot x[n-k], &amp; \text{ for } n \geq k\\ x[n], &amp; \text{ else } \end{cases}
 \end{equation}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span>.
@@ -547,16 +550,16 @@ As we will see, we can filter a signal by using a simple oscillator, which shows
 <h2>Phase Shifting<a class="headerlink" href="#phase-shifting" title="Permalink to this headline">#</a></h2>
 <p>Let us combine two (analog) sine waves.
 First two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-556cc50a-8d85-4f64-ba43-fca47f613b22">
-<span class="eqno">(60)<a class="headerlink" href="#equation-556cc50a-8d85-4f64-ba43-fca47f613b22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-07cc91eb-eb62-4f36-9211-77dc53a1b7cc">
+<span class="eqno">(60)<a class="headerlink" href="#equation-07cc91eb-eb62-4f36-9211-77dc53a1b7cc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t),
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase-shifted by <span class="math notranslate nohighlight">\(\pi\)</span>, that is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6133b4d-dcb7-412d-8d48-65bb2f9a7ae9">
-<span class="eqno">(61)<a class="headerlink" href="#equation-c6133b4d-dcb7-412d-8d48-65bb2f9a7ae9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b3c8e960-3a5c-4b26-b808-47c439850ba4">
+<span class="eqno">(61)<a class="headerlink" href="#equation-b3c8e960-3a5c-4b26-b808-47c439850ba4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0.
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -568,8 +571,8 @@ Of course, we can not hear any difference between a sine wave and its shifted co
 Only in combination, the phase plays a role!</p>
 <p>If we combine any number of signals, the <em>maximal loudness</em> of the result lies within the sum of absolute maximum loudness of each signal and zero.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c98dfa57-b344-471f-a265-c475efe64c11">
-<span class="eqno">(62)<a class="headerlink" href="#equation-c98dfa57-b344-471f-a265-c475efe64c11" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-caaa0493-bb58-4e49-a81c-4cdb4e08414c">
+<span class="eqno">(62)<a class="headerlink" href="#equation-caaa0493-bb58-4e49-a81c-4cdb4e08414c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
@@ -605,13 +608,13 @@ As before, the fundamentals of frequency <span class="math notranslate nohighlig
 However, the next harmonic – with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz – is reinforced, i.e., its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.
 In the fact, the amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1952931c-7645-4f57-b266-16675b33769d">
-<span class="eqno">(63)<a class="headerlink" href="#equation-1952931c-7645-4f57-b266-16675b33769d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aea4f0c8-5de6-47fc-842a-4dedf849912a">
+<span class="eqno">(63)<a class="headerlink" href="#equation-aea4f0c8-5de6-47fc-842a-4dedf849912a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8abebd5c-798d-4c81-bfd6-3bc6221a8e36">
-<span class="eqno">(64)<a class="headerlink" href="#equation-8abebd5c-798d-4c81-bfd6-3bc6221a8e36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-19c1e08a-48f3-408d-b5ef-bb0fa58967fd">
+<span class="eqno">(64)<a class="headerlink" href="#equation-19c1e08a-48f3-408d-b5ef-bb0fa58967fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -673,8 +676,8 @@ A <em>feedforward comb filter</em> is also a <a class="reference internal" href=
 <section id="feedback-comb-filter">
 <h2>Feedback Comb Filter<a class="headerlink" href="#feedback-comb-filter" title="Permalink to this headline">#</a></h2>
 <p>A <em>feedback comb filter</em> fulfills the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb44f09f-db99-444f-9994-e1b56de410cf">
-<span class="eqno">(65)<a class="headerlink" href="#equation-bb44f09f-db99-444f-9994-e1b56de410cf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a2727fe4-e448-4ecf-9ac2-d7cb39420c83">
+<span class="eqno">(65)<a class="headerlink" href="#equation-a2727fe4-e448-4ecf-9ac2-d7cb39420c83" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \begin{cases} x[n] + \beta \cdot y[n-k], &amp; \text{ for } n \geq k\\ x[n], &amp; \text{ else. } \end{cases}
 \end{equation}\]</div>
 <p>The <a class="reference internal" href="../math/lti-filters.html#sec-impulse-response"><span class="std std-ref">impulse response</span></a> of this type of delay gives us infinite peaks.

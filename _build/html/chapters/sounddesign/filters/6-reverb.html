@@ -271,6 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../fft.html">FFT Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../physical-modeling.html">Physical Modeling</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../cookbook/intro.html">Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/superdirt.html">SuperDirt Synths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cookbook/drones.html">Drones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cookbook/percussive-sound.html">Percussive Sound</a></li>
 </ul>
@@ -291,6 +292,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/1-dice-music.html">Dice Music</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/2-markov-chains.html">Markov Chain Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/3-fractals.html">Fractal Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../composing/algorithmic-composition/4-evolution.html">Evolutionary Music</a></li>
 </ul>
 </li>
 </ul>
@@ -667,13 +670,13 @@ Therefore, it can be useful to introduce a reverb effect.</p>
 The <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a> decays over a period of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> seconds.
 <a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> works similar to <a class="reference external" href="https://doc.sccode.org/Classes/Integrator.html">Integrator</a> which basically integrate an incoming signal, which is another way of saying that it sums up all past values of the signal.
 It realizes the following formular:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a3940d8-e2a3-4dc7-b914-2690e63b0160">
-<span class="eqno">(74)<a class="headerlink" href="#equation-1a3940d8-e2a3-4dc7-b914-2690e63b0160" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-471e3d91-e527-409c-bf57-9e7027ab8b3f">
+<span class="eqno">(74)<a class="headerlink" href="#equation-471e3d91-e527-409c-bf57-9e7027ab8b3f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{i=0}^n \alpha x[i]
 \end{equation}\]</div>
 <p>which is realized inductively by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6880f9e8-8d3f-4100-8b2c-06d8763eb777">
-<span class="eqno">(75)<a class="headerlink" href="#equation-6880f9e8-8d3f-4100-8b2c-06d8763eb777" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-14da0935-49a0-4900-811e-6515b2e544a6">
+<span class="eqno">(75)<a class="headerlink" href="#equation-14da0935-49a0-4900-811e-6515b2e544a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = y[n-1] + \alpha x[n].
 \end{equation}\]</div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> operates on the basis of more meaningful parameters which are independent from the <em>sample rate</em>.
