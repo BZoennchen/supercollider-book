@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="bibliography.html" />
-    <link rel="prev" title="Markov Chain Music" href="../composing/algorithmic-composition/2-markov-chains.html" />
+    <link rel="prev" title="Evolutionary Music" href="../composing/algorithmic-composition/4-evolution.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -271,6 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../sounddesign/fft.html">FFT Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../sounddesign/physical-modeling.html">Physical Modeling</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../sounddesign/cookbook/intro.html">Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sounddesign/cookbook/superdirt.html">SuperDirt Synths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sounddesign/cookbook/drones.html">Drones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sounddesign/cookbook/percussive-sound.html">Percussive Sound</a></li>
 </ul>
@@ -291,6 +292,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/1-dice-music.html">Dice Music</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/2-markov-chains.html">Markov Chain Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/3-fractals.html">Fractal Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/4-evolution.html">Evolutionary Music</a></li>
 </ul>
 </li>
 </ul>
@@ -586,13 +589,13 @@ For example, a complete concert orchestra and a thunder have roughly the power o
 <p><em>Sound intensity</em> is sound power per unit area, i.e. watt per square meter.
 The sound we can perceive can have a surprisingly small intensity.
 The threshold of hearing <span class="math notranslate nohighlight">\(TOH\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8dce6824-0568-4142-be56-cf62f95837f0">
-<span class="eqno">(95)<a class="headerlink" href="#equation-8dce6824-0568-4142-be56-cf62f95837f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f59e2ec8-83fe-44da-a18d-507ef97c9fce">
+<span class="eqno">(95)<a class="headerlink" href="#equation-f59e2ec8-83fe-44da-a18d-507ef97c9fce" title="Permalink to this equation">#</a></span>\[\begin{equation}
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>On other end, the threshold of pain <span class="math notranslate nohighlight">\(TOP\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aebbc124-e215-4ef4-bd53-c5a321197373">
-<span class="eqno">(96)<a class="headerlink" href="#equation-aebbc124-e215-4ef4-bd53-c5a321197373" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e3fcbd86-1083-400c-9537-2ac0fc89bb57">
+<span class="eqno">(96)<a class="headerlink" href="#equation-e3fcbd86-1083-400c-9537-2ac0fc89bb57" title="Permalink to this equation">#</a></span>\[\begin{equation}
     TOP = 10 \,\text{W/m}^2.
 \end{equation}\]</div>
 <p>At that intensity we start suffering.</p>
@@ -613,8 +616,8 @@ It is convenient to start with</p>
 <li><p>a ballon popping 157 dB</p></li>
 </ul>
 <p>If we follow that convention, we can compute the decibels of a sound intensity <span class="math notranslate nohighlight">\(I\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2e8c0af-84a0-42a0-bd53-51fbd984fbd6">
-<span class="eqno">(97)<a class="headerlink" href="#equation-b2e8c0af-84a0-42a0-bd53-51fbd984fbd6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-97f97c35-ad90-4c20-8e55-4331f9786ee4">
+<span class="eqno">(97)<a class="headerlink" href="#equation-97f97c35-ad90-4c20-8e55-4331f9786ee4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     db(I) = 10 \cdot \log_{10}\left( \frac{I}{I_{TOH}} \right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I_{TOH}\)</span> is the sound intensity of the threshold of hearing.</p>
@@ -659,8 +662,8 @@ It is measured in phons.</p>
 Waveforms can be <em>periodic</em> or <em>aperiodic</em>.
 A periodic waveform can be <em>simple</em> (e.g. a single sine wave) or <em>complex</em> and an aperiodic waveform can be <em>continuous</em> (e.g. noise) or <em>transient</em> (e.g. impulse).</p>
 <p>The simplest and most fundamental waveform is a <strong>sinusoid</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c3a2e7f-ee2a-47fd-9e7d-a18d6e5eaa2d">
-<span class="eqno">(98)<a class="headerlink" href="#equation-5c3a2e7f-ee2a-47fd-9e7d-a18d6e5eaa2d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-333a5274-df4f-4ae9-b4c3-e0fe3e966da1">
+<span class="eqno">(98)<a class="headerlink" href="#equation-333a5274-df4f-4ae9-b4c3-e0fe3e966da1" title="Permalink to this equation">#</a></span>\[\begin{equation}
     y(t) = A \cdot \sin(2\pi \cdot (f \cdot t + \phi)),
 \end{equation}\]</div>
 <p>where the <em>frequency</em> <span class="math notranslate nohighlight">\(f\)</span> is the inverse of the <em>period</em> <span class="math notranslate nohighlight">\(T\)</span>.
@@ -820,12 +823,12 @@ However, I stick to the term <a class="reference internal" href="../sounddesign/
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../composing/algorithmic-composition/2-markov-chains.html"
+       href="../composing/algorithmic-composition/4-evolution.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Markov Chain Music</p>
+        <p class="prev-next-title">Evolutionary Music</p>
       </div>
     </a>
     <a class="right-next"

@@ -271,6 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="fft.html">FFT Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="physical-modeling.html">Physical Modeling</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="cookbook/intro.html">Cookbook</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="cookbook/superdirt.html">SuperDirt Synths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cookbook/drones.html">Drones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cookbook/percussive-sound.html">Percussive Sound</a></li>
 </ul>
@@ -291,6 +292,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../composing/algorithmic-composition/algorithmic-composition.html">Algorithmic Composition</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/1-dice-music.html">Dice Music</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/2-markov-chains.html">Markov Chain Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/3-fractals.html">Fractal Music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composing/algorithmic-composition/4-evolution.html">Evolutionary Music</a></li>
 </ul>
 </li>
 </ul>
@@ -561,19 +564,19 @@ As a consequence of the success of <em>FM synthesis</em>, the company sold milli
 <section id="theory">
 <h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">#</a></h2>
 <p>Let us start with the very basic equation of a sine wave.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-293abb9e-6bb9-49b1-8091-78e2d9e717e6">
-<span class="eqno">(85)<a class="headerlink" href="#equation-293abb9e-6bb9-49b1-8091-78e2d9e717e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-476887d1-c14f-4987-8212-80418c087cfc">
+<span class="eqno">(85)<a class="headerlink" href="#equation-476887d1-c14f-4987-8212-80418c087cfc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A \cdot \sin(2\pi f(t) \cdot t),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(f(t)\)</span> is the frequency and <span class="math notranslate nohighlight">\(A\)</span> the (maximal) amplitude.
 For frequency modulation, <span class="math notranslate nohighlight">\(f(t)\)</span> is not a constant but a function over time which looks like the following</p>
-<div class="amsmath math notranslate nohighlight" id="equation-180ee7a7-67b9-46bc-9bff-d3420a4ea8c1">
-<span class="eqno">(86)<a class="headerlink" href="#equation-180ee7a7-67b9-46bc-9bff-d3420a4ea8c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-161089f0-950f-4bb6-b408-def4e2f7efc7">
+<span class="eqno">(86)<a class="headerlink" href="#equation-161089f0-950f-4bb6-b408-def4e2f7efc7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(t) = \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right].
 \end{equation}\]</div>
 <p>In summary, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e629fbfc-f8b9-47c1-8e3e-7551cf3e2bcc">
-<span class="eqno">(87)<a class="headerlink" href="#equation-e629fbfc-f8b9-47c1-8e3e-7551cf3e2bcc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-264e8cda-d03d-4d16-adc4-c6d913fcf942">
+<span class="eqno">(87)<a class="headerlink" href="#equation-264e8cda-d03d-4d16-adc4-c6d913fcf942" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = A_{\text{car}} \cdot \sin(2\pi \left[ f_\text{car} + A_{\text{mod}} \cdot \sin(2\pi f_{\text{mod}} \cdot t) \right] \cdot t),
 \end{equation}\]</div>
 <p>which looks very intimidating but don’t worry and just experiment with it!</p>
@@ -786,8 +789,8 @@ The larger the index, the larger the bandwidth.</p>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
 <p>Given <span class="math notranslate nohighlight">\(f_\text{car}\)</span>, <span class="math notranslate nohighlight">\(r_\text{mod}\)</span>, <span class="math notranslate nohighlight">\(\beta_\text{max}\)</span> we compute <span class="math notranslate nohighlight">\(f_\text{mod}\)</span> and  <span class="math notranslate nohighlight">\(A_\text{mod}\)</span> by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51c757b1-8c13-4116-8ec6-175337312077">
-<span class="eqno">(88)<a class="headerlink" href="#equation-51c757b1-8c13-4116-8ec6-175337312077" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fa1db44b-5761-470e-b97f-7f0dd75d4203">
+<span class="eqno">(88)<a class="headerlink" href="#equation-fa1db44b-5761-470e-b97f-7f0dd75d4203" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_\text{mod} = f_\text{car} \cdot r^{-1}_\text{mod} \text{ and } A_\text{mod} = f_\text{mod} \cdot \beta_\text{max}.
 \end{equation}\]</div>
 </section>
