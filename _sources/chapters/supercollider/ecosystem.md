@@ -5,7 +5,7 @@
 >The computer can allow a composer to write music that goes beyond that which she is already capable of. -- Paul Berg {cite}`berg:1987`
 
 [SuperCollider (SC)](https://supercollider.github.io/) is a package and a platform that consists of three components:
-+ **scsynth**: a real-time audio server or synthesis engine, i.e., the part that creates and plays the sound. It is written in ``C++`` and combines UGens according to pre-made declarative descriptions, [SynthDefs](sec-synths), instantiating them as [Synth](sec-synths), which can be dynamically created and destroyed. scsynth is a separate process and communicates with sclang via [Open Sound Control](sec-osc) (OSC) messages.
++ **scsynth**: a real-time audio server or synthesis engine, i.e., the part that creates and plays the sound. It is written in ``C++`` and combines [UGens](sec-ugens) according to pre-made declarative descriptions, [SynthDefs](sec-synths), instantiating them as [Synth](sec-synths), which can be dynamically created and destroyed. scsynth is a separate process and communicates with sclang via [Open Sound Control](sec-osc) (OSC) messages.
 + ``sclang``: an interpreted object-oriented programming language (OOP) for sound creation and signal processing with some features of functional programming. The user controls the audio server (**scsynth**) by sending OSC messages to it.
 + **scide**: a powerful Integrated Development Environment (IDE) for programming in ``sclang``. It offers an integrated help system, analyzing tools, and extensive documentation.
 
