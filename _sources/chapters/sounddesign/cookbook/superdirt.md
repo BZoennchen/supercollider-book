@@ -19,7 +19,29 @@ import IPython.display as ipd
 
 These synths are from the [SuperDirt](https://github.com/musikinformatik/SuperDirt/tree/develop) sampler designed for [TidalCycles](https://github.com/tidalcycles/tidal).
 They cover a lot of what I would call basic sounds thus it is a good idea to study what basic unit generators they rely on.
-Note that I simplified them a bit such that no ``SuperDirt`` specific classes are required.
+Note that I simplified them a bit such that no ``SuperDirt`` specific classes are required, e.g. I removed the ``DirtFreqScale`` unit generator which manipulates the fundamental frequency based on ``\speed``, ``\accelerate``, and ``\sustain``.
+
+```isc
+/*
+Frequency scaler with speed like samples have it
+Switch on by settig speedFreq > 0
+Intermediate values scale proportionally
+*/
+
+DirtFreqScale : UGen {
+    *kr { |speed = 1, accelerate = 0, sustain = 1, speedFreq|
+        var speedTerm;
+        speed = speed.abs;
+        speedFreq = speedFreq ?? { \speedFreq.ir(1) };
+        speedTerm = Line.kr(speed, speed * (accelerate + 1), sustain);
+
+        // linear interpolation between a factor of 1 (speedFreq = 0)
+        // and of speedTerm (speedFreq = 1)
+        ^speedFreq * (speedTerm - 1) + 1
+    }
+}
+```
+
 In addition, I only list those synths that do not require any extensions.
 You can find the unchanged source code [here](https://github.com/musikinformatik/SuperDirt/blob/develop/library/default-synths-extra.scd).
 
@@ -90,6 +112,112 @@ Pbind(
 ```{code-cell} python3
 :tags: [remove-input]
 audio_path = '../../../sounds/supergong.mp3'
+ipd.Audio(audio_path)
+```
+
+## super888
+
+``\super888`` is a vaguely 808-ish kick drum based on a [SinOscFB](https://doc.sccode.org/Classes/SinOscFB.html), that is, a sine oscillator that has phase modulation feedback; its output plugs back into the phase input where the ``feedback`` argument controls the amplitude of phase feedback in radians.
+As usual, ``\sustain`` controls the overall duration.
+[LPF](https://doc.sccode.org/Classes/LPF.html) filters very high frequencies to reduce the glitchiness of the sound.
+The frequency is modulated using [XLine](https://doc.sccode.org/Classes/XLine.html) which generates an exponential curve from the start value to the end value.
+The start frequency is exponentially mapped from [10;2000] to [1000;8000] but it ends always at the fundamental frequency.
+``\rate`` controls the duration of the frequency sweep.
+
+```isc
+(
+SynthDef(\super808, {
+    var env, sound, freq, mod;
+    env = EnvGen.ar(Env.linen(
+        attackTime: 0.01, 
+        sustainTime: 0, 
+        releaseTime: 1, 
+        level: 0.3,
+        curve: -3),
+    timeScale: \sustain.kr(1), doneAction: 2);
+    env = env * \amp.kr(1.0);
+
+    mod = XLine.ar(
+        start: \freq.kr(440).expexp(10, 2000, 1000, 8000), 
+        end: \freq.kr(440), 
+        dur: 0.025/\rate.kr(1));
+    sound = LPF.ar(in: SinOscFB.ar(freq: mod, feedback: \voice.kr(0)), freq: 9000);
+    Out.ar(\out.kr(0), Pan2.ar(sound, \pan.kr(0), env));
+}).add
+);
+```
+
+```isc
+(
+Pbind(
+    \instrument, \super808,
+    \freq, Pshuf(Array.series(80, 40, 1)).midicps,
+    \dur, 0.125,
+    \sustain, 0.25,
+    \voice, Pwhite(0.0, 1.0, inf),
+    \amp, 0.5
+).play
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/super888.mp3'
+ipd.Audio(audio_path)
+```
+
+## supersiren
+
+The ``\supersiren`` [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) creates a dynamic siren sound by
+
++ Using a variable-width sawtooth wave ([VarSaw](https://doc.sccode.org/Classes/VarSaw.html)) as the sound source.
++ Modulating the amplitude with an envelope that defines the overall shape and duration of the sound.
++ Modulating the frequency with another envelope to create a rising and falling pitch effect.
++ Adjusting the width of the sawtooth wave over time to add variation to the sound.
+
+
+```isc
+(
+SynthDef(\supersiren, {
+    var env, sound, freqmod;
+    env = EnvGen.ar(
+        Env.linen(0.05, 0.9, 0.05, 1, -2), 
+        timeScale: \sustain.kr(1), 
+        doneAction:2
+    );
+    env = env * \amp.kr(0);
+
+    freqmod = EnvGen.kr(
+        Env.linen(0.25, 0.5, 0.25, 3, 0),
+        timeScale: \sustain.kr(1), 
+        doneAction:2
+    );
+
+    sound = VarSaw.ar(
+        freq: \freq.kr(440) * (1.0 + freqmod),
+        width: Line.kr(0.05, 1, \sustain.kr(1))
+    );
+
+    Out.ar(\out.kr(0), Pan2.ar(sound, \pan.kr(0), env));
+}).add
+);
+```
+
+```isc
+(
+Pbind(
+    \instrument, \supersiren,
+    \freq, Pseq([60, 62, 65, 60, 55], 3).midicps,
+    \dur, 0.25,
+    \sustain, 0.15,
+    \amp, 0.3
+).play
+)
+```
+
+```{code-cell} python3
+:tags: [remove-input]
+audio_path = '../../../sounds/supersiren.mp3'
 ipd.Audio(audio_path)
 ```
 
@@ -202,57 +330,6 @@ Pbind(
 ```{code-cell} python3
 :tags: [remove-input]
 audio_path = '../../../sounds/superclap.mp3'
-ipd.Audio(audio_path)
-```
-
-## super888
-
-``\super888`` is a vaguely 808-ish kick drum based on a [SinOscFB](https://doc.sccode.org/Classes/SinOscFB.html), that is, a sine oscillator that has phase modulation feedback; its output plugs back into the phase input where the ``feedback`` argument controls the amplitude of phase feedback in radians.
-As usual, ``\sustain`` controls the overall duration.
-[LPF](https://doc.sccode.org/Classes/LPF.html) filters very high frequencies to reduce the glitchiness of the sound.
-The frequency is modulated using [XLine](https://doc.sccode.org/Classes/XLine.html) which generates an exponential curve from the start value to the end value.
-The start frequency is exponentially mapped from [10;2000] to [1000;8000] but it ends always at the fundamental frequency.
-``\rate`` controls the duration of the frequency sweep.
-
-```isc
-(
-SynthDef(\super808, {
-    var env, sound, freq, mod;
-    env = EnvGen.ar(Env.linen(
-        attackTime: 0.01, 
-        sustainTime: 0, 
-        releaseTime: 1, 
-        level: 0.3,
-        curve: -3),
-    timeScale: \sustain.kr(1), doneAction: 2);
-    env = env * \amp.kr(1.0);
-
-    mod = XLine.ar(
-        start: \freq.kr(440).expexp(10, 2000, 1000, 8000), 
-        end: \freq.kr(440), 
-        dur: 0.025/\rate.kr(1));
-    sound = LPF.ar(in: SinOscFB.ar(freq: mod, feedback: \voice.kr(0)), freq: 9000);
-    Out.ar(\out.kr(0), Pan2.ar(sound, \pan.kr(0), env));
-}).add
-);
-```
-
-```isc
-(
-Pbind(
-    \instrument, \super808,
-    \freq, Pshuf(Array.series(80, 40, 1)).midicps,
-    \dur, 0.125,
-    \sustain, 0.25,
-    \voice, Pwhite(0.0, 1.0, inf),
-    \amp, 0.5
-).play
-)
-```
-
-```{code-cell} python3
-:tags: [remove-input]
-audio_path = '../../../sounds/super888.mp3'
 ipd.Audio(audio_path)
 ```
 
