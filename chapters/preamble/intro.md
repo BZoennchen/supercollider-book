@@ -1,7 +1,7 @@
 # Introduction
 
 >[The highest human being, deludes himself]: he calls his nature contemplative and thereby overlooks the fact that he is also the actual poet and ongoing author of life [...].
->It is we, the thinking-sensing ones, who really and continually make something that is not yet there: the whole perpetually growing would of valuations, colors, weights, perspectives, scales, affirmations, and negations.
+>It is us, the thinking-sensing ones, who really and continually make something that is not yet there: the whole perpetually growing would of valuations, colors, weights, perspectives, scales, affirmations, and negations.
 >This poem that we have invented is constantly internalized, drilled, translated into flesh and reality, indeed, into the commonplace, by the so-called practical human beings.
 >Only we have created the world that concerns human beings! -- Friedrich Nietzsche {cite}`nietzsche:1882`
 

@@ -43,7 +43,7 @@ I was instantly captivated, especially by the context in which it was placed: ed
 I eagerly started experimenting with Sonic Pi. 
 However, soon after getting to grips with it, I craved more control; 
 I yearned to craft my own synths---a task for which Sonic Pi wasn't particularly suited. 
-While Sonic Pi is superb for sequencing your synth and samples, it doesn't offer the same level of flexibility when it comes to creating novel instruments. 
+While Sonic Pi is superb for sequencing your synth and samples using the *imperative programming* style, it doesn't offer the same level of flexibility when it comes to creating novel instruments. 
 The process involves preparing your synth and samples beforehand, then using Sonic Pi to manipulate them.
 
 I delved deeper and stumbled upon other intriguing tools like [TidalCycle](https://github.com/tidalcycles/Tidal), [FoxDot](https://foxdot.org/), and of course, [SuperCollider (SC)](https://supercollider.github.io/).
@@ -62,17 +62,17 @@ SuperCollider serves as a powerful tool for exploring new and exciting sounds an
 
 It's time for me to delve deeper into the realms of *algorithmic compositions* and *sound design*. 
 What better way to commence this journey than by leveraging what I might be most adept at: coding. 
-Engaging creatively in sound production proved to be the pivotal element I had been seeking -- a robust link between computer science and art.
+Engaging creatively in sound production proved to be the pivotal element I had been seeking---a robust link between computer science and art.
 
 ## Who is Speaking?
 
 >One’s stories persuade one’s audience that one is a particular kind of person. When one is one’s own audience, the telling amounts to having a self. -- *Leslie Ervine*, Even Better Than the Real Thing
 
 Who am I? Any self-description is inherently flawed as it dissects the whole, thereby limiting it. 
-Such categorization is characteristic of the modern era -- often insufficient, and in its most extreme forms, discriminatory. 
+Such categorization is characteristic of the modern era---often insufficient, and in its most extreme forms, discriminatory. 
 So, interpret what follows with a degree of skepticism, acknowledging that it may merely feed into your preconceptions.
 
-At my core, I perceive myself as an artist navigating my own intricate life -- a journey that is indeed fraught with challenges, but in the grandest sense of tragedy. 
+At my core, I perceive myself as an artist navigating my own intricate life---a journey that is indeed fraught with challenges, but in the grandest sense of tragedy. 
 In terms of my professional skills, however, I am a computer scientist. 
 By this, I mean that I explore various facets of computation:
 
@@ -88,9 +88,9 @@ I earned my Bachelor's degree in 2013, my Master's in 2017, and finally, my Ph.D
 In my doctoral thesis, I examined various microscopic simulation models for pedestrian streams and developed algorithms capable of simulating the movements of many pedestrians within a large area faster than real time. This venture sparked my interest in *complex systems*, a subject that continues to captivate me.
 
 During my Ph.D. candidacy, I discovered my love for teaching. 
-Currently, I serve as a software developer for the university, where my primary role involves developing tools to support our educational efforts. 
+Currently, I serve as a researcher for the university, where my primary role involves studying the impact of *machine learning* on our education system but I am also interested in looking into the caused disruption of the art world.
 I am also active in influencing both the content and structure of our lectures, aiming to bring about positive changes.
-
+I am critical of artificial intelligence and technology in general, thinking that our definition of progress lacks spiritual considerations but I also be believe that we cannot seperate ourselves from society, thus we have to try to actively shape it.
 As you may have inferred, philosophy is a significant interest of mine in my leisure time.
 
 As a computer scientist who delved into the topic of this book, my programming experience at the time of writing may be valuable for other readers. 
@@ -107,7 +107,7 @@ However, I have a profound love for music and have always yearned to create my o
 I am neither a professional musician nor a professional artist. 
 But I fervently believe that every individual is capable of creating a universe replete with meaning. We are storytellers thrust into a world that morphs depending on our moods. While we cannot alter our existence, we have the freedom to choose how to navigate it. Do we deny our surroundings, subsequently becoming estranged? Do we rebel against our inherent state of bewilderment? Do we make the place where we exist our home?
 
-Music instills a sense of tranquility in me. It tenderly resonates with my soul, reminding me that something in this world embodies 'the concrete' - an element that eludes our analytical minds and defies explanation. Music liberates me. Coding does the same. Consequently, for me, coding music represents the epitome of freedom.
+Music instills a sense of tranquility in me. It tenderly resonates with my soul, reminding me that something in this world embodies 'the concrete'---an element that eludes our analytical minds and defies explanation. Music liberates me. Coding does the same. Consequently, for me, coding music represents the epitome of freedom.
 
 ## Why Writing an Interactive Open Textbook?
 
@@ -117,11 +117,11 @@ This book serves as a vehicle for this journey.
 Grasping any concept demands an arduous learning process. 
 A technique that consistently aids me in this endeavor is known as the Feynman learning technique. It consists of the following steps:
 
-1. Pretend to teach a concept you wish to understand to a student in the sixth grade.
-2. Identify gaps in your explanation.
-3. Revert to the source material for a deeper understanding.
-4. Organize and simplify.
-5. Transmit (this step is optional).
+1. Pretend to teach a concept you wish to understand to a student in the sixth grade
+2. Identify gaps in your explanation
+3. Revert to the source material for a deeper understanding
+4. Organize and simplify
+5. Transmit (this step is optional)
 
 This book is a result of my attempt to adhere to Feynman's technique, albeit imperfectly. 
 I hope that others might find valuable insights within its pages. 
