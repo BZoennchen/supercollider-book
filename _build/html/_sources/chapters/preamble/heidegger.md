@@ -26,14 +26,7 @@ In this spirit, I invite readers not to revere Heidegger, but to think with and 
 
 ## Heidegger and the Nazis
 
-Martin Heidegger was deeply influenced by his teacher Edmund Husserl, the founder of *phenomenology*. Heidegger believed that to truly understand an entity, one must investigate its Being---not through abstract theorization, but by attending to how it shows itself in lived experience.
-
->Before words, before expressions, always the phenomena first, and then the concepts! -- Martin Heidegger
-
-This phenomenological approach emphasizes pre-reflective activity: the way we engage with the world before we conceptualize it. For Heidegger, philosophy had too long forced beings into rigid metaphysical categories. He sought a return to the phenomena themselves---to what is disclosed in practice and use, rather than detached theorization.
-
-However, before we go further, it is essential to address the deeply troubling aspect of Heidegger's legacy: his involvement with *National Socialism*.
-
+Before we go further, it is essential to address the deeply troubling aspect of Heidegger's legacy: his involvement with *National Socialism*.
 Heidegger joined the Nazi Party in 1933 and served briefly as rector of Freiburg University, where he publicly endorsed Hitler and Nazism. His inaugural rectoral address spoke of the "inner truth and greatness of this movement." He used his position to marginalize colleagues---including those of Jewish descent---though in other instances, he also aided some students in avoiding persecution. These contradictions do not cancel each other out; rather, they complicate an already fraught ethical record.
 
 Most disturbing is that Heidegger never clearly renounced his Nazi affiliation. Even after the war, in his writings and interviews, he offered evasions rather than apologies---even as his mentor, Edmund Husserl, and his student and former lover, Hannah Arendt, were Jewish. In posthumously published texts, including the Black Notebooks, Heidegger voiced conspiratorial and anti-Semitic ideas, deepening the concern that his political views were not incidental but intertwined with his ontology.
@@ -57,20 +50,37 @@ Some argue that Heidegger's philosophy and politics are inseparable. Others beli
 
 To read Heidegger today is to walk a dangerous path---not just intellectually, but ethically. His concerns with the threats of technology and the loss of authentic Being may have led him, ironically and tragically, into the arms of a regime that promised order and rootedness. Engaging with his thought requires vigilance, not just interpretation.
 
+## What is Phenomenology
+
+Martin Heidegger was deeply influenced by his teacher Edmund Husserl, the founder of modern *phenomenology*. Heidegger believed that to truly understand an entity, one must investigate its Being---not through abstract theorization, but by attending to how it shows itself in lived experience.
+
+>Before words, before expressions, always the phenomena first, and then the concepts! -- Martin Heidegger
+
+Phenomenology is both a philosophical method and a reflective practice that seeks to describe how things appear to us in lived experience---before we interpret them, explain them, or reduce them to scientific categories.
+Rather than asking *what* things are in some objective or abstract sense, phenomenology asks: *How do things show up to us as meaningful?* How does the world present itself to a conscious, embodied subject---not in theory, but in experience?
+It begins from the insight that we are always already embedded in a world of relations, habits, moods, and concerns. We do not encounter the world as a detached observer, but as someone already involved---seeing, using, caring, suffering, hoping.
+
+To practice phenomenology is to bracket our assumptions and attend closely to how things actually show themselves in our experience---whether it's the feel of a tool in our hand, the silence of a room, or the sudden anxiety of being watched. It is a disciplined return to the immediacy of lived meaning.
+In short, phenomenology is a way of doing philosophy that starts not with theory, but with experience---with the world as it is lived.
+
+For Heidegger, philosophy had too long forced beings into rigid metaphysical categories. He sought a return to the phenomena themselves---to what is disclosed in practice and use, rather than detached theorization.
+
+Husserl asked: How do we experience the world in consciousness? Heidegger asks: How does the world show itself to us because we are already beings involved in it?
+
 (sec-essense-of-technology)=
 ## The Essence of Technology
 
 In *Being and Time* (1927) {cite}`heidegger:1927`, Heidegger argues from a *phenomenological* perspective that scientific and theoretical modes of understanding presuppose---and often obscure---a more primordial way of being-in-the-world. The natural sciences rely on abstract conceptions of space and time, but these are derived from a more immediate, lived experience of orientation, distance, and concern. It is only through our practical engagement with the world---what Heidegger calls our concernful dealings (Besorgen)---that space and time gain existential meaning.
 
-From this perspective, science’s 'objective' viewpoint is not neutral but reductive. It strips away the meaningfulness that arises from everyday life and replaces it with a flattened, calculative framework. Rather than enhancing our grasp of reality, this scientific abstraction narrows it. Ordinary action, embedded in care and purpose, offers a richer path toward understanding Being than detached analysis can provide.
+From this perspective, science's 'objective' viewpoint is not neutral but reductive. It strips away the meaningfulness that arises from everyday life and replaces it with a flattened, calculative framework. Rather than enhancing our grasp of reality, this scientific abstraction narrows it. Ordinary action, embedded in care and purpose, offers a richer path toward understanding Being than detached analysis can provide.
 
 Heidegger deepens this critique in his later essay *The Question Concerning Technology* (1954) {cite}`heidegger:1954b`. There, he challenges the dominant instrumental definition of technology as a set of tools used to achieve human ends. While this definition seems intuitive, Heidegger argues that it is itself a symptom of a deeper technological mode of revealing---one that enframes the world as *standing-reserve* (Bestand), a stockpile of resources to be ordered and exploited.
 
 Technology, then, is not just a collection of devices or applications. It is a way of understanding and relating to Being---one that prioritizes control, efficiency, and utility above all else. The danger lies not in technology per se, but in the dominance of this technological worldview, which increasingly constrains how we think, act, and perceive. Heidegger warns that when everything is seen through the lens of functionality, we risk losing sight of other, more poetic or meaningful modes of revealing.
 
-To uncover a pre-scientific understanding of technology, Heidegger turns to the ancient Greeks. For them, the word techne referred not only to what we would now call technology but also to art and craft. It described a form of knowing that involved the skilled bringing-forth of something into appearance---a process in which the artisan did not impose form upon matter but worked in concert with it. Techne, in this sense, was aligned with poiesis---a revealing, a letting-be.
+To uncover a pre-scientific understanding of technology, Heidegger turns to the ancient Greeks. For them, the word téchne referred not only to what we would now call technology but also to art and craft. It described a form of knowing that involved the skilled bringing-forth of something into appearance---a process in which the artisan did not impose form upon matter but worked in concert with it. Téchne, in this sense, was aligned with poiesis---a revealing, a letting-be.
 
-> The causes bring something into appearance. They let it come forth into presence.-- Martin Heidegger
+> The causes bring something into appearance. They let it come forth into presence. -- Martin Heidegger
 
 The craftsman, in this older view, did not see themselves as the absolute origin of the created thing but as a participant in a process of emergence. The role of the artisan was to assist in allowing something to manifest according to its own essence.
 
@@ -147,6 +157,7 @@ We communicate about the installation of nuclear power plants and buy new gadget
 However, this does not explain why we believe in this *value*.
 I would argue that many people would willingly hit the pause button on all technological progress, at least temporarily.
 No one asked for the *Metaverse*, but we will build it anyways because we are *challenged* to do so.
+
 Luhmann probabobly would offer a more nuanced explanation: interdependent self-generating social systems which "feed" us into them.
 Heidegger's argument seems quite reductive but it captures my personal feeling of a reality that feels thinner and thinner.
 
@@ -155,6 +166,7 @@ However, I find it hard to attribute the cause solely to *capitalism*.
 The origin of Mark Fisher's *Capitalist Realism* is not so much capitalism but a *functional differentiated society*.
 Of course, capitalism plays a huge role in shaping our social systems.
 Heidegger, on the other hand, might attribute capitalism and Luhmann's *functional differentiation* to the *essence of technology*.
+These are different perspectives on our modern and technology driven society.
 
 >A success is that type of consequence that itself remains assigned to the yielding of further consequences. -- Martin Heidegger
 
@@ -172,16 +184,22 @@ This phenomenological way of thinking---in which things appear with value, meani
 Equipment vanishes from our *world*.
 Only if it breaks or fails to perform as expected it introduces itself again as *present-at-hand* (*vorhanden*).
 Otherwise, it simply serves as a *medium* through which we experience our world.
-For Heidegger, technology withdraws from our attention and becomes transparent.
+Things in the world are not simply passive objects.
+They invite us to interact with them.
+Take a small child in an elevator, for example---notice how the child is immediately drawn to press the buttons.
+Or take the child to a lake and wait until it throws small stones into the water.
+
+For Heidegger, technology withdraws from our attention and becomes transparent as we use it.
 And if it does, it is all the more genuinely what it is.
-In that sense, it needs us to be.
-Furthermore, we don't experience the technology itself, but rather the world through it.
+In that sense, it needs us to be; to act itself out.
+Furthermore, we don't experience technology itself, but rather the world through it.
 Consequently, technology introduces its own *mode of seeing*.
 
 When you drive a car proficiently, you develop a sense of the vehicle's size and whether it can fit through a gap.
 Similarly, wearing nail extensions frequently can cause you to forget about them, even though they change how you interact with objects.
 Part of the allure of technology is found in the diverse opportunities it provides for unique forms of embodiment.
-Sociologist and Philosopher Bruno Latour posits that when technology becomes sufficiently transparent, it becomes an intrinsic part of our self-perception and our experience of the world, thereby giving rise to a new, compound entity.
+Sociologist and Philosopher Bruno Latour posits that when technology becomes sufficiently transparent, it becomes an intrinsic part of our self-perception and our experience of the world, thereby giving rise to a new, compound entity {cite}`latour:1992`.
+According to Latour, technological artifacts can act as social agents and if they become routine or transparent, they "disappear" from our conscious perception but remain deeply entangled in our actions and identities.
 Evidence from cognitive science supporting this viewpoint is substantial.
 Our enjoyment of driving stems from the fact that we transform into "the driver", a being with speed and power surpassing any land creature.
 Likewise, our delight in operating digital devices arises from the sensation of becoming a being that can converse with someone on the opposite side of the globe at a speed comparable to a lightning strike.
@@ -198,7 +216,7 @@ Consequently, every attempt to break free from this technological mindset only p
 
 >The essence of technology is by no means anything technological. -- Martin Heidegger
 
-## Being in the World
+## Beyond Subject and Object
 
 >The self is a relation that relates itself to itself. -- Soren Kierkegaard
 
@@ -209,22 +227,39 @@ All the smells we can perceive, all the various tactile experiences we can recei
 Sometimes, when one feels lost in the digital spectacle, returning to the simplicity of the ordinary can offer a reassuring sense of home---and we are deeply home here and now.
 
 Few would dispute that technology has transformed our self-perception. 
-From a scientific perspective, we are more and more humiliated by what we see through science:
+It is clear to me that we are more and more humiliated by what we see through science:
 
 + **Copernicus**: Earth is not the center of the universe.
 + **Nietzsche**: God is dead, implying that normative values are constructed and lack any metaphysical essence.
-+ **Darwin**: Humans are not the apex of creation but part of an evolutionary biological process.
++ **Darwin**: Humans are not the apex of creation but part of an ongoing and contingent evolutionary biological process.
 + **Freud**: The human "ego" is not fully in control but is governed by unconscious processes.
 + **AI**: Machines can execute task that we thought require human thinking.
 
 A scientific definition of beings will make us blind for their mysterious and unexplainable presence in the world.
 In Heidegger's term: it will make us blind for *Being*.
-The danger is to lose the ability of seeing the world and its beings as they appears to us and to understand ourselves not as mere thinking subjects but as *Dasein* that is in the world in a mode of uncovering, i.e. disclosing other entities as well as ourselves.
-For Heidegger, *Dasein* is the "there"---or the locus---of Being and thus the metaphorical place where entities "show themselves" as what they are.
-It is the being that has an understanding of *Being*.
-In other words, *Dasein* is simply Heidegger’s term for human beings.
+Importantly. this term refers not to a specitic being, that is, indivudual things like rocks, chairs, animals and humans but **the condition or mode of existence that allows beings to be at all**.
+Heidegger's ontology is therefore not about *what* exists, but **how existence shows up to us**.
+To approach Being, he then analyzes a special kind of being: the human being, which he calls *Dasein* (literally, "being-there").
 
+*Dasein* is unique because:
++ It has a pre-understanding of *Being*.
++ It *cares* about its own being.
++ It exists in a state of *thrownness*.
++ It is *being-towards-death*--its tmporality shapes its understanding of existence.
+
+So, *Dasein* is the gateway to understainding *Being* in general. It is the being that has an understanding of *Being*.
+For Heiddegger, there is no such thing as an "*inner self*" divorced from the world.
+Therefore, ontoloty must begin with lived, situated existance---not abstract thought.
+
+He also attacks the subject-object dichotomy by poiting out that, most of the time, we encounter things through use (they are *ready-to-hand*) not detached reflection (*present-to-hand*).
+Furthermore, for him, time is not just a succesion of "nows," but a structure of existence:
++ **Past (facticity)**: We ar thrown into the world.
++ **Future (projection)**: We are always projecting ourselves towards possibilities (we have projects).
++ **Present (fallenness)**: We are often distracted by daily routines and the expectations of others ("the they"---das Man).
+
+The danger, for Heidegger, is to lose the ability of seeing the world and its beings as they appears to us and to understand ourselves not as mere thinking subjects but as *Dasein* that is in the world in a mode of uncovering, i.e. disclosing other entities as well as ourselves.
 He intentionally used the term because he felt as though the words most often used by philosophers to designate human beings, words like “consciousness”, "self-consciousness", "subject", "soul", etc., carried far too much metaphysical baggage, and, thus, found it necessary to come up with a new term for human beings. 
+
 Decartes view of *the self* as self-subsistent and worldless *subject* changes in Heidegger's phenomenologically perspective because *Dasein* is always *Being-(involved)-in-the-world*.
 To be a self is to have a world.
 Like Husserl's world, Heidegger's world is a practical world of interconnected beings where equipment presupposes other equipment and is truly what it is only when it is being used transparently.
@@ -288,102 +323,64 @@ At the same time, throwing our tools away will not change the way we think and s
 
 ## The Essence of Art
 
-If, at this point, you get an idea of Heidegger's phenomenologically thinking, it should be no surprise that for him, not only is the artist the *cause* of the work, but the work, in turn, is the *cause* of the artist.
+If, at this point, you have an idea of Heidegger's phenomenological thinking, it should be no surprise that for him, not only is the artist the cause of the work, but the work, in turn, is the cause of the artist.
 
->The artist is the origin of the work. The work is the origin of the artist. Neither is without the other. Nevertheless, neither is the sole support of the other. In themselves and in their interrelations artist and work *are* each of them by virtue of a third thing which is prior to both, namely, that which also gives artist and work of art their names---art. -- Martin Heidegger
+>The artist is the origin of the work. The work is the origin of the artist. Neither is without the other. Nevertheless, neither is the sole support of the other. In themselves and in their interrelations artist and work are each of them by virtue of a third thing which is prior to both, namely, that which also gives artist and work of art their names---art. -- Martin Heidegger
 
 Art, as a *mode of Being*, makes both artist and artwork ontologically possible.
-And if we are to discover the *essence of art* we must discover it by phenomenologically investigating artworks, but here we arrive at a *strange loop*, i.e., a paradox since what art is should be inferable from the work but what the work is, we can come to know only from the *essence of art*.
-These *loops* remind me of Hofstadter's self-referential and paradoxical *strange loops* from his book *Gödel, Escher, Bach: an Eternal Golden Braid* {cite}`hofstadter:1979`.
-And it was Husserl (and to an extend Kierkegaard) who already thought of consciousness (or the self) as a *strange loop* relating itself to itself and constantly going back and forth between seeing phenomena and self-relating---a never ending circle which constitutes consciousness seemingly out of nothing.
-In the field of *systems theory*, *cypbernetics*, and especially in Luhmann's *social system theory*, we probably find one of the most sophisticated self-referential concepts. 
+To discover the essence of art, we must investigate artworks phenomenologically. Yet here we encounter a strange loop: we must understand art through artworks, and artworks through the *essence of art*.
 
-Heidegger was onto something but while reading his text about art, it felt incomplete and rather vague.
-There is no complete and consistent theory to find.
-However, this was probably not his goal.
-I think what he means by the introduced paradox is that we are *thrown* into a process that already started.
-We enter the circle at some point and move on it which will reveal both the *artist* and the *artwork* more and more but this process never ends.
-What an artist and the artwork is, is never fully defined.
+These loops evoke Hofstadter's concept of self-reference in Gödel, Escher, Bach: An Eternal Golden Braid {cite}`hofstadter:1979`. Similarly, Husserl (and to an extent Kierkegaard) thought of consciousness as a strange loop---a structure that relates to itself in a back-and-forth motion between perception and self-relation. In systems theory, cybernetics, and especially Luhmann's social systems theory, this oscillation becomes the movement between self- and other-reference---between system and environment.
 
-To talk about art in an Heidegerian sense, I have to clarify what he understands by tools or equipment and objects.
-Heidegger differentiates between what others may call "substances"---that are more thing-like and *present-at-hand* (*vorhanden*) entities (raw material, stones, water in a river, etc.)---and tools or equipment (useful things) that are generally *ready-to-hand* (*zuhanden*) and connected within a network of other tools and purposes.
-Interestingly, in his view, artworks are *present-at-hand*, i.e., have a very thingly character.
-This seems to be a gross reduction of artworks.
-How can it be that the great works of art are like a purposeless stone in a see of stones?
-Isn't *a thing* anything?
-Surely tools are things and stones are things and dirt is a thing but a tool is more than a thing.
-I will come back to this "issue".
+Heidegger was indeed circling around something profound, though his writing on art can feel incomplete or vague. But this may be intentional. His goal was not to create a theory, but to uncover a process. We are thrown into a process already underway. We enter the circle and move within it, gradually revealing both artist and artwork—but never definitively.
+
+To understand art in a Heideggerian sense, we must first revisit his distinction between things, tools, and equipment. Heidegger differentiates between substances---*present-at-hand* (vorhanden) entities such as stones or water---and equipment---*ready-to-hand* (zuhanden) things integrated into practical networks of use.
+
+Interestingly, Heidegger treats artworks as *present-at-hand*---they have a strong thingly character.
+At first, this may seem reductive. Are great works of art no more than purposeless stones in a sea of things?
 
 >There is something stony in a work of architecture, wooden in a carving, colored in a painting, spoken in a linguistic work, sonorous in a musical composition. -- Martin Heidegger
 
-This quote perfectly mimics Luhmann's view that artworks reveal the difference between *form* (building) and *medium* (stone).
-In my view, great artworks reveal a (mystical) truth that is unexplainable; these works let us question without ever coming to a final conclusion.
-They present an internal logic that is alien to our world.
-They escape language or any other abstraction or symbolic representation but give the observer the possbility to make sense of their internal structure.
-Any analysis or critique has to be incomplete and shallow of what the artwork is.
-Therefore, if the *essence of technology* is *enframing* (Gestell) then the *essence of art* might be the opposite.
-It might be that which can not be *enframed* and which is able to unconceal a new *horizon of possibilities*.
-In fact, Heidegger argues in his essay *The Origin of the Work of Art* {cite}`heidegger:1950` that
+This mirrors Luhmann's distinction between *form* (e.g., building) and *medium* (e.g., stone).
+Great artworks, in my view, unveil a mystical truth that resists conclusion. They invite questions but refuse final answers. They offer an internal logic alien to our world---untranslatable into language or abstraction---yet they speak through structure and form.
+
+If the *essence of technology* is enframing (Gestell), then the *essence of art* may be the opposite: that which cannot be enframed, and which opens a new horizon of possibilities.
+In The Origin of the Work of Art {cite}`heidegger:1950`, Heidegger claims:
 
 >to be a work [of art] means to set up a world. -- Martin Heidegger
 
-In other words, *setting up a world* is one of the essential feature of the *Being of the work of art*.
-This is close to Luhmann's view when he says that art forms its medium to create a contingent alternative version of reality.
+Setting up a world is essential to the Being of a work of art. This resonates with Luhmann's view that art reshapes its medium to present an alternative version of reality.
 
-But what does Heidegger mean by that?
-Let us look at Heidegger's example of a Greek temple.
-The Greek temple brought about a world---it is an event of truth.
-The temple, in its standing there, first gives to things their look and to men their outlook on themselves.
-The Greek temple set up a world that organized and stabilized the lives of the Greeks; it was that by which they made sense out of their existence.
-Medieval cathedrals did the exact same thing for Christians and the great mosque did the same for Muslims.
+### Earth, World, and Strife
 
-Heidegger chooses the ancient temple because it is non-representational, therefore, preventing the erecting of a *world* being understood solely as representation.
-A statue within the temple might represent the gods but the wall, and the stones that make up the wall do not represent anything.
-Another example he brought up is Van Gogh's painting of a farmer's shoes.
-One might say that the painting represent the shoes but this is not the main point of the artwork.
+What does Heidegger mean by "setting up a world"?
+He turns to the Greek temple. The temple doesn’t merely represent something---it institutes a world. It gives meaning, order, and orientation to human existence.
+The temple provides a world in which the lives of the Greeks were organized. Similarly, cathedrals structured medieval Christian life, and mosques shaped Islamic civilizations. Heidegger chooses the temple because it is non-representational---it does not symbolize, but discloses.
 
-Notice that *world* is not the objective reality of the universe but the significant, contextual network of references through which *Dasein* can take the stand on its *Being* that it does (be the specific person that it is), as well as have the *style* of *Being* that it has.
-The temple gathers the possibilities of the Greek people who live around it, governing over the ideas of birth and death, managing victory and causing decline---that is the *world* the temple opens.
-The world is the self-opening openness of the broad paths of the simple and essential decisions in the destiny of a historical people.
-Sandra Lee Bartky has summed it up well in the following way:
+Van Gogh's painting of a peasant's shoes is another example. The painting doesn’t merely depict the shoes---it reveals the peasant’s life-world.
+
+*World*, for Heidegger, is not the objective cosmos but the network of significance through which *Dasein* relates to *Being*. The temple "gathers" the possibilities and outlook of a historical people---giving structure to their destiny.
 
 >Heidegger’s use of the term "world" carries with it the sense not only of *life-world* (*Lebenswelt*) but of *historical epoch* as well, with the suggestion that the life-world is an historical structure. -- Sandra Lee Bartky
 
-Husserl came to believe that the *world* was what we have in common---a universal horizon but one rooted in a shared existential space, what he called *Lebenswelt* (life-world).
-But who creates or sustains this horizon?
-This, in short, was Heidegger's question to his former mentor.
-For Heidegger, the nature or the limits of the world were less important than the practical experience of the world itself, an experience peculiar to *Dasein*.
-Heidegger resisted Husserl's latent tendency toward abstraction and sought to ground his reflections in an analysis of everyday behavior.
-Luhmann went the opposite way, i.e., towards an abstract theory but one that is able to speak about everyday interactions.
-However, both philosophers (Husserl and Heidegger) viewed the limits of knowledge and meaning through the lens of practical experience, that is, through living and being in the world.
+Husserl viewed the world as a universal, shared horizon---the *Lebenswelt*. Heidegger, however, was less concerned with its universality and more with its existential specificity. For Heidegger, the world is disclosed through practical engagement, not theoretical abstraction.
+In Being and Time {cite}`heidegger:1927`, Heidegger shows that the world is not a set of objects but **a phenomenon saturated with meaning**, understood pre-reflectively. The objective world is derivative—it abstracts from a world already lived in.
 
-Heidegger interprets in *Being and Time* {cite}`heidegger:1927` the world not as a collection of things or entities, as Cartesian metaphysicians would have it, but as a phenomenon imbued with pre-reflective meaning and understanding.
-The objective world---the world of objects---is in fact derivative: it abstracts from a world of practical, absorbed engagement.
-World is never an object that stands before us and can be seen.
-The world as a world is always essentially doing something---it is in progress.
-It orients, situates , guides and directs our lives in particular ways.
-The temple established an epochal understanding of Being on the basis of which the Greeks meaningfully understood the beings they encountered and the event in their lives, thereby, giving them as a people a history or a destiny.
-World is best associated with unconcealment, the clearing and intelligibility.
-But bringing a new world into being will conceal another one.
+The world is always in progress. It orients, guides, and structures *Dasein's* existence. A temple, by organizing existence, also opens a world---and closes another.
 
-In contrast, *earth* (*Heimat*) is the homeland, in which the temple stands, but also the rock upon which the temple stands, and the temple stones themselves.
-It is best described in terms of concealment, hiddenness and unintelligibility---I think it shares similarities with Lacan's concept of *the real* which evades all symbolic representation while pushing back against it.
-The *real* is located beyond language and conceptual understanding, yet, always present in some sense.
-The *real* is something you find always at the same place.
-However you mess about, it is always in the same place, you bring it with you, stuck to the sole of your shoe without any means of exiling it.
-*Earth*, like the *real* resists our attempts to assimilate it into our *world*.
-The relation of world and earth is like a contestation between light and darkness but they are essential to each other.
-And it is in *strife* that world and earth raise each other into the self-assertion of their essential natures.
-
-Heidegger draws an important distinction between equipment (hammer, phones, keyboards, nails, etc.) and the work of art.
-While the material of equipment withdraws out of notice, the opposite is the case for the work of art.
+In contrast to *world*, *earth* (Erde oder auch Heimat) is concealment. It is the rock, the soil, the material---not simply nature, but the mysterious ground. It bears resemblance to Lacan's “real”---that which resists symbolic representation yet constantly presses against it.
+The *earth* is always there---stuck to us like dirt on our shoe. It cannot be fully absorbed into world. Earth and world exist in *strife*---a productive, irreducible tension.
+While tools disappear in use, artworks do the opposite. Art reveals *earth* by presencing it.
 
 >In fabricating equipment---e.g., an ax---stone is used, and used up. It disappears into usefulness. The material is all the better and more suitable the less it resists vanishing in the equipmental being of the equipment. By contrast the temple-work, in setting up a world, does not cause the material to disappear, but rather causes it to come forth for the very first time and to come into the open region of the work’s world. The rock comes to bear and rest and so first becomes rock; metals come to glitter and shimmer, colors to glow, tones to sing, the word to say. All this comes forth as the work sets itself back into the massiveness and heaviness of stone, into the firmness and pliancy of wood, into the hardness and luster of metal, into the brightening and darkening of color, into the clang of tone, and into the naming power of word. -- Martin Heidegger
 
-In the work of art, earthly elements (stones, woods, oil, etc.) are consecrated and transfigured into something radiant and mysterious which the human intellect cannot make completely comprehensible and assimilable.
-If we think of a work of art phenomenologically, this seems to be true.
-When looking at a great work of art the meaning of it oftentimes alludes us; we find ourselves wrestling with the work in order to make it fully intelligible, which never actually happens.
-*Earth* as something, which makes up everything around us and gives our reality a context for us to sort our place in the world, by gaining reference from its physicality.
+Earthly elements are transfigured in artworks.
+They remain stubbornly material---unassimilable.
+A great artwork makes the earth shine forth. It is precisely in this *strife*---between concealment (*earth*) and unconcealment (*world*)---that truth happens.
+The artwork, unlike a broken tool, cannot be fixed---its resistance is ontological.
+Earth reveals itself only through the transparency of the world that cannot fully contain it.
+
+*Earth* is something, which makes up everything around us and gives our reality a context for us to sort our place in the world, by gaining reference from its physicality.
 However, we can never see this *earth* for what it is, except in the special instance of when it is presented in an artwork.
 
 >Standing there, the building rests on the rocky ground.
@@ -403,48 +400,36 @@ Again, this is similar to Luhmann's claim that the *form* (the temple) reveals t
 
 The world is usually invisible or transparent to us in our everyday activities.
 It becomes visible through the opacity of earth in an artwork.
-In a great work of art there’s always a *strife* between transparent intelligibility (*world*) and opaque unintelligibility (*earth*).
+In a great work of art there's always a *strife* between transparent intelligibility (*world*) and opaque unintelligibility (*earth*).
 In that sense, earth is like the breakdown of equipment: The equipment withdraws from us (*ready-to-hand*) but it introduces itself as *present-at-hand* if it breaks or is missing.
-But, unlike a breakdown of a tool, earth is unfixable.
+But, unlike a breakdown of a tool, earth is *unfixable*.
 Furthermore, it is only through the transparency of the world that earth can strike us as unintelligible, perplexing and mysterious.
 The happening of truth in the work of art and the Being of the work of art is essentially the instigation of the *strife* between world and earth.
 A great work of art intensifies this *strife* while establishing it.
 
-That is why Heidegger claims that artworks are more "thingly" than tools.
-They do not withdraw but stay *present-at-hand* for *Dasein* because they are unfixable. 
 Art can be thought of in terms of *Being*, *truth*, *world*, *earth* and *strife*, and according to Heidegger, the two essential features of great artwork are setting up of a world and setting forth of *earth*.
 Furthermore, an epochal understanding of *Being* and a particular world are opened and held opened in *Dasein's* clearing by a specific being, i.e., a work of art.
 
-We haven't really touched on the aesthetics of art; its beauty and ugliness or subjective quality.
-I think, for Heidegger, it is more about truth than beauty.
+I think, for Heidegger, art has more to do with *truth* than *beauty*.
+He wanted to understand the ontological "function" of art: what art *does* in relation to truth and Being.
 Truth and art are deeply interconnected---not mutually exclusive.
-But, of course, I am not talking about the truth as correspondence or agreement (adaequatio) but *truth as unconcealment* or uncovering.
+But, of course, I am not talking about the *truth as correspondence or agreement* (adaequatio) but *truth as unconcealment* or uncovering.
 Like the objective world is based on *Lebenswelt*, for Heidegger, the former is based on the latter.
 
-With respect to music, Heidegger is rather silent.
-He was convinced that music is essentially the art of feeling and not the art of tonally moving forms.
-We do not find a philosophy of music in Heidegger’s work.
-In fact, it could be argued that Heidegger’s attitude towards music is antagonistic.
-He attacks the emotionality of music.
-For example, about Wagner he says that his project was not just the predominance of music with respect to the other arts in his work that made him fail, but the problem inherent in aesthetics itself; namely, the reason why music was allowed to aspire to such a position.
-Aesthetics is only a part of a greater movement in history---that of nihilism.
-This is revealing since right-wingers often praise 'great' artwoks which are great in an aesthetic sense and complain about more abstract and conceptual artworks which they see as a *degeneration* of art.
-One can argue that Heidegger too is drawn to the aesthetic of a certain kind of lifestyle.
+### A Limited View on Music
 
-However, I believe there is more to music than Heidegger recognized. 
-His perspective might have been too focused on the particular music of his era.
-When the listener is absorbed by music, clock time is put out of play by the musical temporality: the musical time is the listener’s time.
-In a performance the passing of time is not experienced individually.
-The entire audience shares the temporality of the work, just as the musicians do (inter-subjective temporality).
-We say that music moves us, i.e. the movement of the mind have been those of the musical movements which require space.
-The temporality, mobility, and spatiality of music depend upon the tone. 
-The tone is the *earth* of music.
-In the musical work, the materiality is brought forth in the world with its temporality, mobility, and spatiality. 
+Heidegger is largely silent on music. He saw it as the art of feeling, not of form, and distrusted its emotionality. He criticized Wagner for aesthetic excess and linked such artistic elevation to *nihilism*---a loss of grounding in Being.
+This may reflect a bias toward visual and architectural arts, rooted in Heidegger's cultural and historical context.
 
-Composers can change the conception of what was possible in music.
-In a certain sense, their worlds changed the world that has become our world. 
-In the absence of the exact words to describe the new world, it is perceived in its strangeness.
-This is how truth is established in the workings of the artwork.
+But I believe Heidegger underestimated music.
+When absorbed in music, clock time is suspended.
+Musical temporality is shared, not individual.
+Like great visual art, music discloses a new world.
+Its tones form an *earth*--material, resistant, and grounding---while its structure shapes a world we temporarily inhabit.
+
+Composers who break new ground shift the musical world, changing what is even thinkable in sound.
+As listeners, we experience this strangeness as the emergence of truth.
+As already mentioned, I Luhmann provides a more powerful framework to analyze artworks as a relation between *medium* and *form*.
 
 ## Heideggerian Cinema
 
