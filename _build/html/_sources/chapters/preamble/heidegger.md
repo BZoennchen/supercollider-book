@@ -359,7 +359,7 @@ The temple provides a world in which the lives of the Greeks were organized. Sim
 
 Van Gogh's painting of a peasant's shoes is another example. The painting doesn’t merely depict the shoes---it reveals the peasant’s life-world.
 
-*World*, for Heidegger, is not the objective cosmos but the network of significance through which *Dasein* relates to *Being*. The temple "gathers" the possibilities and outlook of a historical people---giving structure to their destiny.
+*World*, for Heidegger, is not the objective cosmos but the network of significance through which *Dasein* relates to *Being*. It is the cultural, historical, and meaningful context that makes things intelligible. The temple "gathers" the possibilities and outlook of a historical people---giving structure to their destiny.
 
 >Heidegger’s use of the term "world" carries with it the sense not only of *life-world* (*Lebenswelt*) but of *historical epoch* as well, with the suggestion that the life-world is an historical structure. -- Sandra Lee Bartky
 
@@ -368,7 +368,8 @@ In Being and Time {cite}`heidegger:1927`, Heidegger shows that the world is not 
 
 The world is always in progress. It orients, guides, and structures *Dasein's* existence. A temple, by organizing existence, also opens a world---and closes another.
 
-In contrast to *world*, *earth* (Erde oder auch Heimat) is concealment. It is the rock, the soil, the material---not simply nature, but the mysterious ground. It bears resemblance to Lacan's “real”---that which resists symbolic representation yet constantly presses against it.
+In contrast to *world*, *earth* (Erde) is concealment---the material basis of things; their hidden, resistant, mysterious side.
+*Earth* is the rock, the soil, the material---not simply nature, but the mysterious ground. It bears resemblance to Lacan's “real”---that which resists symbolic representation yet constantly presses against it.
 The *earth* is always there---stuck to us like dirt on our shoe. It cannot be fully absorbed into world. Earth and world exist in *strife*---a productive, irreducible tension.
 While tools disappear in use, artworks do the opposite. Art reveals *earth* by presencing it.
 
@@ -377,6 +378,7 @@ While tools disappear in use, artworks do the opposite. Art reveals *earth* by p
 Earthly elements are transfigured in artworks.
 They remain stubbornly material---unassimilable.
 A great artwork makes the earth shine forth. It is precisely in this *strife*---between concealment (*earth*) and unconcealment (*world*)---that truth happens.
+The artwork sets up a world (order, meaning), but simultaneously sets forth the earth (materiality, opacity). The tension between them is what allows the artwork to reveal truth.
 The artwork, unlike a broken tool, cannot be fixed---its resistance is ontological.
 Earth reveals itself only through the transparency of the world that cannot fully contain it.
 
@@ -403,6 +405,9 @@ It becomes visible through the opacity of earth in an artwork.
 In a great work of art there's always a *strife* between transparent intelligibility (*world*) and opaque unintelligibility (*earth*).
 In that sense, earth is like the breakdown of equipment: The equipment withdraws from us (*ready-to-hand*) but it introduces itself as *present-at-hand* if it breaks or is missing.
 But, unlike a breakdown of a tool, earth is *unfixable*.
+
+>The artwork 'holds its ground'---it is there as itself, resisting instrumental thinking.
+
 Furthermore, it is only through the transparency of the world that earth can strike us as unintelligible, perplexing and mysterious.
 The happening of truth in the work of art and the Being of the work of art is essentially the instigation of the *strife* between world and earth.
 A great work of art intensifies this *strife* while establishing it.
@@ -413,6 +418,10 @@ Furthermore, an epochal understanding of *Being* and a particular world are open
 I think, for Heidegger, art has more to do with *truth* than *beauty*.
 He wanted to understand the ontological "function" of art: what art *does* in relation to truth and Being.
 Truth and art are deeply interconnected---not mutually exclusive.
+Art is a way in which truth happens.
+
+>Artworks don't just show us objects---they open a world.
+
 But, of course, I am not talking about the *truth as correspondence or agreement* (adaequatio) but *truth as unconcealment* or uncovering.
 Like the objective world is based on *Lebenswelt*, for Heidegger, the former is based on the latter.
 
