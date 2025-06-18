@@ -425,7 +425,230 @@ Art is a way in which truth happens.
 But, of course, I am not talking about the *truth as correspondence or agreement* (adaequatio) but *truth as unconcealment* or uncovering.
 Like the objective world is based on *Lebenswelt*, for Heidegger, the former is based on the latter.
 
-### A Limited View on Music
+## Heideggerian Cinema
+
+After this introduction of a Heideggerian perspective on art, let me now turn to examples in the medium I am most interested in: film in general, and the works of Andrei Tarkovsky, Terrence Malick, and Michael Haneke more specifically.
+While Tarkovsky and Malick are *existential* filmmakers, Haneke can be seen more as a critic of his own medium---more *postmodern* in his sensibility.
+However, all three are more interested in posing questions than offering answers.
+
+### Andrei Tarkovsky
+
+Tarkovsky viewed art as revealing the *transcendental*.
+He believed that art was the only path toward this realm of meaning:
+
+>It appears as a revelation, as a momentary, passionate wish to grasp intuitively and at a stroke all the laws of this world---its beauty and ugliness, its compassion and cruelty, its infinity and its limitations. -- Andrei Tarkovsky
+
+For Tarkovsky, embracing art comes close to a spiritual experience, and its creation resembles an act of faith.
+Through his films, he explored our world in search of understanding---observing Dasein's questioning of its own Being, praying through cinema.
+As his characters say:
+
+>We need a mirror.
+
+For Tarkovsky, this mirror would not reflect our experiences as a linear sequence of events, captured objectively and logically in what might be called a plot.
+nstead, we would see a complex web of thoughts, memories, and emotions---all deeply interconnected with other beings: with other *Daseins*, with tools, or with things *present-at-hand*.
+We would see a being that experiences a practical world subjectively, gives shape to it, and is shaped by it in return.
+A being rooted in its past, projecting itself into the future, and perceiving each new moment through a consciousness formed by impressions, distortions, and associations.
+
+Tarkovsky, like Heidegger, wrestled with time as an essential feature of the human condition.
+Dasein is always ahead-of-itself---projecting itself into its possibilities.
+It imagines itself as becoming.
+
+>Time is said to be irreversible. And this is true enough in the sense that "you can't bring back the past," as they say.
+>But what exactly is this "past"?
+>Is it what has passed?
+>And what does "passed" mean for a person when, for each of us, the past is the bearer of all that is constant in the reality of the present, of each current moment?
+>In a certain sense the past is far more real---or at any rate more stable, more resilient---than the present.
+>The present slips and vanishes like sand between the fingers, acquiring material weight only in its recollection. -- Andrei Tarkovsky
+
+To capture truth as unconcealment, the artist must trust their own heart, follow instinct, and hope that what resonates with them---however intangible or unexplainable---will do the same for others.
+For both Tarkovsky and Heidegger, art is not meant to be analyzed or consumed purely for aesthetic pleasure.
+Rather, it opens up a space of truth.
+For Heidegger, this is the opening of a world; for Tarkovsky, it is the opening of a spiritual world.
+Both, I believe, see in great art a guide toward self-discovery---or, in Heidegger's terms, a path toward authenticity through *being-toward-death*.
+Again, this does not mean "being true to oneself" in the contemporary psychological sense, but rather something closer to its Greek roots: to take a stand, to make a final and irreversible decision---to choose one possibility while killing off all others. 
+This clearly echoes Kierkegaard's understanding of faith and commitment.
+It is *existential time* and our finitude that make authenticity possible.
+
+And here we return to the *essence of technology*, which makes everything measurable and exchangeable by assigning value to all things.
+In the consumerist and technological age of the twenty-first century, we are surrounded by exchange values.
+More and more areas of our lives are technologized and marketed, introducing anonymity at the expense of authenticity.
+Making a definitive, irreversible choice becomes increasingly difficult in a world of endless options.
+Life begins to feel unlimited---and so we delay choices, only to experience a crisis of meaning and identity.
+And when someone cannot find identity within themselves, they may seek it in groups or ideologies.
+Eventually, even something destructive can appear attractive---simply because it has clarity and strength of purpose.
+
+I believe that our ability to see the world opened by works of art is conditioned on our belief that such an opening is possible---a belief that becomes harder to sustain in a world that actively discourages us from looking beyond the immediate, material surface.
+Tarkovsky (especially in Stalker), like Kierkegaard, warns of a society that tries to conquer the infinite with the finite.
+If we lose our ability to hope, to believe in something greater than ourselves---if we reject the irrational, the poetic, the spiritual---we risk falling into what Heidegger called *inauthenticity*, or what Kierkegaard called *despair*.
+A world stripped of spirituality will be a cruel one---not because of punishment or divine absence, but because it will no longer prepare us for death.
+
+### Terrence Malick
+
+Another film director whose work is even more closely aligned with Heidegger's philosophy is Terrence Malick.
+Malick once began a doctorate at Harvard on Heidegger, Kierkegaard, and Wittgenstein---and his films often explore, in both form and content, ideas about the essence of humanity and phenomenology as advanced by Heidegger.
+This is evident not only in his existential style but in the use of ever-questioning voiceovers---what I see as Dasein's questioning of Being.
+The whispering narration turns the film into poetry in motion.
+
+Malick, like no other, depicts a *practical world of phenomena*, not a world of facts or a linearly progressing story.
+He lets us experience the mystical in the ordinary, which is, in fact, extraordinary.
+His camera is constantly moving---it follows characters from shifting angles, but also lingers or wanders away entirely.
+It focuses not only on the figures but on the world that surrounds them.
+The camera seems more interested in exploring the beauty and mystery of the characters' world than the characters themselves---just as Malick is less interested in story than in disclosure.
+The camera looks at beings as they are, thus revealing the multiplicity of *Being*.
+
+>All of [Malick's] movies are about worlds. [...] Each film is about some aspect of the world. -- Hubert Dreyfus
+
+As Martin Woessner writes in *What Is Heideggerian Cinema? Film, Philosophy, and Cultural Mobility* {cite}`woessner:2011`, film gives us a meaningful world---even as it reflects our alienation from that world.
+Cinema offers us what we so often take for granted or fail to notice in everyday life: the world itself.
+For Malick, this is what he sought as a student of philosophy---a sense of the world, if not a full knowledge of one's place within it.
+
+Malick does not insist; he invites.
+Rather than filling space, he opens it up.
+His work is playful, wasteful, ambiguous---and deliberately resists utilitarian structure.
+Especially in his later films, narrative and dialogue all but vanish.
+His cinema is not bound by the technical language of film, just as a poet is not bound by ordinary syntax.
+
+If one wishes to understand Heidegger's kind of thinking, *The Tree of Life* offers a profound experiential entry point.
+It is a meditation on *Being*.
+It begins with the same question that begins *Being and Time*:
+
+>Why is there something rather than nothing?
+
+While a deeply personal film, Malick makes clear that:
+
+>The "I" who speaks in this story is not the author. Rather, he hopes that you see yourself in this "I" and understand this story as your own. -- Terrence Malick
+
+Inspired by his Christian upbringing, Malick develops two central forces: *nature* and *grace*.
+In *The Tree of Life*, these are narrated as opposing paths.
+I would argue that *nature* corresponds with the *essence of technology*: it is the instrumental, rational, calculating mode of revealing.
+Malick's nature is selfish, indifferent, and dominating---it strives to survive at any cost:
+
+>Physical life in a world abandoned by the spirit. Organized unreality. The soul a hindrance in one's dealings here. A burden. A mere quantity of thoughts and desires. -- Terrence Malick
+
+*Grace*, by contrast, is forgiving, vulnerable, selfless, and playful.
+It is spiritual---not in a doctrinal sense, but in how it dissolves the boundaries of rational understanding.
+Some call its source God, but Malick writes:
+
+>Let us sing a new song, tell a new story; one which, mindful of the ancient tales, takes its inspiration from science. Let us search for the permanent amid the fleeting and mutable, for that which endures through the spectacle of ceaseless change. Let us discover the eternal, the good. -- Terrence Malick
+
+For Malick, creation is an eternal birth---a beginning without end, happening in each instant.
+The same fire that burns in the stars burns equally in us.
+Our being is a miracle, co-equal with the universe.
+Each day is a new creation.
+
+In *The Thin Red Line*, we encounter soldiers thrown into a Pacific island in World War II, suddenly aware of the thin boundary between *Being* and *Nothing*.
+This film most thoroughly explores the transitory nature of the world.
+The soldiers struggle with existential questions and anxiety because they are confronted with death---they imagine their lives from the end, which Heidegger calls *Vorlaufen zum eigenen Tode* (anticipatory resoluteness).
+American and Japanese soldiers, as well as the Melanesian villagers, reveal how fragile our human worlds truly are.
+
+Dreyfus saw this as a concrete, historical example of *Dasein's* freedom---a moment where the groundless ground of human action becomes visible.
+And according to Woessner {cite}`woessner:2011`, *The Thin Red Line* shows us not just the battle but at least three worlds.
+Its aim is to investigate the meaning of worldhood---a meaning connected to mortality, but not defined by it.
+This is not merely a war film---it is a confrontation between worlds.
+It reminds us how difficult it is, in modernity, to recognize that the world itself is fragile---predicated on us, yet pointing beyond us.
+
+In terms of Heidegger's *essence of technology*, Malick's *The New World* may be his most explicit work.
+It dramatizes the transformation of the natural world into an artificial one.
+Scenes of indigenous dwelling are juxtaposed with colonial struggle: the former in harmony with the environment, the latter marked by extraction and strife.
+Malick uses a romanticized version of the Pocahontas myth to depict the emergence of the modern world---where mortals began to exaggerate their role in the cosmic order.
+A displaced Pocahontas walks through an English garden, puzzled at how the trees have been tamed and reshaped.
+This is not just cultural transformation; it's ontological.
+The colonists brought with them not only civilization, but metaphysics---Descartes' vision of a world rendered as object, as standing-reserve.
+In this way, America is born through enframing.
+
+In *A Hidden Life*, Malick may be trying to locate a moral compass within Heidegger's existential framework---even though Heidegger provides no ethical directives.
+This is a film about goodness without recognition, courage without audience.
+It is more Kierkegaardian than Heideggerian.
+Its protagonist is an ordinary Austrian farmer, living a quiet life.
+He refuses to swear allegiance to Hitler and pays with his life.
+His existence is unspectacular---but Malick reveals it as extraordinary by letting Being show up through his small acts of faith.
+We see the farmer within his web of practical tools, land, family, and earth.
+And we sense Malick's own confrontation with Heidegger's legacy---his silence on ethics, and his involvement with Nazism.
+A world breaks down---again.
+
+>The growing good of the world is partly dependent on unhistoric acts;
+>and that things are not so ill with you and me as they might have been,
+>is half owing to the number who lived faithfully a hidden life, 
+>and rest in unvisited tombs. --- Mary Anne Evans (George Eliot)
+
+We are drawn to stories of heroic greatness---the one who saves lives, stands up to tyranny, writes books.
+But *A Hidden Life* asks us to consider something quieter: the refusal to comply, the hidden act of conscience.
+This may be just as significant---if not more so.
+
+Malick's cinema raises the questions we should have asked ourselves long ago.
+These are not questions familiar to traditional cultures---they are distinctly modern.
+They emerge from alienation, disengagement, and anxiety.
+And as Heidegger knew: to be open to the world is also to be open to its terror.
+
+### Michael Haneke
+
+Michael Haneke, like no one else, uses film to unconceal the blurriness of reality and contemporary cinema.
+If Tarkovsky and Malick uncover existential and spiritual dimensions of Being, Haneke turns his camera on the medium itself, making visible the forms and manipulations of cinematic language. 
+In this way, his cinema is perhaps more *Luhmannian* than *Heideggerian*, investigating how social systems---especially media---shape and condition experience.
+
+>It's the duty of art to ask questions, not to provide answers. And if you want a clearer answer, I'll have to pass. -- Michael Haneke
+
+For Haneke, there is not one truth but many.
+Reality is contradictory, fragmented, and perspectival.
+His work questions the very possibility of a singular or objective truth, revealing instead the structures through which truths are mediated.
+He challenges the naive assumption that film mirrors reality.
+In his view, film doesn't merely reflect the world; it constructs our very sense of it.
+
+Haneke creates hyper-real cinematic worlds, only to simultaneously expose their artificiality.
+He draws attention to what lies outside the frame---using off-screen space and sound---to remind us that much of what matters is never shown.
+Trauma often occurs off-screen.
+Violence is heard but not seen.
+The most affecting moments are denied to the viewer, demanding a different kind of attention, one that questions the ethics of looking.
+
+His films expose how media consumption desensitizes us.
+The illusion of connection masks a growing alienation.
+Aesthetic distance becomes a metaphor for emotional distance.
+This is especially evident in *Funny Games*, where Haneke deconstructs cinematic violence.
+Unlike stylized Hollywood brutality, the violence here is meaningless, painful, and unrelieved by catharsis or moral resolution.
+It indicts the viewer, forcing us to confront our role as consumers of cruelty.
+
+Leonard Maltin called the film "nonsensical and highly unpleasant," but that is the point.
+Haneke refuses narrative comfort.
+He gives no backstory, no justification, no redemption.
+Suffering is not sublime---it is banal, senseless, and real.
+Haneke's cinema is not entertainment; it is confrontation.
+
+By resisting closure, Haneke invites us to become critical spectators.
+His work refuses easy identification or emotional resolution.
+As viewers, we are placed at a distance from the characters, watching as outsiders.
+The result is not empathy, but estrangement---what Brecht might call the *Verfremdungseffekt*.
+Haneke disrupts traditional cinematic codes to expose their ideological underpinnings.
+He denies us the fantasy that images offer truth.
+
+In doing so, he aligns with Baudrillard's diagnosis of hyperreality: a world where simulations replace the real.
+One need only look at how the *Barbie* movie reflects this---no longer does Barbie reflect humanity; instead, humanity imitates Barbie.
+Life imitates advertisement.
+This is not inherently bad, but it should provoke reflection.
+If reality imitates media, we must become aware of what we consume.
+
+Haneke's films are exercises in unconcealment, but not in Heidegger's poetic sense.
+Rather, they uncover how the image has displaced experience, how representation replaces presence.
+They are critiques of the technological mode of revealing, which reduces everything to consumption, to spectacle.
+
+Yet here lies a paradox: even when Haneke breaks the fourth wall or undermines the spectacle, is it not still spectacle?
+Can one truly escape the logic of representation by critiquing it from within?
+This is the open question at the heart of his work.
+
+Haneke's cinema, like that of Tarkovsky and Malick, participates in the struggle between world and earth, between sense-making and that which resists being made fully intelligible.
+These films never exhaust their meaning.
+They are not allegories or puzzles with solutions.
+They resist total interpretation.
+
+In Heideggerian terms, they return us to *existential time*.
+They remind us that our being is finite, that the world is fragile, and that meaning is never guaranteed. 
+They provoke anxiety (Angst), the uncanny mood that shakes our complacency and reveals the void beneath our daily certainties.
+They are not about stories. They are about being.
+
+When the noise stops, the inner voice begins.
+That is what these films allow---or demand.
+They open us to the nothing, and in doing so, to ourselves.
+
+## A Narrow View of Art
 
 Heidegger is largely silent on music. He saw it as the art of feeling, not of form, and distrusted its emotionality. He criticized Wagner for aesthetic excess and linked such artistic elevation to *nihilism*---a loss of grounding in Being.
 This may reflect a bias toward visual and architectural arts, rooted in Heidegger's cultural and historical context.
@@ -440,312 +663,76 @@ Composers who break new ground shift the musical world, changing what is even th
 As listeners, we experience this strangeness as the emergence of truth.
 As already mentioned, I Luhmann provides a more powerful framework to analyze artworks as a relation between *medium* and *form*.
 
-## Heideggerian Cinema
+Heidegger's view of art is powerful but arguably narrow. 
+His insistence that art is primarily a site of truth's unconcealment---a happening of *Being*---adds profound depth to our understanding of artistic experience.
+Yet it may leave out other important dimensions.
 
-Let me look into the works of Andrei Tarkovsky, Terrence Malick and Michael Haneke with an Heideggerian perspective.
-While Tarkovsky and Malick are existential filmmakers, Haneke is more of a critique of his own profession thus more *postmodern*.
-However, all three try to ask questions rather than providing answers.
+Kant, for instance, reminds us that art also engages the faculties of judgment and taste.
+Aesthetic pleasure---our response to the formal beauty of a work---need not be reduced to the work's world-opening power.
+To deny this would be to ignore what draws many to art in the first place.
+Beautiful form, elegance, and composition may not ground truth, but they are not irrelevant.
+Art can move us by harmony as well as by disruption.
+Heidegger doesn't deny this, but he rarely addresses it.
 
-Tarkovsky thought of art as revealing the *transcedental*.
-He thought art is the only way to it.
+Moreover, not all artworks seem to unconceal a world in the Heideggerian sense.
+Music, particularly instrumental music without lyrics, offers an example.
+It can be emotionally overwhelming and spiritually elevating while remaining abstract---without "world" in any literal or symbolic sense.
+Does this mean it is not art? 
+Or does this suggest that Heidegger's definition misses something vital?
 
->It appears as a revelation, as a momentary, passionate wish to grasp intuitively and at a stroke all the laws of this world---its beauty and ugliness, its compassion and cruelty, its infinity and its limitations. -- Andrei Tarkovsky
+>God has given us music so that above all it can lead us upwards. Music unites all qualities: it can exalt us, divert us, cheer us up, or break the hardest of hearts with the softest of its melancholy tones. But its principal task is to lead our thoughts to higher things… Song elevates our being and leads us to the good and the true -- A young Friedrich Nietzsche
 
-For Tarkovsky, embracing art comes close to a spiritual experience and its creation to an act of faith.
-By his films he was exploring our world in search for understanding---he was observing *Dasein's* questioning of its own *Being* by praying through cinema.
-As his characters say:
+While Heidegger's theory emphasizes *earth* and *world*, concealment and disclosure, its opacity---perhaps deliberate---can also frustrate.
+Whether the vagueness lies in the thought or in our reception of it is difficult to say.
+What is clear is that others, such as Niklas Luhmann, offer a different lens. 
+In *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`, Luhmann frames art as a self-referential system---a social form of communication stabilized through aesthetic differentiation rather than ontological truth.
 
->We need a mirror.
+Still, Heidegger's contribution remains significant.
+From him, we inherit the idea that art can unconceal both the world and its technological enframing.
+It can reveal how we see, what remains hidden in that vision, and whether technology is a tool we use—or a cosmic force that uses us.
 
-For Tarkovsky this mirror would not depict our experiences as a linear sequence of events, captured objectively and logically into what could be called a plot.
-Instead, we would see a complex web of thoughts, memories and emotions and all these would be deeply interconnected to other beings, be it other *Daseins*, tools, or things *present-at-hand*.
-We would see a being that experiences a practical world subjectively, gives shape to it and is shaped by it subjectively.
-A being that is shaped by its past, moves through the present by projecting itself into its own future and observing each new moment with a consciousness made up of impressions, distortions, and associations.
-Tarkovsky, like Heidegger, was wrestling with time as an essential feature of the human condition.
-*Dasein* projects itself into the future.
-It imagines to be a certain way.
-
->Time is said to be irreversible. And this is true enough in the sense that 'you can't bring back the past', as they say.
->But what exactly is this 'past'?
->Is it what has passed?
->And what does 'passed' mean for a person when for each of us the past is the bearer of all that is constant in the reality of the present, of each current moment?
->In a certain sense the past is far more real, or at any rate more stable, more resilient than the present.
->The present slips and vanishes like sand between the fingers, acquiring material weight only in its recollection. -- Andrei Tarkovsky
-
-To capture *truth as unconcealment* artists best trust their own heart, follow their own instinct; and hope that if something resonated with them on a personal level, if something left an impression, however intangible, unexplainable, it will do the same for others.
-For Tarkovsky as well as Heidegger art is neither there to be analysed or ripped apart, nor is it there for pure aesthetically reasons.
-For both it is about a certain kind of truth.
-While Heidegger thinks of the unconcealment and opening of a world, Tarkovsky thinks of the opening of a *spiritual* world.
-Both, I think, see in great art a guiding aspect to find oneself, or in Heidegger's terms, to be *authentic towards death* by which he does not refer to today's meaning of "being authentic".
-Instead, he uses the Greek meaning of the word: to take a stand and make a final, irreversible choice by choosing one thing while *killing* all the other possibilities---a view also shared by Kierkegaard.
-It is *existential time* and our finitude that gifts us *authenticity*. 
-
-And here we are back at the *essence of technology* which makes everything measurable and exchangable by putting an exchange value on all things.
-In the consumer and technological age of the twenty-first century we are surrounded by exchange values everywhere.
-Ever more areas of our lives are being technologized and marketed, thereby adding infinite anonymity at the expense of authenticity.
-Making a definite, irreversible choice becomes a challenge when the possibilities expand without limit.
-Therefore, one eventually tends to wait anxiously before making any definite choices as if life itself were unlimited.
-But the price to pay is a meaning and identity crisis.
-And if someone struggles to find their identity within themselves then there are all sorts of groups and movements to provide it for them.
-Eventually even the devil becomes more appealing as a leader, simply because it has a strong personality.
-
-I think, seeing the world opened by the works of art, is conditions on our belief that such a thing exists in the first place which can be difficult in a world that seems to actively discourage us from looking past the immediate material reality.
-Tarkovsky (e.g. in *Stalker*) as well as Kierkegaard, warns us of a society that seeks to conquer the infinite with the finite.
-If we lose our ability to hope and believe in something greater than ourselves and disregard all that which is experienced irrationally and poetically, we may forever fall into the inauthentic mass (Heidegger) or, in Kierkegaard's terms, lose ourselves.
-A world stripped of its spirituality will be a cruel one, in the sense that it will no longer prepare us for death.
-
-Another film director which is even more relatable to Heidegger's philosophy is Terrence Malick.
-Malick once attempted a doctorate on Heidegger, Kierkegaard, and Wittgenstein at Harvard.
-His films often hew closely to and examine---in both narrative and form---ideas about the essence of humanity and phenomenology advanced by Heidegger.
-This can be seen in his existential style but also his use of ever questioning voice-overs which I see as *Dasein's* questioning of *Being*.
-The whispering turns the film into poetry in motion.
-
-Malick, like no other, depicts a practical world of phenomena instead of a world of facts and a linearly progressing story.
-He let's us experience the mystical of *the ordinary* which is, in fact, *extraordinary*.
-The camera is constantly moving.
-It follows the characters at different angles but also lingers and wanders away.
-Thereby, the camera focuses on the world that surrounds our characters.
-The camera seems to be more interested in exploring the beauty and mystery of the world of the characters than the characters themselves---much like Malick is not really interested in his own story.
-The camera looks at beings as they are thus revealing the multiplicity of *Being*.
-
->All of [Malick's] movies are about worlds. [...] Each film is about some aspect of the world. -- Hubert Dreyfus
-
-And according to Martin Woessner in *What Is Heideggerian Cinema? Film, Philosophy, and Cultural Mobility* {cite}`woessner:2011`,
-film gives us a meaningful world at the same time that it mirrors our own growing alienation from the world.
-Moviegoers are simultaneously engaged and disengaged.
-With regard to the former, we can say that cinema gives us what, in our everyday lives, we take for granted or do not acknowledge, mainly because it is too difficult to do so.
-It gives us precisely what Malick was looking for as a student in his philosophy classes, namely, a sense of the world, if not exactly a complete knowledge of one's place in it.
-
-Instead of insisting, Malick is insightful. 
-Instead of filling spaces, he opens them up.
-By being playful, wasteful as well as ambiguous his craft goes against the utilitarian method.
-Especially in his later works, there is barely any structure or dialog.
-He hasn't bounded his work within the 'technical' language of film like a poet who does not bound his work to the normal use of language. 
-
-If one wants to get a better understanding of Heidegger's kind of thinking, experiencing the childhood portrayed in *The Tree of Life* is a good place to start.
-It is a meditation on *Being*.
-It ask the question with which Heidegger started:
-
->Why is there something rather than nothing?
-
-While being a very personal movie, Malick wishes that 
-
->the 'I' who speaks in this story is not the author. Rather, he hopes that you see yourself in this 'I' and understand this story as your own. -- Terrence Malick
-
-In his filmography Malick develops the concept of *grace* and *nature* which is most prominent in *The Tree of Life*.
-I would argue that *nature* is closely related to the *essence of technology* being the instrumental and rational aspect of seeing and thinking.
-Malick's *nature* is calculating, selfish, and alien---it fights and dominates to survive; the wolf hunting the lamb, land fighting the ocean, plants fighting plants, humans dominating humans in
-
->physical life in a world abandoned by the spirit. Organized unreality. The soul a hindrance in one’s dealings here. A burden. A mere quantity of thoughts and desires. -- Terrence Malick
-
-*Grace*, on the other hand, is forgiving, vulnerable, selfless, playful, and intimate.
-It is the spiritual which, for Malick, seem to erode out of the limits of understanding.
-Some call its source God, but Malick notes:
-
->Let us sing a new song, tell a new story; one which, mindful of the ancient tales, takes its inspiration from science. Let us search for the permanent amid the fleeting and mutable, for that which endures through the spectacle of ceaseless change. Let us discover the eternal, the good. -- Terrence Malick
-
-For Malick, creation is eternal birth.
-A beginning without end.
-It happens in every instant of time.
-The same power which burns the stars burns equally in us.
-Our being is a miracle, equal with the creation of the universe, and like the universe, each day is created anew.
-
-In *The Thin Red Line* we can observe the soldiers which are *thrown* onto a Pacific island in World War II and are aware of the thin line between *Being* and *Nothing*.
-Nowhere in Malick's works is the transitory nature of the world more thoroughly explored than in this movie.
-These soldiers struggle with existential questions and anxiety because they are forcefully confronted with death; they imagine their life from the end---what Heidegger called *Vorlaufen zum eigenen Tode*.
-The American and Japanese soldiers as well as the Melanesian people caught in the middle of a conflict represent a reminder of our constant vulnerability to the collapse of our way of life, i.e., our existential fragility of human worlds.
-For the philosopher Dreyfus the film is a concrete and historical example of the freedom of *Dasein* at work, a clear example of the groundless ground of human
-action.
-According to {cite}`woessner:2011`, *The Thin Red Line* shows us not just the world of the battle but at least three other worlds.
-Its central aim to investigate the meaning of the world itself, something connected to mortality, but not defined entirely and solely by it.
-In that sense, it is not only a film of a battle between nations but a clash of different worlds.
-It is also a film about our increasing inability to recognize that the world itself is a delicate and fragile balance predicated on, but ultimately pointing beyond, human agency.
-
-According to the topic of the *essence of technology*, Malick's *The New World* might be closest to the question at hand.
-What *The New World* recounts is the transformation of the natural world into an artificial world.
-Scenes of indigenous dwelling are juxtaposed with scenes of colonial misery, the former depicting balance and harmony with the environment, the latter only struggle and strife---existence against, not with, nature.
-Malick uses the Pocahontas myth to explore the origins of modern world, in which mortals begin to exaggerate their role in the delicate and fragile interaction of the interaction between the earth, the sky, divinities, and mortals---throwing it off balance.
-An uprooted Pocahontas wanders through the rationalized English garden, perplexed by how the Europeans have tamed and reshaped the trees of nature.
-We can suggest that the colonists brought not only industry and civilization but also the metaphysics that created the objective and rational world, i.e. Decartes's philosophy, and with the *essence of technology*---seeing the world as *standing reserve*.
-In this way, America comes into being.
-
-And in his latest work *A Hidden Life*, Malick seems to try to find a moral compass within Heidegger's work by deconstructing religion and nationalism by looking at someone who refuses to fight.
-It is a film about goodness and courage, without recognition.
-An attempt that is more close to Kierkegaard and goes probably against Heidegger's intentions because he seems to provide no such compass or moral considerations.
-Here we find an *ordinary* farmer with a profoundly unspectacular life.
-He follows his convictions absolutely with little impact apart from his and his family's destiny.
-Malick transforms the *ordinary* into the *extraordinary* by letting *Being* show up.
-The farm life has importance, as part of the larger creation.
-We experience the farmer in his web of practical tools, labour and *earth*.
-The film also provides us with scenes where we can feel the filmmaker's own wrestling with Heidegger's legacy as a *Nazi*.
-And, of course, a world breaks down forever.
-
-It is in our human nature to love the story of a person who did great things: saved lives, wrote books, stood against the dictator who wiped out millions of lives.
-It is less common for us to celebrate a man or woman who threw away a good life and simply refused to do what he knew he could not, and paid with his life.
-*A Hidden Life* dares us to imagine that the latter is at least as important as the former---and maybe more so.
-
-Most certainly, Malick's works question that we ought to have made ourselves answer.
-Undoubtedly, they are important questions since they get to the heart of *disengagement* and *alienation*.
-These are inherently modern questions, unfamiliar to traditional societies and cultures.
-They are also questions one asks only in a state of anxiety.
-And knowing the world and being open to the terror of anxiety were two sides of the same coin.
-
->The growing good of the world is partly dependent on unhistoric acts; and that things are not so ill with you and me as they might have been, is half owing to the number who lived faithfully a hidden life, and rest in unvisited tombs. -- Mary Anne Evans (George Eliot)
-
-Next I want to include Michael Haneke because he, like no one else, uses film to unconceal the *blurriness* of reality and contemporary cinema.
-It's probably more Luhmannian cinema than Heidegerrian.
-Most of his works are an attempt to make the *medium* via its *forms* visible.
-
->It's the duty of art to ask questions, not to provide answers. And if you want a clearer answer, I'll have to pass. -- Michael Haneke
-
-For Haneke there is not one truth but there are a thousand.
-It's a question of viewpoint which truth you accept; whether you want it or whether you refuse it.
-This is fundamentally what he is trying to show: to grasp, to some extent, the contradictory nature of reality because reality is always contradictory and never clear.
-The work of Haneke challenges the notion that film and reality are mirror images of one another.
-
-He suggests that the creation of film has in fact reworked what we consider reality.
-He creates very real *worlds* but making us aware that they aren't real at all.
-By doing so Haneke exposes the dangerous effect of an existence informed by media worship implying that a worldwide trivialization of emotion has been instigated through the disassociation with reality.
-He shows deep seeded interest in the world beyond what we see at the screen.
-By framing subjects out of the line of sight or using off-screen sounds, he draws attention to the materiality outside of the frame.
-This is the place where the most traumatic events occur.
-Thereby, Haneke is bringing into question the context of an image.
-If we are aware of violence but are incapable of seeing it, is that image still violent?
-If we spent our time surrounded by real acts of terror in our media, does this makes our life terrifying?
-Personal stories bleed into social decay and vice versa.
-One can not exist without the other.
-And to lack an understanding of the coherence of both is Haneke's way of communicating the failure of communication in societies.
-The necessity of creating secrets in his work is to establish an interior not known by those outside of the circle.
-
-In his work he establishes that copies of reality erode the walls between the real and the imaginary leading to Baudrillard's *hyper-real*.
-A prime example is the effect of the new *Barbie* movie.
-It is no longer the case that Barbie is a mirror of humanity, i.e., constructed in our image, but instead humans constructing themselves as Barbie---life imitates advertisement.
-In itself this is neither good nor bad but it should give us thought for pause.
-If reality imitates media, we should be aware of what we consume!
-
-In *Funny Games*, Haneke shows us senseless violence like we see in so many movies and news shows today.
-But his violence is violent.
-It hurts, it is unpleasant, disturbing, and soul crushing.
-It goes against the Nietzschian perspective that greatness requires suffering.
-No! Haneka shows us, suffering is just suffering.
-There is nothing great to find there; it is a horrific banality.
-While watching the movie one wants to scream towards the protagonists but one has to keep watching helplessness.
-Leonard Maltin called the movie “nonsensical and highly unpleasant'' but that is exactly the point.
-Haneke wants to provoke and he wants to deconstruct the violent cinema.
-And he won't give as relief, causal rationalization, or the morally guilty.
-Violence stays brutally nonsensical.
-Only we as audience seem to be guilty of consuming it.
-
-Haneka's films explore the notion of not addressing truth and rather looking outward.
-As viewers, we 'enjoy' the pain of not knowing.
-Perhaps we are unable to dissect the connotations of his images  because we are unable to understand the reality of that *world*.
-Just as the images of our reality are incapable of being communicated with our subject.
-In a sense, Haneka teaches us more complex ways of reading images by displaying a world as close to reality as possible---something almost anti-cinema.
-The emergence of reality becomes the destruction of the fantasy.
-He disrupts the traditional filming methods to raise the awareness that the film spectator is the consumer that all images are addressed to.
-He leads us as an audience from the notion of the true image into perspectives of plural truth.
-He presents us the reality of people's life, yet puts us at a physical distance so that we may remain 'objective' towards it.
-His work is unfulfilling and shows how cinema primes us to an Utopian vision of reality where all problems are resolved and a chain of causality is present.
-Haneka highlights this cloud of untruth.
-There is no single explanation of human suffering, it just is---all that remain is what we do with it.
-
-I find Haneke's project important.
-However, it is questionable whether such an unconcealment of the *hyper-real* is possible, or if even the most unpleasant depiction of violence, in reference to the medium itself---for example, by breaking the fourth wall---will merely lead to the same old effect: more violence.
-
-I think, similar to the Greek temple, films from these directors can open worlds by bringing us back into existential time, i.e., bringing us to reflecting on (our) *Being* or what it means to be.
-And when this question shines through, it can upset our entire world.
-It can make us question every aspect of our being.
-This "feeling" is defined by a particular type of *anxiety* (*Angst*) or *dread*, which according to Heidegger, is the only human emotion that is unbound from our world.
-It calls into question all of our everyday assumptions about the world around us and, perhaps more importantly, about our place in the world.
-This experience of *world collapse* is equivalent to the realization that the center no longer holds, that the shared understanding that defines our space of meaning and understanding no longer exists.
-It can be triggered by external events that awaken us from practicality into awareness and contemplation---by the failing or surprising equipment---so to speak.
-The feeling itself is not related to anything concrete.
-Instead, it is defined by an absence.
-It relates to the nothing; to the void.
-When the noise no longer drowns out the inner voice, a dialogue with our own mortality begins.
-This is what these works depict but can also cause to the observing audience.
-They are good examples of the struggle between *world* and *earth*.
-They are never semiotically exhausted or depleted, i.e., finally made totally intelligible.
-
-Overall Heidegger's view on art is interesting but seems also quite narrow.
-There is much to be gleaned from Kant's idea of *aesthetics* being a subjective judgment of taste.
-We cannot ignore that a beautiful form can also be shown to be an attribute of art. 
-That isn't to say that aesthetics has it right either, however, to completely ignore it cuts short all that art can be.
-I would also say the portrayal of a *world* isn't always clearly evident in every work of art either.
-If you listen to a piece of music---uniquely both: completely abstract and profoundly emotional---particularly one without lyrics, is a whole world evident in its make-up?
-If not, does this mean it is not a work of art?
-
->God has given us music so that above all it can lead us upwards. Music unites all qualities: it can exalt us, divert us, cheer us up, or break the hardest of hearts with the softest of its melancholy tones. But its principal task is to lead our thoughts to higher things, to elevate, even to make us tremble [...] The musical art often speaks in sounds more penetrating than the words of poetry, and takes hold of the most hidden crevices of the hear [...] Song elevates our being and leads us to the good and the true. If, however, music serves only as a diversion or as a kind of vain ostentation it is sinful and harmful. -- (a very young) Friedrich Nietzsche
-
-Heidegger's description of art lacks clarity which might be deliberate or might be my own lack of understanding.
-As already discussed, a more explainable but also abstract framework was presented by Niklas Luhman, for example in his text *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`.
-What I take from Heidegger is that art can unconceal *world* and *earth*.
-Furthermore, I think that art can elucidate the *essence of technology*, enabling us to develop an open relationship with it.
-A piece of art can expose our uncertainty about whether technology can be disregarded, or whether it embodies a seductive cosmic force that we're incapable of resisting.
-It can set up a new meaning-giving world and, according Tarkovsky, can ultimately prepares us for death.
+Great art may confront us with this dilemma.
+It may not answer whether technology is a condition we can transcend or a destiny we must endure. But it can illuminate the struggle.
+It can set up a new world—one in which we may see technology differently, not as neutral instrumentality but as a mode of revealing. In this sense, as Tarkovsky writes, art prepares us:
 
 >The allotted function of art is not, as is often assumed, to put across ideas, to propagate thoughts, to serve as example.
 >The aim of art is to prepare a person for death, to plough and harrow his soul, rendering it capable of turning to good. -- Andrei Tarkovsky
 
 ## Turning Away from Danger
 
-I feel a great tension between Heidegger's description of technology and my own understanding of it.
-Technological tools saved my life.
-Equipment gives me the ability to explore the world on my own terms.
-So many technological tools are serve an emancipatory purpose and make the live of many people less miserable---a development politicians on the far right want to reverse.
-They try to inject fear from *transhumanism* into the public discourse with arguments that remind me of Heidegger's texts.
+I feel a great tension between Heidegger’s description of technology and my own relationship with it.
+Technological tools have saved my life.
+Equipment enables me to explore the world on my own terms. Many technologies serve emancipatory purposes, easing suffering and expanding human potential---developments some reactionary forces would like to reverse. 
+They seek to inject fear of transhumanism into public discourse using arguments eerily reminiscent of Heidegger's texts. 
+His *Nihilophobie*---a fear and rejection of nihilism---remains pervasive in Western thought: the anxiety that behind everything, there is nothing, not even *Being*.
 
-I cannot see a clear line between 'good' and 'bad' types of technolgical tools.
-When the alphabet was introduced, Plato harbored concerns that it would lead to the erosion of memory. 
-To some extent, his fears were justified; people began to lose their capacity to memorize and orally transmit great stories. 
-However, his apprehension was not entirely accurate, as the advent of writing allowed these narratives to be documented, effectively externalizing memory. 
-So is the alphabet a bad type of technology?
-I suppose most of us will disagree.
-In my view, it is crucial to continuously seek out new *weapons of emancipation* while recognizing that these tools invariably wield an influence over us that is beyond our control.
+I cannot draw a clear line between "good" and "bad" technologies.
+When the alphabet was introduced, Plato worried it would erode memory. In some ways, he was right; oral traditions declined.
+But writing also allowed memory to be externalized and preserved in new ways.
+Was the alphabet a bad technology? 
+Most of us would disagree. 
+This suggests that we must remain committed to finding new weapons of emancipation---while also recognizing that such tools inevitably shape us in ways we do not control.
 
-Were I agree is Heidegger's description of a network of equipment and our place in it.
-The crushing reality that we are less in control than we often assume.
-We have to recognize and deal with the fact that we are situated in a culture and environment that is shaped by technology.
-We are obliged to perpetually reflect on the *essence of technology* and its *danger*.
-But we should also reflect on the great danger of labelling something *unnatural* or *natural*.
-Over the history we have learned to accept more and more people to our ingroup, not because of some absolute principle but because of better and vivid imagination, and we should be proud of that.
+Where I agree with Heidegger is in his description of the network of equipment and our place within it: the humbling realization that we are far less in control than we imagine. We inhabit a world shaped by technology---culturally, environmentally, epistemologically. This demands continuous reflection on the *essence of technology* and its danger. Technological artifacts don't merely assist life; they generate new worlds and extinguish old ones. They form self-reinforcing feedback loops, what Heidegger and systems thinkers like Luhmann might call autopoietic systems. And yet, we must also resist binary distinctions between what is "natural" and "unnatural." History has taught us to expand our moral imagination, to welcome more beings into our circle of care---not because of immutable principles, but because of the vividness of our *imagining*. That is something we should be proud of.
 
-It's not a matter of outright resistance or unconditional acceptance, but rather of informed ambivalence, deliberate retreat, and vigilant anticipation.
-As Luhmann rightfully emphasised: Our society is **contingent**, that is, everything that is could be different.
-Modern society is more and more unpredictable on a global scale, but also on a personal level.
-We can not predict our state over ten years.
-Our perspective into the future is very different from ancient times.
+This is not a call for either unconditional acceptance or total resistance. Instead, we need informed ambivalence, deliberate withdrawal, and vigilant anticipation. As Luhmann reminds us, modern society is *contingent*---everything could be otherwise. Today, even our near future feels radically unpredictable. We no longer imagine the future with the same confidence that ancient societies did.
 
-I must believe that there is the possibility that our *mode of seeing* the world can change into something radical different.
-It is attention to technology as a *mode of seeing* that might help us.
-Other kinds of *revealing*, and attention to the realm of *truth* and *being* as such, will allow us to experience the technological within its own bounds.
-Consequently, the artist's duty is to disclose and explore this process *phenomenologically*. 
-She is the one who crafts aesthetic symbols, setting the stage for a possible future. 
-The approach should involve neither prejudice nor antagonism, but rather *sincere engagement* with technology and its creators. 
-After all, the artifacts of our past aren't natural occurrences but are crafted by people. 
-Yet, what has transpired and what will occur are guided by the *horizon of possibilities*, which is *enframed* (gestellt) by technology and unveiled by artistic works.
+Still, I must believe that our mode of seeing the world can shift---that it is not fixed. If technology is a mode of revealing, then we must remain open to other forms of revealing as well other approaches to truth and *Being*. Artists play a vital role in this task. They do not just critique the present---they open space for possible futures. Through aesthetic forms, they disclose reality in ways that neither science nor politics can. Their task is phenomenological: to show how things appear, not merely what they are.
 
-Our thought process should acknowledge the *challenge* posed by technology.
-We must enter the realm where things can show themselves to us truthfully in a manner not limited to the technological.
-We must resist our automatic acceptance of the *challenge* and the status quo as it tends to instill a sense of powerlessness towards instigating change. 
-There is neither room for bittersweet melancholy nor illusions that minor local changes will be adequate.
+This process must be approached not with cynicism or fear, but with sincere engagement. Technologies, after all, are neither natural facts nor purely human creations. Still, what we co-evolves along side with us is guided by the horizon of possibility that technology itself enframes. Artistic works have the potential to unveil this enframing, to illuminate the stage upon which our futures unfold. Not to engineer it but to guard and provide the possible such that we can endure *meaninglessness*, not in despair, but with *awareness*.
 
-Echoing the words of Mark Fisher: I'm not apprehensive about a zombie apocalypse; rather, my concern lies in the ease with which people can envisage such an apocalypse, in contrast to visualizing life a decade or two hence. 
-My worry is that we may have already conceded defeat, that we lack the imagination and bravery to adopt different strategies, and that we might succumb to reflexive responses and seemingly easy but unrealistic solutions.
+We must learn to see again---to enter the realm where beings (and systems) reveal themselves in ways not reduced to function, efficiency, or control. We must resist with serenity (Glassenheit) the automatic embrace of technological challenge and the illusion of inevitability. Neither nostalgia nor minor reform will suffice but we can still preserve diginity to beings.
 
->Philosophy will not be able to bring about a direct change of the present state of the world. This is true not only of philosophy but of all merely human meditations and endeavors. Only a god can still save us. I think the only possibility of salvation left to us is to prepare readiness, through thinking and poetry, for the appearance of the god or for the absence of the god during the decline; so that we do not, simply put, die meaningless deaths, but that when we decline, we decline in the face of the absent god. [... The place once occupied by philosophy is now] cybernetics.  -- Heidegger, Spiegel inverview in 1966
+As Mark Fisher put it: I'm not afraid of a zombie apocalypse; I'm afraid that people find it easier to imagine the end of the world than the end of the current trajectory. The true horror is our lack of imagination. That we've already surrendered to the system. That we reach, again and again, for easy answers and charismatic saviors instead of daring new visions.
 
-While many critics of technology highlight its apparent dangers, Heidegger underscores a different type of peril: the potential of technology to obstruct us from hearing "the call of a more primal truth".
-The issue is not solely that technology impedes our access to this sphere, but that it causes us to entirely forget the existence of this realm.
-Nevertheless, Heidegger posits that by acknowledging this danger, we might be able to discern and then address what has been neglected. 
-The realization of our essence as receptive to this sphere, and of technology as merely one avenue through which things can manifest, is the roadmap for keeping technology within its appropriate confines. 
-The thought that unfolds the potential for a *turn* away from technology and towards its fundamental domain is the recognition of its hazard.
+> Philosophy will not be able to bring about a direct change of the present state of the world. This is true not only of philosophy but of all merely human meditations and endeavors. Only a god can still save us. I think the only possibility of salvation left to us is to prepare readiness, through thinking and poetry, for the appearance of the god or for the absence of the god during the decline; so that we do not, simply put, die meaningless deaths, but that when we decline, we decline in the face of the absent god. --- Martin Heidegger, Spiegel interview, 1966
 
-Ultimately, it may be the *energy of earth* that unveils a potential earth-world relationship. 
-This could be Heidegger's god, for whom we are waiting and preparing for.
+For Heidegger, the danger is not simply that technology obstructs our access to *Being*---but that it causes us to forget *Being* altogether. He's pointing to cybernetics (the science of systems, control, and information flow) as having replaced philosophy as the dominant framework for understanding the world, that is, data and systems theory, not wisdom or metaphysics, now shape our worldview and decision-making is done by algorithms, economics, optimization. In Heidegger's eyes, this is the ultimate enframing (*Gestell*): the culmination of seeing the world purely as resource, as system to be controlled, not as mystery to be lived.
 
->[...] where the danger is, there grows also what saves. -- Friedrich Hölderlin
+Yet it is precisely the danger he is pointing towards that contains the seed of salvation. By confronting the danger, we might remember what has been concealed. We might recognize that **technology is just one possible mode of revealing**---not the only one.
 
-But will it be too late?
-Will *earth* totally conceal the *world*?
-The future is looking grim but imagining the catastrophe is out of my horizon but thinking about it makes me horrified.
+Perhaps the "god" Heidegger spoke of is not divine at all, but earthly---*Gaia* returning, not as benevolent mother but as force of reckoning. Climate change, in this sense, is not just a scientific fact or policy failure, but a metaphysical event: the Earth reasserting its withdrawn presence, rupturing our illusion of mastery, and exposing the futility of control. It may yet prepare us---not for salvation, but for an entirely different way of dwelling. This might be our biggest danger but as Hölderlin wrote
+
+>[...] where the danger is, there also grows the saving power. --- Friedrich Hölderlin
+
+Will earth conceal the world completely? I don’t know. The future looks grim. But imagining catastrophe already feels like an act of resignation. And while the thought of it horrifies me, reflecting on it might be the first step toward a more honest, more courageous beginning.
