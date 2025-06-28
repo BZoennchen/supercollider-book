@@ -11,9 +11,9 @@ kernelspec:
 ---
 
 (sec-algorithms)=
-# Algorithms
+# The Logic of the Algorithm
 
->An algorithm is on the *verge of time*: [...] it is strictly structural -- a formal, unchanging entity.
+>An algorithm is on the *verge of time*: [...] it is strictly structural---a formal, unchanging entity.
 >Not only formal, however, but a formula that prescribes steps to be made one after another, depending on one another.
 >It is a formula that exists in order to unfold, in the form of a process, in time and over time, and dependent on its past inputs. -- Julian Rohrhuber
 
@@ -25,77 +25,194 @@ However, as already mentioned, technology may have set us on an immutable course
 
 For me personally, technology is lifesaving and emancipatory.
 Following my Ph.D., I even penned an article titled [Informatics - A Love Letter](https://bzoennchen.github.io/Pages/2021/06/08/Informatics-a-love-letter.html) in which I unabashedly express my gratitude towards the discipline. 
-Informatics or computer science is both an art and a science that has vastly expanded my realm of possibilities.
+Informatics---or computer science---is both: an art and a science that has vastly expanded my realm of possibilities.
 It also seems glaringly obvious that if we want to find a solution to the escalating impacts of climate change, we will depend on technology.
 Any other solution could be so detrimental that I can't even begin to envision the consequences.
+And lastly, if we reject technology for instrumental reasons, we stay in the same mode; we stay *gestellt* because we neglect technology based on a technological way of thinking.
 Perhaps for these reasons, I am driven to safeguard this craft from potential decline.
 
-## Introduction
+## Etymology and Evolution
 
-Since algorithms describe a sequence of executable instructions, they have a strange relation to time.
-On the one hand an algorithm is a description of a causal path into the future even though there is no physical time mentioned explicitly.
-Instead, the algorithm is there to be executed, i.e., to be transformed into a running program.
-Apart from this timely quality, an algorithm is like a story: it can unfold but is also unchanging; its content does not change but it can unfold logically.
-This is, in fact, very similar to a musical piece which can be performed in time but also exists independet of it.
+The term algorithm has a long and layered history.
+Its etymology traces back to the name of the 9th-century Persian mathematician Abū Jaʿfar Muḥammad ibn Mūsā al-Khwārizmī, whose influential work on Indian numerals was translated into Latin in the 12th century as Algoritmi de numero Indorum.
+The Latinized form Algoritmi (a transliteration of al-Khwārizmī) came to refer to a set of rules for calculation using Hindu-Arabic numerals.
+Over time, algorism—originally the name for these positional arithmetic techniques—evolved into algorithm, a neologism that eventually detached from its purely numerical connotation.
 
-Similar to natural numbers, it's challenging to determine whether an algorithm pre-exists and thus we can discover and utilize it, or if it comes into being as we invent it {cite}`rohrhuber:2018`. 
-While this debate may seem inconsequential in practical terms, it holds significant importance in the philosophy of mathematics. 
-Personally, I align with the late Wittgenstein, which posits that numbers, as well as algorithms, are abstractions of our daily practices and behavior and that a lot of confusion stems from our misuse of language.
+For centuries, the term was closely tied to elementary arithmetic operations such as addition, subtraction, multiplication, and division. Only much later, particularly in the 20th century, did algorithm expand in meaning to encompass general computational procedures. One historical turning point was the renewed interest in Euclid’s algorithm for computing the greatest common divisor—an early and elegant example of a finite, stepwise method with guaranteed termination.
 
-The origin of the term *algorithm* was obscure for quite a while.
-Historians only late discovered that the term emerged from a slight modification of the name of the renowned Persian author Abu Ja'far Muhammad ibn Musa al-Khwarizmi.
-At that time *algorism* meant "the specific step-by-step method of performing written elementary arithmetic".
-The name was Latinized to *algorismi* and later translated into middle high German as *Algorismus*.
-In more recent times, the word was linked with the Greek term *arithmetic*, thus giving rise to the term *algorithm*.
+By the mid-20th century, with the development of scientific computing and high-level programming languages (notably Algol 58 and its successors—Algorithmic Language), the modern understanding of an algorithm as an abstract, mechanical procedure for solving a problem took hold.
+This shift included not just numerical methods but also combinatorial procedures, recursive definitions, and control structures such as conditionals and loops.
 
-For an extended period, the term *algorithm* was primarily associated with a combination of arithmetic operations, including addition, subtraction, multiplication, and division. 
-Around 1950, the term began to reference Euclid's celebrated algorithm for determining the greatest common divisor.
-Consequently, the concept of an algorithm as a combination of purely arithmetic operations started to fade.
-Instead, algorithms started to incorporate combinatorial operations and control structures.
-At the same time, the development of scientific computation and early high level programming languages, such as Algol58 and its derivatives (short for ALGOrithmic Language) took palce.
-From that time on, an *algorithm* was understood to be a set of defined steps that if followed in the correct order will computationally process input (instructions and/or data) to produce a desired outcome {cite}`miyazaki:2012`.
+Formally, an algorithm is a finite, well-defined sequence of instructions that takes some input (data and/or parameters) and produces an output through deterministic computation. 
+Crucially, this definition is independent of the hardware or software used for implementation.
+The theoretical foundation for this view was laid in the 1930s by Alonzo Church's lambda calculus (1932) and Alan Turing's model of computation (1936), both of which were shown to be computationally equivalent---a result that grounds the Church–Turing thesis: 
 
-The efficiency of an algorithm can be enhanced by either refining the logic component or by improving the control over its use, including altering data structures (input) to improve efficiency.
-For many problems, one can prove certain optimal time and space complexities.
-For instance, we know that sorting $n$ cards requires $\mathcal{O}(n\log(n))$ time and $\mathcal{O}(n)$ space.
+>any effectively calculable function can be computed by a Turing machine.
 
-As reasoned logic, the formulation of an algorithm is, in theory at least, independent of programming languages and the machines that execute them;
-The theoretical fundament of algorithms, computer as well as programming languages is the (universal) *Turing machine* (1937) and the *lambda calculus* (1932).
-Importantly, *Turing machines* and the *lambda calculus* are equivalent in computational power: each can efficiently simulate the other.
+Today, the concept of an algorithm underpins all areas of computer science, from artificial intelligence and machine learning to cryptography, computer graphics, and software engineering. Algorithms are commonly associated with terms like procedure, routine, recipe, or mechanism, but their importance goes far beyond metaphor. They are formal, analyzable objects that can be optimized for time and space complexity. For example, comparison-based sorting has a known lower bound of $\mathcal{O}(n\log(n))$ time and $\mathcal{O}(n)$ space in the worst case, and many efficient algorithms (e.g., merge sort, heapsort) meet this bound.
 
-In contemporary times, we correlate the term *algorithm* with concepts such as recipe, computational instruction, process, procedure, method, routine, and so forth.
-Today, algorithms are the threads that tie together most of the subfields of computer science.
+Moreover, algorithm design often involves not just logical correctness but also resource-aware structuring.
+For instance, choosing appropriate data representations or applying heuristic or probabilistic strategies to reduce computational overhead.
 
-## Euclid's Algorithm
+In short, an algorithm is not merely a set of instructions---it is a formal, dynamic process that defines the logic and rhythm of computation.
+As such, it plays a foundational role not only in computer science, but in the broader understanding of procedural knowledge, mechanization, and even temporality itself.
 
-Since it is one of the first discovered algorithms, let us have a look at Euclid's famous algorithm.
-Given two natural numbers $n, m \in \mathbb{N}$, we want to find the greatest common divsor $d$ of those two numbers, that is,
+## The Construction of Time
 
-$$\exists k_1, k_2 \in \mathbb{N} : n = k_1 \cdot d \ \land \ m = k_2 \cdot d$$
+Since algorithms describe sequences of executable instructions, they have a peculiar relationship to time.
+In his essay *Algorithmic Music and the Philosophy of Time* {cite}`rohrhuber:2018`, Julian Rohrhuber argues that algorithms are more than static step-by-step procedures: they are *liminal entities*, suspended between logic and experience, structure and change.
+Algorithms, he suggests, offer a way to rethink time—not as a simple flow from past to future, but as a complex interplay of *logical time*, *physical time*, and *perceptual experience*.
 
-and $d$ is the largest number that fulfills this condition.
-Clearly, if one of the numbers is a multiple of the other, we are done.
-Otherwise, one number, let's say $n$, has to be larger.
+An algorithm, in its abstract form, is timeless: a fixed set of rules or instructions.
+Yet it is also designed to be executed, which necessarily implies unfolding over time.
+This *duality* means that an algorithm is both **like a story**, capable of being told and retold without change, and **like a machine**, capable of enacting a process in the world. 
+It is **unchanging in form**, but **temporal in function**.
 
-Interestingly, we can subtract $m$ from $n$ while keeping the greatest common divisor unchanged meaning that $n-m$ and $n$ have the same common divisor as $n$ and $m$.
-We can show this by the following equation
+However, the unfolding of an algorithm does not merely occur in time---it actively structures time.
+Algorithms generate sequences, causal relations, loops, and delays.
+A loop, for example, is a logical form that manifests as a temporal process when executed.
+Like a clock, algorithms can represent time; like a calculator, they can produce effects in time. 
+They are both *symbolic* and *operational*.
 
-$$n-m = (k_1 \cdot d) - (k_2 \cdot d) = (k_1 - k_2) \cdot d$$
+This is why algorithmic music, as Rohrhuber emphasizes, is not simply music made with algorithms.
+Rather, it is a medium through which we can experiment with time itself, rendering audible the interplay between logical structure and its temporal actualization.
+Because sound is inherently temporal, algorithmic music becomes a privileged site for exploring how time is constructed, perceived, and even alienated.
 
-Since $n > m$ we can follow $k_1 - k_2 > 0$.
-Imagine two sticks of length $n$ and $m$.
-If there is another stick $d$ that divides both sticks, then it has to divide the shorter stick.
-Therefore, it has to divide the rest ($n-m$) of the longer stick as well.
-Since this relation is recursive, we can subtract the greater from the smaller number until the smaller divides the larger.
+The *halting problem* further complicates this picture: for some algorithms, we cannot know in advance whether they will terminate or loop infinitely.
+This open-endedness echoes our own lived experience of time---unpredictable, sometimes looping, sometimes stalling, never fully foreseeable.
+
+Although *iteration* and *recursion* can be formally transformed into one another, Rohrhuber points out that they model time differently.
+Iteration expresses a linear, forward-moving time.
+Recursion, by contrast, evokes a circular or layered temporality---time that folds back on itself.
+It allows us to imagine temporal worlds where past, present, and future are not neatly separated.
+
+This leads to Rohrhuber's critical distinction between time as **passage** and time as **encounter**.
+In the first, time flows from future to past.
+In the second, time becomes a kind of landscape in which events are situated—something we navigate, not something that simply carries us forward.
+Algorithmic music exposes both dimensions: the passage of sound in real time, and the deeper logical structures that condition what can be heard and when.
+
+At this point, the connection to Spencer-Brown's *Laws of Form* {cite}`brown:1969` becomes clear.
+In that work, time is not the stage on which forms appear; rather, it comes into being as soon as a form is drawn, erased, and drawn again.
+The rhythm of distinction itself generates what we later name "earlier" and "later". 
+As Spencer-Brown writes:
+
+The act of **making a distinction**---of marking one side from another---is not only the foundation of form but a generative operation that can produce time.
+Time, in this view, emerges from the operation that re-enters itself: recursion.
+This self-reference gives rise to a *trace of states,* and thus to **memory**.
+It is not pre-given but arises from the *oscillation* between *marked* and *unmarked* states.
+
+Repetition---distinguishing more than once---is necessary to construct a sequence.
+A *single crossing* of a boundary marks a change, but not yet a sequence.
+As soon as this operation is repeated, i.e.
+
+```
+mark (1) -> unmark (2) -> mark (3) -> ...
+```
+a **sense of before and after emerges**.
+This is the temporal distinction.
+But with it also comes a paradox.
+A *re-entering operation* such as "This sentence is false" generates a form that is neither strictly marked nor unmarked.
+It *oscillates* endlessly. 
+Spencer-Brown embraces this paradox, unlike Bertrand Russell who sought to avoid it.
+For Spencer-Brown, paradox is not failure but the very foundation of form and temporality.
+
+This notion leads to *re-entry*---the form observing itself.
+With each recursive loop, the system retains a trace of prior states, allowing it to distinguish between "before" and "now": the very condition of memory.
+Time, then, becomes a dimension of self-referentiality, where a system can reflect on its own prior distinctions.
+As Niklas Luhmann adds, **systems do not inhabit an objective, external clock-time**.
+**Each system constructs its own temporal structure, based on the operations it performs and observes.**
+
+Interestingly, in programming, e.g. in ``sclang``, we write:
+
+```isc
+i = 1;
+i = (-1)/i;
+```
+
+which looks like a paradox!
+How can $i$ be equal to $(-1)$ divided by itself when the division clearly changes $i$ whatever it currently is?
+When executing the second line over and over again ``i`` oscillates between 1 and -1.
+Of course, computer scientists, programmers, and mathematicians will point out that the equal sign should not be confused with the equal sign of mathematics.
+The former is an assignment, that is, an act, an operation that works on $i$, or what Spencer-Brown calls *step* and the latter means equality, that is, it states that two expressions are equal in value.
+Therefore, we usually use the arrow sign in our pseudocode, i.e. $i \leftarrow (-1)/i$ instead of the equality sign $i = (-1)/i$ to avoid confusion.
+And mathematicians usually define a sequence like:
+
+\begin{equation*}
+\begin{split}
+i_0 &= 1\\
+i_k &= (-1) / i_{k-1} \text{, for } k = 1, 2, \ldots 
+\end{split}
+\end{equation*}
+
+which can be expressed as an explicid form:
+
+$$i_k = (-1)^k \text{, }k \in \mathbb{N}_0.$$
+
+The former is imperative---telling the computer / observer what to do---the latter is declarative---describing a fact or relationship.
+Because the relation is unstable (there is no fix point) it is a *productive paradox*.
+To eradicate time, we introduce infinity (an infinite sequence).
+And to eradicate space or memory, we use knowledge (*compressed memory*), e.g. we know that $(-1)^k = 1$ for all even $k$ thus we can compress the infinite sequence back into a (generative) algorithm.
+
+Through execution, algorithms construct temporal worlds---ones not always aligned with human intuition; they decompress.
+This can be productively alienating, forcing us to rethink the conditions under which time appears at all.
+In this sense,
+
+>an algorithm is not just a machine that operates in time, but a machine that creates time through the recursive play of distinction and indication.
+
+The implications are significant.
+First, algorithms are not just temporal in use—they are temporal in essence.
+Second, computation is not neutral: the way an algorithm encodes time and causality shapes our experience.
+And finally, when mediated through algorithms, time becomes fragmented, recursive, nonlinear, and fundamentally uncertain.
+
+Let me repeat: In contrast to the notion of *physical time* as a fixed dimension in physics---be it Newtonian absolute time or relativistic proper time---Spencer-Brown treats time as emergent.
+It arises not as a pre-given container for events, but through the rhythmic repetition of distinctions.
+Time begins when a form is drawn, erased, and drawn again. 
+In this view, physical time---with its clock-based regularity---may can be seen as a stabilized trace of recursive operations, an emergent order from the logical oscillation between marked and unmarked states.
+What physics treats as measurable, external time may, from this perspective, be the formal consequence of internal, self-observing operations.
+
+So, at this point the reader might ask: Can we reconcile *physical time* with *logical time*?
+This should be possible if the former is more fundamental than the latter, right?
+In other words, how, assuming Spencer-Brown's *Laws of Form*, does physical time emerge in such a model?
+
+One possible interpretation is that what we call physical time---measured by atomic clocks or celestial movements---is a stabilized trace of these logical rhythms.
+That is, 
+
+>physical time is the observable regularity produced by repeated, self-similar operations of distinction.
+
+Just as a vibrating cesium atom defines a second by its regular transitions, a recursive logical system generates a sense of time through the consistency of its internal oscillations.
+The metricization of time in physics may thus be seen not as a fundamental given, but as an emergent regularity: a rhythm rendered legible and measurable.
+
+This idea also resonates with certain developments in physics itself.
+In *loop quantum gravity* and other approaches to quantum cosmology, time is no longer treated as a continuous background parameter, but as something that emerges from more fundamental, non-temporal structures.
+Similarly, Ilya Prigogine's work on non-equilibrium thermodynamics emphasizes time as an irreversible process, not a symmetric coordinate {cite}`prigogine:1997`.
+And Carlo Rovelli {cite}`rovelli:2018` has argued that time is not a universal feature of the world, but a relational effect that arises from interactions between systems.
+
+Spencer-Brown's logic gives philosophical and formal expression to this shift: time is not the frame for events---it is the result of forms interacting, repeating, and observing themselves.
+Algorithms, in this context, are not just mechanisms that use time; they are processes that construct temporal structure, especially when they include recursion, iteration, and memory.
+
+### Euclid's Algorithm
+
+One of the earliest known algorithms in recorded history is **Euclid’s algorithm** for computing the greatest common divisor (GCD) of two natural numbers. 
+Given $n, m \in \mathbb{N}$, the goal is to find the largest number $d$ such that
+
+$$\exists k_1, k_2 \in \mathbb{N} : n = k_1 \cdot d \quad \text{and} \quad m = k_2 \cdot d,$$
+
+and no larger number satisfies this condition. 
+If one of the numbers is a multiple of the other, the solution is immediate. Otherwise, we assume without loss of generality that \( n > m \).
+The key insight is that subtracting the smaller number from the larger does not change the GCD. In fact, \( \gcd(n, m) = \gcd(n - m, m) \), because:
+
+To visualize this, imagine two sticks of lengths  $n$ and $m$. 
+If a third stick $d$ can evenly divide both, it must divide the shorter stick—and thus, also the *remainder* when the longer is reduced by the shorter.
+Repeating this logic recursively, we can subtract the smaller from the larger until both are equal: that number is the GCD.
 
 ```{prf:algorithm} Euclid's Algorithm
 :label: alg-euclid
 
-**Inputs** Two numbers $n, m \in \mathbb{N}$.
+**Inputs:** Two numbers $n, m \in \mathbb{N}$.
 
-**Output** The greatest common divisor of $n$ and $m$.
+**Output:** The greatest common divisor of $n$ and $m$.
 
-1. While $n < m \ \lor \ m < n$
+1. While $n < m$ or $m < n$
     1. If $m > n$
         1. $t \leftarrow m$
         2. $m \leftarrow n$
@@ -104,6 +221,77 @@ Since this relation is recursive, we can subtract the greater from the smaller n
 	
 2. return $m$
 ```
+
+This iterative algorithm generates a sequence of state pairs $(n,m,t)_k$.
+For example, with $n = 84$ and $m = 378$, we *observe*:
+
+$$(84,378)_1, (378,84)_2, (294,84)_3, (210,84)_4, (126,84)_5, (42,84)_6, (84,42)_7, (42,42)_8$$
+
+In SuperCollider syntax (``sclang``), the implementation looks like this:
+
+```isc
+(
+n = 84;
+m = 378;
+
+while({(n < m) || (m < n)}, {
+  if(m > n, {t = m; m = n; n = t;});
+  n = n - m;
+  [n,m].postln; // to print n and m
+});
+)
+```
+
+A more mathematically elegant form is the recursive version:
+
+```{prf:algorithm} Euclid's Algorithm (recursivly)
+:label: alg-euclid-recusive
+
+**Inputs:** Two numbers $n, m \in \mathbb{N}$.
+
+**Output:** The greatest common divisor of $n$ and $m$.
+
+1. If $n == m$
+    1. return $n$
+
+2. If $m > n$
+    1. return gcd(m,n)
+3. Else
+    1. return gcd(n-m,m)
+```
+
+```isc
+(
+~gcd = {
+  arg n, m;
+  [n,m].postln;
+  if(m == n, {^n;});
+  if(m > n, 
+    {^~gcd.(m,n);},
+    {^~gcd.(n-m,m);}
+  );
+};
+~gcd.(84,378).postln;
+)
+```
+
+Recursion is often praised for its expressiveness and elegance: it mirrors the mathematical definition directly, avoiding explicit state management like loops or counters.
+It can be seen as declarative---stating what to compute rather than how---and philosophically, perhaps closer to the paradoxical logic of form:
+$gcd(n,m) = gcd(n−m,m)$ echoes the unresolved recursion at the heart of processes that generate time.
+
+However, recursion also comes with trade-offs:
+
++ It often requires more memory due to stack usage.
++ It can be less efficient than iteration for large inputs.
++ Each recursive call retains a trace of prior states, which—ironically—can become a burden in practical computation.
+
+In contrast, iteration "*forgets*" as it proceeds: only the current values are retained; past states are discarded.
+Its trace vanishes quickly.
+Recursion, by contrast, accumulates a history, and only resolves once the entire chain of self-reference collapses into a result.
+
+Understanding recursion also challenges our intuitions.
+While iteration reflects a linear, causal sequence---matching our everyday experience of time---recursion introduces nested layers of causality, echoing a structure of time that is circular, folded, or delayed.
+This may explain why humans often find recursive processes harder to grasp: we live in iteration, but are in fact inherently recursive, that is, self-referential and reflexive---there lives an "I" in myself; I have re-entered myself.
 
 ### Bjorklund's Algorithm
 
@@ -205,126 +393,216 @@ ipd.Audio(audio_path)
 ```
 
 Isn't it fascinating that an algorithm discovered thousands of years ago not only remains relevant today, but is also adapted for novel purposes?
+And isn't it even more fascinating, that you constructed time by *indicating* and *drawing a distinction* between the *marked* (1) and *unmarked* state (0) observing the algorithms (recorded) execution.
 
 ## Limits of Computation
 
-Something magical and beautiful happens when a sequence of operations exploits the underlying structure to uncover new pattern.
-The rigid definition of the algorithm and its relentless execution is alienating and fascinating at the same time.  
+Something magical things happens when a finite sequence of operations uncovers structure and reveals patterns previously unseen.
+The algorithm---rigid in form yet generative in execution---is both alienating and beautiful.
+It follows rules without deviation, and in doing so, often surprises us.
 
-An algorithm is a finite sequence of executable instructions designed to yield a finite output within a finite number of steps for a specific finite input.
-Importantly, it uses only a finite amount of memory space at any point during its execution.
-Algorithms can be written down in a programming languages.
-This code is compiled or interpreted (or both) -- a process that transforms the code into a language the concrete machine can understand and execute.
+Formally, an algorithm is a finite sequence of executable instructions that, given a finite input, produces a finite output in a finite number of steps---using only a finite amount of memory at any point.
+Algorithms are typically expressed in programming languages, which are then compiled or interpreted into machine code that a physical computer can execute.
 
-However, algorithms can also run on our brain.
-A simple example might be the sorting algorithm you use for stacking books onto the shelves in your home. 
-The inputs in this case are the books (and more particularly the book titles and authors). 
-The output is the ordered sequence of books that ends up on your shelves.
-But that’s just what an algorithm is in the abstract. 
+Yet algorithms are not confined to machines.
+Humans run them too---when sorting books, calculating tips, or solving puzzles.
+The "inputs" might be titles, prices, or rules; the "outputs" are the actions we take.
+This universality of the algorithmic perspective once inspired philosophical dreams of complete formalization.
 
-While philosophers such as Leibniz and Descartes once dreamed of a *universal language* that could resolve any scientific problem within a comprehensive calculus, Kurt Gödel showed in 1931 that this modern pursuit was ultimately futile.
-In *Principles of Theoretical Logic*, David Hilbert and Wilhelm Ackermann proposed the idea of an algorithm capable of determining the truth or falsity of any first-order logical expression. 
-This question, known as the *decidability problem*, is often illustrated by the *halting problem* of a Turing machine. 
-These works made the formalists' objectives appear increasingly achievable, until Kurt Gödel, in his publication *On Formally Undecidable Propositions of the Principia Mathematica and Related Systems*, set clear limitations to their ambitions. 
-Firstly, he demonstrated that a sufficiently robust system that includes at least arithmetic cannot prove its own consistency. 
-Secondly, he showed that within such a system, there can be propositions that are neither provable nor disprovable.
+In the early 17th century, thinkers such as Leibniz's intellectual heirs and later in the 20th century formalists like Russell and Hilbert envisioned a universal logical system---a calculus ratiocinator---capable of resolving any mathematical statement by mechanical reasoning.
+In *Grundzüge der theoretischen Logik* {cite}`hilbert:1928`, Hilbert and Ackermann raised the question now known as the *Entscheidungsproblem*: can there be an algorithm that decides the truth or falsity of any statement in first-order logic?
 
-Later, Alen Turing showed that there is no *Turing machine* $\mathcal{H}$ (program) that can compute for any given *Turing machine* $\mathcal{T}$ given as a description $\alpha_\mathcal{T}$ (source code) if it halts or not.
-This demonstrated that there are well-defined questions that are *undecidable*, or in other words, there are problems that are not *Turing-computable*. Considering that any existing calculating machine is conceptually no more powerful than a *Turing machine*, this implies that there are problems that cannot be computed by executing an algorithm.
+Initially, it seemed plausible.
+But this vision encountered a decisive rupture in 1931, when Kurt Gödel, in *Über formal unentscheidbare Sätze der Principia Mathematica* {cite}`goedel:1931`, demonstrated two groundbreaking results:
 
-Consequently, the works of Albert Thoralf Skolem and Jacques Herbrand eventually led to the limitation regarding the predicate calculus, asserting that for a proposition deemed true in the calculus, its truth can be proven in a finite number of steps.
-Conversely, in the other case, the proof may either be successful or unsuccessful.
-This situation is often referred to as the *semi-decidability* of the predicate calculus.
+1. **Incompleteness:** Any sufficiently expressive formal system (one that includes arithmetic) will contain true statements that are unprovable within that system.
+2. **Inconsistency barrier:** Such a system cannot prove its own consistency without contradiction.
 
-This discovery signifies a fissure in the *modern perspective* and presages our current *postmodern condition*.
+Gödel's work revealed the inherent limits of formal systems: there is no algorithm that can decide the truth of every statement within arithmetic.
+Not all questions can be mechanized.
 
-## Algocracy
+Building on Gödel's insights, Alan Turing introduced the concept of the *Turing machine* as a model for what it means to compute.
+In his 1936 paper *On Computable Numbers* {cite}`turing:1936`, he formulated the *halting problem*: can a machine determine, for any given program and input, whether that program will eventually halt or run forever?
 
-In the modern digital and information age, algorithms have a very particular character. 
-They lie at the heart of the digital network created by the internet of things, and the associated revolutions in AI and robotics. 
-Algorithms are used to collect and process information from surveillance equipment, to organise that information and use it to form recommendations and action plans, to implement those action plans, and to learn from this process.
+Turing proved that no such machine exists.
+More precisely, **there is no general algorithm that can decide whether an arbitrary program halts**.
+This result established the existence of *undecidable problems*: well-posed, meaningful questions that cannot be answered by any algorithm.
+This also implied that no physical or digital machine---being at most as powerful as a Turing machine---can compute everything.
 
-Everyday we are exposed to the ways in which websites use algorithms to perform searches, personalise advertising, match us with potential romantic partners, and recommend a variety of products and services.
-We are perhaps less-exposed to the ways in which algorithms are (and can be) used to trade stocks, identify terrorist suspects, assist in medical diagnostics, match organ donors to potential donees, and facilitate public school admissions. 
-The multiplication of such uses is what gives rise to the phenomenon of *algocracy*, i.e. *rule by algorithms*.
+Further developments by Herbrand, Skolem, and others revealed more nuanced boundaries.
+In first-order predicate logic, semi-decidability prevails: if a formula is provable, there exists an algorithm that will eventually find a proof.
+But if it is unprovable, the algorithm may run forever {cite}`skolem:1970`.
+We can recognize truth by success, but not falsity by failure---a fundamental asymmetry in logic and computation.
 
-Digital spaces are imbued with values, determined by the control and regulation of permissible actions.
-*Cyberspace*, as it's often termed, have never been free from regulation, despite common misconceptions.
-Rather than being shaped by traditional architectural forms meant to regulate physical spaces, digital spaces are regulated by *source code*.
-The design of websites or applications, dictated by this code, significantly influences the behavior of their users.
-In other words, the very structure of these platforms function as a form of regulation, guiding user interactions and activities.
-In {cite}`lessig:2006` Lawrence Lessig states:
+The limitations discovered by Gödel and Turing are not arbitrary---they arise from a deep structural feature of formal systems: their capacity to refer to themselves. Both Gödel's and Turing’s theorems exploit self-reference to reveal internal contradictions or undecidable conditions.
+Gödel constructs a formal statement that essentially says:
 
->Codes constitute cyberspaces; spaces enable and disable individuals and groups. The selections about code are therefore in part a selection about who, what, and, most important, what ways of life will be enabled and disabled. -- Lawrence Lessig
+>This statement is not provable within this system.
 
-And in his book *Technology and the Lifeworld*, Don Ihde discusses technolog -- including algorithm -- as an expandasion or limit of possibilities.
-In our digital age, algorithms go beyond mere functionality or direct control.
-They realise judgements behind.
-{cite}`rosengruen:2022` argues that Western societies are currenty shifting from *rule of law* to *rule of code*:
+If the system could prove it, it would be inconsistent. 
+If it cannot prove it, then the statement is true but unprovable—demonstrating incompleteness.
+This is a formalized version of the liar paradox: "This sentence is false".
+It creates a loop within the system that the system cannot resolve from within.
 
->[...] source code is about to become the main regulator of individual and institutional behavior that regulates all other regulators including law -- Sebastian Rosengrün 
+Similarly, Turing’s proof of the halting problem constructs a machine $\mathcal{H}$ that is supposed to determine whether any machine $\mathcal{T}$ halts on input $x$. But then he defines a machine $\mathcal{D}$ that feeds its own description to $\mathcal{H}$  and inverts the result. The result is a contradiction: if $\mathcal{H}$ says $\mathcal{D}$ halts, then $\mathcal{D}$ runs forever---and vice versa.
+Again, a loop of self-reference generates undecidability.
 
-Rosengrün's argument is not centered on the premise that regulation is inherently detrimental, or that large companies harbor malicious intentions.
-Instead, he acknowledges the necessity, and indeed the inevitability, of regulation.
-Moreover, he observes that the alignment of corporate regulatory practices with their profit-making objectives is to be expected.
-He forcefully advocates for the *rule of law* as an indispensable prerequisite for a democratic society.
-Consequently, any attempt to replace it, could precipitate the dissolution of such a society.
-For this reason, Rosengrün asserts that code must be not only open but also subject to regulation.
-He underscores the potential dangers of allowing code to regulate law.
-For instance, when *machine learning* is used in the policy-making process, it is unrealistic to expect that law will maintain supremacy over code.
+This is exactly the kind of paradoxical *re-entry* that Spencer-Brown analyzes in *Laws of Form* {cite}`brown:1969`.
+In his system, the act of drawing a distinction is the beginning of form, but when a form refers to itself---when the distinction is applied to its own operation---paradox arises. This is not a flaw but a fundamental feature: the form re-enters the form.
 
-The process of developing algorithms necessitates translating a given task into human language.
-This is among the most challenging fields in software engineering. 
-Developers then convert this human language sequence of defined steps into code. 
+In this light, Gödel's and Turing's results are not merely technical limits but **deep logical consequences of systems that are powerful enough to observe themselves**.
+They are manifestations of what Spencer-Brown formalizes: the moment a system includes itself in its domain of discourse, it becomes incomplete, unstable, or paradoxical---but also potentially creative, open-ended, and dynamic.
 
-In computer science literature, the emphasis is primarily on the design of an algorithm, its performance evaluation, and the verification of its optimality from a purely technical standpoint.
-When the discourse veers towards the role of algorithms in real-world situations, it typically centers on how algorithms practically execute specific tasks.
-In other words, algorithms are seen as epitomes of rationality, blending the precision of mathematics with the impartiality of technology. 
-Although there may be variation among programmers in the way they craft code, the translation process is typically depicted as a technical, harmless, and intuitive exercise.
+These discoveries mark a fissure in the modern epistemic project: the dream of full formalization collapses not by external failure, but through internal paradox.
+The algorithm, once a symbol of certainty, becomes a boundary marker---demarcating not only what can be computed, but what cannot even be known by formal means.
 
-This is how algorithms are mostly presented by computer scientists and technology companies: that they are "purely formal beings of reason" {cite}`kitchin:2014`.
-Due to their formal structure, modern thinking often attributes a form of neutrality to algorithms. 
-However, 
+>The very techniques that reveal the limits of formal systems—self-reference, paradox, recursion—are the same structures that, in Spencer-Brown’s logic, generate time, form, and meaning. What formal logic excludes as paradox, Laws of Form embraces as the ground of creation.
 
->in each step of algorithm design human judgment is involved.
+This transition, from the certainties of modern logic to the open-endedness of computation, anticipates the *postmodern condition*: an era not of clear foundations, but of recursive limits, undecidable structures, and generative paradoxes.
+Maybe Richard Rorty was right after all.
+The view of philosophy---including mathematics and physics---as the faculty that has traditionally aimed to uncover timeless, foundational truths---something like the "*mirror of nature*" (a metaphor he critiques in earlier work {cite}`rorty:1979`)---might have outlived its usefulness.
+We may should surrender the idea of discovering universal truths and instead focus on *cultural* and *linguistic creativity*.
+Instead of asking for truth we may want to ask for usefulness and communicative effectiveness.
 
-In Rob Kitchin's work {cite}`kitchin:2014`, he discusses an algorithm that was supposed to calculate the number of "ghost estates" in Ireland. 
-Ghost estates are a phenomenon that emerged in the aftermath of the Irish property bubble. When developers went bankrupt, numerous housing developments were left unfinished and under-occupied.
+There is no "God's-eye view" from which we can assess all perspectives neutrally.
+For Rorty, language---including mathematical, physical and computational language---is contingent.
+His confederate, Derrida, shuttered the philosophical tradtion by showing that what we take as *literal* or *proper* meanings are built upon layers of methophor that have become naturalized thought repetition {cite}`derrida:1974`.
+Terms like *substance*, *subject*, *truth*, and Heidegger's *Being* have roots in sensory or physical metaphors that we can not escape---we can not go outside or beyond language and it does not have a transparent link to a stable, pre-given reality.
 
-However, designing the algorithm to identify these estates proves to be a complex task. 
-Given a national property database with details on the ownership and construction status of all housing developments, you could construct an algorithm that sifts through the database to calculate the number of ghost estates.
+But Metaphors are existential.
+By shaping how we conceptualize and interact with the world, metaphors play a crucial role in the formation of both personal identities and comprehensive philosophical systems.
+They have a foundational role in the realms of human experience.
+Therefore, we should take them seriously not because they refer to what Rorty calls "really real" but because they mean a lot to us.
 
-But, what guidelines should the algorithm follow? 
-Is an estate considered a "ghost estate" if less than 50% of it is occupied and completed, or is less than 75% sufficient? 
-Which coding language should be used to implement the algorithm? 
-Is there value in enhancing the program, for example, by combining it with another set of algorithms to illustrate the locations of these ghost estates on a digital map?
+This meaning is always mediated by a network of other signs and shaped by cultural, historical, and metaphorical context.
+It arises from *difference* within language itself---a word is not pointing directly to a thing but it gets is meaning by how it differs from other words.
+There is no ultimate *signified*---words do not lead back to a final, real meaning but each sign points to another sign in a chian.
+It is difference and deferral, i.e. *différance*.
 
-Answering these questions requires discernment and judgment. 
-If these aspects are not well-considered, it can result in a multitude of problems.
+Thus truth is like a flicker---a momentary effect produced by a play of signs, none of which have fixed meaning.
+You might feel you "have" the truth for a moment---but that truth is never self-identical, never whole, and always open to being undone by the play of signs that brought it into being.
+Derrida *decontructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
 
-Understandably, it seems logical for computer scientists to concentrate on the creation of efficient algorithms while other disciplines regulate the application of these algorithms.
-However, this assumption is contingent upon the capability of these other disciplines and the general public to effectively carry out this role.
+Furthermore, he suggests that reality is always mediated through language.
+We do not experience a raw "real" but a linguistically filtered version of it.
+Even what we think of as direct experience is shaped by language categories---time, object, cause, identity, etc.
 
-How algorithms are most often understood is very narrowly framed and lacking in critical reflection.
-We should at least recognize and appreciate increasing ubiquity of algorithms, and once we understand the two translation problems, the need to think critically about algorithms becomes much more apparent.
-If algorithms are going to be the lifeblood of modern technological infrastructures, if those infrastructures are going to shape and influence more and more aspects of our lives, and if the discernment and judgment of algorithm-designers is key to how they do this, then it is important that we make sure we understand how that discernment and judgment operates.
+>Everything we take as given—including reality—is already interpreted through signs. If knowledge is only valid when it is perfectly grounded, then no knowledge is ever valid. But maybe knowledge never needed perfect ground to be meaningful, useful, or rich. We are not standing on a foundation but on a sailing ship with imperfect intruments and changes in wind but we still get somewhere; we still orient ourselves, even if there's no final, fixed land; we probe, test, revise---forever.
 
-The concept that almost every action we undertake can be deconstructed into and processed via algorithms is fundamentally *reductionist*.
-It presumes that complicated, frequently nebulous, relational, and contextual social and economic exchanges and ways of existence can be logically dismantled, simulated, and interpreted, while only forfeiting a minimal amount of implicit knowledge and situational variables.
+What a wonderful world it is.
+An open world free from the tyranny of metaphysical absolutes and full of plurality, ambiguity, and revision.
+It means responsibility---because without the comfort of absolute truth, we must continually examine, justify, and remain open to change.
 
->Algorithms do not just process data, they produce, affirm and certify knowledge through a particular logic built on specific assumptions.
->Computation asserts and prioritizes a particular epistemological way of making sense of and acting in the world; of codifying practices and knowledges and processing them using algorithms. -- Tarleton Gillespie
+For Spencer-Brown---to close the circle---mathematics is grounded in the most basic epistemological operation: the drawing of a boundary.
+Derrida exposes the instability of the marked/unmarked distinction.
+He shows how every system of meaning is haunted by what it excludes, just like Spencer-Brown’s unmarked state remains implicitly necessary.
+At this point Rorty comes in to warn us of yet another "*final vocabulary*" that Spencer-Brown might wish to reach.
+For all of them, language is a human construct, not something that maps perfectly onto reality.
+Because of this, no single vocabulary can claim to be the "correct" one for describing "the world".
+Consequently, all faculties of philosophy should be more about self-creation than discovering some essential, pre-existing self or truth {cite}`rorty:2016`.
+Like poets or artists, individuals should aim to create new, meaningful ways of being.
 
-As Gillespie {cite}`gillespie:2014` highlighted, algorithmic thinking favors a particular method of comprehension and a *utilitarian rationality* grounded on precisely defined scientific understanding and pragmatic instrumental knowledge. 
-This preference tends to sideline and supplant knowledge obtained from practice and deliberation, as well as knowledge rooted in experience.
+>We should aim for better futures, not for objective, ahistorical knowledge. -- Richard Rorty
 
-If algorithms are going to sit at the heart of contemporary life, it seems like they should be of interest to all disciplines especially to social science, philosophy and the arts but also to the everyday practitioners!
-The algorithms' objectivity, impartiality, and legitimacy has to be critically analysed.
+## Rational Machines, Cultural Systems
 
-In this context, *algorithmic music* (as well as other creative coding endeavors) is not only a means of artistic expression but a discipline that enables the understanding of algorithms phenomenologically via experiencing the raw phenomena without the introduction of any metaphysical abstraction.
-Furthermore, it shifts algorithmic thinking away from *utilitarian rationality* towards knowledge rooted in experience.
+In the literature of computer science, algorithms are predominantly discussed in technical terms---how they are designed, evaluated for performance, and proven to be optimal. Even when applied to real-world contexts, they are generally seen as mechanisms for executing well-defined tasks with mathematical precision and technological neutrality.
 
->Code is not purely abstract and mathematical; it has significant social, political, and aesthetic dimensions -- Montfort et al. {cite}`montfort:2012`
+This perception portrays algorithms as purely formal beings of reason, as Rob Kitchin notes {cite}`kitchin:2014`.
+While programmers might differ in their coding styles, algorithm design is often framed as a value-neutral, apolitical activity.
+As a developer myself, I recognize this mindset.
+When writing code to solve a problem, I rarely pause to consider the broader social implications or reflect on the values implicitly embedded in the software I produce.
+
+Yet the truth is more complex. 
+Algorithms are deeply woven into the normative fabric of both the digital and tangible worlds.
+In today's interconnected society---shaped by the internet of things, AI, and robotics—algorithms don’t merely function.
+They structure, filter, decide, and "learn".
+They manage surveillance data, shape recommendations, generate action plans, and influence how decisions are made and justified.
+Their impact on living, social and psychic systems (minds) does not arise from intrinsic sense-making but from their influence on communication, perception, and cognitive processes {cite}`zoennchen:2025`.
+
+We are constantly exposed to their influence.
+Algorithms drive search engines, personalize advertisements, recommend entertainment, and match romantic partners. Less visibly, they also trade stocks, aid in diagnosing illness, match organ donors, identify criminal suspects, and allocate students to public schools.
+These are not just technical feats—they are acts of judgment.
+
+At the core of algorithm development lies a process of translation. 
+Tasks must first be expressed in human language---a notoriously ambiguous and contingent medium. Developers then transcribe these imperfect descriptions into code. 
+At every stage, human judgment is exercised, and this judgment is shaped by historical and cultural contexts.
+
+>Even algorithms cannot escape history; they cannot escape social and cultural evolution.
+
+Digital spaces, then, are not neutral arenas.
+They are structured by values, controlled through code that defines what actions are possible and permissible.
+One could argue that the primary purpose of an algorithm is to automate socially successful practices, to encode *scripts* {cite}`latour:1992` that relieve us of the burden of negotiation and deliberation.
+Thus, so-called "cyberspace" has never been free of regulation---it has always been governed, just not by walls or gates, but by source code.
+
+This code governs behavior.
+The design of a platform determines how people interact within it. As Lawrence Lessig famously observed:
+
+>Codes constitute cyberspaces; spaces enable and disable individuals and groups. The selections about code are therefore in part a selection about who, what, and, most important, what ways of life will be enabled and disabled. -- {cite}`lessig:2006`
+
+In our digital age, algorithms do more than automate---they govern.
+Niklas Luhmann described them as *transparent* *evolutionary achievements* that reduce complexity and transform uncertainty into manageable ignorance {cite}`luhmann:1998`.
+Transparent here does not mean understandable in detail; it means functionally observable.
+Like a clock, we might not know how it works, but we can tell if it is working.
+
+This functional transparency can be both beneficial and harmful.
+It suppresses dissent---not always maliciously, but by foreclosing alternative operations {cite}`nassehi:2019`.
+The danger escalates when this suppression becomes systemic.
+
+John Danaher calls this condition *algocracy*---a regime where algorithms play a decisive role in governance {cite}`danaher:2016`. Sebastian Rosengrün takes this further, arguing that Western societies may be shifting from the *rule of law* to the *rule of code*:
+
+>Source code is about to become the main regulator of individual and institutional behavior that regulates all other regulators including law. -- {cite}`rosengruen:2022`
+
+Importantly, Rosengrün does not claim that regulation is inherently bad, nor does he assume malicious corporate intent.
+Instead, he insists that law---not profit-driven code---must remain the foundation of democratic governance.
+His warning is clear: if source code supersedes law, democratic institutions are at risk.
+
+We must also account for a new generation of algorithms---those driven by data rather than explicit design.
+Here Luhmann's conceptation has to be extended because for systems are "artificial intelligent" it is no longer obvious to differentiate between a working and a mailfunctioning system.
+These systems are not only *intransparent* because we can not explain how they work in details but because we can not tell if they work at all.
+In that sense they introduce a new form of contingency into society that, in the past, led to the invention of norms (social interactions are plagued by a *double-contingency* "I'll do what you want if you do what I want").
+These *intransparent* systems, such as artificial neural networks (ANNs), learn structures from patterns in training data, often beyond human interpretability.
+They find structures in communication and feeding them back into communication, that is, society forming a feedback loop of communication.
+
+>Unlike traditional algorithms, which are explicitly designed by developers, artificial neural networks construct their computational structures from data. [...] The data contains patterns of communication that psychic systems themselves cannot make sense of. -- {cite}`zoennchen:2025`
+
+In Rob Kitchin’s case study of an algorithm meant to count Ireland’s "ghost estates," we see the challenges of this data-driven approach {cite}`kitchin:2014`.
+The task appears straightforward: count under-occupied housing developments.
+But which metrics matter? Is 50% completion enough? Or 75%? Should the algorithm visualize its findings on a map? 
+Every choice is a judgment call.
+Yet, as algorithms increasingly "learn" from data rather than follow fixed rules, these judgments can become implicit and untraceable—baked into the very architecture of AI.
+
+In such cases, decisions are no longer made by individuals or even institutions in the traditional sense.
+Instead, they are *loosely coupled* to the collective communications of society---reflected and reinforced through training data.
+
+It's tempting to assume that while computer scientists build algorithms, other disciplines will step in to regulate their use.
+But this division of labor assumes that those other disciplines---and the public—have the capability and authority to do so.
+Too often, algorithms are discussed within narrow, technically focused frameworks.
+We must broaden our understanding.
+If algorithms are to underpin our technological infrastructures, influence our social institutions, and mediate our everyday lives, then the judgment behind their design must be critically examined.
+
+Algorithmic thinking is inherently reductionist. It assumes that complex, context-sensitive social and economic exchanges can be modeled and simulated with only minimal loss. But this assumption is rarely scrutinized.
+
+>Algorithms do not just process data; they produce, affirm, and certify knowledge through a particular logic built on specific assumptions. — Tarleton Gillespie {cite}`gillespie:2014`
+
+As Gillespie and others argue, algorithmic reasoning privileges a utilitarian rationality---a logic grounded in scientific abstraction and instrumental efficiency.
+This displaces forms of knowledge rooted in lived experience, deliberation, and embodied practice.
+Data-driven algorithms, for all their power, cannot (yet) observe thought or consciousness.
+They cannot grasp subjective experience.
+
+If algorithms are to remain central to modern life, they must become a matter of interest across disciplines---from computer science to philosophy, from the arts to everyday civic life.
+Their legitimacy and neutrality must be scrutinized, not assumed.
+
+>Code is not purely abstract and mathematical; it has significant social, political, and aesthetic dimensions. — Montfort et al. {cite}`montfort:2012`
+
+In this context, fields like algorithmic music offer more than creative expression.
+They invite a *phenomenological engagement* with code---allowing us to experience algorithmic behavior directly, without metaphysical abstraction.
+This kind of engagement shifts us away from *utilitarian rationality* and toward knowledge grounded in *perception* and a more *intermediate cognition*.
+But to re-emphasize Rorty's {cite}`rorty:2016` warning: we should not go overboard with this *romanticized* approach---that is, we should not assume that it contains "the truth" or a more direct relation to "the really real".
+
+If we are to live with algorithms---and more importantly, live well with them---then we must learn to see them not just as tools, but as active social, cultural, and philosophical artifacts.
+As systems that may be soon decoupled from psychic and social systems meaning that we will lose (direct) control over them.
+They may very well co-evolve in an interdependent relation along side us and if they should become *autopoietic* we have to understand their *couplings* with social and psychic systems.
 
 ```{code-cell} python3
 :tags: [remove-input]
