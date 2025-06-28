@@ -34,112 +34,178 @@ sns.set_style("whitegrid")
 ```
 
 (sec-medium-and-form)=
-# Medium and Form
+# Art as Communication
 
 >There is neither a medium without form nor a form without medium.
 >The difference of mutual dependency and independency is pivotal. -- Niklas Luhmann {cite}`luhmann:1986`
 
-What is art, and what qualifies a creation as a work of art? 
-Even without a formal education in art history or aesthetics, I find this question compelling.
-In my view, good art communicates an ineffable truth about our existence.
-It challenges and disrupts by offering a glimpse into what we may call infinite or illusionary.
-In the presence of the truly transcendent, we stand in awe, feeling both a sense of relief and a profound connection to the essence of being.
-This description may be a vague articulation of a sensation, but that is precisely the point: The essence of what art means to me is beyond the confines of language.
+In my essay *[The Essence of Technology and Art](sec-technology-and-art)*, I explored Heidegger's understanding of art through my own lens.
+There, we approached art as an ontological event in which *Being* reveals itself, and where understanding is not merely a method or technique---but a fundamental mode of being (Dasein).
 
-The German sociologist Niklas Luhmann gives us a rather abstract but helpful analysis of art by relating it to his concept of *medium* and *form* inspired by Fritz Heider.
-According to him, a medium consists of a large number of elements or, in the context of time, events.
-There are so many elements within a medium that cognition must necessarily operate by selection.
-The term *element* should not be mistaken for natural constants like particles or souls, which can be objectively observed. 
-Instead, elements are units that are constructed---distinguished by an observing system.
-Moreover, these elements cannot determine themselves; they are subjected to what is known as *coupling*.
-Forms, conversely, arise through the concentration of dependency relations between elements, which the medium itself must support. 
-It is the *loose coupling* and *separability* of a medium's elements that lead to the emergence of form. 
-We do not perceive the medium itself, but rather the form which coordinates elements within the medium.
+## (Anti-)Humanism
 
-Luhmann's constructivism replaces concepts of inside and outside, of object and subject, with the distinction between medium and form, which is always constructed by a system. 
-Medium and form require a system reference; without it, they do not exist.
-They are not things in themselves.
-Like information, they are a product internal to the system. 
-Furthermore, there is no medium without form and no form without medium---a medium can only be recognized by the contingency of form construction (Formbildung) it enables.
-The loose coupling of a medium's elements refers to the wide range of possible relations or connections that are still compatible with the unity of an element, for example, the number of sensible sentences that can be formed from a given word.
+With Heidegger---and in contrast to many he influenced, such as Hans-Georg Gadamer or Jean-Paul Sartre---we enter a form of *anti-humanism*.
+This does **not mean hostility toward human beings** (as in misanthropy), but a philosophical stance that critiques the centrality of the human subject in traditional Western thought.
+Where *humanism* holds that human beings are the locus of meaning, truth, and value---rational, autonomous, and self-knowing agents---anti-humanism challenges this assumption.
+It seeks to dethrone the human subject from its privileged position, arguing that what we call "the subject" is not sovereign, but is constructed by language, discourse, structures, or systems.
+Meaning and agency, anti-humanists argue, are decentralized, dispersed across larger, often impersonal processes. There is **no essence of “Man”** that stands outside history, culture, or power.
 
-Luhmann's constructivism replaces the thing-oriented or thing-ontological differentiation of an inside and outside, of object and subject with the **distinction** of medium and form which is always constructed by a system.
-Medium and form require a systemreference without they do not exist.
-They are not *things for themselves*!
-Like information they are a systeminternal product.
-The loose coupling of elements of a medium refers to an open majority of possible relations or connections which are still compatible with the unit of an element, e.g. the number of sensible sentences which can be formed by a given word.
+>The idea that humans are in charge of everything and at the center of meaning is an illusion.
 
-Luhmann defines medium in relation to form, i.e., relatively.
-Therefore, forms can be the medium of a new form.
-A *medium* is any set of loosely coupled elements that, if rigidly coupled, build a *form*.
-Only by the detour of observing the form, can an observer relate to the medium.
-The form catches attention and refers to the medium.
-We can ask: How came this form into being?
+I confess an emotional resistance to this anti-humanist view.
+It surfaces especially when I ask myself: What is art, and what qualifies something as a work of art?
+Even without formal training in art history or aesthetics, I find this question deeply compelling.
 
-Sound is the form of air.
-It is literally the compression (rigid coupling) of air molekules our ear perceives.
-And when the air is too thin, we recognize it because the creation of the form fails---no sound can be perceived.
-In Luhmann's contructivist framework, sound requires a listener.
-In other words, if a tree falls down in the deep forest and no one is listening, then the event won't make a sound.
-Air will be compressed and a wave, that is, energy will travel from the event through the air but there will be no sound.
+From a humanist perspective, art communicates an ineffable truth about existence.
+It challenges and disrupts by offering a glimpse into the infinite---or perhaps, the illusory.
+In the presence of the truly transcendent, we stand in awe, experiencing both relief and a profound connection to the essence of being.
+This description may be vague, but that is precisely the point: for me, the **essence of art lies beyond the confines of language**.
+This is why I recognize myself as broadly humanistic in my orientation toward art.
+In this view, art is a form of human expression---of emotion, genius, spirit, and experience.
+The artist becomes a creative subject, often romanticized, and the artwork is valued because it expresses the human condition.
 
-The relation between form and its medium is selection.
-For example, a sentence is a selection from a language, i.e., its medium.
-A computer program is a selection from a programming language.
-A painting is a selection from the domain of all possible color arrangements.
-A performance is a selection from all possible played tones, and each played tone is a form of the air.
-Importantly, everything which is not there, i.e. everything what could be different, is also present as *unmarked space*.
+In contrast, the anti-humanist position asserts that art is not about personal expression but about systems, structures, and processes of meaning.
+The artist, in this view (especially in Luhmann's theory), is not a genius but an operator within a system of distinctions.
+Following Foucault, the author is a function---not the origin of meaning but a construct used to structure discourse and regulate interpretation {cite}`foucault:1979`.
+Meaning arises within the system {cite}`luhmann:1997`, not from individual intention.
+As Derrida argues, there is no final meaning in art---only différance, an endless deferral of meaning; interpretation is always unstable, never a simple decoding of the artist’s intent {cite}`derrida:1982`.
+Art reflects the discursive formations of its time, not the isolated brilliance of an individual mind.
 
-From a point of information theory {cite}`shannon:1948`, a form reduces the entropy of its medium.
-It reduces the number of possible connections.
-Each drawn stroke, each played note, each move in a performance reduces the possibilities of what can be drawn, played, or performed next.
-The *horizon of the possible* gets narrowed down.
-Similar to Heidegger's understanding of a craftsman, the artist brings the medium into form and the medium 'uses' the artist to become a form.
-The artist might has an idea of the final work but the process of making and shaping it inevitable influences the process itself---it is a contingency.
-We can say that every artwork is **contingent**; other fixations, combinations and recombinations, that is, other forms of the medium would alse have been possible.
-In its final stage, the artwork is confronted by the expectation of the audience and it has to convince---it has to make sense under the assumption of its contingency.
-The audience knows that the artwork could have been different, and so it asks: Why is it this way? What does it mean? What is the intention of the artist?
-Its singularity aspiration will be investigated and it has to stand its ground against other works of art and other possible realizations within their medium.
-Critics will judge the artwork and the market will determine if they were right.
+>How long, then, will Husserl and Habermas be able to maintain their old or modern idea of critical reasons without becoming conservatives who stick to a tradition that cannot maintain its identity but fades away? -- Luhmann {cite}`luhmann:1995`
 
-Luhmann is not so much interested in historical or cultural *horizons of the possible* but he asks a more general question:
+Despite my aversion---rooted in a humanist upbringing---I find the anti-humanist position deeply compelling.
+It offers a framework for sense-making in a complex world, one that doesn't rely on the myth of the sovereign self.
+Therefore, I now turn to another German anti-humanist thinker, that is Niklas Luhmann, because he is so distinct from Heidegger and rather influenced by Hegel, Husserl, Kant, Derrida, and Deleuze.
+
+## From Being to Communication
+
+Although not a professional philosopher, the German sociologist Niklas Luhmann engages deeply with philosophical texts.
+He often regards philosophy as too focused on the subject and too non-operational---that is, insufficiently pragmatic for analyzing the complexities of modern society.
+Luhmann can best be understood as a *philosophical sociologist*---or more precisely, a sociologist of *second-order observation*.
+He operates at the edges of philosophy: not within its traditional frameworks, but alongside it, critiquing, absorbing, and reframing its core concepts within a systems-theoretical model.
+
+Where Heidegger conceives of **Being as the meaning of beings**, Luhmann rethinks **meaning (Sinn) as the medium through which psychic and social systems reduce complexity and maintain coherence over time**.
+He is explicitly anti-ontological: rather than grounding theory in metaphysical foundations, he relies on operational distinctions---those that function within systems to generate and stabilize meaning.
+Whereas Heidegger privileges poetic language and art as sites where Being discloses itself, Luhmann treats art as a functional communication system that operates through observation, distinction, and variation.
+
+>The artwork sets truth to work. -- Heidegger
+
+>Artworks are communications that distinguish between art and non-art. -- Luhmann
+
+Yet these positions are not entirely opposed.
+Luhmann's notion that art makes perception communicable can be read as a system-theoretical reformulation of Heidegger's idea that art opens up a world.
+But where Heidegger sees art as a moment of ontological disclosure, Luhmann sees it as a process of **coding perception into communication**---not a revealing of Being, but as a systemic transformation of perceptual experience (aesthetic perception) into communicative form---a process in which what is felt, seen, heard, or sensed is rendered communicable within the logic of the art system.
+
+## Medium and Form
+
+Luhmann offers a powerful and abstract framework for analyzing art by deploying his central distinction between *medium* and *form*, a conceptual pair inspired by Fritz Heider.
+For Luhmann, a medium consists of a vast multiplicity of loosely coupled elements---so numerous that **any operation upon them necessarily involves selection**.
+In the temporal dimension, these elements are events.
+Crucially, these are not objective entities like particles or Platonic constants, but rather constructed units, distinguished by an observing system.
+They do not determine themselves; their significance arises only through *systemic coupling*---that is, how the system relates them to one another to produce form.
+
+A **form**, then, **emerges from the rigid coupling of elements within a medium**. 
+The form condenses relations between selected elements, creating a stable configuration that stands out against the fluidity of the medium.
+It is essential to Luhmann's epistemology that **we never perceive the medium directly**---**we only perceive forms that indicate a structured relation among otherwise unstructured possibilities**.
+
+In Luhmann's constructivist framework, this distinction replaces ontological binaries such as inside/outside or subject/object.
+**Medium and form are not entities or substances; they are operational distinctions within a system.**
+Without a system to enact and observe the distinction, neither concept has meaning.
+Like information, they are internal to the system—constructs, not things.
+
+Because of this, medium and form are mutually dependent: there is no medium without the possibility of forming it, and no form that does not draw upon a medium.
+A medium becomes recognizable only through the contingency of possible form---constructions (Formbildung) it affords.
+The loose coupling of the medium's elements refers to the wide range of potential relations that remain compatible with the integrity of each element.
+For example, the number of intelligible sentences that can be formed using a given set of words illustrates how linguistic forms emerge from the medium of language.
+
+Luhmann defines medium and form relationally and hierarchically.
+What is form on one level may serve as medium on another.
+A sentence is a form drawn from the medium of language, but can itself be the medium from which larger narrative structures emerge.
+In other words, forms can recursively serve as the media of higher-order forms.
+
+This logic allows Luhmann to model perception and communication together.
+A painting is a form drawn from the medium of all possible color arrangements.
+A performance selects from the space of all possible sound events or bodily movements.
+Each played tone is a form constructed from the medium of air vibrations---but importantly, in Luhmann's constructivist terms, sound exists only for a listener.
+Without a system to perceive it, there is no "sound" as such---only an undifferentiated physical disturbance.
+In this way, Luhmann aligns with radical constructivism: reality is not given, but observed.
+Here I have to point out that this does not mean that nothing exists or that the mind creates reality!
+**Constructivism is neither opposed to nor incompatible with realism**.
+
+The key relation between medium and form is selection.
+A computer program is a form selected from a programming language; a sentence from the grammar of a language; a painting from the medium of colors and strokes.
+And crucially, what is not selected remains present as unmarked space---a silent background of possibilities, always implied but never actualized.
+This links Luhmann's theory to information theory: every form represents a reduction of complexity---a narrowing of the possible into a specific configuration.
+This is not a literal application of Shannon's entropy formula {cite}`shannon:1948`, but rather a structural analogy: each stroke, tone, or movement limits what can come next; it shapes the horizon of expectation.
+
+Thus, the artwork becomes a contingent realization of form from within a medium.
+It could have been otherwise.
+And the observer knows this.
+This knowledge generates the central aesthetic tension: Why this form? What does it mean? What could have been done differently?
+The artwork must make sense under the condition of contingency---its necessity must appear within its radical openness to alternatives.
+In this sense, the singularity of the artwork is always in question, and therefore under judgment---by critics, by audiences, and by the art system itself.
+
+Here, Luhmann departs decisively from any ontological, historical, or expressive theory of art.
+He is not primarily concerned with stylistic genres or cultural horizons of meaning, nor with an artwork's truth or its relation to *Being*.
+Instead, he poses a more abstract, second-order question:
 
 >What is art beyond certain culturalistic, stylistic dependencies and genres?
 
-But to answer this general question, in a typical Luhmannian fashion, he uses a very abstract framework:
+To answer this, Luhmann uses the full abstraction of his system theory. He writes:
 
 >Artworks are not just traces of human activity [...].
->Neither do they arise as simple relicts of purposeful behavior like tools, houses, streets or radioactive radiation.
+>Neither do they arise as simple relicts of purposeful behavior---like tools, houses, streets or radioactive radiation.
 >They serve [...] as transmission of sense. -- Niklas Luhmann
 
-A medium cannot take on any form but only those which can be composed by its elements.
-The medium conditions its forms.
-Fater all, form and medium share the same elements.
-The difference consists solely in the loose and rigid coupling of elements.
-How the medium passes the form to its elements depends on the properties of the medium itself.
-The medium opens the possibilities of giving form and it also narrows it down.
+Art, then, is not the result of utilitarian action, nor an expression of human genius.
+It is a mode of communication within the autopoietic social system of art.
+This system is:
 
-The elements of a medium are rather independent.
-For example, the color of a pixel of an image is technically independent of the colors of all other pixels.
-Only because of this property can images picture almost anything.
-We can arrange pixels as we desire.
-Money is a medium since payments can be made in almost any denomination and they are independent of the sense and means of other payments.
-Each letter in a programming code is inpdependent of any other letter.
-Of course, similar to natural languages, only a small subset of programming code make sense, i.e. form a valid program that can be compiled, interpreted or executed.
-Interestingly, the medium is very oblivious and the artist can utilize this property of the medium to manipulate the form.
-The low interdependency of the medium's elements opens a space of fiction and simulation---of stories about unicorns.
++ **Autopoietic**: it reproduces its own elements (artworks, observations, critiques) through its operations;
++ **Operationally closed**: it does not absorb elements directly from outside systems (e.g., economics or politics), but observes them and re-forms them internally;
++ **Structurally coupled**: it remains responsive to other systems (e.g., the market, media, science) while maintaining functional autonomy.
 
-In the relation between medium and form, the more rigid form prevails because it is less movable.
-However, this is a risky endeavor for the form.
-It might decay or, if it is reproducible, evolve.
-Within forms, this assertive property repeats.
-Sand adjusts to the stone, not the other way around.
+And its function?
 
-According to Luhmann, a form can create a medium, Luhmann refers to a *second-order medium*.
-Sound is a form of air but tones, which are sound, make up the medium of music.
-We could also say that rhythyms (medium) make up a sound (form/medium) which can make up rhythyms (form).
-Compare the following three sounds.
-The first one is a rhythym, by increasing the frequency of the rhythym it turns into an infinite tone and by manipulating the amplitude of the tone, we arrive at a rhythym.
+> Making perception communicable.
+
+Art provides a form in which subjective experience---perception, emotion, reflection---becomes available to communication.
+This means art does not transmit a pre-existing message from artist to viewer; rather, it creates a space in which observers can generate meaning through second-order observation: observing how others observe the work.
+
+In this way, Luhmann offers a theory of art that does not depend on the subject, on essence, or on expressive intention.
+Instead, it locates art's specificity in its ability **to transform aesthetic perception into communicable form**---a distinction that allows the art system to reproduce itself through time.
+
+## Beyond the Subject
+
+We must be cautious with terms like "*subjective experience*", as Luhmann does not operate within the object–subject paradigm.
+As noted earlier, he seeks to replace that distinction entirely, grounding his theory not in conscious intention or perception, but in communication.
+In his view, meaning does not reside in the subject, nor is it fixed or directly expressible.
+Instead, meaning emerges within the art system itself---through its historically accumulated forms, media, and communicative operations.
+A work of art does not "speak for itself"; it requires interpretive frameworks---exhibitions, criticism, academic discourse—to stabilize its meaning.
+Thus, art is neither reducible to psychology (e.g., artist intention) nor to sociology (e.g., audience behavior). It is its own autonomous subsystem of society, operating via its own code: art / non-art.
+
+A *medium* cannot generate any *form* whatsoever; it can only yield those forms that are composable from its own elements.
+Medium and form share the same building blocks---the difference lies in how the elements are coupled: loosely in the medium, rigidly in the form.
+The medium thus conditions the possibilities of form, not by limiting creativity, but by establishing a space of variation from which forms can be drawn.
+
+The elements of a medium tend to be relatively independent.
+For example, in a digital image, the color of a single pixel is independent of its neighbors---this independence allows for vast freedom in composition.
+Similarly, money functions as a medium: payments are loosely coupled and generally independent in denomination, purpose, or context.
+In programming languages, each character or token can, in principle, appear in many configurations---yet only a subset forms a syntactically valid program (and within this subset, only a few are deemed useful).
+The obliviousness of the medium to any inherent meaning allows artists to manipulate it freely, opening a space of fiction---of imagined realities, simulations, and myths.
+
+In the medium/form distinction, the form is always more rigid---it asserts structure, order, and direction.
+However, this assertiveness carries risk: the form may decay, become obsolete, or evolve.
+This also applies metaphorically to matter: sand adjusts to the shape of a stone, not the other way around.
+In this sense, form imposes order but remains vulnerable to change.
+
+Luhmann introduces the idea of *second-order media*: forms can themselves become media for further form.
+Sound, for instance, is a form produced through the compression of air (the first-order medium), but musical tones---patterns of sound---constitute the medium of music, which then enables the formation of higher-order structures like rhythm, harmony, or composition.
+
+This recursive forming is illustrated in the following SuperCollider code example:
+(1) A low-frequency impulse is perceived as rhythm.
+(2) At high frequencies, it becomes a continuous tone.
+(3) Modulating this tone reintroduces rhythm---thus forming a loop between medium and form depending on the listener's perception and the system's configuration.
 
 ```isc
 {Impulse.ar(5)!2}.play
@@ -165,112 +231,85 @@ audio_path = '../../sounds/impulse_impulse.mp3'
 ipd.Audio(audio_path)
 ```
 
-In a musical piece, any tone can, in principle, follow or can be combined with any other tone except the form of the music piece "decides" otherwise.
-Importantly, music functions as communication only for those who can recognize (and inform each other about) the difference between medium and form; only those who can hear the uncoupled space within the played music; only those who listen and recognize that, through its tonality, the music makes much more sounds possible than normally expected but it is disciplined by the form.
+In music, any tone could, in theory, follow any other---except that the form of the piece imposes constraints.
+The experience of music as communication arises only for those who can distinguish form from medium---who can recognize not only **what is played** but **what could have been played instead**.
+Musical meaning thus arises from the tension between constraint and possibility---between *realized form* and the *unmarked space* of alternatives.
 
 >Art establishes rules of inclusion that serves the difference of medium and form as medium. -- Niklas Luhmann
 
-A *(second-order) medium* can be the difference of medium and form.
-I think this statement is crucial because it explains why we have certain rules, e.g. music theory, despite art forming a medium to create alternative versions of reality.
-These rules are contingent, that is, they could be very different but they are necessary to mark the outside (and with it the inside).
-Rules exclude and include at the same time thus establish the possibility of making a difference.
-What we call objects are in fact differences.
-*Differentiation* and *indication* go hand in hand {cite}`brown:1969`.
-Pointing to a chair and calling it 'chair' is not a representational operation in the sense that we are naming an object.
-Instead it is an act of *differentiation* and *indication*---there are no objects, only differences.
-A form might establish a medium of art by using it for the purpose of expression.
-In other words, the difference between medium and form can function as a medium.
-It can be the *released possibility* for the combination of mediums and forms for the forming through *communication*.
-The more rigid form forces through greater flexibility but it is at risk of failing, it can be criticized, surpassed, or put into the museum.
+This suggests that **the difference between medium and form can itself become a medium**---a space of released possibility for future differentiations.
+**Art requires rules not to constrain creativity, but to make distinctions legible**.
+These rules are contingent (they could be different) but necessary: they establish a boundary between inside and outside, between form and its other.
+In Luhmann's Spencer-Brown–inspired terminology, objects are nothing more than distinctions: a chair is not a thing in itself but a difference drawn and indicated.
+Thus, indication and differentiation go hand in hand {cite}`brown:1969`.
+When we name something (a chair, a sound, an image), we do not refer to an object; we enact a form, marking one side and excluding another.
+Art, in this sense, manipulates forms and mediates between their inclusions and exclusions, continually creating the space for alternative realities.
 
-Luhmann further argues that the art system (as a social system), like any social system, differentiates itself from its environment.
-It is no longer part of religion or politics but does its own thing on its own terms.
-In the cold world of functional differentiation, it serves a specific and unique function within society.
-This naturally leads to the question of what function the art system actually fulfils?
-A question we cannot answer here.
+The art system, like any modern social system, is functionally differentiated---it operates independently from religion, law, politics, or science.
+It has its own function (to make perception communicable), its own code (art / non-art), and its own symbolic medium (aesthetic experience).
+But what makes such functional autonomy possible is the capacity for second-order observation: the ability to observe how others observe.
+Once observers reflect not only on the artwork but on other observations of it, the direct bond between artist, work, and viewer dissolves.
+You may ask what the artist meant, but you also know that others may interpret the work differently---and they know that you know that they know.
+This reflexivity transforms art into a self-referential system, sustained by recursive communication: artworks prompt interpretation; interpretations prompt counter-interpretations.
 
-However, we can point out a precondition for the functional differentiation of the art system, that is, *second-order observation*.
-One has to be able to observe what others observe.
-Through second-order observation, the concrete bond between observer and artwork "as it is" dissolves.
-An artwork signals to the observer that it earns attention.
-If you observe an artwork, you can speculate about the artist's intention.
-You can observe that others have their interpretation and you know that they know that you know about this fact.
-They know that you can observe their interpretation and they can observe yours.
-At the same time, the artist is aware of this too and it might prompt the artist to talk about her work.
-Communication about works of art and the artwork itself are interdependent.
-There is no art without communication and one can only communicate about art if there is an artwork to talk about.
-This strange loop, this self-referential relation, sets the system of art in motion.
-In a typical Luhmannian fashion (inspired by Spencer-Brown's concept of *re-entry* {cite}`brown:1969`): the paradox becomes a generator in time!
+This is where Luhmann deploys the concept of re-entry from Laws of Form {cite}`brown:1969`:
 
-The constructive liberties of such a social system are solely grounded in communication.
-If communication 'happens' everything else is secondary.
-Crucial is the condition of symbolic generalization, that is, **the property of the medium to exceed the diversity of things** and the condition of **unification** to enable communication.
-If art does not exceed the diversity of things, there is nothing worth communicating about and if there is no unification, sense and language fail as medium of communication---dissolution and recombination enable diversity and the selection of the particular.
+>A distinction can be reintroduced into the space it originally divided.
 
-Information can only be transmitted if the artwork could be different and *that which is not* is always also indicated by *that which is*.
-The artwork fixes all possibilities and we can talk about reasons why it is constructed or performed this way and not any other way.
-This seems consistent with the information theory of Claude Shannon {cite}`shannon:1948`.
-To communicate about art we have to be aware of these liberties and we have to use them because, again, to gain information one has to eliminate uncertainty---artworks have to surprise us.
+Communication about art becomes a form of art, and vice versa.
+The system observes itself and thus perpetuates its evolution.
+Importantly, this recursion doesn't demand "truth" or stable meaning.
+All it requires is that communication continues.
 
-By the *re-entry* {cite}`brown:1969` communication about art can become a form of art.
-Acknowledging the properties of the medium, events within the system of art have to be loosely coupled and there have to exist plenty of them.
-This includes the system of art itself!
-Consequently, art will be mocked by observers, exhibitors, buyers, and, in the end, by itself.
-Dissolution can become an end in itself thus the medium no longer serves the form but the form serves the medium.
-In that stage, form wants to show that it is in fact a medium.
-For an observer, this kind of art is paradoxical.
-Luhmann remarks that this path is narrow but the consideration of the dissolution of paradoxes can become fruitful.
+In line with information theory {cite}`shannon:1948`, a communication event must involve contingency: the receiver must be able to ask why this and not something else?
+The same applies to art.
+An artwork must be surprising, not arbitrary.
+It must be contingent---other arrangements were possible---and yet compelling in its current form.
+If an artwork has no form, no differentiation, no surprise---then nothing is communicated.
 
-It is plausible that there are limits to art determined by the limits of "natural" mediums, e.g., what we can see and hear.
-But what are the limits of art with respect to society?
-If a piece of art shows "facts" realistically, it indicates its flipside, its unmarked space, its contingency: reality could be different.
-Therefore, we should be careful to judge the motionless dance, the toneless music, or the empty canvas.
-These works of art rely on second-order observation and the re-entry.
-But it is a risky business!
-Whether these works are recognized as art is contingent.
+This logic applies not only to artworks but to the system of art itself.
+The system can mock itself, recode its own distinctions, or dissolve forms back into mediums.
+At this point, form becomes a commentary on form—art that exposes its own contingency.
+This is risky.
+Without enough loose coupling---without room for difference---the system collapses into tautology.
+Yet when done successfully, the form demonstrates that it could also be a medium, offering possibilities for recombination, reinterpretation, or historical transformation.
 
-Can we conclude that the form of art is an artwork?
-Luhmann understands the artwork as **communication of order** in a form arrangement which does not happen by itself.
-However, art does not utilize the medium to transmit a real order of the real world to the senses.
-Instead, art forms its mediums to create a **contingent alternative version of reality**.
-It does this by exploring the different possibilities of ordering elements within the medium.
-Through art, we can explore new possibilities of the acoustic and optical world and make them available and experiential.
-Thereby we gain more non-obvious possible ways of ordering the world.
+Luhmann ultimately defines the artwork as a communication of order---not in the sense of transmitting the world's structure, but in constructing an alternative version of reality.
+The artwork fixes possibilities---it marks one side of the form---but in doing so it points to the unmarked space, the realm of what could have been.
+This concept derives from Spencer-Brown's notion of distinction:
 
-Here we should ask how an artwork might achieves this effect?
-Luhmann uses the concept of the *marked* and *unmarked space* introduced by Spencer-Brown's *Laws of Form* {cite}`brown:1969`.
-Looking at the artwork one can see a marked space but also the other side, the unmarked space.
-The unmarked space indicate an infinite amount of possibilities which can not be fixed in place.
-Beginning an artwork consists of a first step, which leads from an unmarked into the marked space.
-This establishes a border by crossing it {cite}`luhmann:1997`.
-Luhmann continues by emphasising that the specificity of art forms is based on the fact that the determination of one side does not completely leave open what can happen on the other side. 
-It does not determine the other side, but it removes the determination of the other side from whimsy.
-What can occur there must fit, if not the impression of a discord, an error, a disturbance is to arise {cite}`luhmann:1997`.
+>To distinguish is to mark a space and, in doing so, create its other and a boundary.
+
+The beginning of an artwork is such a distinction---it opens up form by crossing from the unmarked into the marked.
+The subsequent development of the work must maintain internal coherence: what follows must "fit," not logically, but aesthetically.
+If something feels out of place, we register it as a disturbance---an error in the logic of the form.
+As Luhmann writes:
+
+>The specificity of art forms is based on the fact that the determination of one side does not leave open what can happen on the other side.
+>It does not determine it fully, but it removes it from whimsy. -- Luhmann {cite}`luhmann:1997`
 
 ## Code as Form
 
-A computer program can be seen as a collection of commands or statements of advice.
-Computer scientists, like me, emphasise the humanist perspective that a programming language is an inherently precise and rigid medium of expression.
-Different from natural languages, programming languages are unambiguous.
-Any syntactical error will lead to non-execution (compiled code) or an abrubt termination (interpreted code)---the computer stops making sense of the given advice.
+A computer program can be understood as a structured form, composed within the medium of a programming language.
+As a collection of operations with a specific syntax and semantics, code functions much like a formalized artwork---it creates order out of the open combinatorial space that the language makes possible.
 
-From this rigidity and formality, programmers extrapolate the believe that if they can implement something, they really understand it.
-The reasoning goes like the following:
+From a humanistic standpoint, programming languages are often seen as precise instruments of expression.
+Unlike natural languages, they are designed to be unambiguous: a syntactic error leads to a failed compilation or abrupt termination.
+From this rigidity, programmers often extrapolate a broader epistemological claim---that if a system can be implemented, it must be understood.
+
+The reasoning proceeds as follows:
 
 1. **Major premise:** Programming languages are unambiguous.
-2. **Implication:** Therefore, if one writes a program, it will do something particular
-3. **Implication:** Therefore, if the idea that should be realized is vague, i.e., the programmer has no particular result in mind, the program won't do what she or he wants.
-4. **Conclusion:** A correct program proofs the clarity of the programmers idea.
+2. **Implication:** A valid program yields a deterministic behavior.
+3. **Implication:** To write a correct program, one must know what result is desired.
+4. **Conclusion:** The implementation proves the clarity of thought.
 
-It is true that one has to be very precise with respect to syntax.
-No spelling or punctuation errors are allowed.
-But it is perfectly false that this makes programmers have a precise idea of what their program will do.
-It is especially false to assume that programmers just write down their idea from start to finish much like it is false to believe that painters, poets or writers realize their idea from start to finish.
-The whole progess is contingent.
-Each steps narrows down what can come next.
+While it is true that programming requires syntactic precision, the belief that programs reflect fully formed, pre-existing ideas is a myth.
+Programming is not simply the transcription of thought into code.
+Rather, **it is a process of contingent selection within the medium of code**, constrained by its grammar and toolsets.
 
-Look at the following algorithm.
-I assume that, for most readers, it is very unclear what the algorithm computes.
+Consider the following example---a Newton-Raphson algorithm to approximate $\sqrt{2}$.
+The code is formally correct, but without interpretation, its meaning is not apparent.
 
 ```{prf:algorithm} Newton's Algorithm to Approximate $\sqrt{2}$
 :label: alg-newton
@@ -399,44 +438,49 @@ plt.yticks([1.5, 1.48, 1.46, 1.44, 2**0.5, 1.40], [1.5, 1.48, 1.46, 1.44, r'$\sq
 plt.xticks([1, 2, 3, 4], [1, 2, 3, 4]);
 ```
 
-In any programming language, there exists an inherent intelligence.
-This is due to the fact that the language allows only a specific range of statements to be syntactically correct, thereby enforcing its own logic. 
-The structure and rules of the language dictate how programmers can express commands and algorithms, guiding them to adhere to its logical framework. 
-This intrinsic design ensures that programming adheres to a consistent and rational set of principles, which is a fundamental aspect of how these languages function and are understood.
+However, from a systems-theoretical perspective, the code is the form, and the programming language is the medium---a space of loosely coupled syntactic elements.
+The language makes many configurations possible but enforces strict rules on what counts as valid.
+Thus, the rigidity of the medium enables the specificity of form.
+Moreover, programming is rarely an act of isolated genius. 
+It is embedded in a network of observers: documentation, standards, libraries, online forums, other programmers.
+Every function or library call is a communication, stabilized over time and selected again in the present.
+The programmer does not create ex nihilo but operates within an autopoietic environment of existing selections.
 
-Libraries in programming are repositories of intelligence, created by numerous developers. 
-When a large language model (LLM) like ChatGPT solves a problem using ``Python`` code, we should not imply that it understands the problem.
-This limitation often also applies to programmers. 
-Both scenarios reflect the illusion of having a direct and complete understanding of reality, which is likely impossible.
+Large language models (LLMs) like ChatGPT may generate Python code that solves a given task, but this does not imply understanding---not in a Luhmannian sense.
+It merely recodes existing selections, much like a novice programmer might copy and adapt from Stack Overflow.
+This recursive copying is structurally similar to how communication reproduces itself: what matters is not subjective insight, but systemic continuation.
 
-Programming is almost always a collective, cultural effort. 
-In such an environment, it's rare for any single individual to fully grasp every aspect. 
-This collaborative nature of programming means that solutions and advancements are often the result of pooled knowledge and shared expertise, rather than the sole understanding or capability of one person.
-This reality underscores the interconnectedness and complexity inherent in both programming and our broader attempts to comprehend and interact with the world.
+>Programming, like art, is not (subjective) expression but selection within a medium.
+
+The intelligence of a programming language lies not in its semantics but in its symbolic generalization---it exceeds the diversity of things and permits consistent differentiation.
+Like Luhmann's notion of form, code reduces complexity: it constrains the space of what can be done next, rendering the continuation meaningful.
+In this light, we can reconsider code as form in the Luhmannian sense:
+
++ A program is a contingent realization drawn from the medium of a language.
++ Its execution is a function of selections, not expressions of subjective will.
++ Understanding is not given but constructed within communication—through second-order observation, testing, debugging, documentation, and dialogue with other observers.
+
+Thus, programming becomes not a mirror of clarity, but a field of systemic observation, rich in contingency, historicity, and structural constraints.
+And like all forms within social systems, its success lies not in its internal elegance, but in its capacity to make sense (an act of psychic and social systems) under the condition of having been otherwise.
 
 ## Artistic Coding
 
-In the realm of artistic or creative coding, the perception of programming as a rigorous and precise activity completely dissolves. 
-Here, artists use code akin to a musical instrument. 
-For instance, when utilizing creative coding libraries such as [p5.js](https://p5js.org/), [Processing](https://processing.org/) or [nannou](https://nannou.cc/) for visual projects, the process is rarely about transcribing a preconceived idea directly. 
-Instead, it begins with something simple: a circle, a line, a loop, or a combination of these elements.
+In the realm of *artistic* or *creative coding*, the perception of programming as a purely rigorous and deterministic activity dissolves.
+Here, code functions less like a set of instructions and more like a musical instrument---an interface for improvisation, exploration, and perceptual experimentation.
+Artists working with frameworks like [p5.js](https://p5js.org/), [Processing](https://processing.org/) or [nannou](https://nannou.cc/) rarely begin with a fully formed idea to transcribe into code.
+Instead, they start with something minimal: a loop, a shape, a rule, a chance operation---and build iteratively.
+They run the program, observe what emerges, and adjust parameters in response to what appears.
+This back-and-forth defines a process that is not linear or goal-driven, but contingent and open-ended.
 
-The approach involves tinkering and experimenting, repeatedly running the program to observe how changes affect the visuals. 
-This method is more exploratory and iterative, allowing the artist to evolve their work organically through trial and error. 
-It's a dynamic process where the outcome is often discovered through the act of coding itself, rather than being strictly planned from the outset.
-The artist helps the artwork to come into being.
-It is a contigent process.
-What comes next depends on the horizon of the possible, i.e. the language, libraries and what is already present.
+>The artist does not impose a vision onto the medium, but participates in bringing forth a form---selecting from a horizon of possibilities conditioned by the language, the libraries, and the current state of the evolving work.
 
-For me, the allure of (classical) generative art lies in the exploration of simple rules and the emergent complexity produced by repetition and recursion.
-One example was a piece for which I limited myself to draw only perpendicular lines.
-I start drawing a line and while the line is drawn there is a probability, that another line will be drawn starting at the current endpoint.
-This line has to be perpendicular to its parent.
-The child can spawn further lines and also the parent can continue to spawn new lines.
-Secondly, I mirrowed the emerging tree around a circle.
-I had no idea what to expect.
-And I played around with the parameters, e.g. probability values, coloring, the number of copies etc.
-I found the result impressive because of the simplicity of the rules it depends on.
+In this way, artistic coding aligns with Luhmann's idea of form selection: what comes next is determined not by expressive will, but by the constraints and affordances of the medium, coupled with historical decisions (what has already been drawn, coded, heard).
+
+For me, the appeal of *generative art* (by which I exclude AI generated art) lies in the exploration of simple rules and the emergent complexity they produce.
+In one project, I constrained myself to draw only perpendicular lines.
+Each line could spawn child lines at its endpoint, with a certain probability, and each child had to be perpendicular to its parent.
+Both parents and children could continue spawning new lines.
+The resulting structure was then mirrored around a circle, creating a radial symmetry.
 
 ````{panels}
 :container: container-genart 
@@ -472,10 +516,18 @@ I found the result impressive because of the simplicity of the rules it depends 
 
 ````
 
+In such work, the form emerges from a dance between randomness and recursion, discipline and disruption---a recursive coding of possibility within a symbolic medium.
 
-The concept of exploratory and iterative development in creative coding also applies to the acoustic domain and, notably, to live programming. 
-An interesting aspect of live programming is how it exposes the technology behind the artwork, especially when something unexpected occurs and the system 'breaks'. 
-In such moments, the distinction between *form* and *medium* becomes clear.
+The same logic applies in the acoustic domain---particularly in *live programming* (e.g., in SuperCollider or TidalCycles), where code is written and executed in real time as part of a musical performance.
+One of the most fascinating features of live coding is that it exposes the process.
+When something goes wrong---a glitch, a syntax error, a crash---the illusion of seamless performance collapses.
+Suddenly, **the medium reveals itself**: the medium hidden behind its functioning form becomes visible and the artist can be observed as a struggling resistence against failure.
 
-In live programming, the process and the technology used are as much a part of the artistic expression as the final product. 
-When glitches or errors occur, they reveal the underlying mechanisms and constraints of the technology, offering a unique insight into the medium itself. This contrast between the artistic intent (form) and the tools and methods used (medium) is a key characteristic of creative coding, highlighting the dynamic interplay between the artist's vision and the technology employed.
+>Here, the difference between form and medium becomes palpable.
+
+The glitch, in this context, is not simply a failure but a disruption of the system's expectations---a moment where the coupling fails and the artwork becomes reflexively aware of its own construction.
+In Luhmannian terms, the form exposes its contingency and the system observes its own operation.
+The performance does not merely present music, but stages the second-order observation of music-making itself.
+
+Creative coding thus operates in a space where artist, code, medium, and audience all participate in a network of recursive observation.
+The form is not static; it is evolving, contingent, and communicatively active—a selection that constantly reintroduces its own difference.
