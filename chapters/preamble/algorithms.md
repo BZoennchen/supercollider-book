@@ -641,17 +641,14 @@ If we are to live with algorithms---and more importantly, live well with them---
 As systems that may be soon decoupled from psychic and social systems meaning that we will lose (direct) control over them.
 They may very well co-evolve in an interdependent relation along side us and if they should become *autopoietic* we have to understand their *couplings* with social and psychic systems.
 
+Here I wanna close with Rorty's words to emphasize that, while *imagination* is important, it can produce horrific ideas.
+Without bounds, *romanticism* can create a monster.
+And only because something is contingent does not imply we should change it.
+
+>If we can avoid the fallacy of thinking either that the contingency of a social practice implies that it should be dropped or that the sheer novelty of a suggested practice is sufficient reason to adopt it, then intellectual life will survive the collapse of the appearance-reality distinction, as well as the relativization of rationality. [...F]uture intellectuals will not be closer to the way things really are than Plato was, but their imaginations will be dominated by a different sense of what it is to be human---one that takes our finitude for granted rather than attempting to escape from it. -- Richard Rorty {cite}`rorty:2016`
+
 ```{code-cell} python3
 :tags: [remove-input]
 audio_path = '../../sounds/jam.mp3'
 ipd.Audio(audio_path)
 ```
-
-
-
-
- *Cultural individualism* turned us inward but there we will not find meaning. We have to look outwards to create meaning and see the meaning we created.
-
-*Cultural individualism* fueled by neoliberal ideals have drawn us into ourselves.
-It is about self-expression, self-gratification, competing in the market, careers, curiated profiles, working for the next pay check to survive or to buy meaning.
-Letting go 
