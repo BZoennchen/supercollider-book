@@ -412,7 +412,7 @@ This universality of the algorithmic perspective once inspired philosophical dre
 In the early 17th century, thinkers such as Leibniz's intellectual heirs and later in the 20th century formalists like Russell and Hilbert envisioned a universal logical system---a calculus ratiocinator---capable of resolving any mathematical statement by mechanical reasoning.
 In *Grundzüge der theoretischen Logik* {cite}`hilbert:1928`, Hilbert and Ackermann raised the question now known as the *Entscheidungsproblem*: can there be an algorithm that decides the truth or falsity of any statement in first-order logic?
 
-Initially, it seemed plausible.
+Initially, it seemed plausible and it is known that this is true for *propositional logic* and the *Presburger arithmetic* (arithmetic of natural numbers with addition but not multiplication).
 But this vision encountered a decisive rupture in 1931, when Kurt Gödel, in *Über formal unentscheidbare Sätze der Principia Mathematica* {cite}`goedel:1931`, demonstrated two groundbreaking results:
 
 1. **Incompleteness:** Any sufficiently expressive formal system (one that includes arithmetic) will contain true statements that are unprovable within that system.
@@ -459,8 +459,7 @@ The algorithm, once a symbol of certainty, becomes a boundary marker---demarcati
 >The very techniques that reveal the limits of formal systems—self-reference, paradox, recursion—are the same structures that, in Spencer-Brown’s logic, generate time, form, and meaning. What formal logic excludes as paradox, Laws of Form embraces as the ground of creation.
 
 This transition, from the certainties of modern logic to the open-endedness of computation, anticipates the *postmodern condition*: an era not of clear foundations, but of recursive limits, undecidable structures, and generative paradoxes.
-Maybe Richard Rorty was right after all.
-The view of philosophy---including mathematics and physics---as the faculty that has traditionally aimed to uncover timeless, foundational truths---something like the "*mirror of nature*" (a metaphor he critiques in earlier work {cite}`rorty:1979`)---might have outlived its usefulness.
+Maybe Richard Rorty was right after all: the view of philosophy---including mathematics and physics---as the faculty that has traditionally aimed to uncover timeless, foundational truths---something like the "*mirror of nature*" (a metaphor he critiques in earlier work {cite}`rorty:1979`)---might have outlived its usefulness.
 We may should surrender the idea of discovering universal truths and instead focus on *cultural* and *linguistic creativity*.
 Instead of asking for truth we may want to ask for usefulness and communicative effectiveness.
 
@@ -482,6 +481,44 @@ It is difference and deferral, i.e. *différance*.
 Thus truth is like a flicker---a momentary effect produced by a play of signs, none of which have fixed meaning.
 You might feel you "have" the truth for a moment---but that truth is never self-identical, never whole, and always open to being undone by the play of signs that brought it into being.
 Derrida *decontructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
+
+Take the sentence: "There is a glass of water on the table".
+In ordinary terms, most people would say: This statement is true if there is, in fact, a glass of water on the table.
+This is the *correspondence theory of truth*: a statement is true if it matches reality.
+But Rorty rejects the correspondence theory as metaphysically confused.
+He doesn't say statements like this are not true---he says the notion of "truth as correspondence to reality" is unhelpful and unnecessary.
+The statement "There is a glass of water on the table" is true if our peers (or linguistic community) would agree that it is appropriate to assert it---given what we observe and how we talk.
+Truth is what it is good for us to believe (pragmatism).
+Rorty does not deny that the glass of water exists.
+The sentence is true not because it corresponds to reality in some metaphysical way but because it’s useful, warranted, and coherent within our practices.
+
+Similarily Derrida wouldn't deny that such a sentence can function meaningfully. But he would interpret the question not in terms of correspondence or even pragmatic success, but in terms of language’s internal play, difference, and deferred meaning.
+Even a simple sentence like this relies on (1) a shared system of signs and differences (what "glass", "water", "table" mean) and (2) a context (what table? where? when? how is "glass" being used?).
+But crucially, for him, context is never fully stable or closed.
+Meaning always relies on differences, and no word has a meaning that is completely fixed.
+Even if the referent exists (the actual glass), the sentence's meaning is still subject to drift, re-interpretation, or breakdown.
+In saying, "There *is* a glass of water," we act as though we are pointing to something fully present.
+But this assertion already assumes a metaphysics of presence---that meaning is anchored in a stable, present "*now*".
+Yet "glass", "water", "table" only mean what they mean through differences from other terms.
+Each word points beyond itself in an infinite chain of references (glass -> vessel -> transparency -> fragility... etc.).
+Meaning is never fully *there*. It is constructed and deferred.
+If Rorty says 
+
+>truth is what your peers let you get away with saying,
+
+Derrida might say:
+
+>Meaning is what temporarily survives the endless sliding of signifiers.
+
+This does not mean that formal logical systems, such as Tarski's theory of truth can be refuted.
+They work perfectly fine as a tool for logicians.
+But it is one way to operate in a specific system and another to generalize this system into a universal theory of truth that applies to ethics, politics, or everyday speech.
+Truth in natural language isn't formal because formal statements requires a formal system within they can be true or false---one might say valid or invalid.
+We shouldn't pretend "truth" is a metaphysical relation.
+Derrida would probably go further and would argue that all language is vulnerable to slippage, undecidability, and recursive instability, even formal logic.
+He would say:
+
+>Derrida is saying you can't ultimately escape the problem of meaning and self-reference---not even with meta-languages.
 
 Furthermore, he suggests that reality is always mediated through language.
 We do not experience a raw "real" but a linguistically filtered version of it.
@@ -609,3 +646,12 @@ They may very well co-evolve in an interdependent relation along side us and if 
 audio_path = '../../sounds/jam.mp3'
 ipd.Audio(audio_path)
 ```
+
+
+
+
+ *Cultural individualism* turned us inward but there we will not find meaning. We have to look outwards to create meaning and see the meaning we created.
+
+*Cultural individualism* fueled by neoliberal ideals have drawn us into ourselves.
+It is about self-expression, self-gratification, competing in the market, careers, curiated profiles, working for the next pay check to survive or to buy meaning.
+Letting go 
