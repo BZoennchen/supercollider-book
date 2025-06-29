@@ -510,7 +510,7 @@ Derrida might say:
 
 >Meaning is what temporarily survives the endless sliding of signifiers.
 
-This does not mean that formal logical systems, such as Tarski's theory of truth can be refuted.
+This does not mean that formal logical systems, such as systems based on Tarski's theory of truth can be refuted.
 They work perfectly fine as a tool for logicians.
 But it is one way to operate in a specific system and another to generalize this system into a universal theory of truth that applies to ethics, politics, or everyday speech.
 Truth in natural language isn't formal because formal statements requires a formal system within they can be true or false---one might say valid or invalid.
@@ -620,7 +620,7 @@ If algorithms are to underpin our technological infrastructures, influence our s
 
 Algorithmic thinking is inherently reductionist. It assumes that complex, context-sensitive social and economic exchanges can be modeled and simulated with only minimal loss. But this assumption is rarely scrutinized.
 
->Algorithms do not just process data; they produce, affirm, and certify knowledge through a particular logic built on specific assumptions. — Tarleton Gillespie {cite}`gillespie:2014`
+>Algorithms do not just process data; they produce, affirm, and certify knowledge through a particular logic built on specific assumptions. -- Tarleton Gillespie {cite}`gillespie:2014`
 
 As Gillespie and others argue, algorithmic reasoning privileges a utilitarian rationality---a logic grounded in scientific abstraction and instrumental efficiency.
 This displaces forms of knowledge rooted in lived experience, deliberation, and embodied practice.
