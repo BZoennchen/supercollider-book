@@ -27,11 +27,12 @@ Describing precisely what I mean is challenging, given the inherent limitations 
 Since I believe that a purely analytical approach cannot replace experiential knowledge, I posit that *computer music* can augment our understanding of algorithms and technology as a whole. 
 To echo Fisher's sentiments, it can propel music and coding into new emancipatory realms by dismantling the illusion of a *natural order*, potentially rejuvenating selfless collaboration.
 
-The sentiments expressed here resonate with a set of beliefs, and I make no attempt to disguise that my motivation for penning this book is intertwined those beliefs, personal struggles and contradictions.
+The sentiments expressed here resonate with a set of beliefs, and I make no attempt to disguise that my motivation for penning this book is intertwined with those beliefs, personal struggles and contradictions.
 I am not the kind of person who is blessed with certainty.
-Rather I doubt, reconsider, and struggle to find a definite answer.
+Rather I doubt, reconsider, and struggle to find a definite answer while recognizing that there is none.
 The ambiguity in my mind may shine through the text and I encourage the reader to question everything stated.
 Like any text, it is a perspective that necisarrily has blind spots.
+Furthermore, the author is already dead since any understanding requires an interpretation.
 It would be deceptive to assert that I approach this work without any agenda. 
 Indeed, the prospect of not possessing an agenda seems quite improbable.
 
@@ -76,10 +77,10 @@ At my core, I perceive myself as an artist navigating my own intricate life---a 
 In terms of my professional skills, however, I am a computer scientist. 
 By this, I mean that I explore various facets of computation:
 
-+ **information:** what is information, and how can we create, manipulate and interpret it?
-+ **computation:** what is computable, and what do we mean by that?
-+ **formal methods:** what can we express, and what do we need to express it?
-+ **algorithms** and **data structures:** what can we build?
++ **Information:** what is information, and how can we create, manipulate and interpret it?
++ **Computation:** what is computable, and what do we mean by that?
++ **Formal methods:** what can we express, and what do we need to express it?
++ **Algorithms** and **data structures:** what can we build?
 
 After completing school, I underwent practical training as a software developer and worked in the industry for four years. 
 Driven by a sense of restlessness, I returned to school for an additional year before embarking on my computer science studies. 
