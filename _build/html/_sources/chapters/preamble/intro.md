@@ -1,4 +1,4 @@
-# Introduction
+# Opening Reflections
 
 >[The highest human being, deludes himself]: he calls his nature contemplative and thereby overlooks the fact that he is also the actual poet and ongoing author of life [...].
 >It is us, the thinking-sensing ones, who really and continually make something that is not yet there: the whole perpetually growing world of valuations, colors, weights, perspectives, scales, affirmations, and negations.

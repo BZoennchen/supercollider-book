@@ -465,44 +465,45 @@ Maybe Richard Rorty was right after all: the view of philosophy---including math
 We may should surrender the idea of discovering universal truths and instead focus on *cultural* and *linguistic creativity*.
 Instead of asking for *Truth* we may want to ask for usefulness and communicative effectiveness.
 Plato was wrong to call the Truth the Good.
-We moved from the *love of God* to the *love of Truth* to the *love of our inner-self*.
+Since then we moved from the *love of God* to the *love of Truth* to the *love of our inner-self*.
 Maybe its time to stop worshipping anything absolute or universal but to recognize that our language, our consciousness and our community is a contingent product of history---that, contrary to Hegel, nothing is necessarily as it is; everything could be different.
 
 There is no "God's-eye view" from which we can assess all perspectives neutrally.
 For Rorty, language---including mathematical, physical and computational language---is contingent.
-His confederate, Derrida, shuttered the philosophical tradtion by showing that what we take as *literal* or *proper* meanings are built upon layers of methophor that have become naturalized thought repetition {cite}`derrida:1974`.
+His confederate, Derrida, shuttered the philosophical tradtion by showing that what we take as *literal* or *proper* meanings are built upon layers of methophor that have become naturalized through repetition {cite}`derrida:1974`.
 Terms like *substance*, *subject*, *truth*, and Heidegger's *Being* have roots in sensory or physical metaphors that we can not escape---we can not go outside or beyond language and language does not provide a transparent link to a stable, pre-given reality.
 
-But Metaphors are existential.
-It is in fact so existiantial that our own invention might only be successful if, by bringing forth our own metaphors, we are able to form a new world.
+But metaphors are existential.
+They are, in fact, so existiantial that our own invention might only be successful if, by bringing forth our own metaphors, we are able to form a new world.
 By shaping how we conceptualize and interact with the world, metaphors play a crucial role in the formation of both personal identities and comprehensive philosophical systems.
 They have a foundational role in the realms of human experience.
 Therefore, we should take them seriously not because they refer to the "really real" but because they mean a lot to us.
 I mean I am a programmer, all of our language from *trees*, *heaps*, *objects* to *inheritance* and *composition* is methaphorical.
 
-There meaning is always mediated by a network of other signs and shaped by cultural, historical, and metaphorical contexts.
+Meaning is always mediated by a network of other signs and shaped by cultural, historical, and metaphorical contexts.
 It arises from *difference* within language itself---a word is not pointing directly to a thing but it gets its meaning by how it differs from other words.
-There is no ultimate *signified*---words do not lead back to a final, real meaning but each sign points to another sign in a chian.
+There is no ultimate *signified*---words do not lead back to a final, real meaning but each sign points to another sign in a chain.
 It is difference and deferral, i.e. *différance*.
 Of course, this does not mean they are not grounded in something, e.g. sensory data or social interactions.
-But that this grounding is never final and never fixed.
+Meaning is a precondition for what we can agree on, i.e. truth.
+The meaning of "there is a glas of water on the table" is that this statement is seen as true if some condition (a certain kind of sensory data) is met.
+But this grounding (in sensory data) is never final and never fixed.
+Truth claims are always entangled with interpretation, and interpretation never reaches a pure, final meaning.
 
 Thus truth is like a flicker---a momentary effect produced by a play of signs, none of which have fixed meaning.
 You might feel you "have" the truth for a moment---but that truth is never self-identical, never whole, and always open to being undone by the play of signs that brought it into being.
 Here Derrida *decontructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
 
-Take the sentence: "There is a glass of water on the table".
+Take again the sentence: "There is a glass of water on the table".
 In ordinary terms, most people would say: This statement is true if there is, in fact, a glass of water on the table.
 This is the *correspondence theory of truth*: a statement is true if it matches reality.
 But Rorty rejects the correspondence theory as metaphysically confused.
 He doesn't say statements like this are not true---he says the notion of "truth as correspondence to reality" is unhelpful and unnecessary.
 The statement "There is a glass of water on the table" is true if our peers (or linguistic community) would agree that it is appropriate to assert it---given what we observe and how we talk.
-Truth is what it is good for us to believe (pragmatism).
-It is a property of statements which 
 Rorty does not deny that the glass of water exists.
-The sentence is true not because it corresponds to reality in some metaphysical way but because it’s useful, warranted, and coherent within our practices.
+The sentence is true not because it corresponds to reality in some metaphysical way but because it’s useful, warranted, and coherent within our practices (pragmatism).
 
->he assumption that truth, like the world, is “out there” is the legacy of a time when the world was seen as the creation of a being who possessed a language of his own. If we give up the attempt to make sense of the idea of such a nonhuman language, we will no longer be tempted to confuse the trivial statement that the world can cause us to hold a sentence to be true with the claim that the world itself, of its own accord, breaks up into sentence-shaped bits called "facts." -- Richard Rorty {cite}`rorty:1989`
+>The assumption that truth, like the world, is “out there” is the legacy of a time when the world was seen as the creation of a being who possessed a language of his own. If we give up the attempt to make sense of the idea of such a nonhuman language, we will no longer be tempted to confuse the trivial statement that the world can cause us to hold a sentence to be true with the claim that the world itself, of its own accord, breaks up into sentence-shaped bits called "facts." -- Richard Rorty {cite}`rorty:1989`
 
 Similarily Derrida wouldn't deny that such a sentence can function meaningfully. But he would interpret the question not in terms of correspondence or even pragmatic success, but in terms of language’s internal play, difference, and deferred meaning.
 Even a simple sentence like this relies on (1) a shared system of signs and differences (what "glass", "water", "table" mean) and (2) a context (what table? where? when? how is "glass" being used?).
@@ -514,33 +515,35 @@ But this assertion already assumes a metaphysics of presence---that meaning is a
 Yet "glass", "water", "table" only mean what they mean through differences from other terms.
 Each word points beyond itself in an infinite chain of references (glass -> vessel -> transparency -> fragility... etc.).
 Meaning is never fully *there*. It is constructed and deferred.
-If Rorty says 
+While Rorty asserts that 
 
 >truth is what your peers let you get away with saying,
 
 Derrida might say:
 
->Meaning is what temporarily survives the endless sliding of signifiers.
+>meaning is what temporarily survives the endless sliding of signifiers.
 
 This does not mean that formal logical systems, such as systems based on Tarski's theory of truth can be refuted.
 They work perfectly fine as a tool for logicians.
 But it is one way to operate in a specific system and another to generalize this system into a universal theory of truth that applies to ethics, politics, or everyday speech.
-Truth in natural language isn't formal because formal statements requires a formal system within they can be true or false---one might say valid or invalid.
+Truth in natural language isn't formal because formal statements require a formal system within they can be true or false---one might say valid or invalid.
+
 We shouldn't pretend "truth" is a metaphysical relation.
 Derrida would probably go further and would argue that all language is vulnerable to slippage, undecidability, and recursive instability, even formal logic.
 He would say:
 
->Derrida is saying you can't ultimately escape the problem of meaning and self-reference---not even with meta-languages.
+>you can't ultimately escape the problem of meaning and self-reference---not even with meta-languages.
 
 Furthermore, he suggests that reality is always mediated through language.
 We do not experience a raw "real" but a linguistically filtered version of it.
-Even what we think of as direct experience is shaped by language categories---time, object, cause, identity, etc.
+Language is already a technology in a Heideggerian sense.
+Even what we think of as direct experience is shaped by linguistic categories---time, object, cause, identity, etc.
 
 >Everything we take as given—including reality—is already interpreted through signs. If knowledge is only valid when it is perfectly grounded, then no knowledge is ever valid. But maybe knowledge never needed perfect ground to be meaningful, useful, or rich. We are not standing on a foundation but on a sailing ship with imperfect intruments and changes in wind but we still get somewhere; we still orient ourselves, even if there's no final, fixed land; we probe, test, revise---forever.
 
 What a wonderful world it is.
 An open world free from the tyranny of metaphysical absolutes and full of plurality, ambiguity, and revision.
-It means responsibility---because without the comfort of absolute truth, we must continually examine, justify, and remain open to change.
+It requires responsibility---because without the comfort of absolute truth, we must continually examine, justify, and remain open to change.
 
 For Spencer-Brown---to close the circle---mathematics is grounded in the most basic epistemological operation: the drawing of a boundary.
 Derrida exposes the instability of the marked/unmarked distinction.
@@ -548,6 +551,7 @@ He shows how every system of meaning is haunted by what it excludes, just like S
 At this point Rorty comes in to warn us of yet another "*final vocabulary*" that Spencer-Brown might wish to reach.
 For all of them, language is a human construct, not something that maps perfectly onto reality.
 Because of this, no single vocabulary can claim to be the "correct" one for describing "the world".
+But they can be more or less helpful and imaginative for different uses.
 Consequently, all faculties of philosophy should be more about self-creation than discovering some essential, pre-existing self or truth {cite}`rorty:2016`.
 Like poets or artists, individuals should aim to create new, meaningful ways of being.
 
