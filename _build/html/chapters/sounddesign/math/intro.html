@@ -516,6 +516,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-need-mathematics">Do we need Mathematics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-signal-processing">Digital Signal Processing</a></li>
 </ul>
             </nav>
         </div>
@@ -782,6 +783,42 @@ Coming back to my introduction of the book: technical tools open as well as clos
 They turn the ship such that the <em>horizon of the possible</em> changes and they have agency over us, they call us to act and to deal with the world in a certain way.
 Math in that sense can also conceal aspects of artistic craftsmanship.</p>
 </section>
+<section id="digital-signal-processing">
+<h2>Digital Signal Processing<a class="headerlink" href="#digital-signal-processing" title="Permalink to this headline">#</a></h2>
+<p>Sound is a what we call <em>signal</em>.
+A <em>signal</em> is any physical quantity that carries information.
+It is defined as any physical quantity that varies with one or more independent variables such as time (one-dimensional signal), or space (2D or 3D signal).
+Signals exist in several types.
+Of course, we are interested in the one-dimensional case and our independent variable is time <span class="math notranslate nohighlight">\(t\)</span>.
+In the real world, most of signals are continuous-time or analog signals that have values continouesly at every value of time.</p>
+<p>Furthermore, we are working on a computer—a digital device.
+<em>Digital</em> means that that the process we wanna do, such as creating or transforming a signal, has to be done in a discrete space.
+Therefore, to be <em>processed</em> by a computer, a <em>continuous-time signal</em> has to be first <em>sampled</em> in time into a <em>discrete-time signal</em> so that its values at a discrete set of time instants can be stored in computer memory locations.
+In addition, in order to be processed by logic circuits, these signal values have to be <em>quantized</em> into a set of discrete values.
+The final result is called <em>digital signal</em>.</p>
+<p>So what is the field mathematics we apply is: <em>Digital Signal Processing (DSP)</em>.
+The two main characters in DSP are <em>signals</em> and <em>systems</em>.
+A <em>system</em> is defined as a process whose input and output are signals.
+We need those to further transform the signal, for exmaple, to filter high or low frequencies.
+As we will see, an important class of systems is the class of <a class="reference internal" href="lti-filters.html#sec-lti-filters"><span class="std std-ref"><em>linear time-invariant (LTI) systems</em></span></a>.
+These systems have a remarkable property, that is, each of them can be completely chracterized by an <em>impulse response function</em>, and the system is defined by a <em>convolution</em> (also referred as <em>filtering</em>) operation.
+Thus, a linear time-invariant system is equivalent to a <em>(linear) filter</em>.
+LTI systems are classified into two types, those that have <em>finite-duration impulse response (FIR)</em> and those that have an <em>infinite-duration impulse response (IIR)</em>.
+In practice for our musical purposes we will create filters that vary over time but the theory of LTI systems is still very useful to induce understanding.</p>
+<p>A signal can be viewed as a <em>vector</em> in a <em>vector space</em>.
+Thus, <em>linear algebra</em> provides a powerful framework to study signals and linear systems.
+In particular, given a vector space, each signal can be represented (or expended) as a <em>linear combination of elementary signals</em>.
+The most important <em>signal expansion</em> are provided by the <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref"><em>Fourier transform</em></span></a>.
+The Fourier transforms, as with general transforms, are often used effectively to transform a problem from one domain to another domain where it is much easier to solve or analyze.
+The two domains of Fourier transform have physical meaning and are called <em>time domain</em> and <em>frequency domain</em>.</p>
+<p><em>Sampling</em>, or the conversion of <em>continuous-domain real-life</em> to <em>discrete numers</em> that can be processed by computers, is the essential bridge between the analog and the digital world.
+It is important to understand that connections between signal and systems in the real world and inside a computer.
+These connections are convenient to analyze in the frequency domain.
+Moreover, many signals and systems are specified by their <em>frequency characteristics</em>.</p>
+<p>Because any <em>linear time-invariant system</em> can be characterized as a <a class="reference internal" href="../filters/filters.html#sec-filters"><span class="std std-ref"><em>filter</em></span></a>, the design of such systems boils down to the design of the associated filter.
+Typically, in the <em>filter design</em> process, we determine the coefficient of an <em>FIR</em> or <em>IIR</em> filter that closely approximates the desired <em>frequency response</em> specification.
+Together with Fourier transforms, the <a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref"><em>z-transform</em></span></a> provides an effective tool to analyze and design filters.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -859,6 +896,7 @@ Math in that sense can also conceal aspects of artistic craftsmanship.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-we-need-mathematics">Do we need Mathematics?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-signal-processing">Digital Signal Processing</a></li>
 </ul>
   </nav></div>
 
