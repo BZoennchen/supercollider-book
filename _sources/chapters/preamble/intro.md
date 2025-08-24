@@ -1,7 +1,7 @@
-# Introduction
+# Opening Reflections
 
 >[The highest human being, deludes himself]: he calls his nature contemplative and thereby overlooks the fact that he is also the actual poet and ongoing author of life [...].
->It is us, the thinking-sensing ones, who really and continually make something that is not yet there: the whole perpetually growing would of valuations, colors, weights, perspectives, scales, affirmations, and negations.
+>It is us, the thinking-sensing ones, who really and continually make something that is not yet there: the whole perpetually growing world of valuations, colors, weights, perspectives, scales, affirmations, and negations.
 >This poem that we have invented is constantly internalized, drilled, translated into flesh and reality, indeed, into the commonplace, by the so-called practical human beings.
 >Only we have created the world that concerns human beings! -- Friedrich Nietzsche {cite}`nietzsche:1882`
 
@@ -21,7 +21,7 @@ From this lack of certainty and clearness it seems natural that one starts doubt
 Such thing might be ontological 'true' but we can not know and we can not access it.
 However, then I think about the *unreasonable effectiveness of mathematics* and say to myself: There has to be at least traces of an objective reality.
 How can it be that mathematics never let's us down?
-This ambivalence feels akin to being torn between the philosophies of early and late Wittgenstein or caught between the thoughts of Russell and Nietzsche.
+This ambivalence feels akin to being torn between the philosophies of the early and late Wittgenstein or caught between the thoughts of Russell and Nietzsche.
 
 My unease grows when I pair this ambiguity with the recent advances in technology and societal shifts.
 If contemporary philosophers challenge the validity of metaphysical assertions, how then should we deal with *cybernetics*---modern technology that *steers* us into the future while it is backed by metaphysical assumptions, mainly the idea of progress?
