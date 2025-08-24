@@ -4,27 +4,105 @@
 
 ## What is Mathematics?
 
-Mathematicians to this day argue about the fundamental nature of math.
-Do we humans invent it, or do we discover it?
-*Platonists* and realists claim that numbers are real, mind-independent things, implying that they were *discovered*.
-Conceptualists say that numbers exist but are just mind-dependent ideas; nominalists say that numbers do not exist.
-The latter two positions would imply that numbers are *invented*.
+Mathematicians and philosophers to this day argue about the fundamental nature of math.
+Do we humans **invent** it, or do we **discover** it?
+This is the main question all the different positions answer a little bit differently.
+If numbers are real, mind-independent things, then they were *discovered*, if not then we seem to *invent* them.
 
-*Kant* suggested that the prerequisite of our experiences is a pure concept of understanding (*Verstand*).
+### Positions
+
+*Platonists* also sometimes called *mathematical realists* such as Gödel and Penrose claim that mathematical objects (numbers, sets, functions, etc.) exist independent of human thought, in a timeless, abstract realm.
+Just as astronomers *discover* planets, mathematicians *discover* mathematical truths.
+The obvious question or problem with this view is that it is unclear where and how these objects exist and how we humans access them.
+
+*Logicians* claim that mathematics is reducible to pure logic, that is, all mathematical truths are logical truths in disguise.
+The promoter of this field of theory (Frege, Russell, Whitehead, Carnap) was to derive all of mathematics from logical axioms and rules of inference but Gödel's incompleteness theorems showed that not all mathematical truth can be captured this way.
+Logicists often assumed numbers were real abstract entities, but that they could be reduced to logical notions.
+So Logicism is both a program (reduce math to logic) and compatible with a Platonist ontology.
+
+*Struturalists* like Benacerraf, Resnik and Shapiro claim that mathematics studies *structures* rather than individual objects.
+Numbers, for example, matter only in terms of their place in a structure (like the natural number sequence).
+This can explain why different systems (e.g. sets, Peano arithmetic) can represent the same mathematics.
+But this raises a question: what are structures *made of*?
+Structuralism can be seen as a refinement of Platonism: instead of individual objects existing in an abstract realm, what exists are structures (like the natural number sequence or the real line).
+
+*Formalists* like Hilbert, Kleene claim that mathematics is a *game with symbols*, played according to rules. Mathematical statements are just strings of symbols manipulated within formal systems.
+These mathematicians try to avoid metaphysical questions about existence and *Being*.
+However, one might ask why does a mere game of symbols describe the universe so well?
+Why is mathematics so effective in its application?
+Formalists undercut the meaning of mathematical objects outside of the formal system within they are defined.
+Formalism lost its status as a full foundation mainly because its central promise (to secure all of mathematics by purely formal means) turned out to be impossible.
+Gödel showed that in any sufficiently strong formal system (like arithmetic), there will be true statements that cannot be proven within the system and that a system cannot prove its own consistency (if it actually is consistent).
+Threfore, math is not fully capturable as a "formal game" and Hilbert's goal of proving the consistency of mathematics within a finitary framework is impossible.
+This meant Hilbert’s dream was unachievable in principle.
+Formailsm is also counter intuitive to the mathematicians because they experience proofs as *discoveries*, not as arbitrary symbol games.
+But it's still indispensable as a methodological backbone. Philosophers now usually combine it with other views rather than defending it on its own.
+
+*Intuitionists* and *constructivists* like L.E.J. Brouwer, Heyting and Bishop claim that mathematics is a creation of the human mind.
+This ties mathematics to human mental activities but it also restricts many classical results (e.g., nonconstructive proofs are invalid) because this foundational theory rejects the *law of excluded middle* in infinite contexts (e.g., "either a number is prime or it isn't" is not true unless we can prove one or the other).
+Intuitionism is a strict version of constructivism. Both reject non-constructive proofs and see math as human-made mental constructions.
+Many constructivists are intuitionists in practice, though some are looser about which constructions "count".
+
+*Nominalists* such as Ockham, Field, and Goodman suggest that mathematical objects do not exist at all, not even as abstract entities.
+In their view, mathematics is just a convenient shorthand for talking about the physical world or about symbol manipulations.
+One variant, i.e. *fictionalism*, claim that mathematics is like a useful story---not true, but indispensable.
+The other variant, that is, *deflationary nominalism* assume that numbers are just ways of speaking about properties of the world (e.g., "there are three apples" describes a property of apples, not an abstract "3").
+*Norminalism* avoids mysterious abstract realms but it is hard to or even impossible to account for the objectivity and universality of mathematics.
+
+The there are *empiricists* like Mill, Lakatos and Putnam (at some stage) who think that mathematics is ultimately derived from our experience with the world, much like the sciences.
+In this view, mathematical knowledge grows by conjecture, refutation, and revision, not by pure deduction.
+This makes sense of the evolving, human side of mathematics but seems at odds with the timelessness and necessity of mathematics.
+
+*Social constructivists* think of mathematics as a social product, created within communities of mathematicians.
+Promoters of this position such as Hersh, Ernest, and partly Kuhn argue that the truth of mathematics is determined by social agreement and shared practices.
+This explains why mathematics changes historically and culturally but it seems to downplay the objectivity of mathematics (e.g. would $\pi$ stop to being 3.14159... if sociaty said so?).
+Both *empiricism* or *quasi-empiricism* and *social constructivism* emphasize the human, evolving nature of math.
+They are compatible with one another because they downplay the idea of math as eternal, perfect truth.
+
+There is also the view hold by e.g. George Lakoff and Rafael Núnez that mathematics arises from human cognition and the way our brains metaphorically extend embodied experience. (e.g. "two apples" -> abstract "2").
+This can explain the origins of mathematics in human thought and language but it seems to leaves unclear why mathematics describes physics so uncannily well.
+The cognitive-metaphor approach sits well with *constructivist* or social accounts, since all highlight the human origin of mathematics.
+It doesn't claim math is eternal and abstract---just that it arises from how humans conceptualize and share patterns.
+
+*Pragmatists* like Dewey, Quine and Putnam (he shifted his position between realism and pragmatism) wanna departure from these question and claim that mathematics is what works---a toolbox for reasoning, modeling, and solving problems. Its value lies in usefulness, not metaphysical truth.
+This captures the applied power of math but it intentionally just sidesteps the question of what math *is*; it's more about what math *does*.
+Pragmatists sometimes label the question of what mathematics *is* as nonsensical.
+Pragmatism is flexible: it says math is valuable insofar as it works.
+It can easily blend with *formalism* ("we use formal systems because they're useful") or with *nominalism* ("numbers don't exist, but they're handy fictions").
+
+There are, of course, also total oppositions.
+*Platonism* and *nominalism* are incompatible: either numbers exist independently, or they don't exist at all.
+Also *intuitionism* and classical mathematics (*Platonism*, *logicism*, *formalism*) are incompatible: intuitionism rejects the law of excluded middle, which most other schools accept.
+Furthermore, *formalism* goes against Platonism: one says math is just symbols, the other says it describes real abstract things.
+
+In practice many working mathematicians are *informal Platonists* (they talk as if math is "discovered"), but when pressed, they often lean on *pragmatism* ("we use whatever methods work") or *formalism* (rigorous proofs are what count). Philosophers sometimes combine *structuralism* + *constructivism* (math studies structures, but they exist only through our constructions) or *platonism* + *quasi-empiricism* (there are timeless truths, but our knowledge of them grows fallibly, like in science).
+
+### Kant, Heidegger, and Wittgenstein
+
+*Kant* (1724--1904) suggested that the prerequisite of our experiences is a pure concept of understanding (*Verstand*).
 A *Kantian* category is a characteristic of the appearance of any object in general, before it has been experienced (*a priori*).
-*Kant* believed that without it, cognition is impossible because we would not be able to find any structures within the data.
+Kant believed that without it, cognition is impossible because we would not be able to find any structures within the data.
 In his view, neither *pure reason* nor *pure experience* suffice;
 we need both.
 He thought that this is an *a priori truth* that we can only understand by using exclusively *a priori methods*, i.e., *pure reason*.
 From that perspective, numbers can not come from *pure experience* which is a truth we understand by *pure reason*.
-Numbers emerge from our *understanding* of the difference between one and many things;
+In fact, Kant argued that mathematical truths are not purely analytic (like logic) but also not empirical.
+Instead, they are grounded in the forms of intuition---space and time---which structure human experience.
+For Kant, Euclidean geometry was the prime example: its truths were necessary, universal, but grounded in our a priori intuition of space.
+Similarily for Kant, arithmetic was grounded in our temporal intuition (counting as successive additions in time) and numbers emerge from our *understanding* of the difference between one and many things;
 an experience that requires *a priori categories*.
+Of course, the discovery of non-Euclidean geometry and relativity theory undermined Kant's idea that Euclidean space is the necessary form of intuition, but *neo-Kantian* views still inspire debates about the cognitive grounding of math.
+His view influenced *constructivist*/*intuitionist* ideas (Brouwer admired Kant's stress on the mind's role).
 
-The difficulty in grasping that question is that we are thrown into math, as *Heidegger* would say.
+The difficulty in grasping the stated question is that we are *thrown* into math, as *Heidegger* would say.
 Teachers tell us what it is and how it works.
 We use it before we reflect on it or understand it; it is *ready-to-hand* (*zuhanden*).
 Math, similar to language, is like a virus or parasite that circulates through the human mind and reproduces itself like an *autopoietic system*.
 It is closed and gets irritated by new observations such that it extends or adapts itself (through us).
+Heideggers position on the question of the nature of mathematics is oblique.
+It is a mode of revealing *Being*.
+He wasn't a philosopher of math in the analytic sense, but he reflected deeply on what "mathematical" means.
+He tied the rise of modern science to the "mathematical projection" of nature (geometry, analytic mechanics, etc.).
 
 The late Wittgenstein argues that the meaning of words is determined by their use.
 This seems like a trivial observation but his claim was in fact very radical because it rejects the view that words refer to some essences.
@@ -45,28 +123,46 @@ Our language is deeply connected to social practices.
 There would be no words, no language, and no thinking without the social.
 
 Wittgenstein brings up the example of a beatle in a box.
-Imagine a group of people each box in everyone's box is they call a *beetle*.
-However, no one is ever allowed to in anyone elses box.
-They can only look into their own box.
-However, they can talk meaningful about *beetles* even though they don't know what others have in their boxes or indeed if there is anything in them at all.
-The thing in each person's box is irrelevant to the *shared public meaning* of the term 'beetles'.
+Imagine a group of people.
+Each have a box and in everyone's box is something they call "a beetle".
+However, no one is ever allowed to look into anyone elses box.
+They can only look into their own box---the beetle is an analogy of our personal feelings, e.g. pain.
+However, they can talk meaningful about beetles even though they don't know what others have in their boxes or, indeed, if there is anything in them at all.
+The thing in each person's box is irrelevant to the *shared public meaning* of the term "beetle".
 The words meaning is determined by the use people make of the term and not the *private* something hidden away from view.
 Whatever is or isn't in each person's box is irrelevant.
 It cancels out.
-Wittgenstein uses this analogy to go agains the assumption that experiences are private to us.
-We think that no one knows my personal color or pain experiences.
-In other words, no one can see the *beetle* in my box.
-But the meaning of sensation words such as pain and color isn't given by referring to some private inner introspective something---a sensation to which you alone have access to.
-In his view there cannot be more to the *public meaning* of our language than we are capable of teaching each other.
-The private something---the beetle---may or may not exist and may or may not be different from other beetles, cannot have a role in that teaching because we cannot get at it.
+Wittgenstein uses this analogy to go agains the assumption that meaning is or can be private to us.
+We think that no one knows my personal color or pain sensation.
+In other words, no one can see the beetle in my box.
+Of course, it is true that your pain can not be felt by someone else.
+But the meaning of sensation words such as "pain" and "red" isn't given by referring to some private inner introspective something---a sensation to which you alone have access to.
+The meaning of these words come from how the word is used in shared practices and *language-games*.
+In Wittgenstein's view there cannot be more to the *public meaning* of our language than we are capable of teaching each other.
+The private something---the beetle---may or may not exist and may or may not be different from other beetles.
+It cannot have a role in that teaching because we cannot get at it linguistically.
 
 If this is true, then the same has to be the case for mathematical terms such as numbers.
-With this view, the word *two* does not point to some essence or abstract idea that 'lives' in Plato's world of ideas.
+With this view, the meaning of the word "two" can not be private.
 Instead it is a result of social practices.
-It is a term born out of social practice to communicate such that it helps us to navigate the mess.
-This, of course, tells us nothing about the question of the ontological existence of the number two.
-But Wittgenstein would probably say, that to ask for such a thing is impossible.
+In his later philosophy (*Philosophical Investigations* {cite}`wittgenstein:1953`), he rejected Platonism: there are no mathematical objects "out there".
+Instead, math is a set of rule-governed activities within forms of life.
+It "two" is a term born out of social practice to communicate such that it helps us to navigate the mess.
+Proofs don't "reveal eternal truths"; they change what counts as true by fixing the rules of use.
+Thus, mathematics in a Wittgensteinian view is not a body of discoveries but a collection of techniques---a human institution.
+Therefore, Wittgenstein anticipated *social constructivism*: math is a practice maintained by communities.
+But he also connects with *formalism* (math as rules), but unlike Hilbert, Wittgenstein insists that meaning comes from use, not from abstract formal systems.
+His influence is strongest in philosophy of mathematics education and *constructivist* views of math.
+
+This, of course, tells us nothing about the question of the ontological existence of mathematical objects, e.g. the number two.
+But Wittgenstein would probably say, that to ask for such a thing is impossible or misguided.
+He would insist that to ask for the ontological status of these objects is a philosophical confusion, arising from being bewitched by grammar.
+"2" does not exist as an independent object but it exists in the way we use it---in counting, calculating, proving.
 The only thing we have is experience, social practice and language which we constructed over time not to describe reality but to navigate through it.
+An analogous question would be to ask: "What is the ontological status of the king in chess?"
+A *Platonist* might say: "The king is a timeless abstract piece."
+Wittgenstein would say: "The king exists as part of the game; it has no existence outside the practice of chess."
+Likewise, "2" exists as part of the language game of arithmetic.
 
 I partly agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes and thinks that there is still something absolut and pure to establish and ground.
 I don't think we need some eternal *Platonic* space of perfect ideas that is hidden somewhere.
@@ -75,17 +171,20 @@ The *Platonic* worldview is mystical, religious, absolute and in some sense too 
 It introduces something extra, something godly that we do not need.
 And it devalues life as something to overcome instead of something to embrace.
 Call me impulsive, but after I read Nietzsche, Heidegger, and Wittgenstein, I despise the *Platonic* worldview more and more.
+This frustrates *Platonists* and *structuralists*, who think the ontological question is real and can't be dismissed.
 
 *Platon* believed that these abstractions are more accurate than what we perceive.
 He thought that the perception of a chair is an obscuration of the perfect idea that shines through it.
 Thereby contradictiong Wittgenstein by establishing an essence of the chair.
 I think it is the other way around, and instead of perfect and imperfect, I use the terms *concrete* and *abstract*.
-The chair is *concrete*, but our perception of it has nothing to do with it with the exception that it enables us to deal with it.
+The chair is *concrete*, but our perception of it has nothing to do with it, except that it enables us to deal with it.
 Our perception is the first *abstraction* born out of *Kant's* understanding---we are able to perceive it as one thing.
-The *second-order abstraction* of it, e.g., using the word *chair*, is a silent agreement of a set of perceptions we call *chair*.
+The *second-order abstraction* of it, e.g., using the word "chair", is a silent agreement of a set of perceptions we call "chair".
 For a number, e.g. the number one, this is similar.
+But this meaning can shift.
+It has to be re-established again and again in social pracitice.
 
-It is no surprise that the *Greeks* had troubles with defining negative numbers because of a lack of experience.
+In this regard, it is no surprise that the *Greeks* had troubles with defining negative numbers because of a lack of experience.
 Since they focused mostly on geometry, negative numbers were never an issue.
 The invention of money made negative numbers a necessity thus they were invented and discovered.
 I think this is an argument for *Kant's* assumption because if negative numbers came from within, there is no reason why the *Greeks* had trouble with finding them.
@@ -100,6 +199,7 @@ In other words, he had the imagination to come up with a concept that was useful
 
 Only because we have never experienced a perfect circle does not mean we can not find a description of one.
 I have never experienced a pink elephant, but I can perfectly picture one.
+One might say: "Ok but you know what 'pink' and 'elephant' means" but the same is true for the mathematical objects from which the perfect circle emerges.
 Does this mean there has to be another perfect world where the idea of a pink elephant lives?
 The world of ideas cripples the fascination with the infinite complexity of what there is.
 It trys to bind the infinite to the finite, Kierkegaard might say. 
@@ -123,9 +223,9 @@ Therefore, grasping the infinite is impossible.
 Reality will always be a mystery.
 However, we can tinker with it and see where it goes.
 
-To conclude, in Wittgensteinian view, in the beginning mathematics was invented according to social practices: the differentiation of one thing from another thing; the handling of multiply things which all named by the same word; the exchange of goods and services.
+To conclude, in a Wittgensteinian view, mathematics was invented according to social practices: the differentiation of one thing from another thing; the handling of multiply things which all named by the same word; the exchange of goods and services.
 It required a close observation of nature and there might be traces of an objective truth in it but we can never know.
-Therefore, I claim that mathematics is invented but this invention is closely bound to observations of nature and therefore it is also discovered.
+Therefore, I claim that mathematics is *invented* but this invention is closely bound to *observations* (which are non-arbitrary constructions) of nature (or our *environment*) and therefore it is also partly discovered.
 
 ## Do we need Mathematics?
 
