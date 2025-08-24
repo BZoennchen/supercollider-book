@@ -282,3 +282,44 @@ It can help us not only to understand but experience the process.
 Coming back to my introduction of the book: technical tools open as well as close spaces of possibilities.
 They turn the ship such that the *horizon of the possible* changes and they have agency over us, they call us to act and to deal with the world in a certain way.
 Math in that sense can also conceal aspects of artistic craftsmanship.
+
+## Digital Signal Processing
+
+Sound is a what we call *signal*.
+A *signal* is any physical quantity that carries information.
+It is defined as any physical quantity that varies with one or more independent variables such as time (one-dimensional signal), or space (2D or 3D signal).
+Signals exist in several types.
+Of course, we are interested in the one-dimensional case and our independent variable is time $t$.
+In the real world, most of signals are continuous-time or analog signals that have values continouesly at every value of time.
+
+Furthermore, we are working on a computer---a digital device.
+*Digital* means that that the process we wanna do, such as creating or transforming a signal, has to be done in a discrete space.
+Therefore, to be *processed* by a computer, a *continuous-time signal* has to be first *sampled* in time into a *discrete-time signal* so that its values at a discrete set of time instants can be stored in computer memory locations.
+In addition, in order to be processed by logic circuits, these signal values have to be *quantized* into a set of discrete values.
+The final result is called *digital signal*.
+
+So what is the field mathematics we apply is: *Digital Signal Processing (DSP)*.
+The two main characters in DSP are *signals* and *systems*.
+A *system* is defined as a process whose input and output are signals.
+We need those to further transform the signal, for exmaple, to filter high or low frequencies.
+As we will see, an important class of systems is the class of [*linear time-invariant (LTI) systems*](sec-lti-filters).
+These systems have a remarkable property, that is, each of them can be completely chracterized by an *impulse response function*, and the system is defined by a *convolution* (also referred as *filtering*) operation.
+Thus, a linear time-invariant system is equivalent to a *(linear) filter*.
+LTI systems are classified into two types, those that have *finite-duration impulse response (FIR)* and those that have an *infinite-duration impulse response (IIR)*.
+In practice for our musical purposes we will create filters that vary over time but the theory of LTI systems is still very useful to induce understanding.
+
+A signal can be viewed as a *vector* in a *vector space*.
+Thus, *linear algebra* provides a powerful framework to study signals and linear systems.
+In particular, given a vector space, each signal can be represented (or expended) as a *linear combination of elementary signals*.
+The most important *signal expansion* are provided by the [*Fourier transform*](sec-fourier-transform).
+The Fourier transforms, as with general transforms, are often used effectively to transform a problem from one domain to another domain where it is much easier to solve or analyze.
+The two domains of Fourier transform have physical meaning and are called *time domain* and *frequency domain*.
+
+*Sampling*, or the conversion of *continuous-domain real-life* to *discrete numers* that can be processed by computers, is the essential bridge between the analog and the digital world.
+It is important to understand that connections between signal and systems in the real world and inside a computer.
+These connections are convenient to analyze in the frequency domain.
+Moreover, many signals and systems are specified by their *frequency characteristics*.
+
+Because any *linear time-invariant system* can be characterized as a [*filter*](sec-filters), the design of such systems boils down to the design of the associated filter.
+Typically, in the *filter design* process, we determine the coefficient of an *FIR* or *IIR* filter that closely approximates the desired *frequency response* specification.
+Together with Fourier transforms, the [*z-transform*](sec-z-transform) provides an effective tool to analyze and design filters.
