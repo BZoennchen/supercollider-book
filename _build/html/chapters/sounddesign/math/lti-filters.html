@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
-    <link rel="prev" title="Z-Transform" href="z-transform.html" />
+    <link rel="prev" title="\(z\)-Transform" href="z-transform.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dft.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="z-transform.html">Z-Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="z-transform.html"><span class="math notranslate nohighlight">\(z\)</span>-Transform</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">LTI Filters</a></li>
 </ul>
 </li>
@@ -278,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Composing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">The Burden of Freedom</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/music-theory/music-theory.html">Western Music Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/1-midinotes.html">Notes &amp; Midi Notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/2-intervals.html">Intervals</a></li>
@@ -512,7 +512,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-filter">What is a Filter?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-learn-about-filters">Why Learn About Filters?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-filter">A Simple Filter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-impossible-filter">An Impossible Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-simple-filter">A Very Simple Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-special-type-of-filters">A Special Type of Filters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-response">Frequency Response</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
@@ -536,26 +537,30 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="lti-filters">
 <span id="sec-lti-filters"></span><h1>LTI Filters<a class="headerlink" href="#lti-filters" title="Permalink to this headline">#</a></h1>
 <p>In the following I will discuss a special kind of filters, that is, <em>linear time-invariant filters</em> because almost all filters you will encounter in <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> are based on this type of filters.
-It is recommended that you read section <a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a> before continuing or that you go back and forth to understand the concept of a Z-transform.</p>
+It is recommended that you read section <a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref"><span class="math notranslate nohighlight">\(z\)</span>-transform</span></a> before continuing or that you go back and forth to understand the concept of a Z-transform.</p>
 <section id="what-is-a-filter">
 <h2>What is a Filter?<a class="headerlink" href="#what-is-a-filter" title="Permalink to this headline">#</a></h2>
 <p>A digital filter refers to any electronic or digital system that enhances or reduces frequencies within a signal.
 Broadly speaking, any medium that a signal traverses, regardless of its form, can be considered a filter.
-However, an entity is typically not deemed a filter unless it has the ability to alter the signal in some manner.
-For instance, while speaker wire is not classified as a filter, the speaker itself is, regrettably.
+However, an entity is typically not deemed a filter unless it has the ability to alter the signal in some manner.</p>
+<p>For instance, while speaker wire is not classified as a filter, the speaker itself is, regrettably.
 The production of different vowel sounds in speech mainly involves altering the shape of the oral cavity, which modifies the resonances and consequently the filtering characteristics of the vocal tract. Devices such as reverberators, echo units, phase shifters, and speaker crossover networks serve as examples of beneficial filters, whereas the uneven amplification of certain frequencies in a space with poor acoustics illustrates unwanted filtering.</p>
 <p>A digital filter operates on digital signals specifically. It involves a computational process that converts one numerical sequence, <span class="math notranslate nohighlight">\(x[\cdot]\)</span>, into another, <span class="math notranslate nohighlight">\(y[\cdot]\)</span>.
 Digital filters are capable of replicating the functions of physical filters with a high degree of accuracy.
 Therefore, a digital filter represents a method for transitioning between digital signals.
-It can manifest as a theoretical equation, a loop within computer software, or a series of interconnected integrated circuit chips.</p>
+It can manifest as a</p>
+<ul class="simple">
+<li><p>theoretical equation,</p></li>
+<li><p>a loop within computer software,</p></li>
+<li><p>or a series of interconnected integrated circuit chips.</p></li>
+</ul>
 </section>
 <section id="why-learn-about-filters">
 <h2>Why Learn About Filters?<a class="headerlink" href="#why-learn-about-filters" title="Permalink to this headline">#</a></h2>
 <p>Computer musicians frequently incorporate digital filters into each piece of music they produce. For instance, achieving a rich, resonant sound from a computer is challenging without the use of digital reverberation.
 However, the potential of digital filters extends far beyond just reverberation.
-They can precisely tailor the sound spectrum to specific needs.
-Despite this, only a handful of musicians are equipped to create the filters they require, even when they have a clear vision of the desired spectral alteration.
-This book aims to support sound designers by providing an overview of the most important filters implemented in <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a>.</p>
+They can precisely tailor the sound spectrum to specific needs.</p>
+<p>Despite this, only a handful of musicians are equipped to create the filters they require, even when they have a clear vision of the desired spectral alteration and this book aims to support sound designers by providing an overview of the most important filters implemented in <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a>.</p>
 <p>Numerous software options exist for creating digital filters, suggesting that only basic programming skills might be necessary to utilize digital filters effectively.
 While this may hold true for straightforward tasks, a deeper understanding of how digital filters operate is beneficial at all stages of using such software.</p>
 <p>Additionally, to adapt or customize a program, one must first thoroughly comprehend its workings.
@@ -564,8 +569,8 @@ Importantly, for composers crafting their own sounds, mastering filter theory op
 From my own hands-on experience, a deep grasp of filter theory has been an invaluable asset in designing musical instruments.
 Often, the need arises for a simple yet unique filter, different from the conventional designs readily available through existing software.</p>
 </section>
-<section id="a-simple-filter">
-<h2>A Simple Filter?<a class="headerlink" href="#a-simple-filter" title="Permalink to this headline">#</a></h2>
+<section id="an-impossible-filter">
+<h2>An Impossible Filter<a class="headerlink" href="#an-impossible-filter" title="Permalink to this headline">#</a></h2>
 <p>If we aim to entirely filter out all high frequencies up to a cutoff frequency <span class="math notranslate nohighlight">\(f_c\)</span>, without affecting the low frequencies <span class="math notranslate nohighlight">\((f \leq f_c)\)</span>, our ideal <em>brick wall filter</em> would exhibit an <em>amplitude (frequency) response</em> resembling the plot shown below.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -574,12 +579,20 @@ Often, the need arises for a simple yet unique filter, different from the conven
 </figure>
 </div>
 </div>
-<p>Such <em>ideal filter</em> is the simplest <em>lowpass filter</em>.
+<p>Such <em>ideal filter</em> is the simplest theoretical <em>lowpass filter</em>.
 The gain is 1 in the <em>passband</em>, which pans frequencies from 0 Hz to the <em>cutoff frequency</em> <span class="math notranslate nohighlight">\(f_c\)</span> Hz, and its gain is 0 in the <em>stopband</em> (all frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>).
-The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.</p>
+Such a perfect lowpass filter has magnitude responses</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}H(e^{i\omega}) = \begin{cases} 1, &amp; |\omega| \leq \omega_c \\ 0, &amp; |\omega| &gt; \omega_c \end{cases}\end{split}\]</div>
+<p>such that it passes all frequencies below cutoff <span class="math notranslate nohighlight">\(\omega_c\)</span> abd completely blocks all frequencies above the cutoff.
+The transition is <strong>infinitely sharp</strong>!
+In practice this is impossible because we would need an infinite-length impulse responses and negative-time samples (but we cannot look into the future).</p>
+</section>
+<section id="a-very-simple-filter">
+<h2>A Very Simple Filter<a class="headerlink" href="#a-very-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Another simple (and by no mean ideal) lowpass filter that we can define by a simple formula is give by the differential equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-simple-filter">
-<span class="eqno">(42)<a class="headerlink" href="#equation-eq-simple-filter" title="Permalink to this equation">#</a></span>\[y[n] = x[n] + x[n-1]\]</div>
+<span class="eqno">(45)<a class="headerlink" href="#equation-eq-simple-filter" title="Permalink to this equation">#</a></span>\[y[n] = x[n] + x[n-1]\]</div>
 <p>where <span class="math notranslate nohighlight">\(x[n]\)</span> is the filter input amplitude at time (or sample) <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(y[n]\)</span> is the output amplitude at time <span class="math notranslate nohighlight">\(n\)</span>.
 We can also draw a <em>signal flow graph</em> for this little filter:</p>
 <figure class="align-default" id="fig-sfg-simple-filter">
@@ -590,7 +603,7 @@ We can also draw a <em>signal flow graph</em> for this little filter:</p>
 </figure>
 <p>The <span class="math notranslate nohighlight">\(z^{-1}\)</span> symbol means a <em>delay</em> of one sample, i.e., <span class="math notranslate nohighlight">\(z^{-1} x[n] = x[n-1]\)</span>.</p>
 <p>It is important when working with spectra to be able to convert time from sample-numbers to seconds.
-Thus, a more physical way of writing equation Eq. <a class="reference internal" href="#equation-eq-simple-filter">(42)</a> is given by</p>
+Thus, a more physical way of writing equation Eq. <a class="reference internal" href="#equation-eq-simple-filter">(45)</a> is given by</p>
 <div class="math notranslate nohighlight">
 \[y[n T] = x[n T] + x[(n-1) T] \quad n = 0, 1, 2, \ldots,\]</div>
 <p>where <span class="math notranslate nohighlight">\(T\)</span> is the sampling interval in seconds.
@@ -617,7 +630,7 @@ It is convinient in digital signal processing to omit <span class="math notransl
 This filter is characterized as a <em>first-order filter</em> due to it having a single sample of state.
 It is essential to preserve the state of the filter after processing each segment of a signal.
 Therefore, the state of the filter following the completion of block <span class="math notranslate nohighlight">\(m\)</span> becomes the initial state for processing the subsequent block <span class="math notranslate nohighlight">\(m+1\)</span>.</p>
-<p>You might suspect that since Eq. <a class="reference internal" href="#equation-eq-simple-filter">(42)</a> is the simplest possible low-pass filter, it is also somehow the worst possible low-pass filter.
+<p>You might suspect that since Eq. <a class="reference internal" href="#equation-eq-simple-filter">(45)</a> is the simplest possible low-pass filter, it is also somehow the worst possible low-pass filter.
 How bad is it?
 In what sense is it bad?
 How do we even know it is a low-pass at all?
@@ -626,7 +639,7 @@ The answers to these and related questions will become apparent when we find the
 Let</p>
 <div class="math notranslate nohighlight">
 \[x[n] = A_1 \sin(2 \pi f n T + \phi_1).\]</div>
-<p>If we apply Eq. <a class="reference internal" href="#equation-eq-simple-filter">(42)</a>, we get</p>
+<p>If we apply Eq. <a class="reference internal" href="#equation-eq-simple-filter">(45)</a>, we get</p>
 <div class="math notranslate nohighlight">
 \[y[n] = A_1 \sin(2 \pi f n T + \phi_1) + A_1 \sin(2 \pi f (n+1) T + \phi_1).\]</div>
 <p>Let us use <span class="math notranslate nohighlight">\(A_1 = 1\)</span> and <span class="math notranslate nohighlight">\(f = f_s/4 = 1/(4T)\)</span> and <span class="math notranslate nohighlight">\(\phi_1 = 0\)</span>.
@@ -638,13 +651,12 @@ This tells us how one specific frequency is influenced by the filter.
 The gain <span class="math notranslate nohighlight">\(G(2 \pi f) = A_2 / A_1 = A_2 \approx 1.414\)</span>.</p>
 <div class="theorem admonition" id="def-gain-lti-theorem">
 <p class="admonition-title">Gain of a Single Frequency of an LTI Filter</p>
-<p>If the input to any <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filter</span></a> is a complex waveform <span class="math notranslate nohighlight">\(A \cdot e^{i 2\pi f t}\)</span>, the output will be some constant times the input <span class="math notranslate nohighlight">\(B \cdot e^{i 2 \pi f t}\)</span> and <span class="math notranslate nohighlight">\(G(2 \pi f)\)</span> is defined by</p>
+<p>If the input to any <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI filter</span></a> is a complex waveform <span class="math notranslate nohighlight">\(A \cdot e^{i 2\pi f t}\)</span>, the output will be some constant times the input <span class="math notranslate nohighlight">\(B \cdot e^{i 2 \pi f t}\)</span> and the <em>gain</em> <span class="math notranslate nohighlight">\(G(2 \pi f)\)</span> is defined by</p>
 <div class="math notranslate nohighlight">
 \[G(2 \pi f) = \frac{B}{A}.\]</div>
 </div>
-<p>What we desire is a formula that gives us the amplitude response and the phase response for all frequencies, that is, the <a class="reference internal" href="#sec-frequency-response"><span class="std std-ref">frequency response</span></a> of the filter.
-In the general case, this is a hard problem.
-However, there are a special type of filters for which this is achievable, that is, the <em><a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear time-invarient filters</span></a></em>.</p>
+<p>What we desire is a formula that gives us the amplitude response and the phase response for all frequencies, that is, the <a class="reference internal" href="#sec-frequency-response"><span class="std std-ref">frequency response</span></a> <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> of the filter.
+In the general case, this is a hard problem but for <em><a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear time-invarient filters</span></a></em> we know how to compute it.</p>
 </section>
 <section id="a-special-type-of-filters">
 <h2>A Special Type of Filters<a class="headerlink" href="#a-special-type-of-filters" title="Permalink to this headline">#</a></h2>
@@ -673,8 +685,8 @@ To analyse the behaviour of a <em>linear filter</em> one looks at two different 
 For LTI filters it is defined as the spectrum of the output signal divided by the spectrum of the input signal, that is,</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{Y(z)}{X(z)} \Rightarrow Y(z) = H(z)X(z)\]</div>
-<p>where <span class="math notranslate nohighlight">\(X(z) = \mathcal{Z}\{x[n]\}\)</span> and <span class="math notranslate nohighlight">\(Y(z) = \mathcal{Z}\{y[n]\}\)</span> are the <em><a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a></em> of the input and output signals and <span class="math notranslate nohighlight">\(H(z)\)</span> is the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref"><em>filter transfer function</em></span></a>.
-If we set <span class="math notranslate nohighlight">\(z = e^{i \omega T}\)</span> in the definition of the Z-transform, we obtain</p>
+<p>where <span class="math notranslate nohighlight">\(X(z) = \mathcal{Z}\{x[n]\}\)</span> and <span class="math notranslate nohighlight">\(Y(z) = \mathcal{Z}\{y[n]\}\)</span> are the <em><a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref"><span class="math notranslate nohighlight">\(z\)</span>-transform</span></a></em> of the input and output signals and <span class="math notranslate nohighlight">\(H(z)\)</span> is the <a class="reference internal" href="z-transform.html#sec-trensfer-function"><span class="std std-ref"><em>filter transfer function</em></span></a>.
+If we set <span class="math notranslate nohighlight">\(z = e^{i \omega T}\)</span> in the definition of the <span class="math notranslate nohighlight">\(z\)</span>-transform, we obtain</p>
 <div class="math notranslate nohighlight">
 \[X(e^{i \omega T}) = \sum_{n=-\infty}^\infty x[n] e^{-i \omega T n}\]</div>
 <p>which may be recognized as the definition of the bilateral discrete time Fourier transform (DTFT) when <span class="math notranslate nohighlight">\(T\)</span> is normalized to 1.
@@ -689,15 +701,15 @@ This implies that the frequency response of an LTI filter equals the discrete-ti
 </div>
 <p>Since <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(T\)</span> are constants, the frequency response <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> is only a function of radian frequency <span class="math notranslate nohighlight">\(\omega\)</span>.
 Since <span class="math notranslate nohighlight">\(\omega\)</span> is real, the frequency response may be considered a complex-valued function of a real variable.
-The response at frequency <span class="math notranslate nohighlight">\(f\)</span> Hz, for example, is <span class="math notranslate nohighlight">\(H(e^{i 2 \pi f T})\)</span>, where <span class="math notranslate nohighlight">\(T\)</span> is the <strong>sampling period</strong> in seconds.
-It is convinient to define a new function such as</p>
+The response at frequency <span class="math notranslate nohighlight">\(f\)</span> Hz, for example, is <span class="math notranslate nohighlight">\(H(e^{i 2 \pi f T})\)</span>, where <span class="math notranslate nohighlight">\(T\)</span> is the <strong>sampling period</strong> in seconds.</p>
+<p>It is convinient to define a new function such as</p>
 <div class="math notranslate nohighlight">
 \[H'(\omega) := H(e^{i \omega T})\]</div>
 <p>and write <span class="math notranslate nohighlight">\(Y'(\omega) = H'(\omega) X'(\omega)\)</span> instead of having to write <span class="math notranslate nohighlight">\(e^{i \omega T}\)</span> all the time.
 However, doing so would add a lot of new functions to an already notation-rich scenario.
 Furthermore, writing <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> makes the connection between the transfer function and the frequency response explicit.
-We have to keep in mind that by defining the frequency response as a function of <span class="math notranslate nohighlight">\(e^{i \omega T}\)</span>, we place the frequency ‘axis’ on the <em>unit circle</em> in the complex <span class="math notranslate nohighlight">\(z\)</span>-plane, since <span class="math notranslate nohighlight">\(|e^{i \omega T}| = 1\)</span>.
-As a result, adding multiples of the sampling frequency to <span class="math notranslate nohighlight">\(\omega\)</span> corresponds to traversing the whole cycles around the unit circle, since</p>
+We have to keep in mind that by defining the frequency response as a function of <span class="math notranslate nohighlight">\(e^{i \omega T}\)</span>, we place the frequency ‘axis’ on the <em>unit circle</em> in the complex <span class="math notranslate nohighlight">\(z\)</span>-plane, since <span class="math notranslate nohighlight">\(|e^{i \omega T}| = 1\)</span>.</p>
+<p>As a result, adding multiples of the sampling frequency to <span class="math notranslate nohighlight">\(\omega\)</span> corresponds to traversing the whole cycles around the unit circle, since</p>
 <div class="math notranslate nohighlight">
 \[e^{i (\omega + k 2\pi f)T} = e^{i (\omega T + k 2 \pi)} = e^{i \omega T},\]</div>
 <p>whenever <span class="math notranslate nohighlight">\(k\)</span> is an integer.
@@ -710,8 +722,8 @@ A typical choice is</p>
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency, Amplitude, and Phase Response</p>
 <p>The <em>frequency response</em> of a <em>linear time-invariant filter</em> can be represented in one formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6756477b-5aec-459e-9c6a-669b795063cd">
-<span class="eqno">(43)<a class="headerlink" href="#equation-6756477b-5aec-459e-9c6a-669b795063cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-de68b577-b895-46b1-99a7-1ffc6387b55c">
+<span class="eqno">(46)<a class="headerlink" href="#equation-de68b577-b895-46b1-99a7-1ffc6387b55c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega T)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega T) := |H(e^{i \omega T})|\)</span> is the <em>amplitude (frequency) response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega T) := \angle H(e^{i \omega T})\)</span> the <em>phase response</em> of the filter.</p>
@@ -720,14 +732,14 @@ H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrac
 <section id="analysis-of-a-simple-filter">
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
-Let use start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0880fd74-0368-4913-95f1-8916f9584ec4">
-<span class="eqno">(44)<a class="headerlink" href="#equation-0880fd74-0368-4913-95f1-8916f9584ec4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+Let us start with a very <em>simple filter</em>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-049de6d4-cfc6-408f-9f1d-d7c57efbe125">
+<span class="eqno">(47)<a class="headerlink" href="#equation-049de6d4-cfc6-408f-9f1d-d7c57efbe125" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
 Our <em>simple filter</em> is a <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear and time-invariant</span></a> filter.
-The <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a> unit generator is a flexible version of this filter.</p>
+The <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a> unit generator is a flexible version of this filter.</p>
 <p>You might suspect that, since it is the simplest possible <em>lowpass filter</em>, it is also somehow the worst possible lowpass filter.
 How bad is it?
 In what sense is it bad? How do we even know it is a lowpass filter at all?
@@ -768,7 +780,7 @@ y[n] &amp;= e^{i \omega n T} + e^{i \omega (n-1) T}\\
 &amp;= (1 + e^{-i \omega T}) \cdot x[n] = H(e^{i \omega} T) \cdot x[n].
 \end{split}
 \end{equation*}\]</div>
-<p>We get the same solution as we got using the <a class="reference internal" href="z-transform.html#sec-simple-filter-example"><span class="std std-ref">Z-transform</span></a>.
+<p>We get the same solution as we got using the <a class="reference internal" href="z-transform.html#sec-simple-filter-example"><span class="std std-ref"><span class="math notranslate nohighlight">\(z\)</span>-transform</span></a>.
 The <em>gain</em> for this filter is</p>
 <div class="math notranslate nohighlight">
 \[G(\omega T) = |(1 + e^{-i \omega T})|\]</div>
@@ -827,9 +839,10 @@ The following plot shows the amplitude <a class="reference internal" href="#def-
 If we increase the sample rate, the loss in power of high frequencies decreases!
 To achieve a similar result, we have to adapt the coefficients of the filter equation accordingly.</p>
 <div class="remark admonition" id="remark-low-level-filter">
-<p class="admonition-title">Low and High Level Filters</p>
-<p>The <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of low level SuperCollider filters such as <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>, <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FOS.html">FOS</a>, <a class="reference external" href="https://doc.sccode.org/Classes/SOS.html">SOS</a> rely the sample rate <span class="math notranslate nohighlight">\(f_s\)</span>.
-High level filters such as <a class="reference external" href="https://doc.sccode.org/Classes/LPF.html">LPF</a> and <a class="reference external" href="https://doc.sccode.org/Classes/HPF.html">HPF</a> do not!</p>
+<p class="admonition-title">Low- and High-Level Filters</p>
+<p>The <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of low-level SuperCollider filters, such as <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>, <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FOS.html">FOS</a>, <a class="reference external" href="https://doc.sccode.org/Classes/SOS.html">SOS</a> rely on the sample rate <span class="math notranslate nohighlight">\(f_s\)</span>.
+High-level filters such as <a class="reference external" href="https://doc.sccode.org/Classes/LPF.html">LPF</a> and <a class="reference external" href="https://doc.sccode.org/Classes/HPF.html">HPF</a> do not!
+Therefore, they are much easier to use.</p>
 </div>
 <p>Furthermore, the phase shift depends on <span class="math notranslate nohighlight">\(\omega\)</span>.
 It looks like this might lead to a phase distortion, however, this frequency-dependent delay is counteracted because doubling the frequency of the input halves its period, balancing the growth in retardation introduced by the filter.
@@ -842,8 +855,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>An LTI filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11f990ee-fcd4-4de9-8a16-051c4b32b8de">
-<span class="eqno">(45)<a class="headerlink" href="#equation-11f990ee-fcd4-4de9-8a16-051c4b32b8de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6467cfc7-46f2-43ed-ac01-d173abff140c">
+<span class="eqno">(48)<a class="headerlink" href="#equation-6467cfc7-46f2-43ed-ac01-d173abff140c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega T) \cdot e^{i \mathcal{\Theta}(\omega T)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1128,8 +1141,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3acf07be-86e3-4fdc-b4e0-8072aaae2089">
-<span class="eqno">(46)<a class="headerlink" href="#equation-3acf07be-86e3-4fdc-b4e0-8072aaae2089" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e5bba7af-33ad-428e-b21f-2c6915f3f922">
+<span class="eqno">(49)<a class="headerlink" href="#equation-e5bba7af-33ad-428e-b21f-2c6915f3f922" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -1148,8 +1161,8 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 <p class="admonition-title">FIR Filter</p>
 <p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f073d74-0af6-404c-8625-6866f06cd6b1">
-<span class="eqno">(47)<a class="headerlink" href="#equation-0f073d74-0af6-404c-8625-6866f06cd6b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a144ebf0-e9e2-4a9a-ae13-3c5dd3accfd9">
+<span class="eqno">(50)<a class="headerlink" href="#equation-a144ebf0-e9e2-4a9a-ae13-3c5dd3accfd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>
@@ -1173,7 +1186,7 @@ If we compute the <em>discrete-time Fourier transform</em> of <span class="math 
 <div class="math notranslate nohighlight">
 \[\sum\limits_{n-=\infty}^\infty h[n] e^{-i \omega n T} = \sum\limits_{n = 0}^\infty 0.5^{n+1} e^{-i \omega n T} = \frac{1}{2-e^{i \omega T}}\]</div>
 <p>Note that the last step is non-trivial!</p>
-</section>
+<!-- TODO? --></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1213,7 +1226,7 @@ If we compute the <em>discrete-time Fourier transform</em> of <span class="math 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Z-Transform</p>
+        <p class="prev-next-title"><span class="math notranslate nohighlight">\(z\)</span>-Transform</p>
       </div>
     </a>
     <a class="right-next"
@@ -1245,7 +1258,8 @@ If we compute the <em>discrete-time Fourier transform</em> of <span class="math 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-filter">What is a Filter?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-learn-about-filters">Why Learn About Filters?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-filter">A Simple Filter?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-impossible-filter">An Impossible Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-very-simple-filter">A Very Simple Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-special-type-of-filters">A Special Type of Filters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-response">Frequency Response</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>

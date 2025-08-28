@@ -36,28 +36,33 @@ sns.set_style("whitegrid")
 # LTI Filters
 
 In the following I will discuss a special kind of filters, that is, *linear time-invariant filters* because almost all filters you will encounter in [SuperCollider](https://supercollider.github.io/) are based on this type of filters.
-It is recommended that you read section [Z-transform](sec-z-transform) before continuing or that you go back and forth to understand the concept of a Z-transform.
+It is recommended that you read section [$z$-transform](sec-z-transform) before continuing or that you go back and forth to understand the concept of a Z-transform.
 
 ## What is a Filter?
 
 A digital filter refers to any electronic or digital system that enhances or reduces frequencies within a signal.
 Broadly speaking, any medium that a signal traverses, regardless of its form, can be considered a filter.
 However, an entity is typically not deemed a filter unless it has the ability to alter the signal in some manner.
+
 For instance, while speaker wire is not classified as a filter, the speaker itself is, regrettably.
 The production of different vowel sounds in speech mainly involves altering the shape of the oral cavity, which modifies the resonances and consequently the filtering characteristics of the vocal tract. Devices such as reverberators, echo units, phase shifters, and speaker crossover networks serve as examples of beneficial filters, whereas the uneven amplification of certain frequencies in a space with poor acoustics illustrates unwanted filtering.
 
 A digital filter operates on digital signals specifically. It involves a computational process that converts one numerical sequence, $x[\cdot]$, into another, $y[\cdot]$.
 Digital filters are capable of replicating the functions of physical filters with a high degree of accuracy.
 Therefore, a digital filter represents a method for transitioning between digital signals.
-It can manifest as a theoretical equation, a loop within computer software, or a series of interconnected integrated circuit chips.
+It can manifest as a 
+
++ theoretical equation, 
++ a loop within computer software, 
++ or a series of interconnected integrated circuit chips.
 
 ## Why Learn About Filters?
 
 Computer musicians frequently incorporate digital filters into each piece of music they produce. For instance, achieving a rich, resonant sound from a computer is challenging without the use of digital reverberation.
 However, the potential of digital filters extends far beyond just reverberation.
 They can precisely tailor the sound spectrum to specific needs.
-Despite this, only a handful of musicians are equipped to create the filters they require, even when they have a clear vision of the desired spectral alteration.
-This book aims to support sound designers by providing an overview of the most important filters implemented in [SuperCollider](https://supercollider.github.io/).
+
+Despite this, only a handful of musicians are equipped to create the filters they require, even when they have a clear vision of the desired spectral alteration and this book aims to support sound designers by providing an overview of the most important filters implemented in [SuperCollider](https://supercollider.github.io/).
 
 Numerous software options exist for creating digital filters, suggesting that only basic programming skills might be necessary to utilize digital filters effectively.
 While this may hold true for straightforward tasks, a deeper understanding of how digital filters operate is beneficial at all stages of using such software.
@@ -68,7 +73,7 @@ Importantly, for composers crafting their own sounds, mastering filter theory op
 From my own hands-on experience, a deep grasp of filter theory has been an invaluable asset in designing musical instruments.
 Often, the need arises for a simple yet unique filter, different from the conventional designs readily available through existing software.
 
-## A Simple Filter?
+## An Impossible Filter
 
 If we aim to entirely filter out all high frequencies up to a cutoff frequency $f_c$, without affecting the low frequencies $(f \leq f_c)$, our ideal *brick wall filter* would exhibit an *amplitude (frequency) response* resembling the plot shown below.
 
@@ -81,7 +86,7 @@ mystnb:
     width: 600px
   figure:
     name: fig-brick-wall-filter
-    captuion: Amplitude response (gain versus frequency) specification for the ideal low-pass filter.
+    captuion: Amplitude response (gain versus frequency) specification for the ideal lowpass filter.
 ---
 
 f_s = 3
@@ -99,9 +104,17 @@ ax.set_xlabel('Frequency $f$');
 ax.set_ylabel(r'Gain $G(f)$');
 ```
 
-Such *ideal filter* is the simplest *lowpass filter*.
+Such *ideal filter* is the simplest theoretical *lowpass filter*.
 The gain is 1 in the *passband*, which pans frequencies from 0 Hz to the *cutoff frequency* $f_c$ Hz, and its gain is 0 in the *stopband* (all frequencies above $f_c$).
-The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.
+Such a perfect lowpass filter has magnitude responses
+
+$$H(e^{i\omega}) = \begin{cases} 1, & |\omega| \leq \omega_c \\ 0, & |\omega| > \omega_c \end{cases}$$
+
+such that it passes all frequencies below cutoff $\omega_c$ abd completely blocks all frequencies above the cutoff.
+The transition is **infinitely sharp**!
+In practice this is impossible because we would need an infinite-length impulse responses and negative-time samples (but we cannot look into the future).
+
+## A Very Simple Filter
 
 Another simple (and by no mean ideal) lowpass filter that we can define by a simple formula is give by the differential equation:
 
@@ -184,15 +197,14 @@ The gain $G(2 \pi f) = A_2 / A_1 = A_2 \approx 1.414$.
 :name: def-gain-lti-theorem
 :class: theorem
 
-If the input to any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i 2\pi f t}$, the output will be some constant times the input $B \cdot e^{i 2 \pi f t}$ and $G(2 \pi f)$ is defined by
+If the input to any [LTI filter](def-linear-time-invariant) is a complex waveform $A \cdot e^{i 2\pi f t}$, the output will be some constant times the input $B \cdot e^{i 2 \pi f t}$ and the *gain* $G(2 \pi f)$ is defined by
 
 $$G(2 \pi f) = \frac{B}{A}.$$
 
 ```
 
-What we desire is a formula that gives us the amplitude response and the phase response for all frequencies, that is, the [frequency response](sec-frequency-response) of the filter.
-In the general case, this is a hard problem.
-However, there are a special type of filters for which this is achievable, that is, the *[linear time-invarient filters](def-linear-time-invariant)*.
+What we desire is a formula that gives us the amplitude response and the phase response for all frequencies, that is, the [frequency response](sec-frequency-response) $H(e^{i \omega T})$ of the filter.
+In the general case, this is a hard problem but for *[linear time-invarient filters](def-linear-time-invariant)* we know how to compute it.
 
 ## A Special Type of Filters
 
@@ -227,8 +239,8 @@ For LTI filters it is defined as the spectrum of the output signal divided by th
 
 $$H(z) = \frac{Y(z)}{X(z)} \Rightarrow Y(z) = H(z)X(z)$$
 
-where $X(z) = \mathcal{Z}\{x[n]\}$ and $Y(z) = \mathcal{Z}\{y[n]\}$ are the *[Z-transform](sec-z-transform)* of the input and output signals and $H(z)$ is the [*filter transfer function*](sec-trensfer-function).
-If we set $z = e^{i \omega T}$ in the definition of the Z-transform, we obtain
+where $X(z) = \mathcal{Z}\{x[n]\}$ and $Y(z) = \mathcal{Z}\{y[n]\}$ are the *[$z$-transform](sec-z-transform)* of the input and output signals and $H(z)$ is the [*filter transfer function*](sec-trensfer-function).
+If we set $z = e^{i \omega T}$ in the definition of the $z$-transform, we obtain
 
 $$X(e^{i \omega T}) = \sum_{n=-\infty}^\infty x[n] e^{-i \omega T n}$$
 
@@ -251,6 +263,7 @@ This implies that the frequency response of an LTI filter equals the discrete-ti
 Since $e$, $i$, and $T$ are constants, the frequency response $H(e^{i \omega T})$ is only a function of radian frequency $\omega$.
 Since $\omega$ is real, the frequency response may be considered a complex-valued function of a real variable.
 The response at frequency $f$ Hz, for example, is $H(e^{i 2 \pi f T})$, where $T$ is the **sampling period** in seconds.
+
 It is convinient to define a new function such as
 
 $$H'(\omega) := H(e^{i \omega T})$$
@@ -259,6 +272,7 @@ and write $Y'(\omega) = H'(\omega) X'(\omega)$ instead of having to write $e^{i 
 However, doing so would add a lot of new functions to an already notation-rich scenario.
 Furthermore, writing $H(e^{i \omega T})$ makes the connection between the transfer function and the frequency response explicit.
 We have to keep in mind that by defining the frequency response as a function of $e^{i \omega T}$, we place the frequency 'axis' on the *unit circle* in the complex $z$-plane, since $|e^{i \omega T}| = 1$.
+
 As a result, adding multiples of the sampling frequency to $\omega$ corresponds to traversing the whole cycles around the unit circle, since
 
 $$e^{i (\omega + k 2\pi f)T} = e^{i (\omega T + k 2 \pi)} = e^{i \omega T},$$
@@ -292,7 +306,7 @@ where $G(\omega T) := |H(e^{i \omega T})|$ is the *amplitude (frequency) respons
 ## Analysis of a Simple Filter
 
 Let $x[n]$ be an input signal, $y[n]$ the output signal of the filter and $f_s = \frac{1}{T}$ the sample rate.
-Let use start with a very *simple filter*:
+Let us start with a very *simple filter*:
 
 \begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
@@ -300,7 +314,7 @@ y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 
 Note that $x[t]$ is defined for $t = n T$ with $n = 0, 1, 2, \ldots$
 Our *simple filter* is a [linear and time-invariant](def-linear-time-invariant) filter.
-The [OnePole](https://doc.sccode.org/Classes/OnePole.html) unit generator is a flexible version of this filter.
+The [OneZero](https://doc.sccode.org/Classes/OneZero.html) unit generator is a flexible version of this filter.
 
 You might suspect that, since it is the simplest possible *lowpass filter*, it is also somehow the worst possible lowpass filter. 
 How bad is it? 
@@ -349,7 +363,7 @@ y[n] &= e^{i \omega n T} + e^{i \omega (n-1) T}\\
 \end{split}
 \end{equation*}
 
-We get the same solution as we got using the [Z-transform](sec-simple-filter-example).
+We get the same solution as we got using the [$z$-transform](sec-simple-filter-example).
 The *gain* for this filter is
 
 $$G(\omega T) = |(1 + e^{-i \omega T})|$$
@@ -449,12 +463,13 @@ $$\omega T = \pi \iff \omega f_s^{-1} = \pi \iff \omega = \pi f_s \iff 2\pi f = 
 If we increase the sample rate, the loss in power of high frequencies decreases!
 To achieve a similar result, we have to adapt the coefficients of the filter equation accordingly.
 
-```{admonition} Low and High Level Filters
+```{admonition} Low- and High-Level Filters
 :name: remark-low-level-filter
 :class: remark
 
-The [frequency response](def-frequency-response) of low level SuperCollider filters such as [OneZero](https://doc.sccode.org/Classes/OneZero.html), [OnePole](https://doc.sccode.org/Classes/OnePole.html), [FOS](https://doc.sccode.org/Classes/FOS.html), [SOS](https://doc.sccode.org/Classes/SOS.html) rely the sample rate $f_s$.
-High level filters such as [LPF](https://doc.sccode.org/Classes/LPF.html) and [HPF](https://doc.sccode.org/Classes/HPF.html) do not!
+The [frequency response](def-frequency-response) of low-level SuperCollider filters, such as [OneZero](https://doc.sccode.org/Classes/OneZero.html), [OnePole](https://doc.sccode.org/Classes/OnePole.html), [FOS](https://doc.sccode.org/Classes/FOS.html), [SOS](https://doc.sccode.org/Classes/SOS.html) rely on the sample rate $f_s$.
+High-level filters such as [LPF](https://doc.sccode.org/Classes/LPF.html) and [HPF](https://doc.sccode.org/Classes/HPF.html) do not!
+Therefore, they are much easier to use.
 
 ```
 
@@ -987,3 +1002,5 @@ If we compute the *discrete-time Fourier transform* of $h[\cdot]$ we should get 
 $$\sum\limits_{n-=\infty}^\infty h[n] e^{-i \omega n T} = \sum\limits_{n = 0}^\infty 0.5^{n+1} e^{-i \omega n T} = \frac{1}{2-e^{i \omega T}}$$
 
 Note that the last step is non-trivial!
+
+<!-- TODO? -->

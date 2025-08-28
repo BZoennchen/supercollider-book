@@ -10,6 +10,7 @@ kernelspec:
   name: python3
 ---
 
+(sec-file-sampling)=
 # Sampling
 
 >Electronic music used pure sounds, completely calibrated. You had to think digitally, as it were, in a way that allowed you to extend serial ideas into other parameters through technology. -- Luc Ferrari
@@ -23,6 +24,16 @@ Today we call the use of such raw material, i.e. recordings, *sampling*.
 It is concrète because it never changes at least if we do not modulate it.
 The process of using raw material as a basis and built on top of it we may call *sound file manipulation*.
 In that sense, the title of this chapter is kind of ironic.
+
+```{admonition} Sampling 
+:name: remark-sampling-as-recording
+:class: remark
+
+In [digital signal processing (DSP)](sec-dsp) we also use the term *sampling* but here we mean the process of converting a continuous (analog) signal into a sequence of discrete (digital) values, usually at a fixed rate.
+
+In music production, sampling = borrowing and repurposing audio recordings.
+In signal processing, sampling = digitizing audio (or any continuous signal) so computers can handle it.
+```
 
 ## Buffers
 

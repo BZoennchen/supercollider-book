@@ -178,6 +178,7 @@ Therefore, if $y_1, y_2$ are periodic functions with DC = 0, $(y_1 \cdot y_2)(t)
 Since the convolution is the sum of these similarity measures, it tells us something about the similarity of the two functions too.
 In our example, we can see that $y_2$ mirrored is most similar if it is not shifted.
 The argument $n$ of $(y_1 * y_2)[n]$ defines the shift of the second function, which determines the **phase** if we are in the domain of periodic functions!
+Therefore, the biggest value in $(y_1 * y_2)[n]$ indicates the phase for which the mirrored version of $y_2$ is most similar to $y_1$.
 
 If both signals are discrete but infinite (and defined on $\mathbb{Z}$), the discrete convolution of $y_1, y_2$ is given by:
 

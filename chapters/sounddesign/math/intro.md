@@ -283,6 +283,7 @@ Coming back to my introduction of the book: technical tools open as well as clos
 They turn the ship such that the *horizon of the possible* changes and they have agency over us, they call us to act and to deal with the world in a certain way.
 Math in that sense can also conceal aspects of artistic craftsmanship.
 
+(sec-dsp)=
 ## Digital Signal Processing
 
 Sound is a what we call *signal*.

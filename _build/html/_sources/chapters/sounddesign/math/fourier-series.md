@@ -60,14 +60,47 @@ Given a signal $y(t)$ of a played piano key, how can we compute the pitch, and h
 Spectral analysis and synthesis give us some answers.
 By *transforming* the representation of a signal, we can catapult ourselves from the space of amplitude over time into the space of intensity over frequencies.
 
-In mathematics, the meaning of *transform* and *transformation* is somewhat specific, but it still is relatively wide or loose when the definition sometimes says it is a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
-In *transform theory*, mathematicians talk about a suitable choice of a function called *kernel* (from the German *nucleus* or *core*), by which a problem may be simplified.
+````{admonition} Example
+:name: def-fourier-simplest-example
+:class: example
+Take the example of the simplest analog signal of all, a sine wave of period $1$ second and amplitude 1:
+
+$$y(t) = \sin(2\pi \cdot t)$$
+
+A alternative representation would be
+
+$$
+Y(\Omega) = \begin{cases}
+1, \text{ if $\Omega = 1$} \\
+0, \text{ otherwise.}
+\end{cases}
+$$
+
+where $\Omega$ is the angular frequency, meaning that if $\Omega = 1$ we are asking for the intensity of of the frequency equal to one in $y(t)$.
+
+Also in section [Additive Synthesis](sec-additive-synthesis) we use *Fourier synthesis* to construct complicated waveforms from a sum of simple sinusoids, i.e., a *Fourier series*.
+For example, the (periodic) [sawtooth wave](sec-sawtooth-wave)
+
+```{math}
+    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),
+```
+
+can be constructed by an infinite sum
+
+```{math}
+    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).
+```
+````
+
+In mathematics, the meaning of *transform* and *transformation* is somewhat specific, but it still is relatively wide or loose.
+It is called a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
+And in *transform theory*, mathematicians talk about a suitable choice of a function called *kernel* (from the German *nucleus* or *core*), by which a problem may be simplified.
 
 In 1822 *Jean-Baptise Joseph Fourier* discovered a truly remarkable *transformation* which gives us insights into our knowledge of waveforms in general and music in particular.
-He claimed that any function, whether continuous or discontinuous, can be transformed into a series of sines.
+He claimed that any *periodic* function, whether continuous or discontinuous, can be transformed into a series of sines.
 That important work was corrected to
 
->almost any periodic function can be represented by a Fourier series that converges.
+>almost any **periodic** function can be represented by a Fourier series that converges.
 
 and expanded upon by others to provide the foundation for various forms of the Fourier transform used since.
 
@@ -86,7 +119,6 @@ Well, it is all about computation speed!
 The *FFT* reduces the time complexity of the *[discrete Fourier transformation (DFT)](def-discrete-fourier-transform)* from $\mathcal{O}(n^2)$ to $\mathcal{O}(n\log(n))$ which makes the computation of the *DFT* fast thus applicable for many areas and purposes.
 
 (sec-freq-spectrum)=
-
 ## Frequency Spectrum
 
 Before we dicuss the mathematical basis, let's have a look at the *frequency spectrum* of a audio recordings such that we can picture what we want to compute.
@@ -119,7 +151,7 @@ librosa.display.waveshow(signal, sr=sr, alpha = 0.5)
 plt.show()
 ```
 
-as well as the frequency sprectrum
+as well as its frequency sprectrum.
 
 ```{code-cell} python3
 ---
@@ -146,7 +178,7 @@ plt.show()
 ```
 
 The spectrum is computed by the [discrete Fourier transform](sec-dft).
-As you can see, there are even lower frequencies than the fundamental present and the signal consists of a lot *inharmonic* content.
+As you can see, there are lower frequencies than the fundamental present and the signal consists of a lot *inharmonic* content.
 The piano might be out of tune.
 
 Let us look at a second synthetic example:
@@ -217,15 +249,20 @@ In the synthetic case, we get exaclty what we expected, i.e., 5 peaks, four *har
 (sec-similarity-of-functions)=
 ## Similarity of Periodic Functions
 
+First we have to clarify that 
+
+1. Any periodic function $y(t)$ has to have a fundamental frequency with period $T$. It is the period after which it repeats, i.e. $f(t) = f(t + Tn)$, with $n \in \mathbb{N}$.
+2. From this it follows that $\int_0^{Tn} y(t) dt = n\int_0^{T}dt$ with $n \in \mathbb{N}$.
+
 Let us start from the assumption that the *[Fourier theorem](theorem-fourier-synthesis)* is correct (which it is).
-So we assume, that we can built any periodic vibration using a combination of sinusiods whose frequencies are integer multiple of a fundamental frequcency.
+So we assume, that we can built any periodic vibration/signal using a combination of sinusiods whose frequencies are integer multiple of a fundamental frequcency.
 Our job is to find the correct **amplitudes** and **phases** of these sinusiods.
 Let's ignore the phase for a moment.
-We assume that all phases are zero.
+For now we assume that all phases are zero.
 
 The question that we have to answer is: how much of a specific sinusoidal is in $y(t)$.
 If the answer is *a lot*, then the amplitude of the respective sinosoid should be large.
-Therefore, computing *sinusoidals* that are similar to $y(t)$ seems to be a good starting point.
+Therefore, computing *sinusoidals* that are **similar** to $y(t)$ seems to be a good starting point.
 Instead of similarity one speaks of *cross-correlation* which is a measure of similarity of two series as a function of the displacement of one relative to the other, also known as *sliding dot product* or *sliding inner-product*.
 
 Functions are similar if their product result in a positive function.
@@ -357,50 +394,41 @@ In general we get
     \int_0^1 g_n(t)dt = \frac{1}{2n}.
 ```
 
-Note that $\forall n \in \mathbb{N}:$
+Why is that? Well because $\forall n \in \mathbb{N}:$
 
 $$\int_0^1 \sin(2\pi \cdot n \cdot t)^2 dt = \frac{1}{2}$$
 
-holds, thus
+thus
 
-$$\int_0^1 \frac{1}{n}\sin(2\pi \cdot n \cdot t)^2 dt = \frac{1}{n} \int_0^1 \sin(2\pi \cdot n \cdot t)^2 dt = \frac{1}{2n}.$$
+$$\int_0^1 \frac{1}{n}\sin(2\pi \cdot n \cdot t)^2 dt = \frac{1}{n} \int_0^1 \sin(2\pi \cdot n \cdot t)^2 dt = \frac{1}{2n}$$
 
-Therefore,
-
-$$\int_0^1 g_n(t) dt = \frac{1}{n}\int_0^1 \sin(2\pi \cdot n \cdot t)^2 dt$$
-
-follows.
-If we look at the integral of 
-
-$$h_n(t) = \left( y(t) - \frac{1}{n}\sin(2\pi \cdot n \cdot t) \right) \cdot \sin(2\pi \cdot n \cdot t),$$
-
-then $\forall n \in \mathbb{N}:$
-
-$$\int_0^1 h_n(t) dt = \int_{-\infty}^\infty h_n(t) dt = 0$$
-
-holds.
-In fact, if we look at $h_{i,j}(t) = \sin(2\pi i \cdot t ) \cdot \sin(2\pi j \cdot t)$ 
+holds **and** 
 
 ```{math}
 :label: eq:perp:sines
 \begin{split}
-\forall i, j \in \mathbb{N}, i \neq j: \int_0^1 h_{i,j}(t) dt &= \int_{0}^1 h_{i,j}(t) dt = 0\\
-&= \int_{-\infty}^\infty \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt\\
-&= \int_{-\infty}^\infty h_{i,j}(t) dt
+\forall n, m \in \mathbb{N}, n \neq m: 
+\int_0^1 \sin(2\pi \cdot n \cdot t) \cdot \sin(2\pi \cdot m \cdot t) dt = ß\\
+&= \int_{-\infty}^\infty \sin(2\pi \cdot n \cdot t) \cdot \sin(2\pi \cdot m \cdot t) dt\\
 \end{split}
 ```
 
 holds.
+Finally, using ``{eq}`eq:fourier:series:alternative` and the rule of integration for addition, we can follow that
+
+$$\int_0^1 g_n(t) dt = \frac{1}{n}\int_0^1 \sin(2\pi \cdot n \cdot t)^2 dt = \frac{1}{2n}$$
+
+holds because all terms integrate to zero except where $n=m$.
 
 ```{admonition} Perpendicular Functions
 :name: theorem-perp-sine
 :class: theorem
 
-For all frequencies $i, j \in \mathbb{N}$ with $i \neq j$ 
+For all frequencies $n, m \in \mathbb{N}$ with $n \neq m$ 
 
-$$\int_0^1 \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt = \int_{-\infty}^\infty \sin(2\pi i \cdot t) \cdot \sin(2\pi j \cdot t ) dt= 0$$
+$$\int_0^1 \sin(2\pi n \cdot t) \cdot \sin(2\pi m \cdot t ) dt = \int_{-\infty}^\infty \sin(2\pi n \cdot t) \cdot \sin(2\pi m \cdot t ) dt= 0$$
 
-holds. We say that $\sin(2\pi i \cdot t)$ is *perpendicular* to $\sin(2\pi j \cdot t)$.
+holds. We say that $\sin(2\pi n \cdot t)$ is *perpendicular* to $\sin(2\pi m \cdot t)$.
 ```
 
 ```isc
@@ -438,18 +466,18 @@ for i in range(1,k+1):
         index += 1
         alpha = 0
         beta = 0
-        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (i * t - alpha)), label=f'$i={{{i}}}$', linestyle='--')
-        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (j * t - beta)), label=f'$j={{{j}}}$', linestyle='--')
+        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (i * t - alpha)), label=f'$n={{{i}}}$', linestyle='--')
+        ax[i-1,j-1].plot(t, np.sin(TWO_PI * (j * t - beta)), label=f'$m={{{j}}}$', linestyle='--')
         ax[i-1,j-1].fill_between(t, np.sin(TWO_PI * (j * t - beta)) * np.sin(TWO_PI * (i * t - alpha)), alpha=0.5)
         if i < k:
             ax[i-1,j-1].set_xticklabels([])
-        ax[i-1,j-1].set_title(f'$i={{{i}}}, j={{{j}}}$')
-txt = fig.suptitle(r'$\sin(2\pi i \cdot t )$ in blue, $\sin(2\pi j \cdot t)$ and $h_{i,j}(t)$ in blue (filled).')
+        ax[i-1,j-1].set_title(f'$n={{{i}}}, m={{{j}}}$')
+txt = fig.suptitle(r'$\sin(2\pi n \cdot t )$ in blue, $\sin(2\pi m \cdot t)$ in orange and their product in blue (filled). The integral of the filled area is zero except for $n=m$ wherer it is $1/2$.')
 ```
 
 We say that these functions are **perpendicular** to each other because their scalar product (the integral of their product) is zero!
 
-The similarity measure of two functions is similar to the similarity of two vectors.
+Following up on this, the similarity measure of two functions is similar to the similarity of two vectors.
 One way to compare two vectors $\mathbf{a} = (a_1, \ldots, a_n)$ and $\mathbf{b} = (b_1, \ldots, b_n)$ is to compute their *inner product*.
 If two vectors $\mathbf{a}, \mathbf{b}$ are perpendicular, i.e., if they are very different, their *inner product* 
 
@@ -474,6 +502,9 @@ is the inner product of $h$ and $g$.
 It is a measure of the similarity of $h$ and $g$.
 ````
 
+We can conclude that our steps works if $y(t)$ is not a sawtooth wave but also if some frequencies are missing.
+However, if some sine waves are shifted or if their frequencies are non-integral, it is not yet clear our steps still work.
+
 ## Fourier Synthesis
 
 But let us start from the beginning, i.e., from the *Fourier series*.
@@ -491,90 +522,90 @@ The *Foruier series* in amplitude-phase form $y_N(t)$ of a periodic function $y(
 y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right)
 ```
 
-where $N$ is potentially an infinite integer. 
+where $N$ is potentially equal to infinity. 
 $T = \frac{1}{f_0}$ is the period of $y(t)$, $A_n$ is the $n$-th hermonic's *amplitude* and $\phi_n$ is its *phase (shift)*.
-$A_0/2$ is the DC component, it is the mean value of $y(t)$.
+$A_0/2$ is the direct current (DC) component/bias, with 
+
+$$A_0 = \int_0^1 y(t) dt$$
+
+which is the mean of $y(t)$.
 $f_0$ is the *fundamental frequency* of the signal.
 ````
 
 Except for pathological functions, any periodic function can be represented by a *Fourier series (FS)* that converges.
 Convergence of *Fourier series* means that as more and more harmonics from the series are summed, each successive partial *Fourier series sum* will better approximate the function, and will equal the function with a potentially infinite number of harmonics.
 
+Still, we did not proof for completeness, that is, that we really can represent **all** periodic function in this way.
+For that one has to prove that our orthogonal functions are in fact a *complete basis* for $L^2([0,T])$, meaning that if a function $h$ is orthogonal to all our basis, it follows that $f = 0$ (in $L^2$)!
+We will not prove this because it is not important for our application but it is true.
+If you want to have a look you can find a proof [here](https://ocw.mit.edu/courses/es-1803-differential-equations-spring-2024/mites_1803_s24_fourier_complete.pdf?utm_source=chatgpt.com).
+I hope I could you provide a good intuition.
+
 ```{admonition} Fourier Theorem
 :name: theorem-fourier-synthesis
 :class: theorem
-Except for pathological functions, any periodic vibration, no matter how complicated it seems, can be built up from sinusoids whose frequencies are integer multiples of a fundamental frequency, by choosing the proper amplitudes and phases.
+Except for pathological functions, any periodic vibration/signal, no matter how complicated it seems, can be built up from sinusoids whose frequencies are integer multiples of a fundamental frequency, by choosing the proper amplitudes and phases.
 ```
 
-Non-periodic functions can be handled using an extension of the *Fourier series* called the *Fourier transform* which treats non-periodic functions as periodic with infinite period.
+Note that non-periodic functions can be handled using an extension of the *Fourier series* called the *Fourier transform* which treats non-periodic functions as periodic with infinite period.
 This transform thus can generate frequency domain representations of non-periodic functions as well as periodic functions, allowing a waveform to be converted between its time domain representation and its frequency domain representation.
 
-In section [Additive Synthesis](sec-additive-synthesis) we use *Fourier synthesis* to construct complicated waveforms from a sum of simple sinusoids, i.e., a *Fourier series*.
-For example, the (periodic) [sawtooth wave](sec-sawtooth-wave)
-
-```{math}
-    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),
-```
-
-can be constructed by an infinite sum
-
-```{math}
-    y_\text{saw}(t) = A \left( \frac{1}{2} - \frac{1}{\pi} \sum_{k=1}^{\infty} (-1)^k \frac{\sin(2\pi k f t)}{k} \right).
-```
+Next we want to but things together and compute all frequency intensities and phases assuming the *[Fourier theorem](theorem-fourier-synthesis)* is correct, i.e. we assume we can synthesize any periodic function using the [definition above](def-fourier-series).
 
 ## Fourier Analysis
 
-Until now, we assumed that all *phase shifts* are zero.
-Then we concluded that if we compute the integral of signal $y(t)$ multiplied with a sinusoid of the same phase we get:
+Until now, we assumed that all *phase shifts* are zero and that the period of the fundamental $T$ is $1$.
+Then we concluded that if we compute the integral of signal $y(t)$---a sawtooth wave---multiplied with a sinusoid of the same phase we get:
 
-1. either $1/(2n)$, where $n \in \mathbb{N}$ is the **frequency** of the sinusoid (similarity)
+1. either some $2A_n/T$ positive number (similarity) where $A_n$ was the frequncy intensity of frequency $n \in \mathbb{N}$
 2. or zero, in this case $y(t)$ is perpendicular to the sinusoid (non-similarity)
 
-We can reformulate the problem of similarity using an optimization problem.
-Let us start with an analog signal first $y(t)$.
+We can easily adapt to an arbitrary period $T$ if we change the intergrals accordingly.
+Then, to find the correct *phase* $\phi_n$, we can reformulate the problem of similarity into an optimization problem.
+Let's say $y(t)$ is our an analog signal (its no longer a sawtooth wave but some arbitrary signal).
 And let us reconsider the *[Fourier series](def-fourier-series)*:
 
 ```{math}
 y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right).
 ```
 
-We multiply some term of the sum of $y_N(t)$ with our signal $y(t)$ and integrate over the period of our signal to compute the measure of similarity:
+We can multiply a single term of the sum of $y_N(t)$ with our signal $y(t)$ and integrate over the period of our signal to compute the measure of similarity:
 
-$$X_n(\phi) = \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi\right) dt, \quad \phi \in [0;2\pi].$$
+$$Y_n(\phi) = \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi\right) dt, \quad \phi \in [0;2\pi].$$
 
-Following our discussion at the start of section [Similarity of Periodic Functions](sec-similarity-of-functions), at the maximum of $X_n(\phi)$ the integral is equal to the **amplitude** $A_n \cdot \frac{T}{2}$.
+Following our discussion at the start of section [Similarity of Periodic Functions](sec-similarity-of-functions), at the maximum of $Y_n(\phi)$ the integral is equal to the **amplitude** $A_n \cdot T/2$.
 If the respective sinusoid is part of the *Fourier series* 
 
-$$A_n = \max\limits_{\phi \in [0;T]} X_n(\phi)$$
+$$A_n = \max\limits_{\phi \in [0;T]} Y_n(\phi)$$
 
-is not zero, otherwise it is.
-Therefore, we multiply the integral by $\frac{2}{T}$ to get $A_n$.
+is non-zero, otherwise it is.
+Therefore, we multiply the integral by $2/T$ to get $A_n$.
 Furthermore, we get the missing **phase shift** defined by
 
-$$\phi_n = \arg\max\limits_{\phi \in [0;T]} X_n(\phi)$$
+$$\phi_n = \arg\max\limits_{\phi \in [0;T]} Y_n(\phi)$$
 
 Using the equivalence of polar and Cartesian forms, that is,
 
 $$\cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) \equiv \cos(\phi_n) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right) + \sin(\phi_n) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)$$
 
-We can simplify $X_n(\phi)$:
+We can simplify $Y_n(\phi)$:
 
 \begin{equation*}
 \begin{split}
-X_n(\phi) &= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) dt\\
+Y_n(\phi) &= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right) dt\\
 &= \cos(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t \right)dt}_{a_n} + \sin(\phi) \cdot \underbrace{\frac{2}{T}\int_T y(t) \cdot \sin\left(\frac{2\pi \cdot n}{T}t \right)dt}_{b_n}\\
 &= \cos(\phi) \cdot a_n + \sin(\phi) \cdot b_n.
 \end{split}
 \end{equation*}
 
-The derivative of $X_n(\phi)$ is zero at the **phase** of maximum correlation.
+The derivative of $Y_n(\phi)$ is zero at the **phase** of maximum correlation.
 Threfore,
 
-$$X'_n(\phi_n) = \sin(\phi_n) \cdot a_n - \cos(\phi_n) b_n = 0 \Rightarrow \tan(\phi_n) = \frac{b_n}{a_n}$$
+$$Y'_n(\phi_n) = \sin(\phi_n) \cdot a_n - \cos(\phi_n) b_n = 0 \Rightarrow \tan(\phi_n) = \frac{b_n}{a_n}$$
 
 holds and the correlation peak value is:
 
-$$A_n = X_n(\phi_n) = \cos(\phi_n) a_n + \sin(\phi_n) b_n = \sqrt{a_n^2 + b_n^2}.$$
+$$A_n = Y_n(\phi_n) = \cos(\phi_n) a_n + \sin(\phi_n) b_n = \sqrt{a_n^2 + b_n^2}.$$
 
 In other words, $a_n$ and $b_n$ are the *Cartesian coordinates* of a vector with *polar coordinates* $A_n$ and $\phi_n$.
 That is quite remarkable.
@@ -634,9 +665,7 @@ $$
 This form generalizes to **complex-valued functions**.
 ````
 
-In this form **phase** and **amplitude** are represented by a phasor, e.g., $A_n / 2 e^{-i \phi_n}$.
-
-We can define $Y_N : \mathbb{Z} \rightarrow \mathbb{C}$
+In this form **phase** and **amplitude** are represented by a phasor, e.g., $A_n / 2 e^{-i \phi_n}$ and we can re-define $Y_N : \mathbb{Z} \rightarrow \mathbb{C}$
 
 \begin{equation}
 Y_N(n) = c_n,
