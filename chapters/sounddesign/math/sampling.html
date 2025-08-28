@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dft.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="z-transform.html">Z-Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="z-transform.html"><span class="math notranslate nohighlight">\(z\)</span>-Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lti-filters.html">LTI Filters</a></li>
 </ul>
 </li>
@@ -278,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Composing</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../composing/introduction.html">The Burden of Freedom</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../composing/music-theory/music-theory.html">Western Music Theory</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/1-midinotes.html">Notes &amp; Midi Notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../composing/music-theory/2-intervals.html">Intervals</a></li>
@@ -510,7 +510,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-of-information">Loss of Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-process-of-sampling">The Process of Sampling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-of-information">Loss of Information</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">Aliasing</a></li>
 </ul>
             </nav>
@@ -527,20 +531,52 @@ document.write(`
 <span id="sec-sampling"></span><h1>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_remove-input docutils container">
 </div>
-<p>On a computer we are dealing with digital signals, that is, discrete signals.
-Sampling is the technique to transform a continious function</p>
+<p>This section introduces sampling.
+It is the necessary fundament for all digital signal processing and communication.
+Different from music production where <a class="reference internal" href="../../supercollider/sampling/intro.html#sec-file-sampling"><span class="std std-ref">sampling</span></a> means to reuse and tinker with a recorded audio material (and usually involves the sampling I introduce in this section), sampling here is defined as the process of measuring an analog signal at distinct and usually a finite points number of points.
+Digital representations of analog signals offer advantages in terms of</p>
+<ul class="simple">
+<li><p>robustness towards noise, meaning we can send more bits/s</p></li>
+<li><p>use of flexible processing equipment, in particular the (digital) computer</p></li>
+<li><p>more reliable processing equipment</p></li>
+<li><p>easier to adapt complex algorithms</p></li>
+</ul>
+<div class="definition admonition" id="def-math-sampling">
+<p class="admonition-title">Sampling</p>
+<p><em>Sampling</em> is the process of measuring an analog signal at distinct and usually a finite points number of points.</p>
+</div>
+<section id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">#</a></h2>
+<p>I use the following well-known notation:</p>
+<ul class="simple">
+<li><p><em>original analog signal</em> <span class="math notranslate nohighlight">\(y(t)\)</span></p></li>
+<li><p><em>sampling frequency</em> also called <em>sampling rate</em> <span class="math notranslate nohighlight">\(f_s\)</span></p></li>
+<li><p><em>sampling interval</em> <span class="math notranslate nohighlight">\(T_s\)</span>, where <span class="math notranslate nohighlight">\(T_s = 1/f_s\)</span></p></li>
+<li><p><em>sampled signal</em> <span class="math notranslate nohighlight">\(y_N[n]\)</span>, where <span class="math notranslate nohighlight">\(y_N[n] \approx y(n \cdot T_s)\)</span></p></li>
+<li><p><em>frequency</em> of an analog signal <span class="math notranslate nohighlight">\(f\)</span></p></li>
+</ul>
+</section>
+<section id="the-process-of-sampling">
+<h2>The Process of Sampling<a class="headerlink" href="#the-process-of-sampling" title="Permalink to this headline">#</a></h2>
+<p>On a (digital) computer we are dealing with digital signals, that is, discrete signals.
+There is no way around this fact.
+Sampling is the technique to transform a continuous function</p>
 <div class="math notranslate nohighlight">
 \[y: \mathbb{R} \rightarrow \mathbb{C}\]</div>
 <p>into a discrete representation</p>
 <div class="math notranslate nohighlight">
 \[y_{N}: \mathbb{Z} \rightarrow \mathbb{C}.\]</div>
+<p>Remeber, we are interested in continuous and discrete <em>1D signals</em> <span class="math notranslate nohighlight">\(y(t)\)</span> and <span class="math notranslate nohighlight">\(y_N(n)\)</span> respectively where the independent variable is time <span class="math notranslate nohighlight">\(t\)</span> and the timestep <span class="math notranslate nohighlight">\(n\)</span>.
+So we start off with an analog signal which is then sampled <strong>uniformly</strong>!
+Uniform sampling implies that we sample every <span class="math notranslate nohighlight">\(T_s\)</span> seconds or <span class="math notranslate nohighlight">\(f_s\)</span> times a second.</p>
 <section id="loss-of-information">
-<h2>Loss of Information<a class="headerlink" href="#loss-of-information" title="Permalink to this headline">#</a></h2>
+<h3>Loss of Information<a class="headerlink" href="#loss-of-information" title="Permalink to this headline">#</a></h3>
 <p>Indeed, that’s not quite precise enough because we represent all <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> or irrational numbers by floating point numbers.
-Therefore, for complex number <span class="math notranslate nohighlight">\(z = a + ib\)</span>,</p>
+Therefore, for complex a number <span class="math notranslate nohighlight">\(z = a + ib\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[a, b \in \mathbb{Q}\]</div>
 <p>holds (most of the time).
+Sametimes one also wants to quantize the values of <span class="math notranslate nohighlight">\(y_N\)</span>.
 Sampling in the context of audio means that we use equidistant sample points.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -549,17 +585,33 @@ Sampling in the context of audio means that we use equidistant sample points.</p
 </figure>
 </div>
 </div>
-<p>For example, let us assume our <em>sample rate</em> (also called sample frequency) <span class="math notranslate nohighlight">\(f_s\)</span> is 2 hertz (Hz).
-And let us assume we want to sample a sine wave <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> with a frequency of 6 Hz, i.e., <span class="math notranslate nohighlight">\(f = 6\)</span>.
+<p>For example, let us assume our <em>sample rate</em> (also called sample frequency) <span class="math notranslate nohighlight">\(f_s\)</span> is 9 hertz (Hz), meaning we sample in an equidistant nine times a second.
+And let us assume we want to sample a sine wave <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> with a frequency of 6 Hz, i.e., <span class="math notranslate nohighlight">\(f = 1\)</span>.
 Then</p>
 <div class="math notranslate nohighlight">
-\[y_N[0] \approx y(0), \ y_N[1] \approx y(0.5), \ y_N[2] \approx 1.0\]</div>
+\[y_N[0] \approx y(0/9) = 0, \ y_N[1] \approx y(1/9) = 0.643, \ y_N[2] \approx y(2/12) = 0.985\]</div>
 <p>and in general</p>
 <div class="math notranslate nohighlight">
-\[y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s)\]</div>
+\[y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s) = \sin(2\pi n \cdot 1/9)\]</div>
 <p>I indicate, that the value <span class="math notranslate nohighlight">\(y_N[n]\)</span> is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
-Therefore, we lose information, i.e. accuracy on two ends:
+In the image above the orange points indicate our sample points of the continuous function.
+You can also see that if we only use a sample rate of 2 Hz all our sample values would be zero indicating that the sample rate is surely to small in comparison to the frequency of the sine wave.</p>
+<p>The following code generates the samples for our example.
+You can play around with the <code class="docutils literal notranslate"><span class="pre">sampeRate</span></code> <span class="math notranslate nohighlight">\(f_s\)</span> and the frequency <span class="math notranslate nohighlight">\(f\)</span>.
+Note however that at <span class="math notranslate nohighlight">\(x\)</span>-axis does gives you the sample number (starting from 0) intead of the time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nb">sampleRate</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">frequency</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span><span class="nx">t</span><span class="o">|</span>
+  <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">pi</span><span class="o">*</span><span class="nx">frequency</span><span class="o">*</span><span class="nx">t</span><span class="p">).</span><span class="nx">sin</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nc">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="nb">sampleRate</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="o">|</span><span class="nx">t</span><span class="o">|</span> <span class="nx">y</span><span class="p">.(</span><span class="nx">t</span><span class="p">)}).</span><span class="nx">plot</span><span class="p">(</span><span class="na">discrete:</span> <span class="kc">true</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In summary, we lose information, i.e. accuracy on two ends:
 (1) first of all in the <strong>time direction</strong> but also (2) in the <strong>amplitude direction</strong>.</p>
+</section>
 </section>
 <section id="aliasing">
 <span id="sec-aliasing"></span><h2>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this headline">#</a></h2>
@@ -567,26 +619,38 @@ Therefore, we lose information, i.e. accuracy on two ends:
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="p">.</span><span class="nb">sampleRate</span> <span class="c1">// 44100 Hz</span>
 </pre></div>
 </div>
-<p>gives us the <em>sample rate</em> of our audio signals.
-On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
+<p>gives us the <em>sample rate</em> of our audio signals.</p>
+<p>On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
 Therefore, a audio signal <span class="math notranslate nohighlight">\(y: \mathbb{N} \rightarrow \mathbb{Q}\)</span> represents 1 seconds by 44100 samples (rational numbers)</p>
 <div class="math notranslate nohighlight">
-\[y[i], y[i+1], \ldots, y[i+44099].\]</div>
+\[y[n], y[n+1], \ldots, y[n+44099].\]</div>
+<p>If we use single-percision floating point, then each sample requires 32-bit or 4 byte.
+Therfore, the sample uses up approximately 1.67 MiB (often wrongly written as MB / MegaByte).
+Sound in its raw form is quite memory intensive!</p>
 <p>When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as <strong>aliasing</strong> (different signals become indistinguishable to each other).
 This follows from the so called <em>Nyquist–Shannon sampling theorem</em>.</p>
 <div class="theorem admonition" id="theorem-sampling">
 <p class="admonition-title">Nyquist–Shannon Sampling Theorem</p>
-<p>If a function <span class="math notranslate nohighlight">\(y(t)\)</span> contains no frequencies higher than <span class="math notranslate nohighlight">\(f\)</span> hertz, it is completely determined by giving its ordinates at a series of points spaced <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds apart.</p>
+<p>If a function <span class="math notranslate nohighlight">\(y(t)\)</span> contains no frequencies higher than <span class="math notranslate nohighlight">\(f\)</span> hertz, it is completely determined by giving its ordinates at a series of points spaced <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds apart. In other words, when sampling an analog signal the sampling frequnecy must be greater than twice the highest frequency component of the analog signal to be able to reconstruct the original signal from the sampled version.</p>
 </div>
-<p>Aliasing can also generate frequencies that are not truly present.
-To avoid aliasing, the sampling rate must be more than twice the highest frequency of the sampled signal.</p>
+<p>I will not prove this theorem here because it involves techniques like the <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier transform</span></a>) that we did not yet covered but from our example you get some of the intuition.</p>
+<div class="theorem admonition" id="theorem-aliasing">
+<p class="admonition-title">Aliasing</p>
+<p>If the sample frequency is less than twice the highest frequency component, then frequencies in the original signal that are above half the sampling rate will be “aliased” and will appear in the resulting signal as lower frequencies.</p>
+</div>
+<p>The consequence of <em>aliasing</em> is that we cannot recover the original signal, so aliasing has to be avoided except if you want to use it intentionally.
+Sampling too slowly will produce a sequenc <span class="math notranslate nohighlight">\(y(t)\)</span> that could have orginated from a number of signal.
+So there is <strong>no</strong> chance of recovering the original one.</p>
+<p>To avoid aliasing we have to sample fast enough.
+But if we can’t sample fast enough (possibly due to costs) we can include an <em>anti-aliasing filter</em>—usually a <a class="reference internal" href="../filters/3-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">low-pass filter</span></a> that is applied before sampling to ensure that no more components with frequencies greater than half the sample frequency remain.
+This will then gives us an inexact reconstruction but can still good enough solution.</p>
 <div class="definition admonition" id="def-aliasing">
 <p class="admonition-title">Aliasing</p>
 <p><em>Aliasing</em> is the effect that result from a two small <em>sample rate</em> by which different signals become indistinguishable to each other.</p>
 </div>
 <p>In the example above we can observe aliasing.
 We can see that a sample rate of 1 Hz is too low to capture <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> for <span class="math notranslate nohighlight">\(f = 2, 3, 6\)</span> Hz.
-All these sine waves appear to be a sine wave of 1 Hz.
+All these sine waves could also appear to as a sine wave of 1 Hz.
 They are indistinguishable if we use a <em>sample rate</em> that low.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -597,6 +661,23 @@ They are indistinguishable if we use a <em>sample rate</em> that low.</p>
 </div>
 <p>The human ear is able to recognize frequencies up to round about 20000 Hz.
 Since we need double the <em>sample rate</em>, 44100 gives us a little bit of room.</p>
+<p>You can play around with the following code to the effect of a sample rate that is too low.
+Change <code class="docutils literal notranslate"><span class="pre">sampleRate</span></code> and re-evaluate the code.
+The first plot shows a good approximation of the real signal.
+The second plot shows the result of the sampling process.</p>
+<div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+<span class="kd">var</span> <span class="nb">sampleRate</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">frequency</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">;</span>
+<span class="nx">y</span> <span class="o">=</span> <span class="p">{</span><span class="o">|</span><span class="nx">t</span><span class="o">|</span>
+	<span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">pi</span><span class="o">*</span><span class="nx">frequency</span><span class="o">*</span><span class="nx">t</span><span class="p">).</span><span class="nx">sin</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="p">[</span>
+	<span class="nc">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="o">|</span><span class="nx">t</span><span class="o">|</span> <span class="nx">y</span><span class="p">.(</span><span class="nx">t</span><span class="p">)}),</span>
+	<span class="nc">Array</span><span class="p">.</span><span class="nx">interpolation</span><span class="p">(</span><span class="nb">sampleRate</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">).</span><span class="nx">collect</span><span class="p">({</span><span class="o">|</span><span class="nx">t</span><span class="o">|</span> <span class="nx">y</span><span class="p">.(</span><span class="nx">t</span><span class="p">)})</span>
+<span class="p">].</span><span class="nx">plot</span><span class="p">(</span><span class="na">discrete:</span><span class="kc">false</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -667,7 +748,11 @@ Since we need double the <em>sample rate</em>, 44100 gives us a little bit of ro
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-of-information">Loss of Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-process-of-sampling">The Process of Sampling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-of-information">Loss of Information</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">Aliasing</a></li>
 </ul>
   </nav></div>

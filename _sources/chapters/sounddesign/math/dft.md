@@ -65,9 +65,7 @@ That is, we are dealing with **discrete signals**.
 
 To deal with a **periodic** and **discrete** signal, we switch from the *[Fourier transform](def-fourier-transform-exp)* to the *[discrete Fourier transform](def-discrete-fourier-transform)*.
 If we want to handle a **non-periodic** and **discrete** signal, we apply the *discrete-time Fourier transform (DTFT)* instead.
-Because of there similarity, one can easily confuse DFT with the DTFT thus I included a [Difference between DFT and DTFT](sec-dft-vs-dtft) at the bottom.
-
-For audio signals, the DTFT is not that relevant.
+Because of there similarity, one can easily confuse DFT with the DTFT thus I include the this section with [Difference between DFT and DTFT](sec-dft-vs-dtft) at the bottom but for audio signals, the DTFT is not that relevant.
 
 ````{admonition} Discrete Fourier Series (DFS)
 :name: def-fourier-series-exp-discrete
@@ -91,22 +89,52 @@ $y[n]$ is periodic and so is $c^*[k]$.
 
 The *discrete Foruier transform (DFT)* transforms a sequence of $N$ *complex numbers* $y[0], \ldots, y[N-1]$ into another sequence of complex numbers $c[0], \ldots, c[N-1]$, such that
 
-$$c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},$$
+$$\mathcal{F}\{y\} = c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},$$
 
 where $c[k]$ for $k = 0, \ldots, N-1$ are the coefficients of the *[discrete Fourier series](def-fourier-series-exp-discrete)*.
 ````
 
+The technique assumes that the samples are **equally spaced**.
 The DFT basically uses $N$ probing functions defined by the [phasors](def-phasor) $\hat{1}_{-2 \pi k / N}, k = 0, \ldots, N-1$ to analyse the discrete signal $y$ for frequencies 
 
 $$0, \frac{1}{N}, \ldots, \frac{N-1}{N}$$
 
-times the *sample frequency* $f_s$. However, due to the [Nyquist–Shannon sampling theorem](theorem-sampling) we can only rely on the first half of coefficients, i.e.,
+times the *sample frequency* $f_s$. 
+It produces $N$ frequency bins and each bin corresponds to a frequency step of 
+
+$$\Delta f = \frac{f_s}{N}$$
+
+and it covers frequencies in $[0,f_s)$ (or equivalently $[-f_s/2, f_s/2)$ if centered).
+So the coverage is independent of $N$!
+So $N$ does not change the maximum frequency you can see---only the resolution between bins.
+
+```{admonition} Example
+:name: def-frequencies-of-dft
+:class: example
+
+If $f_s = 1000$ Hz then $N=100$ leads to $\Delta f = 10$ Hz (per bin) in the range $f_s/N$ to $f_s$.
+If $N=1000$, the resolution increases (not the range), that is, $\Delta f = 1$ Hz (per bin).
+
+```
+
+However, due to the [Nyquist–Shannon sampling theorem](theorem-sampling) we can only rely on the first half of coefficients, i.e.,
 
 $$0, \frac{f_s}{N}, \ldots, \frac{f_s}{2}.$$
 
-Also, note that the DFT does only probe for frequencies that are an integer multiple of the fundamental frequency 
+Also, note that the DFT does only probe for frequencies that are an integer multiple of the 
 
 $$\frac{f_s}{N}.$$
+
+It basically assumes that this is the *fundamental frequency* of the signal.
+$N$ samples at a sample rate $f_s$, span a time window 
+
+$$T = \frac{N}{f_s}.$$
+
+Therefore, increasing $N$ (with fixed $f_s$) means that we are analyzing a longer time window of the signal.
+A longer observation leads to better frequency resolution, but poorer time localization (this is the **time-frequency tradeoff**).
+
+The DFT also implicitly assumes that the $N$ samples form **one period** of a period signal and if the signal is not periodic with period $N$, *spectral leakage* occurs.
+So $N$ also determines the "artificial" period the DFT wraps the signal around.
 
 Therefore, we expect limitations when dealing with inharmonic content because any content within the signal which is not part of some harmonic will be approximated by those harmonics and since we only compute a finite number of coefficients, this approximation is imperfect.
 
@@ -118,27 +146,30 @@ Similar to the *[Fourier transform](def-fourier-transform-exp)* there is an inve
 
 The *inverse discrete Fourier transform IDFT* transforms a sequence of $N$ *complex numbers* $c[0], \ldots, c[N-1]$ into another sequence of complex numbers  $y[0], \ldots, y[N-1]$, such that 
 
-$$y[n] = \frac{1}{N} \sum\limits_{k=0}^{N-1} c[k] \cdot e^{i\frac{2\pi}{N}kn},$$
+$$\mathcal{F}\{c\} = y[n] = \frac{1}{N} \sum\limits_{k=0}^{N-1} c[k] \cdot e^{i\frac{2\pi}{N}kn},$$
 
 where $c[k]$ for $k = 0, \ldots, N-1$ are the coefficients of the *[discrete Fourier transform](def-discrete-fourier-transform)*.
 ````
 
 Note that the *[inverse discrete Fourier transform  IDFT](def-inverse-discrete-fourier-transform)* is a specific examle of a *[discrete Fourier series](def-fourier-series-exp-discrete)*.
 
-## Example
+## Example (Perfection)
 
 Suppose the following signal is given
 
 $$y(t) = \underbrace{5}_{\text{DC}} + \underbrace{2 \cos(2\pi t - \pi/2)}_{\text{1 Hz}} + \underbrace{3 \cdot \cos(4\pi t)}_{\text{2 Hz}}.$$
 
-Let's sample $y(t)$ at 4 times per second, i.e. a *sample rate* $f_s$ of 4 Hz from $t = 0$ to $t=3/2$.
+The frequency of the fundamental of the signal is 1 Hz and it consists of one additional harmonic.
+So let us choose a sample rate $f_s = 4$ Hz that is double the frequency of the highest frequency of the signal.
+If use $N=4$, that is, 4 samples $\Delta f = 1$ Hz and the DFT assumes that $f_s/N = 1$ is the fundamental.
+Furthermore, we capture one period we need to sample within $[0;1)$ and all frequencies occuring in the signal.
+Everything works out.
+
 The values of the discrete samples are given by:
 
 $$y[n] = 5 + 2 \cos(\pi/3 n - \pi/2) + 3 \cos(\pi n)$$
 
-for $t = n / 4$.
-We get $y[0] = 8$, $y[1] = 4$, $y[2] = 8$, $y[3] = 0$, $y[4] = y[0]$, ...
-Clearly $N = 4$ since we have frequencies of 1 and 2 Hz and a sample frequency $f_s$ of 4 Hz.
+We get $y[0] = 8$, $y[1] = 4$, $y[2] = 8$, $y[3] = 0$.
 
 ```{code-cell} python3
 ---
@@ -168,7 +199,7 @@ ax.scatter(n, y_n, label=r'$y[n]$', marker='o')
 fig = ax.legend()
 ```
 
-Let us implement the *DFT* and *IDFT* using ``Python``.
+Let us implement the *DFT* and *IDFT* using ``sclang``.
 The following code is inefficient but suffice for our purposes.
 
 ### DFT
@@ -330,19 +361,20 @@ iy_n = [idft(c_k, n) for n in range(len(c_k))]
 If we neglect the small numerical errors, we get the correct function values $y[n]$ for $n = 0, 1, 2, 3$ back again.
 The imaginary part of the complex numbers is approximately zero because $y(t)$ is a real-valued function.
 
-## Limitations
+## Example (Limitation)
 
 Let us suppose we have the following signal consisting of only one frequency:
 
-$$y(t) = \sin\left(f \cdot 2 \pi \frac{1}{N} \right),$$
+$$y(t) = \sin\left(2 \pi \cdot 4/3 \cdot \frac{1}{16} t \right) = \sin\left(2 \pi\frac{1}{12} t \right),$$
 
-where $N = 16$ and $f = 3/4$.
 Let us assume the analysis period of the DFT is only 16 seconds and the sample frequency $f_s$ is $1$ Herz.
-Therefore $f = 3/4$ is clearly not an integer multiple of the sampling frequency.
-Even though we sample one complete period of $y(t)$, computing the DFT will introduce errors because we introduce a *discontinuity*!
+Thus $N = 16$ and $f_s = 1$ and $T = N/f_s = 16$ seconds (which is larger than the period of the signal which is 12 seconds).
+
+The DFT assumes the fundamental frequency is $f_s/N = 1/16$ but the frequency of the signal is $1/12$ which is not a multiple of $1/16$!
+Even though we sample more than one complete period of $y(t)$ and our sample frequency is much faster than double the frequency of the function, computing the DFT will introduce errors because we introduce a *discontinuity* because the DFT assumes that after 16 seconds the everything repeats when in fact after 12 seconds it repeats.
 
 The following plot shows the actual signal $y(t)$ and the discontinuous signal $y_{\text{dft}}(t)$ 'seen / assumed' by the DFT operation.
-Computing the IDFT gives us the correct sample points, i.e., $y[n] \equiv y_\text{dft}[n]$ holds, but the reconstructed signal $y_\text{idft}(t)$ is incorrect.
+Computing the IDFT gives us the correct sample points, i.e., $y[n] \equiv y_\text{idft}[n]$ holds, but the reconstructed signal $y_\text{idft}(t)$ is incorrect.
 
 ```{code-cell} python3
 ---
@@ -355,13 +387,13 @@ mystnb:
     name: dft-cut
 ---
 N = 16
-f = 4/3
+f = 1/12
 f_s = 1/N
 y_f = lambda k, t: np.sin(k/N * 2 * np.pi * t)
 y_one = lambda t: 14/N * np.cos(1/N * 2 * np.pi * t + 2.16259125)
     
-y = lambda t: np.sin(f * 2 *np.pi * t / N)
-y2 = lambda t: np.sin(f * 2 * np.pi * (t%16) / N)
+y = lambda t: np.sin(2 * np.pi * f * t)
+y2 = lambda t: np.sin(2 * np.pi * (t%N) * f)
 t = np.linspace(0, 2*N*4/3, 1000)
 t2 = np.linspace(0, N, 1000)
 n = np.linspace(0, N, N+1)[:-1]
@@ -391,8 +423,11 @@ y_idft = [idft_fuction(ti) for ti in t]
 
 fig, ax = plt.subplots(figsize=(10,5))
 ax.plot(t, y(t), label=r'$y(t)$')
-ax.plot(t, y2(t), label=r'$y_{dft}(t)$', linestyle='--')
 ax.scatter(n, y(n), label=r'$y[n]$', marker='o', alpha=0.5)
+ax.legend();
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, y2(t), label=r'$y_{dft}(t)$', linestyle='--', color='red')
 ax.scatter(n, iy_n, label=r'$y_{idft}[n]$', marker='x', c='black')
 ax.plot(t, y_idft, label=r'$y_{idft}(t)$', c='black')
 ax.legend();
@@ -437,6 +472,63 @@ The best we can do is devise a workaround.
 We create a function exactly as long as the analysis window gradually fades in and fades out at the edges.
 If we multiply the signal to be analyzed by this function (which is called *windowing*), we decrease the effect of any discontinuities at the edges of the analysis window because the discontinuities are heavily attenuated at the analysis window edges.
 This helps to reduce the impact, but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.
+
+The problem can be fixed if we choose $N=12$.
+The following plots shows that $y_{idft}$(t)$ is a perfect reconstruction of $y(t)$.
+
+```{code-cell} python3
+---
+tags: 
+    - remove-input
+mystnb:
+  image:
+    width: 900px
+  figure:
+    name: dft-cut-fixed
+---
+N = 12
+f = 1/12
+f_s = 1/N
+y_f = lambda k, t: np.sin(k/N * 2 * np.pi * t)
+y_one = lambda t: 14/N * np.cos(1/N * 2 * np.pi * t + 2.16259125)
+    
+y = lambda t: np.sin(2 * np.pi * f * t)
+y2 = lambda t: np.sin(2 * np.pi * f * (t%N))
+t = np.linspace(0, 2*N*4/3, 1000)
+t2 = np.linspace(0, N, 1000)
+n = np.linspace(0, N, N+1)[:-1]
+
+y_n = y(n)
+c_k = [dft(y_n, k) for k in range(len(y_n))]
+
+iy_n = [idft(c_k, n) for n in range(len(c_k))]
+iy_n = [val.real for val in iy_n]
+
+phases = np.arctan2([val.imag for val in c_k], [val.real for val in c_k])
+magnitudes = np.abs(np.array(c_k))
+
+def idft_fuction(t):
+    s = 0
+    for i in range(len(magnitudes)//2):
+        if i == 0:
+            s += (1/N * magnitudes[-i]) * np.cos(i/N * 2 * np.pi * t + phases[i])
+        else:
+            s += (1/N * magnitudes[i] + 1/N * magnitudes[-i]) * np.cos(i/N * 2 * np.pi * t + phases[i])
+    
+    i = len(magnitudes)//2
+    s +=  (1/N * magnitudes[-i]) * np.cos(i/N * 2 * np.pi * t + phases[i])
+    return s
+
+y_idft = [idft_fuction(ti) for ti in t]
+
+fig, ax = plt.subplots(figsize=(10,5))
+ax.plot(t, y(t), label=r'$y(t)$')
+ax.plot(t, y2(t), label=r'$y_{dft}(t)$', linestyle='--')
+ax.scatter(n, y(n), label=r'$y[n]$', marker='o', alpha=0.5)
+ax.scatter(n, iy_n, label=r'$y_{idft}[n]$', marker='x', c='black')
+ax.plot(t, y_idft, label=r'$y_{idft}(t)$', c='black')
+ax.legend();
+```
 
 
 ## Fast Fourier Transform
@@ -580,11 +672,11 @@ plt.colorbar(format='%+2.0f dB');
 The *Mel frequency cepstral coefficients* (MFCCs) are a compact representation of the frequency spectrum.
 It reduces the full spectrum to the most important aspects.
 
-MFCCs are used for speech, speaker or sond effect recognition or to analyse music to assign metadata to a song or a certain piece of music.
-In the field of *machine learning*, they offer a nice representation of a sound (espeically since MFCCs as well as spectograms are images thus a convolutional neural network can deal with these representations).
+MFCCs are used for speech, speaker or sound effect recognition or to analyse music to assign metadata to a song or a certain piece of music.
+In the field of *machine learning*, they offer a nice representation of a sound (especially since MFCCs as well as spectograms are images thus a convolutional neural network can deal with these representations).
 
 As we know, when we speak or when any sound is produced, different frequencies of sound are created.
-These frequencies when combined form a complex sound wave. The human ear responds more to certain frequencies and less to others.
+These frequencies, when combined, form a complex sound wave. The human ear responds more to certain frequencies and less to others.
 Specifically, we are more sensitive to lower frequencies (like a bass guitar) than higher frequencies (like a flute), especially at low volumes.
 This is the concept behind the *Mel scale*, which is a *perceptual scale of pitches* that approximates the human ear's response to different frequencies.
 
@@ -597,8 +689,8 @@ To achieve this, we pass the result through a set of band-pass filters called *M
 Basically, we merge neighbourhoods of frequencies into one bin.
 This is to mimic the behavior of the human ear (which is more sensitive to certain frequencies).
 Since the components of the *Mel-spectral vectors* calculated for each frame are hihgly correlated, we try to decorrelate the result to get a more meaningful representation.
-Threfore, we apply a type of *Fourier-related transform* called the *discrete cosine transform* to decorrelate the filter bank coefficients and yield a compressed representation of the filter banks, called the *Mel frequency cepstral coefficients*.
-Alternatively one can use the *principal component analysis PCA* to achieve a similar effect.
+Therefore, we apply a type of *Fourier-related transform* called the *discrete cosine transform* to decorrelate the filter bank coefficients and yield a compressed representation of the filter banks, called the *Mel frequency cepstral coefficients*.
+Alternatively, one can use the *principal component analysis PCA* to achieve a similar effect.
 
 ```{figure} ../../../figs/sounddesign/math/mfcc-alg-dark.png
 ---

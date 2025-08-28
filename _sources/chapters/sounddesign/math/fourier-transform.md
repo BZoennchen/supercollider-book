@@ -22,46 +22,65 @@ Therefore, one might say that it is more powerful.
 :name: def-fourier-transform-exp
 :class: definition
 
-The *Fourier transform (FT)* of an *integrable* function $y : \mathbb{R} \rightarrow \mathbb{C}$ is defined by
+The *Fourier transform (FT)* of an complex-valued *(Lebesgue) integrable* function function $y : \mathbb{R} \rightarrow \mathbb{C}$ is defined by
 
 ```{math}
 :label: eq:fourier:transform:exp
-Y(f) = \int\limits_{-\infty}^\infty y(t) e^{-i2\pi f t} dt, \quad \forall f \in \mathbb{R}.
+\mathcal{F}\{y\} = Y(f) = \int\limits_{-\infty}^\infty y(t) e^{-i 2\pi f t} dt, \quad \forall f \in \mathbb{R}.
 ```
 
 The transform of function $y(t)$ at frequency $f$ is given by the complex number $Y(f)$.
 ````
 
-Let me give you an intuition of how this follows from the coefficients of the *[Fourier series](def-fourier-series-exp)*. 
-Consider an infinite period, i.e., $T$ goes to infinity. 
-Therefore, we get
+Let me give you an intuition of how this follows from the coefficients of the *[Fourier series](def-fourier-series-exp)*.
+First remember, for a $T-$periodic function $y(t)$, the Fourier series is
+
+$$y(t) = \sum\limits_{n=-\infty}^{\infty} c_n e^{i 2 \pi n t / T}$$
+
+where the coefficients are 
+
+$$c_n = \frac{1}{T} \int_T y(t) e^{-i 2 \pi n t / T}$$
+
+So:
+
++ The spectrum consists of discrete frequencies at integer multiples of $2\pi / T$.
++ The spacing between frequencies is $2\pi / T$.
+
+Consider now an infinite period, i.e., $T$ goes to infinity, that is, $T \rightarrow \infty$.
+Then the fundamental frequency $1 / T = f_0$ becomes very small---it approaches zero.
+Therefore, the harmonic frequencies $f_n = n f_0 = n / T$ get closer and closer together as $T$ approaches infinity.
+
+Let us define 
+
+$$Y_T(f) := Tc_n = \int_T y(t) e^{-i 2 \pi n t / T}$$
+
+making the corresponding Fourier series
+
+$$y_T(t) = \sum\limits_{n=-\infty}^{\infty} Y_T(f) e^{i 2 \pi n t / T} \frac{1}{T}.$$
+
+As the period increases, the spectral lines become closer together, becoming a continuum.
+The sum becomes an integral, that is,
+
+$$\lim_{T \rightarrow \infty} y_T(t) = y(t) = \int_{-\infty}^\infty Y(f) e^{i 2 \pi f t} df.$$
+
+Let's do it a little more slowly in multiple steps. 
+
+```{math}
+:label: eq:transform:step1
+y(t) =& \lim_{T \rightarrow \infty} \sum\limits_{n=-\infty}^{\infty} (Tc_n) e^{i 2 \pi n t / T} \frac{1}{T}\\
+=& \lim_{T \rightarrow \infty} \sum\limits_{n=-\infty}^{\infty} \int_T y(t) e^{-i 2 \pi n t / T} e^{i 2 \pi n t / T} \frac{1}{T}\\
+=& \int_{-\infty}^{\infty} y(t) e^{-i 2 \pi f t} e^{i 2 \pi f t} df\\
+=& \int_{-\infty}^\infty Y(f) e^{i 2 \pi f t} df
+```
+
+where $\Delta f = f_0 = 1 / T$ thus for $T \rightarrow \infty$, $\Delta f$ approaches $df$ and with
+
+$$Y(f) = \int_{-\infty}^\infty y(t) e^{-i 2\pi f t} dt$$
 
 \begin{equation*}
-\lim_{T \rightarrow \infty} c_n = \lim_{T \rightarrow \infty} \frac{1}{T} \int_T y(t) \cdot e^{-i2\pi n t / T}dt.
+\lim_{T \rightarrow \infty} T c_n = Y\left( n \cdot \frac{1}{T}\right) = Y(f)
 \end{equation*}
 
-Since $T$ goes to infinity, the fundamental frequency $f_0 = 1 / T$ goes to zero.
-Thus the discrete variables $n \cdot f_0$ all become continuous since $f_0 \rightarrow 0$.
-Remember that, for the exponential form, $n$ goes from negative infinity to positive infinity.
-We can summarize:
-
-\begin{equation*}
-\lim_{T \rightarrow \infty} \frac{n}{T} = \lim_{f_0 \rightarrow 0} n \cdot f_0 = f
-\end{equation*}
-
-following
-
-\begin{equation*}
-\lim_{T \rightarrow \infty} c_n = \left( \lim_{T \rightarrow \infty} \frac{1}{T}\right) \cdot \underbrace{\int_{-\infty}^\infty y(t) \cdot e^{-i2\pi f t}dt}_{Y(f)}.
-\end{equation*}
-
-Consequently,
-
-\begin{equation*}
-c_n = \frac{1}{T} Y\left( n \cdot f_0 \right) = \frac{1}{T} Y\left( n \cdot \frac{1}{T}\right)
-\end{equation*}
-
-holds, since the value of each part of the integral $Y(f)$ of length $T$ is equal to $T \cdot c_n$.
 Everything works out.
 Thus we can use the *Fourier transform* to compute the coefficients for the *[Fourier series](def-fourier-series-exp)*.
 
@@ -81,7 +100,7 @@ Under suitable conditions $y: \mathbb{R} \rightarrow \mathbb{C}$ can be represen
 
 ```{math}
 :label: eq:inverse:fourier:transform:exp
-y(t) = \int\limits_{-\infty}^\infty Y(f) e^{i2\pi f t} df, \quad \forall t \in \mathbb{R}.
+\mathcal{F}\{Y\} = y(t) = \int\limits_{-\infty}^\infty Y(f) e^{i2\pi f t} df, \quad \forall t \in \mathbb{R}.
 ```
 
 The inverse transform of function $Y(f)$ at time $t$ is given by the complex number $y(t)$.
