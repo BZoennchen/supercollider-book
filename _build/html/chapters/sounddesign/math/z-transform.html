@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>\(z\)-Transform &#8212; Algorithmic Composition</title>
+    <title>z-Transform &#8212; Algorithmic Composition</title>
   
   
   
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dft.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolution</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><span class="math notranslate nohighlight">\(z\)</span>-Transform</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">z-Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lti-filters.html">LTI Filters</a></li>
 </ul>
 </li>
@@ -550,7 +550,7 @@ document.write(`
   <div class="cell tag_remove-input docutils container">
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="z-transform">
-<span id="sec-z-transform"></span><h1><span class="math notranslate nohighlight">\(z\)</span>-Transform<a class="headerlink" href="#z-transform" title="Permalink to this headline">#</a></h1>
+<span id="sec-z-transform"></span><h1>z-Transform<a class="headerlink" href="#z-transform" title="Permalink to this headline">#</a></h1>
 <p>One important mathematical concept for understanding and designing filters is the <span class="math notranslate nohighlight">\(z\)</span><em>-transform</em>.
 It is a mathematical tool used in <a class="reference internal" href="intro.html#sec-dsp"><span class="std std-ref">digital signal processing</span></a> (DSP) to converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain (<span class="math notranslate nohighlight">\(z\)</span>-domain or <span class="math notranslate nohighlight">\(z\)</span>-plane) representation.</p>
 <p>It generalizes the <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier transform</span></a> and the <em>Laplace transform</em> for discrete-time signals. In fact, it can be considered as a discrete-time equivalent of the <em>Laplace transform</em> and is a generalization of the <em>discrete-time Fourier transform (DTFT)</em> (not to be confused with the discrete Fourier transform), see <a class="reference internal" href="dft.html#sec-dft-vs-dtft"><span class="std std-ref">Difference between DFT and DTFT</span></a>.</p>
@@ -708,8 +708,8 @@ We get</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \alpha^n \cdot u[n] = \alpha^n \cdot 1 = \alpha^n.\]</div>
 <p>In this case, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-095e237d-7865-42bc-8ae1-5855d2d0a043">
-<span class="eqno">(40)<a class="headerlink" href="#equation-095e237d-7865-42bc-8ae1-5855d2d0a043" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3a4290a7-82ad-4c4d-81cc-5d5f17eba3e6">
+<span class="eqno">(40)<a class="headerlink" href="#equation-3a4290a7-82ad-4c4d-81cc-5d5f17eba3e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 = \sum\limits_{n = 0}^\infty \alpha^n z^{-n}\\
@@ -733,7 +733,7 @@ Note that we need either the series expansions or the ROC plus the closed-expres
 <p>First, if <span class="math notranslate nohighlight">\(x[n]\)</span> is a finite duration signal, then the ROC contains all <span class="math notranslate nohighlight">\(z\)</span> except possibly <span class="math notranslate nohighlight">\(z=0\)</span> and <span class="math notranslate nohighlight">\(z = \infty\)</span>.
 In this case the <span class="math notranslate nohighlight">\(z\)</span>-transform is just a <strong>finite polynomial</strong> in <span class="math notranslate nohighlight">\(z^{-1}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[X(z) = \sum_{n=n_1}^{n2} x[n] z^{-n}\]</div>
+\[X(z) = \sum_{n=n_1}^{n_2} x[n] z^{-n}\]</div>
 <p>and this finite sum converges for all <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>, except at <span class="math notranslate nohighlight">\(z=0\)</span> if the signal has nonzero positive-time samples or <span class="math notranslate nohighlight">\(z = \infty\)</span> if the signal has nonzero negative-time samples. Note that the system’s/filter’s impulse response can be infinite in duration in audio processing (e.g., reverb tail, recursive filter).</p>
 <p>Second, the region of convergence (ROC) is either the region</p>
 <ol class="arabic simple">
@@ -781,7 +781,7 @@ It extends outwards from the outermost pole thus the system is <em>causal</em>.<
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-1">
-<a class="reference internal image-reference" href="../../../_images/70746ae8dd27fe1426826b234d5c7d18c3e06ca4ea9a884b839e619ca4985045.png"><img alt="../../../_images/70746ae8dd27fe1426826b234d5c7d18c3e06ca4ea9a884b839e619ca4985045.png" src="../../../_images/70746ae8dd27fe1426826b234d5c7d18c3e06ca4ea9a884b839e619ca4985045.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/e0605b3414ffcfeb6d6b51067c6b7f46ec0d280cb10d689a0a2c75710646fa05.png"><img alt="../../../_images/e0605b3414ffcfeb6d6b51067c6b7f46ec0d280cb10d689a0a2c75710646fa05.png" src="../../../_images/e0605b3414ffcfeb6d6b51067c6b7f46ec0d280cb10d689a0a2c75710646fa05.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -799,7 +799,7 @@ Again the ROC extends outwards from the outermost pole thus the system is <em>ca
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-2">
-<a class="reference internal image-reference" href="../../../_images/cc5f490f4f61aa6ef1d35ce92006b30e55ac02875c585860a2878f88cd76ecfe.png"><img alt="../../../_images/cc5f490f4f61aa6ef1d35ce92006b30e55ac02875c585860a2878f88cd76ecfe.png" src="../../../_images/cc5f490f4f61aa6ef1d35ce92006b30e55ac02875c585860a2878f88cd76ecfe.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/637ef97487074eac47040659c8b112dcc5c58ab8960fd6ac5a261c270fc380ac.png"><img alt="../../../_images/637ef97487074eac47040659c8b112dcc5c58ab8960fd6ac5a261c270fc380ac.png" src="../../../_images/637ef97487074eac47040659c8b112dcc5c58ab8960fd6ac5a261c270fc380ac.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -844,7 +844,7 @@ Therefore,</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-3">
-<a class="reference internal image-reference" href="../../../_images/10e7e0f348fbe23c334213542eb45e7f9cc502ecc82c893620217bd72464ebf4.png"><img alt="../../../_images/10e7e0f348fbe23c334213542eb45e7f9cc502ecc82c893620217bd72464ebf4.png" src="../../../_images/10e7e0f348fbe23c334213542eb45e7f9cc502ecc82c893620217bd72464ebf4.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/cc2da8c52b08b7fbf5c26748454396c0306c7fd07bf9bed12d9775ff1a657bdf.png"><img alt="../../../_images/cc2da8c52b08b7fbf5c26748454396c0306c7fd07bf9bed12d9775ff1a657bdf.png" src="../../../_images/cc2da8c52b08b7fbf5c26748454396c0306c7fd07bf9bed12d9775ff1a657bdf.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>
@@ -955,8 +955,8 @@ Thus we can rewrite <span class="math notranslate nohighlight">\(H(z)\)</span> i
 <p>Until now we worked with examples of a <a class="reference internal" href="lti-filters.html#sec-lti-filters"><span class="std std-ref">LTI filter</span></a>.
 It is now time to generalize to any LTI filter.</p>
 <p>The general form for a difference equation is given by (and representing a linear time-invariant filter)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c31e567-1668-4605-b198-734f0565bf81">
-<span class="eqno">(41)<a class="headerlink" href="#equation-4c31e567-1668-4605-b198-734f0565bf81" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-df7ddd6f-d68a-4eae-bc63-4145d0bb3b3e">
+<span class="eqno">(41)<a class="headerlink" href="#equation-df7ddd6f-d68a-4eae-bc63-4145d0bb3b3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>Usually <span class="math notranslate nohighlight">\(a_0 = 1\)</span>.</p>
@@ -976,13 +976,13 @@ Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k
 <div class="theorem admonition" id="theorem-transfer-function">
 <p class="admonition-title">Transfer Function of LTI Filters</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-61692a47-deff-44d9-9fae-165fabaaf706">
-<span class="eqno">(42)<a class="headerlink" href="#equation-61692a47-deff-44d9-9fae-165fabaaf706" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ffec2d8b-911a-43a8-97ca-cb4fd9be448c">
+<span class="eqno">(42)<a class="headerlink" href="#equation-ffec2d8b-911a-43a8-97ca-cb4fd9be448c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c2de8c83-6d3c-4460-9695-37bd2d73186e">
-<span class="eqno">(43)<a class="headerlink" href="#equation-c2de8c83-6d3c-4460-9695-37bd2d73186e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-313a870c-732e-40ec-8778-e6e5460c9b6b">
+<span class="eqno">(43)<a class="headerlink" href="#equation-313a870c-732e-40ec-8778-e6e5460c9b6b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}}.
 \end{equation}\]</div>
 </div>
@@ -995,8 +995,8 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
 <div class="theorem admonition" id="theorem-transfer-function-impulse-response">
 <p class="admonition-title">Transfer Funktio and Impulse Response</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em> is the <span class="math notranslate nohighlight">\(z\)</span>-transform of the impulse response of the filter, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5219e29c-265d-4b48-90a6-e11e9041dea5">
-<span class="eqno">(44)<a class="headerlink" href="#equation-5219e29c-265d-4b48-90a6-e11e9041dea5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36f6fba5-e20b-4262-b603-2455b5bedf36">
+<span class="eqno">(44)<a class="headerlink" href="#equation-36f6fba5-e20b-4262-b603-2455b5bedf36" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \mathcal{Z}\{h[n]\}
 \end{equation}\]</div>
 </div>
@@ -1025,7 +1025,7 @@ Imagine the grey point connected to the cross going around on the unit circle.</
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-z-transform-4">
-<a class="reference internal image-reference" href="../../../_images/fa81f287415ecdda294844de2d509e6a6387ab19a42209007a4389966a807d98.png"><img alt="../../../_images/fa81f287415ecdda294844de2d509e6a6387ab19a42209007a4389966a807d98.png" src="../../../_images/fa81f287415ecdda294844de2d509e6a6387ab19a42209007a4389966a807d98.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/7c7d0c2975baad597b9b1205dffc0706ab9344eb548cade294a0ed2f9336cdfb.png"><img alt="../../../_images/7c7d0c2975baad597b9b1205dffc0706ab9344eb548cade294a0ed2f9336cdfb.png" src="../../../_images/7c7d0c2975baad597b9b1205dffc0706ab9344eb548cade294a0ed2f9336cdfb.png" style="width: 500px;" /></a>
 </figure>
 </div>
 </div>

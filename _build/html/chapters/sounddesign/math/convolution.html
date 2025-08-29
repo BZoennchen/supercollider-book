@@ -73,7 +73,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/sounddesign/math/convolution';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="\(z\)-Transform" href="z-transform.html" />
+    <link rel="next" title="z-Transform" href="z-transform.html" />
     <link rel="prev" title="Discrete Fourier Transform" href="dft.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dft.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Convolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="z-transform.html"><span class="math notranslate nohighlight">\(z\)</span>-Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="z-transform.html">z-Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lti-filters.html">LTI Filters</a></li>
 </ul>
 </li>
@@ -594,8 +594,8 @@ y[+3] &amp;= +3 \cdot 4 &amp;= 12
 <div class="definition admonition" id="def-discrete-convolution">
 <p class="admonition-title">Convolution of Discrete Signals</p>
 <p>Given two discrete and finite signals <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}\)</span> of length <span class="math notranslate nohighlight">\(N_1\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span> respectively. Then the convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55184784-96f6-4110-ba12-95a0598b238d">
-<span class="eqno">(34)<a class="headerlink" href="#equation-55184784-96f6-4110-ba12-95a0598b238d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-96e91a7a-28bf-42ea-8703-a3982db7164f">
+<span class="eqno">(34)<a class="headerlink" href="#equation-96e91a7a-28bf-42ea-8703-a3982db7164f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}\)</span>.</p>
@@ -605,8 +605,8 @@ In that case, we <span class="math notranslate nohighlight">\(y_2\)</span> to be
 <div class="definition admonition" id="def-circular-discrete-convolution">
 <p class="admonition-title">Circular Discrete Convolution</p>
 <p>Given two discrete signals <span class="math notranslate nohighlight">\(y_1, y_2\)</span>, where <span class="math notranslate nohighlight">\(y_1\)</span> is defined for <span class="math notranslate nohighlight">\(0, \ldots N-1\)</span> and <span class="math notranslate nohighlight">\(y_2\)</span> is a periodic function with period equal to <span class="math notranslate nohighlight">\(N_2\)</span>. Then the circular convolution of those two singals is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5129aa2a-6946-48c5-93d0-e21859d98738">
-<span class="eqno">(35)<a class="headerlink" href="#equation-5129aa2a-6946-48c5-93d0-e21859d98738" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6b6b7296-afb9-4b27-8cd7-6579fb9f646d">
+<span class="eqno">(35)<a class="headerlink" href="#equation-6b6b7296-afb9-4b27-8cd7-6579fb9f646d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y : \mathbb{Z} \rightarrow \mathbb{R}\)</span> is periodic.</p>
@@ -643,8 +643,8 @@ In our example, we can see that <span class="math notranslate nohighlight">\(y_2
 The argument <span class="math notranslate nohighlight">\(n\)</span> of <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> defines the shift of the second function, which determines the <strong>phase</strong> if we are in the domain of periodic functions!
 Therefore, the biggest value in <span class="math notranslate nohighlight">\((y_1 * y_2)[n]\)</span> indicates the phase for which the mirrored version of <span class="math notranslate nohighlight">\(y_2\)</span> is most similar to <span class="math notranslate nohighlight">\(y_1\)</span>.</p>
 <p>If both signals are discrete but infinite (and defined on <span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>), the discrete convolution of <span class="math notranslate nohighlight">\(y_1, y_2\)</span> is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-762484c7-0e1c-4cd4-8833-9f17e1eecc66">
-<span class="eqno">(36)<a class="headerlink" href="#equation-762484c7-0e1c-4cd4-8833-9f17e1eecc66" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5986fd7c-6b87-47ff-a94b-44520851c0e6">
+<span class="eqno">(36)<a class="headerlink" href="#equation-5986fd7c-6b87-47ff-a94b-44520851c0e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)[n] = \sum\limits_{k=-\infty}^{\infty} y_1[k] \cdot y_2[n-k] = \sum\limits_{k=-\infty}^{\infty} y_1[n-k] \cdot y_2[k].
 \end{equation}\]</div>
 </section>
@@ -654,8 +654,8 @@ Therefore, the biggest value in <span class="math notranslate nohighlight">\((y_
 <div class="definition admonition" id="def-convolution">
 <p class="admonition-title">Convolution</p>
 <p>Given two functions <span class="math notranslate nohighlight">\(y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}\)</span> then the <em>convolution</em> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53345839-e901-45e8-8cd2-d031a6d52959">
-<span class="eqno">(37)<a class="headerlink" href="#equation-53345839-e901-45e8-8cd2-d031a6d52959" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8cbf3ec5-3602-4075-9d00-52e27aadc2b6">
+<span class="eqno">(37)<a class="headerlink" href="#equation-8cbf3ec5-3602-4075-9d00-52e27aadc2b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (y_1 * y_2)(t) = y(t) = \int_{-\infty}^{\infty} y_1(\tau) \cdot y_2(t-\tau) d\tau,
 \end{equation}\]</div>
 </div>
@@ -802,7 +802,7 @@ If one period of the signals fits approximately into the buffer, the result will
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="math notranslate nohighlight">\(z\)</span>-Transform</p>
+        <p class="prev-next-title">z-Transform</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

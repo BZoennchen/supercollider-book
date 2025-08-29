@@ -34,7 +34,7 @@ sns.set(font_scale=1.0)
 ```
 
 (sec-z-transform)=
-# $z$-Transform
+# z-Transform
 
 One important mathematical concept for understanding and designing filters is the $z$*-transform*.
 It is a mathematical tool used in [digital signal processing](sec-dsp) (DSP) to converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain ($z$-domain or $z$-plane) representation.
@@ -272,7 +272,7 @@ is true.
 First, if $x[n]$ is a finite duration signal, then the ROC contains all $z$ except possibly $z=0$ and $z = \infty$.
 In this case the $z$-transform is just a **finite polynomial** in $z^{-1}$:
 
-$$X(z) = \sum_{n=n_1}^{n2} x[n] z^{-n}$$
+$$X(z) = \sum_{n=n_1}^{n_2} x[n] z^{-n}$$
 
 and this finite sum converges for all $z \in \mathbb{C}$, except at $z=0$ if the signal has nonzero positive-time samples or $z = \infty$ if the signal has nonzero negative-time samples. Note that the system's/filter's impulse response can be infinite in duration in audio processing (e.g., reverb tail, recursive filter).
 
@@ -349,7 +349,7 @@ ax.scatter([2*np.pi-0.4], [1], marker='x')
 
 ax.set_rmax(1.5)
 ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
-ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_xticklabels([r'0', r'', r'$\pi/2$', r'', r'$\pi$', r'', r'$3\pi/2$', ''])
 ax.set_rticks([0, 0.25, 0.5, 0.75, 1, 1.25, 1.5])  # Less radial ticks
 ax.set_yticklabels([r'', '', '', '', r'', '', ''])  # Less radial ticks
 ax.text(-0.35,1,r'$\alpha$')
@@ -393,7 +393,7 @@ ax.scatter([0,np.pi], [1/4,1/2], marker='x')
 
 ax.set_rmax(0.75)
 ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
-ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_xticklabels([r'0', r'', r'$\pi/2$', r'', r'$\pi$', r'', r'$3\pi/2$', ''])
 ax.set_rticks(np.array([0, 0.25, 0.5, 0.75]))  # Less radial ticks
 ax.set_yticklabels([r'', '', '', ''])  # Less radial ticks
 ax.set_rlabel_position(-22.5)  # Move radial labels away from plotted line
@@ -473,7 +473,7 @@ ax.scatter([0], [1.0], marker='+')
 
 ax.set_rmax(1.25)
 ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
-ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_xticklabels([r'0', r'', r'$\pi/2$', r'', r'$\pi$', r'', r'$3\pi/2$', ''])
 ax.set_rticks(np.array([0, 0.25, 0.5, 0.75, 1.0, 1.25]))  # Less radial ticks
 ax.set_yticklabels([r'', '', '', '', '', ''])  # Less radial ticks
 ax.set_rlabel_position(-22.5)  # Move radial labels away from plotted line
@@ -717,7 +717,7 @@ ax.plot(x1, y1)
 
 ax.set_rmax(1.25)
 ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
-ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_xticklabels([r'0', r'', r'$\pi/2$', r'', r'$\pi$', r'', r'$3\pi/2$', ''])
 ax.set_rticks(np.array([0, 0.25, 0.5, 0.75, 1.0, 1.25]))
 ax.set_yticklabels([r'', '', '', '', '', ''])
 ax.set_rlabel_position(-22.5)
