@@ -167,7 +167,7 @@ ax.fill_between(2*np.pi*r, 0, np.ones(len(r))*1.5, color='b', alpha = 0.3)
 
 ax.set_rmax(1.5)
 ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
-ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_xticklabels([r'0', r'', r'$\pi/2$', r'', r'$\pi$', r'', r'$3\pi/2$', ''])
 ax.set_rticks([0, 0.5, 1, 1.5])  # Less radial ticks
 ax.set_yticklabels([r'', '', '', ''])  # Less radial ticks
 ax.text(0,1.0,r'$1$')
@@ -483,7 +483,7 @@ ax.plot(2*np.pi*r2, np.ones(len(r2)), color='r')
 
 ax.set_rmax(1.5)
 ax.set_xticks([0, np.pi/4, 2*np.pi/4, 3*np.pi/4, 4*np.pi/4, 5*np.pi/4, 6*np.pi/4, 7*np.pi/4 ])
-ax.set_xticklabels([r'0', r'', r'$1/2\pi$', r'', r'$\pi$', r'', r'$3/2\pi$', ''])
+ax.set_xticklabels([r'0', r'', r'$\pi/2$', r'', r'$\pi$', r'', r'$3\pi/2$', ''])
 ax.set_rticks([0, 0.5, 1, 1.5])  # Less radial ticks
 ax.set_yticklabels([r'', '', '', ''])  # Less radial ticks
 ax.text(0,1.05,r'$1$')

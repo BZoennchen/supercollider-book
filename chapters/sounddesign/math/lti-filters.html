@@ -74,7 +74,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Abstract and Physical Synthesis" href="../abstract-and-physical.html" />
-    <link rel="prev" title="\(z\)-Transform" href="z-transform.html" />
+    <link rel="prev" title="z-Transform" href="z-transform.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dft.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="convolution.html">Convolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="z-transform.html"><span class="math notranslate nohighlight">\(z\)</span>-Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="z-transform.html">z-Transform</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">LTI Filters</a></li>
 </ul>
 </li>
@@ -519,7 +519,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-zero-filter">One Zero Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-pole-filter">One Pole Filter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-butterworth-filter">Analog Butterworth Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-butterworth-filter">Digital Butterworth Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-oder-butterworth-lowpass-filter">2nd Oder Butterworth Lowpass Filter</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
 </ul>
             </nav>
@@ -722,8 +727,8 @@ A typical choice is</p>
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency, Amplitude, and Phase Response</p>
 <p>The <em>frequency response</em> of a <em>linear time-invariant filter</em> can be represented in one formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de68b577-b895-46b1-99a7-1ffc6387b55c">
-<span class="eqno">(46)<a class="headerlink" href="#equation-de68b577-b895-46b1-99a7-1ffc6387b55c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6e0a2b0a-7fd2-459b-81ad-5ef1ee4d2133">
+<span class="eqno">(46)<a class="headerlink" href="#equation-6e0a2b0a-7fd2-459b-81ad-5ef1ee4d2133" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega T)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega T) := |H(e^{i \omega T})|\)</span> is the <em>amplitude (frequency) response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega T) := \angle H(e^{i \omega T})\)</span> the <em>phase response</em> of the filter.</p>
@@ -733,8 +738,8 @@ H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrac
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let us start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-049de6d4-cfc6-408f-9f1d-d7c57efbe125">
-<span class="eqno">(47)<a class="headerlink" href="#equation-049de6d4-cfc6-408f-9f1d-d7c57efbe125" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b8c22be-bc47-470e-9ad7-8b8881bf915a">
+<span class="eqno">(47)<a class="headerlink" href="#equation-7b8c22be-bc47-470e-9ad7-8b8881bf915a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -855,8 +860,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>An LTI filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6467cfc7-46f2-43ed-ac01-d173abff140c">
-<span class="eqno">(48)<a class="headerlink" href="#equation-6467cfc7-46f2-43ed-ac01-d173abff140c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-60345951-735e-407e-ac63-782cf185675b">
+<span class="eqno">(48)<a class="headerlink" href="#equation-60345951-735e-407e-ac63-782cf185675b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega T) \cdot e^{i \mathcal{\Theta}(\omega T)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -1022,36 +1027,40 @@ As you can see, we have to choose <span class="math notranslate nohighlight">\(\
 <section id="butterworth-filter">
 <h2>Butterworth Filter<a class="headerlink" href="#butterworth-filter" title="Permalink to this headline">#</a></h2>
 <p>The default <em>low-</em> and <em>highpass filters</em> unit generators (<code class="docutils literal notranslate"><span class="pre">LPF</span></code> and  <code class="docutils literal notranslate"><span class="pre">HPF</span></code> respectively) of <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, filter frequencies above or below some <em>cutoff frequency</em>.
-They are <em>2nd order Butterworth low-/highpass filter</em>.
-The gain <span class="math notranslate nohighlight">\(G(\omega)\)</span> of the a <span class="math notranslate nohighlight">\(n\)</span>-order <strong>analog</strong> Butterworth low-/highpass filter is defined by:</p>
+They are <em>2nd order Butterworth low-/highpass filter</em>.</p>
+<section id="analog-butterworth-filter">
+<h3>Analog Butterworth Filter<a class="headerlink" href="#analog-butterworth-filter" title="Permalink to this headline">#</a></h3>
+<p>A Butterworth filter is defined in the analog domain (Laplace transform, <span class="math notranslate nohighlight">\(H(s)\)</span>), not natively in the <span class="math notranslate nohighlight">\(z\)</span>-domain.
+The gain <span class="math notranslate nohighlight">\(G(\Omega)\)</span> of the a <span class="math notranslate nohighlight">\(n\)</span>-order <strong>analog</strong> Butterworth low-/highpass filter is defined by:</p>
 <div class="math notranslate nohighlight">
-\[G(\omega) = |H(i \omega)| = \frac{1}{\sqrt{1+ (\omega)^{2n}}}.\]</div>
-<p>Note that we are currently looking at an anlalog signal thus we do not use <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> but <span class="math notranslate nohighlight">\(H(i \omega)\)</span>.
-The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order <strong>analog</strong> Butterworth lowpass filter</em> is illustrated below.
+\[G(\Omega) = |H(i \Omega)| = \frac{1}{\sqrt{1+ (\frac{\Omega}{\Omega_c})^{2n}}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Omega_c\)</span> is the cutoff frequency (radian/seconds).
+Note that we are currently looking at an anlalog signal thus we do not use <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> but <span class="math notranslate nohighlight">\(H(i \Omega)\)</span>.</p>
+<p>The poles of <span class="math notranslate nohighlight">\(H(s)\)</span> are placed evenly on a semicircle in the left-half <span class="math notranslate nohighlight">\(s\)</span>-plane.
+So in the Laplace domain:</p>
+<div class="math notranslate nohighlight">
+\[H(s) = \frac{1}{\prod_{k=1}^n (s-s_k)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(s_k\)</span> are the Butterworth poles.</p>
+<p>The <em><a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a></em> of a <em>2nd order <strong>analog</strong> Butterworth lowpass filter</em> is illustrated below.
 <span class="math notranslate nohighlight">\(n\)</span> is the order as well as the number of <em>poles</em> of the filter.
 The filter reduces the gain (amplitude) for frequencies above the cutoff frequency and shifts their phases.
 Well, that is not entirely true because the cutoff frequency is also reduced by 6 <a class="reference internal" href="../../misc/terms.html#sec-intensity"><span class="std std-ref">decibel (dB)</span></a>, so the reduction starts a little bit below the cutoff frequency.
-Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.
-The top plot of shows the reduction in amplitude.</p>
+Reducing the loudness by 6 dB means that the perceived level is reduced by a factor of 4.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-gain-butterworth">
-<a class="reference internal image-reference" href="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png"><img alt="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png" src="../../../_images/bd74bdc0eafbd5040a864451ceeeae59efed88b09c2630b463437184a0614dc7.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/50ef69cd36e8d1f77a086e569ff047613e2afeb909b95e9b32cf84d3262b3673.png"><img alt="../../../_images/50ef69cd36e8d1f77a086e569ff047613e2afeb909b95e9b32cf84d3262b3673.png" src="../../../_images/50ef69cd36e8d1f77a086e569ff047613e2afeb909b95e9b32cf84d3262b3673.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 35 </span><span class="caption-text">Gain of the analog Butterworth filters of order <span class="math notranslate nohighlight">\(n\)</span> where the cutoff frequency is equal to 1.0.</span><a class="headerlink" href="#fig-gain-butterworth" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(\omega_c\)</span> is the cutoff frequency and <span class="math notranslate nohighlight">\(G_0\)</span> is the DC gain (gain at zero frequency), than the gain is</p>
-<div class="math notranslate nohighlight">
-\[G(\omega) = \frac{G_0}{\sqrt{1+ \left(\frac{i\omega}{i \omega_c} \right)^{2n}}}.\]</div>
-<p>Thus the plot above illustrates the gain for a cutoff frequency <span class="math notranslate nohighlight">\(\omega_c=1\)</span>.
-We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.</p>
+<p>We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-gain-butterworth-log-scale">
-<a class="reference internal image-reference" href="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png"><img alt="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png" src="../../../_images/5bb93c6c06290a2c1cde2fe01b75a8b057e42827a466cdf482b463aa6762e47e.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/e3f32686f386b1413a2e32cfea9f9b01da63d0af668c49192bbab04474ed1a4a.png"><img alt="../../../_images/e3f32686f386b1413a2e32cfea9f9b01da63d0af668c49192bbab04474ed1a4a.png" src="../../../_images/e3f32686f386b1413a2e32cfea9f9b01da63d0af668c49192bbab04474ed1a4a.png" style="width: 600px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 36 </span><span class="caption-text">Gain in dB of the analog Butterworth lowpass filters of order <span class="math notranslate nohighlight">\(n\)</span> on a log-scale where the cutoff frequency is equal to 1.0.</span><a class="headerlink" href="#fig-gain-butterworth-log-scale" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1061,15 +1070,26 @@ We can change the scaling of our axis to display gain in decible and to reflect 
 <p>The second effect of the filter is a phase shift.
 This effect is crucial if we combine multiple filters because they interact!
 In other words: we can not just combine a high pass and lowpass filter to get the same result as a band pass filter!</p>
+</section>
+<section id="digital-butterworth-filter">
+<h3>Digital Butterworth Filter<a class="headerlink" href="#digital-butterworth-filter" title="Permalink to this headline">#</a></h3>
 <p>To convert the digitalize the analog filter we can apply the so called <em><a class="reference external" href="https://en.wikipedia.org/wiki/Bilinear_transform">bilinear transform</a></em>.
-It is a first oder Padé approximant of the natural logarithm function that is an exact mapping of the <span class="math notranslate nohighlight">\(z\)</span>-plane to the <span class="math notranslate nohighlight">\(s\)</span>-plane, where <span class="math notranslate nohighlight">\(s := i \omega\)</span>.
-When the Laplace transform is performed on a discrete-time signal (with each element of the discrete-time sequence attached to a correspondingly delayed unit impulse), the result is precisely the <a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a> of the discrete-time sequence with the substitution of</p>
+It is a first order Padé approximant of the natural logarithm function that is an exact mapping of the <span class="math notranslate nohighlight">\(z\)</span>-plane to the <span class="math notranslate nohighlight">\(s\)</span>-plane, where <span class="math notranslate nohighlight">\(s := i \omega\)</span>.</p>
+<p>When the <em>Laplace transform</em> is performed on a discrete-time signal (with each element of the discrete-time sequence attached to a correspondingly delayed unit impulse), the result is precisely the <a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref"><span class="math notranslate nohighlight">\(z\)</span>-transform</span></a> of the discrete-time sequence with the substitution of</p>
 <div class="math notranslate nohighlight">
 \[z = e^{sT} = e^{i \omega T} = \frac{e^{i \omega T / 2}}{e^{- i \omega T / 2}} \approx \frac{1 + i \omega T / 2}{1 - i \omega T / 2}.\]</div>
 <p>The inverse of this mapping (and its first-order bilinear appoximation) is</p>
 <div class="math notranslate nohighlight">
-\[s = \frac{1}{T} \ln(z) \approx \frac{2}{T} \frac{z-1}{z+1} = \frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}}.\]</div>
-<p>Therefore, the <strong>approximated</strong> gain <span class="math notranslate nohighlight">\(G(\omega T)\)</span> of the a <span class="math notranslate nohighlight">\(n\)</span>-order <strong>digital</strong> Butterworth low-/highpass filter is defined by:</p>
+\[s = \frac{1}{T} \ln(z) \approx \frac{2}{T} \frac{z-1}{z+1} = \frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}},\]</div>
+<p>where <span class="math notranslate nohighlight">\(T = 1/f_s\)</span> is the sampling period.
+After substitution, the analog transfer function <span class="math notranslate nohighlight">\(H(s)\)</span> becaomes:</p>
+<div class="math notranslate nohighlight">
+\[H(z) = H\left(\frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}} \right).\]</div>
+<p>This gives you a rational function in <span class="math notranslate nohighlight">\(z^{-1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[H(z) = \frac{B(z^{-1})}{A(z^{-1})},\]</div>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(A\)</span> are polynomials determined by filter order and cutoff.</p>
+<p>The <strong>approximated</strong> gain <span class="math notranslate nohighlight">\(G(\omega T)\)</span> of the a <span class="math notranslate nohighlight">\(n\)</span>-order <strong>digital</strong> Butterworth low-/highpass filter is defined by:</p>
 <div class="math notranslate nohighlight">
 \[G(\omega T) \approx \frac{1}{\sqrt{1+ (\frac{2}{T} \frac{e^{i \omega T}-1}{e^{i \omega T}+1})^{2n}}}\]</div>
 <p>Plotting this function gives not the same result compared to the analog version.
@@ -1116,6 +1136,47 @@ There is a clear difference.</p>
               </div></div>
 </div>
 </section>
+<section id="nd-oder-butterworth-lowpass-filter">
+<h3>2nd Oder Butterworth Lowpass Filter<a class="headerlink" href="#nd-oder-butterworth-lowpass-filter" title="Permalink to this headline">#</a></h3>
+<p>Let us look at the formulas for an <strong>analog</strong> second-order Butterworth filter.
+We have</p>
+<div class="math notranslate nohighlight">
+\[|H(i\Omega)|^2 = \frac{1}{1 + \left( \frac{\Omega}{\Omega_c} \right)^4}.\]</div>
+<p>The poles lie on a semicircle of radius <span class="math notranslate nohighlight">\(\Omega_c\)</span> in the left half <span class="math notranslate nohighlight">\(s\)</span>-plane, at angles</p>
+<div class="math notranslate nohighlight">
+\[\phi_k = \frac{\pi}{2} + \frac{(2k+1)\pi}{2n}, \quad k=0,1.\]</div>
+<p>For <span class="math notranslate nohighlight">\(n=2\)</span>, the poles are at 135 and 225 degrees:</p>
+<div class="math notranslate nohighlight">
+\[s_{1,2} = \Omega_c e^{\pm 3\pi /4}.\]</div>
+<p>The denominator polynomial (monic) formed from these poles is</p>
+<div class="math notranslate nohighlight">
+\[(s-s_1)(s-s_2) = s^2 - (s_1+s_2)s + s_1s_2 = s^2 + \sqrt{2}\Omega_c s + \Omega_c^2.\]</div>
+<p>Choosing the DC gain to be 1 gives the <strong>analog transfer</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-butterworth-example-1">
+<span class="eqno">(49)<a class="headerlink" href="#equation-eq-butterworth-example-1" title="Permalink to this equation">#</a></span>\[H(s) = \frac{\Omega_c^2}{s^2 + \sqrt{2}\Omega_c s + \Omega_c^2}.\]</div>
+<p>To implement digitally, map <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(z\)</span> with the <em>bilinear transform</em>:</p>
+<div class="math notranslate nohighlight">
+\[s = \frac{2}{T}\frac{1-z^{-1}}{1+z^{-1}}, \quad T = \frac{1}{f_s}.\]</div>
+<p>Because the bilinear transform warps frequency, prewarp the desired digital cutoff <span class="math notranslate nohighlight">\(\omega_c\)</span> (radian/sample) to the analog cutoff:</p>
+<div class="math notranslate nohighlight">
+\[\Omega_c = \frac{2}{T} \tan\left( \frac{\omega_c}{2} \right).\]</div>
+<p>It’s convenient to set</p>
+<div class="math notranslate nohighlight">
+\[K = \tan\left( \frac{\omega_c}{2} \right) = \tan\left( \pi \frac{f_c}{f_s} \right).\]</div>
+<p>Now we substitute <span class="math notranslate nohighlight">\(s = \frac{2}{T}\frac{1-z^{-1}}{1+z^{-1}}\)</span> and <span class="math notranslate nohighlight">\(\Omega_c = \frac{2}{T} K\)</span> into <a class="reference internal" href="#equation-eq-butterworth-example-1">(49)</a>, clear the <span class="math notranslate nohighlight">\((1+z^{-1})\)</span> factors, and collect powers of <span class="math notranslate nohighlight">\(z^{-1}\)</span>. After simplifying and normalizing so that <span class="math notranslate nohighlight">\(a_0 = 1\)</span>, you get <strong>biquad</strong>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-butterworth-example-2">
+<span class="eqno">(50)<a class="headerlink" href="#equation-eq-butterworth-example-2" title="Permalink to this equation">#</a></span>\[H(z) = \frac{b_0 + b_1 z^{-1} + b_2 z^{-2}}{1 + a_1z^{-1} + a_2z^{-2}}\]</div>
+<p>with the Butterworth lowpass coefficients (unity DC gain):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{norm} &amp;= \frac{1}{1+\sqrt{2} K + K^2},\\
+b_0 &amp;= K^2 \cdot \text{norm}, b_1 = 2K^2 \cdot \text{norm}, b_2 = K^2 \cdot \text{norm},\\
+a_1 &amp;= 2 \frac{K^2-1}{1+\sqrt{2}K + K^2} = 2(K^2-1) \cdot \text{norm},\\
+a_2 &amp;= \frac{1-\sqrt{2}K + K^2}{1+\sqrt{2}K + K^2} = (1-\sqrt{2}K+K^2) \cdot \text{norm}.
+\end{split}\]</div>
+<p>That’s the standard 2nd-order digital Butterworth low-pass centered at cutoff <span class="math notranslate nohighlight">\(f_c\)</span> (or <span class="math notranslate nohighlight">\(\omega_c\)</span>) with sampling rate <span class="math notranslate nohighlight">\(f_s\)</span>.</p>
+</section>
+</section>
 <section id="impulse-response">
 <span id="sec-impulse-response"></span><h2>Impulse Response<a class="headerlink" href="#impulse-response" title="Permalink to this headline">#</a></h2>
 <p>Another fundamental result in <a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">LTI</span></a> system theory is that any LTI system can be characterized entirely by a single function called the system’s <em>impulse response</em> (in the time domain).
@@ -1141,8 +1202,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5bba7af-33ad-428e-b21f-2c6915f3f922">
-<span class="eqno">(49)<a class="headerlink" href="#equation-e5bba7af-33ad-428e-b21f-2c6915f3f922" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-800ae4ff-dc85-4a74-8fa3-3658d9b8675d">
+<span class="eqno">(51)<a class="headerlink" href="#equation-800ae4ff-dc85-4a74-8fa3-3658d9b8675d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -1161,8 +1222,8 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 <p class="admonition-title">FIR Filter</p>
 <p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a144ebf0-e9e2-4a9a-ae13-3c5dd3accfd9">
-<span class="eqno">(50)<a class="headerlink" href="#equation-a144ebf0-e9e2-4a9a-ae13-3c5dd3accfd9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bf1acb57-9b53-4176-b82a-5372e519cd4f">
+<span class="eqno">(52)<a class="headerlink" href="#equation-bf1acb57-9b53-4176-b82a-5372e519cd4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>
@@ -1226,7 +1287,7 @@ If we compute the <em>discrete-time Fourier transform</em> of <span class="math 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="math notranslate nohighlight">\(z\)</span>-Transform</p>
+        <p class="prev-next-title">z-Transform</p>
       </div>
     </a>
     <a class="right-next"
@@ -1265,7 +1326,12 @@ If we compute the <em>discrete-time Fourier transform</em> of <span class="math 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-a-simple-filter">Analysis of a Simple Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-zero-filter">One Zero Filter</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-pole-filter">One Pole Filter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-butterworth-filter">Analog Butterworth Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-butterworth-filter">Digital Butterworth Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-oder-butterworth-lowpass-filter">2nd Oder Butterworth Lowpass Filter</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
 </ul>
   </nav></div>
