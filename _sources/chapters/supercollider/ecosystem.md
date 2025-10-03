@@ -32,6 +32,7 @@ However, we find many projects that replace ``sclang`` and **scide**, especially
 
 + [Sonic Pi](https://sonic-pi.net/): highly accessible and therefore fascinating in the context of education.
 + [TidalCycle](https://tidalcycles.org/): functional language that focuses on the creation of complex rhythms via pattern.
++ [Strudel](https://strudel.cc): an official port of the Tidal Cycles pattern language to JavaScript.
 + [FoxDot](https://foxdot.org/): similar to [TidalCycle](https://tidalcycles.org/) but focuses more on the melodic side of compositions.
 + [Sardina](https://github.com/Bubobubobubobubo/Sardine): a ``Python`` based live coding library
 + [Overtone](https://github.com/overtone/overtone): open source audio environment designed to explore new musical ideas from synthesis and sampling to instrument building, live-coding and collaborative jamming
