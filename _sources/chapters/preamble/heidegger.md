@@ -1,465 +1,286 @@
 (sec-technology-and-art)=
-# The Essence of Technology and Art
+# The Enframing and Poetry 
 
-When one wants to philosophy about a field where art and technology are intertwined, one can hardly ignore the philosophy of one of the most problematic and influential thinker, that is, Martin Heidegger.
-Heidegger, a thinker deeply engaged with the question of *Being* and the *existential* structures of human life, was at the same time a member of the NSDAP---a fact that must not be overlooked and which poses a serious ethical problem for any engagement with his work.
-And yet Heidegger’s reflections on technology and art are remarkable in their depth.
+*A World in Dangerous Strife with the Earth*
 
-He did not understand technology merely as a collection of tools or procedures, but as a mode of *unconcealment*---a way in which the world discloses itself to us. Likewise, art was for him not simply a matter of aesthetic production, but a space in which truth comes into the open.
-From this perspective, art and technology are not simple opposites. Both are modes of *unconcealment*, ways in which we encounter the world.
+In the realm where art and technology intersect, the philosophy of Martin Heidegger offers a profound, though controversial, perspective through which their entanglement can be examined. Heidegger, a thinker deeply engaged with the *question of Being* and the existential structures of human life, was at the same time a member of the NSDAP---a fact that cannot be overlooked and that poses a serious ethical problem for any engagement with his work. And yet, Heidegger's reflections on technology[^1] and art remain remarkable in their depth.
 
-At its core, technology has the power to disclose---but it also harbors the danger of *enframing* (Gestell), in which everything, including the human being, appears merely as a resource for optimization and control. Art, by contrast, has the capacity to interrupt this enframing---to open up a space in which beings can appear for their own sake, beyond mere usefulness. In this way, art provides a counterbalance to technological thinking, making visible the depths of our being-in-the-world.
+Heidegger did not understand technology merely as a collection of tools or procedures, but as a mode of revealing (essence)---a way in which the world discloses itself to us. "Essence" here does not mean *essence* in the metaphysical sense, but rather that which historically shapes and sustains a mode of appearing.
+Accordingly, for Heidegger, art was not simply a matter of aesthetic production, but a space in which truth comes into the open. From this perspective, art and technology are not simple opposites. Both are ways of revealing---ways in which we encounter the world.  
 
-The following text attempts to unfold these ideas through the interpretive transcription of the author. The aim is to understand how technology and art, often treated as opposites, are in fact intertwined within the structures of human existence. Heidegger's writings are neither easy nor unproblematic---their mysticism and obscurity can be as frustrating as they are illuminating. Yet they resonate with an intuition that understands the world not as an objective collection of facts, but as the lived, finite domain in which we are always already embedded. It is the world in which we live, act, and ultimately die.
+Technology, at its core, carries the power to reveal---yet it also harbors the danger of the *enframing* (Ge-stell)[^2], in which everything, including the human being, appears only as a resource to be optimized and controlled. Art, on the other hand, has the capacity to interrupt this enframing---to open a space where beings can appear for their own sake, beyond mere usefulness. In this way, art offers a counterbalance to technological thinking by making visible the depths of our being-in-the-world.  
 
-Although I distrust the dangers of *Romanticism*---especially when it slips into mythical *essentialism* or political idealism---I also recognize its enduring appeal. Heidegger's poetic language and his focus, or rather return, to Being touch on a dimension of experience that resists cold rationality.
+The following text attempts to unfold these ideas through the author's interpretative transcription. It must be clear, however, that the author himself has already made a selective observation from the very beginning of his existence. Or, in the words of {cite}`james:1890`:  
 
-How, then, should we deal with this redescription?
-Here Richard Rorty offers us good counsel through *Philosophy as Poetry* {cite}`rorty:2016` and *Contingency, Irony, and Solidarity* {cite}`rorty:1989`: he urges us to no longer view philosophy as the search for metaphysical foundations, but as an imaginative undertaking---as the practice of redescribing the world; as a useful activity through which better vocabularies are created, in the hope that these will lead to a less cruel world.
+>Our life is nothing but what we pay attention to. -- William James  
 
-Rorty, drawing on both *pragmatic* and *romantic* traditions, invites us to see thinkers like Heidegger not as bearers of hidden truths, but as **creators of vocabularies** through which new ways of seeing and speaking become possible. Instead of seeking a definitive answer to the *essence of technology* or *art*, we are invited to engage in ongoing conversations that open up new possibilities of understanding. This perspective harmonizes the poetic impulse in Heidegger with a post-metaphysical humility: the acknowledgment that our interpretations are contingent, historical, and yet profoundly meaningful.
-Therefore, a better title of this essay would be: *The Essence of Technology and Art: Heidegger's legacy and its sublation*
+The aim is to understand how technology and art, often treated as opposites, are in fact intertwined within the structures of human existence. Heidegger's writings are neither easy nor unproblematic---their mysticism and obscurity can be as frustrating as they are illuminating. Yet they resonate with an intuition that does not grasp the world as an objective collection of facts, but as the lived, finite realm in which we are always already embedded. It is the world in which we live, act, and ultimately die.  
 
-In this Hegelian spirit, I invite the reader not to revere Heidegger, but to think with and against him---to ask what his language of Being and unconcealment can still illuminate in our present technological epoch, and where it obscures rather than clarifies. As Rorty reminds us: philosophy, like poetry, is a conversation---one that never ends and never concludes.
+Although I remain wary of the dangers of romanticism---especially when it drifts into mythical essentialism or political idealism---I also recognize its lasting appeal. Heidegger's poetic language and his focus, or return, to *Being* touch upon a dimension of experience that resists cold rationality.  
+
+How should we deal with this re-description? On this question, Richard Rorty offers valuable advice: he suggests that we no longer see philosophy as the search for a metaphysical foundation, but as an imaginative undertaking---as a practice of re-describing the world; as a useful activity through which better vocabularies may be created, in the hope that these might lead to a less cruel world {cite}`rorty:1989,rorty:2016`.  
+
+Rorty, who connects to both *pragmatic* and *romantic* traditions, invites us to see thinkers like Heidegger not as carriers of hidden truths, but as creators of vocabularies through which new ways of seeing and speaking become possible. Instead of seeking a definitive answer to the question of the *"essence of technology"* or the *"essence of art"*, we are invited to engage in ongoing conversations that open new possibilities of understanding. This perspective harmonizes Heidegger's poetic impulse with a post-metaphysical humility: the admission that our interpretations are contingent, historical, and yet profoundly meaningful.  
+
+In this spirit, I invite the reader not to revere Heidegger, but to think *with* and *against* him---to ask what his language of Being and revealing can still illuminate in our present technological epoch, and where it rather obscures than clarifies. As Rorty reminds us: philosophy, like poetry, is a conversation---one that never ends and never concludes.  
+
+[^1]: It is worth mentioning here the discussion of Heidegger in the field of artificial intelligence, particularly through Hubert Dreyfus and the so-called Heideggerian AI (HAI) {cite}`dreyfus:1986,dreyfus:2007,leidlmair:2008,herrera:2016`.
+
+[^2]: Comparable to Ellul's concept of the "technical system" {cite}`ellul:1980` or Simondon's notion of the "technical ensemble" {cite}`simondon:1958`.
 
 ## Heidegger and the Nazis
 
-Before we go further, it is essential to address the deeply troubling aspect of Heidegger's legacy: his involvement with *National Socialism*.
-Heidegger joined the Nazi Party in 1933 and served briefly as rector of Freiburg University, where he publicly endorsed Hitler and Nazism. His inaugural rectoral address spoke of the "inner truth and greatness of this movement." He used his position to marginalize colleagues---including those of Jewish descent---though in other instances, he also aided some students in avoiding persecution. These contradictions do not cancel each other out; rather, they complicate an already fraught ethical record.
+Before we can proceed, it is essential to address a deeply disturbing aspect of Heidegger's legacy, which will be taken up again at the end: his entanglement with National Socialism. Heidegger joined the NSDAP in 1933 and briefly served as rector of the University of Freiburg, where he publicly endorsed Hitler and National Socialism. In his inaugural address, he spoke of the "inner truth and greatness of this movement." In his position, he used his office to marginalize colleagues---including those of Jewish origin---though in other cases he helped individual students avoid persecution. At the same time, he retroactively invented such stories, many of which, after his death, were revealed to be false. These contradictions do not cancel one another out; rather, they complicate an already problematic ethical legacy.  
 
-Most disturbing is that Heidegger never clearly renounced his Nazi affiliation. Even after the war, in his writings and interviews, he offered evasions rather than apologies---even as his mentor, Edmund Husserl, and his student and former lover, Hannah Arendt, were Jewish. In posthumously published texts, including the Black Notebooks, Heidegger voiced conspiratorial and anti-Semitic ideas, deepening the concern that his political views were not incidental but intertwined with his ontology.
+Most troubling of all, Heidegger never clearly renounced his Nazi affiliation. Even after the war, his writings and interviews offered evasions rather than apologies---not even the fact that his teacher Edmund Husserl and his student and former lover Hannah Arendt were Jewish moved him to do so. In posthumously published texts, including the *Black Notebooks*, Heidegger expressed conspiratorial and antisemitic views, deepening the concern that his politics were not incidental but entangled with his ontology.  
 
-Critics---including Karl Jaspers, Theodor Adorno, Jürgen Habermas, Kurt Tucholsky, and Karl Popper---have raised serious objections, not only to his politics but also to his style and substance. Popper famously mocked Heidegger's writing as impenetrable and accused it of masking banalities behind mystification:
+Critics---including Karl Jaspers, Theodor Adorno, Jürgen Habermas, Kurt Tucholsky, and Karl Popper---have raised serious objections not only to his politics but also to the style and substance of his thought. Popper famously mocked Heidegger's writings as incomprehensible and accused him of hiding banalities behind mystifications:  
 
->Heidegger is, so to speak, the Hegelian of our time, who was also a Nazi, among other things. The worst part is that in Germany and all over the world, for example in South America, France, and Spain, Heidegger is admired and imitated. [...] He usually writes things that one cannot understand at all, and that too, for pages on end! -- Karl Popper
+>Heidegger is, so to speak, the Hegelian of our time, who also happened to be a Nazi. Worst of all is that in Germany and throughout the world---South America, France, Spain---he is admired and imitated. [...] He usually writes things that one cannot understand at all, and that for pages on end!
+> -- Karl Popper  
 
-Heidegger has been criticized for:
-+ Lacking ethical grounding in his philosophy
-+ Reinforcing relativism and the rejection of objective truth
-+ Engaging in circular reasoning and tautology
-+ Projecting personal moods onto metaphysics
-+ Conflating Being with Germanness or rootedness, which some see as ideologically dangerous
+Heidegger has been criticized for:  
+- lacking an ethical foundation in his philosophy,  
+- fostering relativism and rejecting objective truth,  
+- circular thinking and tautologies,  
+- projecting personal moods into metaphysics, and  
+- equating Being with Germanness or rootedness, which some consider ideologically dangerous.  
 
-Yet despite (or because of) these problems, Heidegger remains enormously influential---especially in France, where thinkers like Jean-Paul Sartre, Jacques Derrida, Michel Foucault, Maurice Merleau-Ponty and Paul Tillich drew on his ideas, even as they often departed from or subverted them.
+And yet, despite (or perhaps because of) these problems, he remains enormously influential---especially in France, where thinkers such as Jean-Paul Sartre, Jacques Derrida, Michel Foucault, Maurice Merleau-Ponty, and Bernard Stiegler engaged with his ideas, even when they often distanced themselves from or subverted them.  
 
-Some argue that Heidegger's philosophy and politics are inseparable. Others believe that while his politics are abhorrent, his questions---about Being, technology, truth, and art---remain vital. Both positions demand serious engagement.
+Some argue that Heidegger's philosophy and politics are inseparable. Others believe that, while his politics are reprehensible, his questions---concerning Being, technology, truth, and art---remain of decisive importance. Both positions demand serious engagement.  
 
->How is it that such a brilliant mind was taken in by the Nazis? How could Heidegger be so socially irresponsible? It is the same problem as with Celan: here is a wonderful writer who was a rotten anti-Semite [...] I have shown Heidegger's brain with a mushroom-like tumor growing out of it to make the point. -- Anselm Kiefer
+>How is it possible that such a brilliant mind succumbed to the Nazis? How could Heidegger have been so socially irresponsible? It is the same problem as with Celan: here a wonderful writer who was also a repulsive antisemite [...]. I portrayed Heidegger's brain as a fungus-like tumor in order to make my point.
+> -- Anselm Kiefer  
 
-To read Heidegger today is to walk a dangerous path---not just intellectually, but ethically. His concerns with the threats of technology and the loss of authentic Being may have led him, ironically and tragically, into the arms of a regime that promised order and rootedness. Engaging with his thought requires vigilance, not just interpretation.
+To read Heidegger today means to embark on a dangerous path, not only intellectually but also ethically. His concern with the threat posed by technology and the loss of authentic Being led him---ironically and tragically---into the arms of a regime that promised order and rootedness while creating the mechanized annihilation of life. To engage with his thought requires vigilance, not mere interpretation.
 
 ## What is Phenomenology?
 
-Martin Heidegger was deeply influenced by his teacher Edmund Husserl, the founder of modern *phenomenology*. Heidegger believed that to truly understand an entity, one must investigate its Being---not through abstract theorization, but by attending to how it shows itself in lived experience.
+Phenomenology in general is a way of doing philosophy that does not begin with theory but with experience---with the world as it is lived. It was decisively shaped by Heidegger's teacher Edmund Husserl, who is regarded as the founder of modern phenomenology.  
 
->Before words, before expressions, always the phenomena first, and then the concepts! -- Martin Heidegger
+Heidegger believed that, in order to truly understand a being, one must investigate Being itself. This should not occur through abstract theorizing but by paying attention to how it shows itself in lived experience.  
 
-Phenomenology is both a philosophical method and a reflective practice that seeks to describe how things appear to us in lived experience---before we interpret them, explain them, or reduce them to scientific categories.
-Rather than asking *what* things are in some objective or abstract sense, phenomenology asks: *How do things show up to us as meaningful?* How does the world present itself to a conscious, embodied subject---not in theory, but in experience?
-It begins from the insight that we are always already embedded in a world of relations, habits, moods, and concerns. We do not encounter the world as a detached observer, but as someone already involved---seeing, using, caring, suffering, hoping.
+>Before words, before expressions, always first the phenomena---and then the concepts!
+> -- Martin Heidegger  
 
-To practice phenomenology is to bracket our assumptions and attend closely to how things actually show themselves in our experience---whether it's the feel of a tool in our hand, the silence of a room, or the sudden anxiety of being watched. It is a disciplined return to the immediacy of lived meaning.
-In short, phenomenology is a way of doing philosophy that starts not with theory, but with experience---with the world as it is lived.
+Phenomenology is both a philosophical method and a reflective practice that seeks to describe how things appear to us in lived experience, before we interpret, explain, or reduce them to scientific categories. Instead of asking *what* things are in an objective or abstract sense, phenomenology asks: *How* do things show themselves to us as meaningful? How does the world present itself to a conscious, embodied subject[^3]---not in theory but in experience?  
 
-For Heidegger, philosophy had too long forced beings into rigid metaphysical categories. He sought a return to the phenomena themselves---to what is disclosed in practice and use, rather than detached theorization.
+Heidegger's phenomenology begins with the insight that we are always already embedded in a world of relations, habits, moods, and concerns. In this way, it opposes Descartes' subject–object split as well as the neo-Kantianism of his time. According to Heidegger, we do not encounter the world as detached observers, but as already involved---we see, use, care, suffer, and hope *before* we abstract and rationally interpret the world.  
 
-Husserl asked: How do we experience the world in consciousness? Heidegger asks: How does the world show itself to us because we are already beings involved in it?
+For Husserl, to practice phenomenology meant "bracketing" all presuppositions, beliefs, and judgments about the world and carefully attending to how things actually show themselves in our experience---whether it be the feel of a tool in the hand, the silence of a room, or the sudden fear of being watched. We set aside whether the world truly exists and focus instead on the *how* of appearing (givenness in consciousness). Through this, Husserl sought to reach "pure experience," free from metaphysical or scientific presuppositions. This led him to the *phenomenological reduction*: the analysis of the structures of consciousness and its *intentionality* (the "being-directed-toward"). His aim was to establish a science of consciousness.  
+
+Husserl coined the term *lifeworld* (*Lebenswelt*) {cite}`husserl:1954`, understood as the "world as it is lived." It is the shared, intersubjective world of experience, which serves as ground, horizon, and field of practice. It includes everyday life, history, and culture, but also manifold realities beyond the everyday. Its scientific value lies in uncovering the structures of meaning and action, rather than covering them over with positivism. As Alexis E. Gros emphasizes, the concept must be taken seriously and not reduced to a banal synonym for "everyday life" {cite}`gros:2019`.  
+
+The lifeworld was Husserl's critical response to the positivist neglect of the human, socio-historical, and cultural world. He wanted to grant everyday experience scientific status. In a sense, it is a polemical concept, for if the physical-mathematical conception of nature were not so dominant in the sciences, the term would make little sense. This *forgetting of the lifeworld* seems no less present in today's natural sciences. Husserl asks:  
+
+>What is the meaning and ground of knowledge, if all world-being is understandable only within the horizon of possible experience and meaning-giving through consciousness?
+
+Surprisingly, the concept barely appears in *Being and Time* {cite}`heidegger:1927`. Heidegger was aware of Husserl's reflections on the lifeworld (manuscripts circulated even before *The Crisis*), but he likely considered the term too tied to Husserl's *transcendental-phenomenological idealism*. Nevertheless, the concept shaped Heidegger's thought and opened a problem to which he responded. He shifted Husserl's epistemology toward the ontological question of Being itself.  
+
+Heidegger practiced a hermeneutic phenomenology. He assumed that we cannot bracket the world. Instead, he sought to uncover the fore-structures, prejudices, and pre-understandings of our being-in-the-world. The human being is not first a subject that "has consciousness of the world," but rather *is* always already being-in-the-world. He called his method the "destruction of the history of ontology" and "hermeneutics of facticity." His aim was to critically dismantle inherited concepts and ways of thinking in order to gain access to an original understanding of Being. For this reason, much like Wittgenstein, he was responsible for turning philosophy toward language---though not in the analytic sense.  
+
+Husserl might say: "I see a hammer. I bracket its real existence and investigate how it appears to me (as tool, as thing, as shape). This meaning ('hammer') is not in the object itself but is constituted through my intentionally directed consciousness---that is, it arises in the giving of meaning. The world is then the totality of such intentionally constituted structures of meaning."[^4] Heidegger, by contrast, would object: "The world is not constituted by the subject, for that presupposes that we first separate subject and world and then reconnect them. There is no 'subject here' and 'object there' that must be joined by consciousness. We are already in the world, which is not a product but the fundamental condition of our being. I do not first encounter the hammer as a thing that is then given meaning. I encounter it immediately as a tool, embedded in a practical context (nail, board, house-building, other people). This is not a subsequent constitution by subjectivity, but the original way in which the world shows itself."  
+
+Practical being-in-the-world is more fundamental than "pure intuition" and more fundamental even than consciousness. The world is not an object and not something we "add," but the field of Being in which we already exist.[^5]  
+
+For Heidegger, philosophy had too long attempted to press beings into rigid metaphysical categories. He sought a return to the phenomena themselves---that which is revealed in practice and use, not in detached theorizing.  
+
+As a result, Heidegger no longer understood truth (only) as correspondence with some reality.[^6] In his redefinition, truth is rather an event---an occurrence of unconcealment (*aletheia*)---in which things show themselves as what they are. Revealing never occurs without concealing---one truth covers over another. For Heidegger, this concept of truth is more general, and mathematics itself arises from it. This does not mean that truth is relative, but that it is always *situated*. It unfolds within a historical and ontological horizon.  
+
+Husserl asked: "How do we experience the world in consciousness?" Heidegger, by contrast, asked: "How does the world show itself to Dasein, which is always already a being entangled in it?"  
+
+[^3]: One must "unlearn" the notion of the subject in Heidegger, for Dasein *also* always has a world. It is not something contained within something else (the world).  
+[^4]: This notion of meaning is also taken up by Niklas Luhmann.  
+[^5]: While Husserl is more compatible with representational theories such as the so-called *Free Energy Principle* {cite}`friston:2006` in neuroscience, Heidegger's proximity to *New Realism* {cite}`gabriel:2013,gabriel:2018` and to *Radical Enactivism* {cite}`hutto::2013` is unmistakable.  
+[^6]: Beyond the correspondence theory, which assumes that a statement is true if it agrees with reality or facts (natural sciences), there are of course other theories of truth: the coherence theory, which regards truth as coherence within a system (mathematics, idealist tradition); pragmatic theories, which see truth as what proves itself in practice, in experience, in conversations, and in research over time (Peirce, Dewey, Rorty); and deflationary theories, which treat truth as a linguistic abbreviation where "true" simply stands for a statement (analytic philosophy). For Rorty, "true" is rather a commendatory term for beliefs we (provisionally, by consensus) take to be beyond doubt {cite}`rorty:2016`. Luhmann, in turn, understands truth as a symbolically generalized medium of communication that enables the autopoiesis of science. Truth, then, is not determined by a rule but is constructed by the processes of the system (falsification, discussion, peer review) and always remains provisional {cite}`luhmann:1992`. He also leaned toward pragmatic theories.
 
 ## What is Dasein?
 
-*Dasein* is Heidegger's neologism for the individualized, world-related existence that relates to itself, to others, and to things, while always already carrying with it an understanding of "*Being*".
-Through a careful and accurate description of our existence, Heidegger hoped to gain a better understanding of Being as such, that is, **what it means to be (at all)**.
+*Dasein* is Heidegger's neologism for the individual, world-related existence that relates to itself, to others, and to things, and always already carries with it an understanding of "Being". Through careful and attentive description of our existence, Heidegger hoped to arrive at a better understanding of Being itself---that is, **what it means to be**.  
 
-Dasein is an entity---a being—just as dogs and cats, stones and paths are beings.
-However, Heidegger's concern was not with the question of what it is like to be a particular being---for example, to be a Dasein---but rather with the question of what Being itself is at all.
-Since Dasein always already has an understanding of Being, Heidegger hoped that by investigating and describing Dasein, one might find an answer to the question of Being as such.
+Dasein is an entity---a being---just as dogs and cats, stones and paths are beings. However, Heidegger was not primarily concerned with the question of what it is like to be a particular being (for example, to be Dasein), but with the more fundamental question: **what is Being at all?** And because Dasein always already carries an understanding of Being, Heidegger hoped that by investigating and describing Dasein, one could gain an answer to the question of Being itself.  
 
-This approach appears circular: we investigate Dasein in order to understand Being, and thereby, among other things, come to understand Dasein better.
-But this *hermeneutic circle*, even if it may never end, is not a vicious one.
-According to Heidegger, we simply need to enter it in the right way.
-*Being and Time* {cite}`heidegger:1927` is therefore a hermeneutical text.
+This procedure may appear circular: we investigate Dasein in order to understand Being, in order thereby, among other things, to better understand Dasein. This *hermeneutic circle*---though it may never end---is not a vicious one. According to Heidegger, we must only learn to enter into it properly. *Being and Time* {cite}`heidegger:1927` is therefore a hermeneutical text.  
 
-A good analogy for such circular understanding is learning a new language.
-We must begin with certain words in the foreign language that mean something defined by other words in that same language.
-We first learn these words imprecisely or even incorrectly, only to learn them again later, more precisely.
-We interpret the whole through the parts, and the parts through the whole, back and forth.
-This process continues until we move from a vague to a clear understanding of a text.
+A good analogy for such circular interpretation is the learning of a new language. We must begin with certain words in the foreign language, whose meaning is determined by other words in that language. We first learn these words imprecisely or even incorrectly, only to learn them again later with greater precision. We interpret the whole through the parts, and the parts through the whole, back and forth. This process continues until we move from an unclear to a clearer understanding of a text.  
 
-The investigation of Dasein requires learning a new vocabulary, which means unlearning an existing one.
-Dasein is, in this sense, Heidegger's term for what we all are.
-But it is not an isolated subject; it is not the human being as revealed by biology, psychology, sociology, anthropology, and so on.
+The investigation of Dasein requires the learning of a new vocabulary, which in turn requires the unlearning of an existing one. Dasein is, in this sense, Heidegger's term for what we all are. But it is not an isolated subject; it is not the human being as revealed by biology, psychology, sociology, anthropology, and so on.  
 
-Dasein is a being for whom its own Being is at issue, and which interprets that Being.
-Things encounter it primarily as equipment in use (*ready-to-hand*, *zuhanden*), not as neutral objects (*present-at-hand*, *vorhanden*).
-It always already lives within worldly relations (work, equipment, fellow humans, projects).
+Dasein is a being whose own Being is at issue for it, and which interprets its Being. Things are encountered by it primarily as equipment in use (*ready-to-hand*, *zuhanden*), not as neutral objects (*present-at-hand*, *vorhanden*). It always already lives within relations to the world (work, tools, others, projects).  
 
-That is why Heidegger speaks of existentials (care, temporality, being-with) rather than of categories (properties of things).
-Dasein is neither pure consciousness nor merely an individual (it is always already being-with).
-It is not a subject or an "I-thing" set over against a world, but rather it is on the basis of a world and of others.
-It *dwells* in the world.
+This is why Heidegger speaks of *existentials* (care, temporality, being-with) rather than *categories* (properties of things). Dasein is neither consciousness nor merely an individual (it is always already *being-with*). It is not a subject or ego-thing placed into a world, but it *is* on the basis of a world and of others. It dwells in the world.  
 
-Certainly, Dasein can also approach the world as though it were separate from it, thereby disclosing it in a particular way.
-At times, such a theoretical stance may be necessary (especially in science and Heidegger is not against science).
-But most of the time, we do not experience ourselves as isolated subjects separated from the world.
-Most of the time, we do not even experience ourselves as subjects at all, but as a referential whole.
-For example, when we brush our teeth, change our clothes, open the door, wait for the train, clean the house, and so on, we do not reflect on or differentiate the simple relations that gather around us.
+Of course, Dasein can also take up an attitude toward the world as if it were separate from it, and in doing so disclose it in a particular way. From time to time, it may be necessary to adopt such a theoretical stance---especially in science (and Heidegger had nothing against science). But most of the time, we do not experience ourselves as isolated subjects separated from the world. Most of the time, we do not even experience ourselves as subjects, but as a *referential whole*. When, for example, we brush our teeth, change our clothes, open the door, wait for the train, tidy the house, and so on, we do not reflectively differentiate our simple relations, but live through them as part of an everyday context that surrounds us.
 
 (sec-essense-of-technology)=
 ## The Essence of Technology
 
-In *Being and Time* (1927) {cite}`heidegger:1927`, Heidegger argues from a *phenomenological* perspective that scientific and theoretical modes of understanding presuppose---and often obscure---a more primordial way of being-in-the-world. The natural sciences rely on abstract conceptions of space and time, but these are derived from a more immediate, lived experience of orientation, distance, and concern. It is only through our practical engagement with the world---what Heidegger calls our concernful dealings (Besorgen)---that space and time gain existential meaning.
+In *Being and Time* {cite}`heidegger:1927`, Heidegger argues from a phenomenological perspective that scientific and theoretical modes of knowing presuppose---and often conceal---a more originary way of being-in-the-world. The natural sciences rely on abstract concepts of space and time, but these are derived from a more immediate, lived experience of orientation, distance, and concern. Only through our practical being-in-the-world---what Heidegger calls our *concernful relations*---do space and time acquire existential meaning.
 
-From this perspective, science's 'objective' viewpoint is not neutral but reductive. It strips away the meaningfulness that arises from everyday life and replaces it with a flattened, calculative framework. Rather than enhancing our grasp of reality, this scientific abstraction narrows it. Ordinary action, embedded in care and purpose, offers a richer path toward understanding Being than detached analysis can provide.
+From this point of view, the "objective" perspective of science is not neutral but reductive. It strips Dasein of the significance that grows out of its lifeworld and replaces it with a flattened, calculative framework. Rather than deepening our grasp of reality, scientific abstraction narrows it. Everyday action---embedded in care and purpose---offers a richer access to Being than detached analysis ever can.
 
-Heidegger deepens this critique in his later essay *The Question Concerning Technology* (1954) {cite}`heidegger:1954b`. There, he challenges the dominant instrumental definition of technology as a set of tools used to achieve human ends. While this definition seems intuitive, Heidegger argues that it is itself a symptom of a deeper technological mode of revealing---one that enframes the world as *standing-reserve* (Bestand), a stockpile of resources to be ordered and exploited.
+Heidegger develops this critique further in his later essay *The Question Concerning Technology* {cite}`heidegger:1954b`. There he challenges the familiar instrumental definition of technology as a means to human ends. However plausible that definition may seem, for Heidegger it is already a symptom of a deeper technological mode of being: a revealing that presents the world as *standing-reserve* (*Bestand*)---a stockpile of resources to be ordered and exploited.
 
-Technology, then, is not just a collection of devices or applications. It is a way of understanding and relating to Being---one that prioritizes control, efficiency, and utility above all else. The danger lies not in technology per se, but in the dominance of this technological worldview, which increasingly constrains how we think, act, and perceive. Heidegger warns that when everything is seen through the lens of functionality, we risk losing sight of other, more poetic or meaningful modes of revealing.
+Technology, then, is not simply a collection of devices or applications. It is a way of understanding Being and of relating ourselves to it---a way that places control, efficiency, and utility above all else. The danger does not lie in technology *as such*, but in the dominance of this technological worldview, which increasingly determines how we think, act, and perceive. Heidegger warns: if everything is seen solely under the aspect of functionality, we lose sight of other, more poetic or meaningful modes of revealing.
 
-To uncover a pre-scientific understanding of technology, Heidegger turns to the ancient Greeks. For them, the word téchne referred not only to what we would now call technology but also to art and craft. It described a form of knowing that involved the skilled bringing-forth of something into appearance---a process in which the artisan did not impose form upon matter but worked in concert with it. Téchne, in this sense, was aligned with poiesis---a revealing, a letting-be.
+To recover a pre-scientific understanding of technology, Heidegger looks back to the ancient Greeks. For them, *téchne* referred not only to what we now call "technology," but also to art and craft. It named a form of knowing grounded in *bringing-forth*---in letting something come into appearance, where the artisan does not simply impose form upon matter but works together with it. In this sense *téchne* is akin to *poiesis*---a revealing, a letting-be.
 
-> The causes bring something into appearance. They let it come forth into presence. -- Martin Heidegger
+>The causes bring something into the open. They let it step forth into presence. 
+> -- Martin Heidegger
 
-The craftsman, in this older view, did not see themselves as the absolute origin of the created thing but as a participant in a process of emergence. The role of the artisan was to assist in allowing something to manifest according to its own essence.
+In this older view, the artisan did not regard himself as the absolute origin of what is made, but as a participant in a process of emergence. His role was to help a being come forth.
 
-In stark contrast, modern technology is no longer understood as a cooperative revealing. It is, as Heidegger argues, a challenging-forth (herausfordern), a mode of revealing that imposes order and extracts resources. We no longer see ourselves as stewards or collaborators with nature; rather, we perceive ourselves as its masters---as the origin of everything we produce.
+By sharp contrast, modern technology no longer understands itself as cooperative revealing. It is, as Heidegger says, a *challenging-forth*---a mode of revealing that imposes order and extracts resources. We no longer see ourselves as guardians or co-shapers of nature but as its masters---the origin of everything we bring forth.
 
-This shift is not just a change in technique but a transformation in how we encounter Being itself. The modern technological worldview reveals the world as standing-reserve (Bestand): a resource to be optimized, stored, and controlled. In doing so, it conceals other, more poetic ways of encountering the world.
+This shift is not merely a technical change but a transformation of our encounter with Being itself. The modern technological worldview displays the world as *standing-reserve*: a resource to be optimized, stored, and controlled. In the process, other, more poetic modes of world-disclosure are covered over.
 
-The essence of modern technology, Heidegger tells us, is not technological in a narrow sense. It lies in the framework of *enframing* (Gestell)---a mode of revealing that simultaneously unveils and conceals. It shapes how entities present themselves to us, and how we relate to them. Under Gestell, everything---from rivers to human beings---becomes something to be used, measured, and managed.
+The essence of modern technology, Heidegger insists, is not "technical" in the narrow sense. It lies in *enframing* (*Gestell*)---a framework of revealing that both unveils and conceals. It determines how beings show themselves to us and how we comport ourselves toward them. Within enframing, everything---from the river to the human being---becomes something to be used, measured, and managed.
 
-Importantly, Heidegger insists that this mode of revealing has deep historical roots. Although it becomes dominant with industrialization and modern science, its seeds were sown in Western metaphysics---in the idea that Being is something that can be grasped, represented, and mastered. Technologies such as the nuclear bomb are not merely threats in themselves; they are expressions of this deeper enframing.
-Thus, the danger of technology is not any particular machine or device, but the way it shapes our understanding of all things---including ourselves. Technology is challenging not just in its effects, but in its essence. It configures a totalizing perspective that transforms the world into a resource field, narrowing our openness to other forms of being and meaning.
+>The essence of technology is by no means anything technological. 
+> -- Martin Heidegger
 
->[Because of technology] all distances in time and space are shrinking [and] yet the hasty setting aside of all distances brings no nearness; for nearness does not consist in a small amount of distance. -- Martin Heidegger
+Crucially, this mode of revealing has deep historical roots. It becomes dominant with industrialization and modern science, but it is already seeded within Western metaphysics, in the notion that Being is something to be grasped, represented, and mastered. Technologies such as the atomic bomb are not merely threats in themselves; they are expressions of this deeper enframing. The danger of technology thus lies not in individual machines or devices but in the way it shapes our understanding of everything---including ourselves. Technology is dangerous not only in its effects but in its essence. It configures a totalizing perspective that narrows the world into a field of resources and threatens our openness to other ways of Being and meaning.
 
-We seem to have become nearly incapable of experiencing nearness in its full existential sense---let alone comprehending it---as all things, including other human beings, increasingly reveal themselves to us in a technological mode. As Heidegger describes, they appear as standing-reserve (Bestand): inventory-like items, ready for mobilization, manipulation, and disposal. Objects are no longer encountered in their uniqueness or integrity, but only in terms of their usefulness---as energy sources or resources awaiting orchestration.
+>[Through technology] all distances in time and space shrink, and yet the frantic abolition of all separations brings no nearness; for nearness does not consist in short distance.
+> -- Martin Heidegger
 
-This logic extends beyond machines. Human capacities are also reduced to instruments within technological systems. A laborer becomes a component of the production process. Leaders and planners are themselves transformed into managerial assets---optimized, repurposed, or discarded according to need. The result is that everything---tools, people, our partners, even time and space---forfeits its autonomy, its inner form, and its capacity to disclose alternative ways of being.
+This insight feels apt today: ongoing digitalization lets us overcome distance and time in communication with ease, and yet more people than ever feel lonely and untouched. Nearness, in the phenomenological sense, is not an objective physical magnitude like time and distance but an existential experience---and scarcely any science takes charge of it. Through our technological understanding of Being, even our fellow humans become a useful stock---inventory to be mobilized, manipulated, and discarded. Objects no longer meet us in their uniqueness or independence, but only in terms of their utility---as energy sources or resources on standby.
 
-The mode of revealing that prevails in modern technology is not the gentle bringing-forth of poiesis---the creative emergence once found in art and craft. Instead, it is a challenging-forth (Herausfordern), a forceful demand imposed on nature to yield energy, order, and efficiency. This challenge does not follow from modern science; it precedes it.
-For Heidegger, technological thinking is what first disclosed nature as something that could be challenged, extracted from, and quantified. It is this revealing---this essence of technology as Gestell---that gives rise to science's calculative gaze. The technological worldview thus underlies not only the way we build machines, but the way we perceive existence itself.
+As already noted, this logic extends beyond machines. Human capacities, too, are reduced to instruments within technological systems. The worker becomes a component of the production process. Executives and planners turn themselves into manageable assets---optimized, repurposed, or discarded as needed. The result: everything---tools, people, partners, even time and space---loses its independence, its inner form, and its power to open alternative ways of Being.
 
->Modern technology is not applied natural science, far more is modern natural science the application of the essence of technology. [Nature is therefore] the fundamental piece of inventory of the technological standing reserve---and nothing else. -- Martin Heidegger
-
-The nature of *being-in-the-world* (*Dasein*)---basically Heidegger's concept of a human being---is such that we can never escape concerns about our concerns (*Sorge*), which originates from our finitude, but we frequently attempt to deny them. 
-We distract ourselves from our worries, the primary of which is death. 
-To live *authentically* means not to "live as you truly are" but to live with the *certainty of the end of all possiblities* on your side.  
-Death is not just an endpoint but a companion---a reminder that gives our life meaning and let's us *care*.
-Our relationship with technological tools, techniques, and devices can aid a distraction, diverting us from our fundamental experience and enticing us into a false sense of security. 
-This can be dangerous if it impedes the lived awareness of our ultimate existence
-
->as beings in trouble in a world of uncertainty.
-
-We become accustomed to the internet, smartphones, social media, platform economies, and the endless repetition of trivialities.
-As individuals, we can often feel powerless in the face of new technologies, and occasionally experience a lack of depth provided by the scattered and dissected elements of our existence. 
-The *essence of technology* deprives us of experiencing nearness because to truly experience it, we must encounter things in their truth. 
-And no matter how deeply we believe that science will allow us to engage with reality in its actuality, science only provides us with representations of things.
-It only ever encounters that which its manner of representation has previously admitted as a possible object for itself.
-
-Today the representational character of the digital shapes the physical.
-Speaking in Baudrillardian terms: through the colonization of the last frontier---our immediate consciousness---companies are constructing a virtual yet *hyper-realistic* world that suggests that there is no truth behind it.
-This process is evolving so rapidly that meaningful analysis becomes impossible.
-Our children will navigate a "meta"-reality.
-They won't believe that the world depicted on their screens and other devices is real---that is not the danger!
-I also doubt that they will consciously believe the fake stories of this realm saturated by advertisement.
-Instead, they run the risk of becoming cynical; of perceiving the *real* world as if it is *virtual*.
-Therefore, they may consider everything as a scene to be observed, and all their actions as performances that can be captured and reviewed at any given moment.
-This would deny them a life of moments and turn it into a plan for later presentation and peer evaluation.
-
-Kids already sense the digital world in a peculiar, allusive, and meta-like state.
-This is why their memes are perpetually ironic, detached, self-referential, and buried beneath twenty layers of irony; the truth is completely dead to them.
-They look at a *postmodern* president and culture and ask: what on earth is this?
-They see Coca Cola advertisements that are knowingly winking and smiling at them, and they see through this nonsense.
-Advertisers realize this and put yet another layer on top.
-
-But I digress.
-Let me go back to the *challenging* aspect of technology.
-It implies that functioning things lead to more functioning things.
-Everything is *challenged* to serve as a systematic resource for technological application, which we subsequently utilize as a resource for further applications, perpetuating a cycle. 
-For instance, we *challenge* land to produce coal, considering the land as nothing more than a coal deposit. 
-The coal is then stockpiled, always ready to unleash the stored solar heat it contains, which is then called upon for warmth, which subsequently is commanded to yield steam whose pressure drives the wheels that sustain a factory's operations. 
-The factories themselves are *challenged* to create tools through which machines are once again put into service and preserved.
-
-Heidegger argues that this chain does not move toward anything that has its own presence, but, instead, "only enters into its *circuit*", and is "regulating and securing" natural resources and energies in a never-ending fashion---one might call **autopoietic** (compare e.g. {cite}`reichel:2011,lovasz:2023,zoennchen:2025`).
-Heidegger's argument is at least interesting.
-Given the complexity of modern life, we often lack a clear understanding of how our contributions to the advancement and "improvement" of technology lead to a "better" society.
-Beyond meeting basic needs such as housing, food, education, healthcare, social life, and intimacy, it is often difficult to discern how the introduction of new technological gadgets aids this objective.
-
-For example, how does the newest iPhone, with its ability to take more refined pictures, contribute to a "better" society?
-The existence of the iPhone and the pressure to create appealing pictures for our profiles prompts many to purchase and use it. This, in turn, increases the demand for memory and computation, subsequently escalating the need for earthly materials. Many would probably be content if that new phone didn't exist, primarily because they need it only because it exists, not because they truly desire it. In other words, the desire is constructed by a self-serving system.
-
-I argue that our understanding of progress being equivalent to technological progress in the form of more and "better" technology is more a question of faith than an envisioned future based on rigid justifications.
-Luhmann might point out that *technological progress* is a *value* stabilized via communication.
-We communicate about the installation of nuclear power plants and buy new gadgets which is a kind of communication.
-However, this does not explain why we believe in this *value*.
-I would argue that many people would willingly hit the pause button on all technological progress, at least temporarily.
-No one asked for the *Metaverse*, but we will build it anyways because we are *challenged* to do so.
-
-Luhmann probabobly would offer a more nuanced explanation: interdependent self-generating social systems which "feed" us into them.
-Heidegger's argument seems quite reductive but it captures my personal feeling of a reality that feels thinner and thinner.
-
-Marxists might argue that my feeling is more related to our socio-economic system.
-However, I find it hard to attribute the cause solely to *capitalism*.
-The origin of Mark Fisher's *Capitalist Realism* {cite}`fisher:2016` is not so much capitalism but a *functional differentiated society*.
-Of course, capitalism plays a huge role in shaping our social systems.
-Heidegger, on the other hand, might attribute capitalism and Luhmann's *functional differentiation* to the *essence of technology*.
-These are different perspectives on our modern and technological-driven society.
-
->A success is that type of consequence that itself remains assigned to the yielding of further consequences. -- Martin Heidegger
-
-As already mentioned, Heidegger thinks of technology as a *mode of seeing* where every "seeing" has its necessary blind spots.
-He expands on the example of the hammer to illustrate his thoughts about technology:
-when using a hammer (a form of technology), you don't even think about the tool itself; instead, you focus on the nail.
-The hammer recedes from your awareness, and you concentrate on the task *at hand*.
-The hammer is *ready-to-hand* (*zuhanden*).
-
-Consider a more modern example: the keyboard. As you become proficient at typing, your attention focuses on the words appearing on the screen---not on your fingers pressing keys. The keyboard becomes invisible in use. Furthermore, when you recognize a keyboard, you don't just see a thing---you perceive the affordances it provides. The keyboard is not just an object; it's an invitation, a call to explore, to write, to engage the world in a certain way.
-This phenomenological way of thinking---in which things appear with value, meaning, and purpose---was already present in Edmund Husserl, Heidegger’s teacher:
-
->This world is not there for me as mere world of facts and affairs, but, with the same immediacy as a world of values, a world of goods, a practical world. Without further effort on my part I find the things before me furnished not only with the qualities that benefit their positive nature, but with value-characters such as beautiful or ugly, agreeable or disagreeable, pleasant or unpleasant, and so forth. Things in their immediacy stand there as objects to be used, the "table" with its "books", the "glass to drink from", the "vase", the "piano" and so forth [...] The same considerations apply of course just as well to the men and beasts in my surroundings as to "mere things". They are my "friends" or my "foes", my "servants" or "superiors", "strangers" or "relatives" and so forth. -- Edmund Husserl
-
-Equipment vanishes from our *world*.
-Only if it breaks or fails to perform as expected it introduces itself again as *present-at-hand* (*vorhanden*).
-Otherwise, it simply serves as a *medium* through which we experience our world.
-Things in the world are not simply passive objects.
-They invite us to interact with them.
-Take a small child in an elevator, for example---notice how the child is immediately drawn to press the buttons.
-Or take the child to a lake and wait until it throws small stones into the water.
-
-For Heidegger, equipment withdraws from our attention and becomes transparent as we use it.
-And if it does, it is all the more genuinely what it is.
-In that sense, it needs us to be; to act itself out.
-Furthermore, we don't experience technology itself, but rather the world through it.
-Consequently, technology introduces its own *mode of seeing*.
-
-When you drive a car proficiently, you develop a sense of the vehicle's size and whether it can fit through a gap.
-Similarly, wearing nail extensions frequently can cause you to forget about them, even though they change how you interact with objects.
-Part of the allure of technology is found in the diverse opportunities it provides for unique forms of embodiment.
-Sociologist and philosopher Bruno Latour posits that when technology becomes sufficiently transparent, it becomes an intrinsic part of our self-perception and our experience of the world, thereby giving rise to a new, compound entity {cite}`latour:1992`.
-According to Latour, technological artifacts can act as social agents and if they become routine or transparent, they "disappear" from our conscious perception but remain deeply entangled in our actions and identities.
-Evidence from cognitive science supporting this viewpoint is substantial.
-Our enjoyment of driving stems from the fact that we transform into "the driver", a being with speed and power surpassing any land creature.
-Likewise, our delight in operating digital devices arises from the sensation of becoming a being that can converse with someone on the opposite side of the globe at a speed comparable to a lightning strike.
-Similarly, a person wielding a hammer essentially evolves into a new being, equipped with its own unique way of perceiving the world. 
-This newly formed being, as a result of the technology's influence, experiences the world from a distinct perspective and possesses an individualized subjectivity.
-
-Given that technology represents a *mode of understanding* the world, and acknowledging that our understanding of the world is not entirely self-determined, this perspective seems to envelop us; it is greater than us as individuals.
-Heidegger sees the *highest danger* of technology as its potential to erode our ability to interpret reality profoundly.
-The moment we start viewing ourselves as manipulable raw materials, we cease to see ourselves as the ultimate source from which fresh interpretations of the world can spring.
-Furthermore, technology can trap us in a specific worldview because as soon as we attempt to devise a new way of interpreting the world, we find ourselves trying to exert power over our inherent *will to power*.
-In essence, we attempt to control our very propensity for control.
-Every effort to overcome this *will to power* only serves to reinforce it.
-It is like the paradoxical effort to be mindful for the sake of optimization.
-Consequently, every attempt to break free from this technological mindset only propels us back into it.
-
->The essence of technology is by no means anything technological. -- Martin Heidegger
-
-## Forgotten Wholeness
-
->The self is a relation that relates itself to itself. -- Soren Kierkegaard
-
-Heidegger's emphasis on *ordinary life* may seem trivial, yet, how frequently do we feel lost, overwhelmed, and alienated in the world, even though we are experts in navigating this chaos? 
-Often, we forget that we are temporal beings in a world where we are deeply rooted.
-This fact becomes crystal clear when considering all the small habits our bodies carry out so effortlessly that we hardly give them a thought.
-All the smells we can perceive, all the various tactile experiences we can receive and give, all the sounds we can differentiate, and the ways in which we can walk, sit, run, and dance. 
-Sometimes, when one feels lost in the digital spectacle, returning to the simplicity of the ordinary can offer a reassuring sense of home---and we are deeply home here and now.
-
-Few would dispute that technology has transformed our self-perception. 
-It is clear to me that we are more and more humiliated by what we see through science:
-
-+ **Copernicus**: Earth is not the center of the universe.
-+ **Nietzsche**: God is dead, implying that normative values are constructed and lack any metaphysical essence.
-+ **Darwin**: Humans are not the apex of creation but part of an ongoing and contingent evolutionary biological process.
-+ **Freud**: The human "ego" is not fully in control but is governed by unconscious processes.
-+ **AI**: Machines can execute task that we thought require human thinking.
-
-A scientific definition of beings will make us blind for their mysterious and unexplainable presence in the world.
-In Heidegger's term: it will make us blind for *Being*.
-Importantly, this term refers not to a specitic being, that is, indivudual things like rocks, chairs, animals and humans but **the condition or mode of existence that allows beings to be at all**.
-Heidegger's ontology is therefore not about *what* exists, but **how existence shows up to us**.
-To approach Being, he then analyzes a special kind of being: the human being, which he calls *Dasein* (literally, "being-there").
-
-*Dasein* is unique because:
-+ It has a pre-understanding of *Being*.
-+ It *cares* about its own being.
-+ It exists in a state of *thrownness*.
-+ It is *being-towards-death*---its temporality shapes its understanding of existence.
-
-So, *Dasein* is the gateway to understainding *Being* in general. It is the being that has an understanding of *Being*.
-For Heiddegger, there is no such thing as an "*inner self*" divorced from the world.
-Therefore, ontoloty must begin with lived, situated existance---not abstract thought.
-
-He also attacks the subject-object dichotomy by pointing out that, most of the time, we encounter things through use (they are *ready-to-hand*) not detached reflection (*present-to-hand*).
-Furthermore, for him, time is not just a succesion of "nows," but a structure of existence:
-+ **Past (facticity)**: We are thrown into the world.
-+ **Future (projection)**: We are always projecting ourselves towards possibilities (we have projects).
-+ **Present (fallenness)**: We are often distracted by daily routines and the expectations of others ("the they"---das Man).
-
-The danger, for Heidegger, is to lose the ability of seeing the world and its beings as they appear to us and to understand ourselves not as mere thinking subjects but as *Dasein* that is in the world in a mode of uncovering, i.e. disclosing other entities as well as ourselves.
-He intentionally used the term because he felt as though the words most often used by philosophers to designate human beings, words like “consciousness”, "self-consciousness", "subject", "soul", etc., carried far too much metaphysical baggage, and, thus, found it necessary to come up with a new term for human beings. 
-
-Decartes view of *the self* as self-subsistent and worldless *subject* changes in Heidegger's phenomenologically perspective because *Dasein* is always *Being-(involved)-in-the-world*.
-To be a self is to have a world.
-Like Husserl's world, Heidegger's world is a practical world of interconnected beings where equipment presupposes other equipment and is truly what it is only when it is being used transparently.
-We can reformulate Descartes' "Cogito ergo sum" from a Heideggerian perspective: I am, therefore the world is.
-
->We shall call those entities which we encounter in concern "equipment". In our dealings we come across equipment for writing, sewing, working, transportation, measurement. [...] Taken strictly, there 'is' no such thing as an equipment. To the Being of any equipment there always belongs a totality of equipment, in which it can be this equipment that it is. Equipment is essentially 'something in-order-to [...]'. A totality of equipment is constituted by various ways of the 'in-order-to'. [...] In the 'in-order-to' as a structure there lies an assignment or reference of something to something. [...] Equipment---in accordance with its equipmentality---always is in terms of its belonging to other equipment: ink-stand, pen, paper, blotting pad, table, lamp, furniture, windows, doors, room. [...] What we encounter as closest to us (though not as something taken as a theme) is the room; and we encounter it not as something 'between four walls' in a geometrical spatial sense, but as equipment for residing. Out of this the 'arrangement' emerges, and it is in this that any 'individual' item of equipment shows itself. Before it does so, a totality of equipment has already been discovered. Equipment can genuinely show itself only in dealings cut to its own measure (hammering with a hammer, for example); but in such dealings an entity of this kind is not grasped thematically as an occurring thing, nor is the equipment-structure known as such in the using. The hammering does not simply have knowledge about the hammer’s character as equipment, but it has appropriated this equipment in a way which could not possibly be more suitable. In dealings such as this, where something is put to use, our concern subordinates itself to the "in-order-to" which is constitutive for the equipment we are employing at the time; the less we just stare at the hammer-thing, and the more we seize hold of it and use it, the more primordial does our relationship to it become, and the more unveiledly is it encountered as that which it is---as equipment. [...] The peculiarity of what is proximally ready-to-hand is that, in its readiness-to-hand, it must, as it were, withdraw in order to be ready-to-hand quite authentically. -- Martin Heidegger
-
-Heidegger’s concerns of technology also raise several difficulties.
-It tends to romanticize certain types of tools.
-His texts are filled with what we may call a romanticization of German country life that is hard not to relate to Heidegger’s involvement with Nazism.
-And isn't the distinction between affirming (ancient Greeks) and dominating technologies (modern times) just a subjective preference.
-Why exactly does the hydroelectrical dam on the Rhine provoke nature whereas the temple doesn't? 
-Is the manner in which beings reveal themselves to us meaningful only in Heidegger's terms, or can a rationale be provided for this meaning that simultaneously permits and even requires openness to *Being* beyond Heidegger's limits?
-In other words, can a scientific view enrich the mystery of the world?
-The physicist Richard Feynman, at least, seems to think so.
-
->I have a friend, who is an artist. And he is sometimes taken a view which I don't agree with very well. He hold up a flower and says: "Look how beautiful it is." And I agree. And he says: "I as an artist can see how beautiful that is but you as a scientist take this all apart and it becomes a doll thing." And I think he is kind of nutty. First of all the beauty that he sees is available to other people and to me too. I may not be quite as refined aesthetically as he is but I can appreciate the beauty of the flower. At the same time, I see much more about the flower than he sees. I can image cells in it; the complicated actions inside which also have a beauty. I mean it is not just beauty at this dimension of one centimeter, there is also beauty at smaller dimensions; the inner structure also the processes; the fact that the colors and the flowers evolved in order to attract insects to pollinate it is interesting. It means that insects can see the color. It adds a question: does this aesthetic sense also exist in lower forms? Why is it aesthetic? All kinds of interesting questions which the science knowledge only adds to the excitement and mystery in the aura of a flower; it only adds. I don't understand how it subtracts. -- Richard Feynman
-
-It would be foolish to advocate for a return to some mythical naturalistic past or some elusive authenticity. 
-This would only lead to disillusionment because such authenticity was never present to begin with.
-Nature is a splendid beast; it is *the real* that pursues us.
-It is not our tools, methods and techniques that are at the center of Heidegger's concerns but our way of seeing the world.
-He sees danger in the domination of nature which, for him, ultimately leads to the domination of humanity.
-But is it a question of black and white?
-Is there room for both *instrumental* and *non-instrumental* thinking and seeing?
-Can we see the mystical whole---the world as it appears to us---and its no less magical parts, structure, and abstraction?
-I believe there is.
-
->For all of us, the arrangements, devices, and machinery of technology are to a greater or lesser extent indispensable. It would be foolish to attack technology blindly. It would be shortsighted to condemn it as the work of the devil. We depend on technical devices. -- Martin Heidegger
-
-Let's consider an analogy: the concept of *free* and *instrumental play*, as introduced by Wolfgang Iser in {cite}`iser:1993`. 
-Iser labels play in games with specific goals as *instrumental play*.
-At the other end of the spectrum is *free play*, a form of play devoid of definite endpoints, perpetuating the continuity of play.
-*Instrumental play* is a goal-oriented approach that values efficiency, expertise, and optimized strategies as components of play. 
-For instance, if children engage with their surroundings, such as running around, this can be considered *free play*.
-However, when they introduce goals like catching one another, the play tends more towards *instrumental play*.
-The aim of playing isn't solely to reach the end but to discover the most effective way of getting there.
-However, there's no such thing as pure *free* or pure *instrumental* play.
-Playing chess to win money leans heavily towards *instrumental* play, while playing with a ball purely to enjoy the physical experience is predominantly *free* play. Furthermore, there's no inherently "good" or "bad" style of play. 
-In fact, the issue sometimes arises when we deem *instrumental play* to be the correct, or "good," way to play.
-But here's the crucial point: *instrumental play* isn't the opposite of *free play*; 
-instead, there exists a tension between the two. 
-One can derive deep enjoyment from improving a skill, achieving goals, or uncovering solutions to complex problems. 
-Similarly, we can perceive the earth and its inhabitants instrumentally (as a means to an end) or appreciate them for what they are (as ends in themselves).
-
-Therefore, I favor the Kantian notion extended to all beings as well as things---never viewing anything merely as a means to an end, but always as an end in itself. 
-But I also acknowledge Richard Rorty for pointing out that such an *ethical principle* can not be seen as an absolute rule but something we can consider when we try to make the right decision.
-There is no authority, no rule, no algorithm that will forever and in any situation provide us with the right answer.
-What we think is right or wrong is contingent on how we grow up---in our culture, history, and environment.
-The answer is neither *absolutism* nor *absolute relativism* but the willingness to acknowledge to myself, that my conscience is the internalized consciousness of a specific historical-contingent culture.
-Furthermore, just as *instrumental play* can enrich *free play*, such as by enabling other forms of *free play* via the acquisition of new skills and habits, I also believe that the scientific perspective, which necessitates objectifying entities and often neglects the broader context, can still enhance our appreciation of the whole.
-
-Nonetheless, it remains challenging to dismiss Heidegger's concerns especially if we keep in mind that, because of seeing earth as *standing reserve*, we are currently destroying the ground that feeds us.
-Can we become aware of our instrumental thinking, of our own *will to power*?
-We are at a point in time where the *standing reserve* seems to break under the pressure of dominance.
-We are likely to encounter significant issues if we believe that technology alone, i.e., further *instrumental thinking* will resolve all of today's major *challenges*, while it undeniably contributes to many of them.
-Thinking in cause and effect to the end of day will not provide us with the wisdom to overcome the breaking down of *earth*.
-At the same time, throwing our tools away will not change the way we think and see the world.
-
->It certainly is not a matter of condemning the industrial and technological fate of humanity. Rather, it is a case of reinventing this fate. -- Bernard Stiegler
-
-## The Essence of Art
-
-If, at this point, you have an idea of Heidegger's phenomenological thinking, it should be no surprise that for him, not only is the artist the cause of the work, but the work, in turn, is the cause of the artist.
-
->The artist is the origin of the work. The work is the origin of the artist. Neither is without the other. Nevertheless, neither is the sole support of the other. In themselves and in their interrelations artist and work are each of them by virtue of a third thing which is prior to both, namely, that which also gives artist and work of art their names---art. -- Martin Heidegger
-
-Art, as a *mode of Being*, makes both artist and artwork ontologically possible.
-To discover the essence of art, we must investigate artworks phenomenologically. Yet here we encounter a strange loop: we must understand art through artworks, and artworks through the *essence of art*.
-
-These loops evoke Hofstadter's concept of self-reference in Gödel, Escher, Bach: An Eternal Golden Braid {cite}`hofstadter:1979`. Similarly, Husserl (and to an extent Kierkegaard) thought of consciousness as a strange loop---a structure that relates to itself in a back-and-forth motion between perception and self-relation. In systems theory, cybernetics, and especially Luhmann's social systems theory, this oscillation becomes the movement between self- and other-reference---between system and environment.
-
-Heidegger was indeed circling around something profound, though his writing on art can feel incomplete or vague. But this may be intentional. His goal was not to create a theory, but to uncover a process. We are thrown into a process already underway. We enter the circle and move within it, gradually revealing both artist and artwork—but never definitively.
-
-To understand art in a Heideggerian sense, we must first revisit his distinction between things, tools, and equipment. Heidegger differentiates between substances---*present-at-hand* (vorhanden) entities such as stones or water---and equipment---*ready-to-hand* (zuhanden) things integrated into practical networks of use.
-
-Interestingly, Heidegger treats artworks as *present-at-hand*---they have a strong thingly character.
-At first, this may seem reductive. Are great works of art no more than purposeless stones in a sea of things?
-
->There is something stony in a work of architecture, wooden in a carving, colored in a painting, spoken in a linguistic work, sonorous in a musical composition. -- Martin Heidegger
-
-This mirrors Luhmann's distinction between *form* (e.g., building) and *medium* (e.g., stone).
-Great artworks, in my view, unveil a mystical truth that resists conclusion. They invite questions but refuse final answers. They offer an internal logic alien to our world---untranslatable into language or abstraction---yet they speak through structure and form.
-
-If the *essence of technology* is enframing (Gestell), then the *essence of art* may be the opposite: that which cannot be enframed, and which opens a new horizon of possibilities.
-In The Origin of the Work of Art {cite}`heidegger:1950`, Heidegger claims:
-
->to be a work [of art] means to set up a world. -- Martin Heidegger
-
-Setting up a world is essential to the Being of a work of art. This resonates with Luhmann's view that art reshapes its medium to present an alternative version of reality.
-
-What does Heidegger mean by "setting up a world"?
-He turns to the Greek temple. The temple doesn’t merely represent something---it institutes a world. It gives meaning, order, and orientation to human existence.
-The temple provides a world in which the lives of the Greeks were organized. Similarly, cathedrals structured medieval Christian life, and mosques shaped Islamic civilizations. Heidegger chooses the temple because it is non-representational---it does not symbolize, but discloses.
-
-Van Gogh's painting of a peasant's shoes is another example. The painting doesn’t merely depict the shoes---it reveals the peasant’s life-world.
-
-*World*, for Heidegger, is not the objective cosmos but the network of significance through which *Dasein* relates to *Being*. It is the cultural, historical, and meaningful context that makes things intelligible. The temple "gathers" the possibilities and outlook of a historical people---giving structure to their destiny.
-
->Heidegger’s use of the term "world" carries with it the sense not only of *life-world* (*Lebenswelt*) but of *historical epoch* as well, with the suggestion that the life-world is an historical structure. -- Sandra Lee Bartky
-
-Husserl viewed the world as a universal, shared horizon---the *Lebenswelt*. Heidegger, however, was less concerned with its universality and more with its existential specificity. For Heidegger, the world is disclosed through practical engagement, not theoretical abstraction.
-In Being and Time {cite}`heidegger:1927`, Heidegger shows that the world is not a set of objects but **a phenomenon saturated with meaning**, understood pre-reflectively. The objective world is derivative—it abstracts from a world already lived in.
-
-The world is always in progress. It orients, guides, and structures *Dasein's* existence. A temple, by organizing existence, also opens a world---and closes another.
-
-In contrast to *world*, *earth* (Erde) is concealment---the material basis of things; their hidden, resistant, mysterious side.
-*Earth* is the rock, the soil, the material---not simply nature, but the mysterious ground. It bears resemblance to Lacan's “real”---that which resists symbolic representation yet constantly presses against it.
-The *earth* is always there---stuck to us like dirt on our shoe. It cannot be fully absorbed into world. Earth and world exist in *strife*---a productive, irreducible tension.
-While tools disappear in use, artworks do the opposite. Art reveals *earth* by presencing it.
-
->In fabricating equipment---e.g., an ax---stone is used, and used up. It disappears into usefulness. The material is all the better and more suitable the less it resists vanishing in the equipmental being of the equipment. By contrast the temple-work, in setting up a world, does not cause the material to disappear, but rather causes it to come forth for the very first time and to come into the open region of the work’s world. The rock comes to bear and rest and so first becomes rock; metals come to glitter and shimmer, colors to glow, tones to sing, the word to say. All this comes forth as the work sets itself back into the massiveness and heaviness of stone, into the firmness and pliancy of wood, into the hardness and luster of metal, into the brightening and darkening of color, into the clang of tone, and into the naming power of word. -- Martin Heidegger
-
-Earthly elements are transfigured in artworks.
-They remain stubbornly material---unassimilable.
-A great artwork makes the earth shine forth. It is precisely in this *strife*---between conceaxlment (*earth*) and unconcealment (*world*)---that truth happens.
-The artwork sets up a world (order, meaning), but simultaneously sets forth the earth (materiality, opacity). The tension between them is what allows the artwork to reveal truth.
-The artwork, unlike a broken tool, cannot be fixed---its resistance is ontological.
-Earth reveals itself only through the transparency of the world that cannot fully contain it.
-
-*Earth* is something, which makes up everything around us and gives our reality a context for us to sort our place in the world, by gaining reference from its physicality.
-However, we can never see this *earth* for what it is, except in the special instance of when it is presented in an artwork.
-
->Standing there, the building rests on the rocky ground.
->This resting of the work draws up out of the rock the mystery of that rock's clumsy yet spontaneous support.
->Standing there, the building holds its ground against the storm raging above it and so first makes the storm itself manifest in its violence. 
->The luster and gleam of the stone, though itself apparently glowing only by the grace of the sun, yet first brings to light the light of the day, the breath of the sky, the darkness of the night.
->The temple's firm towering makes visible the invisible space of air [...] The Greeks early called this emerging and rising in itself and in all things phusis.
->It clears and illuminates, also, that on which and in which man bases his dwelling.
->We call this ground the earth. -- Martin Heidegger
-
-So, because we see the temple as an art-thing, and also experience the *world* it creates, this highlights to us that it is made from something.
-The rocks that may have been concealed from our attention before, because they used to be mixed in with nature, are now something else all together.
-They are at one with the temple, but still we know they are rocks.
-They shine out at us.
-Their true nature is revealed in the tension between the rocks trying to be a temple but remaining rooted as *earth*.
-Again, this is similar to Luhmann's claim that the *form* (the temple) reveals the *medium* (earth).
-
-The world is usually invisible or transparent to us in our everyday activities.
-It becomes visible through the opacity of earth in an artwork.
-In a great work of art there's always a *strife* between transparent intelligibility (*world*) and opaque unintelligibility (*earth*).
-In that sense, earth is like the breakdown of equipment: The equipment withdraws from us (*ready-to-hand*) but it introduces itself as *present-at-hand* if it breaks or is missing.
-But, unlike a breakdown of a tool, earth is *unfixable*.
-
->The artwork 'holds its ground'---it is there as itself, resisting instrumental thinking.
-
-Furthermore, it is only through the transparency of the world that earth can strike us as unintelligible, perplexing and mysterious.
-The happening of truth in the work of art and the Being of the work of art is essentially the instigation of the *strife* between world and earth.
-A great work of art intensifies this *strife* while establishing it.
-
-Art can be thought of in terms of *Being*, *truth*, *world*, *earth* and *strife*, and according to Heidegger, the two essential features of great artworks are setting up of a world and setting forth of *earth*.
-Furthermore, an epochal understanding of *Being* and a particular world are opened and held opened in *Dasein's* clearing by a specific being, i.e., a work of art.
-
-I think, for Heidegger, art has more to do with *truth* than *beauty*.
-He wanted to understand the ontological "function" of art: what art *does* in relation to truth and Being.
-Truth and art are deeply interconnected---not mutually exclusive.
-Art is a way in which truth happens.
-
->Artworks don't just show us objects---they open a world.
-
-But, of course, I am not talking about the *truth as correspondence or agreement* (adaequatio) but *truth as unconcealment* or uncovering.
-Like the objective world is based on *Lebenswelt*, for Heidegger, the former is based on the latter.
+The mode of revealing that prevails in modern technology is not the gentle *bringing-forth* (*poiesis*) of art and craft, but a *challenging-forth*, a violent demand that nature yield energy, order, and efficiency. This challenging-forth does not *follow from* modern science; it *precedes* it. For Heidegger, it is technological thinking that first discloses nature as challengeable, extractable, and quantifiable. This revealing---technology's essence as *enframing*---is what *produced* the calculative gaze of science. The technological worldview shapes not only our machines but our entire understanding of Being.
+
+>Modern technology is not applied natural science; rather, modern natural science is the application of the essence of technology. [Nature is therefore] the fundamental piece of inventory of the technological standing-reserve, and nothing else.
+> -- Martin Heidegger
+
+The essence of *being-in-the-world* (*Dasein*), Heidegger's term for the human being, is such that we can never escape care for our own Being. This *care* springs from our finitude, even if we often try to deny it. We distract ourselves from our fundamental concerns---foremost among them, death. To live *authentically* does not mean "to live as one truly is" (as one might read into Sartre), but to live in the awareness of the *certainty of the end of all possibilities*. Death is not only a terminus but a companion---a reminder that gives our life meaning and calls us to *care*.
+
+>We are a being in need, in a world of uncertainty.
+
+Our relation to technical means, procedures, and devices can amplify this distraction by drawing us away from fundamental experience and lulling us into a false sense of security.[^7] This becomes dangerous when awareness of our finitude recedes into the background.
+
+In everyday life, we grow accustomed to the internet, smartphones, social media, and platform economies. They organize our attention, yet often leave a sense of fragmentation and superficiality. The essence of technology, Heidegger argues, deprives us of the experience of genuine nearness: nearness requires that we meet things in their truth. Science---indispensable as it remains---ultimately delivers representations, objects it has already admitted as possible for itself.
+
+Today the representational character of the digital increasingly shapes the physical as well. Baudrillard described this as the emergence of a "hyper-real" world that recognizes no truth beyond itself. This development advances so rapidly that adequate analysis can scarcely keep pace. We lack time for such thinking, for what is not scheduled is often postponed indefinitely or devalued. Time pressure thus restructures orders of value---what is urgent becomes important, not necessarily what is substantively meaningful. This applies especially to the question of time pressure itself:
+
+>[...] the time pressure itself seems to exclude reflection upon it. -- {cite}`luhmann:2018`
+
+Structural time pressure produces new work ideologies (teamwork, cooperation, tolerance for flexibility and pragmatic fixes) that justify the primacy of deadlines without stabilizing enduring value orders---they merely ensure that "everything gets done on time," without creating durable standards by which contents are weighed. Time pressure itself remains decisively in force.
+
+Children grow up in a meta-reality in which the line between actuality and virtuality becomes ever more brittle. Here, too, time scarcity reigns and expresses itself as a *pressure to stage*. Content is prioritized for its stage-ability, not for truth or reality. Ideologies of irony, distance, and self-presentation emerge to cope with the scarcity of "solid reality." What counts is no longer what is true or false (content), but whether it is punctually executed and suitably staged. The danger is not merely that young people are dazzled by the surface worlds of advertising and spectacle, but that they come to view the "real" world itself according to the pattern of media staging. Just as deadlines structure action in organizations and push content to the margins, life here risks flattening into an ongoing script for presentation and evaluation.
+
+This attitude already shows in the communication culture of the young: ironic, self-referential, layered in multiple strata of distance and commentary. Truth no longer appears as a binding category, but as an ever-undercut gesture. Culture anticipates even the ironic gaze, incorporating it and adding yet another layer of mediality.
+
+Thus a basic trait of modern technology emerges: it is not merely a means of depiction or representation, but opens a new condition under which beings appear at all. For Heidegger, the genuine *challenging-forth* of technology consists in bringing everything into the mode of standing-reserve: beings are made available solely as resources, always on call to serve further challenges. A self-reinforcing circuit arises: land appears as a coal field, coal becomes reserve for energy, energy drives machines, factories produce tools, and these in turn secure the operation of further machines.
+
+As Heidegger emphasizes, this chain does not point to something present in itself; rather, beings merely "enter the circuit," being held "regulated and secured" in availability. The technological is thus less a matter of tool-use than an ontological determination of revealing itself: the world shows up as what can be challenged and used.
+
+>A success is that kind of consequence which itself remains ordered to the production of further consequences.
+> -- Martin Heidegger
+
+In today's vocabulary one might say that features of an autopoietic system become visible here (cf. {cite}`reichel:2011,lovasz:2023,zoennchen:2025,watson:2025`).  
+
+>An autopoietic system of technological operations that, through the distinction 'works / does not work' within the medium of operationality, produces and maintains itself.
+> -- {cite}`reichel:2011`
+
+Yet Heidegger does not begin from system processes, but from a history-of-Being question: enframing as a historical way of revealing.
+
+This argument deserves attention. In view of the complexity of modern life, it often remains unclear to what extent our contributions to the ongoing development and supposed "improvement" of technology actually lead to a "better" society. Beyond basic needs---housing, food, education, health, social life, and intimacy---it is difficult to see what added value technological innovations truly create. Paradoxically, in our pursuit of security they frequently generate new forms of insecurity.
+
+To what extent does the latest smartphone, capable of taking even more precise pictures, truly contribute to a "better" society? Its mere existence challenges us to insert it into practices such as digital self-presentation. Many therefore acquire and use it not because they originally wanted it, but because it appears as available standing-reserve and calls forth new needs. This, in turn, increases demand for storage and computation---and thus for raw materials---which must themselves be technologically made available. This mechanism becomes visible only when we view the smartphone not in isolation but as part of the entire web of tools and meaning-relations structured by enframing.
+
+Against this background, our understanding of "progress"---equated with technological progress, i.e., "more" and "better" technology---appears less a reasoned vision of the future than a socially stabilized expectation {cite}`luhmann:1998`. Luhmann would stress that progress is not primarily an empirical fact but a communicatively generated structure of expectation: society presupposes innovation and continually reproduces that expectation through its own operations---scientific projects, economic investments, and everyday acts of consumption. Progress thus proves to be a self-referential pattern: from the self-evidencing organism {cite}`friston:2006` we arrive at the self-evidencing society, which continually confirms its own description---its model of itself---and thereby makes it effective.
+
+One can imagine that many people would be willing, at least temporarily, to hit the pause button or adjust their model of progress. Yet the dynamics of the technical system (Heidegger) or the social system (Luhmann) allow little room for this. No one, in a collective sense, asked for AI agents, and yet they are being built and deployed---not out of a common will, but because the essence of technology (Heidegger) itself challenges us to do so, or because they provide practically reliable *working simplifications* (Luhmann) of action options, knowledge, and expectations that are socially connectable {cite}`luhmann:1998`.
+
+>The significance of technology for social evolution can be traced back to a very specific relation between redundancy and variety. [...] Artificial redundancies are created (it works or it doesn't) with subsequent variety. New goals, new values, new calculations, new errors become possible. More and more communication can concern probing this specific kind of increase in redundancies and variety and take inspiration from corresponding successes. But **judgments about rationality remain bound to precisely this form of increase** and cannot be extrapolated to society-wide rationality. This may repeatedly motivate a critique of technology [(such as the kind we find in Heidegger or Stiegler)], which, however, appears helpless in turn if society has reasons [...] to prefer the exploration of technological possibilities. 
+> -- Niklas Luhmann
+
+Whereas Heidegger describes this compulsion as the challenging-forth of *Gestell*, Luhmann speaks of the inner logic of functionally differentiated systems and their evolution, which produces greater reliability and options for technology and further explores this logic of escalation. What counts as "rational"[^8] remains bound to this logic (instrumental–internal).[^9] Innovation does not arise from a conscious plan, but from the necessity of continuing communication. Economy, science, and technology operate by their own codes (pay/not pay; true/false; works/doesn't work) and from these generate ever-new possibilities of connection. Thus AI agents are not built because there is a general need for them, but because the systems themselves demand ongoing reproduction and escalation---and thereby stabilize innovation.
+
+According to Luhmann, effective critique must translate *into* the logic of escalation: new standards, different metrics, altered couplings (e.g., a CO₂ budget as a hard redundancy; coupling "works/doesn't" to sustainability/resilience; public-value metrics in funding logics). Otherwise it remains "helpless". Whether such translations are possible at all remains questionable.
+
+Marxists might object that this dynamic is rooted at bottom in our socio-economic system. Yet it seems reductive to locate the cause solely in capitalism. For the challenging-forth of technology (Heidegger) and the inner logic of functional systems (Luhmann) point to structural constraints not reducible to economic relations alone. Mark Fisher's concept of *capitalist realism* {cite}`fisher:2016` points to a different level: less to narrowly economic structures than to the cultural hegemony of capitalism---the sense that "it is easier to imagine the end of the world than the end of capitalism." This moment of "realism" shows how deeply economic logic is woven into nearly all areas of life and how it stabilizes itself as an inescapable structure of expectation.
+
+Niklas Luhmann, by contrast, would not speak primarily of capitalism but of the functional differentiation of modern society {cite}`luhmann:1984`. Economy, politics, science, law, and other subsystems operate according to their own communicative codes (pay/not pay; power/powerlessness; true/false; legal/illegal). Capitalism undoubtedly shapes these systems to a considerable degree, but it is not their sole origin.
+
+Heidegger, finally, would interpret both capitalism and functional differentiation within a deeper horizon: as manifestations of the essence of technology, which lets beings as a whole appear in the mode of standing-reserve. We are thus dealing with different, overlapping perspectives---an economic, a systems-theoretical, and an ontological one---that together illuminate our experience of the modern world.
+
+As mentioned earlier, Heidegger understands technology as a mode of disclosure in which things become visible within a particular horizon---each appearing with necessary blind spots. He illustrates this with the famous example of the hammer: when one uses a hammer, attention is not directed to the tool itself but to the task---say, the nail. The hammer recedes from consciousness; it is ready-to-hand.
+
+A more modern example is the keyboard. Experienced typists do not attend to the keys or their fingers but to the words appearing on the screen. The keyboard becomes invisible in use. At the same time, it does not appear as a neutral object but as part of an entire nexus: a tool for writing, for communicating, for disclosing the world in a particular way. This already shows what Husserl emphasized {cite}`husserl:1913`: things do not simply "lie before us," but are given intentionally---as something that opens a meaning, a function, a horizon of reference.
+
+>In this way I find myself in wakeful consciousness at all times, and without ever being able to change it, in relation to the world. It is continually 'present-at-hand' for me, and I myself am a member of it. Moreover, this world is not there for me as a mere world of things, but with the same immediacy as a world of values, a world of goods, a practical world. Without further ado I find things before me furnished not only with factual properties but also with value-character---beautiful and ugly, pleasing and displeasing, agreeable and disagreeable, and the like. Things stand immediately as use-objects: the table with its books, the drinking glass, the vase, the piano, etc. These value characters and practical characters belong constitutively to the present objects as such, whether or not I turn to them and to objects at all. The same applies, of course, to human beings and animals in my environment: they are my friends and enemies, my servants or superiors, strangers or relatives, and so on.
+> -- Edmund Husserl
+
+Equipment withdraws into the background in everyday use. Only when it breaks or fails does it show up explicitly again as *present-at-hand*. Otherwise, it functions as an invisible mediator through which we disclose the world. Things are therefore not merely passive objects; they open possibilities for action. A child in an elevator is inevitably drawn to the buttons and begins to press them. By the lake, stones "challenge" the child to throw them into the water.
+
+*Readiness-to-hand* precedes *presence-at-hand*. We encounter water first in practical dealings: we drink it, wash with it, swim in it, or delight in its play in a fountain. Its significance does not arise from an abstract essence but from the relations in which we experience it---because we can drink it, because we are made of it, because we cleanse or baptize in it.
+
+As H₂O, water steps out of the referential context of everyday dealings. It then appears as a *present-at-hand* entity: a chemical substance whose meaning arises only within the scientific system. For practical everyday life, it is largely irrelevant in this guise. Only in the mode of *readiness-to-hand* does water disclose itself as what it is for us.
+
+Beings may exist independently of Dasein, but intelligibility arises only in relation to Dasein. Only within Dasein's horizon do beings disclose themselves as ready-to-hand or present-at-hand. In this sense, "world" is always dependent on Dasein insofar as it forms a web of significance opened up through language and understanding.
+
+At the same time, Heidegger points to a dimension that eludes this worldly character: the *earth*. Whereas the world is the nexus of significance disclosed by Dasein, the earth is the self-concealing, resistant dimension that escapes any symbolic capture. In the artwork, this tension comes to the fore: world as openness and horizon of meaning---and earth as the darkness that withdraws from every grasp.
+
+For Heidegger, equipment withdraws from attention in use and becomes transparent. Precisely therein it shows itself most clearly in its mode of being: not as an object with properties, but as part of a practical referential nexus. *Gear* (*Zeug*) is gear only insofar as Dasein encounters it---it acquires its mode of being through enactments of use. We therefore do not experience "technology as such," but the world it opens. Each technology thus introduces its own mode of revealing.
+
+Thus an experienced driver develops an embodied sense of the car's extension, and wearing artificial fingernails routinely lets them be forgotten even as they subtly alter grasping. Part of technology's fascination lies precisely in such new forms of embodiment that it enables.
+
+Bruno Latour radicalized this thought by showing that technological artifacts are not mere means but actants within networks {cite}`latour:1992`. In routinized practices, technology becomes invisible yet remains deeply woven into our action and self-understanding. Human subject and technical artifact thus form hybrid assemblages in which agency can no longer be unambiguously attributed.
+
+Cognitive science confirms this view: a practiced driver no longer experiences themselves as an isolated human in a vehicle, but as a being merged with the car, embodying speed and force. Similarly, the allure of digital devices springs from the feeling of immediate connectedness with someone on the other side of the globe. Even in using a hammer, our relation to the world changes: we experience ourselves as a being extended by the tool, grasping things from a new perspective. Technology thus brings forth a peculiar form of subjectivity that exceeds individual consciousness.
+
+Because technology is always also a way of understanding the world, our world-understanding is never fully self-determined. Heidegger sees the highest danger of technology in its potential to weaken our capacity to experience Being in its *unconcealment*. As soon as we conceive of ourselves only as manipulable raw material, we lose the experience of being the origin of new world-interpretations. Technology can thus imprison us within a particular worldview. In his reading of Nietzsche, Heidegger shows that every attempt to get beyond the *will to power* paradoxically confirms its rule.
+
+The paradox of technology is that even the attempt to escape its logic can reproduce that logic---just as practices of mindfulness are instrumentalized to increase efficiency. The will to break out thus drives us more deeply into what we seek to flee. This paradox affects not only the individual relation to technology but society as a whole: every attempt to redirect technological progress falls under the spell of its inner logic and thereby contributes to the very dynamics that unceasingly continue innovation, growth, and acceleration.
+
+[^7]: Neuroscience suggests that security is among an organism's most fundamental "goals"; see {cite}`friston:2006`.
+[^8]: No society-wide rationality can be derived from it.
+[^9]: A current example would be "better scores" for AI models, which are considered rational within the scientific system, but whose broader societal benefit remains uncertain.
+
+
+## Poison and Remedy
+
+Heidegger opposes the notion of an isolated subject standing over against an external world of objects. The starting point of his analysis is everyday life: walking, grasping, smelling, hearing. Here it becomes evident that we are not enclosed within an inner consciousness, but always already live in a world that bears us. This everydayness is no triviality; it is the ground from which any abstraction first lifts off.
+
+Modern science has radically unsettled this self-understanding:
+- Copernicus showed that the earth is not the center of the universe.
+- Nietzsche declared the "death of God" and the loss of metaphysical foundations.
+- Darwin pointed to the contingent, evolutionary origin of the human being.
+- Freud discovered the unconscious, depriving the ego of its autonomy.
+- Dennett, finally, makes it plausible that intelligence can arise without consciousness.
+
+These humiliations make clear that a purely scientific determination of what there is leaves out the question of the meaning of Being. Heidegger insists: ontology does not ask what exists, but how Being as such comes into appearance.
+
+To that end he analyzes a distinctive being: the human being, *Dasein*. It is unique in that it has a fore-understanding of Being, cares about its own being, exists in thrownness, and is temporally determined as *being-toward-death*. Dasein is thus the "gate" to understanding Being in general---not as an isolated subject, but as *being-in-the-world*.
+
+From here Heidegger criticizes the subject–object dichotomy. Things first meet us in practical dealings: they are *ready-to-hand* (*zuhanden*), not merely on hand for observation as *present-at-hand* (*vorhanden*). Equipment is always part of a referential nexus---the hammer refers to nail, wood, house-building. Only when performance stalls, or when we theorize, does it confront us as a mere object. World is therefore not a "picture in the head," but a lived web of significance.
+
+>We shall call the kind of being which we encounter in concern 'equipment' (*Zeug*). In our dealings we come upon equipment for writing, sewing, working, moving, measuring. [...] Strictly speaking, there is no such thing as an equipment *in itself*. To the being of any equipment there belongs a belonging-together of equipment, within which this equipment can be the equipment that it is. Equipment is essentially an 'in-order-to' (*Um-zu*). [...] The belonging-together of equipment is constituted by manifold modes of the in-order-to. [...] In the *in-order-to* as structure there lies a reference from something to something. [...] Equipment---according to its equipmentality---is always with a view to belonging to other equipment: inkwell, pen, paper, blotter, table, lamp, furniture, windows, doors, room. [...] What we first and for the most part encounter (though not as something thematically grasped) is space; not as something 'between four walls' in the geometrical sense, but as equipment for dwelling. From this there results the 'arrangement,' and in this each 'individual' piece of equipment shows itself. Before it shows itself, a belonging-together of equipment has already been discovered. Equipment can properly show itself only in the use appropriate to it (for example, hammering with the hammer); and yet in such use a being of this kind is neither thematically grasped as an occurrent thing nor is the structure of equipment known as such in use. Hammering does not simply 'know' the equipmental character of the hammer; rather it appropriates this equipment in a way that could not be more fitting. In such dealings, where something is put to use, our concern submits to the *in-order-to* that is constitutive for the equipment at hand; the less we merely stare at the hammer-thing and the more we seize and use it, the more originary our relation to it becomes, and the more unveiled it encounters us as what it is---as equipment. [...] The peculiarity of what is initially ready-to-hand consists in its having, as it were, to recede in order to be genuinely ready-to-hand in its readiness-to-hand.
+> -- Martin Heidegger
+
+Time, in this picture, is not a neutral sequence of now-points but a basic structure of Dasein: *thrownness* from the past, *projection* toward the future, *falling* in the present. Danger threatens when we forget this originary world-involvement and see ourselves merely as thinking subjects---or as manipulable raw material.
+
+Heidegger's examples---from jug to country path---tend toward idealizing a peasant world, and they cannot be separated from his political entanglement with National Socialism. Also problematic is his distinction between "forming" technologies (among the Greeks) and "dominating" technologies (in modernity). Why should the hydroelectric plant challenge nature while the temple does not? Here Heidegger's notion of revealing bears the mark of a history-of-Being stipulation that is hard to rationally vindicate.
+
+At this point countervoices emerge. The physicist Richard Feynman stresses that scientific knowledge does not destroy the world's enchantment but can deepen it. And Wolfgang Iser distinguishes between free and instrumental play: purposeless exploration and goal-directed action interpenetrate one another {cite}`iser:1993`. Transferred to our topic: we can experience the world both instrumentally and non-instrumentally. It becomes problematic only when the instrumental alone counts as valid.
+
+Moral reflection also reaches beyond Heidegger. Kant urged that human beings must never be treated merely as means but also as ends. Rorty, in turn, reminds us that such principles are not eternal laws but cultural orientations. Between absolutism and relativism lies the stance of critically querying one's own conscience as part of a contingent culture. In this sense, scientific objectification can also enrich our understanding of the world by opening new perspectives.
+
+Heidegger's warning nonetheless remains timely: by viewing the *earth* only as *standing-reserve*, we destroy the very grounds of our existence. The point is not the "salvation of the earth," but our own. A thinking that reckons only in causes and effects will not overcome the crises it itself has produced.
+
+>The human being is not the lord of objects but the shepherd of Being.
+
+Here Bernard Stiegler connects the dots. He shows how algorithmic disruption erodes collective memory and the production of meaning. *Forgetfulness of Being* becomes the attention- and memory-forgetfulness of digital capitalism. We have entered an "age of disruptions": algorithms, networks, and automation destabilize markets, institutions, subjects---and thinking itself.
+
+Yet for Stiegler technology is a *pharmakon*---both poison and remedy. It can destroy, but it also bears potentials that come to fruition only through cultural, ethical, and political appropriation. Technical objects---writing, images, data---are repositories of our collective mind. An "ecology of mind" thus names the interplay of brain, consciousness, technology, culture, language, institutions, and environment. New cultural institutions and political design are decisive if digital technology is not to be left to purely economic imperatives.
+
+>It is certainly not a matter of condemning the industrial and technological destiny of humankind. Rather, it is a matter of reinventing this destiny.
+> -- Bernard Stiegler
+
+Thus the ambivalence of technology unfolds: it harbors danger and possibility at once. Heidegger urges attentiveness to Being; Feynman and Iser remind us of inquiry and play; and Stiegler calls for political and cultural appropriation. Within this tension it will be decided whether technology binds us under the spell of standing-reserve---or becomes the ground of new meaning-making.
 
 <!-- 
 ## Heideggerian Cinema
@@ -729,147 +550,264 @@ In *[Medium and Form](sec-medium-and-form)* {cite}`luhmann:1986`, Luhmann frames
 
 Still, Heidegger's contribution remains significant.
 From him, we inherit the idea that art can unconceal both the world and its technological enframing.
-It can reveal how we see, what remains hidden in that vision, and whether technology is a tool we use—or a cosmic force that uses us.
+It can reveal how we see, what remains hidden in that vision, and whether technology is a tool we use---or a cosmic force that uses us.
 
 Great art may confront us with this dilemma.
 It may not answer whether technology is a condition we can transcend or a destiny we must endure. But it can illuminate the struggle.
-It can set up a new world—one in which we may see technology differently, not as neutral instrumentality but as a mode of revealing. In this sense, as Tarkovsky writes, art prepares us:
+It can set up a new world---one in which we may see technology differently, not as neutral instrumentality but as a mode of revealing. In this sense, as Tarkovsky writes, art prepares us:
 
 >The allotted function of art is not, as is often assumed, to put across ideas, to propagate thoughts, to serve as example.
 >The aim of art is to prepare a person for death, to plough and harrow his soul, rendering it capable of turning to good. -- Andrei Tarkovsky
 
 -->
 
-## From Being to Distinction
+## The Essence of Art
 
-I feel a great tension between Heidegger's description of technology and my own relationship to it.
-Technological tools have saved my life, and they make it less cruel.
-Equipment enables me to explore the world on my own terms.
-Many technologies serve emancipatory purposes, alleviate suffering, and expand human potential---a development that certain reactionary forces would like to undo.
-They try to smuggle fears of *transhumanism* into public discourse, using arguments that uncannily echo Heidegger's texts.
-At the same time, there is a certain kind of transhumanist who is more preoccupied with overcoming their own mortality than with making the world less cruel.
-They have a questionable (and antisocial) understanding of progress.
-What they may share with Heidegger is *nihilophobia*---a fear and rejection of nihilism that continues to shape Western thought today.
-It is the fear that behind everything there is, in fact, nothing at all, not even Being.
+If by now a sense of Heidegger's phenomenological thinking has taken shape, it should come as no surprise that for him it is not only the artist who is the origin of the work, but also the work that is the origin of the artist.  
 
-When the alphabet was introduced, Plato feared it would destroy memory. In some respects he was right; oral traditions declined.
-Yet writing at the same time allowed memory to be externalized and preserved in a new way.
-So was the alphabet a "bad" technology?
-Most of us would disagree.
+>The artist is the origin of the work. The work is the origin of the artist. Neither is without the other. Nevertheless, neither is the sole support of the other. In themselves and in their reciprocal relation, artist and work are each, in their own way, grounded in a third, which precedes them both, namely that which also gives artist and work their names---the art.
+> -- Martin Heidegger  
 
-At the same time, it is equally reductive to portray technology as passive and controllable---that is, essentially neutral and dependent only on what humans make of it. This is a humanistic view that is no longer tenable.
-It attributes to humans a control they do not in fact possess and is then surprised when unintended consequences arise.
-To cling to the myth of control, conspiracy theories appear as a result (So too in Heidegger, who, through his own philosophy, should have known better.).
+For Heidegger, art is not merely a product but a mode of Being, one that ontologically makes both the artist and the work possible. Yet its essence can only be grasped in a circular movement: we must understand art through artworks and artworks through the essence of art.[^10]  
 
-I can agree with Heidegger in his description of the web of equipment and our place within it; also in the humbling insight that we have far less control than we think, and that every new tool reconfigures the totality of "*in-order-to*" relations.
-We inhabit a world shaped by technology---culturally, ecologically, epistemologically. Technological artifacts are part of our memory.
-This demands continuous reflection on the essence of technology and its danger, even if such an essence is merely the invention of the author, who at least provides us with a new vocabulary to see things differently.
-Just like our language---another technology--technological artifacts not only sustain the functioning of society; they generate new worlds and let old ones disappear.
-They form self-reinforcing feedback loops.
+Heidegger thus does not seek a "theory of art," but the event in which art occurs as truth. His thinking deliberately resists closure: we enter into a process already underway, gradually disclosing artist and work without ever reaching a final point.  
 
-And yet emancipatory currents must always resist binary distinctions between "*natural*" and "*unnatural*".
-Is the wind turbine, for example, truly less controlling than the dam, which tames and constrains the river?
-Indeed, it might be better if we bid farewell to essences altogether, for—here Fisher and many other revolutionaries are right—we call things "natural", "essential", or "absolute", even though they are in fact constructed and thus artificial: things, processes, and rules that worked in the past (for many or for some), but that can be changed for a different future.
+To clarify the essence of art, Heidegger first returns to his distinction between *thing*, *equipment* (*Zeug*), and *work*. Substances---like stones or water---appear as *present-at-hand* entities; tools are *ready-to-hand*, embedded in practical referential contexts.  
 
-History has taught us to expand our moral imagination, to include more beings within our circle of care---not because of unchangeable principles, not because of God or some inner truth we have discovered, but because of the vitality of our imagination; not because of transcendental or transcendent truth, but because of lived and imagined experiences that have been narrated and inscribed into our cultural memory.
-We have invented a less cruel world.
-That is something we can, and perhaps even should, be proud of;
-it is a project worth continuing by widening the circle still further, rather than narrowing it again.
+The artwork begins, indeed, in its thingly character:  
 
-Turning away from, or being saved from, the danger is therefore not about unconditional acceptance or total rejection.
-Instead, we need an informed ambivalence, a conscious withdrawal, and a vigilant anticipation.
-Here irony, which I have (in Heidegger's name) criticized, has its place---not in its modern, sarcastic form that ends in cynicism, but in a playful and at the same time serious way, to reveal something profoundly meaningful through contradiction and wit, as the *Daoists* prefer.
+>Something stony is in the building, something wooden in the carving, something colored in the painting, something spoken in the linguistic work, something sounding in the musical composition.[^11]
+> -- Martin Heidegger
 
-Take, for example, the story of the "useless" tree that the carpenters ignored.
-The tree pretends to be worthless in order to live its natural life.
-The tree's act is utterly convincing---it deceives humans so that they spare it---and the reward is genuine survival.
+Yet it does not end there. Heidegger critiques the three common notions of "thing" (bearer of properties, bundle of sense data, form–matter) and shows that the work is more:  
 
->Now you, Sir, have a large tree, and you don’t know how to use it, so why not plant it in the middle of nowhere, where you can go to wander or fall asleep under its shade? No axe under Heaven will attack it, nor shorten its days, for something which is useless will never be disturbed.-- Zhuangzi, The Book of Chuang Tzu
+>To be a work means: truth is set to work.
+> -- Martin Heidegger  
 
-Today even the near future seems radically unpredictable.
-We no longer imagine the future with the same confidence as ancient societies did.
-Hence we need more flexibility in identity formation, without abandoning attachment.
-In fact, unpredictability and complexity almost push us into a paradoxical mode of *serious pretending*.
-The boundary between "real" and "performed" is not fixed; new attachments can be found, and, when lived, identity becomes real: pretend deeply enough, and the boundary between appearance and being dissolves.
-But instead of pretending authenticity or being true to an inner truth—a technique that no longer works in our time—we can look for serious actors.
-We cannot find ourselves; we can only invent ourselves.
-Where there is attachment, meaning can still be found.
+The work is not merely an object among others but a happening: the setting-into-work of truth.  
 
-The cynical alternative is a superficial layer of pretending, where consistency lies in style, not in playing oneself; a show or brand, where doing is a toolbox to be picked up or put down depending on the audience.
+Heidegger defines the work as an event of *world* and *earth*.  
+- *World* is the historically disclosed horizon of meaning, language, culture. A temple "sets up a world" by instituting order, orientation, and sense---it does not represent, but reveals. Similarly, a painting by Van Gogh may disclose the soil, toil, and life of a peasant woman.[^12]  
+- *Earth* is the resistant, self-concealing element---rock, metal, wood, color, sound. Earth never wholly dissolves into world; it withdraws, remains enigmatic and inexhaustible.  
 
-Our way of seeing the world can change; it is not fixed.
-If technology is a mode of unconcealment, then we must remain open to other modes of unconcealment, as well as to other approaches to truth and being.
-Artists play a decisive role in this.
-They not only critique the present, but they open spaces for possible futures.
-Through aesthetic forms they unconceal reality in ways that neither science nor politics can.
-Their task is phenomenological: to show how things appear, not merely what they are.
-Art teaches us this "other seeing"---a poetic dwelling and preservation of the work.
-The artwork opens a non-instrumental world and thus limits the interpretive sovereignty of the technological.
+The artwork brings earth forth, instead of letting it vanish in utility as a tool does. The temple lets the rock stand as rock, the metal shine, the color glow, the sound resound.  
 
-We need not meet this process with cynicism or fear, but with sincere engagement.
-We should not fear technology and its artifacts.
-Technology is ambivalent: it enables education, memory, and culture, but also alienation, consumerism, and forgetting.
-It shapes our technological consciousness of time and our memory.
-And that which co-evolves with us is guided by the horizon of possibilities that technology itself, as enframing, helps determine.
-Artistic works have the potential to reveal this enframing, to illuminate the stage on which our futures unfold—not to construct them, but to preserve and make available the possible, so that we can endure meaninglessness---not in despair, but with awareness.
+>The work sets up a world and sets forth the earth.
+> -- Martin Heidegger  
 
-We must relearn how to see and to think, that is, to enter the domain in which beings (and systems) reveal themselves in ways not reducible to function, efficiency, or control.
-We must resist the automatic embrace of the technological challenge and the illusion of inevitability with composure.
-Neither nostalgia nor minor reforms will suffice, but we can nevertheless preserve the dignity of beings. Rephrasing Mark Fisher:
+In the work occurs the strife between world and earth: world seeks to open, earth withdraws. Heidegger calls this the *rift*---the jointure in which tension is sustained. Not balance, but productive difference, through which truth becomes possible.  
 
->I am not afraid of a zombie apocalypse; I am afraid that people find it easier to imagine the end of the world than a less cruel world. -- Mark Fisher
+>In making equipment---for example, an axe---stone is used and thereby used up. It disappears in usefulness. The material is all the better, the more suitable it is, the less it resists disappearing in the being of equipment.  
+>In contrast, the temple-work, in setting up a world, does not cause the material to disappear, but rather brings it forth for the very first time into the open domain of the world of the work.  
+>The rock comes to bear and rest and thus becomes rock; metals begin to glisten and shimmer; colors to shine; sounds to sing; the word to speak. 
+>All this emerges as the work places itself back into the massiveness and heaviness of the stone, into the firmness and pliancy of the wood, into the hardness and luster of the metal, into the brightening and darkening of color, into the ringing of tone, and into the naming power of the word.
+> -- Martin Heidegger  
 
-The true horror is our lack of imagination; that we keep grasping for simple answers and charismatic saviors instead of daring new visions.
+For Heidegger, art is not primarily "beautiful," but a way in which truth occurs. Truth here is not *adaequatio* but *unconcealment* (*aletheia*).  
 
->Philosophy will not be able to bring about a direct change of the present state of the world. This is true not only of philosophy but of all merely human meditations and endeavors. Only a god can still save us. I think the only possibility of salvation left to us is to prepare readiness, through thinking and poetry, for the appearance of the god or for the absence of the god during the decline; so that we do not, simply put, die meaningless deaths, but that when we decline, we decline in the face of the absent god. -- Martin Heidegger, Spiegel interview, 1966
+For truth to hold in the work, it requires preservation: people who receive, interpret, and keep the work alive in their world. Art is thus never purely individual, but founds communities. Temples, cathedrals, or mosques exemplify this.  
 
-For Heidegger, the danger does not lie simply in technology obstructing our access to Being---but in its making us forget Being altogether.
-He points to cybernetics (the science of systems, control, and information flows), which has replaced philosophy as the dominant framework for understanding the world: today our worldview is shaped not by wisdom or metaphysics, but by data and systems theory, and decisions are made by algorithms, economics, and optimization.
-In Heidegger's eyes, this is the ultimate enframing: the culmination of a view that sees the world purely as a resource, as a system to be controlled, not as a mystery to be lived.
+Bernard Stiegler connects with these ideas, but shifts them into the context of digital media. Like Heidegger, he sees art and technology as a *pharmakon*: both poison and remedy. Art can be manipulative (propaganda, kitsch), but it can also generate new forms of attention, resonance, and individuation.  
 
-Yet precisely the danger he points to carries the seed of salvation, for parts of cybernetics—through the emergence of *second-order cybernetics* {cite}`foerster:1974` have already recognized that control in the modern sense is impossible, and have begun to undermine the objectivity claims of classical cybernetics.
-If there is one thing we can take from Heidegger's thinking and writing, it is that our worn-out vocabulary stands in our way.
+By demanding slowing-down, interruption, and reflection, art sets another temporality against the acceleration of a technologized world. It disturbs mere functionalization and opens spaces for contemplation.  
 
-His ontological vision remains bound to essentialist, foundational thought. Yet one could argue that his critique of representational thinking, his redefinition of truth, and his questioning of metaphysics laid crucial groundwork for the *postmodern turn* and *posthumanist turn*---even if his own position remained tied to an earlier philosophical epoch.
-He sought to overcome the metaphysical tradition by unearthing the Greek "beginning" that predates Plato.
-But as Jacques Derrida later observed, he did not fully escape it through the attempt at destruction; rather, this culminated in a transformation (deconstruction)---not a dissolution---of metaphysics {cite}`derrida:1990,derrida:1988` (Heidegger probably recognized this himself, which is why he never finished Being and Time and instead sought to approach Being poetically).
-For example, the retreat to an original beginning is itself a longing for origin, which is a metaphysical gesture.
+For Stiegler, the danger of the present lies in algorithmic automation blocking collective horizons of expectation. The future no longer appears as open projection, but is "pre-programmed" by automatism {cite}`stiegler:2019`.  
 
-Every discourse about the "beyond of metaphysics" uses its concepts, distinctions, and grammar.
-The attempt to speak "outside" reenacts what Heidegger wanted to break from.
-What he undertook was an inner deferral and displacement (*différance*) within thought itself, which undermines every firm foundation, yet without stepping outside.
+>The problem is that our epoch is disruptive because it grants no place for this second moment of new protentions---and thus for no thinking either. [...] Through our current access to the meaningfulness of digital objects, we have unwittingly delivered ourselves to automatic protention, in which ways of life are replaced by automatism and dependencies.  
+> -- Bernard Stiegler  
 
-There is simply no standpoint outside from which metaphysics can be "switched off".
-But there is an endless practice of shifting, which inverts, unsettles, and rereads its concepts—a movement that opens toward the à venir (the "yet-to-come"), without claiming a final exit.
+Art here gains special significance: it displays the strife of world and earth in new ways, interrupts automatism, and opens other futures.  
 
->The thinking of the event displaces metaphysics, but it does not escape it. This does not mean that one should dismiss this displacement. On the contrary: in it opens the task of philosophy today. -- Jacques Derrida
+>The artwork "stands firm"---it is present as itself, resisting instrumental thought.  
 
-It was Niklas Luhmann (cf. {cite}`luhmann:1998`) who developed this thought further, linking it with second-order cybernetics and thus understanding deconstruction as a technique of *second-order observation*.
-Every observation now separates, through a distinction (form), a marked side from an unmarked one {cite}`brown:1969`; deconstruction reveals the blind spot of this form and can invert the side chosen.
+In sum, according to Heidegger, the essence of art is the setting-into-work of truth: it sets up a world and sets forth the earth. In their strife, truth occurs. Stiegler updates this insight by interpreting art as the site of interrupting algorithmic automatism. In both cases, the possibility of art lies in its breaking of the spell of enframing, opening new horizons of meaning.  
 
-Luhmann systematically integrates this into his theory of self-referential, autopoietic social systems.
-For him, every sense-making system generates what it excludes as its blind spot.
-Paradoxes are unavoidable and must be temporarily resolved---through procedures, programs, and decisions---so that the system can continue to operate.
-Deconstruction provides the paradox-awareness, for example that the legal system cannot ground its own legitimacy (A crime can be marked as illegal by the legal system, but there is no instance outside the system that could mark it itself as legal).
-In this way, Luhmann initiates a further displacement of metaphysics: metaphysical concepts appear as system-internal semantics, produced operatively and historically varied.
+---
 
-Although there are fascinating parallels between Heidegger's and Luhmann's views on art---particularly in that both understand art as a mode of unconcealment or sense-production---their underlying philosophies are profoundly different. Heidegger's often romanticized conception of art and his emphasis on the ontological priority of *Dasein* stand in contrast to Luhmann's post-metaphysical, systems-theoretical approach, which abandons anthropocentrism in favor of autopoietic sense-making systems.
-Yet I consider Luhmann's vocabulary to be highly viable, and without Heidegger there would probably be no Luhmann.
+[^10]: These loops recall Hofstadter's concept of self-reference in *Gödel, Escher, Bach* {cite}`hofstadter:1979`: a "strange loop." Similarly, Husserl and, to some extent, Kierkegaard conceived of consciousness as such a loop---a structure disclosing itself in oscillation between perception and self-reference. In systems theory, cybernetics, and particularly Luhmann's social theory, this oscillation becomes the movement between self- and other-reference---between *system* and *environment* {cite}`luhmann:1998`.  
+[^11]: This parallels Luhmann's distinction between *form* (e.g., building) and *medium* (e.g., stone) {cite}`luhmann:1986`.  
+[^12]: Whether Van Gogh's painting actually depicts peasant shoes is debated (Schapiro, Derrida). For Heidegger, what matters is not historical facticity, but the world that appears in the work.
 
-Ironically, then, we find a new vocabulary precisely in the field that likely most troubled Heidegger: cybernetics and the systems theory of **self-referential systems** that emerged from it.
-With the introduction of second-order cybernetics, this field distanced itself from domination and control and from our metaphysical baggage, embodied in terms such as "essence", "intelligence", "identity", "subjects", "objects", "truth", and "Being".
-It is a shift from Being to becoming; from identity to coherence, repetition, and autopoiesis; from truth to observation and validity; from control to resonance, viability, and attunement; from presence to difference.
-Instead of asking: "How can we control this?", the question shifts to: "How does this system observe, and how can we intervene in ways that are recursively viable?"
-In this vocabulary (cf. {cite}`watson:2025`), existence begins with distinctions, and the world no longer consists of objects with inherent qualities, but of distinctions that differentiate themselves recursively through recurrent perturbations of an Other (through structural coupling).
-It is a matter of enduring undecidability---for example, of "justice", which is an impossible, but at the same time necessary, thing.
+## Where Danger Is, There Grows the Hope
 
-Finally, perhaps the god of whom Heidegger spoke was not divine at all, but *earthly*---*Gaia*, returning, though not as a benevolent mother.
-In this sense, climate change is not merely a scientific fact or a political failure, but a metaphysical event: the Earth reclaiming its withdrawn presence, breaking our illusion of dominion, and exposing the futility of control.
-A wholly different way of *dwelling* may open up.
-For the path there we need a suitable vocabulary---a displaced metaphysics that permeates society as a whole and fundamentally alters action, that is, from rulers to *stewards*.
-Gaia will become the greatest danger, but as Hölderlin wrote:
+How can we speak with Heidegger (*danger*) and against Heidegger (*possibility*) about technology---without falling into romanticism, cynicism, or apocalyptic thinking---and what role do art, politics, and a new vocabulary play in this?  
 
->[...] where the danger is, there also grows the saving power. -- Friedrich Hölderlin
+In the following, I frame this tension in seven steps. 
+
+### Ambivalence Instead of Redemption
+
+I feel a strong tension between Heidegger's description of technology and my own relation to it. Technological tools have saved my life and made it less cruel. Equipment enables me to explore the world under conditions that expand my space of possibilities. Many technologies serve emancipatory purposes, alleviate suffering, and extend human potential---a development that some reactionary forces would gladly reverse. They attempt to inject fears of the "unnatural" into public discourse with arguments that sound *uncannily* reminiscent of Heidegger's texts.  
+
+Instead of an either–or, I argue for an *informed ambivalence*: technology both saves and wounds at the same time.
+
+### The Myth of Control
+
+From speed and from the sense of helplessness that comes with being swept along arise ancient dreams: dreams of overcoming death itself, or even of transcending humanity. Prophets of such visions want more than private autonomy---they seek an apocalyptic novelty. Richard Rorty called them *ironist theorists*.{cite}`rorty:1989`.[^13]
+
+They are, in Rorty's words, "heroes of the private" and "enemies of the public," because they distrust inherited vocabularies and rob people of their solidarity. Their idea of progress is questionable (and antisocial), and they harbor contempt for what liberals call the *open society*. What today's ironist theorists share with Heidegger is *nihilophobia*---a fear and rejection of nihilism---that continues to mark Western thought.[^14]
+
+When the alphabet was introduced, Plato feared it would destroy memory. In some respects, he was right: oral traditions declined. But writing also enabled memory to be externalized and preserved in new ways. Was the alphabet, then, a "bad" technology? Most of us would disagree.  
+
+This ambivalence shows: technology is neither neutral nor fully under "our control." It creates feedback loops that also shape us.  
+
+It is equally misleading to portray technology as passive and controllable---essentially neutral and dependent only on what humans make of it. Such a humanist view is no longer tenable. It attributes to humans a control they do not in fact possess, and then expresses surprise when unintended consequences emerge. To cling to this myth of control is to open the door to conspiracy theories---something.[^15]
+
+[^13]: He saw Nietzsche, Hegel, and Heidegger in this category because they allowed no place for contingency in their narratives. Nietzsche's Europe, Hegel's Spirit, and Heidegger's Being cease to be accumulations of contingencies---products of chance encounters---and become something (too) grand.
+[^14]: Even the FBI recently introduced a new "threat category" called "Nihilistic Violent Extremists," apparently targeting those who "show no respect for genetic realities."
+[^15]: Heidegger himself should have known better than to indulge.
+
+### Taking Heidegger Seriously?
+
+I can agree with Heidegger's description of the web of equipment and our place within it; also with his humbling insight that we have far less control than we believe, and that each new tool reconfigures the entire network of "in-order-to" relations. We inhabit a world shaped by technology---culturally, ecologically, epistemologically. Technical artifacts are part of our memory. This calls for ongoing reflection on the *essence of technology* and its danger, even if such an "essence" is nothing more than an author's invention that at least gives us a new vocabulary to see things differently.  
+
+Just like our language---another technology---technical artifacts not only support the functioning of society; they generate new worlds and make old ones disappear. They create self-reinforcing feedback loops.  
+
+And yet emancipatory movements must always resist binary distinctions between "natural" and "unnatural." Is the wind turbine, for instance, really less of a "challenge" than the dam that tames and narrows a river?  
+
+Perhaps it would be better to leave behind notions of essences altogether. Here Fisher and many other revolutionaries are right: we call things "natural," "essential," or "absolute," even though they are in truth constructed---and thus artificial: things, processes, and rules that once worked for some (or many), but could be altered for a different future.  
+
+This does *not* mean, however, that the contingent origins of something justify discarding cultural memory.  
+The public sphere needs a shared vocabulary---and such a vocabulary must prove itself. This validation happens narratively and institutionally, not metaphysically.
+
+### The Distinction Between Private and Public
+
+History has taught us to expand our moral imagination, to include more beings within our circle of care---not because of immutable principles, not because of God or some inner truth we have "discovered," but because of the vitality of our imagination; not because of transcendental or transcendent truth, but because of lived and imagined experiences that have been narrated and inscribed into our cultural memory.  
+
+We have invented a less cruel world. That is something to be proud of---and perhaps something we *should* be proud of. It is a project worth continuing by expanding the circle further, rather than narrowing it again.  
+
+Escaping or resisting danger does not mean unconditional acceptance or total rejection. Instead, what is needed is informed ambivalence: a conscious withdrawal and a vigilant anticipation. Here irony has its place---not in its modern, sarcastic form that collapses into cynicism, but in a playful yet serious mode that reveals something profoundly meaningful through contradictions and wit, as the Daoists preferred.  
+
+Take, for example, the story of the "useless" tree ignored by carpenters. The tree pretends to be worthless in order to live out its natural life. Its act is utterly convincing---it deceives people into sparing it---and its reward is true survival:  
+
+>Now you have, sir, a great tree, and you do not know how to use it. Why not plant it in the wilderness, where you may wander in its shade or sleep beneath it? No axe under heaven will ever touch it, nor shorten its days, for what is useless will never be disturbed. 
+> -- Zhuangzi, The Book of the True Way  
+
+**Irony as a private technique of self-description---solidarity as a public norm.**  
+
+Today, even the near future appears radically unpredictable. We no longer imagine the future with the same confidence as older societies once did. Thus we need greater flexibility in identity formation without abandoning commitment. In fact, unpredictability and complexity push us toward a paradoxical mode of *serious pretending*.  
+
+The boundary between "real" and "performed" is not fixed; new commitments can be found, and once lived, identity becomes real: pretend deeply enough, and the boundary between appearance and being dissolves. But rather than staging "authenticity" or adhering to some inner truth---a technique no longer workable in our age---we might look for *serious actors*. Put differently: we cannot simply "find" ourselves, but in private we can invent ourselves. And where there is commitment, meaning can still be found.  
+
+The cynical alternative is a superficial mode of pretending, where consistency lies in style rather than in playing oneself---a performance or a brand, in which actions are treated as a toolbox to be picked up and discarded depending on the audience.  
+
+### Keeping Possibilities Open
+
+Our way of seeing the world can change; it is not fixed. If technology is a mode of revealing, then we must remain open to other modes of revealing as well as to other approaches to truth and being.  
+
+Artists play a decisive role here. They do not merely criticize the present but open spaces for possible futures. Through aesthetic forms, they reveal reality in ways that neither science nor politics can. Their task is phenomenological: to show *how* things appear, not simply *what* they are. Art teaches us this "other seeing"---a poetic dwelling and a preservation of the work. The artwork discloses a non-instrumental world and thereby limits the interpretive monopoly of the technological.  
+
+We need not meet this process with cynicism or fear but with sincere engagement. We should not be afraid of technology and its artifacts. Technology is ambivalent: it enables education, memory, and culture, but it also fosters alienation, consumerism, and forgetting. It shapes our sense of time and our memory. And what co-evolves with us is guided by the horizon of possibilities that technology itself, as *Gestell*, co-determines.  
+
+Artistic works hold the potential to expose this framework---to light up the stage on which our futures unfold. Not in order to construct them, but to safeguard the possible and make it available, so that we may endure meaninglessness---not in despair, but with awareness.  
+
+### Political Clarification Without Demonology
+
+The future will surely require us to enter a domain where beings (and systems) reveal themselves in ways not reducible to function, efficiency, or control. We must resist the automatic embrace of technological challenge and the illusion of inevitability with composure. Neither nostalgia nor minor reforms will suffice, but we can nevertheless preserve the dignity of beings.  
+
+To misuse the words of Mark Fisher:  
+
+>I am not afraid of a zombie apocalypse; I am afraid that people will find it easier to imagine the end of the world [than a less cruel world]. 
+> -- Mark Fisher
+
+The true horror is our lack of imagination---our recurring grasping at simple answers and charismatic saviors instead of daring new visions.  
+
+Let us allow Heidegger, as prophet (hopefully for the last time), to speak:  
+
+>Philosophy will not be able to change the current state of the world directly. This holds not only for philosophy, but for all merely human reflection and endeavor. Only a God can save us. I think the only possibility left for us is to prepare, through thinking and poetry, a readiness for the appearance of the god or for the absence of the god in decline; so that we do not, simply put, die meaninglessly, but that if we perish, we perish in the face of the absent god.
+> -- Martin Heidegger, Spiegel Interview, 1966 
+
+Such prophecies may resonate in the *private sphere*, but they cannot sustain a liberal community in the public. They are the same prophetic tropes now echoed in Russia, the United States, and increasingly in Europe---whether in the form of a conspiracy of the "swamp of globalist elites," the dream of Neo-Eurasianism, the "agents of the Atlantic" (in the guise of Khrushchev and Gorbachev), or the *Antichrist* embodied by Greta Thunberg or by the so-called "value universalism of liberal democracy."  
+
+Critique is necessary---but without slipping into counter-narratives that themselves reproduce metaphysical semantics of redemption.  
+
+Heidegger's notion of the *Gestell* can, through a few darkened thoughts, be transformed from a progressive critique of globalization and technology into an apocalyptic vision resembling a vast self-destructive conspiracy. Many critics suspect that this was precisely Heidegger's intention---a consciously chosen ambiguity after the war, projecting its destiny.  
+
+One example is Alexander Dugin, who interprets Heidegger's prophecy as unfulfilled and calls upon today's Russia to enact its annihilating realization. Here *Dasein* loses both autonomy and the power of reason as critical potential. Similar tendencies, albeit of lower intellectual quality, are spreading in the United States as well.  
+
+### Displacement Instead of Exit
+
+What nevertheless remains is Heidegger's vocabulary and its modulation, which allows us to tell stories that expose humiliations. For Heidegger, the danger lies not only in technology blocking our access to Being, but in making us forget Being altogether. Thus it becomes necessary to narrate the stories of these blockages---not in order to "save Being," but to make the *cruelty of technology* visible through stories, while also emphasizing the cruelties that technology has made disappear.  
+
+Heidegger pointed to cybernetics (the science of systems, control, and information flows), which has displaced philosophy as the dominant framework for understanding the world. Data and systems theory, not wisdom or metaphysics, now shape our worldview, and decisions are increasingly made by algorithms, economics, and optimization. In Heidegger's eyes, this is the ultimate *Gestell*: the consummation of a perspective that views the world purely as resource---as a system to be controlled, not a mystery to be lived.  
+
+Yet the very danger he identified may carry within it the seed of salvation. Parts of cybernetics---especially the emergence of *second-order cybernetics* {cite}`foerster:1974`---have already recognized that control in the modern sense is impossible, thereby undermining the claims to objectivity of classical cybernetics. They have rediscovered the autonomy and reflexivity of systems.  
+
+If there is one thing to take from Heidegger's thought, it is that our worn-out vocabulary can itself get in our way. At the same time, most people do not wish to be redescribed---they want to be taken as they speak.  
+
+>The claim [that the language people speak is for ironists a lottery] has something potentially very cruel about it. For the most effective way to inflict lasting pain is to humiliate people by making everything that seemed most important to them futile, obsolete, powerless. 
+> -- {cite}`rorty:1989`  
+
+Rorty therefore suggests distinguishing between the private and public spheres, relocating the impulse of self-creation---embodied by Nietzsche, Proust, Heidegger, and Derrida---into the private realm.  
+
+>For Proust and Nietzsche, however, there is nothing more powerful or more important than self-redescription. They try not to overcome time and chance but to use them.
+> -- {cite}`rorty:1989`  
+
+His *liberal ironists* no longer care about universals, essences, or absolutes that would metaphysically justify why one should not humiliate others. In an ironic culture, there is no longer a common reality behind appearances that will bind people together. Instead, cruelty is abolished by generating realities through dense descriptions that sensitize readers to the pains of those who do not speak our language. We once expected such work from proofs of a universal human "nature"---but incompleteness and indeterminacy reappear in every final description.  
+
+Heidegger's ontological vision nevertheless remains bound to essentialist, foundational thinking---a thinking oriented toward *total revolution*, fueling apocalyptic imagination. Yet one could argue that his critique of representationalism, his redefinition of truth, and his challenge to metaphysics laid essential groundwork for the *postmodern turn*---even though his own position remained tied to an earlier epoch. He sought to overcome the metaphysical tradition by returning to the Greek "beginning," prior to Plato. But as Jacques Derrida later pointed out, Heidegger never fully escaped this tradition; his attempt at destruction culminated not in its dissolution but in its transformation (*deconstruction*) {cite}`derrida:1990,derrida:1988`.[^16]
+
+Every discourse "beyond metaphysics" inevitably employs metaphysical terms, distinctions, and grammar. The attempt to speak "outside" inevitably reinscribes what Heidegger wished to escape. What he enacted was an inner postponement and displacement (*différance*) within thought---undermining every fixed foundation without ever stepping outside.  
+
+There is simply no standpoint beyond metaphysics from which to "switch it off." But there is an endless practice of displacement: overturning concepts, destabilizing them, rereading them---an opening toward the *à venir* (the "to-come"), without the claim of a final exit.  
+
+>The thinking of the event displaces metaphysics, but it does not escape it. That does not mean that this displacement should be dismissed. On the contrary: in it lies the task of philosophy today.
+> -- Jacques Derrida  
+
+Niklas Luhmann {cite}`luhmann:1998` extended this insight, linking it with *second-order cybernetics* and thus understanding *deconstruction* as a technique of *second-order observation*. Every observation, he notes, distinguishes (a form) a marked side from an unmarked one {cite}`brown:1969`. Deconstruction exposes the blind spot of this form and allows for a reversal of the marked and unmarked sides.  
+
+It is debatable whether Rorty would describe Luhmann as an *ironic theorist* or as an *ironic novelist*. At the very least, Luhmann is aware of the contingency of his narrative and seeks no social mission---nor an explicit moral project to diminish cruelty, which Rorty prescribes. If Rorty is right that Nietzsche, Hegel, and Heidegger left no room for contingency in their narratives, then Luhmann's narrative is marked precisely by its play with contingency: it does not claim to say the last word about society but instead traces possibilities and their connections. To turn his vocabulary into something that counteracts cruelty, however, requires additional effort---a task already taken up by many {cite}`gruen:2015`.  
+
+Luhmann integrates the blind spot systematically into his theory of self-referential, autopoietic social systems. Each system of meaning produces, alongside itself, what it excludes as its blind spot. Paradoxes are unavoidable and must be temporarily resolved---through procedures, programs, and decisions---in order for the system to continue operating. Deconstruction here provides the paradox-insight, for example, that the legal system cannot ground its own legitimacy.[^17]  
+
+In this way, Luhmann initiates a further displacement of metaphysics: metaphysical concepts appear as system-internal semantics, operationally produced and historically variable.  
+
+While there are fascinating parallels between Heidegger's and Luhmann's views of art---especially in their understanding of art as a mode of revealing or meaning-production---their underlying philosophies are profoundly different. Heidegger's often romanticized view of art and his emphasis on the ontological primacy of *Dasein* contrast with Luhmann's post-metaphysical systems theory, which rejects anthropocentrism in favor of *autopoietic systems of meaning*. Yet I hold Luhmann's vocabulary to be extremely fruitful---and without Heidegger, there would likely be no Luhmann.  
+
+Ironically, we thus find a new vocabulary precisely in the field that Heidegger found most disturbing: cybernetics and the systems theory that grew out of it. With the emergence of *second-order cybernetics*, the field moved away from dominance, control, and the ballast of subjectivity-philosophy, abandoning terms such as "essence," "intelligence," "identity," "subject," "object," "truth," and "Being."  
+
+This marks a displacement from **Being to becoming**; from **identity to coherence, repetition, and autopoiesis**; from **truth to observation and validity**; from **control to resonance, viability, and attunement**; from **presence to difference**. Instead of asking: *"How can we control this?"*, the question shifts to: *"How does this system observe, and how can we intervene in ways that are recursively sustainable?"*  
+
+In this vocabulary {cite}`watson:2025`, existence begins with distinctions, and the world no longer consists of objects with inherent qualities but of distinctions recursively produced through recurrent perturbations of an Other (via *structural coupling*). The task is to endure undecidability---for example, that "justice" is both impossible and yet necessary.  
+
+[^16]: Heidegger himself likely realized this, which may explain why he never finished *Being and Time* and instead turned toward a poetic approach to Being.
+[^17]: A crime can be marked as illegal within the legal system, but there is no external authority capable of marking the legal system itself as legal.
+
+### Gaia as a Crisis of Anticipation
+
+Finally, we may allow ourselves to be entirely poetic and theorize as much as we wish, so long as this does not claim to directly organize social life, public regulations, or institutions. We can be heirs to Kant and Nietzsche! It is then indeed the task of literature, film, and art to render privately written vocabularies in ways that others can resonate with. If private redescriptions make it possible for others to feel *"what it is like"*, then they serve a public function.
+
+Put starkly: without art there can be no democracy, because democracy depends on shared meaning, on symbolization, on cultural renewal. Art must therefore be deliberately fostered today, so that society may be immunized against the *entropy* of algorithmic capitalism. Stiegler is right to see art as both a therapeutic and political countermeasure against the disruption unleashed by digital technologies. Without art, he argues, collective thought becomes impoverished---and with it, our very capacity to project and design a future.
+
+What ultimately remains with me, however, is that *uncanny mood* that first drove me to Heidegger. A mood in which human beings and nature themselves appear as *standing-reserve*; positioned by technological thinking---set aside, consumed, or dominated; trapped in a wheel, helpless in the development of their own agency. This hurts in an immense way. With the accelerating speed of things, nothing seems truly present any longer. Everything is already past, already consumed---always already other. Desires, expectations, acts of will---everything that forms the horizon of the future for individuals through their protentions (anticipations)---is surpassed, overtaken, and gradually replaced by automatic protentions generated by intensive computational systems that operate one to four million times faster than the nervous system of psychic systems.
+
+Social organizations only ever realize this retrospectively {cite}`stiegler:2019`. *Disruption* softens the will by always making it too late, and thereby renders it superfluous. A sense of nonexistence emerges, leading toward madness and a new form of barbarism. In {cite}`stiegler:2019` we find a telling statement from the *"lost" generation*, which powerfully expresses this feeling:
+
+>You really do not take into account at all what is happening to us. When I talk to young people of my generation, those two or three years younger or older than me, they all say the same thing: We no longer dream of founding a family, of having children, a career, or of pursuing ideals, as you yourselves did when you were young. All of that is over and done with, because we are sure that we will be the last generation---or one of the last---before the end.
+
+This must and should be expressed with such clarity. In this context, current public discussions---which so often lack a language to make youth visible---appear paradoxical: for it is precisely this generation that is expected to go to war for a future that it itself can hardly anticipate.
+
+In the end, the god of whom Heidegger spoke will appear in earthly form---*Gaia*, who returns not as a benevolent mother, but as an *anticipated end*. Climate change---an upheaval of our environment to which we can no longer adapt---then becomes, in Heidegger's view, not merely a scientific fact or a social failure, but a metaphysical event: the Earth reclaiming its withdrawn presence, shattering our illusion of mastery, exposing the futility of control. The question then is whether this strife between world and earth will leave any world at all.
+
+A wholly different way of dwelling may open. But first, all the technological power of so-called *progress*, which in barbarism turns into a weapon of destruction, must be transfigured into a remedy. This requires understanding climate change also as a cultural-technical problem: it is the expression of a civilization oriented only toward short-term economic exploitation (fossil fuels, industrialization, consumerism). It is a symptom of a systemic disturbance in the *ecology of spirit*, which blocks the long-term anticipation of the future.  
+
+Technologies must therefore be designed in ways that conserve energy and at the same time generate new knowledge, new forms of cooperation. Science and art must open alternative relations to the world and thereby make new futures thinkable.
+
+>Climate change is the failure of anticipation---the failure to project a future. We know it, but we do not act.
+
+For this path, we need an appropriate vocabulary---a displaced metaphysics that runs through society as a whole and decisively transforms action---from rulers to stewards.
+
+### Hope as a Practice of Anticipation
+
+Heidegger was right: philosophy or theory alone cannot save us. We need narratives to recognize impending and already existing humiliations, so that they might not occur, or at least be alleviated---but time is running out.
+
+Gaia will become the greatest danger, yet as Hölderlin once wrote:
+
+>But where danger is, grows / The saving power also. -- Friedrich Hölderlin
+
+To speak with Stiegler: even within the weapons of destruction lies the possibility of healing. For every poison is also a remedy; every instrument of death can---at the moment of reversal---become a tool of life.  
+
+It is, however, no longer within *our* so-called *control* to simply *solve* this *problem*. But we can listen attentively and anticipate the destructive as *pharmakon*, in order to redirect it and give it a new destiny: no longer in service of the madness of entropy, but of a new *ecology of spirit* that opens futures {cite}`stiegler:2019`.
+
 
 ## A Fictional Daoist Parable
 
@@ -891,6 +829,6 @@ Old Pine smiled. "Why do you ask me? I have no machines, no river to move, not e
 
 "Then make the river a home for the ones who like it warm," Old Pine said. "Shade the banks with trees, so the sun's hand is softer. Feed the roots instead of the fires. And if the river still changes, then we will change with it. What does not change is that the river is our kin."
 
-The villagers grumbled—this sounded too small, too slow. But a few began planting trees, weaving reeds along the banks, and leaving the warm-water fish in peace.
+The villagers grumbled---this sounded too small, too slow. But a few began planting trees, weaving reeds along the banks, and leaving the warm-water fish in peace.
 
 Years later, the river was not what it once was, but it was alive in a new way. Those who had learned from Old Pine drank its water with joy.
