@@ -16,7 +16,7 @@ Just as astronomers *discover* planets, mathematicians *discover* mathematical t
 The obvious question or problem with this view is that it is unclear where and how these objects exist and how we humans access them.
 
 *Logicians* claim that mathematics is reducible to pure logic, that is, all mathematical truths are logical truths in disguise.
-The promoter of this field of theory (Frege, Russell, Whitehead, Carnap) was to derive all of mathematics from logical axioms and rules of inference but Gödel's incompleteness theorems showed that not all mathematical truth can be captured this way.
+The promoters of this field of theory (Frege, Russell, Whitehead, Carnap) wanted to derive all of mathematics from logical axioms and rules of inference but Gödel's incompleteness theorems showed that not all mathematical truth can be captured this way.
 Logicists often assumed numbers were real abstract entities, but that they could be reduced to logical notions.
 So Logicism is both a program (reduce math to logic) and compatible with a Platonist ontology.
 
@@ -33,10 +33,10 @@ Why is mathematics so effective in its application?
 Formalists undercut the meaning of mathematical objects outside of the formal system within they are defined.
 Formalism lost its status as a full foundation mainly because its central promise (to secure all of mathematics by purely formal means) turned out to be impossible.
 Gödel showed that in any sufficiently strong formal system (like arithmetic), there will be true statements that cannot be proven within the system and that a system cannot prove its own consistency (if it actually is consistent).
-Threfore, math is not fully capturable as a "formal game" and Hilbert's goal of proving the consistency of mathematics within a finitary framework is impossible.
+Therefore, math is not fully capturable as a "formal game" and Hilbert's goal of proving the consistency of mathematics within a finitary framework is impossible.
 This meant Hilbert’s dream was unachievable in principle.
 Formailsm is also counter intuitive to the mathematicians because they experience proofs as *discoveries*, not as arbitrary symbol games.
-But it's still indispensable as a methodological backbone. Philosophers now usually combine it with other views rather than defending it on its own.
+But it's still indispensable as a methodological backbone. Today, philosophers usually combine it with other views rather than defending it on its own.
 
 *Intuitionists* and *constructivists* like L.E.J. Brouwer, Heyting and Bishop claim that mathematics is a creation of the human mind.
 This ties mathematics to human mental activities but it also restricts many classical results (e.g., nonconstructive proofs are invalid) because this foundational theory rejects the *law of excluded middle* in infinite contexts (e.g., "either a number is prime or it isn't" is not true unless we can prove one or the other).
@@ -49,7 +49,7 @@ One variant, i.e. *fictionalism*, claim that mathematics is like a useful story-
 The other variant, that is, *deflationary nominalism* assume that numbers are just ways of speaking about properties of the world (e.g., "there are three apples" describes a property of apples, not an abstract "3").
 *Norminalism* avoids mysterious abstract realms but it is hard to or even impossible to account for the objectivity and universality of mathematics.
 
-The there are *empiricists* like Mill, Lakatos and Putnam (at some stage) who think that mathematics is ultimately derived from our experience with the world, much like the sciences.
+There are also *empiricists* like Mill, Lakatos and Putnam (at some stage) who think that mathematics is ultimately derived from our experience with the world, much like the sciences.
 In this view, mathematical knowledge grows by conjecture, refutation, and revision, not by pure deduction.
 This makes sense of the evolving, human side of mathematics but seems at odds with the timelessness and necessity of mathematics.
 
@@ -104,7 +104,7 @@ It is a mode of revealing *Being*.
 He wasn't a philosopher of math in the analytic sense, but he reflected deeply on what "mathematical" means.
 He tied the rise of modern science to the "mathematical projection" of nature (geometry, analytic mechanics, etc.).
 
-The late Wittgenstein argues that the meaning of words is determined by their use.
+The late Wittgenstein argued that the meaning of words is determined by their use.
 This seems like a trivial observation but his claim was in fact very radical because it rejects the view that words refer to some essences.
 Furthermore, it offers arguments agains the view that language can describe reality accurately.
 The use of a word changes over time. 
@@ -145,7 +145,7 @@ It cannot have a role in that teaching because we cannot get at it linguisticall
 If this is true, then the same has to be the case for mathematical terms such as numbers.
 With this view, the meaning of the word "two" can not be private.
 Instead it is a result of social practices.
-In his later philosophy (*Philosophical Investigations* {cite}`wittgenstein:1953`), he rejected Platonism: there are no mathematical objects "out there".
+In his later philosophy (*Philosophical Investigations* {cite}`wittgenstein:1953`), Wittgenstein rejected Platonism: there are no mathematical objects "out there".
 Instead, math is a set of rule-governed activities within forms of life.
 It "two" is a term born out of social practice to communicate such that it helps us to navigate the mess.
 Proofs don't "reveal eternal truths"; they change what counts as true by fixing the rules of use.
@@ -175,7 +175,7 @@ This frustrates *Platonists* and *structuralists*, who think the ontological que
 
 *Platon* believed that these abstractions are more accurate than what we perceive.
 He thought that the perception of a chair is an obscuration of the perfect idea that shines through it.
-Thereby contradictiong Wittgenstein by establishing an essence of the chair.
+Thereby contradicting Wittgenstein by establishing an essence of the chair.
 I think it is the other way around, and instead of perfect and imperfect, I use the terms *concrete* and *abstract*.
 The chair is *concrete*, but our perception of it has nothing to do with it, except that it enables us to deal with it.
 Our perception is the first *abstraction* born out of *Kant's* understanding---we are able to perceive it as one thing.

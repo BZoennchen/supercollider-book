@@ -1,5 +1,5 @@
 (sec-technology-and-art)=
-# The Enframing and Poetry 
+# Enframing and Poetry 
 
 *A World in Dangerous Strife with the Earth*
 

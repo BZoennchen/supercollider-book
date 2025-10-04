@@ -205,6 +205,8 @@ SynthDef(\sine_sum, {
 )
 ```
 
+**Note**: The ``doneAction: Done.freeSelf`` is optional since SuperDirt will free the ``Synth`` anyways. You can read about more details and find out why that is [here](https://tidalcycles.org/docs/patternlib/tutorials/course2). Go to *Lesson 4: SuperDirt (part II)* and read the Julian Rohrhuber commentary. 
+
 Let's try it out using a little two more complex pattern.
 
 ```haskell
