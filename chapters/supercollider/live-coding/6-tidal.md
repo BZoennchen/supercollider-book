@@ -207,6 +207,27 @@ SynthDef(\sine_sum, {
 
 **Note**: The ``doneAction: Done.freeSelf`` is optional since SuperDirt will free the ``Synth`` anyways. You can read about more details and find out why that is [here](https://tidalcycles.org/docs/patternlib/tutorials/course2). Go to *Lesson 4: SuperDirt (part II)* and read the Julian Rohrhuber commentary. 
 
+Finally we also want to use our own arguments.
+How can we do this?
+For example, you might wanna manipulate the ``\curve`` of ``sine_sum``.
+You can **not** write it like this:
+
+```haskell
+    $ n (scale "ritusen" "0 .. 7") 
+    # sound "sine_sum"
+    # curve "-4.3" -- This is not working!
+```
+
+You have to add ``pF`` (float) or ``pI`` (int) and you have to write the name of the argument as a string like this:
+
+```haskell
+    $ n (scale "ritusen" "0 .. 7") 
+    # sound "sine_sum"
+    # pF "curve" "-4.3" -- This should work!
+```
+
+## Patterns Your Synth
+
 Let's try it out using a little two more complex pattern.
 
 ```haskell
