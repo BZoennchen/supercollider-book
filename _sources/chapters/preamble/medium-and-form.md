@@ -39,7 +39,7 @@ sns.set_style("whitegrid")
 >There is neither a medium without form nor a form without medium.
 >The difference of mutual dependency and independency is pivotal. -- Niklas Luhmann {cite}`luhmann:1986`
 
-In my essay *[The Essence of Technology and Art](sec-technology-and-art)*, I explored Heidegger's understanding of art through my own lens.
+In my essay *[Enframing and Poetry ](sec-technology-and-art)*, I explored Heidegger's understanding of art through my own lens.
 There, we approached art as an ontological event in which *Being* reveals itself, and where understanding is not merely a method or technique---but a fundamental mode of being (Dasein).
 
 ## (Anti-)Humanism

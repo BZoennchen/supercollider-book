@@ -32,7 +32,6 @@ However, we find many projects that replace ``sclang`` and **scide**, especially
 
 + [Sonic Pi](https://sonic-pi.net/): highly accessible and therefore fascinating in the context of education.
 + [TidalCycle](https://tidalcycles.org/): functional language that focuses on the creation of complex rhythms via pattern.
-+ [Strudel](https://strudel.cc): an official port of the Tidal Cycles pattern language to JavaScript.
 + [FoxDot](https://foxdot.org/): similar to [TidalCycle](https://tidalcycles.org/) but focuses more on the melodic side of compositions.
 + [Sardina](https://github.com/Bubobubobubobubo/Sardine): a ``Python`` based live coding library
 + [Overtone](https://github.com/overtone/overtone): open source audio environment designed to explore new musical ideas from synthesis and sampling to instrument building, live-coding and collaborative jamming
@@ -44,6 +43,7 @@ In that case, we can develop our synths using ``sclang`` and run them on the ser
 If we are only interested in using existing synths and samples, we can do so without relying on [SuperCollider (SC)](https://supercollider.github.io/).
 Furthermore, there are many more projects that use their own audio server, i.e., do not rely on SuperCollider:
 
++ [Strudel](https://strudel.cc): an official port of the Tidal Cycles pattern language to JavaScript. While Strudel also has a way of communicating with [Superdirt](https://github.com/musikinformatik/SuperDirt), it aims to provide a standalone live coding environment that runs entirely in the browser (no SuperCollider required).
 + [ChucK](https://chuck.cs.princeton.edu/): strongly-timed, concurrent, and on-the-fly music programming language
 + [Gibber](https://github.com/gibber-cc/gibber): live coding environment for the web browser
 + [Gwion](https://github.com/Gwion/Gwion): a programming language designed for making music and sound inspired by [ChucK](https://chuck.cs.princeton.edu/) but also has a REPL mode you can use for live-coding
