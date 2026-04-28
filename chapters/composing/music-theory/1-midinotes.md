@@ -26,7 +26,7 @@ name: fig-diatonic-scale
 Notes written down on a musical sheet with a *treble staff*.
 ```
 
-Black keys are sharps and flats of the white keys: C#/Bb-D#/Eb-F#/Gb-G#/Ab-A#/Bb.
+Black keys are sharps and flats of the white keys: C#/Db-D#/Eb-F#/Gb-G#/Ab-A#/Bb.
 To arrive at a black key we either raise a white key by a semitone, e.g. C to C#.
 Or we lower a white key by a semitone, e.g. E to Eb.
 All these letters represent a *note*.
@@ -81,7 +81,7 @@ Using Eq. {eq}`eq:note:to:frequency` and the fact that the midi note 69 correspo
 
 ## Conversion
 
-There are twelve piano keys within an octave are C, C#/Bb, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B.
+There are twelve piano keys within an octave are C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B.
 This is equivalent to the [chromatic sacle](sec-chromatic-scale).
 The letter gives us the *ptich class / tone* while the number tells us in which *octave* we are.
 The combination determines the actual *pitch*.
