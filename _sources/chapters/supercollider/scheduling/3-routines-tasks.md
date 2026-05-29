@@ -14,10 +14,10 @@ kernelspec:
 # Routines & Tasks
 
 A [Routine](https://doc.sccode.org/Classes/Routine.html) is like a function that you can evaluate only partly at a time.
-Routines and functions can be used almost interchangeable but routines can be scheduled/played on a clock.
+Routines and functions can be used almost interchangeably but routines can be scheduled/played on a clock.
 Within a routine, you use the ``yield`` method to return a value and pause its execution.
 The next time you evaluate the routine, it picks up where it left off.
-In that sense, a routine is similar to a [stream](sec-stream) but it does not only return values but can do stuff, i.e., realize *sideeffects*.
+In that sense, a routine is similar to a [stream](sec-stream) but it does not only return values but can do stuff, i.e., realize *side effects*.
 
 ```isc
 (
@@ -101,7 +101,7 @@ t.play;
 t.resume(0);
 ```
 
-Routines and task wait by a measure of beats not seconds!
+Routines and tasks wait by a measure of beats not seconds!
 Therefore, to double the tempo we just have to schedule the routine/task on a clock with double the tempo.
 We can also change the tempo of the clock while playing.
 

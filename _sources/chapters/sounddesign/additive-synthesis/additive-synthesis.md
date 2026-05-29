@@ -25,7 +25,7 @@ In contrast, *additive synthesis* gives us granular and independent control over
 We can directly control the power of each frequency of the final result over time ([amplitude modulation](sec-am)).
 In fact, we can also change and detune frequencies over time ([frequency modulation](sec-fm)).
 
-Additive synthesis is suitable for various types of sound, but it suits very well for xylophones, bells, and other metallic instruments, typically inharmonic sounds.
+Additive synthesis is suitable for various types of sound, but it suits xylophones, bells, and other metallic instruments very well, typically inharmonic sounds.
 Even if these instruments vibrate inharmonically, they do not necessarily lack pitch.
 For example, bells, xylophones, and even drums can be tuned. 
 Nevertheless, using only harmonic waveforms, such as a [sawtooth wave](sec-sawtooth-wave), [square wave](sec-square-wave), or [triangle wave](sec-triangle-wave), would not be enough to synthesize such instruments.

@@ -24,7 +24,7 @@ from PIL import Image
 
 If we push multiple piano keys, the color of the sound we perceive will be determined mainly by the relation between those keys, i.e., the generated *intervals*.
 In that regard, compared to the exact pitches, *intervals* are much more important.
-But instead of similarity we consider *consonant* and *dissonant* combinations of [notes](sec-notes) or more preceisly pitches.
+But instead of similarity we consider *consonant* and *dissonant* combinations of [notes](sec-notes) or more precisely pitches.
 In fact, two sound waves with very similar fundamental frequencies are dissonant. For example, pressing two consecutive piano keys results in a dissonant vibration because the sound waves do not overlap so much.
 The first one vibrates with a frequency of $f$ hertz and the second with a frequency of $f \cdot \sqrt[12]{2} \approx f \cdot 1.0594$ hertz.
 
@@ -60,7 +60,7 @@ We can extend this concept to multiple frequencies $f_1, f_2, f_3$ for which we 
     \frac{f_1}{f_2}, \frac{f_2}{f_3}, \frac{f_3}{f_1}.
 \end{equation*}
 
-However, if we consider piano keys things get more complicated since the vibration of a single piano string causes air pressure fluctuations that can not represented by a signal built from one fundamental frequency.
+However, if we consider piano keys things get more complicated since the vibration of a single piano string causes air pressure fluctuations that cannot be represented by a signal built from one fundamental frequency.
 This is true for any analog instrument.
 We have to add many harmonics to the fundamental frequency to recreate the sound.
 Furthermore, the actual pitch is a perceptual property and depends on the listener.
@@ -139,7 +139,7 @@ For example, the ratio of a **perfect fifth**, i.e. the most consonant interval 
 $$2^{7/12} \approx 1.4983070 \approx 1.5 \approx \frac{3}{2}$$
 
 $2^{7/12}$ is so close to 3:2 that it is almost impossible for us humans to hear the difference.
-This is one of the reason why the 12-TET tuning system is generally accepted as the standard tuning system for Western music.
+This is one of the reasons why the 12-TET tuning system is generally accepted as the standard tuning system for Western music.
 
 (sec-cent-semitones)=
 ## Cents and Semitones
@@ -149,7 +149,7 @@ As we know, frequency is expressed in a logarithmic scale.
 Along that scale the distance between a given frequency and its double (an **octave**) is divided into 1200 equal parts, each of these parts is one **cent**.
 A semitone is the smallest interval of two different notes playable on the piano, i.e., the distance between two consecutive keys or one **half step** or a **minor second (m2)**.
 
-In [12-TET](sec-tet-tuning), a [tuning system](sec-tuning) in which all semitones cover the same distance, the distance from to the other semitone is exactly 100 cents. 
+In [12-TET](sec-tet-tuning), a [tuning system](sec-tuning) in which all semitones cover the same distance, the distance from one semitone to the next is exactly 100 cents.
 Hence, in 12-TET the cent can be also defined as one hundredth of a semitone.
 Mathematically, the distance in cents of the interval from frequency $f_1$ to frequency $f_2$ is
 
@@ -175,8 +175,8 @@ Therefore, our perception ability widely outperforms the variants a musician can
 ## Musical Intervals
 
 In music theory, intervals are the relationship between any two notes.
-Therefore, we limit ourselves to a few amount of possible intervals.
-But this limitations results in a good distinction between [notes](sec-notes), [chords](sec-chords), and [scales](sec-scales).
+Therefore, we limit ourselves to a small number of possible intervals.
+But this limitation results in a good distinction between [notes](sec-notes), [chords](sec-chords), and [scales](sec-scales).
 The name of an interval has two parts: the **quality** and the **distance** between the two or more notes of the interval.
 
 ### Distance
@@ -279,7 +279,7 @@ By definition, the inversion of a perfect interval is also perfect since
 $$12 - 7 + 2 = 7.$$
 
 All other intervals are less consonant.
-The inversion of a minor interval is major and vice versa and the inversion of an augmented invertal is a dimished interval.
+The inversion of a minor interval is major and vice versa and the inversion of an augmented interval is a diminished interval.
 For example, a major third (4 semitones) becomes
 
 $$12-4 + 2 = 10$$
@@ -290,9 +290,9 @@ a minor seventh (10 semitones).
 
 The following table lists special names for important intervals.
 For each natural interval there exists at least an augmented or diminished "version" that is *enharmonic*.
-For example, a **major second** is enharmonic to an **diminished third** and **perfect fourth** is enharmonic to an **augmented third**. 
-Therefore there are many enharmonic intervals different names.
-The name depends on the musical context they have been used.
+For example, a **major second** is enharmonic to a **diminished third** and a **perfect fourth** is enharmonic to an **augmented third**.
+Therefore there are many enharmonic intervals with different names.
+The name depends on the musical context in which they have been used.
 
 Furthermore, there are two different tunings listed in the table:
 
@@ -395,7 +395,7 @@ Can you hear the difference?
 
 Some regard the **tritone** (aka diminished fifth) as *the devil's interval* because it is highly dissonant and has inspired composers to explore the dark side of music.
 Music listeners' almost instinctive desire to hear a song through to its rhythmic and harmonic conclusion can be an effective (if torturous) tool throughout the fields of music composition and scoring.
-Interestingly, the tritone is symmetric, that is, any [inversion](sec-inversion) will result in a tritone; C-F# are 6 semitones and F#-C alsp span 6 semitones.
+Interestingly, the tritone is symmetric, that is, any [inversion](sec-inversion) will result in a tritone; C-F# are 6 semitones and F#-C also span 6 semitones.
 
 The dissonant intervals of the *devil's tritone* are particularly affecting because of this listener's instinct to find resolution in music and the fact that we are used to getting it.
 Music, in that sense, is a play around expectations and a balance between repetition and surprise;

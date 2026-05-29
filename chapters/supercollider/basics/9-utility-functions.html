@@ -552,7 +552,7 @@ It transforms <code class="docutils literal notranslate"><span class="pre">w</sp
 <span class="mf">277.18263097681</span><span class="p">.</span><span class="nx">cpsmidi</span>         <span class="c1">// 60.999999999996 (almost 61)</span>
 </pre></div>
 </div>
-<p>Especially if we defines a <a class="reference internal" href="../synths/2-sc-synths.html#sec-synths"><span class="std std-ref">synth definition</span></a>, we want to deal with frequencies.
+<p>Especially if we define a <a class="reference internal" href="../synths/2-sc-synths.html#sec-synths"><span class="std std-ref">synth definition</span></a>, we want to deal with frequencies.
 The <a class="reference internal" href="../pattern/4-events.html#sec-playing-events"><span class="std std-ref">pattern library</span></a> takes care of many value conversions such that we can use midi notes, degrees of a scale etc out of the box.
 However, if we introduce more specific arguments we can not rely on that comfort.
 It is handy to offer tonal arguments such as <code class="docutils literal notranslate"><span class="pre">detune</span></code> in a measure of semitones because the linear scale is more meaningful to us.
@@ -560,8 +560,8 @@ To be able to still use measures in frequency we use, for example, <code class="
 </section>
 <section id="amplitude-and-decibel">
 <h2>Amplitude and Decibel<a class="headerlink" href="#amplitude-and-decibel" title="Permalink to this headline">#</a></h2>
-<p>To use decibal instead of amplitude, where 0 decibal is equivalent to 1.0 amplitude, we can make use of the built-in functions <code class="docutils literal notranslate"><span class="pre">x.ampdb</span></code> and <code class="docutils literal notranslate"><span class="pre">y.dbamp</span></code>.
-<code class="docutils literal notranslate"><span class="pre">x.ampdb</span></code> converts a loudness value in amplitude into decibal.
+<p>To use decibels instead of amplitude, where 0 decibels is equivalent to 1.0 amplitude, we can make use of the built-in functions <code class="docutils literal notranslate"><span class="pre">x.ampdb</span></code> and <code class="docutils literal notranslate"><span class="pre">y.dbamp</span></code>.
+<code class="docutils literal notranslate"><span class="pre">x.ampdb</span></code> converts a loudness value in amplitude into decibels.
 <code class="docutils literal notranslate"><span class="pre">y.dbamp</span></code> is the inverse operation.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="nx">dbamp</span>        <span class="c1">// 0.70794578438414</span>
 <span class="o">-</span><span class="mi">3</span><span class="p">.</span><span class="nx">dbamp</span><span class="p">.</span><span class="nx">ampdb</span>  <span class="c1">// -3.0</span>
@@ -570,16 +570,16 @@ To be able to still use measures in frequency we use, for example, <code class="
 </section>
 <section id="mappings">
 <h2>Mappings<a class="headerlink" href="#mappings" title="Permalink to this headline">#</a></h2>
-<p>Transforming amplitude to decibal and vice verca is an application of a mapping, that maps one range of values into another.
+<p>Transforming amplitude to decibels and vice versa is an application of a mapping that maps one range of values into another.
 Such a mapping can be very useful in many other situations and <code class="docutils literal notranslate"><span class="pre">sclang</span></code> provides us with some useful utility functions such that we do not have to compute these mappings by ourselves.
 These utility function are functional operators, mapping a function to another function.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linlin</span></code> maps one linear function to another linear function</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">linexp</span></code> maps a linear function to an exponential function</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">explin</span></code> maps a exponential function to a linear function</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">expexp</span></code> maps an exponential function to a linear function</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lincurve</span></code> like <code class="docutils literal notranslate"><span class="pre">linexp</span></code> but you can define the stepness of the exponential curve</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">curvelin</span></code> line <code class="docutils literal notranslate"><span class="pre">explin</span></code> but you can define the stepness of the exponential curve</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">explin</span></code> maps an exponential function to a linear function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expexp</span></code> maps an exponential function to another exponential function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lincurve</span></code> like <code class="docutils literal notranslate"><span class="pre">linexp</span></code> but you can define the steepness of the exponential curve</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curvelin</span></code> like <code class="docutils literal notranslate"><span class="pre">explin</span></code> but you can define the steepness of the exponential curve</p></li>
 </ul>
 <p>In the following I use a finite linear signal and a finite exponential signal generated by <a class="reference external" href="https://doc.sccode.org/Classes/Line.html">Line</a> and <a class="reference external" href="https://doc.sccode.org/Classes/XLine.html">XLine</a> respectively to demonstrate the effect of all four transformations.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -607,7 +607,7 @@ If <code class="docutils literal notranslate"><span class="pre">outMin</span></c
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">The resulting plots of the code above.</span><a class="headerlink" href="#fig-mappings-plot" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><code class="docutils literal notranslate"><span class="pre">lincurve</span></code> and <code class="docutils literal notranslate"><span class="pre">curvelin</span></code> gives us a litte bit more control over the shape of the transformation.
+<p><code class="docutils literal notranslate"><span class="pre">lincurve</span></code> and <code class="docutils literal notranslate"><span class="pre">curvelin</span></code> give us a little bit more control over the shape of the transformation.
 A positive <code class="docutils literal notranslate"><span class="pre">curve</span></code> value results in a convex, a negative value in a concave function.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">dur</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
@@ -649,7 +649,7 @@ For example, if we want to generate random <a class="reference internal" href=".
 </pre></div>
 </div>
 <p>Another neat function to use is <code class="docutils literal notranslate"><span class="pre">nearestInScale</span></code> which transforms a number to the nearest number in a specific scale.
-For exampe, the following code gives us <a class="reference internal" href="../../composing/music-theory/1-midinotes.html#sec-midi-notes"><span class="std std-ref">midi notes</span></a> which belong to the <a class="reference internal" href="../../composing/music-theory/3-scales.html#sec-diatonic-scale"><span class="std std-ref">C major scale</span></a>.</p>
+For example, the following code gives us <a class="reference internal" href="../../composing/music-theory/1-midinotes.html#sec-midi-notes"><span class="std std-ref">midi notes</span></a> which belong to the <a class="reference internal" href="../../composing/music-theory/3-scales.html#sec-diatonic-scale"><span class="std std-ref">C major scale</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nx">exprand</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">59</span><span class="p">).</span><span class="nx">nearestInScale</span><span class="p">(</span><span class="nc">Scale</span><span class="p">.</span><span class="nx">major</span><span class="p">)}</span><span class="o">!</span><span class="mi">10</span>
 </pre></div>
 </div>
@@ -690,7 +690,7 @@ The following build-in sampling functions can be used, where the receiver <code 
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Plot of a histogram of <code class="docutils literal notranslate"><span class="pre">rand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">linrand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">exprand(a,</span> <span class="pre">b)</span></code>, <code class="docutils literal notranslate"><span class="pre">bilinrand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">sum3rand(x)</span></code>, <code class="docutils literal notranslate"><span class="pre">gauss(x,</span> <span class="pre">sigma)</span></code>.</span><a class="headerlink" href="#fig-plot-dists" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>On the <strong>serve-side</strong> there are corresponding unit generators such as</p>
+<p>On the <strong>server-side</strong> there are corresponding unit generators such as</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://doc.sccode.org/Classes/Rand.html">Rand</a>,</p></li>
 <li><p><a class="reference external" href="https://doc.sccode.org/Classes/LinRand.html">LinRand</a>, and</p></li>
@@ -701,7 +701,7 @@ The following build-in sampling functions can be used, where the receiver <code 
 <span id="sec-signal-lagging"></span><h2>Signal Lagging<a class="headerlink" href="#signal-lagging" title="Permalink to this headline">#</a></h2>
 <p>We are sometimes in a situation where we want to change the output of a signal from one value to another but we desire a smooth transition, e.g., to avoid clicks.
 Lagging a signal via the <code class="docutils literal notranslate"><span class="pre">lag</span></code> function filters the signal via a <a class="reference internal" href="../../sounddesign/filters/3-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">lowpass filter</span></a> such that a smooth transition is accomplished.
-Instead of dealing with abstract filter arguments, it lets you conviniently define the duration of the transition.
+Instead of dealing with abstract filter arguments, it lets you conveniently define the duration of the transition.
 It is equivalent to the <a class="reference external" href="https://doc.sccode.org/Classes/Lag.html">Lag</a> unit generator.</p>
 <p>In the following we use the <a class="reference external" href="https://doc.sccode.org/Classes/TRand.html">TRand</a> unit generator triggered by a <a class="reference external" href="https://doc.sccode.org/Classes/Dust.html">Dust</a> ugen to spill out the same random number over a short duration, determined by the next trigger signal.
 The plot below shows the unfiltered signal and two filtered signals with different lag times.</p>
@@ -719,14 +719,14 @@ The plot below shows the unfiltered signal and two filtered signals with differe
 <section id="debugging">
 <span id="sec-utility-debugging"></span><h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">#</a></h2>
 <p>Sometimes we want to know what stream or flow of numbers we generate.
-To post the numbers a unit generator produces to the post windows you can use <code class="docutils literal notranslate"><span class="pre">poll</span></code>.
+To post the numbers a unit generator produces to the post window you can use <code class="docutils literal notranslate"><span class="pre">poll</span></code>.
 For patterns and other language/client side functions you can use <code class="docutils literal notranslate"><span class="pre">trace</span></code> instead.</p>
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">#</a></h2>
 <p>In the following example we use frequency for <code class="docutils literal notranslate"><span class="pre">\freq</span></code>, amplitude for <code class="docutils literal notranslate"><span class="pre">\amp</span></code> and semitones for <code class="docutils literal notranslate"><span class="pre">\detune</span></code>.
-Furthermore, we convert -7 decibals into amplitude and make use of <code class="docutils literal notranslate"><span class="pre">k.reciprocal</span></code> which computes <code class="docutils literal notranslate"><span class="pre">1/k</span></code>.</p>
-<p>The sound is generated by three sine waves at frequency <code class="docutils literal notranslate"><span class="pre">\freq</span></code>, <code class="docutils literal notranslate"><span class="pre">\freq</span></code> + 0.01 semitone and <code class="docutils literal notranslate"><span class="pre">\freq</span></code> - 0.01 semintone.
+Furthermore, we convert -7 decibels into amplitude and make use of <code class="docutils literal notranslate"><span class="pre">k.reciprocal</span></code> which computes <code class="docutils literal notranslate"><span class="pre">1/k</span></code>.</p>
+<p>The sound is generated by three sine waves at frequency <code class="docutils literal notranslate"><span class="pre">\freq</span></code>, <code class="docutils literal notranslate"><span class="pre">\freq</span></code> + 0.01 semitones and <code class="docutils literal notranslate"><span class="pre">\freq</span></code> - 0.01 semitones.
 Since the detuning is very small we can hear the sine wave going in and out of phase.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\detune_sines</span><span class="p">,</span> <span class="p">{</span>
@@ -796,7 +796,7 @@ I play in the <a class="reference internal" href="../../composing/music-theory/3
 Furthermore, I modulate the release time with respect to the degree of the note such that high-degree notes have an exponentially shorter release time!
 Thereby, I mimic the natural effect of faster disappearing high frequencies.
 In addition, the <code class="docutils literal notranslate"><span class="pre">\detune</span></code> increases from 0 to 0.01 times 200.</p>
-<p>Let us to two sine waves changing their frequency 5 times a second via a smooth transition.
+<p>Let us use two sine waves changing their frequency 5 times a second via a smooth transition.
 To achieve the rate of change we use the <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a> ugen:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="mf">0.25</span> <span class="o">*</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">TRand</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="nc">Impulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">!</span><span class="mi">2</span><span class="p">).</span><span class="nx">lag</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))}.</span><span class="nx">play</span>
 </pre></div>

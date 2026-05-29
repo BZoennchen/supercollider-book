@@ -46,7 +46,7 @@ In the example above, we can perceive that the sound gets louder over a time of 
 
 For an increasing and decaying signal we could compute each local maxima and minima, take the absolute value and interpolate in between.
 That is basically what [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) does.
-It computes the perceive loudness, i.e., local amplitude of a signal!
+It computes the perceived loudness, i.e., local amplitude of a signal!
 
 The following code generates another plot, that shows the difference.
 
@@ -67,13 +67,13 @@ The following code generates another plot, that shows the difference.
 width: 800px
 name: fig-all-amplitude-sine
 ---
-A modulated amplitude of a sine wave. At the top the measured perceive loudness using [Amplitude](https://doc.sccode.org/Classes/Amplitude.html). In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
+A modulated amplitude of a sine wave. At the top the measured perceived loudness using [Amplitude](https://doc.sccode.org/Classes/Amplitude.html). In the middle the actual signal $y(t)$ and at the bottom $|y(t)|$.
 ```
 
-Somehow [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) underestimates the perceive loudness quite a bit.
+Somehow [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) underestimates the perceived loudness quite a bit.
 
-Futhermore, we have to tell [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) the time period the signal loudness increases ``attackTime`` and the time period the amplitude decreases ``releaseTime``.
-If we don't know these values or we are looking at a signal without an envelope, we have to choose a decently short time periods.
+Furthermore, we have to tell [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) the time period the signal loudness increases ``attackTime`` and the time period the amplitude decreases ``releaseTime``.
+If we don't know these values or we are looking at a signal without an envelope, we have to choose a decently short time period.
 [Amplitude](https://doc.sccode.org/Classes/Amplitude.html) seems to analyse each chunk of the signal of size ``attackTime`` + ``releaseTime`` and computes an amplitude value for this time period.
 Therefore, if we choose ``attackTime`` + ``releaseTime`` $\approx 1/(c \cdot f)$, where $f$ is the frequency of the signal and $c > 1$, we almost get $|y(t)|$.
 I conclude that these values should be greater than $1/f$.
@@ -93,5 +93,5 @@ Here we cut the noisy sound if its amplitude measured by [Amplitude](https://doc
 )
 ```
 
-As longas ``Amplitude.ar(sig) > 0.2`` is true, it returns (on the server-side) not true but 1.
+As long as ``Amplitude.ar(sig) > 0.2`` is true, it returns (on the server-side) not true but 1.
 Otherwise the expression is evaluated to 0.

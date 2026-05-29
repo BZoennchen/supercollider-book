@@ -522,7 +522,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-butterworth-filter">Analog Butterworth Filter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-butterworth-filter">Digital Butterworth Filter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-oder-butterworth-lowpass-filter">2nd Oder Butterworth Lowpass Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-order-butterworth-lowpass-filter">2nd Order Butterworth Lowpass Filter</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>
@@ -589,13 +589,13 @@ The gain is 1 in the <em>passband</em>, which pans frequencies from 0 Hz to the 
 Such a perfect lowpass filter has magnitude responses</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}H(e^{i\omega}) = \begin{cases} 1, &amp; |\omega| \leq \omega_c \\ 0, &amp; |\omega| &gt; \omega_c \end{cases}\end{split}\]</div>
-<p>such that it passes all frequencies below cutoff <span class="math notranslate nohighlight">\(\omega_c\)</span> abd completely blocks all frequencies above the cutoff.
+<p>such that it passes all frequencies below cutoff <span class="math notranslate nohighlight">\(\omega_c\)</span> and completely blocks all frequencies above the cutoff.
 The transition is <strong>infinitely sharp</strong>!
 In practice this is impossible because we would need an infinite-length impulse responses and negative-time samples (but we cannot look into the future).</p>
 </section>
 <section id="a-very-simple-filter">
 <h2>A Very Simple Filter<a class="headerlink" href="#a-very-simple-filter" title="Permalink to this headline">#</a></h2>
-<p>Another simple (and by no mean ideal) lowpass filter that we can define by a simple formula is give by the differential equation:</p>
+<p>Another simple (and by no means ideal) lowpass filter that we can define by a simple formula is given by the differential equation:</p>
 <div class="math notranslate nohighlight" id="equation-eq-simple-filter">
 <span class="eqno">(45)<a class="headerlink" href="#equation-eq-simple-filter" title="Permalink to this equation">#</a></span>\[y[n] = x[n] + x[n-1]\]</div>
 <p>where <span class="math notranslate nohighlight">\(x[n]\)</span> is the filter input amplitude at time (or sample) <span class="math notranslate nohighlight">\(n\)</span>, and <span class="math notranslate nohighlight">\(y[n]\)</span> is the output amplitude at time <span class="math notranslate nohighlight">\(n\)</span>.
@@ -603,7 +603,7 @@ We can also draw a <em>signal flow graph</em> for this little filter:</p>
 <figure class="align-default" id="fig-sfg-simple-filter">
 <a class="reference internal image-reference" href="../../../_images/sfg-simple-filter.png"><img alt="../../../_images/sfg-simple-filter.png" src="../../../_images/sfg-simple-filter.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Signal flow graph of the diffential equation filter.</span><a class="headerlink" href="#fig-sfg-simple-filter" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Signal flow graph of the differential equation filter.</span><a class="headerlink" href="#fig-sfg-simple-filter" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The <span class="math notranslate nohighlight">\(z^{-1}\)</span> symbol means a <em>delay</em> of one sample, i.e., <span class="math notranslate nohighlight">\(z^{-1} x[n] = x[n-1]\)</span>.</p>
@@ -612,7 +612,7 @@ Thus, a more physical way of writing equation Eq. <a class="reference internal" 
 <div class="math notranslate nohighlight">
 \[y[n T] = x[n T] + x[(n-1) T] \quad n = 0, 1, 2, \ldots,\]</div>
 <p>where <span class="math notranslate nohighlight">\(T\)</span> is the sampling interval in seconds.
-It is convinient in digital signal processing to omit <span class="math notranslate nohighlight">\(T\)</span>, i.e. set <span class="math notranslate nohighlight">\(T = 1\)</span>, but anytime you see <span class="math notranslate nohighlight">\(n\)</span> you can translate to seconds by thinking <span class="math notranslate nohighlight">\(nT\)</span>.</p>
+It is convenient in digital signal processing to omit <span class="math notranslate nohighlight">\(T\)</span>, i.e. set <span class="math notranslate nohighlight">\(T = 1\)</span>, but anytime you see <span class="math notranslate nohighlight">\(n\)</span> you can translate to seconds by thinking <span class="math notranslate nohighlight">\(nT\)</span>.</p>
 <p>We can easily define such a filter in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">simpleFilter</span> <span class="o">=</span> <span class="p">{</span> <span class="o">|</span><span class="nx">in</span><span class="p">,</span> <span class="nx">xm1</span><span class="o">=</span><span class="mi">0</span><span class="o">|</span>
@@ -631,7 +631,7 @@ It is convinient in digital signal processing to omit <span class="math notransl
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The variable <code class="docutils literal notranslate"><span class="pre">xm1</span></code> can be referred to as the filter’s state, representing the filter’s current memory at the time of invoking simplp.
+<p>The variable <code class="docutils literal notranslate"><span class="pre">xm1</span></code> can be referred to as the filter’s state, representing the filter’s current memory at the time of invoking the filter.
 This filter is characterized as a <em>first-order filter</em> due to it having a single sample of state.
 It is essential to preserve the state of the filter after processing each segment of a signal.
 Therefore, the state of the filter following the completion of block <span class="math notranslate nohighlight">\(m\)</span> becomes the initial state for processing the subsequent block <span class="math notranslate nohighlight">\(m+1\)</span>.</p>
@@ -640,7 +640,7 @@ How bad is it?
 In what sense is it bad?
 How do we even know it is a low-pass at all?
 The answers to these and related questions will become apparent when we find the <em><a class="reference internal" href="#sec-frequency-response"><span class="std std-ref">frequency response</span></a></em> of this filter.</p>
-<p>In any case, we could use a input sinusoid and compute the resulting output signal.
+<p>In any case, we could use an input sinusoid and compute the resulting output signal.
 Let</p>
 <div class="math notranslate nohighlight">
 \[x[n] = A_1 \sin(2 \pi f n T + \phi_1).\]</div>
@@ -661,7 +661,7 @@ The gain <span class="math notranslate nohighlight">\(G(2 \pi f) = A_2 / A_1 = A
 \[G(2 \pi f) = \frac{B}{A}.\]</div>
 </div>
 <p>What we desire is a formula that gives us the amplitude response and the phase response for all frequencies, that is, the <a class="reference internal" href="#sec-frequency-response"><span class="std std-ref">frequency response</span></a> <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> of the filter.
-In the general case, this is a hard problem but for <em><a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear time-invarient filters</span></a></em> we know how to compute it.</p>
+In the general case, this is a hard problem but for <em><a class="reference internal" href="#def-linear-time-invariant"><span class="std std-ref">linear time-invariant filters</span></a></em> we know how to compute it.</p>
 </section>
 <section id="a-special-type-of-filters">
 <h2>A Special Type of Filters<a class="headerlink" href="#a-special-type-of-filters" title="Permalink to this headline">#</a></h2>
@@ -673,7 +673,7 @@ In most cases these linear filters are also <em>time invariant</em> (or <em>shif
 Then a filter is <em>linear time-invariant</em> if the following two conditions hold:</p>
 <ol class="arabic simple">
 <li><p><strong>Linearity</strong>: <span class="math notranslate nohighlight">\(a \cdot x[n]\)</span> translates to <span class="math notranslate nohighlight">\(a \cdot y[n]\)</span> and <span class="math notranslate nohighlight">\(x_1[n] + x_2[n]\)</span> translate to <span class="math notranslate nohighlight">\(y_1[n] + y_2[n]\)</span> (superposition principle).</p></li>
-<li><p><strong>Timeinvarianze</strong>: whether we apply an input to the filter now or some time later does not matter. The filters effect does not change over time.</p></li>
+<li><p><strong>Time invariance</strong>: whether we apply an input to the filter now or some time later does not matter. The filter’s effect does not change over time.</p></li>
 </ol>
 </div>
 <p>For example, if we modulate the cutoff frequency of a filter, it is no longer <em>time-invariant</em>.
@@ -686,7 +686,7 @@ To analyse the behaviour of a <em>linear filter</em> one looks at two different 
 </section>
 <section id="frequency-response">
 <span id="sec-frequency-response"></span><h2>Frequency Response<a class="headerlink" href="#frequency-response" title="Permalink to this headline">#</a></h2>
-<p>The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
+<p>The frequency response of a filter tells us how it affects the amplitude and phase of a frequency of the input signal.
 For LTI filters it is defined as the spectrum of the output signal divided by the spectrum of the input signal, that is,</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{Y(z)}{X(z)} \Rightarrow Y(z) = H(z)X(z)\]</div>
@@ -707,7 +707,7 @@ This implies that the frequency response of an LTI filter equals the discrete-ti
 <p>Since <span class="math notranslate nohighlight">\(e\)</span>, <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(T\)</span> are constants, the frequency response <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span> is only a function of radian frequency <span class="math notranslate nohighlight">\(\omega\)</span>.
 Since <span class="math notranslate nohighlight">\(\omega\)</span> is real, the frequency response may be considered a complex-valued function of a real variable.
 The response at frequency <span class="math notranslate nohighlight">\(f\)</span> Hz, for example, is <span class="math notranslate nohighlight">\(H(e^{i 2 \pi f T})\)</span>, where <span class="math notranslate nohighlight">\(T\)</span> is the <strong>sampling period</strong> in seconds.</p>
-<p>It is convinient to define a new function such as</p>
+<p>It is convenient to define a new function such as</p>
 <div class="math notranslate nohighlight">
 \[H'(\omega) := H(e^{i \omega T})\]</div>
 <p>and write <span class="math notranslate nohighlight">\(Y'(\omega) = H'(\omega) X'(\omega)\)</span> instead of having to write <span class="math notranslate nohighlight">\(e^{i \omega T}\)</span> all the time.
@@ -727,8 +727,8 @@ A typical choice is</p>
 <div class="definition admonition" id="def-frequency-response">
 <p class="admonition-title">Frequency, Amplitude, and Phase Response</p>
 <p>The <em>frequency response</em> of a <em>linear time-invariant filter</em> can be represented in one formula:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-93692986-a442-41e2-b08e-95b5b931f085">
-<span class="eqno">(46)<a class="headerlink" href="#equation-93692986-a442-41e2-b08e-95b5b931f085" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a97578db-0687-44df-b38e-07b691fd00c9">
+<span class="eqno">(46)<a class="headerlink" href="#equation-a97578db-0687-44df-b38e-07b691fd00c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrace{e^{i \mathcal{\Theta}(\omega T)}}_{\text{Phase}},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(G(\omega T) := |H(e^{i \omega T})|\)</span> is the <em>amplitude (frequency) response</em> and <span class="math notranslate nohighlight">\(\mathcal{\Theta}(\omega T) := \angle H(e^{i \omega T})\)</span> the <em>phase response</em> of the filter.</p>
@@ -738,8 +738,8 @@ H(e^{i \omega T}) = \underbrace{G(\omega T)}_{\text{Amplitude}} \cdot \underbrac
 <span id="sec-analysis-simple-filter"></span><h2>Analysis of a Simple Filter<a class="headerlink" href="#analysis-of-a-simple-filter" title="Permalink to this headline">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be an input signal, <span class="math notranslate nohighlight">\(y[n]\)</span> the output signal of the filter and <span class="math notranslate nohighlight">\(f_s = \frac{1}{T}\)</span> the sample rate.
 Let us start with a very <em>simple filter</em>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aeb72043-6193-4075-9501-ad0ec60cac6a">
-<span class="eqno">(47)<a class="headerlink" href="#equation-aeb72043-6193-4075-9501-ad0ec60cac6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3287a775-d173-4bd9-a29e-53d5ea926330">
+<span class="eqno">(47)<a class="headerlink" href="#equation-3287a775-d173-4bd9-a29e-53d5ea926330" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation}\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(x[t]\)</span> is defined for <span class="math notranslate nohighlight">\(t = n T\)</span> with <span class="math notranslate nohighlight">\(n = 0, 1, 2, \ldots\)</span>
@@ -749,7 +749,7 @@ The <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.h
 How bad is it?
 In what sense is it bad? How do we even know it is a lowpass filter at all?
 The answers to these and related questions will become apparent when we find the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a> of this filter.</p>
-<p>Our goal is to use a test singal that consists of only one frequency and then reformulate <span class="math notranslate nohighlight">\(y[n]\)</span> such that we arrive at</p>
+<p>Our goal is to use a test signal that consists of only one frequency and then reformulate <span class="math notranslate nohighlight">\(y[n]\)</span> such that we arrive at</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y[n] = H(e^{i \omega T}) \cdot x[n],
@@ -860,8 +860,8 @@ This linear dependence is actually necessary.</p>
 <div class="definition admonition" id="def-form-lti-filter">
 <p class="admonition-title">General Form of a LTI Filter</p>
 <p>An LTI filter may be expressed in general as follows:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-571ab12c-c0d3-4198-8fec-48cf2b72f9a4">
-<span class="eqno">(48)<a class="headerlink" href="#equation-571ab12c-c0d3-4198-8fec-48cf2b72f9a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e384797b-970d-4486-9020-4b5aaf1893bc">
+<span class="eqno">(48)<a class="headerlink" href="#equation-e384797b-970d-4486-9020-4b5aaf1893bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[n] &amp;= \text{Transfer function} \cdot \text{Circular motion}\\
 &amp;= G(\omega T) \cdot e^{i \mathcal{\Theta}(\omega T)} \cdot A \cdot e^{i \omega n T + \phi}\\
@@ -886,7 +886,7 @@ Using the Z-transform, we get</p>
 Therefore,</p>
 <div class="math notranslate nohighlight">
 \[H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)\]</div>
-<p>If we evaluate the <a class="reference internal" href="z-transform.html#theorem-transfer-function"><span class="std std-ref">transfer function</span></a> <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we get the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a>:</p>
+<p>If we evaluate the <a class="reference internal" href="z-transform.html#theorem-transfer-function"><span class="std std-ref">transfer function</span></a> <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequencies of interest we get the <a class="reference internal" href="#def-frequency-response"><span class="std std-ref">frequency response</span></a>:</p>
 <div class="math notranslate nohighlight">
 \[H(e^{i \omega T}) = 0.5 \cdot (1 + e^{-i\omega T})\]</div>
 <p>which is similar result we got in the last section!</p>
@@ -903,7 +903,7 @@ Therefore,</p>
 </div>
 <p>The unit generator <a class="reference external" href="http://doc.sccode.org/Classes/OneZero.html">OneZero</a> got his name by the fact that it has <strong>one zero</strong>.</p>
 <p>Remember that the filter completely filters <span class="math notranslate nohighlight">\(f_s/2\)</span>.
-But since <span class="math notranslate nohighlight">\(f_s = 44100\)</span> the overall effect of the filter hardly audible.
+But since <span class="math notranslate nohighlight">\(f_s = 44100\)</span> the overall effect of the filter is hardly audible.
 Without a <em>pole</em> the filtering effect is weak.
 This can be illustrated by using <span class="math notranslate nohighlight">\(T = 1/f_s\)</span> with <span class="math notranslate nohighlight">\(f_s = 44 100\)</span> for the plot combined with a log-scale:</p>
 <div class="cell tag_remove-input docutils container">
@@ -961,7 +961,7 @@ Therefore,</p>
 Therefore,</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}}.\]</div>
-<p>If we evaluate <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequncies of interest we can see the <em>frequency response</em>:</p>
+<p>If we evaluate <span class="math notranslate nohighlight">\(H(z)\)</span> for <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> at the frequencies of interest we can see the <em>frequency response</em>:</p>
 <div class="math notranslate nohighlight">
 \[H(e^{i \omega T}) = \frac{0.5}{1 - 0.5 e^{-i \omega T}} = \frac{1}{2 - e^{-i \omega T}}.\]</div>
 <p>Let us plot the <em>gain</em> in frequency for <span class="math notranslate nohighlight">\(T = 1\)</span> and different <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
@@ -1056,7 +1056,7 @@ Reducing the loudness by 6 dB means that the perceived level is reduced by a fac
 </figure>
 </div>
 </div>
-<p>We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.</p>
+<p>We can change the scaling of our axis to display gain in decibels and to reflect the exponential character of frequencies.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="fig-gain-butterworth-log-scale">
@@ -1073,7 +1073,7 @@ In other words: we can not just combine a high pass and lowpass filter to get th
 </section>
 <section id="digital-butterworth-filter">
 <h3>Digital Butterworth Filter<a class="headerlink" href="#digital-butterworth-filter" title="Permalink to this headline">#</a></h3>
-<p>To convert the digitalize the analog filter we can apply the so called <em><a class="reference external" href="https://en.wikipedia.org/wiki/Bilinear_transform">bilinear transform</a></em>.
+<p>To digitalize the analog filter we can apply the so-called <em><a class="reference external" href="https://en.wikipedia.org/wiki/Bilinear_transform">bilinear transform</a></em>.
 It is a first order Padé approximant of the natural logarithm function that is an exact mapping of the <span class="math notranslate nohighlight">\(z\)</span>-plane to the <span class="math notranslate nohighlight">\(s\)</span>-plane, where <span class="math notranslate nohighlight">\(s := i \omega\)</span>.</p>
 <p>When the <em>Laplace transform</em> is performed on a discrete-time signal (with each element of the discrete-time sequence attached to a correspondingly delayed unit impulse), the result is precisely the <a class="reference internal" href="z-transform.html#sec-z-transform"><span class="std std-ref"><span class="math notranslate nohighlight">\(z\)</span>-transform</span></a> of the discrete-time sequence with the substitution of</p>
 <div class="math notranslate nohighlight">
@@ -1082,7 +1082,7 @@ It is a first order Padé approximant of the natural logarithm function that is 
 <div class="math notranslate nohighlight">
 \[s = \frac{1}{T} \ln(z) \approx \frac{2}{T} \frac{z-1}{z+1} = \frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}},\]</div>
 <p>where <span class="math notranslate nohighlight">\(T = 1/f_s\)</span> is the sampling period.
-After substitution, the analog transfer function <span class="math notranslate nohighlight">\(H(s)\)</span> becaomes:</p>
+After substitution, the analog transfer function <span class="math notranslate nohighlight">\(H(s)\)</span> becomes:</p>
 <div class="math notranslate nohighlight">
 \[H(z) = H\left(\frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}} \right).\]</div>
 <p>This gives you a rational function in <span class="math notranslate nohighlight">\(z^{-1}\)</span>:</p>
@@ -1136,8 +1136,8 @@ There is a clear difference.</p>
               </div></div>
 </div>
 </section>
-<section id="nd-oder-butterworth-lowpass-filter">
-<h3>2nd Oder Butterworth Lowpass Filter<a class="headerlink" href="#nd-oder-butterworth-lowpass-filter" title="Permalink to this headline">#</a></h3>
+<section id="nd-order-butterworth-lowpass-filter">
+<h3>2nd Order Butterworth Lowpass Filter<a class="headerlink" href="#nd-order-butterworth-lowpass-filter" title="Permalink to this headline">#</a></h3>
 <p>Let us look at the formulas for an <strong>analog</strong> second-order Butterworth filter.
 We have</p>
 <div class="math notranslate nohighlight">
@@ -1202,8 +1202,8 @@ One can define</p>
 <div class="definition admonition" id="def-kronecker-delta">
 <p class="admonition-title">Kronecker <span class="math notranslate nohighlight">\(\delta\)</span>-Function</p>
 <p>The <em>Kronecker delta function</em> <span class="math notranslate nohighlight">\(\delta : \mathbb{Z} \rightarrow \{0, 1\}\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab7f68a2-c4c9-4431-955c-202e41aa4c21">
-<span class="eqno">(51)<a class="headerlink" href="#equation-ab7f68a2-c4c9-4431-955c-202e41aa4c21" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9217ae6c-3652-4bc9-8528-d65138376e6c">
+<span class="eqno">(51)<a class="headerlink" href="#equation-9217ae6c-3652-4bc9-8528-d65138376e6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \delta[n] = \begin{cases}
 1, &amp; \text{if } n = 0,\\
 0, &amp; \text{otherwise}.
@@ -1220,10 +1220,10 @@ Note that any signal <span class="math notranslate nohighlight">\(x[\cdot]\)</sp
 \[x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].\]</div>
 <div class="definition admonition" id="def-fir-filter">
 <p class="admonition-title">FIR Filter</p>
-<p>A filter with a finite impulse response, e.g. echos, is called <em>final impulse response (FIR)</em> filter.
+<p>A filter with a finite impulse response, e.g. echoes, is called a <em>finite impulse response (FIR)</em> filter.
 All filters of the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5632d011-217c-4e35-9f96-57389c737866">
-<span class="eqno">(52)<a class="headerlink" href="#equation-5632d011-217c-4e35-9f96-57389c737866" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-02378d4e-fac8-492d-a54b-1cdc71826cd7">
+<span class="eqno">(52)<a class="headerlink" href="#equation-02378d4e-fac8-492d-a54b-1cdc71826cd7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 \end{equation}\]</div>
 <p>are <em>FIR filters</em>.</p>
@@ -1232,18 +1232,18 @@ y[n] = \sum\limits_{k=0}^M b_k x[n-k]
 A <a class="reference internal" href="#sec-one-pole-analysis"><span class="std std-ref">one pole filter</span></a> is a <em>infinite impulse response (IIR)</em> filter since the feedback process will create an endless number of decaying impulses.</p>
 <div class="definition admonition" id="def-iir-filter">
 <p class="admonition-title">IIR Filter</p>
-<p>A filter with a infinite impulse response, e.g. echo with feedback, is called <em>infinite impulse response (IIR)</em> filter.</p>
+<p>A filter with an infinite impulse response, e.g. echo with feedback, is called an <em>infinite impulse response (IIR)</em> filter.</p>
 </div>
 <p>Let’s look at the <em>one pole filter</em> with <span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> for simplification.
 We get</p>
 <div class="math notranslate nohighlight">
 \[h[n] = 0.5 \delta[n] + 0.5 h[n-1] = 0.5 \delta[n] + 0.5 h[n-1]\]</div>
-<p>whith <span class="math notranslate nohighlight">\(h[0] = \delta[0] = 0.5\)</span>.
+<p>with <span class="math notranslate nohighlight">\(h[0] = \delta[0] = 0.5\)</span>.
 It follows that <span class="math notranslate nohighlight">\(h[1] = 0.25\)</span>, <span class="math notranslate nohighlight">\(h[2] = 0.125\)</span> and in general</p>
 <div class="math notranslate nohighlight">
 \[h[n] = 0.5^{n+1}, \quad n = 0, 1, 2, \ldots\]</div>
 <p>In other words the impulse response <span class="math notranslate nohighlight">\(h\)</span> converges to zero <span class="math notranslate nohighlight">\(\lim_{n \leftarrow \infty} h[n] = 0\)</span> but never reaches it.
-If we compute the <em>discrete-time Fourier transform</em> of <span class="math notranslate nohighlight">\(h[\cdot]\)</span> we should get the frequency resonse <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span>:</p>
+If we compute the <em>discrete-time Fourier transform</em> of <span class="math notranslate nohighlight">\(h[\cdot]\)</span> we should get the frequency response <span class="math notranslate nohighlight">\(H(e^{i \omega T})\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\sum\limits_{n-=\infty}^\infty h[n] e^{-i \omega n T} = \sum\limits_{n = 0}^\infty 0.5^{n+1} e^{-i \omega n T} = \frac{1}{2-e^{i \omega T}}\]</div>
 <p>Note that the last step is non-trivial!</p>
@@ -1329,7 +1329,7 @@ If we compute the <em>discrete-time Fourier transform</em> of <span class="math 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#butterworth-filter">Butterworth Filter</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-butterworth-filter">Analog Butterworth Filter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-butterworth-filter">Digital Butterworth Filter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-oder-butterworth-lowpass-filter">2nd Oder Butterworth Lowpass Filter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nd-order-butterworth-lowpass-filter">2nd Order Butterworth Lowpass Filter</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulse-response">Impulse Response</a></li>

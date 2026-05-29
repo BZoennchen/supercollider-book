@@ -69,7 +69,7 @@ The drawback of Tidal on the other hand might be that we have to stick to the ri
 ## Combining Pattern
 
 A core feature of *Tidal* is the ease in which one can combine pattern using *pattern matching* -- a technique of *functional programming*.
-*Tidal* always "trys" to find a way to match pattern even though they seem not really matchable.
+*Tidal* always "tries" to find a way to match pattern even though they seem not really matchable.
 
 For example,
 
@@ -99,10 +99,10 @@ d1 $ s "drum hh bd" # crush "2 2.2 10 2"
 ## Further Reading
 
 There's much more to explore. 
-For instance, the [mini notation](https://tidalcycles.org/docs/reference/mini_notation) s its own language within the Tidal language. 
+For instance, the [mini notation](https://tidalcycles.org/docs/reference/mini_notation) is its own language within the Tidal language.
 However, there are other, superior sources out there to study the possibilities of Tidal.
-For more information I recommand to have a look at the official website: [TidalCycle](https://tidalcycles.org/).
-What I aim going to illustrate here is how we can utilize our synth, defined by  [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) in *Tidal*.
+For more information I recommend having a look at the official website: [TidalCycle](https://tidalcycles.org/).
+What I am going to illustrate here is how we can utilize our synth, defined by [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) in *Tidal*.
 
 ## Synthesizers
 
@@ -135,7 +135,7 @@ SynthDef(\sine_beep, {
 + ``accelerate``: not sure
 + ``offset``: not sure
 
-Let us adjust our [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) accodingly by introducing all those arguments and by removing ``amp``.
+Let us adjust our [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) accordingly by introducing all those arguments and by removing ``amp``.
 We can keep our custom arguments but we do not require ``amp`` since SuperDirt will control the volume via ``gain``.
 In addition, we have to replace the unit generator [Out](https://doc.sccode.org/Classes/Out.html) with a more accurate version, that is, [OffsetOut](https://doc.sccode.org/Classes/OffsetOut.html).
 
@@ -228,7 +228,7 @@ You have to add ``pF`` (float) or ``pI`` (int) and you have to write the name of
 
 ## Patterns Your Synth
 
-Let's try it out using a little two more complex pattern.
+Let's try it out using a little more complex pattern.
 
 ```haskell
 d1 $ jux rev 
@@ -284,7 +284,7 @@ The ``scale`` function interprets a pattern of note numbers into a particular na
 ``"0 .. 7"`` results in ``"0 1 2 3 4 5 6 7"``.
 ``chunk`` divides a pattern into a given number of parts, then cycles through those parts in turn, applying the given function to each part in turn (one part per cycle).
 Therefore, ``chunk 4 ...`` applies ``(fast 2 . (|- n 12))`` to 1/4 of a cycle, where ``fast 2 . (|- n 12)`` is a composition of ``fast 2`` and ``|- n 12``, i.e., increasing the speed and reducing the note by one octave.
-The order in which theses transformations and functions are applied is determined by the ``$``, ``#`` and the brackets.
+The order in which these transformations and functions are applied is determined by the ``$``, ``#`` and the brackets.
 ``$`` has the lowest priority and the brackets the highest.
 
 Thus first 

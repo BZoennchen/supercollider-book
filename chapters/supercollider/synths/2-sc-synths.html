@@ -510,7 +510,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sever-vs-client">Sever vs Client</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-vs-client">Server vs Client</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-controls">Named Controls</a></li>
 </ul>
             </nav>
@@ -533,8 +533,8 @@ It can be confusing for beginners because there is a big difference between a sy
 <p>In the real world, a synth is an instrument that can be played.
 However, in <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we distinguish between the instrument (as a potential/thing) and the played instrument (as a process).
 While the thing is an instance of <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>, the process (an executed <a class="reference external" href="https://en.wikipedia.org/wiki/Signal-flow_graph">signal-flow graph (SFG)</a>) is an instance of <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a>.
-If we instanciate a <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a>, defined by a specific <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> and its arguments, the signal processing begins and if we destroy the <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a> it stops.</p>
-<p>Instead of introducing a new class for each new instrument which would lead to thousand of classes, each instrument is represented by a function, more precisely by <em>a unit generator graph function</em> that realizes <em>a signal-flow-graph (SFG)</em>.
+If we instantiate a <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a>, defined by a specific <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> and its arguments, the signal processing begins and if we destroy the <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a> it stops.</p>
+<p>Instead of introducing a new class for each new instrument which would lead to thousands of classes, each instrument is represented by a function, more precisely by <em>a unit generator graph function</em> that realizes <em>a signal-flow-graph (SFG)</em>.
 <code class="docutils literal notranslate"><span class="pre">sclang</span></code> borrows this concept from functional programming languages.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
@@ -586,7 +586,7 @@ To generate sound, we have to tell the server to create a synth of one of its kn
 <span class="c1">// (3) use it by creating Synth of the SynthDef</span>
 <span class="nc">Synth</span><span class="p">(</span><span class="ss">\sine_beep</span><span class="p">,</span> <span class="p">[</span><span class="na">freq:</span> <span class="mi">800</span><span class="p">,</span> <span class="na">amp:</span> <span class="mf">0.4</span><span class="p">]);</span>
 
-<span class="c1">// (4) the synth removes itself because we specied doneAction: Done.freeSelf</span>
+<span class="c1">// (4) the synth removes itself because we specified doneAction: Done.freeSelf</span>
 </pre></div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -601,7 +601,7 @@ To generate sound, we have to tell the server to create a synth of one of its kn
 <p>Note that adding a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> to the server takes time.
 Therefore, we can not execute the last line immediately after adding the definition because it is an asynchronous, non-blocking call.
 If you want to perform, adding all your synth definitions beforehand is good practice.
-There is also the possibility to wait for the audio sever programmatically.</p>
+There is also the possibility to wait for the audio server programmatically.</p>
 <p>By calling <code class="docutils literal notranslate"><span class="pre">SynthDef.new()</span></code> or just <code class="docutils literal notranslate"><span class="pre">SynthDef()</span></code>, we generate a new factory object that produces synth according to the <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> blueprint.
 On behalf of the perspective of the audio server <strong>scsynth</strong>, this factory object produces <code class="docutils literal notranslate"><span class="pre">Synth</span></code> objects!
 A <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> encapsulates the client-side representation of a synth definition and provides methods for creating new <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a>, writing them to disk, and streaming them to a server.</p>
@@ -630,14 +630,14 @@ You have to tell the server explicitly—there is no automatic garbage collectio
 </div>
 <p>We can also <strong>store</strong> the <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> permanently on our hard drive by calling <code class="docutils literal notranslate"><span class="pre">store()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">add()</span></code>.
 This call will create the file <code class="docutils literal notranslate"><span class="pre">sineWave.scsyndef</span></code> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> directory which can be found in your <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> application directory.
-If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a> in the <code class="docutils literal notranslate"><span class="pre">snythdefs</span></code> directory are added to the server automatically.</p>
+If you restart <a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> all <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a> in the <code class="docutils literal notranslate"><span class="pre">synthdefs</span></code> directory are added to the server automatically.</p>
 </section>
-<section id="sever-vs-client">
-<h2>Sever vs Client<a class="headerlink" href="#sever-vs-client" title="Permalink to this headline">#</a></h2>
+<section id="server-vs-client">
+<h2>Server vs Client<a class="headerlink" href="#server-vs-client" title="Permalink to this headline">#</a></h2>
 <p>To understand <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> we must understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> is executed when we add the <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> to the server.
 Playing the synth by creating a <a class="reference external" href="https://doc.sccode.org/Classes/Synth.html">Synth</a> executes only the server-side code!</p>
-<p>Some of the <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code can only be excuted on the server (e.g. playing sound) while other parts can only be executed on the client (e.g. the definition of the signal-flow graph).
+<p>Some of the <code class="docutils literal notranslate"><span class="pre">sclang</span></code> code can only be executed on the server (e.g. playing sound) while other parts can only be executed on the client (e.g. the definition of the signal-flow graph).
 The relationship between server- and client-side code becomes more evident if we compare server- and client-side randomness.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\crndsine</span><span class="p">,</span> <span class="p">{</span>
@@ -745,8 +745,8 @@ I already discussed the lagging of a signal in section <a class="reference inter
 <span class="o">~</span><span class="nx">synth</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="ss">\freq</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>              <span class="c1">// works just fine</span>
 </pre></div>
 </div>
-<p>Named controls in control rate, i.e. <code class="docutils literal notranslate"><span class="pre">kr</span></code>, are like knops and buttons of a MIDI device.
-When we want to play around with the named controls of our synth we can utilize a graphical user interface <code class="docutils literal notranslate"><span class="pre">gui</span></code> that immitates the control components of such a MIDI device.
+<p>Named controls in control rate, i.e. <code class="docutils literal notranslate"><span class="pre">kr</span></code>, are like knobs and buttons of a MIDI device.
+When we want to play around with the named controls of our synth we can utilize a graphical user interface <code class="docutils literal notranslate"><span class="pre">gui</span></code> that imitates the control components of such a MIDI device.
 To do so we have to utilize <a class="reference external" href="https://doc.sccode.org/Classes/Ndef.html">Ndef</a> instead of <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a>.
 Furthermore, we can define the range of possible values using <code class="docutils literal notranslate"><span class="pre">specs</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -843,7 +843,7 @@ Pressing “play” initializes all required ingredients. Pressing “send” wi
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sever-vs-client">Sever vs Client</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-vs-client">Server vs Client</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#named-controls">Named Controls</a></li>
 </ul>
   </nav></div>

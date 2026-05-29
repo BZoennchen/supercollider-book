@@ -62,7 +62,7 @@ ipd.Audio(audio_path)
 To terminate all sound press ``CMD`` + ``.``. **This might be the most important shortcut of all.**
 ```
 
-If we press ``CMD`` + ``i`` while the curser is at ``play()`` and we select the implementation for [Function](https://doc.sccode.org/Classes/Function.html), we can see lookup what ``~sine.play()`` actually does:
+If we press ``CMD`` + ``i`` while the cursor is at ``play()`` and we select the implementation for [Function](https://doc.sccode.org/Classes/Function.html), we can look up what ``~sine.play()`` actually does:
 
 ```isc
 play { arg target, outbus = 0, fadeTime = 0.02, addAction=\addToHead, args;
@@ -98,5 +98,5 @@ For example, we can increase ``fadeTime``:
 ~sineplay = ~sine.play(fadeTime: 2.0);
 ```
 
-``play`` comes in handy if we wanna just try something out -- if we want to explore sounds in a quick and dirty way.
-For complex synth, we will define our own [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
+``play`` comes in handy if we want to just try something out -- if we want to explore sounds in a quick and dirty way.
+For complex synths, we will define our own [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).

@@ -528,25 +528,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamental-waveforms">
 <span id="sec-fundamental-waveforms"></span><h1>Fundamental Waveforms<a class="headerlink" href="#fundamental-waveforms" title="Permalink to this headline">#</a></h1>
-<p><em>Jean-Baptise Joseph Fourier</em> discovered that every function that is</p>
+<p><em>Jean-Baptiste Joseph Fourier</em> discovered that every function that is</p>
 <ol class="arabic simple">
 <li><p><strong>periodic</strong>,</p></li>
 <li><p><strong>piecewise continuous</strong> and</p></li>
 <li><p><strong>bounded</strong></p></li>
 </ol>
 <p>can be represented as a Fourier series, see section <a class="reference internal" href="../math/fourier-series.html#sec-fourier"><span class="std std-ref">Fourier Series</span></a>.
-In theory, the <a class="reference internal" href="../math/fourier-series.html#def-fourier-series"><span class="std std-ref">Fourier series</span></a> of a function consists possibly infinite many terms and since our hardware resources are finite, we can only generate an approximation of the real thing.</p>
+In theory, the <a class="reference internal" href="../math/fourier-series.html#def-fourier-series"><span class="std std-ref">Fourier series</span></a> of a function consists of possibly infinitely many terms and since our hardware resources are finite, we can only generate an approximation of the real thing.</p>
 <p>Furthermore, the Fourier series is a sum of <em>sine</em> and <em>cosine</em> waves where the frequency of each wave in the sum is an <strong>integer multiple</strong> of the <strong>fundamental frequency</strong>!
 We call these waves <em>harmonic overtones</em> or just <em>harmonics</em>.
 The more <em>harmonic overtones</em> are present, the richer the sound.</p>
-<p>Frequencies that are present which are not integer multiple of the fundamental are <em>inharmonic overtones</em> or just <em>inharmonics</em>.
+<p>Frequencies that are present which are not integer multiples of the fundamental are <em>inharmonic overtones</em> or just <em>inharmonics</em>.
 If there are many <em>harmonics</em> and only a few <em>inharmonics</em> present, we can clearly perceive a pitch, and we call the sound <em>harmonic</em>.
 If it is the other way around, there is no longer a pitch and we call the sound <em>inharmonic</em>.
 Drums and bells have an <em>inharmonic</em> sound while the piano, a guitar and strings have a <em>harmonic</em> sound.
-The <a class="reference internal" href="../../misc/terms.html#sec-timbre"><span class="std std-ref">timbre</span></a> of a sound is determined by the power distribution within the overtones of the sound, i.e. who ‘’much’’ a certain frequency above the fundamental is present.</p>
-<p>To understand the sound of a specific signal it is very usful to look at the amount of <em>harmonic</em> and <em>inharmonic</em> overtones.
+The <a class="reference internal" href="../../misc/terms.html#sec-timbre"><span class="std std-ref">timbre</span></a> of a sound is determined by the power distribution within the overtones of the sound, i.e. how much a certain frequency above the fundamental is present.</p>
+<p>To understand the sound of a specific signal it is very useful to look at the amount of <em>harmonic</em> and <em>inharmonic</em> overtones.
 The <a class="reference internal" href="../math/z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a> and especially the <a class="reference internal" href="../math/dft.html#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a> can help us with if we want to analyse a given signal.</p>
-<p>Using the <a class="reference internal" href="../math/z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a>, one can extend the concept of the <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> to non-peridic functions.
+<p>Using the <a class="reference internal" href="../math/z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a>, one can extend the concept of the <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> to non-periodic functions.
 I call functions with these properties, including non-periodic ones, <em>signals</em>.
 Functions that describe an amplitude <span class="math notranslate nohighlight">\(y(t)\)</span> over the time <span class="math notranslate nohighlight">\(t\)</span> are <em>audio signals</em> and have these qualities.</p>
 <p>To better understand a signal, it is essential to understand its <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a>.
@@ -559,7 +559,7 @@ But we do not have to combine only single harmonics.
 We can use wave forms that already consist of certain harmonics (or inharmonics).</p>
 <p>In general, for audio synthesis, there are some fundamental oscillators.
 Both types of synthesizers, that is, analog as well as digital synthesizers, offer these basic oscillators as a starting point.
-Espacially, in additive synthesis we really wanna understand the effect of each basic oscillator.
+Especially in additive synthesis we really want to understand the effect of each basic oscillator.
 So let us try to understand their timbre by looking at the coefficient of their <a class="reference internal" href="../math/fourier-series.html#def-fourier-series"><span class="std std-ref">Fourier series</span></a>, i.e. the power distribution within their <em>harmonics</em>.</p>
 <section id="the-sine-wave">
 <span id="sec-sine-wave"></span><h2>The Sine Wave<a class="headerlink" href="#the-sine-wave" title="Permalink to this headline">#</a></h2>
@@ -574,7 +574,7 @@ So let us try to understand their timbre by looking at the coefficient of their 
 <p>is the most pure, most basic, and most simple signal.
 The sine or cosine wave is the most basic waveform there is.
 Its <a class="reference internal" href="../math/fourier-series.html#def-fourier-series-exp"><span class="std std-ref">Fourier series</span></a> is equivalent to Eq. <a class="reference internal" href="#equation-eq-sine">(53)</a>.
-Note that I also use the exponetial form introduced in section <a class="reference internal" href="../math/complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a> but don not worry, it is not that important here.
+Note that I also use the exponential form introduced in section <a class="reference internal" href="../math/complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a> but do not worry, it is not that important here.
 The sine or cosine wave, consists of only the fundamental frequency <span class="math notranslate nohighlight">\(f\)</span> and is theoretically the basis for all other signals.
 Sine is equals to cosine shifted by <span class="math notranslate nohighlight">\(\pi/2\)</span>.</p>
 <figure class="align-default" id="fig-sine">
@@ -584,7 +584,7 @@ Sine is equals to cosine shifted by <span class="math notranslate nohighlight">\
 </figcaption>
 </figure>
 <p>A sine wave is purely <em>harmonic</em> but it has no overtones.
-Therefore, it sounds rather smoth and soft.
+Therefore, it sounds rather smooth and soft.
 It can be used to generate a nice bass or to amplify the sound of a drum or one can use it as a subbase.
 It can also be used to add a certain <em>harmonic</em> to a sound.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">220</span><span class="o">!</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
@@ -606,7 +606,7 @@ It can also be used to add a certain <em>harmonic</em> to a sound.</p>
 <div class="math notranslate nohighlight" id="equation-eq-saw">
 <span class="eqno">(54)<a class="headerlink" href="#equation-eq-saw" title="Permalink to this equation">#</a></span>\[    y_\text{saw}(t) = A \cdot 2 \left( f \cdot t -  \left \lfloor{ \frac{1}{2} + f \cdot t} \right \rfloor  \right),\]</div>
 <p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplitude and <span class="math notranslate nohighlight">\(f\)</span> is the frequency of the wave.
-The problem with implementing Eq. <a class="reference internal" href="#equation-eq-saw">(54)</a> directly is that infinitely high frequencies are present and in the digital world frequencies above halfe the <a class="reference internal" href="../math/sampling.html#theorem-sampling"><span class="std std-ref">Nyquist frequency</span></a> are projected back into lower most certainly inharmonic frequencies, see section <a class="reference internal" href="../math/sampling.html#sec-sampling"><span class="std std-ref">Sampling</span></a>.
+The problem with implementing Eq. <a class="reference internal" href="#equation-eq-saw">(54)</a> directly is that infinitely high frequencies are present and in the digital world frequencies above half the <a class="reference internal" href="../math/sampling.html#theorem-sampling"><span class="std std-ref">Nyquist frequency</span></a> are projected back into lower most certainly inharmonic frequencies, see section <a class="reference internal" href="../math/sampling.html#sec-sampling"><span class="std std-ref">Sampling</span></a>.
 The unit generator <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a> is such a non-band-limited sawtooth wave.
 LF stands for low frequency.
 <a class="reference external" href="https://doc.sccode.org/Classes/Saw.html">Saw</a> is a band-limited sawtooth generator which can be used for high frequencies.</p>
@@ -703,11 +703,11 @@ In general, the <a class="reference internal" href="#sec-sawtooth-wave"><span cl
 <p><span class="caption-number">Fig. 42 </span><span class="caption-text">An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using <span class="math notranslate nohighlight">\(n=20\)</span>.</span><a class="headerlink" href="#fig-square-20" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The square wave has more <em>harmonics</em> as the sine wave but less than the sawtooth wave.
+<p>The square wave has more <em>harmonics</em> than the sine wave but fewer than the sawtooth wave.
 Without any additions, it sounds rather hollow but also rich.
 It resembles the sound of old video games.
 The <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> comes often with a special parameter to control its width.
-The more asymetric the wave, the more metallic and nasal the sound.</p>
+The more asymmetric the wave, the more metallic and nasal the sound.</p>
 <p>The signal of some wind instruments, like the clarinet, is similar to square wave.
 Their sound contains mostly odd harmonics.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code> we can generate the sound of a <a class="reference internal" href="#sec-square-wave"><span class="std std-ref">square wave</span></a> using the <a class="reference internal" href="../../supercollider/synths/1-ugens.html#sec-ugens"><span class="std std-ref">unit generator</span></a> <a class="reference external" href="https://doc.sccode.org/Classes/Pulse.html">Pulse</a>:</p>
@@ -750,7 +750,7 @@ Their sound contains mostly odd harmonics.</p>
 <li><p>each odd harmonic <span class="math notranslate nohighlight">\((2k+1)f\)</span> with <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> of the fundamental <span class="math notranslate nohighlight">\(f\)</span> is present and</p></li>
 <li><p>the amplitude of the harmonic <span class="math notranslate nohighlight">\(2k+1\)</span> decreases with <span class="math notranslate nohighlight">\(8/\pi^2(2k + 1)^2\)</span></p></li>
 </ol>
-<p>The amplitudes decreases <strong>quadratically</strong> with increasing frequencies.</p>
+<p>The amplitudes decrease <strong>quadratically</strong> with increasing frequencies.</p>
 <figure class="align-default" id="fig-triangle-20">
 <a class="reference internal image-reference" href="../../../_images/triangle_5.png"><img alt="../../../_images/triangle_5.png" src="../../../_images/triangle_5.png" style="width: 400px;" /></a>
 <figcaption>
@@ -781,10 +781,10 @@ The sine wave, sawtooth wave, pulse wave, and triangle waves are classic wavefor
 They are used everywhere in the music we hear today and were/are the basis of many synthesizers.
 Sawtooth waves, pulse waves, and triangle waves come in bandlimited and
 non-bandlimited forms.
-Non-bandlimited forms can be produce strange artifacts at higher frequencies (see
+Non-bandlimited forms can produce strange artifacts at higher frequencies (see
 <a class="reference internal" href="../math/sampling.html#sec-aliasing"><span class="std std-ref">aliasing</span></a>).
 Bandlimited forms are “safer” but are not as rich harmonically – they are not true
-representation of the waveforms.</p>
+representations of the waveforms.</p>
 <p>From soft (and smooth), to rich (and aggressive), we can order the basic waveforms as follows:</p>
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#sec-sine-wave"><span class="std std-ref">sine wave</span></a> (<a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>),</p></li>

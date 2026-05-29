@@ -152,7 +152,7 @@ name: fig-am-dc-effect
 DC (direct current) results in an offset of the signal.
 ```
 
-This effect can be avoided by using the [LeakDC](https://doc.sccode.org/Classes/LeakDC.html) *unit generator* which trys to center a signal on the amplitude-axis.
+This effect can be avoided by using the [LeakDC](https://doc.sccode.org/Classes/LeakDC.html) *unit generator* which tries to center a signal on the amplitude-axis.
 
 ```isc
 ({
@@ -266,7 +266,7 @@ The effect is very similar.
 ### Complex Amplitude Modulation
 
 Instead of using sine waves we can also use other signals, for example we could use for one or both of the signals (carrier and modulator) a sawtooth wave.
-If the carrier signal consist of frequencies equal to $f_{\text{car},1}, \ldots, f_{\text{car},n}$ and the modulator consists of frequencies $f_{\text{mod},1}, \ldots, f_{\text{mod},m}$, then the resulting signal will consist of frequencies:
+If the carrier signal consists of frequencies equal to $f_{\text{car},1}, \ldots, f_{\text{car},n}$ and the modulator consists of frequencies $f_{\text{mod},1}, \ldots, f_{\text{mod},m}$, then the resulting signal will consist of frequencies:
 
 \begin{equation}
 f_{\text{car},1}, \ldots , f_{\text{car},n}, f_{\text{car},1} \pm f_{\text{mod},1}, f_{\text{car},2} \pm f_{\text{mod},1}, \ldots f_{\text{car},n} \pm f_{\text{mod},m}

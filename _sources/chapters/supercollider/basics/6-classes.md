@@ -38,15 +38,15 @@ This calls the *class method* ``new`` of the [Array](https://doc.sccode.org/Clas
 All classes are [Objects](https://doc.sccode.org/Classes/Object.html), i.e., they inherit from the fundamental base class [Object](https://doc.sccode.org/Classes/Object.html) automatically.
 This makes it necessary to call the constructor of [Object](https://doc.sccode.org/Classes/Object.html).
 
-To copy the arguments of the constructor to into the object variables we can call ``newCopyArgs`` of [Object](https://doc.sccode.org/Classes/Object.html).
+To copy the arguments of the constructor into the object variables we can call ``newCopyArgs`` of [Object](https://doc.sccode.org/Classes/Object.html).
 ``Object.newCopyArgs(... args)`` creates a new instance and copies the arguments to the instance variable in **the order that the variables were defined**.
 Of course, class variables will be ignored.
 Therefore, the order is semantically significant!
 
 ```isc
 MyClass {           // Object is implied
-    var a, b, c;    // Object variables / attribtes
-    classvar d;     // Class variabels / attributes
+    var a, b, c;    // Object variables / attributes
+    classvar d;     // Class variables / attributes
 
     *new {          // Class method
         arg arg1, arg2, arg3;
@@ -67,8 +67,8 @@ The expression ``a = arg1 ? a;`` makes sure that ``a`` will only change if it is
 
 ```isc
 MyClass {           // Object is implied
-    var a, b, c;    // Object variables / attribtes
-    classvar d;     // Class variabels / attributes
+    var a, b, c;    // Object variables / attributes
+    classvar d;     // Class variables / attributes
 
     *new {          // Class method
         arg arg1, arg2, arg3;
@@ -86,7 +86,7 @@ MyClass {           // Object is implied
 }
 ```
 
-Instance variables (the attributes of the object) are defined by using the keyword ``var`` while class variabels (the attribute of the class which are shared by all objects of the class) are defined via the keyword ``classvar``.
+Instance variables (the attributes of the object) are defined by using the keyword ``var`` while class variables (the attributes of the class which are shared by all objects of the class) are defined via the keyword ``classvar``.
 Instance variables will *shadow* class variables of the same name.
 
 Classes can contain class methods (static methods) and object methods.
@@ -95,7 +95,7 @@ For example, I implemented a new class [MIDIRecorder](https://github.com/BZoennc
 
 ```isc
 MIDIRecorder {
-    // Object variables / attribtes
+    // Object variables / attributes
     var name, instrument, history, synths, <events, clock, noteOn, mono, paused, pauseTime, midiDefOn, midiDefOff;
 
     *new {      // Class method
@@ -152,7 +152,7 @@ reverse {
 First the original array ``this`` is copied.
 Then elements are swapped accordingly.
 And finally the copy ``res`` is returned.
-The expression ``res.size div: 2;`` is equivialent to ``res.size / 2;`` or ``res.size.div(2);``.
+The expression ``res.size div: 2;`` is equivalent to ``res.size / 2;`` or ``res.size.div(2);``.
 
 ## Getter and Setter
 
@@ -181,7 +181,7 @@ Complex : Number {
 ...
 ```
 
-Objects of this class have two (object)-attributes ``real`` and ``img`` indicated by the signal word ``var`` and they are accessible from outside indicated by the ugly rue ``<>``.
+Objects of this class have two (object)-attributes ``real`` and ``imag`` indicated by the keyword ``var`` and they are accessible from outside indicated by ``<>``.
 The instance variables are initialized by the constructor.
 The name **and order** is identical!
 

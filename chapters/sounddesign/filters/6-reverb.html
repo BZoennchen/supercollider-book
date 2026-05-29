@@ -530,19 +530,19 @@ document.write(`
 <p>Reverberation, often shortened to reverb, is a phenomenon where sound waves reflect off surfaces, resulting in a large number of echoes that gradually fade or “decay”.
 It gives us a sense of the size and type of space we’re in, whether it’s a small bathroom or a large cathedral.</p>
 <p>Reverberation depends on our capability to recognize events in time.
-As we know, our conscious is blind for very slow and vey fast processes with repect to time.
+As we know, our consciousness is blind to very slow and very fast processes with respect to time.
 We can think about and measure day and night, month, year and the air pressure change of the weather but we can not perceive them immediately.
-Furthermore, if pulses arrive in a distance smaller than 60 milliseconds, we can hear a sound but we can nor perceive the dynamic—the underlying movement in time.
+Furthermore, if pulses arrive in a distance smaller than 60 milliseconds, we can hear a sound but we cannot perceive the dynamic—the underlying movement in time.
 Our sense of time relates to the rhythms of the body, e.g., our heart beating, our breathing and walking speed (which decreases with age).</p>
 <p>There are different time constants known from perceptual psychology which determine the perception of the human hearing:</p>
 <ul class="simple">
 <li><p>Two arbitrary acoustic signals within <strong>2 ms</strong> or less are perceived as simultaneous.</p></li>
 <li><p>Multiple <strong>similar</strong> acoustic signals within about <strong>40 ms</strong> can blend to one perception. If the signals are different a occultation might occur.</p></li>
-<li><p>Two similar acoustic signals within about <strong>100 ms</strong> or more are preceived as an echo.</p></li>
+<li><p>Two similar acoustic signals within about <strong>100 ms</strong> or more are perceived as an echo.</p></li>
 <li><p>The <em>integration time</em> of our hearing, that is, the time interval over that we sum up acoustic signals to control the sensation of loudness, amounts to about <strong>300 ms</strong>.</p></li>
 </ul>
-<p>Let test this.
-Firt we introduce a synth that is just simple decaying impulse.</p>
+<p>Let us test this.
+First we introduce a synth that is just a simple decaying impulse.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\imp</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Decay</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Impulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="mf">0.2</span><span class="p">)</span> <span class="o">*</span> <span class="nc">PinkNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">;</span>
@@ -571,7 +571,7 @@ Firt we introduce a synth that is just simple decaying impulse.</p>
                 </audio>
               </div></div>
 </div>
-<p>Let us play it within 40 ms. I can hear two impulses. However, they are however blended together.</p>
+<p>Let us play it within 40 ms. I can hear two impulses. However, they are blended together.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="k">fork</span> <span class="p">{</span>
     <span class="nc">Synth</span><span class="p">(</span><span class="ss">\imp</span><span class="p">);</span>
@@ -648,7 +648,7 @@ When the speaking person stops, the reverberation becomes a foreground stream an
 Under these conditions, it is easy to hear that it is decaying.</p>
 <p>The human hearing generally waits about 40 milliseconds after a sound event’s apparent end, before deciding it is over.
 Therefore, we perceive multiple sound cues within a period smaller than 40 ms as one continuous stream.
-Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.</p>
+Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spatially more interesting.</p>
 <figure class="align-default" id="fig-reverberation">
 <a class="reference internal image-reference" href="../../../_images/reverberation.png"><img alt="../../../_images/reverberation.png" src="../../../_images/reverberation.png" style="width: 800px;" /></a>
 <figcaption>
@@ -657,25 +657,25 @@ Time <span class="math notranslate nohighlight">\(t\)</span> is measured in mill
 </figcaption>
 </figure>
 <p>In <em>The Theory and Practice of Perceptual Modeling – How to use Electronic Reverberation to Add Depth and Envelopment Without Reducing Clarity</em> (<a class="reference external" href="http://www.davidgriesinger.com/threedpm.pdf">pdf</a>) presented at the <em>Tonmeister conference (2000)</em> in Hannover, David Griesinger gives an excellent description of an <em>ideal reverberation profile for recording</em>.
-We need a strong early lateral field for producing a sense of distance, a mimimum of energy in the <span class="math notranslate nohighlight">\(50-150\,\text{ms}\)</span> region, and adequate reverberant energy after <span class="math notranslate nohighlight">\(150\,\text{ms}\)</span>.
+We need a strong early lateral field for producing a sense of distance, a minimum of energy in the <span class="math notranslate nohighlight">\(50-150\,\text{ms}\)</span> region, and adequate reverberant energy after <span class="math notranslate nohighlight">\(150\,\text{ms}\)</span>.
 Recordings with too much energy in the <span class="math notranslate nohighlight">\(50\)</span> to <span class="math notranslate nohighlight">\(150,\text{ms}\)</span> region sound muddy.
 This time range must be carefully minimized.</p>
 <p>Reverberation can be simulated/approximated by adding <a class="reference internal" href="1-phase-shifting.html#sec-filter-by-delay"><span class="std std-ref">delayed signals</span></a> that decay over a certain amount of time to the overall output.</p>
 <section id="single-reflection">
 <h2>Single Reflection<a class="headerlink" href="#single-reflection" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://doc.sccode.org/Classes/DelayN.html">DelayN</a> takes an input signal, delays it for <code class="docutils literal notranslate"><span class="pre">delayTime</span></code> (in seconds) and outputs the a <em>delayed copy</em> (without the original).
+<p><a class="reference external" href="https://doc.sccode.org/Classes/DelayN.html">DelayN</a> takes an input signal, delays it for <code class="docutils literal notranslate"><span class="pre">delayTime</span></code> (in seconds) and outputs a <em>delayed copy</em> (without the original).
 Therefore, it can be useful to introduce a reverb effect.</p>
 <p>In the following example we use a <em>decaying impulse</em> to generate a repeating exponential envelope.
 The <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a> decays over a period of <code class="docutils literal notranslate"><span class="pre">0.2</span></code> seconds.
 <a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> works similar to <a class="reference external" href="https://doc.sccode.org/Classes/Integrator.html">Integrator</a> which basically integrate an incoming signal, which is another way of saying that it sums up all past values of the signal.
-It realizes the following formular:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7ba5d64-751f-4701-aa9a-edbb005a31a6">
-<span class="eqno">(79)<a class="headerlink" href="#equation-c7ba5d64-751f-4701-aa9a-edbb005a31a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+It realizes the following formula:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b5086f50-9885-4fce-8cbf-dcd2d0661e22">
+<span class="eqno">(79)<a class="headerlink" href="#equation-b5086f50-9885-4fce-8cbf-dcd2d0661e22" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \sum\limits_{i=0}^n \alpha x[i]
 \end{equation}\]</div>
 <p>which is realized inductively by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d3a5bcd-f404-4315-8223-37ab8f11499a">
-<span class="eqno">(80)<a class="headerlink" href="#equation-2d3a5bcd-f404-4315-8223-37ab8f11499a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06e82755-390a-4f68-b100-bdf786cd0d89">
+<span class="eqno">(80)<a class="headerlink" href="#equation-06e82755-390a-4f68-b100-bdf786cd0d89" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = y[n-1] + \alpha x[n].
 \end{equation}\]</div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Decay.html">Decay</a> operates on the basis of more meaningful parameters which are independent from the <em>sample rate</em>.
@@ -758,7 +758,7 @@ Let’s have a listen:</p>
 </div>
 <p>The <a class="reference external" href="https://doc.sccode.org/Classes/AllpassN.html">AllpassN</a> <em>unit generator</em> implements a <em>Schroeder allpass filter</em>.
 It works and sounds very similar to the <em>comb delay line</em> but <em>allpass filters</em> <strong>change the phase of signals</strong> passed through them.
-For this reason, they are useful even though do not seem to differ much from <em>comb filters</em>.</p>
+For this reason, they are useful even though they do not seem to differ much from <em>comb filters</em>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">decaytime</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">Decay</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Impulse</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="nc">PinkNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">;</span>
@@ -844,7 +844,7 @@ Since I add the <code class="docutils literal notranslate"><span class="pre">~im
 <p><span class="caption-number">Fig. 61 </span><span class="caption-text">Signal-flow graph of the construction above.</span><a class="headerlink" href="#fig-pluck" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Using <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> instread, generates a slightly different sound:</p>
+<p>Using <a class="reference external" href="https://doc.sccode.org/Classes/Pluck.html">Pluck</a> instead generates a slightly different sound:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
 <span class="nc">Pluck</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span>
     <span class="na">in:</span> <span class="nc">WhiteNoise</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mf">0.1</span><span class="o">!</span><span class="mi">2</span><span class="p">),</span> 
@@ -872,7 +872,7 @@ Since I add the <code class="docutils literal notranslate"><span class="pre">~im
 <p>SuperCollider offers out of the box <em>reverberation unit generators</em>: <a class="reference external" href="https://doc.sccode.org/Classes/FreeVerb.html">FreeVerb</a>, <a class="reference external" href="https://doc.sccode.org/Classes/FreeVerb2.html">FreeVerb2</a>, and <a class="reference external" href="https://doc.sccode.org/Classes/GVerb.html">GVerb</a>.</p>
 <p>In this example, I use <em>grains</em> sampled from a single sine wave that changes its frequency whenever the envelope is triggered.
 <code class="docutils literal notranslate"><span class="pre">\gverb</span></code> applies reverb to the grain.
-This time I do not make use of <a class="reference external" href="https://doc.sccode.org/Classes/Group.html">Groups</a>, therefore, I have to be careful of the oder in which I add synth to the audio server.</p>
+This time I do not make use of <a class="reference external" href="https://doc.sccode.org/Classes/Group.html">Groups</a>, therefore, I have to be careful of the order in which I add synths to the audio server.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">SynthDef</span><span class="p">(</span><span class="ss">\sin_grain</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">arg</span> <span class="nx">out</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>

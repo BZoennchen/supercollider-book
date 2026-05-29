@@ -123,7 +123,7 @@ For a more in-depth analysis of the [frequency response](def-frequency-response)
 (sec-onepole)=
 ## OnePole
 
-Another unit genertor I had a hard time get my head around is [OnePole](https://doc.sccode.org/Classes/OnePole.html).
+Another unit generator I had a hard time getting my head around is [OnePole](https://doc.sccode.org/Classes/OnePole.html).
 Again let us try our best to understand what is going on without using the [Z-transform](sec-z-transform).
 
 The documentation states that a one pole filter implements the formula:
@@ -176,7 +176,7 @@ y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{equation}
 
 The change from one filter output to the next is proportional to the difference between the previous output and the next input.
-Therefore, the signal is smoothen exponentially, which matches the exponential decay seen in the continuous-time system.
+Therefore, the signal is smoothed exponentially, which matches the exponential decay seen in the continuous-time system.
 The exponential decay is depicted in the plot in section [One Pole Filter (Analysis)](sec-one-pole-analysis).
 
 ```{admonition} OnePole

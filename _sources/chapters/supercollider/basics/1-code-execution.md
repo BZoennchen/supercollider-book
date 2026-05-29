@@ -1,6 +1,6 @@
 # Code Execution
 
-The [SuperCollider IDE](sec-scide) iis designed for interactivity. 
+The [SuperCollider IDE](sec-scide) is designed for interactivity.
 If you're familiar with the concept of notebooks, such as Jupyter or Mathematica notebooks, you'll grasp what I mean. 
 The idea is to execute code incrementally as you develop. Instead of writing a complete program all at once, you're encouraged to run small code snippets. Each code execution alters your environment, that is, the state of your program. This dynamic interaction is especially evident in live coding, but it's also a useful practice when learning and exploring SuperCollider in general.
 
@@ -81,7 +81,7 @@ As mentioned, ``this`` is either
 1. the object the method is called on (if we use ``"Hello World!".postln;``) or
 2. the first argument of the method (if we use ``postln("Hello World!");``)
 
-Calling ``this.asString`` transformes the object into a ``String``.
+Calling ``this.asString`` transforms the object into a ``String``.
 Then ``postln`` of that ``String`` is called.
 Of course in our case, the object is already a ``String`` and we directly call ``postln`` of ``String``!
 
@@ -147,8 +147,8 @@ returns ``(4 + 4) * 5 = 40`` instead of ``4 + (4 * 5) = 24``.
 ``sclang`` uses a *strictly left to right order of execution*.
 ```
 
-Especially within control structures this can lead to bugs that are hard to find. 
-The following code prints ``'ho'`` to the the post window.
+Especially within control structures this can lead to bugs that are hard to find.
+The following code prints ``'ho'`` to the post window.
 
 ```isc
 (

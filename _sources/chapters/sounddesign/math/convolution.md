@@ -64,7 +64,7 @@ In that case,
 $$y_3[k] = y_1[k] \cdot y_2[k].$$
 
 The convolution is defined very differently.
-The idea is to mirrow the second function and to compute the weighted sum of a sliding window.
+The idea is to mirror the second function and to compute the weighted sum of a sliding window.
 
 ```{figure} ../../../figs/sounddesign/math/array_conv-dark.png
 ---
@@ -117,7 +117,7 @@ The following ``sclang`` function computes the convolution of two discrete funct
 :name: def-discrete-convolution
 :class: definition
 
-Given two discrete and finite signals $y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}$ of length $N_1$ and $N_2$ respectively. Then the convolution of those two singals is defined by
+Given two discrete and finite signals $y_1, y_2 : \mathbb{N} \rightarrow \mathbb{R}$ of length $N_1$ and $N_2$ respectively. Then the convolution of those two signals is defined by
 
 \begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0, n-k\geq 0}^{N_1} y_1[k] \cdot y_2[n-k],
@@ -126,14 +126,14 @@ Given two discrete and finite signals $y_1, y_2 : \mathbb{N} \rightarrow \mathbb
 where $y: \{0, \ldots, N_1 + N_2 - 2\} \rightarrow \mathbb{R}$.
 ````
 
-Since we are most interested in peridic functions, a more useful definition is given by the *circular discrete convolution*.
-In that case, we $y_2$ to be $N_2$-periodic.
+Since we are most interested in periodic functions, a more useful definition is given by the *circular discrete convolution*.
+In that case, we take $y_2$ to be $N_2$-periodic.
 
 ````{admonition} Circular Discrete Convolution
 :name: def-circular-discrete-convolution
 :class: definition
 
-Given two discrete signals $y_1, y_2$, where $y_1$ is defined for $0, \ldots N-1$ and $y_2$ is a periodic function with period equal to $N_2$. Then the circular convolution of those two singals is defined by
+Given two discrete signals $y_1, y_2$, where $y_1$ is defined for $0, \ldots N-1$ and $y_2$ is a periodic function with period equal to $N_2$. Then the circular convolution of those two signals is defined by
 
 \begin{equation}
 (y_1 * y_2)[n] = y[n] = \sum\limits_{k=0}^{N-1} y_1[k] \cdot y_2[n-k],
@@ -147,11 +147,11 @@ where $y : \mathbb{Z} \rightarrow \mathbb{R}$ is periodic.
 width: 900px
 name: fig-array-conv-periodic
 ---
-Visualization of the computation of a convalution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.
+Visualization of the computation of a convolution of two discrete signals (arrays of numbers) where the second is (infinite) and periodic.
 ```
 
-The circular convolution of a finite signal with a infinite periodic discrete function is an infinite periodic funciton.
-This in our code we do not construct an ``Array`` but a new function.
+The circular convolution of a finite signal with an infinite periodic discrete function is an infinite periodic function.
+Thus in our code we do not construct an ``Array`` but a new function.
 
 ```isc
 (
@@ -202,7 +202,7 @@ Given two functions $y_1, y_2 : \mathbb{R} \rightarrow \mathbb{R}$ then the *con
 ````
 
 This looks intimidating but there is nothing to fear.
-Instead of a sum over an index $k$ we have the integration over $\tau$ and $t$ represents the shift of our second (mirrored) funciton.
+Instead of a sum over an index $k$ we have the integration over $\tau$ and $t$ represents the shift of our second (mirrored) function.
 
 ## Rules
 
@@ -300,8 +300,8 @@ The plots show us some effects of the convolution:
 1. Convolving a function $y$ with an impulse function just copies $y$.
 2. Convolving $y$ with a shifted impulse function makes a shifted copy of $y$.
 3. Convolving $y$ with a scaled impulse function scales $y$.
-4. Convilving $y$ with a scaled, shifted impulse function scales and shifts $y$.
-5. Convolving with an *impulse train*such (last row) adds a shifted original to the output for each impulse.
+4. Convolving $y$ with a scaled, shifted impulse function scales and shifts $y$.
+5. Convolving with an *impulse train* (last row) adds a shifted original to the output for each impulse.
 6. As many copies will be superimposed as there are nonzero impulses.
 7. Copies will be shifted (delayed) by the position of the impulse in the *impulse train* function.
 8. Shifted copies will be scaled by the amplitude of the impulses.
@@ -311,7 +311,7 @@ The plots show us some effects of the convolution:
 :name: theorem-fourier-convolution
 :class: theorem
 
-Let $y_1, y_2$ be two functions for which we can comupte the respective [Fourier transform](def-fourier-transform-exp) $Y_1 = \mathcal{F}\{y_1\}$, and $Y_2 = \mathcal{F}\{y_2\}$ respectively.
+Let $y_1, y_2$ be two functions for which we can compute the respective [Fourier transform](def-fourier-transform-exp) $Y_1 = \mathcal{F}\{y_1\}$, and $Y_2 = \mathcal{F}\{y_2\}$ respectively.
 Then
 
 $$(y_1 * y_2)(t) = \mathcal{F}^{-1}\{Y_1 \cdot Y_2\}(t)$$
@@ -323,13 +323,13 @@ $$(y_1 \cdot y_2)(t) = \mathcal{F}^{-1}\{Y_1 * Y_2\}(t)$$
 ```
 
 Multiplying in the time domain convolves in the frequency domain and multiplying in the frequency domain convolves in the time domain.
-Therefore, to compute the convolution one can do so by compute the [Fouier tranform](def-fourier-transform-exp) beforehand.
+Therefore, to compute the convolution one can do so by computing the [Fourier transform](def-fourier-transform-exp) beforehand.
 In fact, this is how the unit generators, such as [Convolution](https://doc.sccode.org/Classes/Convolution.html), are implemented.
 
 ## The Convolution Unit Generator
 
 We can compute a discrete convolution on the audio server using the [Convolution](https://doc.sccode.org/Classes/Convolution.html) unit generator.
-Let's try to contruct a triangle wave by convoluting two pulse waves.
+Let's try to construct a triangle wave by convolving two pulse waves.
 
 ```isc
 ({
@@ -373,7 +373,7 @@ Convoluting two sawtooth waves results in parabola-like wave.
 ```
 
 To compute ‘perfect’ convolution in the time domain, one requires all function values beforehand. 
-This would make real-time processing impossible! Therefore, [Convolution](https://doc.sccode.org/Classes/Convolution.html) computes a windowed Fourier transform, i.e., the [Fouier tranform](def-fourier-transform-exp) of a short snipped of the functions (in and the kernel). 
+This would make real-time processing impossible! Therefore, [Convolution](https://doc.sccode.org/Classes/Convolution.html) computes a windowed Fourier transform, i.e., the [Fourier transform](def-fourier-transform-exp) of a short snippet of the functions (input and the kernel).
 Based on that, it computes the convolution of those snippets. To do so, the unit generator has to fill a buffer of a specific size (twice the number of framesize). 
 Before the convolution can start, the buffer has to be filled; therefore, the result is zero at the beginning.
 The larger the buffer, the more expensive the operation gets and the more zeros there are at the beginning. 

@@ -19,10 +19,10 @@ The term "out of tune" refers to a pitch/tone that is either too high (sharp) or
 A *tuning system* is the system used to define which tones, or pitches, to use when playing music.
 In other words, it is the choice of number and spacing of frequency values used.
 
-*Just intonation* or *pure intonation* is *tuning system* where intervals are whole number ratios of frequencies.
+*Just intonation* or *pure intonation* is a *tuning system* where intervals are whole number ratios of frequencies.
 One example is the [Pythagorean tuning system](sec-p-tuning).
 
-However, in Western musical practice, instruments are rarely tuned using only pure intervals -- the desire for different keys have identical intervals makes this impractical.
+However, in Western musical practice, instruments are rarely tuned using only pure intervals -- the desire for different keys to have identical intervals makes this impractical.
 The [equal temperament system](sec-tet-tuning) is mostly used in Western music.
 
 (sec-p-tuning)=
@@ -114,7 +114,7 @@ In the case of the *twelve-tone*, the ratio is equal to the 12th root of 2, i.e.
 
 In modern times, 12-TET is usually tuned relative to a standard pitch of 440 Hz, called A440.
 Note A is tuned to 440 hertz, and all other notes are defined as some multiple of semitones apart from it, either higher or lower in frequency.
-However, the standard pitch has sometimes been 440 Hz, and there is still a lot of dispute and discussion.
+However, the standard pitch has not always been 440 Hz, and there is still a lot of dispute and discussion.
 This development is comparatively recent in the musical community, and the agreement is still fragile among musicians {cite}`loy:2006`.
 
 The significant advantage of an equal system is that we can change the key of a piece without re-tuning the instrument.

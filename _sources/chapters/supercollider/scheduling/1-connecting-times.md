@@ -8,11 +8,11 @@ According to Rohrhuber, while both domains, i.e., mathematics and computer scien
 Mathematical equations are static and stateless.
 Like a *calculator* they take in some argument $x$ and return some value $y(x)$, where $x$ is not evolving into anything.
 They can incorporate time, for example, if we consider differential equations, but nothing unfolds within a mathematical function.
-Time can only be modeled by a mathematical object but is not implicitely relevant for the computation of a function.
+Time can only be modeled by a mathematical object but is not implicitly relevant for the computation of a function.
 
 One exception to this rule is the logic developed by George Spencer-Brown in his mostly ignored work *Laws of Form* {cite}`brown:1969`.
 Spencer-Brown introduces the concept of the *re-entry* by resolving self-referential paradoxes in time.
-While the self-referential relation is a pardox in the static world, it becomes a self-generating process in the dynamic world.
+While the self-referential relation is a paradox in the static world, it becomes a self-generating process in the dynamic world.
 This leads quite naturally to the formalization of an unfolding process, that replaces the definition of a static limit, e.g. the imaginary number $i^2 = -1$ is defined as a program
 
 \begin{equation*}
@@ -22,17 +22,17 @@ i \leftarrow -1/i.
 It is surprising that his work was mostly ignored by the computer science community.
 
 
-While being a finite and static description, algorithms, describe such processes that unfold in time.
+While being a finite and static description, algorithms describe such processes that unfold in time.
 In many instances they are stateful, they do work, they transform or construct something step by step in a specific order.
-If we reason about algorithm, we reason about time.
-We even reason about the amount of time an algorihm requires and call this *time complexity*.
+If we reason about algorithms, we reason about time.
+We even reason about the amount of time an algorithm requires and call this *time complexity*.
 However, it is not a specific time period but an estimation of the number of steps an algorithm requires.
-It measures not a specific time but some or many potential time(s) in which the decribed process happens.
+It measures not a specific time but some or many potential time(s) in which the described process happens.
 Therefore, without mentioning time explicitly, algorithms are a logical representation of it.
 And if they are executed, their *logical time* gets connected to a *physical time*. 
 
 If we compose or play music, we reason about the physical time, i.e., the relation between time intervals.
-Our ears are very sensitive to rhythms and small deviations immidiatly strike us.
-Therefore, we very carefully make sure that everything is synchronized as inteded and everyone plays in time.
+Our ears are very sensitive to rhythms and small deviations immediately strike us.
+Therefore, we very carefully make sure that everything is synchronized as intended and everyone plays in time.
 Combining the act of composing or playing music with the act of developing algorithms leads us to an interesting entanglement of two worlds.
 We do not only combine two activities but two concepts of time: the *logical* with the *physical*!

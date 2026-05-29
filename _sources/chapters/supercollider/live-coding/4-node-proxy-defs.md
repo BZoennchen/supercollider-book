@@ -18,7 +18,7 @@ Behind every [Ndef](https://doc.sccode.org/Classes/Ndef.html) there is one singl
 This proxy space keeps default values for the proxies that can be set.
 
 Combining [Ndef](https://doc.sccode.org/Classes/Ndef.html) with a [NdefGui](https://doc.sccode.org/Classes/NdefGui.html), a gui for a [NodeProxy](https://doc.sccode.org/Classes/NodeProxy.html) or [Ndef](https://doc.sccode.org/Classes/Ndef.html), provides us with a nice graphical interface to experiment with different arguments of, for example, a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
-The gui generator automatically introduces a slide for each controllable argument.
+The gui generator automatically introduces a slider for each controllable argument.
 We can even specify the range of the argument using a [Spec](https://doc.sccode.org/Classes/Spec.html).
 
 ```isc

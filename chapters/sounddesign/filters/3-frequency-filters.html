@@ -526,19 +526,19 @@ document.write(`
 <h1>Frequency Filters<a class="headerlink" href="#frequency-filters" title="Permalink to this headline">#</a></h1>
 <p>When we talk about filters, we usually mean frequency filters.
 Their arguments are more meaningful than the filters discussed in section <a class="reference internal" href="2-simpler-filters.html#sec-basic-filters"><span class="std std-ref">Basic Filters</span></a>.
-They attune the band of frequencies of a signal.</p>
+They attenuate the band of frequencies of a signal.</p>
 <p>As Butterworth stated:</p>
 <blockquote>
 <div><p>An ideal electrical filter should not only completely reject the unwanted frequencies but should also have uniform sensitivity for the wanted frequencies. – Stephen Butterworth</p>
 </div></blockquote>
 <p>Such an ideal filter cannot be achieved but one can try to get close approximations by increasing the number of filter elements.
-In practice, a frequency filter decreases the power/gain of high frequncies.</p>
+In practice, a frequency filter decreases the power/gain of high frequencies.</p>
 <section id="lowpass-filter">
 <span id="sec-lowpass-filter"></span><h2>Lowpass Filter<a class="headerlink" href="#lowpass-filter" title="Permalink to this headline">#</a></h2>
 <p>A <em>lowpass filter</em> filters frequency <strong>above</strong> its <em>cutoff frequency</em>.
 It could also be called highfrequency filter.
 Lowpass filters are used to attenuate high harmonics and make sound <em>darker</em> or <em>smoother</em> in <a class="reference internal" href="../../misc/terms.html#sec-timbre"><span class="std std-ref">timbre</span></a>.
-A lowpass filter is often combined with a resonant because (with the respective cutoff frequency) lowpass filters leave the <em>fundamentals</em> of the signal intact.
+A lowpass filter is often combined with a resonator because (with the respective cutoff frequency) lowpass filters leave the <em>fundamentals</em> of the signal intact.
 So they do not usually affect the perceived and subjective pitch.</p>
 <figure class="align-default" id="fig-lpf-graph">
 <a class="reference internal image-reference" href="../../../_images/lpf-graph.png"><img alt="../../../_images/lpf-graph.png" src="../../../_images/lpf-graph.png" style="width: 600px;" /></a>
@@ -597,7 +597,7 @@ In principle, the gain in amplitude over frequencies has a steeper slope.</p>
 <p><span class="caption-number">Fig. 52 </span><span class="caption-text">A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).</span><a class="headerlink" href="#fig-lpf-saw" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We can observer that the maximum amplitude of the filtered signal decreases with the cutoff frequency.</p>
+<p>We can observe that the maximum amplitude of the filtered signal decreases with the cutoff frequency.</p>
 </section>
 <section id="highpass-filter">
 <span id="sec-highpass-filter"></span><h2>Highpass Filter<a class="headerlink" href="#highpass-filter" title="Permalink to this headline">#</a></h2>
@@ -623,7 +623,7 @@ They can make the sound more clear which can be especially useful for your <em>l
                 </audio>
               </div></div>
 </div>
-<p>If we look at a plot using a modulated highpass filter (here we increase the the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.</p>
+<p>If we look at a plot using a modulated highpass filter (here we increase the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">freq</span> <span class="o">=</span> <span class="mi">440</span><span class="p">,</span> <span class="nx">amp</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span>
 <span class="p">{</span>	
@@ -656,7 +656,7 @@ It is a combination of a lowpass and highpass filter.</p>
 </figure>
 <p><code class="docutils literal notranslate"><span class="pre">sclang</span></code> offers us the <a class="reference internal" href="../../supercollider/synths/1-ugens.html#def-ugen"><span class="std std-ref">UGen</span></a> called <a class="reference external" href="https://doc.sccode.org/Classes/BPF.html">BPF</a>.
 It is a second-order Butterworth bandpass filter.
-Instead of defining the <em>bandwith</em>, we define <code class="docutils literal notranslate"><span class="pre">rq</span></code> which is equal to <em>bandwidth / center frequency</em> thus <em>bandwidth</em> = <code class="docutils literal notranslate"><span class="pre">rq</span></code> * <em>center frequency</em>.</p>
+Instead of defining the <em>bandwidth</em>, we define <code class="docutils literal notranslate"><span class="pre">rq</span></code> which is equal to <em>bandwidth / center frequency</em> thus <em>bandwidth</em> = <code class="docutils literal notranslate"><span class="pre">rq</span></code> * <em>center frequency</em>.</p>
 <p>Let us plot the effect of a modulated bandpass filter.
 Here we only change the <em>center frequency</em> from 220 Hz to 880 Hz.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>

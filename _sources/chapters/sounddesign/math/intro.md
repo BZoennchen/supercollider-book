@@ -20,7 +20,7 @@ The promoters of this field of theory (Frege, Russell, Whitehead, Carnap) wanted
 Logicists often assumed numbers were real abstract entities, but that they could be reduced to logical notions.
 So Logicism is both a program (reduce math to logic) and compatible with a Platonist ontology.
 
-*Struturalists* like Benacerraf, Resnik and Shapiro claim that mathematics studies *structures* rather than individual objects.
+*Structuralists* like Benacerraf, Resnik and Shapiro claim that mathematics studies *structures* rather than individual objects.
 Numbers, for example, matter only in terms of their place in a structure (like the natural number sequence).
 This can explain why different systems (e.g. sets, Peano arithmetic) can represent the same mathematics.
 But this raises a question: what are structures *made of*?
@@ -30,12 +30,12 @@ Structuralism can be seen as a refinement of Platonism: instead of individual ob
 These mathematicians try to avoid metaphysical questions about existence and *Being*.
 However, one might ask why does a mere game of symbols describe the universe so well?
 Why is mathematics so effective in its application?
-Formalists undercut the meaning of mathematical objects outside of the formal system within they are defined.
+Formalists undercut the meaning of mathematical objects outside of the formal system within which they are defined.
 Formalism lost its status as a full foundation mainly because its central promise (to secure all of mathematics by purely formal means) turned out to be impossible.
 Gödel showed that in any sufficiently strong formal system (like arithmetic), there will be true statements that cannot be proven within the system and that a system cannot prove its own consistency (if it actually is consistent).
 Therefore, math is not fully capturable as a "formal game" and Hilbert's goal of proving the consistency of mathematics within a finitary framework is impossible.
 This meant Hilbert’s dream was unachievable in principle.
-Formailsm is also counter intuitive to the mathematicians because they experience proofs as *discoveries*, not as arbitrary symbol games.
+Formalism is also counter-intuitive to the mathematicians because they experience proofs as *discoveries*, not as arbitrary symbol games.
 But it's still indispensable as a methodological backbone. Today, philosophers usually combine it with other views rather than defending it on its own.
 
 *Intuitionists* and *constructivists* like L.E.J. Brouwer, Heyting and Bishop claim that mathematics is a creation of the human mind.
@@ -45,9 +45,9 @@ Many constructivists are intuitionists in practice, though some are looser about
 
 *Nominalists* such as Ockham, Field, and Goodman suggest that mathematical objects do not exist at all, not even as abstract entities.
 In their view, mathematics is just a convenient shorthand for talking about the physical world or about symbol manipulations.
-One variant, i.e. *fictionalism*, claim that mathematics is like a useful story---not true, but indispensable.
-The other variant, that is, *deflationary nominalism* assume that numbers are just ways of speaking about properties of the world (e.g., "there are three apples" describes a property of apples, not an abstract "3").
-*Norminalism* avoids mysterious abstract realms but it is hard to or even impossible to account for the objectivity and universality of mathematics.
+One variant, i.e. *fictionalism*, claims that mathematics is like a useful story---not true, but indispensable.
+The other variant, that is, *deflationary nominalism* assumes that numbers are just ways of speaking about properties of the world (e.g., "there are three apples" describes a property of apples, not an abstract "3").
+*Nominalism* avoids mysterious abstract realms but it is hard to or even impossible to account for the objectivity and universality of mathematics.
 
 There are also *empiricists* like Mill, Lakatos and Putnam (at some stage) who think that mathematics is ultimately derived from our experience with the world, much like the sciences.
 In this view, mathematical knowledge grows by conjecture, refutation, and revision, not by pure deduction.
@@ -55,16 +55,16 @@ This makes sense of the evolving, human side of mathematics but seems at odds wi
 
 *Social constructivists* think of mathematics as a social product, created within communities of mathematicians.
 Promoters of this position such as Hersh, Ernest, and partly Kuhn argue that the truth of mathematics is determined by social agreement and shared practices.
-This explains why mathematics changes historically and culturally but it seems to downplay the objectivity of mathematics (e.g. would $\pi$ stop to being 3.14159... if sociaty said so?).
+This explains why mathematics changes historically and culturally but it seems to downplay the objectivity of mathematics (e.g. would $\pi$ stop being 3.14159... if society said so?).
 Both *empiricism* or *quasi-empiricism* and *social constructivism* emphasize the human, evolving nature of math.
 They are compatible with one another because they downplay the idea of math as eternal, perfect truth.
 
-There is also the view hold by e.g. George Lakoff and Rafael Núnez that mathematics arises from human cognition and the way our brains metaphorically extend embodied experience. (e.g. "two apples" -> abstract "2").
-This can explain the origins of mathematics in human thought and language but it seems to leaves unclear why mathematics describes physics so uncannily well.
+There is also the view held by e.g. George Lakoff and Rafael Núnez that mathematics arises from human cognition and the way our brains metaphorically extend embodied experience. (e.g. "two apples" -> abstract "2").
+This can explain the origins of mathematics in human thought and language but it seems to leave unclear why mathematics describes physics so uncannily well.
 The cognitive-metaphor approach sits well with *constructivist* or social accounts, since all highlight the human origin of mathematics.
 It doesn't claim math is eternal and abstract---just that it arises from how humans conceptualize and share patterns.
 
-*Pragmatists* like Dewey, Quine and Putnam (he shifted his position between realism and pragmatism) wanna departure from these question and claim that mathematics is what works---a toolbox for reasoning, modeling, and solving problems. Its value lies in usefulness, not metaphysical truth.
+*Pragmatists* like Dewey, Quine and Putnam (he shifted his position between realism and pragmatism) want to depart from these questions and claim that mathematics is what works---a toolbox for reasoning, modeling, and solving problems. Its value lies in usefulness, not metaphysical truth.
 This captures the applied power of math but it intentionally just sidesteps the question of what math *is*; it's more about what math *does*.
 Pragmatists sometimes label the question of what mathematics *is* as nonsensical.
 Pragmatism is flexible: it says math is valuable insofar as it works.
@@ -79,7 +79,7 @@ In practice many working mathematicians are *informal Platonists* (they talk as 
 
 ### Kant, Heidegger, and Wittgenstein
 
-*Kant* (1724--1904) suggested that the prerequisite of our experiences is a pure concept of understanding (*Verstand*).
+*Kant* (1724--1804) suggested that the prerequisite of our experiences is a pure concept of understanding (*Verstand*).
 A *Kantian* category is a characteristic of the appearance of any object in general, before it has been experienced (*a priori*).
 Kant believed that without it, cognition is impossible because we would not be able to find any structures within the data.
 In his view, neither *pure reason* nor *pure experience* suffice;
@@ -89,7 +89,7 @@ From that perspective, numbers can not come from *pure experience* which is a tr
 In fact, Kant argued that mathematical truths are not purely analytic (like logic) but also not empirical.
 Instead, they are grounded in the forms of intuition---space and time---which structure human experience.
 For Kant, Euclidean geometry was the prime example: its truths were necessary, universal, but grounded in our a priori intuition of space.
-Similarily for Kant, arithmetic was grounded in our temporal intuition (counting as successive additions in time) and numbers emerge from our *understanding* of the difference between one and many things;
+Similarly for Kant, arithmetic was grounded in our temporal intuition (counting as successive additions in time) and numbers emerge from our *understanding* of the difference between one and many things;
 an experience that requires *a priori categories*.
 Of course, the discovery of non-Euclidean geometry and relativity theory undermined Kant's idea that Euclidean space is the necessary form of intuition, but *neo-Kantian* views still inspire debates about the cognitive grounding of math.
 His view influenced *constructivist*/*intuitionist* ideas (Brouwer admired Kant's stress on the mind's role).
@@ -99,18 +99,18 @@ Teachers tell us what it is and how it works.
 We use it before we reflect on it or understand it; it is *ready-to-hand* (*zuhanden*).
 Math, similar to language, is like a virus or parasite that circulates through the human mind and reproduces itself like an *autopoietic system*.
 It is closed and gets irritated by new observations such that it extends or adapts itself (through us).
-Heideggers position on the question of the nature of mathematics is oblique.
+Heidegger's position on the question of the nature of mathematics is oblique.
 It is a mode of revealing *Being*.
 He wasn't a philosopher of math in the analytic sense, but he reflected deeply on what "mathematical" means.
 He tied the rise of modern science to the "mathematical projection" of nature (geometry, analytic mechanics, etc.).
 
 The late Wittgenstein argued that the meaning of words is determined by their use.
 This seems like a trivial observation but his claim was in fact very radical because it rejects the view that words refer to some essences.
-Furthermore, it offers arguments agains the view that language can describe reality accurately.
+Furthermore, it offers arguments against the view that language can describe reality accurately.
 The use of a word changes over time. 
 Words disappear and new words are created.
-For Wittgenstein, the fact that language is ambigious wasn't a downside but a feature---a view which is uncontroversial today.
-Reality is a mess and language is flexibel enough not to accurately descrite the mess but to navigate through it.
+For Wittgenstein, the fact that language is ambiguous wasn't a downside but a feature---a view which is uncontroversial today.
+Reality is a mess and language is flexible enough not to accurately describe the mess but to navigate through it.
 
 Take for example the word *game*.
 Many games share common characteristics and properties but whenever you think there is a good definition that fits all games, we can find counter examples.
@@ -118,7 +118,7 @@ It is quite difficult to work out the *essence of games*.
 So what is a game?
 A game is what we call a game and we call those things and activities 'game' because it is (socially) useful to do so.
 It helps us navigate through the mess.
-At some point in time, someone called foodball a 'game' and that description kept being used because it was useful and made sense at the time and place.
+At some point in time, someone called football a 'game' and that description kept being used because it was useful and made sense at the time and place.
 Our language is deeply connected to social practices.
 There would be no words, no language, and no thinking without the social.
 
@@ -127,12 +127,12 @@ Imagine a group of people.
 Each have a box and in everyone's box is something they call "a beetle".
 However, no one is ever allowed to look into anyone elses box.
 They can only look into their own box---the beetle is an analogy of our personal feelings, e.g. pain.
-However, they can talk meaningful about beetles even though they don't know what others have in their boxes or, indeed, if there is anything in them at all.
+However, they can talk meaningfully about beetles even though they don't know what others have in their boxes or, indeed, if there is anything in them at all.
 The thing in each person's box is irrelevant to the *shared public meaning* of the term "beetle".
 The words meaning is determined by the use people make of the term and not the *private* something hidden away from view.
 Whatever is or isn't in each person's box is irrelevant.
 It cancels out.
-Wittgenstein uses this analogy to go agains the assumption that meaning is or can be private to us.
+Wittgenstein uses this analogy to argue against the assumption that meaning is or can be private to us.
 We think that no one knows my personal color or pain sensation.
 In other words, no one can see the beetle in my box.
 Of course, it is true that your pain can not be felt by someone else.
@@ -147,7 +147,7 @@ With this view, the meaning of the word "two" can not be private.
 Instead it is a result of social practices.
 In his later philosophy (*Philosophical Investigations* {cite}`wittgenstein:1953`), Wittgenstein rejected Platonism: there are no mathematical objects "out there".
 Instead, math is a set of rule-governed activities within forms of life.
-It "two" is a term born out of social practice to communicate such that it helps us to navigate the mess.
+"Two" is a term born out of social practice to communicate such that it helps us to navigate the mess.
 Proofs don't "reveal eternal truths"; they change what counts as true by fixing the rules of use.
 Thus, mathematics in a Wittgensteinian view is not a body of discoveries but a collection of techniques---a human institution.
 Therefore, Wittgenstein anticipated *social constructivism*: math is a practice maintained by communities.
@@ -156,7 +156,7 @@ His influence is strongest in philosophy of mathematics education and *construct
 
 This, of course, tells us nothing about the question of the ontological existence of mathematical objects, e.g. the number two.
 But Wittgenstein would probably say, that to ask for such a thing is impossible or misguided.
-He would insist that to ask for the ontological status of these objects is a philosophical confusion, arising from being bewitched by grammar.
+He would insist that asking for the ontological status of these objects is a philosophical confusion, arising from being bewitched by grammar.
 "2" does not exist as an independent object but it exists in the way we use it---in counting, calculating, proving.
 The only thing we have is experience, social practice and language which we constructed over time not to describe reality but to navigate through it.
 An analogous question would be to ask: "What is the ontological status of the king in chess?"
@@ -164,7 +164,7 @@ A *Platonist* might say: "The king is a timeless abstract piece."
 Wittgenstein would say: "The king exists as part of the game; it has no existence outside the practice of chess."
 Likewise, "2" exists as part of the language game of arithmetic.
 
-I partly agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes and thinks that there is still something absolut and pure to establish and ground.
+I partly agree with *Kant*, even though I think he highly overrates reason over all the other bodily processes and thinks that there is still something absolute and pure to establish and ground.
 I don't think we need some eternal *Platonic* space of perfect ideas that is hidden somewhere.
 Such meta-concepts are shortcuts for something we do not understand yet or something we can deal with by describing it in this way.
 The *Platonic* worldview is mystical, religious, absolute and in some sense too certain.
@@ -182,7 +182,7 @@ Our perception is the first *abstraction* born out of *Kant's* understanding---w
 The *second-order abstraction* of it, e.g., using the word "chair", is a silent agreement of a set of perceptions we call "chair".
 For a number, e.g. the number one, this is similar.
 But this meaning can shift.
-It has to be re-established again and again in social pracitice.
+It has to be re-established again and again in social practice.
 
 In this regard, it is no surprise that the *Greeks* had troubles with defining negative numbers because of a lack of experience.
 Since they focused mostly on geometry, negative numbers were never an issue.
@@ -202,9 +202,9 @@ I have never experienced a pink elephant, but I can perfectly picture one.
 One might say: "Ok but you know what 'pink' and 'elephant' means" but the same is true for the mathematical objects from which the perfect circle emerges.
 Does this mean there has to be another perfect world where the idea of a pink elephant lives?
 The world of ideas cripples the fascination with the infinite complexity of what there is.
-It trys to bind the infinite to the finite, Kierkegaard might say. 
-Wittgenstein would probalby say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language games.
-He would argue that Plato confused different language games, i.e., the mistake is a missuse of language.
+It tries to bind the infinite to the finite, Kierkegaard might say.
+Wittgenstein would probably say that the word "existing" in the language game of mathematics is completely different from its meaning in any other language games.
+He would argue that Plato confused different language games, i.e., the mistake is a misuse of language.
 
 We have never experienced a perfect circle.
 But we found a model called circle that models circle-like objects that we perceived.
@@ -216,24 +216,24 @@ The abstraction is an objectified version that we often silently agree on becaus
 In that sense it is not really objective, rather we call things objective we all agree on.
 The language game of mathematics is one most people agree on because it turned out so amazingly useful.
 Because mathematics is unreasonable useful in describing nature we are tempted to believe that there has to be traces of an objective truth.
-I belive this.
+I believe this.
 But at the time of writing I also believe that we cannot prove this and we can never know with certainty.
 Our language and we as creatures are finite.
 Therefore, grasping the infinite is impossible.
 Reality will always be a mystery.
 However, we can tinker with it and see where it goes.
 
-To conclude, in a Wittgensteinian view, mathematics was invented according to social practices: the differentiation of one thing from another thing; the handling of multiply things which all named by the same word; the exchange of goods and services.
+To conclude, in a Wittgensteinian view, mathematics was invented according to social practices: the differentiation of one thing from another thing; the handling of multiple things which are all named by the same word; the exchange of goods and services.
 It required a close observation of nature and there might be traces of an objective truth in it but we can never know.
 Therefore, I claim that mathematics is *invented* but this invention is closely bound to *observations* (which are non-arbitrary constructions) of nature (or our *environment*) and therefore it is also partly discovered.
 
 ## Do we need Mathematics?
 
-Do you ever saw a cat jumping over a fence?
+Have you ever seen a cat jumping over a fence?
 It is an elegant and precise act.
 So how can we neglect the cat's intuitive understanding of gravity?
 In a way the cat has a better grasp on it than we do.
-Similarily, as musicians, we are perfectly able to create great sounds and tones without knowing what *complex numbers* or the *Fourier transform* is.
+Similarly, as musicians, we are perfectly able to create great sounds and tones without knowing what *complex numbers* or the *Fourier transform* is.
 We do not really care about sample rates or the *Nyquist sample theorem*.
 In fact, we might even have a better understanding of it without knowing the term and how it is defined by a mathematical formula.
 
@@ -241,9 +241,9 @@ Mathematics is a kind of technology, that is, a way of seeing.
 However, as it turned out, it is an especially effective way of seeing.
 Mathematics helps us to find patterns not only in our constructed world but within imaginary objects.
 Much like art, it can set up a new world.
-It can enable the differentiation between form and medium which leads to our appreciate of the physical, as well as formal world.
-A purely mathematical understanding might undermine the multiplicity of an artwork but the beauty of mathematics, which lies in its sense-making potential, can bring us to new hights.
-Making sense of what we do and what we experience and to act on behalf of it is a way of life and a way to create art and mathematics offers us a large ocean of senes.
+It can enable the differentiation between form and medium which leads to our appreciation of the physical, as well as formal world.
+A purely mathematical understanding might undermine the multiplicity of an artwork but the beauty of mathematics, which lies in its sense-making potential, can bring us to new heights.
+Making sense of what we do and what we experience and to act on behalf of it is a way of life and a way to create art and mathematics offers us a large ocean of sense.
 
 You probably know about these artificial intelligence driven image generators.
 They are capable of generating beautiful images guided by a simple textual description.
@@ -266,8 +266,8 @@ The sound generated by playing the piano is, in part, the product of the piano.
 But the artist has mastered it; he has a certain degree of control over the instrument.
 In the example above, the artist has very little control; she is highly dependent on the suggestions of the machine.
 She is guiding the machine but can no longer take over control and we as the audience know this and we know that the artist knew when she created the artwork.
-There is just not enough control which translate to creative freedom---the confrontation of choice---that makes the creation of a contingent alternative version of reality (the artwork) possible.
-I think this property is required to catch attention and to prompt question about by making the difference between medium and form visible.
+There is just not enough control which translates to creative freedom---the confrontation of choice---that makes the creation of a contingent alternative version of reality (the artwork) possible.
+I think this property is required to catch attention and to prompt questions about the difference between medium and form, making it visible.
 
 Therefore, control is important and that is why I like [SuperCollider](https://supercollider.github.io/): it offers a lot of control; it does not hide too much of the *concrete*.
 Of course, there is always a tradeoff between the *abstract* and the *concrete*.
@@ -286,41 +286,41 @@ Math in that sense can also conceal aspects of artistic craftsmanship.
 (sec-dsp)=
 ## Digital Signal Processing
 
-Sound is a what we call *signal*.
+Sound is what we call a *signal*.
 A *signal* is any physical quantity that carries information.
 It is defined as any physical quantity that varies with one or more independent variables such as time (one-dimensional signal), or space (2D or 3D signal).
 Signals exist in several types.
 Of course, we are interested in the one-dimensional case and our independent variable is time $t$.
-In the real world, most of signals are continuous-time or analog signals that have values continouesly at every value of time.
+In the real world, most signals are continuous-time or analog signals that have values continuously at every value of time.
 
 Furthermore, we are working on a computer---a digital device.
-*Digital* means that that the process we wanna do, such as creating or transforming a signal, has to be done in a discrete space.
+*Digital* means that the process we want to do, such as creating or transforming a signal, has to be done in a discrete space.
 Therefore, to be *processed* by a computer, a *continuous-time signal* has to be first *sampled* in time into a *discrete-time signal* so that its values at a discrete set of time instants can be stored in computer memory locations.
 In addition, in order to be processed by logic circuits, these signal values have to be *quantized* into a set of discrete values.
 The final result is called *digital signal*.
 
-So what is the field mathematics we apply is: *Digital Signal Processing (DSP)*.
+So the field of mathematics we apply is: *Digital Signal Processing (DSP)*.
 The two main characters in DSP are *signals* and *systems*.
 A *system* is defined as a process whose input and output are signals.
-We need those to further transform the signal, for exmaple, to filter high or low frequencies.
+We need those to further transform the signal, for example, to filter high or low frequencies.
 As we will see, an important class of systems is the class of [*linear time-invariant (LTI) systems*](sec-lti-filters).
-These systems have a remarkable property, that is, each of them can be completely chracterized by an *impulse response function*, and the system is defined by a *convolution* (also referred as *filtering*) operation.
+These systems have a remarkable property, that is, each of them can be completely characterized by an *impulse response function*, and the system is defined by a *convolution* (also referred as *filtering*) operation.
 Thus, a linear time-invariant system is equivalent to a *(linear) filter*.
 LTI systems are classified into two types, those that have *finite-duration impulse response (FIR)* and those that have an *infinite-duration impulse response (IIR)*.
 In practice for our musical purposes we will create filters that vary over time but the theory of LTI systems is still very useful to induce understanding.
 
 A signal can be viewed as a *vector* in a *vector space*.
 Thus, *linear algebra* provides a powerful framework to study signals and linear systems.
-In particular, given a vector space, each signal can be represented (or expended) as a *linear combination of elementary signals*.
+In particular, given a vector space, each signal can be represented (or expanded) as a *linear combination of elementary signals*.
 The most important *signal expansion* are provided by the [*Fourier transform*](sec-fourier-transform).
 The Fourier transforms, as with general transforms, are often used effectively to transform a problem from one domain to another domain where it is much easier to solve or analyze.
 The two domains of Fourier transform have physical meaning and are called *time domain* and *frequency domain*.
 
-*Sampling*, or the conversion of *continuous-domain real-life* to *discrete numers* that can be processed by computers, is the essential bridge between the analog and the digital world.
-It is important to understand that connections between signal and systems in the real world and inside a computer.
+*Sampling*, or the conversion of *continuous-domain real-life* to *discrete numbers* that can be processed by computers, is the essential bridge between the analog and the digital world.
+It is important to understand the connections between signals and systems in the real world and inside a computer.
 These connections are convenient to analyze in the frequency domain.
 Moreover, many signals and systems are specified by their *frequency characteristics*.
 
 Because any *linear time-invariant system* can be characterized as a [*filter*](sec-filters), the design of such systems boils down to the design of the associated filter.
-Typically, in the *filter design* process, we determine the coefficient of an *FIR* or *IIR* filter that closely approximates the desired *frequency response* specification.
+Typically, in the *filter design* process, we determine the coefficients of an *FIR* or *IIR* filter that closely approximates the desired *frequency response* specification.
 Together with Fourier transforms, the [*z-transform*](sec-z-transform) provides an effective tool to analyze and design filters.

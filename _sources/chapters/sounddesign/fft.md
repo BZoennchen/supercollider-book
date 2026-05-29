@@ -35,7 +35,7 @@ sns.set_style("whitegrid")
 
 # FFT Processing
 
-Before we start I highly recommand that you read section [Discrete Fourier Transform](sec-dft) since this section depends on it.
+Before we start I highly recommend that you read section [Discrete Fourier Transform](sec-dft) since this section depends on it.
 
 ## Client Side Computation
 
@@ -136,7 +136,7 @@ The following example has no effect on the input 'in' since we merely transform 
 )
 ```
 
-To process sound SuperCollider has a selection of phase vocoder (PV) unit genertors which are commonly used as in place operators on the [FFT](https://doc.sccode.org/Classes/FFT.html) data.
+To process sound SuperCollider has a selection of phase vocoder (PV) unit generators which are commonly used as in place operators on the [FFT](https://doc.sccode.org/Classes/FFT.html) data.
 SuperCollider [phase vocoder](https://doc.sccode.org/Guides/FFT-Overview.html#PV%20and%20FFT%20UGens%20in%20the%20Standard%20Library) is a technique used in computer music to manipulate blocks of spectral data before reconversion.
 The process of buffering, windowing, conversion, overlap-add, etc.
 
@@ -261,15 +261,15 @@ librosa.display.specshow(S, sr=sr, hop_length=hop_length, x_axis='time', y_axis=
 plt.colorbar(format='%+2.0f dB');
 ```
 
-You might notice the repeating frequncy pattern.
+You might notice the repeating frequency pattern.
 
 TODO
 
 ## Mel Frequency Cepstral Coefficients
 
-I introduced the [mel-spectogram](sec-mel-spectrogram) in the section [discrete Fourier transform](sec-dft) and I recommand reading it before you continue.
+I introduced the [mel-spectogram](sec-mel-spectrogram) in the section [discrete Fourier transform](sec-dft) and I recommend reading it before you continue.
 
-In the following example, we use two synth.
+In the following example, we use two synths.
 One creates the audio signal and the other applies a mel-analysis and sends 13 mel-coefficient to a control bus.
 Every 0.1 second we read from the control bus and store the data in an $n \times 13$ array.
 

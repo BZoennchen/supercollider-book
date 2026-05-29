@@ -13,29 +13,29 @@ kernelspec:
 (sec-fundamental-waveforms)=
 # Fundamental Waveforms
 
-*Jean-Baptise Joseph Fourier* discovered that every function that is 
+*Jean-Baptiste Joseph Fourier* discovered that every function that is
 
 1. **periodic**,
 1. **piecewise continuous** and
 2. **bounded**
 
 can be represented as a Fourier series, see section [Fourier Series](sec-fourier).
-In theory, the [Fourier series](def-fourier-series) of a function consists possibly infinite many terms and since our hardware resources are finite, we can only generate an approximation of the real thing.
+In theory, the [Fourier series](def-fourier-series) of a function consists of possibly infinitely many terms and since our hardware resources are finite, we can only generate an approximation of the real thing.
 
 Furthermore, the Fourier series is a sum of *sine* and *cosine* waves where the frequency of each wave in the sum is an **integer multiple** of the **fundamental frequency**!
 We call these waves *harmonic overtones* or just *harmonics*.
 The more *harmonic overtones* are present, the richer the sound.
 
-Frequencies that are present which are not integer multiple of the fundamental are *inharmonic overtones* or just *inharmonics*.
+Frequencies that are present which are not integer multiples of the fundamental are *inharmonic overtones* or just *inharmonics*.
 If there are many *harmonics* and only a few *inharmonics* present, we can clearly perceive a pitch, and we call the sound *harmonic*.
 If it is the other way around, there is no longer a pitch and we call the sound *inharmonic*.
 Drums and bells have an *inharmonic* sound while the piano, a guitar and strings have a *harmonic* sound.
-The [timbre](sec-timbre) of a sound is determined by the power distribution within the overtones of the sound, i.e. who ''much'' a certain frequency above the fundamental is present.
+The [timbre](sec-timbre) of a sound is determined by the power distribution within the overtones of the sound, i.e. how much a certain frequency above the fundamental is present.
 
-To understand the sound of a specific signal it is very usful to look at the amount of *harmonic* and *inharmonic* overtones.
+To understand the sound of a specific signal it is very useful to look at the amount of *harmonic* and *inharmonic* overtones.
 The [Fourier transform](def-fourier-transform-exp) and especially the [discrete Fourier transform](def-discrete-fourier-transform) can help us with if we want to analyse a given signal.
 
-Using the [Fourier transform](def-fourier-transform-exp), one can extend the concept of the [Fourier series](def-fourier-series-exp) to non-peridic functions.
+Using the [Fourier transform](def-fourier-transform-exp), one can extend the concept of the [Fourier series](def-fourier-series-exp) to non-periodic functions.
 I call functions with these properties, including non-periodic ones, *signals*.
 Functions that describe an amplitude $y(t)$ over the time $t$ are *audio signals* and have these qualities.
 
@@ -51,7 +51,7 @@ We can use wave forms that already consist of certain harmonics (or inharmonics)
 
 In general, for audio synthesis, there are some fundamental oscillators.
 Both types of synthesizers, that is, analog as well as digital synthesizers, offer these basic oscillators as a starting point.
-Espacially, in additive synthesis we really wanna understand the effect of each basic oscillator.
+Especially in additive synthesis we really want to understand the effect of each basic oscillator.
 So let us try to understand their timbre by looking at the coefficient of their [Fourier series](def-fourier-series), i.e. the power distribution within their *harmonics*.
 
 (sec-sine-wave)=
@@ -72,7 +72,7 @@ The sine wave
 is the most pure, most basic, and most simple signal.
 The sine or cosine wave is the most basic waveform there is.
 Its [Fourier series](def-fourier-series-exp) is equivalent to Eq. {eq}`eq:sine`. 
-Note that I also use the exponetial form introduced in section [Complex Numbers](sec-complex-numbers) but don not worry, it is not that important here.
+Note that I also use the exponential form introduced in section [Complex Numbers](sec-complex-numbers) but do not worry, it is not that important here.
 The sine or cosine wave, consists of only the fundamental frequency $f$ and is theoretically the basis for all other signals.
 Sine is equals to cosine shifted by $\pi/2$.
 
@@ -85,7 +85,7 @@ The sine wave with a frequency and amplitude of 1.
 ```
 
 A sine wave is purely *harmonic* but it has no overtones.
-Therefore, it sounds rather smoth and soft.
+Therefore, it sounds rather smooth and soft.
 It can be used to generate a nice bass or to amplify the sound of a drum or one can use it as a subbase.
 It can also be used to add a certain *harmonic* to a sound.
 
@@ -111,7 +111,7 @@ The first more complicated and important waveform I want to discuss is the so-ca
 ```
 
 where $A$ is the amplitude and $f$ is the frequency of the wave.
-The problem with implementing Eq. {eq}`eq:saw` directly is that infinitely high frequencies are present and in the digital world frequencies above halfe the [Nyquist frequency](theorem-sampling) are projected back into lower most certainly inharmonic frequencies, see section [Sampling](sec-sampling).
+The problem with implementing Eq. {eq}`eq:saw` directly is that infinitely high frequencies are present and in the digital world frequencies above half the [Nyquist frequency](theorem-sampling) are projected back into lower most certainly inharmonic frequencies, see section [Sampling](sec-sampling).
 The unit generator [LFSaw](https://doc.sccode.org/Classes/LFSaw.html) is such a non-band-limited sawtooth wave.
 LF stands for low frequency.
 [Saw](https://doc.sccode.org/Classes/Saw.html) is a band-limited sawtooth generator which can be used for high frequencies.
@@ -241,11 +241,11 @@ name: fig-square-20
 An approximation for the Fourier series of the square wave with a frequency and amplitude of 1 using $n=20$.
 ```
 
-The square wave has more *harmonics* as the sine wave but less than the sawtooth wave.
+The square wave has more *harmonics* than the sine wave but fewer than the sawtooth wave.
 Without any additions, it sounds rather hollow but also rich.
 It resembles the sound of old video games.
 The [square wave](sec-square-wave) comes often with a special parameter to control its width.
-The more asymetric the wave, the more metallic and nasal the sound.
+The more asymmetric the wave, the more metallic and nasal the sound.
 
 The signal of some wind instruments, like the clarinet, is similar to square wave.
 Their sound contains mostly odd harmonics.
@@ -305,7 +305,7 @@ Again we learn from the Fourier series Eq. {eq}`eq:triangle:fourier` that
 1. each odd harmonic $(2k+1)f$ with $k \in \mathbb{N}_0$ of the fundamental $f$ is present and
 2. the amplitude of the harmonic $2k+1$ decreases with $8/\pi^2(2k + 1)^2$
 
-The amplitudes decreases **quadratically** with increasing frequencies.
+The amplitudes decrease **quadratically** with increasing frequencies.
 
 ```{figure} ../../../figs/sounddesign/triangle_5.png
 ---
@@ -339,10 +339,10 @@ The sine wave, sawtooth wave, pulse wave, and triangle waves are classic wavefor
 They are used everywhere in the music we hear today and were/are the basis of many synthesizers.
 Sawtooth waves, pulse waves, and triangle waves come in bandlimited and
 non-bandlimited forms.
-Non-bandlimited forms can be produce strange artifacts at higher frequencies (see
+Non-bandlimited forms can produce strange artifacts at higher frequencies (see
 [aliasing](sec-aliasing)).
 Bandlimited forms are "safer" but are not as rich harmonically – they are not true
-representation of the waveforms.
+representations of the waveforms.
 
 From soft (and smooth), to rich (and aggressive), we can order the basic waveforms as follows:
 

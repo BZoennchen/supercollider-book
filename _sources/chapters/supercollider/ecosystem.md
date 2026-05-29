@@ -79,14 +79,14 @@ The composer
 All those steps are done via the client-side interpreted programming language ``sclang``.
 It abstracts away thus simplifies the communication with the audio server such that we do not have to write pure OSC messages.
 
-## Tha Language
+## The Language
 
-The interpreted programming language ``sclang`` is an objective-oriented programming language.
+The interpreted programming language ``sclang`` is an object-oriented programming language.
 It is similar to ``Smalltalk`` or ``Ruby`` with syntax similar to ``C`` or ``JavaScript``.
 ``sclang`` is dynamically typed and has its own garbage collector.
 Functions are first-class objects and everything is an object, i.e., there are no primitive data types.
 
-From a musical point of view, it has its own interactive programming and lives coding packages and a subsystem for composing patterns and signal graphs.
+From a musical point of view, it has its own interactive programming and live coding packages and a subsystem for composing patterns and signal graphs.
 Its strength lies in opening up the possibility of dealing, creating, manipulating, and combining signal-flow graphs.
 One has to get used to its aged syntax.
 

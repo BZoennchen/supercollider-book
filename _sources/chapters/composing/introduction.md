@@ -22,7 +22,7 @@ Furthermore, we must think about time and how we can connect the physical with t
 
 Now, before we can move on we have to talk about the elephant in the room, that is, *deep learning*.
 Where symbolic approaches lean more towards the intelligence of algorithms, machine learning, especially deep learning, leans towards the intelligence within the data.
-Researchers and developers made significant progress in the field of deep learning using generative models to output arguable impressive results.
+Researchers and developers made significant progress in the field of deep learning using generative models to output arguably impressive results.
 For example, [Continue](https://magenta.tensorflow.org/studio/standalone#continue) (from [Google's Magenta](https://magenta.tensorflow.org/) project) uses a recurrent neural network (RNN) to generate notes that are likely to follow your drum beat or melody.
 [OpenAI](https://openai.com/) released [MuseNet](https://openai.com/blog/musenet/), a deep neural network that can generate 4-minute musical compositions with ten different instruments and can combine styles from country to Mozart to the Beatles.
 
@@ -31,10 +31,10 @@ Especially if they are large and use a prompt-based interface, forms of the medi
 They do not show the algorithms, data, or training process behind the scenes.
 By definition, deep learning models try to imitate the logic and structure of the data they were trained on.
 They learn rich representations of the data which are part of the so-called *latent space*.
-Each dimension of the latent space, if it is semantically well-structured, represents a fundamental charactersitics of the training data.
+Each dimension of the latent space, if it is semantically well-structured, represents a fundamental characteristic of the training data.
 Thus by navigating within the latent space, one can get novel and interesting results.
 However, if this is only possible via text descriptions, the model tends to output results that are likely thus rather uninteresting.
-The lack of direct control over the navigation through the latent space offers non-experts an easy way to get good results and experts frustratingly opaque and uncontrolable kind of interaction.
+The lack of direct control over the navigation through the latent space offers non-experts an easy way to get good results and experts a frustratingly opaque and uncontrollable kind of interaction.
 
 If we should call these techniques *algorithmic compositions* is at least debatable because the algorithm that generates is not defined by the artist but by the model architecture and the data the model is trained on.
 
@@ -57,12 +57,12 @@ However, it remains true that machines can help us to get rid of our personal bi
 
 SuperCollider can be used to build a kind of *artificial system*.
 It provides us not only with a context in which we can compose music but is general and powerful enough to construct a new one.
-However, as we know form comics: with great power comes great responsibility.
+However, as we know from comics: with great power comes great responsibility.
 In contrast to *digital audio workstations (DAWs)* such as *Reason* or *Ableton*, SuperCollider is far less restrictive;
 there is no *preferred* way of working.
 Such compulsion can be liberating.
 Instead, SuperCollider offers very different ways to accomplish the artist's goal, and it is our responsibility to find our own style.
 
-Many different approaches are feasible to generate and assembling a composition.
+Many different approaches are feasible to generate and assemble a composition.
 Consequently, showing an extensive list of different techniques is impossible and undesirable.
 But I will try to give you some starting points.

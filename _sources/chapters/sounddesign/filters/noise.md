@@ -13,12 +13,12 @@ kernelspec:
 (sec-noise)=
 # Noise
 
-If we define richness by the number of sine waves that are represented in a sound, then arguable the richest is pure noise.
+If we define richness by the number of sine waves that are represented in a sound, then arguably the richest is pure noise.
 Interestingly this corresponds to the *theory of information* where a random message will eliminate the most amount of uncertainty thus has a high *entropy*.
 
 In section [Additive Synthesis](sec-additive-synthesis) we have noticed that the greater the number of enharmonic spectral elements there were, the more the sound approaches noise.
-In other words, if we add more and more sine waves, each with a random frequency, we will eventually and up with *noise*---the richest signal possible.
-Instead of adding more and more sine harmonics or inharmonics, subtractive synthesis starts by a rich signal, i.e., noise and filters specific frequencies.
+In other words, if we add more and more sine waves, each with a random frequency, we will eventually end up with *noise*---the richest signal possible.
+Instead of adding more and more sine harmonics or inharmonics, subtractive synthesis starts with a rich signal, i.e., noise, and filters specific frequencies.
 
 Noise is often defined as all possible frequencies having equal representation.
 We can also define it as a wave with no pattern or maybe as a series of numbers of which we can not recognize its pattern.
@@ -40,7 +40,7 @@ audio_path = '../../../sounds/whitenoise.mp3'
 ipd.Audio(audio_path)
 ```
 
-Note that we can not define the frequency since noise consist of a wide range of frequencies.
+Note that we cannot define the frequency since noise consists of a wide range of frequencies.
 *White noise* sounds similar to a FM radio while searching for a channel.
 
 ```{figure} ../../../figs/sounddesign/whitenoise.png
@@ -51,7 +51,7 @@ name: fig-whitenoise
 A plot of ``WhiteNoise`` over a duration of 2 milliseconds.
 ```
 
-If we look at the frequency analyser, we can see almost a line, i.e., all frequency have roughly equal power.
+If we look at the frequency analyser, we can see almost a line, i.e., all frequencies have roughly equal power.
 Compared to other noises, the sound is rather harsh because of the power in high frequencies.
 
 (sec-pink-noise)=
@@ -59,7 +59,7 @@ Compared to other noises, the sound is rather harsh because of the power in high
 
 To achieve a softer sound we can use the [PinkNoise](http://doc.sccode.org/Classes/PinkNoise.html) unit generator.
 *Pink noise* is exponentially biased towards lower frequencies.
-It has equal energy per octave band since musical octaves are exponential increasing with respect to frequency.
+It has equal energy per octave band since musical octaves are exponentially increasing with respect to frequency.
 
 ```isc
 {PinkNoise.ar(0.25!2)}.play;

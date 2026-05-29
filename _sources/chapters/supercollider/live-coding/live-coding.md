@@ -12,7 +12,7 @@ For example, data scientists visualize data via code evaluation of a so called n
 Based on the result they may decide what code they wanna write next.
 
 However, compared to musical arrangements there is a key difference:
-The cycle of communication between these two partys result in a final product because we rarely transform useful code into something else.
+The cycle of communication between these two parties results in a final product because we rarely transform useful code into something else.
 Instead, the final notebook is a well documented depiction of our data analysis.
 In the context of music, **the process is the product**---a performance.
 We transform code that is an essential part of a composition.

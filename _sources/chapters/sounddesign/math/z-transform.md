@@ -37,7 +37,7 @@ sns.set(font_scale=1.0)
 # z-Transform
 
 One important mathematical concept for understanding and designing filters is the $z$*-transform*.
-It is a mathematical tool used in [digital signal processing](sec-dsp) (DSP) to converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain ($z$-domain or $z$-plane) representation.
+It is a mathematical tool used in [digital signal processing](sec-dsp) (DSP) to convert a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain ($z$-domain or $z$-plane) representation.
 
 It generalizes the [Fourier transform](sec-fourier-transform) and the *Laplace transform* for discrete-time signals. In fact, it can be considered as a discrete-time equivalent of the *Laplace transform* and is a generalization of the *discrete-time Fourier transform (DTFT)* (not to be confused with the discrete Fourier transform), see [Difference between DFT and DTFT](sec-dft-vs-dtft).
 
@@ -51,7 +51,7 @@ $$\mathcal{Z}\{x\} = X(z) = \sum\limits_{n=0}^\infty x[n] z^{-n},$$
 
 where $n \in \mathbb{Z}$ and $z \in \mathbb{C}$ is a [complex number](sec-complex-numbers).
 $z$ is often written as $z = re^{i\omega}$ (magnitude $r$ and angle $\omega$).
-This version is used in cases wher $x[n]$ is defined only for $n \geq 0$.
+This version is used in cases where $x[n]$ is defined only for $n \geq 0$.
 
 ````
 
@@ -72,14 +72,14 @@ $z$ is often written as $z = re^{i\omega}$ (magnitude $r$ and angle $\omega$).
 
 The $z$-transform is central to understanding how *filters* and *systems* behave with these signals:
  
-+ **System analysis**: [Linear time-variant filters (LTI)](def-linear-time-invariant) (EQ, reverb, compressor, etc.) can be described by a difference equation. The $z$-Transform lets us analyze these systems easily.
++ **System analysis**: [Linear time-invariant filters (LTI)](def-linear-time-invariant) (EQ, reverb, compressor, etc.) can be described by a difference equation. The $z$-Transform lets us analyze these systems easily.
 + **Frequency response**: By evaluating $X(z)$ on the *unit circle* ($z = e^{i\omega}$), we recover the discrete-time Fourier transform (DTFT), which directly relates to how a filter affects different audio frequencies.
 + **Stability**: In audio, unstable filters can cause distortion or infinite feedback. The $z$-transform helps determine if a system is stable by checking whether the *poles* lie inside the unit circle.
 + **Filter design**: Many audio filters (FIR, IIR, biquads) are designed using $z$-transforms to shape frequency response.
 
 $X(z)$ is a complex-valued function of complex-valued $z$.
-Furthermore, $X(z)$ is defined on the $z$-plane while the DTFT is defined only on the unit circle, i.e, for $|z| = 1$, that is, $z = e^{i \omega}$.
-Remeber, for 
+Furthermore, $X(z)$ is defined on the $z$-plane while the DTFT is defined only on the unit circle, i.e., for $|z| = 1$, that is, $z = e^{i \omega}$.
+Remember, for 
 
 $$-\pi < \omega < \pi$$
 
@@ -135,7 +135,7 @@ holds.
 ````
 
 
-Now we can rearranging Eq. {eq}`eq:ztransform:ex1` to get
+Now we can rearrange Eq. {eq}`eq:ztransform:ex1` to get
 
 $$H(z) = \frac{Y(z)}{X(z)} = \frac{1}{1-0.7z^{-1}}.$$
 
@@ -143,20 +143,20 @@ $$H(z) = \frac{Y(z)}{X(z)} = \frac{1}{1-0.7z^{-1}}.$$
 + Poles at $z = 0.7$, which is inside the unit circle $\Rightarrow$ stable.
 + On the unit circle, $H(e^{i\omega})$ tells us how different frequencies are amplified or attenuated.
 
-Remeber that $z = a + bi$ with $a,b \in \mathbb{R}$ represents a sinosoid $r \cdot (\cos(\phi) + i\sin(\phi))$ with $r^2 = a^2 + b^2$ and $\phi = \cos^{-1}(a/r)$ and that the product of two complex numbers is the product of their magnitudes and the sum of their angles (see section [Complex Numbers](sec-complex-numbers)).
-Therefore, multiplying a sinosoid by 
+Remember that $z = a + bi$ with $a,b \in \mathbb{R}$ represents a sinusoid $r \cdot (\cos(\phi) + i\sin(\phi))$ with $r^2 = a^2 + b^2$ and $\phi = \cos^{-1}(a/r)$ and that the product of two complex numbers is the product of their magnitudes and the sum of their angles (see section [Complex Numbers](sec-complex-numbers)).
+Therefore, multiplying a sinusoid by 
 
 $$e^{-i\omega} = \cos(\omega) + i\sin(\omega) = a + bi$$
 
-is equivalent to shift the sinosoid by $\omega$.
+is equivalent to shifting the sinusoid by $\omega$.
 
 This analysis is exactly how digital reverbs, delays, and EQs are studied in practice.
 If we delay the signal $y[n]$ by 1 sample, $y[n-1]$ is literally the shifted waveform (shifted to the right).
 In DSP, "delay by 1 sample" is like passing the signal through a one-sample delay box/system.
 This delay shows up as $z^{-1}$ in the $z$-transform.
 
-Each time we delay by 1 sample, the transform gets multipield by $z^{-1}$.
-On the unit cirlce, $z$ is equal to $e^{i\omega}$ thus one delay is equivalent to multiply by $e^{-i\omega}$ ($\omega = 2\pi f / f_s$, where $f$ is the real-world frequency of a sinosoid in Hz, $f_s$ the sampling frequency in Hz and $\omega$ the corresponding digital frequency in radians/sample).
+Each time we delay by 1 sample, the transform gets multiplied by $z^{-1}$.
+On the unit circle, $z$ is equal to $e^{i\omega}$ thus one delay is equivalent to multiplying by $e^{-i\omega}$ ($\omega = 2\pi f / f_s$, where $f$ is the real-world frequency of a sinusoid in Hz, $f_s$ the sampling frequency in Hz and $\omega$ the corresponding digital frequency in radians/sample).
 The delay shifts the **phase** of every frequency component by $-\omega$ radians per delay step.
 
 + Low frequencies (small $\omega$) lead to small phase shifts.
@@ -193,7 +193,7 @@ By analyzing $H(z)$ we get the most important information:
 [Poles](sec-z-transform-poles), i.e. (**roots of denominator**) boost frequencies near their angle (resonances).
 And the closer a pole/zero is to the unit circle, the stronger its effect.
 
-The unit circle is acts as the frequency axis.
+The unit circle acts as the frequency axis.
 Therefore, $H(z)$ evaluated on the unit circle, i.e. $z = e^{i\omega}$ and sweeping $\omega$ from $0$ to $\pi$ literally sweeps from $0$ to Nyquist and the magnitude $|H(e^{i\omega})|$ tells us gain at that frequency.
 This is how the $z$-transform connects directly to what our ears hear.
 
@@ -214,7 +214,7 @@ It's the unifying lens that lets audio engineers go from "this is the equation o
 
 ## Region of Convergence
 
-The *region of convergence ROC* is one of the most important (and sometimes confusing) aspects of the $z$-transform.
+The *region of convergence (ROC)* is one of the most important (and sometimes confusing) aspects of the $z$-transform.
 Let's break it down carefully in the context of audio/DSP.
 
 When you define the z-transform
@@ -426,7 +426,7 @@ $$X(z) = \frac{1 - (\alpha z^{-1})^N}{1 - \alpha z ^{-1}} = \frac{z^N- \alpha^N}
 This geometric series converges for $|\alpha| < \infty$ and $z \neq 0$.
 Therefore, the *ROC* is the entire $z$-plane, except $z = 0$.
 Our single *pole* is at $z = 0$ since $z = \alpha$ cancels out with our *zero* $z_0 = \alpha$.
-Remeber that when we multiply a [complex number](sec-complex-numbers) by another complex number, the result is another complex number that is a rotated and scaled version of the first one.
+Remember that when we multiply a [complex number](sec-complex-numbers) by another complex number, the result is another complex number that is a rotated and scaled version of the first one.
 The equation $z^N = \alpha^N$ should have $N$ solutions.
 [De Moivre's theorem](theorem-de-moivre) states that for $z = r \cdot e^{i \phi}$
 
@@ -526,21 +526,21 @@ $$x[n] = 2\delta[0] -\left( \frac{1}{2} \right)^n u[n].$$
 
 ## Partial Fraction Expansion
 
-Given a rational function in the $z$-domain, which typically represents a system's transfer function or a signal's $z$-transform, the goal is to express it as a sum of simpler fractions, that is as *partial fraction expension (PFE)*, because:
+Given a rational function in the $z$-domain, which typically represents a system's transfer function or a signal's $z$-transform, the goal is to express it as a sum of simpler fractions, that is as a *partial fraction expansion (PFE)*, because:
 
 + Easier inverse $z$-transform: Instead of trying to invert a complicated rational function, you invert each simple term individually.
 + Clear connection to poles/resonances: Each term in the PFE corresponds to one pole, i.e. one resonant component in the sound.
 + Intuitive analysis of system behavior: If you know the poles and residues ($A_i$), you can immediately tell if the system is causal or anti-causal from the ROC. Furthermore, you can see which components dominate (e.g. the pole closest to the unit circle sets the longest-lasting resonance).
 + Practical for implementation: In DSP, many filters (like IIR biquads) are implemented as a sum of simple sections. Therefore, PFE naturally decomposes a high-order filter into first- or second-order pieces, each easy to implement with delay lines. This makes designs stable and efficient.
 
-The process to compute the partial fraction expension (PFE) involves the following steps:
+The process to compute the partial fraction expansion (PFE) involves the following steps:
 
 1. Factor the denominator: Write the denominator of the $z$-domain function as a product of its factors. If the factors are not real, they will appear as conjugate pairs.
 2. Decompose the function: Express the original function as a sum of simpler fractions, where each fraction has one of the factors from the denominator as its own denominator. The numerators of these simpler fractions are constants or polynomials (typically constants in $z$-transform applications) to be determined.
 3. Find the constants: Use algebraic techniques, such as equating coefficients or substituting specific values of $z$, to solve for the constants (or coefficients in the numerators) in the simpler fractions.
 4. Inverse $z$-transform: Apply the inverse $z$-transform to each simpler fraction separately. Since the inverse $z$-transform of many basic fractions is well-known, this step is greatly simplified by the partial fraction expansion.
 
-The case of first-oder terms is the simplest and most fundamental, that is, we have
+The case of first-order terms is the simplest and most fundamental, that is, we have
 
 $$H(z) = \frac{B(z)}{A(z)} = \frac{b_0 + b_1 z^{-1} + b_2z^{-2} + \ldots + b_m z^{-M}}{1 + a_1 z^{-1} + a_2 z^{-2} + \ldots + a_N z^{-N}},$$
 
@@ -572,7 +572,7 @@ and
 
 $$r_2 = (1-0.5z^{-1}) H(z)|_{z=0.5} = \frac{1-0.5z^{-1}}{(1-z^{-1}) (1-0.5 z^{-1})}\bigg|_{z=0.5} = \frac{1}{1-z^{-1}}\bigg|_{z=0.5} = -1.$$
 
-Therefore, we can conlcude that 
+Therefore, we can conclude that
 
 $$H(z) = \frac{2}{^-z^{-1}} - \frac{1}{1-0.5z^{}-1}.$$
 
@@ -655,7 +655,7 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
 
 where $c_k$ for $k = 1, 2, \ldots M$ are zeros and $d_k$, for $k = 1, 2, \ldots N$ are poles.
 
-```{admonition} Transfer Funktio and Impulse Response
+```{admonition} Transfer Function and Impulse Response
 :name: theorem-transfer-function-impulse-response
 :class: theorem
 
@@ -669,7 +669,7 @@ H(z) = \mathcal{Z}\{h[n]\}
 (sec-simple-filter-example)=
 ### Example 1: Filter Equation to Transfer Function
 
-Let use start with a very *simple filter*.
+Let us start with a very *simple filter*.
 I will re-use this example in section [Analysis of a Simple Filter](sec-analysis-simple-filter).
 
 \begin{equation*}
@@ -677,7 +677,7 @@ y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation*}
 
 We have $b_0 = b_1 = a_0 = 1$.
-Therfore the *transfer function* is determined by
+Therefore the *transfer function* is determined by
 
 $$H(z) = \frac{b_0 + b_1 z^{-1}}{a_0} = \frac{1 + z^{-1}}{1} = 1 + z^{-1}$$
 

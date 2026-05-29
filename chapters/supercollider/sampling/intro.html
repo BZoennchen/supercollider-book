@@ -527,13 +527,13 @@ document.write(`
 <blockquote>
 <div><p>Electronic music used pure sounds, completely calibrated. You had to think digitally, as it were, in a way that allowed you to extend serial ideas into other parameters through technology. – Luc Ferrari</p>
 </div></blockquote>
-<p>The most common definition for concrète music, what you will hear in an electro-acoustic music course, is compostion using recordings of real sounds as raw material.
+<p>The most common definition for concrète music, what you will hear in an electro-acoustic music course, is composition using recordings of real sounds as raw material.
 This definition takes its meaning partly as a distinction from analog electronic sounds which are purely electronic.
 The attraction is the richness and complexity of the source.
 The sounds can have a depth that is difficult to reproduce with pure electronics.</p>
 <p>Today we call the use of such raw material, i.e. recordings, <em>sampling</em>.
 It is concrète because it never changes at least if we do not modulate it.
-The process of using raw material as a basis and built on top of it we may call <em>sound file manipulation</em>.
+The process of using raw material as a basis and building on top of it we may call <em>sound file manipulation</em>.
 In that sense, the title of this chapter is kind of ironic.</p>
 <div class="remark admonition" id="remark-sampling-as-recording">
 <p class="admonition-title">Sampling</p>
@@ -546,7 +546,7 @@ In signal processing, sampling = digitizing audio (or any continuous signal) so 
 <p>Before processing audio it needs to be loaded into a memory <a class="reference external" href="https://doc.sccode.org/Classes/Buffer.html">Buffer</a> on the server.
 After audio is loaded into a buffer, either from a sound file on disk or from an input source, it is then available for processing, quotation, or precise playback manipulation.</p>
 <p>I recorded the sound of a waterboiler since I thought that might be interesting to work with.
-To load the file into a buffer on the server, the following line suffice.
+To load the file into a buffer on the server, the following line suffices.
 I suggest you pick an audio file that you can play with.
 Here, I use the <a class="reference internal" href="../basics/2-variables.html#sec-variables"><span class="std std-ref">global variable</span></a> <code class="docutils literal notranslate"><span class="pre">b</span></code> as the reference to the server buffer.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">b</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s2">&quot;../samples/experimental/waterboiler.WAV&quot;</span><span class="p">.</span><span class="nx">resolveRelative</span><span class="p">);</span>
@@ -685,12 +685,12 @@ In the attack, body, and decline of a complex sound, thousands of pure sounds ap
 </div>
 <p>We play in roughly seven seconds 300 <em>grains</em>.</p>
 <p>Another unit generator useful to play buffers is <a class="reference external" href="https://doc.sccode.org/Classes/BufRd.html">BufRd</a>.
-Instead of playing the buffer with a specific rate (that can be modulated), we give the <code class="docutils literal notranslate"><span class="pre">phase</span></code> (index of the frame) directly via anohter unit generator.
+Instead of playing the buffer with a specific rate (that can be modulated), we give the <code class="docutils literal notranslate"><span class="pre">phase</span></code> (index of the frame) directly via another unit generator.
 For instance, we can use the x-coordinate of the mouse using <a class="reference external" href="https://doc.sccode.org/Classes/MouseX.html">MouseX</a> to sweep through the buffer.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">BufRd</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">bufnum</span><span class="p">,</span> <span class="nc">K2A</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">MouseX</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="o">*</span><span class="mf">48000.0</span><span class="p">)))}.</span><span class="nx">play</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://doc.sccode.org/Classes/K2A.html">K2A</a> transform a signal from <em>control</em> to <em>audio rate</em>.
+<p><a class="reference external" href="https://doc.sccode.org/Classes/K2A.html">K2A</a> transforms a signal from <em>control</em> to <em>audio rate</em>.
 Other helpful unit generators are <a class="reference external" href="https://doc.sccode.org/Classes/BufFrames.html">BufFrames</a> which returns the numbers of frames (in my case 8645952) and <a class="reference external" href="https://doc.sccode.org/Classes/BufDur.html">BufDur</a> which gives you the duration of the sound file</p>
 <p>The following code plays the buffer as if we would call <code class="docutils literal notranslate"><span class="pre">b.play</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -731,7 +731,7 @@ For each cycle of the saw wave this is repeated.</p>
                 </audio>
               </div></div>
 </div>
-<p>To avoid clicks you can use en envelope with a trigger.</p>
+<p>To avoid clicks you can use an envelope with a trigger.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="p">{</span>
 <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="nx">start</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">rate</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">srate</span> <span class="o">=</span> <span class="nx">b</span><span class="p">.</span><span class="nb">sampleRate</span><span class="p">,</span> <span class="nx">dur</span> <span class="o">=</span> <span class="nx">len</span><span class="o">/</span><span class="nx">rate</span><span class="p">;</span>
@@ -787,7 +787,7 @@ However, by utilizing the <a class="reference external" href="https://doc.sccode
 <span class="p">{</span><span class="nc">PlayBuf</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">bufnum</span><span class="p">)}.</span><span class="nx">play</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>It might look strange to call <code class="docutils literal notranslate"><span class="pre">play</span></code> to start recording but this is exaclty what is happening.
+<p>It might look strange to call <code class="docutils literal notranslate"><span class="pre">play</span></code> to start recording but this is exactly what is happening.
 Note also that we can record into a full buffer and control the mixing by <code class="docutils literal notranslate"><span class="pre">recLevel</span></code> (amplitude of the buffer content) and <code class="docutils literal notranslate"><span class="pre">preLevel</span></code> (amplitude of what is recorded).</p>
 <p>This can be interesting to create even more complex audio files.
 We can combine purely synthesized signal with multiple audio files played back very differently.

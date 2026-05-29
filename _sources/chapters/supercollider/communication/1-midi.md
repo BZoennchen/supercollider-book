@@ -10,7 +10,7 @@ If I start a digital workstation such as [Helm](https://tytel.org/helm/) (after 
 
 ## Listening to MIDI-messages
 
-SuperCollider is perfectly capable to listen to incoming MIDI-commands:
+SuperCollider is perfectly capable of listening to incoming MIDI-commands:
 
 ```isc
 // Connect SuperCollider to all possible MIDI-devices of this computer
@@ -87,7 +87,7 @@ We are perfectly capable of playing multiple notes without a problem since we ca
 
 If we wanna control the length of a note via keyboard we need a sustaining envelope within the ``SynthDef``.
 Let us change the definition accordingly.
-I change only one line of the definition introducing an attack-sustain-release envelope using a fast attack, a sustain level at half the amplitude and a parameterizes release.
+I change only one line of the definition introducing an attack-sustain-release envelope using a fast attack, a sustain level at half the amplitude and a parameterized release.
 
 ```isc
 env = EnvGen.ar(Env.asr(0.001, 0.5, rel), gate: gate, doneAction: Done.freeSelf);
@@ -149,4 +149,4 @@ I use 127 here since this will give us $2^7$ possibilities, guessing that ``num`
 We can, of course, bind the MIDI note to anything.
 For example, we could use different octaves for different synths.
 We could also trigger specific patterns using our MIDI device.
-The limits are our imaginations.
+The limits are our imagination.

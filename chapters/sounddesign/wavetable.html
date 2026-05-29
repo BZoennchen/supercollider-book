@@ -537,7 +537,7 @@ First we need to allocate a <a class="reference external" href="https://doc.scco
 Then we have to write the one period of our waveform into the buffer.
 Then we can use the buffer to read from it at different frequencies.
 For example, the unit generator <a class="reference external" href="https://doc.sccode.org/Classes/Osc.html">Osc</a> is able to write out values from the buffer into the output channel.
-The number of elements in a wavetalbe has to be a power of 2.</p>
+The number of elements in a wavetable has to be a power of 2.</p>
 <section id="basic-example">
 <h2>Basic Example<a class="headerlink" href="#basic-example" title="Permalink to this headline">#</a></h2>
 <p>First we create a <strong>client-side</strong> <a class="reference external" href="https://doc.sccode.org/Classes/Signal.html">Signal</a> containing a sinewave.</p>
@@ -548,10 +548,10 @@ The number of elements in a wavetalbe has to be a power of 2.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">wt</span> <span class="o">=</span> <span class="o">~</span><span class="nx">sig</span><span class="p">.</span><span class="nx">asWavetable</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Then we allocate a <strong>server-side</strong> buffer and load it with the wavetalbe.</p>
+<p>Then we allocate a <strong>server-side</strong> buffer and load it with the wavetable.</p>
 <div class="attention admonition" id="attention-wavetable-buffer">
-<p class="admonition-title">Wavetalbe Buffer Size</p>
-<p>The size of a <em>buffer</em> containing a wavetalbe with <span class="math notranslate nohighlight">\(n\)</span> signalpoints, has to be of size <span class="math notranslate nohighlight">\(2n\)</span>.</p>
+<p class="admonition-title">Wavetable Buffer Size</p>
+<p>The size of a <em>buffer</em> containing a wavetable with <span class="math notranslate nohighlight">\(n\)</span> signalpoints, has to be of size <span class="math notranslate nohighlight">\(2n\)</span>.</p>
 </div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">b</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">2048</span><span class="p">);</span>
@@ -624,7 +624,7 @@ And in fact, let us use another method to directly initialize a buffer.</p>
 </section>
 <section id="using-envelopes">
 <h2>Using Envelopes<a class="headerlink" href="#using-envelopes" title="Permalink to this headline">#</a></h2>
-<p>Since we can transform an envelope <a class="reference external" href="https://doc.sccode.org/Classes/Env.html">Env</a> into a <a class="reference external" href="https://doc.sccode.org/Classes/Signal.html">Signal</a> and a signal into a <a class="reference external" href="https://doc.sccode.org/Classes/Wavetable.html">Wavetable</a>, we can construct our waveform using an envelople!</p>
+<p>Since we can transform an envelope <a class="reference external" href="https://doc.sccode.org/Classes/Env.html">Env</a> into a <a class="reference external" href="https://doc.sccode.org/Classes/Signal.html">Signal</a> and a signal into a <a class="reference external" href="https://doc.sccode.org/Classes/Wavetable.html">Wavetable</a>, we can construct our waveform using an envelope!</p>
 <p>Let us create some crazy wavetables!</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// increase the buffer size</span>
 <span class="nx">b</span> <span class="o">=</span> <span class="nc">Buffer</span><span class="p">.</span><span class="nx">alloc</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">2048</span><span class="p">);</span>
@@ -674,7 +674,7 @@ Since it is an instance method, we first have to create a signal.</p>
 </section>
 <section id="wavetable-morphing">
 <h2>Wavetable Morphing<a class="headerlink" href="#wavetable-morphing" title="Permalink to this headline">#</a></h2>
-<p><span class="xref myst">VOsc</span> is a unit generater that we can utilize to morph or interpolate between two or more wavetables.
+<p><span class="xref myst">VOsc</span> is a unit generator that we can utilize to morph or interpolate between two or more wavetables.
 First we create two different wavetables.
 The first wavetable contains a simple sine wave, the second contains 10 harmonics with equal amplitude.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>

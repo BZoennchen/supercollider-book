@@ -29,7 +29,7 @@ For example, the power chord which consists of the *root note* and the fifth, (a
 
 Of course, we can also break up a chord into single notes playing what is called an *arpeggio*.
 Though, since instances of any given note within the same *pitch class* may be interpreted as the same note within a chord, it is more precise for the purposes of analysis to speak of distinct *pitch classes*.
-Remeber, the pitch class of C is formed by the C of each octave.
+Remember, the pitch class of C is formed by the C of each octave.
 Furthermore, since three notes are needed to define any common chord, three is often taken as the minimum number of notes that form a definite chord.
 
 Let us listen to all [triads](sec-triads) of the [diatonic](sec-diatonic-scale) and [minor scale](sec-minor-scale).
@@ -71,7 +71,7 @@ The triads of the minor tend to sound more serious.
 (sec-triads)=
 ## Triads
 
-The most prominant chords called *triads* consist of three notes.
+The most prominent chords called *triads* consist of three notes.
 Finding a harmonic sounding *triad* can be achieved by adding **ever other note in a scale** starting from some *root*, also called *base note* (if the chord is in root position) - all the chords played above are in root position.
 In other words, chords are fully defined by the used *key* and a combination of degrees (*scale note positions*).
 If $d$ is the degree of the first note then the degree sequence
@@ -86,7 +86,7 @@ $$(\text{E, G, B})$$
 constitutes the **iii-minor chord** within this *key*.
 
 Similar to [diatonic scale](sec-diatonic-scale) where notes are numbered from one to seven, we also use roman numerals (I, ii, iii, IV, V, vi, vii) to denote the position of the chord's *root* with respect to the key we are in.
-In **C** we have C-D-E-F-G-A-B, therefore, E-G-B is numbered by iii and it is a **minor chrod** since E-G is a **minor third interval** and not a **major third interval** like G-B, see section [Intervals](sec-intervals).
+In **C** we have C-D-E-F-G-A-B, therefore, E-G-B is numbered by iii and it is a **minor chord** since E-G is a **minor third interval** and not a **major third interval** like G-B, see section [Intervals](sec-intervals).
 
 We use capitalized roman numerals if we refer to a major chord, otherwise we use lowercase numerals.
 The numbers translate to the degrees of the key.
@@ -117,7 +117,7 @@ However, we need the scale to determine the tonal role of each chord (and note) 
 
 Note that all *triads within a key* are unique and that all major and minor chords contain a **perfect fifth**.
 A major chord is defined an interval sequence (4,3) (in semitones) and a minor chord is defined by an interval sequence (3,4).
-The deminished is defined by (3,3), it contains a **[diminished fifths / tritone](sec-tritone)** instead of a **peferfect fifths**.
+The diminished is defined by (3,3), it contains a **[diminished fifth / tritone](sec-tritone)** instead of a **perfect fifth**.
 If the interval is (4,4) the chord is **augmented**.
 
 If we look at all resulting intervals for the major and minor chord we get: 3 semitones (**minor third**), 4 semitones **major third** and 7 semitones (**perfect fifth**).
@@ -148,7 +148,7 @@ A chord in **root position** is fully defined by interval sequence and its first
 Consequently, we do not have to know the *key*.
 We can name the chord by its **root** and the *interval sequence*, e.g., B minor chord (**Bm**) is equal to (B, D, F#).
 Musicians use only the note symbol, such as **F**, to denote the major chord of that note, e.g., **F major chord**.
-This can be confusing because scales and keys are denoted similarily.
+This can be confusing because scales and keys are denoted similarly.
 
 (sec-inversion)=
 ## Inversion
@@ -157,7 +157,7 @@ Changing the order of the notes within a chord by changing their octaves is call
 Since the lowest note within a chord is important with respect to the tonality of the chord, moving the second note down is called first inversion while making the third note the **bass note** is called second inversion.
 Of course, we can also move the *root* up instead.
 
-Because of the asymetric propertie of major and minor scales, inversion changes the **quality** of the chord!
+Because of the asymmetric properties of major and minor scales, inversion changes the **quality** of the chord!
 For example, E-G-B is **Em**, i.e. a (3, 4) semitones interval which is a **minor third** and a **major third**.
 Its first inversion G-B-E results in a (4, 5) semitones interval which is a **major third** and a **minor sixth**.
 

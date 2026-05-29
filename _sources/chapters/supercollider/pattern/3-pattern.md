@@ -31,7 +31,7 @@ The difference between (a) [Pattern](https://doc.sccode.org/Classes/Pattern.html
 A composition is a specific [Pattern](https://doc.sccode.org/Classes/Pattern.html) and a performance is a [Stream](https://doc.sccode.org/Classes/Stream.html) of that pattern. 
 Playing a piano can be seen as a stream of specific [Events](https://doc.sccode.org/Classes/Event.html).
 We press some keys, with some velocity, for some duration, then we might wait for some amount of time and press the next keys.
-The incredible power of patterns lies in their ability build more complex patterns by combining different patterns, very similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) used in software engineering.
+The incredible power of patterns lies in their ability to build more complex patterns by combining different patterns, very similar to the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) used in software engineering.
 Similar to unit generators, they are very flexible.
 
 Let us look at a non-trivial example, where we combine multiple [Prand](https://doc.sccode.org/Classes/Prand.html) with a [Pseq](https://doc.sccode.org/Classes/Pseq.html) multiplied by ``10``.
