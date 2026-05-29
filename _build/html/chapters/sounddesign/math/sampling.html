@@ -533,7 +533,7 @@ document.write(`
 </div>
 <p>This section introduces sampling.
 It is the necessary fundament for all digital signal processing and communication.
-Different from music production where <a class="reference internal" href="../../supercollider/sampling/intro.html#sec-file-sampling"><span class="std std-ref">sampling</span></a> means to reuse and tinker with a recorded audio material (and usually involves the sampling I introduce in this section), sampling here is defined as the process of measuring an analog signal at distinct and usually a finite points number of points.
+Different from music production where <a class="reference internal" href="../../supercollider/sampling/intro.html#sec-file-sampling"><span class="std std-ref">sampling</span></a> means to reuse and tinker with a recorded audio material (and usually involves the sampling I introduce in this section), sampling here is defined as the process of measuring an analog signal at distinct and usually a finite number of points.
 Digital representations of analog signals offer advantages in terms of</p>
 <ul class="simple">
 <li><p>robustness towards noise, meaning we can send more bits/s</p></li>
@@ -543,7 +543,7 @@ Digital representations of analog signals offer advantages in terms of</p>
 </ul>
 <div class="definition admonition" id="def-math-sampling">
 <p class="admonition-title">Sampling</p>
-<p><em>Sampling</em> is the process of measuring an analog signal at distinct and usually a finite points number of points.</p>
+<p><em>Sampling</em> is the process of measuring an analog signal at distinct and usually a finite number of points.</p>
 </div>
 <section id="notation">
 <h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">#</a></h2>
@@ -566,7 +566,7 @@ Sampling is the technique to transform a continuous function</p>
 <p>into a discrete representation</p>
 <div class="math notranslate nohighlight">
 \[y_{N}: \mathbb{Z} \rightarrow \mathbb{C}.\]</div>
-<p>Remeber, we are interested in continuous and discrete <em>1D signals</em> <span class="math notranslate nohighlight">\(y(t)\)</span> and <span class="math notranslate nohighlight">\(y_N(n)\)</span> respectively where the independent variable is time <span class="math notranslate nohighlight">\(t\)</span> and the timestep <span class="math notranslate nohighlight">\(n\)</span>.
+<p>Remember, we are interested in continuous and discrete <em>1D signals</em> <span class="math notranslate nohighlight">\(y(t)\)</span> and <span class="math notranslate nohighlight">\(y_N(n)\)</span> respectively where the independent variable is time <span class="math notranslate nohighlight">\(t\)</span> and the timestep <span class="math notranslate nohighlight">\(n\)</span>.
 So we start off with an analog signal which is then sampled <strong>uniformly</strong>!
 Uniform sampling implies that we sample every <span class="math notranslate nohighlight">\(T_s\)</span> seconds or <span class="math notranslate nohighlight">\(f_s\)</span> times a second.</p>
 <section id="loss-of-information">
@@ -576,7 +576,7 @@ Therefore, for complex a number <span class="math notranslate nohighlight">\(z =
 <div class="math notranslate nohighlight">
 \[a, b \in \mathbb{Q}\]</div>
 <p>holds (most of the time).
-Sametimes one also wants to quantize the values of <span class="math notranslate nohighlight">\(y_N\)</span>.
+Sometimes one also wants to quantize the values of <span class="math notranslate nohighlight">\(y_N\)</span>.
 Sampling in the context of audio means that we use equidistant sample points.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -595,10 +595,10 @@ Then</p>
 \[y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s) = \sin(2\pi n \cdot 1/9)\]</div>
 <p>I indicate, that the value <span class="math notranslate nohighlight">\(y_N[n]\)</span> is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
 In the image above the orange points indicate our sample points of the continuous function.
-You can also see that if we only use a sample rate of 2 Hz all our sample values would be zero indicating that the sample rate is surely to small in comparison to the frequency of the sine wave.</p>
+You can also see that if we only use a sample rate of 2 Hz all our sample values would be zero, indicating that the sample rate is surely too small in comparison to the frequency of the sine wave.</p>
 <p>The following code generates the samples for our example.
 You can play around with the <code class="docutils literal notranslate"><span class="pre">sampeRate</span></code> <span class="math notranslate nohighlight">\(f_s\)</span> and the frequency <span class="math notranslate nohighlight">\(f\)</span>.
-Note however that at <span class="math notranslate nohighlight">\(x\)</span>-axis does gives you the sample number (starting from 0) intead of the time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+Note however that the <span class="math notranslate nohighlight">\(x\)</span>-axis gives you the sample number (starting from 0) instead of the time <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nb">sampleRate</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">frequency</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
@@ -621,11 +621,11 @@ Note however that at <span class="math notranslate nohighlight">\(x\)</span>-axi
 </div>
 <p>gives us the <em>sample rate</em> of our audio signals.</p>
 <p>On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
-Therefore, a audio signal <span class="math notranslate nohighlight">\(y: \mathbb{N} \rightarrow \mathbb{Q}\)</span> represents 1 seconds by 44100 samples (rational numbers)</p>
+Therefore, an audio signal <span class="math notranslate nohighlight">\(y: \mathbb{N} \rightarrow \mathbb{Q}\)</span> represents 1 second by 44100 samples (rational numbers)</p>
 <div class="math notranslate nohighlight">
 \[y[n], y[n+1], \ldots, y[n+44099].\]</div>
-<p>If we use single-percision floating point, then each sample requires 32-bit or 4 byte.
-Therfore, the sample uses up approximately 1.67 MiB (often wrongly written as MB / MegaByte).
+<p>If we use single-precision floating point, then each sample requires 32-bit or 4 bytes.
+Therefore, the signal uses up approximately 1.67 MiB (often wrongly written as MB / MegaByte).
 Sound in its raw form is quite memory intensive!</p>
 <p>When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as <strong>aliasing</strong> (different signals become indistinguishable to each other).
 This follows from the so called <em>Nyquist–Shannon sampling theorem</em>.</p>
@@ -633,24 +633,24 @@ This follows from the so called <em>Nyquist–Shannon sampling theorem</em>.</p>
 <p class="admonition-title">Nyquist–Shannon Sampling Theorem</p>
 <p>If a function <span class="math notranslate nohighlight">\(y(t)\)</span> contains no frequencies higher than <span class="math notranslate nohighlight">\(f\)</span> hertz, it is completely determined by giving its ordinates at a series of points spaced <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds apart. In other words, when sampling an analog signal the sampling frequnecy must be greater than twice the highest frequency component of the analog signal to be able to reconstruct the original signal from the sampled version.</p>
 </div>
-<p>I will not prove this theorem here because it involves techniques like the <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier transform</span></a>) that we did not yet covered but from our example you get some of the intuition.</p>
+<p>I will not prove this theorem here because it involves techniques like the <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier transform</span></a> that we have not yet covered, but from our example you get some of the intuition.</p>
 <div class="theorem admonition" id="theorem-aliasing">
 <p class="admonition-title">Aliasing</p>
 <p>If the sample frequency is less than twice the highest frequency component, then frequencies in the original signal that are above half the sampling rate will be “aliased” and will appear in the resulting signal as lower frequencies.</p>
 </div>
 <p>The consequence of <em>aliasing</em> is that we cannot recover the original signal, so aliasing has to be avoided except if you want to use it intentionally.
-Sampling too slowly will produce a sequenc <span class="math notranslate nohighlight">\(y(t)\)</span> that could have orginated from a number of signal.
+Sampling too slowly will produce a sequence <span class="math notranslate nohighlight">\(y(t)\)</span> that could have originated from a number of signals.
 So there is <strong>no</strong> chance of recovering the original one.</p>
 <p>To avoid aliasing we have to sample fast enough.
 But if we can’t sample fast enough (possibly due to costs) we can include an <em>anti-aliasing filter</em>—usually a <a class="reference internal" href="../filters/3-frequency-filters.html#sec-lowpass-filter"><span class="std std-ref">low-pass filter</span></a> that is applied before sampling to ensure that no more components with frequencies greater than half the sample frequency remain.
-This will then gives us an inexact reconstruction but can still good enough solution.</p>
+This will give us an inexact reconstruction but can still be a good enough solution.</p>
 <div class="definition admonition" id="def-aliasing">
 <p class="admonition-title">Aliasing</p>
-<p><em>Aliasing</em> is the effect that result from a two small <em>sample rate</em> by which different signals become indistinguishable to each other.</p>
+<p><em>Aliasing</em> is the effect that results from a too-small <em>sample rate</em> by which different signals become indistinguishable from each other.</p>
 </div>
 <p>In the example above we can observe aliasing.
 We can see that a sample rate of 1 Hz is too low to capture <span class="math notranslate nohighlight">\(y(t) = \sin(2\pi \cdot f \cdot t)\)</span> for <span class="math notranslate nohighlight">\(f = 2, 3, 6\)</span> Hz.
-All these sine waves could also appear to as a sine wave of 1 Hz.
+All these sine waves could also appear as a sine wave of 1 Hz.
 They are indistinguishable if we use a <em>sample rate</em> that low.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -661,7 +661,7 @@ They are indistinguishable if we use a <em>sample rate</em> that low.</p>
 </div>
 <p>The human ear is able to recognize frequencies up to round about 20000 Hz.
 Since we need double the <em>sample rate</em>, 44100 gives us a little bit of room.</p>
-<p>You can play around with the following code to the effect of a sample rate that is too low.
+<p>You can play around with the following code to see the effect of a sample rate that is too low.
 Change <code class="docutils literal notranslate"><span class="pre">sampleRate</span></code> and re-evaluate the code.
 The first plot shows a good approximation of the real signal.
 The second plot shows the result of the sampling process.</p>

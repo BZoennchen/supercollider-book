@@ -56,7 +56,7 @@ Consequently, changing ``n`` while the synth is playing will not change anything
 
 My machine has no problem running over hundred oscillators (``n=100``).
 The CPU workload is at about 8-9 percent.
-If we only use the first ten harmonics, the sound is much more doll, and it becomes crispier by adding more and more harmonics.
+If we only use the first ten harmonics, the sound is much more dull, and it becomes crispier by adding more and more harmonics.
 However, for me, at least, at some point, it is hard to perceive any difference if I add even more harmonics.
 
 Ok, so far so good.
@@ -81,7 +81,7 @@ In summary, for a real violin
 
 ## Adding a Global Envelope
 
-Let is first try a percussive envelope:
+Let us first try a percussive envelope:
 The sound is quite boring because nothing changes over time.
 There is no dynamic thus our ears lose interest immediately.
 
@@ -290,13 +290,13 @@ ipd.Audio(audio_path)
 
 ## Changing the Power Distribution
 
-The amplitudes of each *harmonic overtone* still mirrows the amplitude of its counterpart in a sawtooth wave.
+The amplitudes of each *harmonic overtone* still mirrors the amplitude of its counterpart in a sawtooth wave.
 We can further individualize the sound by changing this.
 We can easily choose individual **frequencies**, **amplitudes** and **phases**.
 
 In the following I use, aside from the fundamental, the 3., 5., 6., 7., 8. and 9-th *harmonics*.
 You can play the pattern while changing the amplitudes and the number of each harmonic to alter the sound.
-You can also add addtional harmonics.
+You can also add additional harmonics.
 
 ```isc
 (

@@ -533,9 +533,9 @@ document.write(`
 <h1>Markov Chain Music<a class="headerlink" href="#markov-chain-music" title="Permalink to this headline">#</a></h1>
 <p>A <em>Markov chain</em> is a mathematical model for stochastic processes describing a sequence of possible events.
 Importantly the model assumes that the probability of each event depends only on the state attained in the previous event which is a strong assumption.
-It is often refered as the <em>Markov property</em> and sometimes characterized as <em>memorylessness</em>.</p>
+It is often referred to as the <em>Markov property</em> and sometimes characterized as <em>memorylessness</em>.</p>
 <p>Markov chains can be used to generate musical events.
-One usually assume that these events are discrete-time events.
+One usually assumes that these events are discrete-time events.
 Therefore, we use a <em>discrete-time Markov chain</em> (DTMC).</p>
 <div class="definition admonition" id="def-dtmc">
 <p class="admonition-title">Discrete-time Markov Chain</p>
@@ -545,10 +545,10 @@ Therefore, we use a <em>discrete-time Markov chain</em> (DTMC).</p>
 <p>if both conditional probabilites are well defined, that is, if</p>
 <div class="math notranslate nohighlight">
 \[P(X_1 = x_1, \ldots, X_k = x_k) &gt; 0.\]</div>
-<p>The possible values of <span class="math notranslate nohighlight">\(X_i\)</span> form a <em>countable set</em> <span class="math notranslate nohighlight">\(S\)</span> (it is finate or there exists a bijection to the natural numbers) called the state space of the chain.</p>
+<p>The possible values of <span class="math notranslate nohighlight">\(X_i\)</span> form a <em>countable set</em> <span class="math notranslate nohighlight">\(S\)</span> (it is finite or there exists a bijection to the natural numbers) called the state space of the chain.</p>
 </div>
-<p>It is intuitiv clear why Markov chains are useful for alorithmic composition: they are rather easy to implement, assuming we have a good generator of pseudo random numbers
-If <span class="math notranslate nohighlight">\(S\)</span> is finite and contines <span class="math notranslate nohighlight">\(m\)</span> symbols/events, it forms an <em>alphabet</em> of events.
+<p>It is intuitively clear why Markov chains are useful for algorithmic composition: they are rather easy to implement, assuming we have a good generator of pseudo random numbers.
+If <span class="math notranslate nohighlight">\(S\)</span> is finite and contains <span class="math notranslate nohighlight">\(m\)</span> symbols/events, it forms an <em>alphabet</em> of events.
 Let’s assume we want to generate a sequence of length <span class="math notranslate nohighlight">\(n\)</span> then we have to define a probability for each pair of letters within the alphabet for each of the <span class="math notranslate nohighlight">\(n\)</span> transition and for the first event, i.e., at most</p>
 <div class="math notranslate nohighlight">
 \[|S|^2 \cdot n = m^2 \cdot n\]</div>
@@ -559,7 +559,7 @@ Let’s assume we want to generate a sequence of length <span class="math notran
 <div class="math notranslate nohighlight">
 \[P(X_{k+1} = x \ | \ X_{k} = y) = P(X_{k} = x \ | \ X_{k-1} = y)\]</div>
 <p>for all <span class="math notranslate nohighlight">\(k\)</span> with <span class="math notranslate nohighlight">\(x, y \in S\)</span>, then we only require at most <span class="math notranslate nohighlight">\(m^2\)</span> probability values.
-Furhtermore, let <span class="math notranslate nohighlight">\(p_{ij}\)</span> the probability that event <span class="math notranslate nohighlight">\(x_j\)</span> follows after event <span class="math notranslate nohighlight">\(x_i\)</span>, that is:</p>
+Furthermore, let <span class="math notranslate nohighlight">\(p_{ij}\)</span> be the probability that event <span class="math notranslate nohighlight">\(x_j\)</span> follows after event <span class="math notranslate nohighlight">\(x_i\)</span>, that is:</p>
 <div class="math notranslate nohighlight">
 \[p_{ij} = P(X_{k+1} = x_j \ | \ X_k = x_i)\]</div>
 <p>then we can form a probability transition matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>, such that,</p>
@@ -570,7 +570,7 @@ Furhtermore, let <span class="math notranslate nohighlight">\(p_{ij}\)</span> th
 \[\sum\limits_{j=1}^n p_{ij} = 1\]</div>
 <p>for all <span class="math notranslate nohighlight">\(i = 1, \ldots, n\)</span>.
 In other words each row sums up to one.
-What we need in addtion is the probabilty of the first event within the sequence that is <span class="math notranslate nohighlight">\(P(X_1 = x)\)</span> for all <span class="math notranslate nohighlight">\(x \in S\)</span>.</p>
+What we need in addition is the probability of the first event within the sequence, that is, <span class="math notranslate nohighlight">\(P(X_1 = x)\)</span> for all <span class="math notranslate nohighlight">\(x \in S\)</span>.</p>
 </section>
 <section id="a-very-simple-example">
 <h2>A Very Simple Example<a class="headerlink" href="#a-very-simple-example" title="Permalink to this headline">#</a></h2>
@@ -589,7 +589,7 @@ Then the following two-dimensional array could represent <span class="math notra
 <p>One possible way to construct a Markov chain is to use the <code class="docutils literal notranslate"><span class="pre">\degree</span></code> of the scale as an event.
 Given degree <span class="math notranslate nohighlight">\(x_i\)</span> we use <code class="docutils literal notranslate"><span class="pre">1.0.rand</span></code> to generate a random number between 0.0 and 1.0.
 Then we pick the <span class="math notranslate nohighlight">\(i^{\text{th}}\)</span> row of our matrix <code class="docutils literal notranslate"><span class="pre">p</span></code>.
-We accumulate the colums and increase an index, starting from 0, until the sum is greater or equal the rolled probability.</p>
+We accumulate the columns and increase an index, starting from 0, until the sum is greater than or equal to the rolled probability.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">funcNext</span> <span class="o">=</span> <span class="p">{</span> <span class="o">|</span><span class="nx">prevIndex</span><span class="o">|</span>
     <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -618,7 +618,7 @@ Calling this function constructs a random sequence of degrees.</p>
 <span class="p">};</span>
 </pre></div>
 </div>
-<p>We can use is, e.g., in a <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a>:</p>
+<p>We can use it, e.g., in a <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbind</span><span class="p">(</span>
     <span class="ss">\scale</span><span class="p">,</span> <span class="nc">Scale</span><span class="p">.</span><span class="nx">minor</span><span class="p">,</span>
@@ -644,8 +644,8 @@ Calling this function constructs a random sequence of degrees.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>A famous way of represeting such a <em>time-homogeneous discrete Markov chains</em> is using a directed graph where nodes represent events and directed edges transition probabilities.
-Anyone familiar with deterministic finiate automata will recognize these graphs.</p>
+<p>A famous way of representing such <em>time-homogeneous discrete Markov chains</em> is using a directed graph where nodes represent events and directed edges represent transition probabilities.
+Anyone familiar with deterministic finite automata will recognize these graphs.</p>
 <figure class="align-default" id="fig-markov-chain-simple">
 <a class="reference internal image-reference" href="../../../_images/markov-chain-simple.png"><img alt="../../../_images/markov-chain-simple.png" src="../../../_images/markov-chain-simple.png" style="width: 300px;" /></a>
 <figcaption>
@@ -656,16 +656,16 @@ Anyone familiar with deterministic finiate automata will recognize these graphs.
 <section id="a-more-complex-example">
 <h2>A More Complex Example<a class="headerlink" href="#a-more-complex-example" title="Permalink to this headline">#</a></h2>
 <p>Instead of only using the pitch or degree of a scale as elements of the alphabet, we could use complete events played by a <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a>.
-Futhermore, often you have a lot of transition that are not possible.
+Furthermore, often you have a lot of transitions that are not possible.
 Therefore, instead of using a dense matrix, we can use a different data structure that requires less memory.
 The following is just one of many different possibilities.</p>
 <p>Let’s use a list where each entry represents a node.
 The node number is equal to the index of the entry.
-It should consists the event and the information about the transitions starting at this node.
+It should contain the event and the information about the transitions starting at this node.
 We model the list by an <a class="reference internal" href="../../supercollider/basics/3-arrays.html#sec-array"><span class="std std-ref">array</span></a> which contains an <a class="reference internal" href="../../supercollider/basics/8-environments.html#sec-environments"><span class="std std-ref">environment</span></a>.
 Here I use the combination of <code class="docutils literal notranslate"><span class="pre">\midinote</span></code> and <code class="docutils literal notranslate"><span class="pre">\dur</span></code> as an event.
 <code class="docutils literal notranslate"><span class="pre">\nodes</span></code> is the list of reachable nodes (numbers) and <code class="docutils literal notranslate"><span class="pre">\prob</span></code>  the respective probabilities.
-Since I am lazy to compute probabilities I, use normalized weights.</p>
+Since I am lazy to compute probabilities, I use normalized weights.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="o">~</span><span class="nx">nodes</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="ss">\midinote</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span> <span class="ss">\dur</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">\nodes</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ss">\probs</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nx">normalizeSum</span><span class="p">),</span>

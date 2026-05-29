@@ -525,7 +525,7 @@ Just remember that the order goes from <em>head</em> to <em>tail</em> because it
 <p class="admonition-title">Note Tree</p>
 <p>In SuperCollider the signal flows from the <em>head</em> of the <em>node tree</em> to its <em>tail</em>.</p>
 </div>
-<p>If our synth does not represent the whole signal flow graph, there has to be a possibility to read the signal and to somehow manipuate it.
+<p>If our synth does not represent the whole signal flow graph, there has to be a possibility to read the signal and to somehow manipulate it.
 For this purpose there are so called busses.
 In fact, when we use the <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> unit generator we actually write a signal to a <a class="reference external" href="https://doc.sccode.org/Classes/Bus.html">Bus</a>.</p>
 <div class="definition admonition">
@@ -547,9 +547,9 @@ A stereo signal requires two busses and the <a class="reference external" href="
 <li><p>a reverb effect.</p></li>
 </ol>
 <p>The reverb effect should process the signal in the last stage.
-Therefore we have to positioning it at the tail.
+Therefore we have to position it at the tail.
 The impulse should be at the head, and the saw wave should be in between.
-At this point it is not necissary that you fully understand these <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a>.
+At this point it is not necessary that you fully understand these <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDefs</a>.
 When ever <code class="docutils literal notranslate"><span class="pre">\impuse</span></code> outputs an impulse, i.e., trigger, <a class="reference external" href="https://doc.sccode.org/Classes/TExpRand.html">TExpRand</a> spits out a value between 40 and 100.
 It is a so called <a class="reference internal" href="../sugens/2-triggers.html#sec-demand-ugens"><span class="std std-ref">demand unit generator</span></a>.
 I use <a class="reference external" href="https://doc.sccode.org/Classes/Dust.html">Dust</a> as a random impulse.
@@ -582,7 +582,7 @@ Its frequency determines the density of the randomly generated impulses.</p>
 <p>The <a class="reference external" href="https://doc.sccode.org/Classes/In.html">In</a> unit generator read a signal from a bus and its counterpart <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> writes the signal to a bus.
 Note that our default values would not work because each synth would write to bus 0.
 In the following, I use <a class="reference external" href="https://doc.sccode.org/Classes/Bus.html">Bus</a> objects that are handy to organize busses client-side.
-However, these objects have no effect on the server, i.e., they do not acutally create new busses but manage bus numbers.
+However, these objects have no effect on the server, i.e., they do not actually create new busses but manage bus numbers.
 If we execute the following, we do not hear any sound:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="o">~</span><span class="nx">b_impuse</span> <span class="o">=</span> <span class="nc">Bus</span><span class="p">.</span><span class="nx">audio</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
@@ -644,8 +644,8 @@ The following also works just fine:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Here we add <code class="docutils literal notranslate"><span class="pre">\saw</span></code> after (with respect to the <em>head</em>) <code class="docutils literal notranslate"><span class="pre">~imuplse</span></code>.</p>
-<p>Another possibility is to use <a class="reference external" href="https://doc.sccode.org/Classes/Group.html">Groups</a> which are containes in the <em>node tree</em> that can contain multiple synths.
+<p>Here we add <code class="docutils literal notranslate"><span class="pre">\saw</span></code> after (with respect to the <em>head</em>) <code class="docutils literal notranslate"><span class="pre">~impulse</span></code>.</p>
+<p>Another possibility is to use <a class="reference external" href="https://doc.sccode.org/Classes/Group.html">Groups</a> which are containers in the <em>node tree</em> that can contain multiple synths.
 This is useful if you have a lot of synth where some are independent.
 For example, if you only apply at most one effect to any signal, you could put all effect synths into the same <a class="reference external" href="https://doc.sccode.org/Classes/Group.html">Group</a>.</p>
 <div class="remark admonition">

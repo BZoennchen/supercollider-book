@@ -50,10 +50,10 @@ Artworks tend to being *simulacra*, i.e., copies without originals.
 Furthermore, Benjamin saw that art was and will be captured by capitalism to serve as the means to produce a brand, or in today's term: a *profile*.
 The authentic *substantiality* of art is lost---or in Heidegger's terms: *earth* is fully concealed.
 
-But again, for Banjamin this is not necessarily a bad thing.
+But again, for Benjamin this is not necessarily a bad thing.
 Distinct from what I read into Heidegger, there is no nostalgia of the loss of *authenticity*.
 For him, the loss of *aura* and the loss of *authenticity* is *cathartic* because it liberates and democratizes art.
-It takes art out of the hand of the elites, sof to say, and makes it accessible to the people.
+It takes art out of the hand of the elites, so to say, and makes it accessible to the people.
 Art becomes mass-produced, mass-consumed, mass-participatory, and mass-criticized.
 
 >For the first time in world history, mechanical reproduction emancipates the work of art from its parasitical dependence on ritual. -- Walter Benjamin
@@ -68,7 +68,7 @@ Benjamin wanted to change our worldview to change the material world.
 But to give the masses expression without change was, for him, the formula of fascism.
 
 From a contemporary perspective, we can say that the new media were not bringing about a communist utopia.
-Furthermore, the facist appropriation of art, while it had its catastrophic time, is hopefully a thing of history.
+Furthermore, the fascist appropriation of art, while it had its catastrophic time, is hopefully a thing of history.
 Instead, today, new media and, within new media, art often serves the *curation of profiles* on an individual as well as collective or institutional level---it neither functions in the context of communism nor of fascism but, in most cases, it serves *capitalism*.
 
 Heidegger thought that when we humans came at last to see ourselves as living *on* a world, we had finally replaced any notion of dwelling with a rationalist, external, and objectified vision of existence.
@@ -80,11 +80,11 @@ A picture of a pair of shoes projected onto a screen can open up a world of the 
 However, copies without origins can not.
 They stay, so to say, *ready-to-hand* and never appear to us as *present-at-hand*.
 
-In an reaction to Benjamin's essay Douglas Davis argues in *The Work of Art in the Age of Digital Reproduction* that "art, in the traditional realm, is a commodity that must pretend to universality.
+In a reaction to Benjamin's essay Douglas Davis argues in *The Work of Art in the Age of Digital Reproduction* that "art, in the traditional realm, is a commodity that must pretend to universality.
 It must reach out to touch many fingers, not just yours or mine."
-While Benjamin was in support of technological production of art in the sense that it would *touch many fingers*, he was certainly worried of art as a commercial product which purpose it is to make a profit or make one successful.
+While Benjamin was in support of technological production of art in the sense that it would *touch many fingers*, he was certainly worried about art as a commercial product whose purpose it is to make a profit or make one successful.
 He wanted political and progressive material change via the visions, i.e. *worlds*, *unconcealed* by art.
-He would probably also align with Tarkovsky as seeing art as the possibility of spiritual grows but of the people and not of a few elites.
+He would probably also align with Tarkovsky in seeing art as the possibility of spiritual growth, but of the people and not of a few elites.
 
 The focus on profit might completely push the artist out of the picture which would, according to Heidegger, render art impossible, since art and the artist are interdependent.
 Of course, there are enough people who believe, especially in these days, that the human artist is a superfluous burden.
@@ -99,7 +99,7 @@ This sentiment was perfectly articulated by Steven Bartlett on his podcast:
 
 I do not want to go into the topic of *creativity* but, to me, art is not the product of some sort of scientific experiment where you put a bunch of ingredients in and get some optimal output.
 In fact, as we discussed, it is quite the opposite.
-Furthermore, it is not about *creativity* (which certainly helps), i.e. creating something creative that is surprising and entertaining in the most optimal why.
+Furthermore, it is not about *creativity* (which certainly helps), i.e. creating something creative that is surprising and entertaining in the most optimal way.
 Great works of art show *truth*; they reveal something of significance.
 For some it shows the inner world of the artists, for others it shows another world.
 The important quality of artists is their capacity to see new worlds without fully understanding them. 
@@ -109,7 +109,7 @@ And I suggest that Tarkovsky's view on art as the preparation for death is life 
 >Art approaches as a saving sorceress, expert at healing. She alone knows how to tum these nauseous thoughts about the horror or absurdity of existence into notions with which one can live: these are the sublime as the artistic taming of the horrible, and the comic as the artistic discharge of the nausea of absurdity. -- Friedrich Nietzsche
 
 With this in mind, let us look at recent examples of highly technologized artworks.
-Take, for example, these new immersive Van Gogh exhibitions which animate Van Gogh's works within a room accentuate with music where you can interact with the artwork.
+Take, for example, these new immersive Van Gogh exhibitions which animate Van Gogh's works within a room accentuated with music where you can interact with the artwork.
 
 >In a multimedia light installation, the visitor is immersed in Van Gogh's works and experiences the virtual illusion as reality. The paintings are brought to life with the help of oversized projections and video animations in combination with soulful melodies. No detail of the famous works of art remains hidden from the visitor. Van Gogh's works such as the world-famous "Sunflowers", "The Night Café", "The Starry Night", "The Potato Eaters" or the "Bedroom in Arles" can be experienced from a completely new perspective. The viewer is in the midst of the paintings, he becomes part of the scenery, immersed in light and sound, the works of art interact with him. -- Website of The Van Goth Experience
 
@@ -122,7 +122,7 @@ This distance between the artwork and the observer vanishes here, similar to the
 
 It is true that there is a “new multimedia spectacle,” but it doesn't "present Van Gogh’s artworks" as if the original is somehow "updated" or "improved".
 It's a completely different work, and I would argue one that lacks the ability of unconcealing the *earth* for the benefit of being *spectacular*.
-While the experience it might have a healing effect and serve life, I'm skeptical. 
+While the experience might have a healing effect and serve life, I'm skeptical. 
 Instead of art for art's sake, or art with a cultish or exhibitionist nature, these exhibitions seem to be mere exhibitions for the sake of exhibitions.
 
 I am interested in unconcealing technology---to make it visible and a matter of deep thought.
@@ -136,7 +136,7 @@ The problem is that in these cases technology is the equipment *ready-to-hand*.
 But what if an *algorithmic artwork* doesn't represent anything but its own creation?
 Isn't it the case that, in this case, *algorithmic art* can unconceal the algorithm's truth?
 I argue that precisely because of its uselessness (with respect to equipment) the algorithm becomes *present-at-hand*.
-*Code*, eletrical circuits and energy is its *earth* (*Heimat*).
+*Code*, electrical circuits and energy is its *earth* (*Heimat*).
 In a live setting, i.e. when doing *live programming*, we get another dimension because in this setting the unexpected looms in the darkness.
 If things go wrong the equipment (laptops, code, etc.) introduce itself---the technological world appears. 
 That is why I find *algorithmic art* so interesting.
@@ -153,7 +153,7 @@ Furthermore, I see potential in *algorithmic art* to unconceal technology but on
 
 From Benjamin I take that technology changed the creation, consumption and evaluation of art into a mass-event.
 The *aura*, in many cases, is lost.
-Instead of *exchange value* artworks have now *symbolic value* that no longer symbolize anything mysticaland or incomprehensible.
+Instead of *exchange value* artworks have now *symbolic value* that no longer symbolize anything mystical or incomprehensible.
 They often no longer stand for themselves but, like Heidegger's equipment which is interconnected within a web of tools, practices and purposes, artworks (as products) are more and more interconnected to other signifiers and derive their meaning not by unconcealing *earth* and *worlds* but their connection within this web---like words in a language but with the exception that these symbols are not grounded in anything "earthly" (heimatlich).
 In Luhmann's terminology, contemporary artworks are forms of society (understood as all of communication).
 From Nietzsche and Tarkovsky I take that it is enough for art to serve life.

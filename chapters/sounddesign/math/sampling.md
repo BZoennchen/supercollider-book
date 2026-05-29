@@ -55,7 +55,7 @@ def lineplot(x, y, filename=None, title=None, xlim=None, ylim=None, ax=None, fig
 
 This section introduces sampling.
 It is the necessary fundament for all digital signal processing and communication.
-Different from music production where [sampling](sec-file-sampling) means to reuse and tinker with a recorded audio material (and usually involves the sampling I introduce in this section), sampling here is defined as the process of measuring an analog signal at distinct and usually a finite points number of points.
+Different from music production where [sampling](sec-file-sampling) means to reuse and tinker with a recorded audio material (and usually involves the sampling I introduce in this section), sampling here is defined as the process of measuring an analog signal at distinct and usually a finite number of points.
 Digital representations of analog signals offer advantages in terms of
 
 + robustness towards noise, meaning we can send more bits/s
@@ -67,7 +67,7 @@ Digital representations of analog signals offer advantages in terms of
 :name: def-math-sampling
 :class: definition
 
-*Sampling* is the process of measuring an analog signal at distinct and usually a finite points number of points.
+*Sampling* is the process of measuring an analog signal at distinct and usually a finite number of points.
 
 ```
 
@@ -93,7 +93,7 @@ into a discrete representation
 
 $$y_{N}: \mathbb{Z} \rightarrow \mathbb{C}.$$
 
-Remeber, we are interested in continuous and discrete *1D signals* $y(t)$ and $y_N(n)$ respectively where the independent variable is time $t$ and the timestep $n$.
+Remember, we are interested in continuous and discrete *1D signals* $y(t)$ and $y_N(n)$ respectively where the independent variable is time $t$ and the timestep $n$.
 So we start off with an analog signal which is then sampled **uniformly**!
 Uniform sampling implies that we sample every $T_s$ seconds or $f_s$ times a second.
 
@@ -105,7 +105,7 @@ Therefore, for complex a number $z = a + ib$,
 $$a, b \in \mathbb{Q}$$
 
 holds (most of the time).
-Sametimes one also wants to quantize the values of $y_N$.
+Sometimes one also wants to quantize the values of $y_N$.
 Sampling in the context of audio means that we use equidistant sample points.
 
 ```{code-cell} python3
@@ -145,11 +145,11 @@ $$y_N[n] \approx y\left(n \cdot \frac{1}{f_s} \right) = y(n \cdot T_s) = \sin(2\
 
 I indicate, that the value $y_N[n]$ is only an approximation, since on a computer we use a certain bit depth of our floating point numbers!
 In the image above the orange points indicate our sample points of the continuous function.
-You can also see that if we only use a sample rate of 2 Hz all our sample values would be zero indicating that the sample rate is surely to small in comparison to the frequency of the sine wave.
+You can also see that if we only use a sample rate of 2 Hz all our sample values would be zero, indicating that the sample rate is surely too small in comparison to the frequency of the sine wave.
 
 The following code generates the samples for our example.
 You can play around with the ``sampeRate`` $f_s$ and the frequency $f$.
-Note however that at $x$-axis does gives you the sample number (starting from 0) intead of the time $t$.
+Note however that the $x$-axis gives you the sample number (starting from 0) instead of the time $t$.
 
 ```isc
 (
@@ -177,12 +177,12 @@ s.sampleRate // 44100 Hz
 gives us the *sample rate* of our audio signals.
 
 On my machine, I use a sample rate of 44100 Hz, i.e. 44100 samples per second.
-Therefore, a audio signal $y: \mathbb{N} \rightarrow \mathbb{Q}$ represents 1 seconds by 44100 samples (rational numbers)
+Therefore, an audio signal $y: \mathbb{N} \rightarrow \mathbb{Q}$ represents 1 second by 44100 samples (rational numbers)
 
 $$y[n], y[n+1], \ldots, y[n+44099].$$
 
-If we use single-percision floating point, then each sample requires 32-bit or 4 byte.
-Therfore, the sample uses up approximately 1.67 MiB (often wrongly written as MB / MegaByte).
+If we use single-precision floating point, then each sample requires 32-bit or 4 bytes.
+Therefore, the signal uses up approximately 1.67 MiB (often wrongly written as MB / MegaByte).
 Sound in its raw form is quite memory intensive!
 
 When the highest frequency of a signal is less than one-half of the sample rate, the resulting discrete-time sequence is said to be free of the distortion known as **aliasing** (different signals become indistinguishable to each other).
@@ -195,7 +195,7 @@ This follows from the so called *Nyquist–Shannon sampling theorem*.
 If a function $y(t)$ contains no frequencies higher than $f$ hertz, it is completely determined by giving its ordinates at a series of points spaced $1/(2f)$ seconds apart. In other words, when sampling an analog signal the sampling frequnecy must be greater than twice the highest frequency component of the analog signal to be able to reconstruct the original signal from the sampled version.
 ````
 
-I will not prove this theorem here because it involves techniques like the [Fourier transform](sec-fourier-transform)) that we did not yet covered but from our example you get some of the intuition.
+I will not prove this theorem here because it involves techniques like the [Fourier transform](sec-fourier-transform) that we have not yet covered, but from our example you get some of the intuition.
 
 ````{admonition} Aliasing
 :name: theorem-aliasing
@@ -205,23 +205,23 @@ If the sample frequency is less than twice the highest frequency component, then
 ````
 
 The consequence of *aliasing* is that we cannot recover the original signal, so aliasing has to be avoided except if you want to use it intentionally.
-Sampling too slowly will produce a sequenc $y(t)$ that could have orginated from a number of signal.
+Sampling too slowly will produce a sequence $y(t)$ that could have originated from a number of signals.
 So there is **no** chance of recovering the original one.
 
 To avoid aliasing we have to sample fast enough.
 But if we can't sample fast enough (possibly due to costs) we can include an *anti-aliasing filter*---usually a [low-pass filter](sec-lowpass-filter) that is applied before sampling to ensure that no more components with frequencies greater than half the sample frequency remain.
-This will then gives us an inexact reconstruction but can still good enough solution.
+This will give us an inexact reconstruction but can still be a good enough solution.
 
 ````{admonition} Aliasing
 :name: def-aliasing
 :class: definition
 
-*Aliasing* is the effect that result from a two small *sample rate* by which different signals become indistinguishable to each other.
+*Aliasing* is the effect that results from a too-small *sample rate* by which different signals become indistinguishable from each other.
 ````
 
 In the example above we can observe aliasing.
 We can see that a sample rate of 1 Hz is too low to capture $y(t) = \sin(2\pi \cdot f \cdot t)$ for $f = 2, 3, 6$ Hz.
-All these sine waves could also appear to as a sine wave of 1 Hz.
+All these sine waves could also appear as a sine wave of 1 Hz.
 They are indistinguishable if we use a *sample rate* that low.
 
 ```{code-cell} python3
@@ -263,7 +263,7 @@ fig.suptitle(r'The effect of aliasing.');
 The human ear is able to recognize frequencies up to round about 20000 Hz.
 Since we need double the *sample rate*, 44100 gives us a little bit of room.
 
-You can play around with the following code to the effect of a sample rate that is too low.
+You can play around with the following code to see the effect of a sample rate that is too low.
 Change ``sampleRate`` and re-evaluate the code.
 The first plot shows a good approximation of the real signal.
 The second plot shows the result of the sampling process.

@@ -546,20 +546,20 @@ The official <a class="reference external" href="https://doc.sccode.org/">docume
 <section id="lists">
 <h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pseq.html">Pseq</a> is the most basic pattern that can be used to play through a list of values.
-It is useful for deterministic number generatrion, e.g. playing a specific chord progression but also to combine non-deterministic patterns.
-<code class="docutils literal notranslate"><span class="pre">repeats</span></code> (which can be infinit <code class="docutils literal notranslate"><span class="pre">inf</span></code>) spcifies how often the pattern goes through the list.
-<code class="docutils literal notranslate"><span class="pre">offset</span></code> indicate the starting index.</p>
+It is useful for deterministic number generation, e.g. playing a specific chord progression but also to combine non-deterministic patterns.
+<code class="docutils literal notranslate"><span class="pre">repeats</span></code> (which can be infinite <code class="docutils literal notranslate"><span class="pre">inf</span></code>) specifies how often the pattern goes through the list.
+<code class="docutils literal notranslate"><span class="pre">offset</span></code> indicates the starting index.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// [ 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2 ]</span>
 <span class="nc">Pseq</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="na">repeats:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">offset:</span> <span class="mi">2</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Prand.html">Prand</a> chooses items from the list randomly (same as list.choose).
-You can reduce randomness if you but the same item into the list multiple times (or you use <a class="reference external" href="https://doc.sccode.org/Classes/Pwrand.html">Pwrand</a> instead).</p>
+You can reduce randomness if you put the same item into the list multiple times (or you use <a class="reference external" href="https://doc.sccode.org/Classes/Pwrand.html">Pwrand</a> instead).</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// e.g. [ 4, 3, 4, 3, 3, 2, 1, 3, 2, 4 ]</span>
 <span class="nc">Prand</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="na">repeats:</span> <span class="mi">10</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://doc.sccode.org/Classes/Pxrand.html">Pxrand</a> chooses randomly, but never repeat the same item twice.</p>
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pxrand.html">Pxrand</a> chooses randomly, but never repeats the same item twice.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// e.g. [ 2, 1, 2, 4, 3, 1, 4, 1, 2, 4 ]</span>
 <span class="nc">Pxrand</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="na">repeats:</span> <span class="mi">10</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
 </pre></div>
@@ -570,7 +570,7 @@ This introduces randomness deterministically.</p>
 <span class="nc">Pshuf</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="na">repeats:</span> <span class="mi">3</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
 </pre></div>
 </div>
-<p><a class="reference external" href="https://doc.sccode.org/Classes/Pwrand.html">Pwrand</a> choose randomly by weighted probabilities (like list.wchoose(weights)).
+<p><a class="reference external" href="https://doc.sccode.org/Classes/Pwrand.html">Pwrand</a> chooses randomly by weighted probabilities (like list.wchoose(weights)).
 <strong>Tipp:</strong> use <code class="docutils literal notranslate"><span class="pre">normalizeSum</span></code> to guarantee that weights add up to 1.0.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// e.g. [ 1, 2, 1, 2, 2, 2, 1, 2, 2, 2 ]</span>
 <span class="nc">Pwrand</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="na">weights:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nx">normalizeSum</span><span class="p">,</span> <span class="na">repeats:</span> <span class="mi">10</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
@@ -605,7 +605,7 @@ This introduces randomness deterministically.</p>
 </div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pbrown.html">Pbrown</a> generates numbers according to the Brownian motion, arithmetic scale (addition).
 The <code class="docutils literal notranslate"><span class="pre">step</span></code> argument determines the maximum change per step.
-Internal, the pattern uses <code class="docutils literal notranslate"><span class="pre">xrand2</span></code> to determine the next step change, i.e., a uniform distribution fron <code class="docutils literal notranslate"><span class="pre">-step</span></code> to <code class="docutils literal notranslate"><span class="pre">+step</span></code>.</p>
+Internal, the pattern uses <code class="docutils literal notranslate"><span class="pre">xrand2</span></code> to determine the next step change, i.e., a uniform distribution from <code class="docutils literal notranslate"><span class="pre">-step</span></code> to <code class="docutils literal notranslate"><span class="pre">+step</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// e.g. [ 0.044661736488342, 0.12499458789825, 0.20763206481934, 0.30759530067444 ]</span>
 <span class="nc">Pbrown</span><span class="p">(</span><span class="na">lo:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">hi:</span> <span class="mi">5</span><span class="p">,</span> <span class="na">step:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="na">length:</span> <span class="mi">4</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
 </pre></div>
@@ -614,7 +614,7 @@ Internal, the pattern uses <code class="docutils literal notranslate"><span clas
 <section id="functions">
 <span id="sec-pattern-ref-function"></span><h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pkey.html">Pkey</a> gets the value of another <code class="docutils literal notranslate"><span class="pre">key</span></code> of a <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbind</a>.
-The <code class="docutils literal notranslate"><span class="pre">key</span></code> has to be specified before it can be accesed.
+The <code class="docutils literal notranslate"><span class="pre">key</span></code> has to be specified before it can be accessed.
 In the following example we control the amplitude <code class="docutils literal notranslate"><span class="pre">\amp</span></code> via the <code class="docutils literal notranslate"><span class="pre">\midinote</span></code> we are playing such that higher notes are louder.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Pbind</span><span class="p">(</span>
@@ -650,7 +650,7 @@ In the following example we control the amplitude <code class="docutils literal 
 </div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Prout.html">Prout</a> uses the function like a routine.
 The function should return values using <code class="docutils literal notranslate"><span class="pre">.yield</span></code> or <code class="docutils literal notranslate"><span class="pre">.embedInStream</span></code>.
-The folling code constructs a pattern that spits out the first 10 Fibonacci numbers.</p>
+The following code constructs a pattern that spits out the first 10 Fibonacci numbers.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ]</span>
 <span class="p">(</span>
 <span class="nc">Prout</span><span class="p">(</span><span class="na">routineFunc:</span> <span class="p">{</span>
@@ -690,7 +690,7 @@ The folling code constructs a pattern that spits out the first 10 Fibonacci numb
 </pre></div>
 </div>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pwalk.html">Pwalk</a> realizes a <em>random walk</em> over the list.
-The direction and the steps of the walk can be controled by patterns.</p>
+The direction and the steps of the walk can be controlled by patterns.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// [ 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 1, 2, 3, 4 ]</span>
 <span class="p">(</span>
 <span class="nc">Pwalk</span><span class="p">(</span>
@@ -705,7 +705,7 @@ The direction and the steps of the walk can be controled by patterns.</p>
 Basically this pattern returns elements in the list.
 But if an element is an array itself, it embeds the first element when it comes by first time, the second element when it comes by the second time and so on.
 The <span class="math notranslate nohighlight">\(n\)</span>-th when it comes by the <span class="math notranslate nohighlight">\(n\)</span>-th time.
-This can be very useful when we build a melodies.</p>
+This can be very useful when we build melodies.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// [ 1, 2, 5, 1, 3, 6 ]</span>
 <span class="nc">Place</span><span class="p">(</span><span class="na">list:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> <span class="na">repeats:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">offset:</span> <span class="mi">0</span><span class="p">).</span><span class="nb">asStream</span><span class="p">.</span><span class="nx">all</span><span class="p">;</span>
 </pre></div>
@@ -756,10 +756,10 @@ This makes only sense for <a class="reference external" href="https://doc.sccode
 </section>
 <section id="filter-pattern">
 <h3>Filter Pattern<a class="headerlink" href="#filter-pattern" title="Permalink to this headline">#</a></h3>
-<p>Filter pattern are manipulate existing pattern via the <em>decorator</em> approach.
+<p>Filter patterns manipulate existing patterns via the <em>decorator</em> approach.
 This means they not necessarily reduce the number of values a pattern generates.</p>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Pn.html">Pn</a> repeatedly embed a pattern.
-This pattern is especially hand in the live coding environment when you want to adjust a pattern by decorate it by another pattern.
+This pattern is especially handy in the live coding environment when you want to adjust a pattern by decorate it by another pattern.
 If <code class="docutils literal notranslate"><span class="pre">key</span></code> is non-<code class="docutils literal notranslate"><span class="pre">nil</span></code>, it sets the value of that key to true whenever it restarts the pattern.
 This can be used to advance patterns enclosed by <a class="reference external" href="https://doc.sccode.org/Classes/Pgate.html">Pgate</a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// [ 1, 2, 3, 1, 2, 3, 1, 2, 3 ] equivalent to Pseq([1,2,3], 3)</span>

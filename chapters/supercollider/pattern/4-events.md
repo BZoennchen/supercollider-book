@@ -122,7 +122,7 @@ SynthDef(\default, {
 ```
 
 It is a filtered randomly distorted [sawtooth wave](sec-sawtooth-wave) with variable duty multiplied by a percussive envelope.
-Two slightly detuned waves are generated and mixed a single channel which is then panned into both speakers.
+Two slightly detuned waves are generated and mixed into a single channel which is then panned into both speakers.
 The cutoff frequency of the [low pass filter](sec-lowpass-filter) decreases over the time span of 1 second and is initialized with random values.
 By decreasing the cutoff frequency over time, high frequencies die out faster which is natural.
 
@@ -281,7 +281,7 @@ audio_path = '../../../sounds/event-legato.mp3'
 ipd.Audio(audio_path)
 ```
 
-In that case, you can hear that the notes 7, 0 and 10, 3 are played simultaniously since the next even starts after the notes -7 and 3 are played!
+In that case, you can hear that the notes 7, 0 and 10, 3 are played simultaneously since the next event starts after the notes -7 and 3 are played!
 
 We will see the effect of the different timing parameters later on when we actually play a stream of events.
 
@@ -424,7 +424,7 @@ Both of the following code lines generate a sound of equal amplitude.
 ```
 
 Note that ``\db`` is a logarithmic unit used to measure sound level.
-Doubling the amplitude is approximately equal to adding 3 db.^
+Doubling the amplitude is approximately equal to adding 3 dB.
 
 ```isc
 -6.dpamp    // 0.50118723362727

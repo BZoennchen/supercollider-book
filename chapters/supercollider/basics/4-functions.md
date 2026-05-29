@@ -177,12 +177,12 @@ If the function has multiple arguments, this still holds true, but we must dupli
 {|x,y|(x+y)}![3,3];      // [ [ 0, 1, 2 ], [ 1, 2, 3 ], [ 2, 3, 4 ] ]
 ```
 
-Later we will utilize ``dup`` to construct a complex graph consisting of many [unit generators](sec-ugens) with a few lines of code, a technique that is called [multichannel expension](sec-mce).
+Later we will utilize ``dup`` to construct a complex graph consisting of many [unit generators](sec-ugens) with a few lines of code, a technique that is called [multichannel expansion](sec-mce).
 
 (sec-function-composition)=
 ## Compositions
 
-In ``sclang`` the mathematical operation of composing functions, i.e., $f \circ g$ is approxiated by the ``<>`` operator.
+In ``sclang`` the mathematical operation of composing functions, i.e., $f \circ g$ is approximated by the ``<>`` operator.
 
 ```isc
 f = {arg x; x*x};

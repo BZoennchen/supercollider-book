@@ -512,14 +512,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="environments">
 <span id="sec-environments"></span><h1>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">#</a></h1>
-<p>An <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environments</a> is a collection of things that can be accessed by name.
+<p>An <a class="reference external" href="https://doc.sccode.org/Classes/Environment.html">Environment</a> is a collection of things that can be accessed by name.
 When we start the SuperCollider IDE, it automatically creates an environment that can be evaluated by the following line:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="kc">currentEnvironment</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>If this is your first evaluated command, the environment should be empty.
 This environment contains variables, more specifically all <em>environment variables</em>.
-A variable starting with a tilde is a environment variable, e.g.:</p>
+A variable starting with a tilde is an environment variable, e.g.:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">number</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -536,7 +536,7 @@ In fact <code class="docutils literal notranslate"><span class="pre">~number</sp
 In fact, that is more or less what happens when we call a function.</p>
 <p>Let us create an environment by using a <em>global variable</em> <code class="docutils literal notranslate"><span class="pre">d</span></code>.
 Then we push it onto the stack.
-Additional, let us create a new <em>environment variable</em> for the environment <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
+Additionally, let us create a new <em>environment variable</em> for the environment <code class="docutils literal notranslate"><span class="pre">d</span></code>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">d</span> <span class="o">=</span> <span class="p">()</span>
 <span class="nx">d</span><span class="p">.</span><span class="nx">push</span><span class="p">;</span>
 <span class="o">~</span><span class="nx">number</span> <span class="o">=</span> <span class="mi">233</span><span class="p">;</span>
@@ -547,13 +547,13 @@ Additional, let us create a new <em>environment variable</em> for the environmen
 </pre></div>
 </div>
 <p>we can see the new variable.
-Note that even the names of these two variables are the same, they live in different environments.
+Note that even though the names of these two variables are the same, they live in different environments.
 If we call</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">d</span><span class="p">.</span><span class="nx">pop</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>we remove <code class="docutils literal notranslate"><span class="pre">d</span></code> from the stack and <code class="docutils literal notranslate"><span class="pre">currentEnvironment</span></code> is equal to the environment before we pushed <code class="docutils literal notranslate"><span class="pre">d</span></code> onto the stack.
-<code class="docutils literal notranslate"><span class="pre">~number</span></code> is now equals <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">~number</span></code> is now equal to <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
 </section>
 
     <script type="text/x-thebe-config">

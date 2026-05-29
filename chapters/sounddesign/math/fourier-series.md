@@ -96,7 +96,7 @@ In mathematics, the meaning of *transform* and *transformation* is somewhat spec
 It is called a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
 And in *transform theory*, mathematicians talk about a suitable choice of a function called *kernel* (from the German *nucleus* or *core*), by which a problem may be simplified.
 
-In 1822 *Jean-Baptise Joseph Fourier* discovered a truly remarkable *transformation* which gives us insights into our knowledge of waveforms in general and music in particular.
+In 1822 *Jean-Baptiste Joseph Fourier* discovered a truly remarkable *transformation* which gives us insights into our knowledge of waveforms in general and music in particular.
 He claimed that any *periodic* function, whether continuous or discontinuous, can be transformed into a series of sines.
 That important work was corrected to
 
@@ -121,7 +121,7 @@ The *FFT* reduces the time complexity of the *[discrete Fourier transformation (
 (sec-freq-spectrum)=
 ## Frequency Spectrum
 
-Before we dicuss the mathematical basis, let's have a look at the *frequency spectrum* of a audio recordings such that we can picture what we want to compute.
+Before we discuss the mathematical basis, let's have a look at the *frequency spectrum* of an audio recording so that we can picture what we want to compute.
 First let us use an audio recording of a physical piano.
 The note played is A0 = 440 Hz.
 
@@ -151,7 +151,7 @@ librosa.display.waveshow(signal, sr=sr, alpha = 0.5)
 plt.show()
 ```
 
-as well as its frequency sprectrum.
+as well as its frequency spectrum.
 
 ```{code-cell} python3
 ---
@@ -219,7 +219,7 @@ plt.xlim(0, 0.04)
 plt.show()
 ```
 
-as well as the frequency sprectrum
+as well as the frequency spectrum
 
 ```{code-cell} python3
 ---
@@ -244,7 +244,7 @@ plt.ylabel('Magnitude')
 plt.show()
 ```
 
-In the synthetic case, we get exaclty what we expected, i.e., 5 peaks, four *harmonic overtones*, and one fundamental at 440 Hz.
+In the synthetic case, we get exactly what we expected, i.e., 5 peaks, four *harmonic overtones*, and one fundamental at 440 Hz.
 
 (sec-similarity-of-functions)=
 ## Similarity of Periodic Functions
@@ -255,21 +255,21 @@ First we have to clarify that
 2. From this it follows that $\int_0^{Tn} y(t) dt = n\int_0^{T}dt$ with $n \in \mathbb{N}$.
 
 Let us start from the assumption that the *[Fourier theorem](theorem-fourier-synthesis)* is correct (which it is).
-So we assume, that we can built any periodic vibration/signal using a combination of sinusiods whose frequencies are integer multiple of a fundamental frequcency.
-Our job is to find the correct **amplitudes** and **phases** of these sinusiods.
+So we assume that we can build any periodic vibration/signal using a combination of sinusoids whose frequencies are integer multiples of a fundamental frequency.
+Our job is to find the correct **amplitudes** and **phases** of these sinusoids.
 Let's ignore the phase for a moment.
 For now we assume that all phases are zero.
 
-The question that we have to answer is: how much of a specific sinusoidal is in $y(t)$.
-If the answer is *a lot*, then the amplitude of the respective sinosoid should be large.
-Therefore, computing *sinusoidals* that are **similar** to $y(t)$ seems to be a good starting point.
+The question that we have to answer is: how much of a specific sinusoid is in $y(t)$.
+If the answer is *a lot*, then the amplitude of the respective sinusoid should be large.
+Therefore, computing *sinusoids* that are **similar** to $y(t)$ seems to be a good starting point.
 Instead of similarity one speaks of *cross-correlation* which is a measure of similarity of two series as a function of the displacement of one relative to the other, also known as *sliding dot product* or *sliding inner-product*.
 
 Functions are similar if their product result in a positive function.
 In other words, if the integral of their product is positive.
 
 In the following plot we can see this intuition at play.
-The integral of $\sin(2\pi t)^2$ gives us $0.5$, i.e., there is alot of $\sin(2\pi t)$ in $\sin(2\pi t)$.
+The integral of $\sin(2\pi t)^2$ gives us $0.5$, i.e., there is a lot of $\sin(2\pi t)$ in $\sin(2\pi t)$.
 We also get a positive value for the integral of $\sin(2\pi t)$ multiplied with the [sawtooth wave](sec-sawtooth-wave).
 The integrals of the other products are zero.
 
@@ -502,20 +502,20 @@ is the inner product of $h$ and $g$.
 It is a measure of the similarity of $h$ and $g$.
 ````
 
-We can conclude that our steps works if $y(t)$ is not a sawtooth wave but also if some frequencies are missing.
-However, if some sine waves are shifted or if their frequencies are non-integral, it is not yet clear our steps still work.
+We can conclude that our steps work if $y(t)$ is not a sawtooth wave but also if some frequencies are missing.
+However, if some sine waves are shifted or if their frequencies are non-integral, it is not yet clear that our steps still work.
 
 ## Fourier Synthesis
 
 But let us start from the beginning, i.e., from the *Fourier series*.
-The process of constructing a periodic function by a *Foruier series* is called *Fourier synthesis*.
+The process of constructing a periodic function by a *Fourier series* is called *Fourier synthesis*.
 
 ````{admonition} Fourier Series (FS)
 :name: def-fourier-series
 :class: definition
 A *Fourier series* is a sum that represents a *periodic function* as a sum of *sine* and *cosine* waves.
 The frequency of each wave in the sum is an integer multiple of the periodic function's fundamental frequency.
-The *Foruier series* in amplitude-phase form $y_N(t)$ of a periodic function $y(t)$ is defined by
+The *Fourier series* in amplitude-phase form $y_N(t)$ of a periodic function $y(t)$ is defined by
 
 ```{math}
 :label: eq:fourier:series
@@ -523,7 +523,7 @@ y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdo
 ```
 
 where $N$ is potentially equal to infinity. 
-$T = \frac{1}{f_0}$ is the period of $y(t)$, $A_n$ is the $n$-th hermonic's *amplitude* and $\phi_n$ is its *phase (shift)*.
+$T = \frac{1}{f_0}$ is the period of $y(t)$, $A_n$ is the $n$-th harmonic's *amplitude* and $\phi_n$ is its *phase (shift)*.
 $A_0/2$ is the direct current (DC) component/bias, with 
 
 $$A_0 = \int_0^1 y(t) dt$$
@@ -535,11 +535,11 @@ $f_0$ is the *fundamental frequency* of the signal.
 Except for pathological functions, any periodic function can be represented by a *Fourier series (FS)* that converges.
 Convergence of *Fourier series* means that as more and more harmonics from the series are summed, each successive partial *Fourier series sum* will better approximate the function, and will equal the function with a potentially infinite number of harmonics.
 
-Still, we did not proof for completeness, that is, that we really can represent **all** periodic function in this way.
+Still, we did not prove completeness, that is, that we really can represent **all** periodic functions in this way.
 For that one has to prove that our orthogonal functions are in fact a *complete basis* for $L^2([0,T])$, meaning that if a function $h$ is orthogonal to all our basis, it follows that $f = 0$ (in $L^2$)!
 We will not prove this because it is not important for our application but it is true.
 If you want to have a look you can find a proof [here](https://ocw.mit.edu/courses/es-1803-differential-equations-spring-2024/mites_1803_s24_fourier_complete.pdf?utm_source=chatgpt.com).
-I hope I could you provide a good intuition.
+I hope I could provide you with a good intuition.
 
 ```{admonition} Fourier Theorem
 :name: theorem-fourier-synthesis
@@ -550,19 +550,19 @@ Except for pathological functions, any periodic vibration/signal, no matter how 
 Note that non-periodic functions can be handled using an extension of the *Fourier series* called the *Fourier transform* which treats non-periodic functions as periodic with infinite period.
 This transform thus can generate frequency domain representations of non-periodic functions as well as periodic functions, allowing a waveform to be converted between its time domain representation and its frequency domain representation.
 
-Next we want to but things together and compute all frequency intensities and phases assuming the *[Fourier theorem](theorem-fourier-synthesis)* is correct, i.e. we assume we can synthesize any periodic function using the [definition above](def-fourier-series).
+Next we want to put things together and compute all frequency intensities and phases assuming the *[Fourier theorem](theorem-fourier-synthesis)* is correct, i.e. we assume we can synthesize any periodic function using the [definition above](def-fourier-series).
 
 ## Fourier Analysis
 
 Until now, we assumed that all *phase shifts* are zero and that the period of the fundamental $T$ is $1$.
 Then we concluded that if we compute the integral of signal $y(t)$---a sawtooth wave---multiplied with a sinusoid of the same phase we get:
 
-1. either some $2A_n/T$ positive number (similarity) where $A_n$ was the frequncy intensity of frequency $n \in \mathbb{N}$
+1. either some $2A_n/T$ positive number (similarity) where $A_n$ was the frequency intensity of frequency $n \in \mathbb{N}$
 2. or zero, in this case $y(t)$ is perpendicular to the sinusoid (non-similarity)
 
-We can easily adapt to an arbitrary period $T$ if we change the intergrals accordingly.
+We can easily adapt to an arbitrary period $T$ if we change the integrals accordingly.
 Then, to find the correct *phase* $\phi_n$, we can reformulate the problem of similarity into an optimization problem.
-Let's say $y(t)$ is our an analog signal (its no longer a sawtooth wave but some arbitrary signal).
+Let's say $y(t)$ is our analog signal (it's no longer a sawtooth wave but some arbitrary signal).
 And let us reconsider the *[Fourier series](def-fourier-series)*:
 
 ```{math}
@@ -599,7 +599,7 @@ Y_n(\phi) &= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \p
 \end{equation*}
 
 The derivative of $Y_n(\phi)$ is zero at the **phase** of maximum correlation.
-Threfore,
+Therefore,
 
 $$Y'_n(\phi_n) = \sin(\phi_n) \cdot a_n - \cos(\phi_n) b_n = 0 \Rightarrow \tan(\phi_n) = \frac{b_n}{a_n}$$
 
@@ -646,12 +646,12 @@ We finally arrive at the *Fourier series in its exponential form*.
 :name: def-fourier-series-exp
 :class: definition
 
-The *Foruier series* in *exponential form* $y_N: \mathbb{R} \rightarrow \mathbb{C}$ of a periodic function $y: \mathbb{R} \rightarrow \mathbb{C}$ is defined by
+The *Fourier series* in *exponential form* $y_N: \mathbb{R} \rightarrow \mathbb{C}$ of a periodic function $y: \mathbb{R} \rightarrow \mathbb{C}$ is defined by
 
 $$y_N(t) = \sum\limits_{n = -N}^N c_n \cdot e^{i2\pi n t / T}$$
 
 where $N$ is potentially an infinite integer. 
-$T$ is the period of $y(t)$, $A_n$ is the $n$-th hermonic's *amplitude*
+$T$ is the period of $y(t)$, $A_n$ is the $n$-th harmonic's *amplitude*
 $c_n$ is defined by
 
 $$

@@ -572,7 +572,7 @@ The drawback of Tidal on the other hand might be that we have to stick to the ri
 <section id="combining-pattern">
 <h2>Combining Pattern<a class="headerlink" href="#combining-pattern" title="Permalink to this headline">#</a></h2>
 <p>A core feature of <em>Tidal</em> is the ease in which one can combine pattern using <em>pattern matching</em> – a technique of <em>functional programming</em>.
-<em>Tidal</em> always “trys” to find a way to match pattern even though they seem not really matchable.</p>
+<em>Tidal</em> always “tries” to find a way to match pattern even though they seem not really matchable.</p>
 <p>For example,</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;2 3&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;4 5 6&quot;</span>
 </pre></div>
@@ -595,10 +595,10 @@ Using <code class="docutils literal notranslate"><span class="pre">#</span></cod
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h2>
 <p>There’s much more to explore.
-For instance, the <a class="reference external" href="https://tidalcycles.org/docs/reference/mini_notation">mini notation</a> s its own language within the Tidal language.
+For instance, the <a class="reference external" href="https://tidalcycles.org/docs/reference/mini_notation">mini notation</a> is its own language within the Tidal language.
 However, there are other, superior sources out there to study the possibilities of Tidal.
-For more information I recommand to have a look at the official website: <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>.
-What I aim going to illustrate here is how we can utilize our synth, defined by  <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> in <em>Tidal</em>.</p>
+For more information I recommend having a look at the official website: <a class="reference external" href="https://tidalcycles.org/">TidalCycle</a>.
+What I am going to illustrate here is how we can utilize our synth, defined by <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> in <em>Tidal</em>.</p>
 </section>
 <section id="synthesizers">
 <h2>Synthesizers<a class="headerlink" href="#synthesizers" title="Permalink to this headline">#</a></h2>
@@ -628,7 +628,7 @@ First, make sure SuperDirt is running.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">accelerate</span></code>: not sure</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">offset</span></code>: not sure</p></li>
 </ul>
-<p>Let us adjust our <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> accodingly by introducing all those arguments and by removing <code class="docutils literal notranslate"><span class="pre">amp</span></code>.
+<p>Let us adjust our <a class="reference external" href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef</a> accordingly by introducing all those arguments and by removing <code class="docutils literal notranslate"><span class="pre">amp</span></code>.
 We can keep our custom arguments but we do not require <code class="docutils literal notranslate"><span class="pre">amp</span></code> since SuperDirt will control the volume via <code class="docutils literal notranslate"><span class="pre">gain</span></code>.
 In addition, we have to replace the unit generator <a class="reference external" href="https://doc.sccode.org/Classes/Out.html">Out</a> with a more accurate version, that is, <a class="reference external" href="https://doc.sccode.org/Classes/OffsetOut.html">OffsetOut</a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -709,7 +709,7 @@ You can <strong>not</strong> write it like this:</p>
 </section>
 <section id="patterns-your-synth">
 <h2>Patterns Your Synth<a class="headerlink" href="#patterns-your-synth" title="Permalink to this headline">#</a></h2>
-<p>Let’s try it out using a little two more complex pattern.</p>
+<p>Let’s try it out using a little more complex pattern.</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">d1</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">jux</span><span class="w"> </span><span class="n">rev</span><span class="w"> </span>
 <span class="w">    </span><span class="o">$</span><span class="w"> </span><span class="n">chunk</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">(</span><span class="n">fast</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="p">(</span><span class="o">|-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="mi">12</span><span class="p">))</span><span class="w"> </span>
 <span class="w">    </span><span class="o">$</span><span class="w"> </span><span class="n">off</span><span class="w"> </span><span class="mf">0.25</span><span class="w"> </span><span class="p">(</span><span class="o">|+</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span>
@@ -759,7 +759,7 @@ The <code class="docutils literal notranslate"><span class="pre">scale</span></c
 <code class="docutils literal notranslate"><span class="pre">&quot;0</span> <span class="pre">..</span> <span class="pre">7&quot;</span></code> results in <code class="docutils literal notranslate"><span class="pre">&quot;0</span> <span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">6</span> <span class="pre">7&quot;</span></code>.
 <code class="docutils literal notranslate"><span class="pre">chunk</span></code> divides a pattern into a given number of parts, then cycles through those parts in turn, applying the given function to each part in turn (one part per cycle).
 Therefore, <code class="docutils literal notranslate"><span class="pre">chunk</span> <span class="pre">4</span> <span class="pre">...</span></code> applies <code class="docutils literal notranslate"><span class="pre">(fast</span> <span class="pre">2</span> <span class="pre">.</span> <span class="pre">(|-</span> <span class="pre">n</span> <span class="pre">12))</span></code> to 1/4 of a cycle, where <code class="docutils literal notranslate"><span class="pre">fast</span> <span class="pre">2</span> <span class="pre">.</span> <span class="pre">(|-</span> <span class="pre">n</span> <span class="pre">12)</span></code> is a composition of <code class="docutils literal notranslate"><span class="pre">fast</span> <span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">|-</span> <span class="pre">n</span> <span class="pre">12</span></code>, i.e., increasing the speed and reducing the note by one octave.
-The order in which theses transformations and functions are applied is determined by the <code class="docutils literal notranslate"><span class="pre">$</span></code>, <code class="docutils literal notranslate"><span class="pre">#</span></code> and the brackets.
+The order in which these transformations and functions are applied is determined by the <code class="docutils literal notranslate"><span class="pre">$</span></code>, <code class="docutils literal notranslate"><span class="pre">#</span></code> and the brackets.
 <code class="docutils literal notranslate"><span class="pre">$</span></code> has the lowest priority and the brackets the highest.</p>
 <p>Thus first</p>
 <div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="o">$</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">(</span><span class="n">scale</span><span class="w"> </span><span class="s">&quot;ritusen&quot;</span><span class="w"> </span><span class="s">&quot;0 .. 7&quot;</span><span class="p">)</span><span class="w"> </span>

@@ -513,7 +513,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-rates">Sample Rates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multichannel-expension">Multichannel Expension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multichannel-expansion">Multichannel Expansion</a></li>
 </ul>
             </nav>
         </div>
@@ -532,7 +532,7 @@ Unit generators are the smallest building blocks of our server-side sound genera
 They are used for generating and processing signals on the SuperCollider synthesis audio server.</p>
 <section id="definition">
 <h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
-<p>A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point outputs, as well as <em>side effects</em> such as wrting to the post window, accessing a buffer, or sending a message over the network.</p>
+<p>A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point outputs, as well as <em>side effects</em> such as writing to the post window, accessing a buffer, or sending a message over the network.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="kd">var</span> <span class="nx">sfg</span> <span class="o">=</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">sig</span><span class="p">,</span> <span class="nx">env</span><span class="p">;</span>
@@ -555,7 +555,7 @@ The <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html
 </figcaption>
 </figure>
 <p>Each node of the graph represents a unit generator.
-There are osillators, called <em>sources</em> (such as <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a>) that have no signal input.
+There are oscillators, called <em>sources</em> (such as <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a>, <a class="reference external" href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw</a>) that have no signal input.
 They initialize the flow of numbers.</p>
 <div class="definition admonition" id="def-ugen">
 <p class="admonition-title">Unit Generator (UGen)</p>
@@ -620,11 +620,11 @@ They can be categorized into:</p>
 For example, I will explain the <a class="reference internal" href="../../sounddesign/additive-synthesis/1-waveforms.html#sec-fundamental-waveforms"><span class="std std-ref">fundamental wavesforms</span></a> in the context of <a class="reference internal" href="../../sounddesign/additive-synthesis/additive-synthesis.html#sec-additive-synthesis"><span class="std std-ref">additive synthesis</span></a>.
 We will explore many different <a class="reference external" href="https://doc.sccode.org/Classes/UGen.html">UGens</a> discussing <a class="reference internal" href="../../sounddesign/filters/filters.html#sec-filters"><span class="std std-ref">filters</span></a> and many other concepts.</p>
 </section>
-<section id="multichannel-expension">
-<span id="sec-mce"></span><h2>Multichannel Expension<a class="headerlink" href="#multichannel-expension" title="Permalink to this headline">#</a></h2>
+<section id="multichannel-expansion">
+<span id="sec-mce"></span><h2>Multichannel Expansion<a class="headerlink" href="#multichannel-expansion" title="Permalink to this headline">#</a></h2>
 <p>When an <a class="reference internal" href="../basics/3-arrays.html#sec-array"><span class="std std-ref">array</span></a> is given as an argument to a <em>unit generator</em> it causes an array of multiple copies of that unit generator to be made, each receiving as argument one specific element of the array.
-This powerful behaviour is called <em>multichannel expension</em>.</p>
-<p>All but a few special unit generators perform multichannel expension.
+This powerful behaviour is called <em>multichannel expansion</em>.</p>
+<p>All but a few special unit generators perform multichannel expansion.
 <strong>Only</strong> arrays are expanded, no other type of collection, not even subclasses of <a class="reference external" href="https://doc.sccode.org/Classes/Array.html">Array</a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// one channel</span>
 <span class="p">{</span> <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> <span class="p">}.</span><span class="nx">play</span> 
@@ -646,8 +646,8 @@ This powerful behaviour is called <em>multichannel expension</em>.</p>
 </pre></div>
 </div>
 <p>Each unit generator receives the same argument if it is a scalar.
-If their are multiple arrays, each of the same size <span class="math notranslate nohighlight">\(n\)</span>, there will be <span class="math notranslate nohighlight">\(n\)</span> ugens generated, each receiving the respective argument.
-If there is a missmatch in length, the largest array determines the number of unit generators and all the other arrays are wraped as needed.</p>
+If there are multiple arrays, each of the same size <span class="math notranslate nohighlight">\(n\)</span>, there will be <span class="math notranslate nohighlight">\(n\)</span> ugens generated, each receiving the respective argument.
+If there is a mismatch in length, the largest array determines the number of unit generators and all the other arrays are wrapped as needed.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="c1">// three unit generators created</span>
 <span class="nc">Blip</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="na">freq:</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">600</span><span class="p">],</span> <span class="na">numharm:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="mf">0.1</span><span class="p">)</span>
 
@@ -660,7 +660,7 @@ If there is a missmatch in length, the largest array determines the number of un
 <span class="cm">*/</span>
 </pre></div>
 </div>
-<p>By multichannel expension one can create a large number of unit generators which in turn generate a rich sound by a few lines of code.</p>
+<p>By multichannel expansion one can create a large number of unit generators which in turn generate a rich sound by a few lines of code.</p>
 </section>
 </section>
 
@@ -734,7 +734,7 @@ If there is a missmatch in length, the largest array determines the number of un
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-rates">Sample Rates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categories">Categories</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multichannel-expension">Multichannel Expension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multichannel-expansion">Multichannel Expansion</a></li>
 </ul>
   </nav></div>
 

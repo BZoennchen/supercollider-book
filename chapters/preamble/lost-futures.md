@@ -14,8 +14,9 @@ They personified the rigid organization and mechanical conformity that underpinn
 Despite these perceptions, many people were driven by curiosity and a conviction that they were contributing to a worthwhile endeavor. 
 These individuals played significant roles in constructing the network that ultimately gave rise to the *World Wide Web*.
 
->There was no 'Eureka!' moment. It was not like the legendary apple falling on Newton's head [...]. 
-Inventing the World Wide Web involved my growing realisation that there was a power in arranging ideas in an unconstrained, weblike way. And that awareness came to me through preceisely that kind of process. -- Tim Berners-Lee
+
+>There was no 'Eureka!' moment. It was not like the legendary apple falling on Newton's head [...].
+Inventing the World Wide Web involved my growing realisation that there was a power in arranging ideas in an unconstrained, weblike way. And that awareness came to me through precisely that kind of process. -- Tim Berners-Lee
 
 The opposition to the Cold War establishment, combined with a firm vision of the internet, prompted an ironic transformation.
 The future seemed bright. 
@@ -48,7 +49,7 @@ In his final remarks, Mark Fisher asserts that reliance on ecstasy will inevitab
 
 Ultimately, this division was harmful.
 Within a communal system founded on shared consciousness, charismatic individuals often take the lead and cultural norms begin to assert themselves.
-Activist of that time had no answer to the question of how difference can flurish while at the same time economic, social, and ecological "justice" is achieved.
+Activists of that time had no answer to the question of how difference can flourish while at the same time economic, social, and ecological "justice" is achieved.
 Clearly, the distribution of resources calls for negotiation, which in turn necessitates bureaucracy.
 The undemocratic impulse to free oneself from bureaucracy continually presents an alluring prospect to those committed to realizing their ideal version of a "good" society.
 Consequently, the collective momentum dwindled, leading to pervasive disillusionment among artists.
@@ -72,7 +73,7 @@ Ultimately, the tension between *individual freedom* and *communal unity* collap
 
 ## Today's Cults
 
-Today, the the cult-like ethos is clearly evident in *Silicon Valley*. 
+Today, the cult-like ethos is clearly evident in *Silicon Valley*. 
 Many representatives of the IT industry argue against regulation, promising a new and improved society. 
 Alternatively, they might push for a particular kind of regulation to secure their monopolies.
 Regrettably, this belief in doing good has nurtured an anti-democratic mindset marked by overconfidence.
@@ -150,7 +151,7 @@ The dynamics of the current global system are unpredictable, and we should learn
 ## Rising Tension
 
 Does the concentration of power and wealth inevitably lead to "evil"?
-In an objectivly moral sense, most certainly not.
+In an objectively moral sense, most certainly not.
 The consolidation of power, knowledge, and capital has undoubtedly sparked innovation and an impressive array of consumer goods.
 The impact on societal welfare and the possibility to live a "good" life is less clear. 
 This question cannot be objectively answered as it largely depends on individual values.
@@ -176,7 +177,7 @@ Would society benefit if each of us owned a stake in the infrastructure for whic
 If we held ownership, wouldn't we become more concerned with the modes of production, instead of hiding behind a dominant *big brother*?
 How did our spiritual world "progress"?
 What experiences are now possible and which are impossible?
-How did our *horizon of possibilities* narrowed down?
+How has our *horizon of possibilities* narrowed down?
 Are we the Nietzschian *Last Man*, satisfied but blind for the wonders happening right in front of us?
 
 (sec-consumerism)=
@@ -193,7 +194,7 @@ These symbols, or *the code*, can be exchanged just like currency.
 Baudrillard's theory holds water in our current societal context. 
 Objects and events are burdened with layers of meaning and significance, while tangible yet mundane politics are often stripped of their importance.
 Or more precisely, while politics may assure itself and its citizens of its importance, the reality of our world being a complex system often limits the reach and impact of political actions. Increasingly, it becomes evident that a significant portion of politics is, in fact, theatrical.
-News has ceased to be a simple reporting of events; it has morphed into a cascade of interpretations and discussions about these interpretations---reality is just to boring; everything is now a *spectacle*.
+News has ceased to be a simple reporting of events; it has morphed into a cascade of interpretations and discussions about these interpretations---reality is just too boring; everything is now a *spectacle*.
 Rather than trying to report what was perceived, we are prone to simplifying narratives and clearly delineating good and evil. 
 Instead of exercising our political freedom through voting, protesting, and revolting, or exploring and creating freely, we celebrate the last form of freedom we seem to acknowledge: *consumption*.
 
@@ -213,7 +214,7 @@ The generation of 1967 is perfectly aligned with today's consumerism.
 When I discuss consumerism, I am referring to developed countries that wield their power over the workers in the developing world, which suffer often horrendously.
 Large buildings packed with luxuriant abundance of consumer goods, food, clothing, and---most importantly---symbolic signifiers were the primary landscape of the urban environment of the last decades.
 Streets oversaturated and overcrowded decorated with bright and colorful store windows.
-Glimmering illustrations, neon-light symbols, alternating smells, restless music, a meaningless mess merged into a psychodelic noise of symobls overdosed with meaning.
+Glimmering illustrations, neon-light symbols, alternating smells, restless music, a meaningless mess merged into a psychedelic noise of symbols overdosed with meaning.
 It is the magical negation of scarcity.
 
 >Learn how to turn customers into fanatics, employeees into ambassadors, products into obsessions and brands into religions. -- Slogan of a marketing company 
@@ -249,7 +250,7 @@ To keep the machine running, capitalism needs desires that it can satisfy.
 Therefore, it has to channel desires into products.
 But desire is not only something that is just there.
 It is also something that has to be produced.
-While capital organizes the flows of energy for the *desiring machine*, desiring control machanisms (fueled by capital) establish new frontiers to conquer.
+While capital organizes the flows of energy for the *desiring machine*, desiring control mechanisms (fueled by capital) establish new frontiers to conquer.
 And one of the frontiers is, of course, the *unconscious*;
 a discovery established by *Edward Bernays* in his book *Propaganda* and later further analysed in his essay *The Engineering of Consent*.
 
@@ -286,13 +287,13 @@ The unbridled power of creative expression built upon the collaborative framewor
 I maintain a radical viewpoint that art can never be considered entirely innocent, given its origins in a world driven by commercial commodities.
 Its manifestation is always shaped by its profit-oriented surroundings.
 Even if its creators manage to isolate themselves from this world, the audience cannot.
-Art should not only a horizon of the possible but should extend it;
+Art should not only be a horizon of the possible but should extend it;
 
 >In the twentieth century, one encounters artworks that seek to cancel the difference between a real and an imagined reality by presenting themselves in ways that make them indistinguishable from real objects. Should we take this trend as an internal reaction of art against itself? [...] No ordinary object insists on being taken for an ordinary thing, but a work that does so betrays itself by this very effort. The function of art in such a case is to reproduce the difference of art. But the mere fact that art seeks to cancel this difference and fails in its effort to do so perhaps says more about art than could any excuse or critique. -- Niklas Luhmann
 
 Money, which often serves as a proxy for divine comparability, inevitably corrupts art.
 Moreover, the current state of capitalism thrusts us into an endless cycle of ceaseless consumption and monotonous replication. 
-Most of us have lost the ability to open new horizons of possibilities; instead, we consume what is presented to us and thus narrowing down alternatives to what is presented.
+Most of us have lost the ability to open new horizons of possibilities; instead, we consume what is presented to us and thus narrow down alternatives to what is presented.
 Granted, there may be brief periods when "authentic" creativity can surface.
 However, shortly thereafter, its uniqueness is obliterated as it is incorporated into a quantifiable and sellable product.
 Money is indifferent---a trait that is simultaneously its beauty and its horror.
@@ -345,9 +346,9 @@ The list goes on and on.
 The stark disparity between the newest consumer gadget and people begging for food elicits a peculiar sensation; the absurdity is glaring. 
 Something is fundamentally askew.
 
-However, in a climate of uncertainty, populations are especially deceptive to propaganda and I deeply fear a right-wing rise in the near future.
+However, in a climate of uncertainty, populations are especially susceptible to propaganda and I deeply fear a right-wing rise in the near future.
 Let me quote some passages from the declassified document *Proposed PP Program, Stage Two* -- a manual to "remove covertly, and without bloodshed if possible, the menace of the present communist-controlled government of Guatemala [and] to install and sustain, covertly, a pro-US government".
-I think we can easily spot these old tatics in today's propaganda.
+I think we can easily spot these old tactics in today's propaganda.
 Note that there was never a communist-controlled government in Guatemala.
 
 >[Under] Political Followers [the] General Approch [is to]:
@@ -412,11 +413,11 @@ Here, I find common ground with crypto enthusiasts and systems theory.
 I believe that behavior is partly a byproduct of the underlying system, in that a society steeped in suspicion necessitates competition, while a society anchored in trust fosters collaboration.
 This collaboration, however, can not rely on *moral values*---those no longer really exist.
 Instead, social systems have to be re-integrated into the Earth system.
-I see the chance that this, if we want to surive, has to lead to a system that is less-exploitive to its environment (which consists also of us humans).
+I see the chance that this, if we want to survive, has to lead to a system that is less exploitative to its environment (which consists also of us humans).
 
 In the face of impending climate, ecological, and economic disasters, it has become clear that endless material growth is not a sustainable economic strategy.
-The stability of our social system relied on an unresonalbe *standing reserve* which is now at the brink of destruction.
-We went from being integrated into the Earth system to a state of *decoupeling*---achieving dominance.
+The stability of our social system relied on an unreasonable *standing reserve* which is now at the brink of destruction.
+We went from being integrated into the Earth system to a state of *decoupling*---achieving dominance.
 The feasibility has now been shattered (by the desire machine itself) and much like the people of the late Soviet Union, we persist in acting as if everything is proceeding according to plan, despite the reality of ongoing climate catastrophes and the looming inevitability of more to come. 
 Viewed from this perspective, *Capitalist Realism* is not *The End of History* but an indicator of a faltering system teetering on the brink of collapse.
 It is apparent that our rampant over-consumption must be curtailed dramatically, yet the system's survival depends on continuous consumption---it is, in essence, built upon it.
@@ -472,7 +473,7 @@ Do we then become Nietzsche's *Last Man* or are we already in such a state?
 >-- so asks the Last Man, and blinks.
 >The earth has become small, and on it hops the Last Man, who makes everything
 >small. His species is as ineradicable as the flea; the Last Man lives longest.
->"Formally all the world was insane", -- say the subtlest of them, and they blink.
+>"Formerly all the world was insane", -- say the subtlest of them, and they blink.
 >"We have discovered happiness" -- say the Last Man, and they blink. -- Nietzsche
 
 I doubt that acting in opposition to the prevailing myth will dismantle it because in doing so, we engage in a *dialectic* that perfectly integrates any resistance.

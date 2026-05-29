@@ -22,7 +22,7 @@ Therefore, one might say that it is more powerful.
 :name: def-fourier-transform-exp
 :class: definition
 
-The *Fourier transform (FT)* of an complex-valued *(Lebesgue) integrable* function function $y : \mathbb{R} \rightarrow \mathbb{C}$ is defined by
+The *Fourier transform (FT)* of a complex-valued *(Lebesgue) integrable* function $y : \mathbb{R} \rightarrow \mathbb{C}$ is defined by
 
 ```{math}
 :label: eq:fourier:transform:exp
@@ -85,10 +85,10 @@ Everything works out.
 Thus we can use the *Fourier transform* to compute the coefficients for the *[Fourier series](def-fourier-series-exp)*.
 
 Evaluating $Y(f) \in \mathbb{C}$ for all values of $f$ produces the **frequency-domain** function.
-Similar to $Y(n)$ of the *Fourier series*, the complex number $Y(f)$ (a [phasor](def-phasor)), conveys both **apmplitude** and **phase** of the **frequency** $f$.
+Similar to $Y(n)$ of the *Fourier series*, the complex number $Y(f)$ (a [phasor](def-phasor)), conveys both **amplitude** and **phase** of the **frequency** $f$.
 
 The effect of multiplying $y(t)$ by $e^{-i2\pi f t}$ is to subtract $f$ from every frequency component of $y(t)$.
-So the component that was at $f$ ends up at zero herz.
+So the component that was at $f$ ends up at zero hertz.
 The integral produces its amplitude because all the other components are orthogonal and consequently integrate to zero over an infinite interval.
 In section [Similarity of Periodic Functions](sec-similarity-of-functions), I tried to give an intuition for this phenomenon.
 

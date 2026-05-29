@@ -549,10 +549,10 @@ That is, we are dealing with <strong>discrete signals</strong>.</p>
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
 <p>To deal with a <strong>periodic</strong> and <strong>discrete</strong> signal, we switch from the <em><a class="reference internal" href="z-transform.html#def-fourier-transform-exp"><span class="std std-ref">Fourier transform</span></a></em> to the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.
 If we want to handle a <strong>non-periodic</strong> and <strong>discrete</strong> signal, we apply the <em>discrete-time Fourier transform (DTFT)</em> instead.
-Because of there similarity, one can easily confuse DFT with the DTFT thus I include the this section with <a class="reference internal" href="#sec-dft-vs-dtft"><span class="std std-ref">Difference between DFT and DTFT</span></a> at the bottom but for audio signals, the DTFT is not that relevant.</p>
+Because of their similarity, one can easily confuse DFT with the DTFT thus I include this section on <a class="reference internal" href="#sec-dft-vs-dtft"><span class="std std-ref">Difference between DFT and DTFT</span></a> at the bottom, but for audio signals, the DTFT is not that relevant.</p>
 <div class="definition admonition" id="def-fourier-series-exp-discrete">
 <p class="admonition-title">Discrete Fourier Series (DFS)</p>
-<p>The <em>discrete Foruier series</em> <span class="math notranslate nohighlight">\(y: \mathbb{Z} \rightarrow \mathbb{C}\)</span> in <em>exponential form</em> of a periodic and discrete function <span class="math notranslate nohighlight">\(y[n]\)</span> is defined by</p>
+<p>The <em>discrete Fourier series</em> <span class="math notranslate nohighlight">\(y: \mathbb{Z} \rightarrow \mathbb{C}\)</span> in <em>exponential form</em> of a periodic and discrete function <span class="math notranslate nohighlight">\(y[n]\)</span> is defined by</p>
 <div class="math notranslate nohighlight">
 \[y[n] = \sum\limits_{k=0}^{N-1} c^*[k] \cdot e^{i\frac{2\pi}{N}kn}, \quad n \in \mathbb{Z},\]</div>
 <p>which are harmonics of a fundamental frequency <span class="math notranslate nohighlight">\(1/N\)</span>, for some positive integer <span class="math notranslate nohighlight">\(N\)</span> (the period of the signal).</p>
@@ -563,7 +563,7 @@ Furthermore, there are only <span class="math notranslate nohighlight">\(N\)</sp
 <span class="math notranslate nohighlight">\(y[n]\)</span> is periodic and so is <span class="math notranslate nohighlight">\(c^*[k]\)</span>.</p>
 <div class="definition admonition" id="def-discrete-fourier-transform">
 <p class="admonition-title">Discrete Fourier Transform (DFT)</p>
-<p>The <em>discrete Foruier transform (DFT)</em> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span> into another sequence of complex numbers <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span>, such that</p>
+<p>The <em>discrete Fourier transform (DFT)</em> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> <em>complex numbers</em> <span class="math notranslate nohighlight">\(y[0], \ldots, y[N-1]\)</span> into another sequence of complex numbers <span class="math notranslate nohighlight">\(c[0], \ldots, c[N-1]\)</span>, such that</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{F}\{y\} = c[k] = \sum\limits_{n=0}^{N-1} y[n] \cdot e^{-i\frac{2\pi}{N}nk},\]</div>
 <p>where <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, N-1\)</span> are the coefficients of the <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
@@ -607,7 +607,7 @@ So <span class="math notranslate nohighlight">\(N\)</span> also determines the �
 \[\mathcal{F}\{c\} = y[n] = \frac{1}{N} \sum\limits_{k=0}^{N-1} c[k] \cdot e^{i\frac{2\pi}{N}kn},\]</div>
 <p>where <span class="math notranslate nohighlight">\(c[k]\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, N-1\)</span> are the coefficients of the <em><a class="reference internal" href="#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transform</span></a></em>.</p>
 </div>
-<p>Note that the <em><a class="reference internal" href="#def-inverse-discrete-fourier-transform"><span class="std std-ref">inverse discrete Fourier transform  IDFT</span></a></em> is a specific examle of a <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
+<p>Note that the <em><a class="reference internal" href="#def-inverse-discrete-fourier-transform"><span class="std std-ref">inverse discrete Fourier transform IDFT</span></a></em> is a specific example of a <em><a class="reference internal" href="#def-fourier-series-exp-discrete"><span class="std std-ref">discrete Fourier series</span></a></em>.</p>
 </section>
 <section id="example-perfection">
 <h2>Example (Perfection)<a class="headerlink" href="#example-perfection" title="Permalink to this headline">#</a></h2>
@@ -737,10 +737,10 @@ The imaginary part of the complex numbers is approximately zero because <span cl
 <p>Let us suppose we have the following signal consisting of only one frequency:</p>
 <div class="math notranslate nohighlight">
 \[y(t) = \sin\left(2 \pi \cdot 4/3 \cdot \frac{1}{16} t \right) = \sin\left(2 \pi\frac{1}{12} t \right),\]</div>
-<p>Let us assume the analysis period of the DFT is only 16 seconds and the sample frequency <span class="math notranslate nohighlight">\(f_s\)</span> is <span class="math notranslate nohighlight">\(1\)</span> Herz.
+<p>Let us assume the analysis period of the DFT is only 16 seconds and the sample frequency <span class="math notranslate nohighlight">\(f_s\)</span> is <span class="math notranslate nohighlight">\(1\)</span> Hertz.
 Thus <span class="math notranslate nohighlight">\(N = 16\)</span> and <span class="math notranslate nohighlight">\(f_s = 1\)</span> and <span class="math notranslate nohighlight">\(T = N/f_s = 16\)</span> seconds (which is larger than the period of the signal which is 12 seconds).</p>
 <p>The DFT assumes the fundamental frequency is <span class="math notranslate nohighlight">\(f_s/N = 1/16\)</span> but the frequency of the signal is <span class="math notranslate nohighlight">\(1/12\)</span> which is not a multiple of <span class="math notranslate nohighlight">\(1/16\)</span>!
-Even though we sample more than one complete period of <span class="math notranslate nohighlight">\(y(t)\)</span> and our sample frequency is much faster than double the frequency of the function, computing the DFT will introduce errors because we introduce a <em>discontinuity</em> because the DFT assumes that after 16 seconds the everything repeats when in fact after 12 seconds it repeats.</p>
+Even though we sample more than one complete period of <span class="math notranslate nohighlight">\(y(t)\)</span> and our sample frequency is much faster than double the frequency of the function, computing the DFT will introduce errors because we introduce a <em>discontinuity</em> because the DFT assumes that after 16 seconds everything repeats, when in fact after 12 seconds it repeats.</p>
 <p>The following plot shows the actual signal <span class="math notranslate nohighlight">\(y(t)\)</span> and the discontinuous signal <span class="math notranslate nohighlight">\(y_{\text{dft}}(t)\)</span> ‘seen / assumed’ by the DFT operation.
 Computing the IDFT gives us the correct sample points, i.e., <span class="math notranslate nohighlight">\(y[n] \equiv y_\text{idft}[n]\)</span> holds, but the reconstructed signal <span class="math notranslate nohighlight">\(y_\text{idft}(t)\)</span> is incorrect.</p>
 <div class="cell tag_remove-input docutils container">
@@ -773,7 +773,7 @@ We create a function exactly as long as the analysis window gradually fades in a
 If we multiply the signal to be analyzed by this function (which is called <em>windowing</em>), we decrease the effect of any discontinuities at the edges of the analysis window because the discontinuities are heavily attenuated at the analysis window edges.
 This helps to reduce the impact, but there is no free lunch because any alternation of the input signal will have some effect on the resulting spectrum.</p>
 <p>The problem can be fixed if we choose <span class="math notranslate nohighlight">\(N=12\)</span>.
-The following plots shows that <span class="math notranslate nohighlight">\(y_{idft}\)</span>(t)<span class="math notranslate nohighlight">\( is a perfect reconstruction of \)</span>y(t)$.</p>
+The following plot shows that <span class="math notranslate nohighlight">\(y_{idft}(t)\)</span> is a perfect reconstruction of <span class="math notranslate nohighlight">\(y(t)\)</span>.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="dft-cut-fixed">
@@ -784,7 +784,7 @@ The following plots shows that <span class="math notranslate nohighlight">\(y_{i
 </section>
 <section id="fast-fourier-transform">
 <h2>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h2>
-<p>The <em>fast Fourier rransform (FFT)</em> is an algorithm that computes the <em>discrete Fourier transform (DFT)</em> of a sequence, or its inverse.
+<p>The <em>fast Fourier transform (FFT)</em> is an algorithm that computes the <em>discrete Fourier transform (DFT)</em> of a sequence, or its inverse.
 Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa.</p>
 <p>The FFT is an efficient way to compute the DFT.
 It is a <em>divide-and-conquer algorithm</em> that recursively breaks down a DFT of any composite size (a power of 2) into many smaller DFTs.
@@ -815,7 +815,7 @@ Instead of considering the entire signal, the main idea of the STFT is to consid
 To this end, one fixes a so-called <em>window function</em>, which is a function that is nonzero for only a short period of time (defining the considered section).
 The original signal is then multiplied with that <em>window function</em> to get a <em>windowed signal</em>.
 Then we take the Fourier transform of that windowed signal!</p>
-<p>To obtain frequency information at different time instances, one shifts the <em>window function</em> across time and computes a Fourier transform for each of the resulting <em>windowed singals</em>.
+<p>To obtain frequency information at different time instances, one shifts the <em>window function</em> across time and computes a Fourier transform for each of the resulting <em>windowed signals</em>.
 Each chunk is <em>Fourier transformed</em>, and the complex result is added to a matrix, which records magnitude and phase for each point in time and frequency.
 This can be expressed as:</p>
 <div class="math notranslate nohighlight">
@@ -856,7 +856,7 @@ To convert the <code class="docutils literal notranslate"><span class="pre">hop<
 <section id="spectrogram">
 <span id="sec-spectrogram"></span><h3>Spectrogram<a class="headerlink" href="#spectrogram" title="Permalink to this headline">#</a></h3>
 <p>In music processing, we often only care about the spectral magnitude and not the phase content.
-The <em>spectrogram</em> shows the the intensity of frequencies over time.
+The <em>spectrogram</em> shows the intensity of frequencies over time.
 A <em>spectrogram</em> is simply the squared magnitude of the STFT:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{S}[m,k] = |\mathbf{C}[m,k]|^2\]</div>
@@ -878,19 +878,19 @@ Therefore, we are often interested in the log amplitude:</p>
 <p>The <em>Mel frequency cepstral coefficients</em> (MFCCs) are a compact representation of the frequency spectrum.
 It reduces the full spectrum to the most important aspects.</p>
 <p>MFCCs are used for speech, speaker or sound effect recognition or to analyse music to assign metadata to a song or a certain piece of music.
-In the field of <em>machine learning</em>, they offer a nice representation of a sound (especially since MFCCs as well as spectograms are images thus a convolutional neural network can deal with these representations).</p>
+In the field of <em>machine learning</em>, they offer a nice representation of a sound (especially since MFCCs as well as spectrograms are images thus a convolutional neural network can deal with these representations).</p>
 <p>As we know, when we speak or when any sound is produced, different frequencies of sound are created.
 These frequencies, when combined, form a complex sound wave. The human ear responds more to certain frequencies and less to others.
 Specifically, we are more sensitive to lower frequencies (like a bass guitar) than higher frequencies (like a flute), especially at low volumes.
 This is the concept behind the <em>Mel scale</em>, which is a <em>perceptual scale of pitches</em> that approximates the human ear’s response to different frequencies.</p>
 <p>The calculation of the <em>MFCC</em> is an elegant method to separate the <em>excitation signal</em> and the <em>impulse response</em> of the filter.
-After applying the STFT and throwing away the phase information, we takes the logarithm of the amplitude spectrum.
+After applying the STFT and throwing away the phase information, we take the logarithm of the amplitude spectrum.
 This step is performed to mimic the human ear’s response more closely since our perception of sound is logarithmic in nature.
-Next, we smooth the spectrum and emphasize perceptually meaningful ferquencies.
+Next, we smooth the spectrum and emphasize perceptually meaningful frequencies.
 To achieve this, we pass the result through a set of band-pass filters called <em>Mel-filter bank</em>.
 Basically, we merge neighbourhoods of frequencies into one bin.
 This is to mimic the behavior of the human ear (which is more sensitive to certain frequencies).
-Since the components of the <em>Mel-spectral vectors</em> calculated for each frame are hihgly correlated, we try to decorrelate the result to get a more meaningful representation.
+Since the components of the <em>Mel-spectral vectors</em> calculated for each frame are highly correlated, we try to decorrelate the result to get a more meaningful representation.
 Therefore, we apply a type of <em>Fourier-related transform</em> called the <em>discrete cosine transform</em> to decorrelate the filter bank coefficients and yield a compressed representation of the filter banks, called the <em>Mel frequency cepstral coefficients</em>.
 Alternatively, one can use the <em>principal component analysis PCA</em> to achieve a similar effect.</p>
 <figure class="align-default" id="fig-mfcc-alg">
@@ -922,17 +922,17 @@ These basis functions are much like the “standard patterns” that the filter 
 </section>
 <section id="difference-between-dft-and-dtft">
 <span id="sec-dft-vs-dtft"></span><h2>Difference between DFT and DTFT<a class="headerlink" href="#difference-between-dft-and-dtft" title="Permalink to this headline">#</a></h2>
-<p><strong>Application:</strong> The <strong>DTFT</strong> is applied to discrete-time signals that are usually obtained from sampling a continuous-time signal. These discrete-time signals are defined over an infinte number of points. The <strong>DFT</strong> is applied to discrete signals but is particularly useful for signals that are finite in length or are considered to be periodic with a specific period. This makes it ideal for practical computational applications.</p>
+<p><strong>Application:</strong> The <strong>DTFT</strong> is applied to discrete-time signals that are usually obtained from sampling a continuous-time signal. These discrete-time signals are defined over an infinite number of points. The <strong>DFT</strong> is applied to discrete signals but is particularly useful for signals that are finite in length or are considered to be periodic with a specific period. This makes it ideal for practical computational applications.</p>
 <p><strong>Frequency domain representation:</strong> The <strong>DTFT</strong> transforms a discrete-time signal into a continuous function of frequency. The frequency domain representation is continuous and periodic. The <strong>DFT</strong> transforms a sequence of <span class="math notranslate nohighlight">\(N\)</span> points into another sequence of <span class="math notranslate nohighlight">\(N\)</span> points. Both the input and the output of the DFT are discrete. The frequency domain representation is also discrete and periodic.</p>
 <p><strong>Mathematical representation:</strong> The <strong>DTFT</strong> of a signal <span class="math notranslate nohighlight">\(x[n]\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[X(\omega) = \sum_{n=-\infty}^\infty x[n]e^{-i \omega n},\]</div>
 <p>where <span class="math notranslate nohighlight">\(i\)</span> is the imaginary unit, <span class="math notranslate nohighlight">\(n\)</span> the time index, and <span class="math notranslate nohighlight">\(\omega\)</span> the angular frequency in radians per sample.
-The <strong>DFT</strong> of a singal <span class="math notranslate nohighlight">\(x[n]\)</span> is given by</p>
+The <strong>DFT</strong> of a signal <span class="math notranslate nohighlight">\(x[n]\)</span> is given by</p>
 <div class="math notranslate nohighlight">
 \[X[k] = \sum_{n=0}^{N-1} x[n]e^{-i \frac{2 \pi}{N} k n},\]</div>
-<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of points in the DFT, <span class="math notranslate nohighlight">\(k\)</span> is the nindex in the frequency domain, and <span class="math notranslate nohighlight">\(n\)</span> the time index.</p>
-<p><strong>Purpose:</strong>: The <strong>DTFT</strong> is used to analyze the frequency components of discrete signals that are theoretically infinite in length. The DFT is widely used for signal processing, including filtering, signal analysis, and in the implementation of Fast Fourier Transform (FFT) algorithms for efficient computation.</p>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of points in the DFT, <span class="math notranslate nohighlight">\(k\)</span> is the index in the frequency domain, and <span class="math notranslate nohighlight">\(n\)</span> the time index.</p>
+<p><strong>Purpose:</strong> The <strong>DTFT</strong> is used to analyze the frequency components of discrete signals that are theoretically infinite in length. The DFT is widely used for signal processing, including filtering, signal analysis, and in the implementation of Fast Fourier Transform (FFT) algorithms for efficient computation.</p>
 <p>DTFT is for infinite-length discrete-time signals and results in a continuous frequency spectrum, while DFT is for finite-length signals and results in a discrete frequency spectrum.
 DTFT’s frequency domain is continuous, whereas DFT’s frequency domain is discrete.
 DTFT is more theoretical and used for analysis, while DFT is practical and used for computational analysis, especially in digital signal processing.

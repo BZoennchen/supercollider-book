@@ -14,7 +14,7 @@ kernelspec:
 # Event Player
 
 Let us have a look at a first, very simple composition.
-We finally make use of [Pbind](https://doc.sccode.org/Classes/Pbind.html) to construct a *discreate musical event simulation*.
+We finally make use of [Pbind](https://doc.sccode.org/Classes/Pbind.html) to construct a *discrete musical event simulation*.
 
 ```isc
 (
@@ -36,7 +36,7 @@ ipd.Audio(audio_path)
 
 As already mentioned, [Pbind](https://doc.sccode.org/Classes/Pbind.html) is a unique [Pattern](https://doc.sccode.org/Classes/Pattern.html) that generates a [Stream](https://doc.sccode.org/Classes/Stream.html) that spits out (musical) [Events](https://doc.sccode.org/Classes/Event.html).
 By using the ``play`` method on the [Pbind](https://doc.sccode.org/Classes/Pbind.html) pattern, we play all the events the (event) stream gives us.
-In the above example we play a sequence of three notes 4 times on the ``\default`` instrument each seperated by ``0.4`` beats sustaining ``0.1`` beats.
+In the above example we play a sequence of three notes 4 times on the ``\default`` instrument each separated by ``0.4`` beats sustaining ``0.1`` beats.
 
 ``dur`` determines the waiting time between two successive events.
 Thereby, we do not play all events instantly.
@@ -205,7 +205,7 @@ ipd.Audio(audio_path)
 ```
 
 We can also play multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) in parallel.
-We can imagine that each [Pbind](https://doc.sccode.org/Classes/Pbind.html) represents one musician in our assemble.
+We can imagine that each [Pbind](https://doc.sccode.org/Classes/Pbind.html) represents one musician in our ensemble.
 [Ppar](http://doc.sccode.org/Classes/Ppar.html) is a pattern that allows us to play multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) in parallel.
 In this example I use a fixed ``dur`` and [Rest](http://doc.sccode.org/Classes/Rest.html) to adjust the actual duration.
 You can use any symbol to create a [Rest](http://doc.sccode.org/Classes/Rest.html) (i.e. to do nothing).
@@ -345,7 +345,7 @@ Once you use an argument within a ``Pbindef`` you can only unuse it by overwriti
 
 ## Naming Conventions
 
-As mentioned in section [Value Conversions](sec-value-conversion), behind the scenes SuperCollider's event player helps us transforming different values into other values.
+As mentioned in section [Value Conversions](sec-value-conversion), behind the scenes SuperCollider's event player helps us transform different values into other values.
 For example, we can play ``\midinote`` instead of ``\freq``.
 The player will convert the pitch to the correct frequency.
 

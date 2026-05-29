@@ -28,7 +28,7 @@ The wave is energy that deforms the medium, i.e., it transfers energy from one p
 
 The *hearing range* is the range of frequency that a being can perceive.
 The hearing range of humans is 20 Hz to 20kHz where cats go up to 75kHz and bats up to 200kHz.
-This does not mean that we can not perceive sound below 20 Hz but at this point it perceived as discrete clicks instead of a continues tone.
+This does not mean that we cannot perceive sound below 20 Hz but at this point it is perceived as discrete clicks instead of a continuous tone.
 Furthermore, we can hear minimal relative frequency differences very intensively.
 Experimenting with low frequencies can be very fun!
 
@@ -55,7 +55,7 @@ The threshold of hearing $TOH$ is
     THO = 10^{-12} \,\text{W/m}^2.
 \end{equation}
 
-On other end, the threshold of pain $TOP$ is 
+On the other end, the threshold of pain $TOP$ is
 
 \begin{equation}
     TOP = 10 \,\text{W/m}^2.
@@ -78,7 +78,7 @@ It is convenient to start with
 + a noisy restaurant 90 dB
 + a baby crying 110 dB
 + a jet engine 120 dB
-+ a ballon popping 157 dB
++ a balloon popping 157 dB
 
 If we follow that convention, we can compute the decibels of a sound intensity $I$ by
 
@@ -89,7 +89,7 @@ If we follow that convention, we can compute the decibels of a sound intensity $
 where $I_{TOH}$ is the sound intensity of the threshold of hearing.
 
 The measurement is motivated by the perception of loudness of the human ear.
-**Increasing the perceived loudness by a factor of 2 equates to rise of +3 dB.**
+**Increasing the perceived loudness by a factor of 2 equates to a rise of +3 dB.**
 In other words: every increase of 3 dB represents a doubling of sound intensity or acoustic power.
 
 We can use db instead of amplitude (amp) to control the loudness in **sclang**.
@@ -255,7 +255,7 @@ Compared to that, a violin has a long attack -- the sound ramps up if the violin
 ### Legato
 
 With respect to the piano, legato means that a series of notes are played without a gap of silence.
-Before the pianist hits the next combination of keys when he or she sustains the previous keys.
+Before the pianist hits the next combination of keys, he or she sustains the previous keys.
 This concept is extended to wind and string instruments.
 
 In SuperCollider the term is also used for its time conversion.
@@ -276,7 +276,7 @@ If legato is large, events will overlap.
 ### Low Frequency Oscillator
 
 A low frequency oscillator (LFO) is, as its name suggests, an oscillator that oscillates with a low frequency, that is, a frequency that is below the audible frequency.
-LFO's are often used to control some argument of another oscillator, for example, to control its amplitude.
+LFOs are often used to control some argument of another oscillator, for example, to control its amplitude.
 
 (sec-rm)=
 ### Ring Modulation

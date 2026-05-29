@@ -330,11 +330,11 @@ The code is formally correct, but without interpretation, its meaning is not app
 ```
 
 Can we unravel the mystery hidden behind the complexity of these statements?
-We can see that if $x$ and $u$ are similar, the computatation stops.
+We can see that if $x$ and $u$ are similar, the computation stops.
 Since $u \leftarrow r^2$ and $x = 2$ the computation stops when $r$ is close to $\sqrt{2}$.
 
 How is $r$ computed?
-Well, if we substitude all the variables we get
+Well, if we substitute all the variables we get
 
 $$r \leftarrow t / 2 \Rightarrow r \leftarrow (r+m)/2 \Rightarrow r \leftarrow \left(r+\frac{x}{r}\right) \cdot \frac{1}{2}$$
 
@@ -346,7 +346,7 @@ Substituting $r$ for $\sqrt{2}$ gives us
 
 $$r \leftarrow \left(\sqrt{2}+\frac{2}{\sqrt{2}}\right) \cdot \frac{1}{2} = \frac{4}{2\sqrt{2}} = \frac{2}{\sqrt{2}} = \frac{\sqrt{2}^2}{\sqrt{2}} = \sqrt{2}.$$
 
-Therefore, if $r$ would be exactly $\sqrt{2}$ (which is impossible since it is a irrational number) then $r$ would not change.
+Therefore, if $r$ would be exactly $\sqrt{2}$ (which is impossible since it is an irrational number) then $r$ would not change.
 
 Let's say $r = (\sqrt{2} \pm \epsilon)$ then we get
 
@@ -377,13 +377,13 @@ $$2 > 2 - 2\sqrt{2}\epsilon + \epsilon^2 = (\sqrt{2} - \epsilon)^2.$$
 If we look at the starting value for $r$ and all the operations, we can clearly see that $r$ will never be negative thus $\epsilon < 2\sqrt{2}$ holds for the execution of the algorithm.
 
 We did a lot of work and thinking to analyse Newton's algorithm.
-In the end we figured out that $r$ approches $\sqrt{2}$. 
+In the end we figured out that $r$ approaches $\sqrt{2}$. 
 We still don't know how fast $r$ converges towards $\sqrt{2}$.
 We also did not look at possible numerical pitfalls---after all computers are not that good at dealing with the infinite.
 It is likely that Newton started with mathematical equations before writing down the statements of advice.
 If we just implement the steps without a proper analysis we do not really understand what is going on and simply looking at the algorithm does not help either.
 
-These kind of algorithms echo the humanistic perspective: Humans are in total control by advicing the computer precisely what commands it should execute.
+These kinds of algorithms echo the humanistic perspective: Humans are in total control by advising the computer precisely what commands it should execute.
 The *form* is the written down algorithm in a specific language (medium), e.g. ``sclang``---the SuperCollider programming language.
 
 ```isc
@@ -521,7 +521,7 @@ In such work, the form emerges from a dance between randomness and recursion, di
 The same logic applies in the acoustic domain---particularly in *live programming* (e.g., in SuperCollider or TidalCycles), where code is written and executed in real time as part of a musical performance.
 One of the most fascinating features of live coding is that it exposes the process.
 When something goes wrong---a glitch, a syntax error, a crash---the illusion of seamless performance collapses.
-Suddenly, **the medium reveals itself**: the medium hidden behind its functioning form becomes visible and the artist can be observed as a struggling resistence against failure.
+Suddenly, **the medium reveals itself**: the medium hidden behind its functioning form becomes visible and the artist can be observed as a struggling resistance against failure.
 
 >Here, the difference between form and medium becomes palpable.
 

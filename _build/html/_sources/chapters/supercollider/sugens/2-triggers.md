@@ -15,7 +15,7 @@ kernelspec:
 
 In this section, I wish to discuss the ability to modify (discrete) arguments directly on the **audio server**.
 
-We've learned about instantiating [Synths](https://doc.sccode.org/Classes/Synth.html) using either (1) [patterns](sec-playing-pattern) iin conjunction with [Pbind](https://doc.sccode.org/Classes/Pbind.html) or [Pbindef](https://doc.sccode.org/Classes/Pbindef.html), or (2) other [scheduling techniques](sec-scheduling) like [Routine](https://doc.sccode.org/Classes/Routine.html) while communicating with the audio server, for example:
+We've learned about instantiating [Synths](https://doc.sccode.org/Classes/Synth.html) using either (1) [patterns](sec-playing-pattern) in conjunction with [Pbind](https://doc.sccode.org/Classes/Pbind.html) or [Pbindef](https://doc.sccode.org/Classes/Pbindef.html), or (2) other [scheduling techniques](sec-scheduling) like [Routine](https://doc.sccode.org/Classes/Routine.html) while communicating with the audio server, for example:
 
 ```isc
 x = Synth(\default, [\freq: 64.midicps]);

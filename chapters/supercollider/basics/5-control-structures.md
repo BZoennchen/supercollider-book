@@ -5,7 +5,7 @@ They expect one or multiple functions that are executed conditionally.
 
 ## Use Cases
 
-We already saw the ``if``-function, which expect one boolean expression (a predicate) and two functions.
+We already saw the ``if``-function, which expects one boolean expression (a predicate) and two functions.
 
 ```isc
 x = 5;
@@ -30,7 +30,7 @@ switch(x,                   // value
 )
 ```
 
-A kind of the ``if``- and ``switch``-statement is the ``case``-statement.
+A variant of the ``if``- and ``switch``-statement is the ``case``-statement.
 The case method allows for conditional evaluations with multiple cases (similar to the switch) but instead of a test value, we have a test function.
 
 ```isc

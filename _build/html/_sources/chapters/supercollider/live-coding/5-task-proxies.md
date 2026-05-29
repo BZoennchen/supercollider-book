@@ -1,13 +1,13 @@
 # Task Proxy
 
 [Sonic Pi](https://github.com/sonic-pi-net/sonic-pi) uses the concept of *live loops*, i.e., named threaded loops that can be synchronized and updated on the fly.
-I found *live loops* extremely fun and useful, especially to explore new rythms and melodies.
+I found *live loops* extremely fun and useful, especially to explore new rhythms and melodies.
 Is there something similar in SuperCollider?
 The answer is yes!
 
 [Tdef](https://doc.sccode.org/Classes/Tdef.html) is part of the SuperCollider's [Just In Time programming library (JITLib)](https://doc.sccode.org/Overviews/JITLib.html) and allows us to register *tasks* by key.
 Registered tasks can be replaced with other task **while playing**.
-The old task and its replacement can automatically crossfade and the repalcement time can be quantized.
+The old task and its replacement can automatically crossfade and the replacement time can be quantized.
 
 Evaluate the following code, change the message and re-evaluate the code.
 Observe the post window.
@@ -22,7 +22,7 @@ Tdef(\melody, {loop{
 ```
 
 This is great!
-Let us combine ``Tdef`` with [Patterns](sec-pattern) play a melody that we can change on the fly:
+Let us combine ``Tdef`` with [Patterns](sec-pattern) to play a melody that we can change on the fly:
 
 ```isc
 (

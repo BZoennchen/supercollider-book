@@ -144,7 +144,7 @@ i_k &= (-1) / i_{k-1} \text{, for } k = 1, 2, \ldots
 \end{split}
 \end{equation*}
 
-which can be expressed as an explicid form:
+which can be expressed as an explicit form:
 
 $$i_k = (-1)^k \text{, }k \in \mathbb{N}_0.$$
 
@@ -167,7 +167,7 @@ And finally, when mediated through algorithms, time becomes fragmented, recursiv
 Let me repeat: In contrast to the notion of *physical time* as a fixed dimension in physics---be it Newtonian absolute time or relativistic proper time---Spencer-Brown treats time as emergent.
 It arises not as a pre-given container for events, but through the rhythmic repetition of distinctions.
 Time begins when a form is drawn, erased, and drawn again. 
-In this view, physical time---with its clock-based regularity---may can be seen as a stabilized trace of recursive operations, an emergent order from the logical oscillation between marked and unmarked states.
+In this view, physical time---with its clock-based regularity---may be seen as a stabilized trace of recursive operations, an emergent order from the logical oscillation between marked and unmarked states.
 What physics treats as measurable, external time may, from this perspective, be the formal consequence of internal, self-observing operations.
 
 So, at this point the reader might ask: Can we reconcile *physical time* with *logical time*?
@@ -359,13 +359,13 @@ audio_path = '../../sounds/hh-5-13.mp3'
 ipd.Audio(audio_path)
 ```
 
-As we saw in this example, Bjorklund's algorithm recursively concatinates Euclidean rhythms of shorter length according to back-substitution.
+As we saw in this example, Bjorklund's algorithm recursively concatenates Euclidean rhythms of shorter length according to back-substitution.
 At a conceptual level, the procedure resembles Euclid's recursive divide-with remainder approach, using subsequences and symbol replacement in place of integer division and back-substitution.
 
 ### Morrill's Algorithm
 
 In a recent report {cite}`morrill:2022` Thomas Morrill outlined a strategy to compute the *Euclidean rhythm* by hand more easily, avoiding the recursive nature of the *Euclidean algorithm*.
-He proposes the *Euclidean matrix* consistent of three rows.
+He proposes the *Euclidean matrix* consisting of three rows.
 The first row, called *index row*, is equal to $(-1, 0, 1, 2, \ldots, n-1)^\top$.
 The second one, called *integer row*, is equal to the first one multiplied by $m$.
 The entries of row 3, called *residue row*, are each equal to the corresponding.
@@ -434,7 +434,7 @@ In first-order predicate logic, semi-decidability prevails: if a formula is prov
 But if it is unprovable, the algorithm may run forever {cite}`skolem:1970`.
 We can recognize truth by success, but not falsity by failure---a fundamental asymmetry in logic and computation.
 
-The limitations discovered by Gödel and Turing are not arbitrary---they arise from a deep structural feature of formal systems: their capacity to be reflexiv---one can pose statements about the system in that system. Both Gödel's and Turing’s theorems exploit self-reference to reveal internal contradictions or undecidable conditions.
+The limitations discovered by Gödel and Turing are not arbitrary---they arise from a deep structural feature of formal systems: their capacity to be reflexive---one can pose statements about the system in that system. Both Gödel's and Turing’s theorems exploit self-reference to reveal internal contradictions or undecidable conditions.
 Gödel constructs a formal statement that essentially says:
 
 >This statement is not provable within this system.
@@ -462,23 +462,23 @@ The algorithm, once a symbol of certainty, becomes a boundary marker---demarcati
 
 This transition, from the certainties of modern logic to the open-endedness of computation, anticipates the *postmodern condition*: an era not of clear foundations, but of recursive limits, undecidable structures, and generative paradoxes.
 Maybe Richard Rorty was right after all: the view of philosophy---including mathematics and physics---as the faculty that has traditionally aimed to uncover timeless, foundational truths---something like the "*mirror of nature*" (a metaphor he critiques in earlier work {cite}`rorty:1979`)---might have outlived its usefulness.
-We may should surrender the idea of discovering universal truths and instead focus on *cultural* and *linguistic creativity*.
+We may well surrender the idea of discovering universal truths and instead focus on *cultural* and *linguistic creativity*.
 Instead of asking for *Truth* we may want to ask for usefulness and communicative effectiveness.
 Plato was wrong to call the Truth the Good.
 Since then we moved from the *love of God* to the *love of Truth* to the *love of our inner-self*.
-Maybe its time to stop worshipping anything absolute or universal but to recognize that our language, our consciousness and our community is a contingent product of history---that, contrary to Hegel, nothing is necessarily as it is; everything could be different.
+Maybe it's time to stop worshipping anything absolute or universal but to recognize that our language, our consciousness and our community is a contingent product of history---that, contrary to Hegel, nothing is necessarily as it is; everything could be different.
 
 There is no "God's-eye view" from which we can assess all perspectives neutrally.
 For Rorty, language---including mathematical, physical and computational language---is contingent.
-His confederate, Derrida, shuttered the philosophical tradtion by showing that what we take as *literal* or *proper* meanings are built upon layers of methophor that have become naturalized through repetition {cite}`derrida:1974`.
+His confederate, Derrida, shattered the philosophical tradition by showing that what we take as *literal* or *proper* meanings are built upon layers of metaphor that have become naturalized through repetition {cite}`derrida:1974`.
 Terms like *substance*, *subject*, *truth*, and Heidegger's *Being* have roots in sensory or physical metaphors that we can not escape---we can not go outside or beyond language and language does not provide a transparent link to a stable, pre-given reality.
 
 But metaphors are existential.
-They are, in fact, so existiantial that our own invention might only be successful if, by bringing forth our own metaphors, we are able to form a new world.
+They are, in fact, so existential that our own invention might only be successful if, by bringing forth our own metaphors, we are able to form a new world.
 By shaping how we conceptualize and interact with the world, metaphors play a crucial role in the formation of both personal identities and comprehensive philosophical systems.
 They have a foundational role in the realms of human experience.
 Therefore, we should take them seriously not because they refer to the "really real" but because they mean a lot to us.
-I mean I am a programmer, all of our language from *trees*, *heaps*, *objects* to *inheritance* and *composition* is methaphorical.
+I mean I am a programmer, all of our language from *trees*, *heaps*, *objects* to *inheritance* and *composition* is metaphorical.
 
 Meaning is always mediated by a network of other signs and shaped by cultural, historical, and metaphorical contexts.
 It arises from *difference* within language itself---a word is not pointing directly to a thing but it gets its meaning by how it differs from other words.
@@ -486,13 +486,13 @@ There is no ultimate *signified*---words do not lead back to a final, real meani
 It is difference and deferral, i.e. *différance*.
 Of course, this does not mean they are not grounded in something, e.g. sensory data or social interactions.
 Meaning is a precondition for what we can agree on, i.e. truth.
-The meaning of "there is a glas of water on the table" is that this statement is seen as true if some condition (a certain kind of sensory data) is met.
+The meaning of "there is a glass of water on the table" is that this statement is seen as true if some condition (a certain kind of sensory data) is met.
 But this grounding (in sensory data) is never final and never fixed.
 Truth claims are always entangled with interpretation, and interpretation never reaches a pure, final meaning.
 
 Thus truth is like a flicker---a momentary effect produced by a play of signs, none of which have fixed meaning.
 You might feel you "have" the truth for a moment---but that truth is never self-identical, never whole, and always open to being undone by the play of signs that brought it into being.
-Here Derrida *decontructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
+Here Derrida *deconstructs* the traditional view that language reflects reality; that words are label for things and truth is correspondence; that a statement is true if it matches reality.
 
 Take again the sentence: "There is a glass of water on the table".
 In ordinary terms, most people would say: This statement is true if there is, in fact, a glass of water on the table.
@@ -505,7 +505,7 @@ The sentence is true not because it corresponds to reality in some metaphysical 
 
 >The assumption that truth, like the world, is “out there” is the legacy of a time when the world was seen as the creation of a being who possessed a language of his own. If we give up the attempt to make sense of the idea of such a nonhuman language, we will no longer be tempted to confuse the trivial statement that the world can cause us to hold a sentence to be true with the claim that the world itself, of its own accord, breaks up into sentence-shaped bits called "facts." -- Richard Rorty {cite}`rorty:1989`
 
-Similarily Derrida wouldn't deny that such a sentence can function meaningfully. But he would interpret the question not in terms of correspondence or even pragmatic success, but in terms of language’s internal play, difference, and deferred meaning.
+Similarly, Derrida wouldn't deny that such a sentence can function meaningfully. But he would interpret the question not in terms of correspondence or even pragmatic success, but in terms of language’s internal play, difference, and deferred meaning.
 Even a simple sentence like this relies on (1) a shared system of signs and differences (what "glass", "water", "table" mean) and (2) a context (what table? where? when? how is "glass" being used?).
 But crucially, for him, context is never fully stable or closed.
 Meaning always relies on differences, and no word has a meaning that is completely fixed.
@@ -611,11 +611,11 @@ Instead, he insists that law---not profit-driven code---must remain the foundati
 His warning is clear: if source code supersedes law, democratic institutions are at risk.
 
 We must also account for a new generation of algorithms---those driven by data rather than explicit design.
-Here Luhmann's conceptation has to be extended because for systems are "artificial intelligent" it is no longer obvious to differentiate between a working and a mailfunctioning system.
+Here Luhmann's conception has to be extended because for systems that are "artificially intelligent" it is no longer obvious to differentiate between a working and a malfunctioning system.
 These systems are not only *intransparent* because we can not explain how they work in details but because we can not tell if they work at all.
 In that sense they introduce a new form of contingency into society that, in the past, led to the invention of norms (social interactions are plagued by a *double-contingency* "I'll do what you want if you do what I want").
 These *intransparent* systems, such as artificial neural networks (ANNs), learn structures from patterns in training data, often beyond human interpretability.
-They find structures in communication and feeding them back into communication, that is, society forming a feedback loop of communication.
+They find structures in communication and feed them back into communication, that is, society forming a feedback loop of communication.
 
 >Unlike traditional algorithms, which are explicitly designed by developers, artificial neural networks construct their computational structures from data. [...] The data contains patterns of communication that psychic systems themselves cannot make sense of. -- {cite}`zoennchen:2025`
 
@@ -654,8 +654,8 @@ This kind of engagement shifts us away from *utilitarian rationality* and toward
 But to re-emphasize Rorty's {cite}`rorty:2016` warning: we should not go overboard with this *romanticized* approach---that is, we should not assume that it contains "the truth" or a more direct relation to "the really real".
 
 If we are to live with algorithms---and more importantly, live well with them---then we must learn to see them not just as tools, but as active social, cultural, and philosophical artifacts.
-As systems that may be soon decoupled from psychic and social systems meaning that we will lose (direct) control over them.
-They may very well co-evolve in an interdependent relation along side us and if they should become *autopoietic* we have to understand their *couplings* with social and psychic systems.
+As systems that may soon be decoupled from psychic and social systems, meaning that we will lose (direct) control over them.
+They may very well co-evolve in an interdependent relation alongside us and if they should become *autopoietic* we have to understand their *couplings* with social and psychic systems.
 
 Here I wanna close with Rorty's words to emphasize that, while *imagination* is important, it can produce horrific ideas.
 Without bounds, *romanticism* can create a monster.

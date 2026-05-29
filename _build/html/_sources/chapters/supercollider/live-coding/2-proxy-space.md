@@ -23,7 +23,7 @@ It is just a stylistic choice.
 A proxy space is an [Environments](sec-environments) consisting of node proxies only (instead of normal variables).
 ```
 
-The advatange to use [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html) is a shorter and often cleaner syntax.
+The advantage of using [ProxySpace](https://doc.sccode.org/Classes/ProxySpace.html) is a shorter and often cleaner syntax.
 The downside is that we can no longer use *environment variables* for client side code.
 Note however that we can still use *global variables*, e.g. ``a, b, c, d, ...``.
 
@@ -36,7 +36,7 @@ Using a proxy space frees us from dealing with [Ndef](https://doc.sccode.org/Cla
 ## Initialization
 
 To push a proxy space onto the stack, we first have to boot the server because the proxy space lives and operates on an audio server instance of *scsynth*.
-The following line suffice to push an environment representing the server side proxy space onto the stack:
+The following line suffices to push an environment representing the server side proxy space onto the stack:
 
 ```isc
 p = ProxySpace.push(s.boot); // s.boot returns s
@@ -170,7 +170,7 @@ ipd.Audio(audio_path)
 As you can see, the output of one proxy can be used as an argument of multiple other proxies.
 Note that we do not ``play`` the ``~amp`` proxy because this would route the signal to the output.
 
-We can use syntactical sugger to do the same in an even more modular and clean way by using either ``source <>>.[argname] target`` or ``target <<>.[argname] source`` and normal arguments.
+We can use syntactical sugar to do the same in an even more modular and clean way by using either ``source <>>.[argname] target`` or ``target <<>.[argname] source`` and normal arguments.
 This operation is inspired by the binary composition operator ``<>`` defined on [functions](sec-function-composition), streams and patterns.
 
 ```isc
@@ -245,10 +245,10 @@ audio_path = '../../../sounds/lp-impulses.mp3'
 ipd.Audio(audio_path)
 ```
 
-It is not very musical and kind of boring but it demonstrate how we can route different node proxies together.
-[PulseDivider](https://doc.sccode.org/Classes/PulseDivider.html) comes in handy because it outputs an impuls every time it receives a certain amount of impulses.
+It is not very musical and kind of boring but it demonstrates how we can route different node proxies together.
+[PulseDivider](https://doc.sccode.org/Classes/PulseDivider.html) comes in handy because it outputs an impulse every time it receives a certain amount of impulses.
 Thus we can divide pulses into fewer one per beat.
-Also note that our ``doneAction`` of the envolved envelopes is set to ``Done.none`` because we do not want to free the synsth---it is running all the time.
+Also note that our ``doneAction`` of the envelopes involved is set to ``Done.none`` because we do not want to free the synth---it is running all the time.
 [TChoose](https://doc.sccode.org/Classes/TChoose.html) chooses randomly one of the values of the array whenever it is triggered.
 Our clock ``~clock`` runs at 60 beats per minutes times 16 such that we divide each beat into 16 parts.
 
@@ -256,9 +256,9 @@ Our clock ``~clock`` runs at 60 beats per minutes times 16 such that we divide e
 
 Often we want to chain signals and effects in a series together such that signal $i$ can manipulate signal $i+1$.
 For example, one might want to add a reverb effect to a percussive sawtooth signal.
-By indexing the *environment variable*, i.e. our node proxy, we can use the slots of the proxy to chain singals together.
+By indexing the *environment variable*, i.e. our node proxy, we can use the slots of the proxy to chain signals together.
 
-Assining multiple [UGens](sec-ugens) to multiple slots will add all these signals consecutively together.
+Assigning multiple [UGens](sec-ugens) to multiple slots will add all these signals consecutively together.
 We do not have to use consecutive slot numbers.
 It is in fact a good practice to leave gaps between occupied slots such that we can bring in another effect between two already established synths.
 
@@ -328,8 +328,8 @@ ipd.Audio(audio_path)
 ```
 
 We can clearly hear both signals.
-To set the wet persentage of slot ``i``, you can use ``.set(\weti, value);`` on the proxy node.
-In the folling I tried to recreate the sound of a firework:
+To set the wet percentage of slot ``i``, you can use ``.set(\weti, value);`` on the proxy node.
+In the following I tried to recreate the sound of a firework:
 
 ```isc
 ~out.fadeTime = 2.0;
@@ -346,8 +346,8 @@ audio_path = '../../../sounds/lp-fireworks.mp3'
 ipd.Audio(audio_path)
 ```
 
-[Dust](https://doc.sccode.org/Classes/Dust.html) generates random impulses such that the density of that impulses approximate its frequency arguement, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
-[Ringz](https://doc.sccode.org/Classes/Ringz.html) models resonates at a frequency of ``300`` herz.
+[Dust](https://doc.sccode.org/Classes/Dust.html) generates random impulses such that the density of those impulses approximates its frequency argument, i.e. 3 impulses per second for the left and 2.5 impulses for the right speaker.
+[Ringz](https://doc.sccode.org/Classes/Ringz.html) models resonance at a frequency of ``300`` hertz.
 We add a reverb effect to give the sound some spacial depth.
 The low pass filter has no effect since the cutoff frequency is very high.
 
@@ -377,7 +377,7 @@ It gets more interesting when used with [pattern](sec-pattern), and one has mult
 
 What if we want to use our carefully crafted [SynthDefs](sec-synths) in a live programming setup?
 Well we can bind them to a node proxy.
-Let us first create the most simple synth definition we get come up with.
+Let us first create the most simple synth definition we can come up with.
 
 ```isc
 (
@@ -457,6 +457,6 @@ You can get rid of the 'parent' argument by setting it to ``nil``.
 
 ## Synchronization
 
-In our second routing example we synchronzed our envelopes and [TChoose](https://doc.sccode.org/Classes/TChoose.html) unit generator by a global clock realized by an [Impulse](https://doc.sccode.org/Classes/Impulse.html) unit generator.
-As you saw, this opens up jet another coding style.
+In our second routing example we synchronized our envelopes and [TChoose](https://doc.sccode.org/Classes/TChoose.html) unit generator by a global clock realized by an [Impulse](https://doc.sccode.org/Classes/Impulse.html) unit generator.
+As you saw, this opens up yet another coding style.
 A more straightforward way is to use [Pbinds](https://doc.sccode.org/Classes/Pbinds.html) synchronized by a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html) which I describe in section [Clocks](sec-clocks).

@@ -31,11 +31,11 @@ It is commonly used for creating realistic simulations of acoustic instruments l
 It's particularly useful in virtual instrument plugins and digital synthesizers, where it can provide a wide range of sonic possibilities and expressive control over the generated sounds.
 
 One downside of physical modeling is its performance requirements.
-Solving differential equation is costly.
+Solving differential equations is costly.
 Therefore, easy to use real time models are in many cases still out of reach.
 There are however an increasing number of successful designs, and certainly bound to be more to come.
 
-Accodring to Collins {cite}`collins:2004` there are a number of techniques in physical modeling, including:
+According to Collins {cite}`collins:2004` there are a number of techniques in physical modeling, including:
 
 + **modal synthesis:** being a study of the exact modes of vibration of acoustic systems: related to analysis + additive synthesis
 + **delay line (waveguide) models:** (building physical models out of combinations of simple units like delays and filters, which model the propagation of sound waves in a medium) 
@@ -155,7 +155,7 @@ ipd.Audio(audio_path)
 width: 600px
 name: fig-exitor-resonator
 ---
-Plot of the three generated signals. A very simple exiter as an impulse, the decay of the impulse combined with noise representing the resonator.
+Plot of the three generated signals. A very simple exciter as an impulse, the decay of the impulse combined with noise representing the resonator.
 ```
 
 Instead of using [LFNoise2](https://doc.sccode.org/Classes/LFNoise2.html) we could have also used some other noise generator such as [WhiteNoise](https://doc.sccode.org/Classes/WhiteNoise.html).

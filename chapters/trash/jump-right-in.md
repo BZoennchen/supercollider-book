@@ -5,7 +5,7 @@
 Let $f$ be our frequency.
 $f$ determines the pitch of a sound.
 The pitch increases by one octave if we double the frequency $f$.
-There are 12 keys on a pianos keyboard within one octave, this means that if we go up one note we increase $f$ by
+There are 12 keys on a piano's keyboard within one octave, this means that if we go up one note we increase $f$ by
 
 $$
 2^{1/12} \approx 1.059446
@@ -17,7 +17,7 @@ which is approximately the value of
 1.0.midiratio
 ```
 
-We can also transform a midinote to frequency (cycles per seconds, i.e., cps) and vise versa by
+We can also transform a midinote to frequency (cycles per seconds, i.e., cps) and vice versa by
 
 ```isc
 75.midicps                                             // 622.25396744416
@@ -43,7 +43,7 @@ Synth(\melo);
 
 This is a quite boring sound.
 A way to enrich it, is to add slightly detuned copies of the sinewave which change their frequency over time.
-The noise oscillators ``LFNoiseX.ar(freq: freq)`` generate a juggeling signal which changes its amplitude inbetween the $[-1;1]$ uniformly distributed.
+The noise oscillators ``LFNoiseX.ar(freq: freq)`` generate a juggling signal which changes its amplitude between $[-1;1]$ uniformly distributed.
 Between the changes, the amplitude stays constant (0), is interpolated linearly (1) or quadratically (2), compare {numref}`Figure {number} <fig-plot-LFNoiseX>`.
 
 ```isc
@@ -64,7 +64,7 @@ name: fig-plot-LFNoiseX
 Plot of ``LFNoise0``, ``LFNoise1`` and ``LFNoise2`` over 4 seconds and a frequency of 10 Hz.
 ```
 
-So let us create $n$ number of detuned sinewaves and adding them to the fundamental:
+So let us create $n$ detuned sinewaves and add them to the fundamental:
 
 ```isc
 (
@@ -82,9 +82,9 @@ Synth(\melo);
 ```
 
 ``{Rand(lo, hi)}!n`` is a array containing ``n`` functions ``{Rand(lo, hi)}`` which are evaluated each time we execute the synth ``\melo``.
-Is a ``UGen`` that ``Rand(lo, hi)`` generates a single random ``float`` value in uniform distribution from ``lo`` to ``hi``, see [Random distributions](sec-utility-distributions).
+``Rand(lo, hi)`` is a ``UGen`` that generates a single random ``float`` value in uniform distribution from ``lo`` to ``hi``, see [Random distributions](sec-utility-distributions).
 
-The function ``bipolar(x)`` ensures that each value is inbetween the interval [``-x``, ``x``].
+The function ``bipolar(x)`` ensures that each value is within the interval [``-x``, ``x``].
 In this case we could also just multiply the noise by ``detune``, since it is between [``-1``, ``1``].
 
 To enrich a sound a good technique is to add detuned 

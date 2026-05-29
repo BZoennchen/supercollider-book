@@ -17,20 +17,20 @@ Reverberation, often shortened to reverb, is a phenomenon where sound waves refl
 It gives us a sense of the size and type of space we're in, whether it's a small bathroom or a large cathedral.
 
 Reverberation depends on our capability to recognize events in time.
-As we know, our conscious is blind for very slow and vey fast processes with repect to time.
+As we know, our consciousness is blind to very slow and very fast processes with respect to time.
 We can think about and measure day and night, month, year and the air pressure change of the weather but we can not perceive them immediately.
-Furthermore, if pulses arrive in a distance smaller than 60 milliseconds, we can hear a sound but we can nor perceive the dynamic---the underlying movement in time.
+Furthermore, if pulses arrive in a distance smaller than 60 milliseconds, we can hear a sound but we cannot perceive the dynamic---the underlying movement in time.
 Our sense of time relates to the rhythms of the body, e.g., our heart beating, our breathing and walking speed (which decreases with age).
 
 There are different time constants known from perceptual psychology which determine the perception of the human hearing:
 
 + Two arbitrary acoustic signals within **2 ms** or less are perceived as simultaneous.
 + Multiple **similar** acoustic signals within about **40 ms** can blend to one perception. If the signals are different a occultation might occur.
-+ Two similar acoustic signals within about **100 ms** or more are preceived as an echo.
++ Two similar acoustic signals within about **100 ms** or more are perceived as an echo.
 + The *integration time* of our hearing, that is, the time interval over that we sum up acoustic signals to control the sensation of loudness, amounts to about **300 ms**.
 
-Let test this.
-Firt we introduce a synth that is just simple decaying impulse.
+Let us test this.
+First we introduce a synth that is just a simple decaying impulse.
 
 ```isc
 (
@@ -61,7 +61,7 @@ audio_path = '../../../sounds/2ms-imp.mp3'
 ipd.Audio(audio_path)
 ```
 
-Let us play it within 40 ms. I can hear two impulses. However, they are however blended together.
+Let us play it within 40 ms. I can hear two impulses. However, they are blended together.
 
 ```isc
 (
@@ -140,7 +140,7 @@ Under these conditions, it is easy to hear that it is decaying.
 
 The human hearing generally waits about 40 milliseconds after a sound event's apparent end, before deciding it is over.
 Therefore, we perceive multiple sound cues within a period smaller than 40 ms as one continuous stream.
-Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spacially more interesting.
+Early reflections can be used to alter the timbre of a sound; to make it louder, heavier, spatially more interesting.
 
 ```{figure} ../../../figs/sounddesign/reverberation.png
 ---
@@ -152,7 +152,7 @@ Time $t$ is measured in milliseconds.
 ```
 
 In *The Theory and Practice of Perceptual Modeling -- How to use Electronic Reverberation to Add Depth and Envelopment Without Reducing Clarity* ([pdf](http://www.davidgriesinger.com/threedpm.pdf)) presented at the *Tonmeister conference (2000)* in Hannover, David Griesinger gives an excellent description of an *ideal reverberation profile for recording*.
-We need a strong early lateral field for producing a sense of distance, a mimimum of energy in the $50-150\,\text{ms}$ region, and adequate reverberant energy after $150\,\text{ms}$.
+We need a strong early lateral field for producing a sense of distance, a minimum of energy in the $50-150\,\text{ms}$ region, and adequate reverberant energy after $150\,\text{ms}$.
 Recordings with too much energy in the $50$ to $150,\text{ms}$ region sound muddy.
 This time range must be carefully minimized.
 
@@ -160,13 +160,13 @@ Reverberation can be simulated/approximated by adding [delayed signals](sec-filt
 
 ## Single Reflection
 
-[DelayN](https://doc.sccode.org/Classes/DelayN.html) takes an input signal, delays it for ``delayTime`` (in seconds) and outputs the a *delayed copy* (without the original).
+[DelayN](https://doc.sccode.org/Classes/DelayN.html) takes an input signal, delays it for ``delayTime`` (in seconds) and outputs a *delayed copy* (without the original).
 Therefore, it can be useful to introduce a reverb effect.
 
 In the following example we use a *decaying impulse* to generate a repeating exponential envelope.
 The [Impulse](https://doc.sccode.org/Classes/Impulse.html) decays over a period of ``0.2`` seconds.
 [Decay](https://doc.sccode.org/Classes/Decay.html) works similar to [Integrator](https://doc.sccode.org/Classes/Integrator.html) which basically integrate an incoming signal, which is another way of saying that it sums up all past values of the signal. 
-It realizes the following formular:
+It realizes the following formula:
 
 \begin{equation}
 y[n] = \sum\limits_{i=0}^n \alpha x[i]
@@ -256,7 +256,7 @@ ipd.Audio(audio_path)
 
 The [AllpassN](https://doc.sccode.org/Classes/AllpassN.html) *unit generator* implements a *Schroeder allpass filter*.
 It works and sounds very similar to the *comb delay line* but *allpass filters* **change the phase of signals** passed through them.
-For this reason, they are useful even though do not seem to differ much from *comb filters*.
+For this reason, they are useful even though they do not seem to differ much from *comb filters*.
 
 ```isc
 ({
@@ -345,7 +345,7 @@ name: fig-pluck
 Signal-flow graph of the construction above.
 ```
 
-Using [Pluck](https://doc.sccode.org/Classes/Pluck.html) instread, generates a slightly different sound:
+Using [Pluck](https://doc.sccode.org/Classes/Pluck.html) instead generates a slightly different sound:
 
 ```isc
 ({
@@ -372,7 +372,7 @@ SuperCollider offers out of the box *reverberation unit generators*: [FreeVerb](
 
 In this example, I use *grains* sampled from a single sine wave that changes its frequency whenever the envelope is triggered.
 ``\gverb`` applies reverb to the grain.
-This time I do not make use of [Groups](https://doc.sccode.org/Classes/Group.html), therefore, I have to be careful of the oder in which I add synth to the audio server.
+This time I do not make use of [Groups](https://doc.sccode.org/Classes/Group.html), therefore, I have to be careful of the order in which I add synths to the audio server.
 
 ```isc
 (

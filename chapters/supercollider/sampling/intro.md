@@ -15,14 +15,14 @@ kernelspec:
 
 >Electronic music used pure sounds, completely calibrated. You had to think digitally, as it were, in a way that allowed you to extend serial ideas into other parameters through technology. -- Luc Ferrari
 
-The most common definition for concrète music, what you will hear in an electro-acoustic music course, is compostion using recordings of real sounds as raw material.
+The most common definition for concrète music, what you will hear in an electro-acoustic music course, is composition using recordings of real sounds as raw material.
 This definition takes its meaning partly as a distinction from analog electronic sounds which are purely electronic.
 The attraction is the richness and complexity of the source.
 The sounds can have a depth that is difficult to reproduce with pure electronics.
 
 Today we call the use of such raw material, i.e. recordings, *sampling*.
 It is concrète because it never changes at least if we do not modulate it.
-The process of using raw material as a basis and built on top of it we may call *sound file manipulation*.
+The process of using raw material as a basis and building on top of it we may call *sound file manipulation*.
 In that sense, the title of this chapter is kind of ironic.
 
 ```{admonition} Sampling 
@@ -41,7 +41,7 @@ Before processing audio it needs to be loaded into a memory [Buffer](https://doc
 After audio is loaded into a buffer, either from a sound file on disk or from an input source, it is then available for processing, quotation, or precise playback manipulation.
 
 I recorded the sound of a waterboiler since I thought that might be interesting to work with.
-To load the file into a buffer on the server, the following line suffice.
+To load the file into a buffer on the server, the following line suffices.
 I suggest you pick an audio file that you can play with.
 Here, I use the [global variable](sec-variables) ``b`` as the reference to the server buffer.
 
@@ -192,14 +192,14 @@ ipd.Audio(audio_path)
 We play in roughly seven seconds 300 *grains*.
 
 Another unit generator useful to play buffers is [BufRd](https://doc.sccode.org/Classes/BufRd.html).
-Instead of playing the buffer with a specific rate (that can be modulated), we give the ``phase`` (index of the frame) directly via anohter unit generator.
+Instead of playing the buffer with a specific rate (that can be modulated), we give the ``phase`` (index of the frame) directly via another unit generator.
 For instance, we can use the x-coordinate of the mouse using [MouseX](https://doc.sccode.org/Classes/MouseX.html) to sweep through the buffer.
 
 ```isc
 {BufRd.ar(1, b.bufnum, K2A.ar(MouseX.kr(0, 40*48000.0)))}.play
 ```
 
-[K2A](https://doc.sccode.org/Classes/K2A.html) transform a signal from *control* to *audio rate*.
+[K2A](https://doc.sccode.org/Classes/K2A.html) transforms a signal from *control* to *audio rate*.
 Other helpful unit generators are [BufFrames](https://doc.sccode.org/Classes/BufFrames.html) which returns the numbers of frames (in my case 8645952) and [BufDur](https://doc.sccode.org/Classes/BufDur.html) which gives you the duration of the sound file
 
 The following code plays the buffer as if we would call ``b.play``.
@@ -242,7 +242,7 @@ audio_path = '../../../sounds/sampling4.mp3'
 ipd.Audio(audio_path)
 ```
 
-To avoid clicks you can use en envelope with a trigger.
+To avoid clicks you can use an envelope with a trigger.
 
 ```isc
 (
@@ -300,7 +300,7 @@ d = Buffer.alloc(s, 44100 * 4.0, 1);
 {PlayBuf.ar(1, d.bufnum)}.play(s);
 ```
 
-It might look strange to call ``play`` to start recording but this is exaclty what is happening.
+It might look strange to call ``play`` to start recording but this is exactly what is happening.
 Note also that we can record into a full buffer and control the mixing by ``recLevel`` (amplitude of the buffer content) and ``preLevel`` (amplitude of what is recorded).
 
 This can be interesting to create even more complex audio files.

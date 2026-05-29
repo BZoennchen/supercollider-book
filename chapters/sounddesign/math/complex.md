@@ -305,10 +305,10 @@ holds.
 It connects *Euler's number* $e$, $0$, $1$ and $\pi$.
 To arrive at the formula we first have to do some work.
 
-```{admonition} Taylor Sries 
+```{admonition} Taylor Series
 :name: def-taylor-series
 :class: definition
-Let $y(t)$ be a real or comlex-valued function that is infinitely differentiable at a real or complex number $z,$ then 
+Let $y(t)$ be a real or complex-valued function that is infinitely differentiable at a real or complex number $z,$ then
 
 \begin{equation}
 \begin{split}
@@ -385,7 +385,7 @@ e^t &= T_{e^0}(t) = \sum\limits_{k=0}^{\infty} \frac{\text{exp}^{(k)}(0)}{k!}t^k
 ```
 
 since $\text{exp}^{(k)}(t) = \text{exp}(t)$ for all $k \in \mathbb{N}_0$ and $e^0 = 1$.
-Note that we donte $e^t$ by $\text{exp}(t)$.
+Note that we denote $e^t$ by $\text{exp}(t)$.
 
 ```{figure} ../../../figs/sounddesign/math/taylor_exp.png
 ---
@@ -408,7 +408,7 @@ e^{\phi i} &= T_{e^0}(\phi i) = \sum\limits_{k=0}^{\infty} \frac{(\phi i)^k}{k!}
 \end{split}
 ```
 
-We arrive at *Euler's formula* which links the hyperbolic functions, involving $e$, to trigonomeitric functions, involving $\pi$!
+We arrive at *Euler's formula* which links the hyperbolic functions, involving $e$, to trigonometric functions, involving $\pi$!
 
 ````{admonition} Euler's Formula
 :name: theorem-euler-formula
@@ -428,7 +428,7 @@ holds. This relation is called *Euler's formula*.
 exp(Complex(0, pi/3)) == Polar(1, pi/3).asComplex // true
 ```
 
-We can immidiatly follow that
+We can immediately conclude that
 
 $$e^{i\pi} = \cos(\pi) + i \sin(\pi) = -1 + i0 = -1.$$
 
@@ -528,7 +528,7 @@ Therefore, we get
 (sec-phasors)=
 ## Phasors
 
-Interestingly, by using *Euler's formula*, we can encode the **phase** and **amplitude** of a sinosoid by one very compact representation which we call *phasor*.
+Interestingly, by using *Euler's formula*, we can encode the **phase** and **amplitude** of a sinusoid by one very compact representation which we call *phasor*.
 
 ```{admonition} Phasor
 :name: def-phasor
@@ -540,10 +540,10 @@ A *phasor* is the *polar representation* of any complex variable
 \end{equation}
 
 where $r, \phi \in \mathbb{R}$.
-It represents the amplitude and phase shift of some sinosoid.
+It represents the amplitude and phase shift of some sinusoid.
 ```
 
-We can define any sinosoid of the form
+We can define any sinusoid of the form
 
 \begin{equation}
 y(t) = r \cdot \cos(2\pi f t + \phi)
@@ -568,7 +568,7 @@ In many text books you will find
 r e^{i (\omega t + \phi)} = r \cdot (\cos(\omega t + \phi) + i \sin(\omega t + \phi)) = y(t) + i r \sin(\omega t + \phi))
 \end{equation}
 
-instead, where $\omega = 2\pi f$ is the *anglar speed* or *speed of rotation*.
+instead, where $\omega = 2\pi f$ is the *angular speed* or *speed of rotation*.
 
 ```{figure} ../../../figs/sounddesign/math/phasor_function.jpeg
 ---
@@ -587,5 +587,5 @@ Since each phasor is also a vector, a sinusoid comprising multiple frequencies c
 width: 500px
 name: fig-phasor-complex-function
 ---
-A complex sinusoid $y(t)$ defined by 3 phasors and 3 differen frequencies.
+A complex sinusoid $y(t)$ defined by 3 phasors and 3 different frequencies.
 ```

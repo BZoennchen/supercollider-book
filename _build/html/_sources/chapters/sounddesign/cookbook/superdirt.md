@@ -386,7 +386,7 @@ ipd.Audio(audio_path)
 The ``\supersnare`` is quite similar to the ``\superhat`` but also quite different.
 The sound is the sum of two parts: One filtered [Pulse](https://doc.sccode.org/Classes/Pulse.html) where the cutoff frequency of the [LPF](https://doc.sccode.org/Classes/LPF.html) and a filtered [WhiteNoise](https://doc.sccode.org/Classes/LPF.html) with a center frequency of 1500 Hz and a cutoff >500 Hz.
 
-In addition, the amplitude of the second part, i.e. the noise, drops dependend on ``\decay`` where the filter cutoff of the first part decreases from 1030 to 30 Hz in ``0.2* \sustain`` seconds.
+In addition, the amplitude of the second part, i.e. the noise, drops depending on ``\decay`` where the filter cutoff of the first part decreases from 1030 to 30 Hz in ``0.2* \sustain`` seconds.
 Thus, the pulse frequency decreases over time.
 Again, ``\n`` brings in some variations and is bound to [0.5;2].
 The ``releaseTime`` is doubled compared to ``\superhat``.

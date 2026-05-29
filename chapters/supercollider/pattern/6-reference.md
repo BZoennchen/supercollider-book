@@ -22,9 +22,9 @@ If you want to use the pattern library the following patterns are your bread and
 ### Lists
 
 [Pseq](https://doc.sccode.org/Classes/Pseq.html) is the most basic pattern that can be used to play through a list of values.
-It is useful for deterministic number generatrion, e.g. playing a specific chord progression but also to combine non-deterministic patterns.
-``repeats`` (which can be infinit ``inf``) spcifies how often the pattern goes through the list.
-``offset`` indicate the starting index.
+It is useful for deterministic number generation, e.g. playing a specific chord progression but also to combine non-deterministic patterns.
+``repeats`` (which can be infinite ``inf``) specifies how often the pattern goes through the list.
+``offset`` indicates the starting index.
 
 ```isc
 // [ 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2 ]
@@ -32,14 +32,14 @@ Pseq(list: [1,2,3,4], repeats: 3, offset: 2).asStream.all;
 ```
 
 [Prand](https://doc.sccode.org/Classes/Prand.html) chooses items from the list randomly (same as list.choose).
-You can reduce randomness if you but the same item into the list multiple times (or you use [Pwrand](https://doc.sccode.org/Classes/Pwrand.html) instead).
+You can reduce randomness if you put the same item into the list multiple times (or you use [Pwrand](https://doc.sccode.org/Classes/Pwrand.html) instead).
 
 ```isc
 // e.g. [ 4, 3, 4, 3, 3, 2, 1, 3, 2, 4 ]
 Prand(list: [1,2,3,4], repeats: 10).asStream.all;
 ```
 
-[Pxrand](https://doc.sccode.org/Classes/Pxrand.html) chooses randomly, but never repeat the same item twice.
+[Pxrand](https://doc.sccode.org/Classes/Pxrand.html) chooses randomly, but never repeats the same item twice.
 
 ```isc
 // e.g. [ 2, 1, 2, 4, 3, 1, 4, 1, 2, 4 ]
@@ -54,7 +54,7 @@ This introduces randomness deterministically.
 Pshuf(list: [1,2,3,4], repeats: 3).asStream.all;
 ```
 
-[Pwrand](https://doc.sccode.org/Classes/Pwrand.html) choose randomly by weighted probabilities (like list.wchoose(weights)).
+[Pwrand](https://doc.sccode.org/Classes/Pwrand.html) chooses randomly by weighted probabilities (like list.wchoose(weights)).
 **Tipp:** use ``normalizeSum`` to guarantee that weights add up to 1.0.
 
 ```isc
@@ -97,7 +97,7 @@ Pexprand(lo: 0.1, hi: 2.0, length: 4).asStream.all;
 
 [Pbrown](https://doc.sccode.org/Classes/Pbrown.html) generates numbers according to the Brownian motion, arithmetic scale (addition).
 The ``step`` argument determines the maximum change per step.
-Internal, the pattern uses ``xrand2`` to determine the next step change, i.e., a uniform distribution fron ``-step`` to ``+step``.
+Internal, the pattern uses ``xrand2`` to determine the next step change, i.e., a uniform distribution from ``-step`` to ``+step``.
 
 ```isc
 // e.g. [ 0.044661736488342, 0.12499458789825, 0.20763206481934, 0.30759530067444 ]
@@ -108,7 +108,7 @@ Pbrown(lo: 0, hi: 5, step: 0.1, length: 4).asStream.all;
 ### Functions
 
 [Pkey](https://doc.sccode.org/Classes/Pkey.html) gets the value of another ``key`` of a [Pbind](https://doc.sccode.org/Classes/Pbind.html).
-The ``key`` has to be specified before it can be accesed.
+The ``key`` has to be specified before it can be accessed.
 In the following example we control the amplitude ``\amp`` via the ``\midinote`` we are playing such that higher notes are louder.
 
 ```isc
@@ -149,7 +149,7 @@ Pfuncn(func: {4.rand}, repeats: 7).asStream.all;
 
 [Prout](https://doc.sccode.org/Classes/Prout.html) uses the function like a routine.
 The function should return values using ``.yield`` or ``.embedInStream``.
-The folling code constructs a pattern that spits out the first 10 Fibonacci numbers.
+The following code constructs a pattern that spits out the first 10 Fibonacci numbers.
 
 ```isc
 // [ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 ]
@@ -193,7 +193,7 @@ Pslide(
 ```
 
 [Pwalk](https://doc.sccode.org/Classes/Pwalk.html) realizes a *random walk* over the list.
-The direction and the steps of the walk can be controled by patterns.
+The direction and the steps of the walk can be controlled by patterns.
 
 ```isc
 // [ 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 1, 2, 3, 4 ]
@@ -210,7 +210,7 @@ Pwalk(
 Basically this pattern returns elements in the list. 
 But if an element is an array itself, it embeds the first element when it comes by first time, the second element when it comes by the second time and so on.
 The $n$-th when it comes by the $n$-th time.
-This can be very useful when we build a melodies.
+This can be very useful when we build melodies.
 
 ```isc
 // [ 1, 2, 5, 1, 3, 6 ]
@@ -267,11 +267,11 @@ This makes only sense for [Pbind](https://doc.sccode.org/Classes/Pbind.html) or 
 
 ### Filter Pattern
 
-Filter pattern are manipulate existing pattern via the *decorator* approach.
+Filter patterns manipulate existing patterns via the *decorator* approach.
 This means they not necessarily reduce the number of values a pattern generates.
 
 [Pn](https://doc.sccode.org/Classes/Pn.html) repeatedly embed a pattern.
-This pattern is especially hand in the live coding environment when you want to adjust a pattern by decorate it by another pattern.
+This pattern is especially handy in the live coding environment when you want to adjust a pattern by decorate it by another pattern.
 If ``key`` is non-``nil``, it sets the value of that key to true whenever it restarts the pattern.
 This can be used to advance patterns enclosed by [Pgate](https://doc.sccode.org/Classes/Pgate.html).
 

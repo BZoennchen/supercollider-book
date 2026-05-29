@@ -565,16 +565,16 @@ Using <span class="math notranslate nohighlight">\(\alpha = -0.5\)</span> gives 
 <div class="math notranslate nohighlight">
 \[y[n] = 0.5 \cdot x[n] - 0.5 \cdot x[n-1].\]</div>
 <p>In other words, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3bd8ac5d-440a-47e2-a721-5b9606294d6d">
-<span class="eqno">(71)<a class="headerlink" href="#equation-3bd8ac5d-440a-47e2-a721-5b9606294d6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2d7400b9-30fa-41da-ab7c-eec64990651b">
+<span class="eqno">(71)<a class="headerlink" href="#equation-2d7400b9-30fa-41da-ab7c-eec64990651b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{x(t) - x(t - \Delta t)}{2\Delta t},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is <span class="math notranslate nohighlight">\(f_s^{-1}\)</span> seconds.
 To get the <em>difference quotient</em>, we have to multiply by a factor of two.</p>
 <p>To test this result, let us compute the cosine using <a class="reference external" href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc</a> and a <a class="reference external" href="https://doc.sccode.org/Classes/OneZero.html">OneZero</a>.
 Remember</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da655149-fb2c-4b7f-add2-1811a390de73">
-<span class="eqno">(72)<a class="headerlink" href="#equation-da655149-fb2c-4b7f-add2-1811a390de73" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f0ac0440-b98b-49e2-b313-29e5d2bf7f23">
+<span class="eqno">(72)<a class="headerlink" href="#equation-f0ac0440-b98b-49e2-b313-29e5d2bf7f23" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \frac{d\sin(2\pi \cdot \omega \cdot t)}{dt} = 2 \pi \cdot \omega \cdot \cos(2\pi \cdot \omega \cdot t) 
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
@@ -610,15 +610,15 @@ For a more in-depth analysis of the <a class="reference internal" href="../math/
 </section>
 <section id="onepole">
 <span id="sec-onepole"></span><h2>OnePole<a class="headerlink" href="#onepole" title="Permalink to this headline">#</a></h2>
-<p>Another unit genertor I had a hard time get my head around is <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>.
+<p>Another unit generator I had a hard time getting my head around is <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>.
 Again let us try our best to understand what is going on without using the <a class="reference internal" href="../math/z-transform.html#sec-z-transform"><span class="std std-ref">Z-transform</span></a>.</p>
 <p>The documentation states that a one pole filter implements the formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-onepole">
 <span class="eqno">(73)<a class="headerlink" href="#equation-eq-onepole" title="Permalink to this equation">#</a></span>\[y[n] = (1 - |\alpha|) \cdot x[n] + \alpha \cdot y[n-1]\]</div>
 <p>with <span class="math notranslate nohighlight">\(-1 \leq \alpha \leq 1\)</span>.
 I assume</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fa4a7fb-d0c1-4281-b0b7-f993c1ddb6a5">
-<span class="eqno">(74)<a class="headerlink" href="#equation-2fa4a7fb-d0c1-4281-b0b7-f993c1ddb6a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-05cb9f14-f499-4ffa-8ae9-edd9a4f8b6d2">
+<span class="eqno">(74)<a class="headerlink" href="#equation-05cb9f14-f499-4ffa-8ae9-edd9a4f8b6d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[0] = (1 - |\alpha|) \cdot x[0]
 \end{equation}\]</div>
 <p>holds. <span class="math notranslate nohighlight">\(y\)</span> is the resulting signal and <span class="math notranslate nohighlight">\(x\)</span> the input signal of <a class="reference external" href="https://doc.sccode.org/Classes/OnePole.html">OnePole</a>.
@@ -630,8 +630,8 @@ Let us assume <span class="math notranslate nohighlight">\(1 \geq \alpha \geq 0\
 <span class="eqno">(76)<a class="headerlink" href="#equation-eq-onepole3" title="Permalink to this equation">#</a></span>\[    y[i] = y[i-1] + \beta \cdot (x[i] - y[i-1])\]</div>
 <p>with <span class="math notranslate nohighlight">\(\beta = 1-\alpha\)</span>.
 If <span class="math notranslate nohighlight">\(\beta\)</span> is small, (<span class="math notranslate nohighlight">\(\alpha\)</span> is large respectively), then output samples <span class="math notranslate nohighlight">\(y[0], \ldots y[n]\)</span> respond more slowly to a change in the input samples <span class="math notranslate nohighlight">\(x[0], \ldots x[n]\)</span>. For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0c9692e-b06a-4d53-94f3-1590981ff10a">
-<span class="eqno">(77)<a class="headerlink" href="#equation-e0c9692e-b06a-4d53-94f3-1590981ff10a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d35b6a5f-66cd-4d5a-8a7a-455bbe81b7f5">
+<span class="eqno">(77)<a class="headerlink" href="#equation-d35b6a5f-66cd-4d5a-8a7a-455bbe81b7f5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
   &amp; = x[2] \cdot \beta + x[1] \cdot (\beta - \beta^2) + x[0] \cdot (\beta - 2\beta^2 + \beta^3)\\
@@ -640,14 +640,14 @@ y[2] &amp; = y[1] + \beta \cdot (x[2] - y[1]) \\
 \end{split}
 \end{equation}\]</div>
 <p>and in general we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e47093a1-5e4c-435e-a00e-a4755741fc89">
-<span class="eqno">(78)<a class="headerlink" href="#equation-e47093a1-5e4c-435e-a00e-a4755741fc89" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-78ddf64a-c36f-4ee4-8aab-087060cdca07">
+<span class="eqno">(78)<a class="headerlink" href="#equation-78ddf64a-c36f-4ee4-8aab-087060cdca07" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 y[i] = (1-\alpha) \cdot \sum\limits_{k=0}^{i} \alpha^{i-k} \cdot x[k].
 \end{split}
 \end{equation}\]</div>
 <p>The change from one filter output to the next is proportional to the difference between the previous output and the next input.
-Therefore, the signal is smoothen exponentially, which matches the exponential decay seen in the continuous-time system.
+Therefore, the signal is smoothed exponentially, which matches the exponential decay seen in the continuous-time system.
 The exponential decay is depicted in the plot in section <a class="reference internal" href="../math/lti-filters.html#sec-one-pole-analysis"><span class="std std-ref">One Pole Filter (Analysis)</span></a>.</p>
 <div class="remark admonition" id="remark-one-pole">
 <p class="admonition-title">OnePole</p>

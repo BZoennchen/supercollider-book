@@ -59,7 +59,7 @@ However, due to computational complexity and buffering constraints, such ideal f
 :name: remark-filtering-and-convolution
 :class: remark
 
-Filtering can be achieved by multiplication in the spectural domain and by convolution in the time domain.
+Filtering can be achieved by multiplication in the spectral domain and by convolution in the time domain.
 
 ```
 
@@ -96,18 +96,18 @@ The gain is 1 in the *passband*, which pans frequencies from 0 Hz to the *cutoff
 The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.
 
 Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., $\sin(2\pi t)$ is transformed to $\sin(2\pi t + 0.5\pi)$.
-Some filters do primarily apply such period shifts and we might not think of them as filters.
+Some filters primarily apply such phase shifts and we might not think of them as filters.
 For example, the *allpass filter* passes all frequencies untouched but attunes phases.
 
 *Lowpass filters* are used everywhere because they can smoothen the harshness of a sound.
 
 A lot of filters support *feedback*, i.e., the output signal of the filter goes back into it.
 Each time the signal is fed back, its level gets reduced such that the feedback eventually comes to an end.
-Such feedback can be used to synthesis [reverberation](sec-reverb).
+Such feedback can be used to synthesize [reverberation](sec-reverb).
 
-In combination with an *impulse* (e.g. [Impuse](https://doc.sccode.org/Classes/Impulse.html)) filters can be used to contruct surprising effects.
+In combination with an *impulse* (e.g. [Impulse](https://doc.sccode.org/Classes/Impulse.html)) filters can be used to construct surprising effects.
 
-And with [ressonance](sec-resonance), filters can add many aspects to the timbre of a sound.
+And with [resonance](sec-resonance), filters can add many aspects to the timbre of a sound.
 
 [SuperCollider](https://supercollider.github.io/) offers a large variety of filters.
 Execute
@@ -118,12 +118,12 @@ Filter.dumpClassSubtree;
 
 to print a list of all filters to the post window.
 
-In summary, filters and substractive synthesis are inseperable.
+In summary, filters and subtractive synthesis are inseparable.
 
 + We can use static filters to emphasize specific frequencies.
 + We can use static filters to create formants in a sound and imitate the characteristics of the human voice or traditional acoustic instruments.
 + A [resonance filter](sec-resonance) with a moderate *resonance bandwidth* with a cutoff frequency that tracks the pitch can create a characteristic quality that remains tonally consistent as we play the keyboard.
-+ For some *resonance filters*, if we decrease the *resonance bandwidth*, we enter an area where the filter is at the brick of self-oscillation. This creates a distinctive distortion that can be a perfect starting point.
++ For some *resonance filters*, if we decrease the *resonance bandwidth*, we enter an area where the filter is at the brink of self-oscillation. This creates a distinctive distortion that can be a perfect starting point.
 + If we decrease the *resonance bandwidth* even further, the filter will become a sine wave generator in its own right. In theory, no input signal is passed at this point, but few filters altogether remove all the signal, and the result is a tortured sound that has extensive uses in modern music.
 
 In analog synthesis, filters are the defining element of a synthesizer.

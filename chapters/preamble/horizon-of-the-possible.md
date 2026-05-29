@@ -3,7 +3,7 @@
 The prevailing zeitgeist today is technological.
 By this, I mean that while contemporary societies may critique the specific applications of technology, they rarely question its essence.
 While the general Western public acknowledges technological missteps, such as the industrial extermination executed by the Nazis---which was only possible because of technological inventions---technological progress is seen, by most, as general progress.
-The misuse of technological tools is a matter of personal or social repsonsibility.
+The misuse of technological tools is a matter of personal or social responsibility.
 The assumption is that humans maintain control over technology and can therefore determine whether it is used for beneficial or harmful purposes. 
 Technology is viewed as having both positive and negative effects, with its impact largely dependent on who controls it.
 Thus technology is a *mere tool*, adhering to the notion that guns don't kill people, but people do.
@@ -46,8 +46,8 @@ Instead of adjusting our expectations, we express discontent.
 Luhmann believes these normative expectations are stabilized through societal communication.
 It's important to note that for Luhmann, *communication* extends beyond just language; for instance, monetary transactions also convey messages.
 He dismisses the idea of *natural* or *metaphysical* *norms* or *moral principles*, arguing they're no longer applicable in our modern world where traditional societal hierarchies have largely dissipated.
-For example, *Human Rights* which are inspired by *The Declaration of Independence* have the kind of status that the devine right of kings had in the Middle Ages.
-But even if "We hold these truth to be self-evident, that all men are created equal, that they are endowed their Creator with certain unalienable rights [...]", *Human Rights* are socially constructed and stabilized via communication of mostly Western societies.
+For example, *Human Rights* which are inspired by *The Declaration of Independence* have the kind of status that the divine right of kings had in the Middle Ages.
+But even if "We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable rights [...]", *Human Rights* are socially constructed and stabilized via communication of mostly Western societies.
 There is no divine force or absolute natural law establishing or guaranteeing these rights.
 In fact, the enforcement of *Human Rights* require a certain kind of power imbalance such that one party can enforce these rights, if necessary violently.
 Therefore, it is a dangerous path to use military intervention to enforce those rights if a society does not stabilize these rights via their communication.
@@ -106,7 +106,7 @@ Moreover, he observes that the alignment of corporate regulatory practices with 
 However, he forcefully advocates for the *Rule of Law* as an indispensable prerequisite for a democratic society.
 Consequently, any attempt to replace it, could precipitate the dissolution of such a society.
 For this reason, Rosengrün asserts that code must not only be open but also subject to regulation.
-He underscores the potential dangers of allowing code to regulate law beacuse when *machine learning* is used in the policy-making process, it is unrealistic to expect that law will maintain supremacy over code.
+He underscores the potential dangers of allowing code to regulate law because when *machine learning* is used in the policy-making process, it is unrealistic to expect that law will maintain supremacy over code.
 
 Rosengrün refers to Lessig and his emphasis on *Wikipedia* as influential institution that rather successfully stayed to the principle *by the rule of the people* {cite}`rosengruen:2021` as an example of how *artificial intelligence* can be democratized.
 The *free- and open-source spirit* in the IT industry, research and education is still a vibrant one.
@@ -138,4 +138,4 @@ Technologies related to beauty and cosmetic surgery exert pressure to conform to
 Similarly, assistive tools have profoundly enhanced the agency of individuals with disabilities, and advancements in medical transitions have carved out new avenues for expressing and experiencing transgender identities.
 
 In summary, it's difficult to refute the idea that technology molds our behavior and how we interact with the world and one another. 
-McLuhan's assertion that the specific ways individuals use common tools are mostly insignificant and that the sole existence of the specific technology shape society, holds true.
+McLuhan's assertion that the specific ways individuals use common tools are mostly insignificant and that the mere existence of the specific technology shapes society, holds true.

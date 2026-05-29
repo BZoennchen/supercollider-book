@@ -513,12 +513,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="task-proxy">
 <h1>Task Proxy<a class="headerlink" href="#task-proxy" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://github.com/sonic-pi-net/sonic-pi">Sonic Pi</a> uses the concept of <em>live loops</em>, i.e., named threaded loops that can be synchronized and updated on the fly.
-I found <em>live loops</em> extremely fun and useful, especially to explore new rythms and melodies.
+I found <em>live loops</em> extremely fun and useful, especially to explore new rhythms and melodies.
 Is there something similar in SuperCollider?
 The answer is yes!</p>
 <p><a class="reference external" href="https://doc.sccode.org/Classes/Tdef.html">Tdef</a> is part of the SuperCollider’s <a class="reference external" href="https://doc.sccode.org/Overviews/JITLib.html">Just In Time programming library (JITLib)</a> and allows us to register <em>tasks</em> by key.
 Registered tasks can be replaced with other task <strong>while playing</strong>.
-The old task and its replacement can automatically crossfade and the repalcement time can be quantized.</p>
+The old task and its replacement can automatically crossfade and the replacement time can be quantized.</p>
 <p>Evaluate the following code, change the message and re-evaluate the code.
 Observe the post window.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -530,7 +530,7 @@ Observe the post window.</p>
 </pre></div>
 </div>
 <p>This is great!
-Let us combine <code class="docutils literal notranslate"><span class="pre">Tdef</span></code> with <a class="reference internal" href="../pattern/3-pattern.html#sec-pattern"><span class="std std-ref">Patterns</span></a> play a melody that we can change on the fly:</p>
+Let us combine <code class="docutils literal notranslate"><span class="pre">Tdef</span></code> with <a class="reference internal" href="../pattern/3-pattern.html#sec-pattern"><span class="std std-ref">Patterns</span></a> to play a melody that we can change on the fly:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nc">Tdef</span><span class="p">(</span><span class="ss">\melody</span><span class="p">,</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">notes</span> <span class="o">=</span> <span class="nc">Pseq</span><span class="p">([</span><span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">],</span> <span class="kc">inf</span><span class="p">).</span><span class="nb">asStream</span><span class="p">;</span>

@@ -20,10 +20,10 @@ import IPython.display as ipd
 
 A *Markov chain* is a mathematical model for stochastic processes describing a sequence of possible events.
 Importantly the model assumes that the probability of each event depends only on the state attained in the previous event which is a strong assumption.
-It is often refered as the *Markov property* and sometimes characterized as *memorylessness*.
+It is often referred to as the *Markov property* and sometimes characterized as *memorylessness*.
 
 Markov chains can be used to generate musical events.
-One usually assume that these events are discrete-time events.
+One usually assumes that these events are discrete-time events.
 Therefore, we use a *discrete-time Markov chain* (DTMC).
 
 ```{admonition} Discrete-time Markov Chain
@@ -38,12 +38,12 @@ if both conditional probabilites are well defined, that is, if
 
 $$P(X_1 = x_1, \ldots, X_k = x_k) > 0.$$
 
-The possible values of $X_i$ form a *countable set* $S$ (it is finate or there exists a bijection to the natural numbers) called the state space of the chain.
+The possible values of $X_i$ form a *countable set* $S$ (it is finite or there exists a bijection to the natural numbers) called the state space of the chain.
 
 ```
 
-It is intuitiv clear why Markov chains are useful for alorithmic composition: they are rather easy to implement, assuming we have a good generator of pseudo random numbers
-If $S$ is finite and contines $m$ symbols/events, it forms an *alphabet* of events.
+It is intuitively clear why Markov chains are useful for algorithmic composition: they are rather easy to implement, assuming we have a good generator of pseudo random numbers.
+If $S$ is finite and contains $m$ symbols/events, it forms an *alphabet* of events.
 Let's assume we want to generate a sequence of length $n$ then we have to define a probability for each pair of letters within the alphabet for each of the $n$ transition and for the first event, i.e., at most
 
 $$|S|^2 \cdot n = m^2 \cdot n$$
@@ -57,7 +57,7 @@ If the discrete Markov chain is *time-homogeneous*, that is,
 $$P(X_{k+1} = x \ | \ X_{k} = y) = P(X_{k} = x \ | \ X_{k-1} = y)$$
 
 for all $k$ with $x, y \in S$, then we only require at most $m^2$ probability values.
-Furhtermore, let $p_{ij}$ the probability that event $x_j$ follows after event $x_i$, that is:
+Furthermore, let $p_{ij}$ be the probability that event $x_j$ follows after event $x_i$, that is:
 
 $$p_{ij} = P(X_{k+1} = x_j \ | \ X_k = x_i)$$
 
@@ -71,7 +71,7 @@ $$\sum\limits_{j=1}^n p_{ij} = 1$$
 
 for all $i = 1, \ldots, n$.
 In other words each row sums up to one.
-What we need in addtion is the probabilty of the first event within the sequence that is $P(X_1 = x)$ for all $x \in S$.
+What we need in addition is the probability of the first event within the sequence, that is, $P(X_1 = x)$ for all $x \in S$.
 
 ## A Very Simple Example
 
@@ -92,7 +92,7 @@ p = [
 One possible way to construct a Markov chain is to use the ``\degree`` of the scale as an event.
 Given degree $x_i$ we use ``1.0.rand`` to generate a random number between 0.0 and 1.0.
 Then we pick the $i^{\text{th}}$ row of our matrix ``p``.
-We accumulate the colums and increase an index, starting from 0, until the sum is greater or equal the rolled probability.
+We accumulate the columns and increase an index, starting from 0, until the sum is greater than or equal to the rolled probability.
 
 ```isc
 ~funcNext = { |prevIndex|
@@ -125,7 +125,7 @@ Calling this function constructs a random sequence of degrees.
 };
 ```
 
-We can use is, e.g., in a [Pbind](https://doc.sccode.org/Classes/Pbind.html):
+We can use it, e.g., in a [Pbind](https://doc.sccode.org/Classes/Pbind.html):
 
 ```isc
 (
@@ -155,8 +155,8 @@ Pbind(
 )
 ```
 
-A famous way of represeting such a *time-homogeneous discrete Markov chains* is using a directed graph where nodes represent events and directed edges transition probabilities.
-Anyone familiar with deterministic finiate automata will recognize these graphs.
+A famous way of representing such *time-homogeneous discrete Markov chains* is using a directed graph where nodes represent events and directed edges represent transition probabilities.
+Anyone familiar with deterministic finite automata will recognize these graphs.
 
 ```{figure} ../../../figs/composing/markov-chain-simple.png
 ---
@@ -169,17 +169,17 @@ The Markov chain of this example. Each node represents a degree. Note that there
 ## A More Complex Example
 
 Instead of only using the pitch or degree of a scale as elements of the alphabet, we could use complete events played by a [Pbind](https://doc.sccode.org/Classes/Pbind.html).
-Futhermore, often you have a lot of transition that are not possible.
+Furthermore, often you have a lot of transitions that are not possible.
 Therefore, instead of using a dense matrix, we can use a different data structure that requires less memory.
 The following is just one of many different possibilities.
 
 Let's use a list where each entry represents a node.
 The node number is equal to the index of the entry.
-It should consists the event and the information about the transitions starting at this node.
+It should contain the event and the information about the transitions starting at this node.
 We model the list by an [array](sec-array) which contains an [environment](sec-environments).
 Here I use the combination of ``\midinote`` and ``\dur`` as an event.
 ``\nodes`` is the list of reachable nodes (numbers) and ``\prob``  the respective probabilities.
-Since I am lazy to compute probabilities I, use normalized weights.
+Since I am lazy to compute probabilities, I use normalized weights.
 
 ```isc
 (

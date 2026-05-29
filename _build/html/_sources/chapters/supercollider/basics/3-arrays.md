@@ -74,7 +74,7 @@ a.at(2); // 3
 ```
 
 Instead of ``at``, we can use the ``a@2;`` as shorthand. 
-Similar to ``numpy`` arrays, can also index multiple entries at once:
+Similar to ``numpy`` arrays, we can also index multiple entries at once:
 
 ```isc
 (
@@ -197,7 +197,7 @@ We can **duplicate** an array ``k`` times by using ``!k``:
 (sec-array-adverbs)=
 ## Adverbs
 
-``J`` and ``APL`` are programming languages that are made for processing arrays of data and are able to express complex notions of iterations implicitely.
+``J`` and ``APL`` are programming languages that are made for processing arrays of data and are able to express complex notions of iterations implicitly.
 ``J`` is a purely functional programming language that was developed around 1990 and is based on ``APL`` (**A** **P**rogramming **L**anguage).
 Since ``J`` specializes in array (and matrix) operations, it is especially useful to solve mathematical and statistical problems.
 ``J`` is capable of the MIMD (multiple instruction, multiple data) paradigm.
@@ -236,7 +236,7 @@ The **fold adverb** ``f`` uses folded indexing instead of wrapped.
 [1, 2, 3, 4, 5, 6] +.f [10, 20, 30] // gives [ 11, 22, 33, 24, 15, 26 ]
 ```
 
-The **table adverb** ``t`` makes an array of arrays where each item in the first array is added to the whle second array and the resulting arrays are collected.
+The **table adverb** ``t`` makes an array of arrays where each item in the first array is added to the whole second array and the resulting arrays are collected.
 
 ```isc
 [10, 20, 30, 40, 50] +.t [1, 2, 3]

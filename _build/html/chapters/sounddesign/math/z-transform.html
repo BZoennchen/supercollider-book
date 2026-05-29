@@ -552,7 +552,7 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="z-transform">
 <span id="sec-z-transform"></span><h1>z-Transform<a class="headerlink" href="#z-transform" title="Permalink to this headline">#</a></h1>
 <p>One important mathematical concept for understanding and designing filters is the <span class="math notranslate nohighlight">\(z\)</span><em>-transform</em>.
-It is a mathematical tool used in <a class="reference internal" href="intro.html#sec-dsp"><span class="std std-ref">digital signal processing</span></a> (DSP) to converts a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain (<span class="math notranslate nohighlight">\(z\)</span>-domain or <span class="math notranslate nohighlight">\(z\)</span>-plane) representation.</p>
+It is a mathematical tool used in <a class="reference internal" href="intro.html#sec-dsp"><span class="std std-ref">digital signal processing</span></a> (DSP) to convert a discrete-time signal, which is a sequence of real or complex numbers, into a complex frequency-domain (<span class="math notranslate nohighlight">\(z\)</span>-domain or <span class="math notranslate nohighlight">\(z\)</span>-plane) representation.</p>
 <p>It generalizes the <a class="reference internal" href="fourier-transform.html#sec-fourier-transform"><span class="std std-ref">Fourier transform</span></a> and the <em>Laplace transform</em> for discrete-time signals. In fact, it can be considered as a discrete-time equivalent of the <em>Laplace transform</em> and is a generalization of the <em>discrete-time Fourier transform (DTFT)</em> (not to be confused with the discrete Fourier transform), see <a class="reference internal" href="dft.html#sec-dft-vs-dtft"><span class="std std-ref">Difference between DFT and DTFT</span></a>.</p>
 <div class="definition admonition" id="def-fourier-transform-exp">
 <p class="admonition-title">(Unilateral) <span class="math notranslate nohighlight">\(z\)</span>-Transform</p>
@@ -561,7 +561,7 @@ It is a mathematical tool used in <a class="reference internal" href="intro.html
 \[\mathcal{Z}\{x\} = X(z) = \sum\limits_{n=0}^\infty x[n] z^{-n},\]</div>
 <p>where <span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span> and <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span> is a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a>.
 <span class="math notranslate nohighlight">\(z\)</span> is often written as <span class="math notranslate nohighlight">\(z = re^{i\omega}\)</span> (magnitude <span class="math notranslate nohighlight">\(r\)</span> and angle <span class="math notranslate nohighlight">\(\omega\)</span>).
-This version is used in cases wher <span class="math notranslate nohighlight">\(x[n]\)</span> is defined only for <span class="math notranslate nohighlight">\(n \geq 0\)</span>.</p>
+This version is used in cases where <span class="math notranslate nohighlight">\(x[n]\)</span> is defined only for <span class="math notranslate nohighlight">\(n \geq 0\)</span>.</p>
 </div>
 <p>In signal processing, this definition can be used to evaluate the unilateral <span class="math notranslate nohighlight">\(z\)</span>-transform of the unit impulse response of a discrete-time causal system.</p>
 <div class="definition admonition" id="def-fourier-transform-exp-biliteral">
@@ -574,14 +574,14 @@ This version is used in cases wher <span class="math notranslate nohighlight">\(
 </div>
 <p>The <span class="math notranslate nohighlight">\(z\)</span>-transform is central to understanding how <em>filters</em> and <em>systems</em> behave with these signals:</p>
 <ul class="simple">
-<li><p><strong>System analysis</strong>: <a class="reference internal" href="lti-filters.html#def-linear-time-invariant"><span class="std std-ref">Linear time-variant filters (LTI)</span></a> (EQ, reverb, compressor, etc.) can be described by a difference equation. The <span class="math notranslate nohighlight">\(z\)</span>-Transform lets us analyze these systems easily.</p></li>
+<li><p><strong>System analysis</strong>: <a class="reference internal" href="lti-filters.html#def-linear-time-invariant"><span class="std std-ref">Linear time-invariant filters (LTI)</span></a> (EQ, reverb, compressor, etc.) can be described by a difference equation. The <span class="math notranslate nohighlight">\(z\)</span>-Transform lets us analyze these systems easily.</p></li>
 <li><p><strong>Frequency response</strong>: By evaluating <span class="math notranslate nohighlight">\(X(z)\)</span> on the <em>unit circle</em> (<span class="math notranslate nohighlight">\(z = e^{i\omega}\)</span>), we recover the discrete-time Fourier transform (DTFT), which directly relates to how a filter affects different audio frequencies.</p></li>
 <li><p><strong>Stability</strong>: In audio, unstable filters can cause distortion or infinite feedback. The <span class="math notranslate nohighlight">\(z\)</span>-transform helps determine if a system is stable by checking whether the <em>poles</em> lie inside the unit circle.</p></li>
 <li><p><strong>Filter design</strong>: Many audio filters (FIR, IIR, biquads) are designed using <span class="math notranslate nohighlight">\(z\)</span>-transforms to shape frequency response.</p></li>
 </ul>
 <p><span class="math notranslate nohighlight">\(X(z)\)</span> is a complex-valued function of complex-valued <span class="math notranslate nohighlight">\(z\)</span>.
-Furthermore, <span class="math notranslate nohighlight">\(X(z)\)</span> is defined on the <span class="math notranslate nohighlight">\(z\)</span>-plane while the DTFT is defined only on the unit circle, i.e, for <span class="math notranslate nohighlight">\(|z| = 1\)</span>, that is, <span class="math notranslate nohighlight">\(z = e^{i \omega}\)</span>.
-Remeber, for</p>
+Furthermore, <span class="math notranslate nohighlight">\(X(z)\)</span> is defined on the <span class="math notranslate nohighlight">\(z\)</span>-plane while the DTFT is defined only on the unit circle, i.e., for <span class="math notranslate nohighlight">\(|z| = 1\)</span>, that is, <span class="math notranslate nohighlight">\(z = e^{i \omega}\)</span>.
+Remember, for</p>
 <div class="math notranslate nohighlight">
 \[-\pi &lt; \omega &lt; \pi\]</div>
 <p><span class="math notranslate nohighlight">\(z = e^{i \omega}\)</span> goes once around the <strong>unit circle</strong>.</p>
@@ -615,7 +615,7 @@ Y(z) &amp;= X(z) + 0.7 \cdot z^{-1} Y(z).\end{split}\]</div>
 \end{equation}\]</div>
 <p>holds.</p>
 </div>
-<p>Now we can rearranging Eq. <a class="reference internal" href="#equation-eq-ztransform-ex1">(38)</a> to get</p>
+<p>Now we can rearrange Eq. <a class="reference internal" href="#equation-eq-ztransform-ex1">(38)</a> to get</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{Y(z)}{X(z)} = \frac{1}{1-0.7z^{-1}}.\]</div>
 <ul class="simple">
@@ -623,17 +623,17 @@ Y(z) &amp;= X(z) + 0.7 \cdot z^{-1} Y(z).\end{split}\]</div>
 <li><p>Poles at <span class="math notranslate nohighlight">\(z = 0.7\)</span>, which is inside the unit circle <span class="math notranslate nohighlight">\(\Rightarrow\)</span> stable.</p></li>
 <li><p>On the unit circle, <span class="math notranslate nohighlight">\(H(e^{i\omega})\)</span> tells us how different frequencies are amplified or attenuated.</p></li>
 </ul>
-<p>Remeber that <span class="math notranslate nohighlight">\(z = a + bi\)</span> with <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}\)</span> represents a sinosoid <span class="math notranslate nohighlight">\(r \cdot (\cos(\phi) + i\sin(\phi))\)</span> with <span class="math notranslate nohighlight">\(r^2 = a^2 + b^2\)</span> and <span class="math notranslate nohighlight">\(\phi = \cos^{-1}(a/r)\)</span> and that the product of two complex numbers is the product of their magnitudes and the sum of their angles (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>).
-Therefore, multiplying a sinosoid by</p>
+<p>Remember that <span class="math notranslate nohighlight">\(z = a + bi\)</span> with <span class="math notranslate nohighlight">\(a,b \in \mathbb{R}\)</span> represents a sinusoid <span class="math notranslate nohighlight">\(r \cdot (\cos(\phi) + i\sin(\phi))\)</span> with <span class="math notranslate nohighlight">\(r^2 = a^2 + b^2\)</span> and <span class="math notranslate nohighlight">\(\phi = \cos^{-1}(a/r)\)</span> and that the product of two complex numbers is the product of their magnitudes and the sum of their angles (see section <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">Complex Numbers</span></a>).
+Therefore, multiplying a sinusoid by</p>
 <div class="math notranslate nohighlight">
 \[e^{-i\omega} = \cos(\omega) + i\sin(\omega) = a + bi\]</div>
-<p>is equivalent to shift the sinosoid by <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
+<p>is equivalent to shifting the sinusoid by <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
 <p>This analysis is exactly how digital reverbs, delays, and EQs are studied in practice.
 If we delay the signal <span class="math notranslate nohighlight">\(y[n]\)</span> by 1 sample, <span class="math notranslate nohighlight">\(y[n-1]\)</span> is literally the shifted waveform (shifted to the right).
 In DSP, “delay by 1 sample” is like passing the signal through a one-sample delay box/system.
 This delay shows up as <span class="math notranslate nohighlight">\(z^{-1}\)</span> in the <span class="math notranslate nohighlight">\(z\)</span>-transform.</p>
-<p>Each time we delay by 1 sample, the transform gets multipield by <span class="math notranslate nohighlight">\(z^{-1}\)</span>.
-On the unit cirlce, <span class="math notranslate nohighlight">\(z\)</span> is equal to <span class="math notranslate nohighlight">\(e^{i\omega}\)</span> thus one delay is equivalent to multiply by <span class="math notranslate nohighlight">\(e^{-i\omega}\)</span> (<span class="math notranslate nohighlight">\(\omega = 2\pi f / f_s\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is the real-world frequency of a sinosoid in Hz, <span class="math notranslate nohighlight">\(f_s\)</span> the sampling frequency in Hz and <span class="math notranslate nohighlight">\(\omega\)</span> the corresponding digital frequency in radians/sample).
+<p>Each time we delay by 1 sample, the transform gets multiplied by <span class="math notranslate nohighlight">\(z^{-1}\)</span>.
+On the unit circle, <span class="math notranslate nohighlight">\(z\)</span> is equal to <span class="math notranslate nohighlight">\(e^{i\omega}\)</span> thus one delay is equivalent to multiplying by <span class="math notranslate nohighlight">\(e^{-i\omega}\)</span> (<span class="math notranslate nohighlight">\(\omega = 2\pi f / f_s\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is the real-world frequency of a sinusoid in Hz, <span class="math notranslate nohighlight">\(f_s\)</span> the sampling frequency in Hz and <span class="math notranslate nohighlight">\(\omega\)</span> the corresponding digital frequency in radians/sample).
 The delay shifts the <strong>phase</strong> of every frequency component by <span class="math notranslate nohighlight">\(-\omega\)</span> radians per delay step.</p>
 <ul class="simple">
 <li><p>Low frequencies (small <span class="math notranslate nohighlight">\(\omega\)</span>) lead to small phase shifts.</p></li>
@@ -666,7 +666,7 @@ The <span class="math notranslate nohighlight">\(z\)</span>-transform is like a 
 <a class="reference internal" href="#sec-z-transform-poles"><span class="std std-ref">Zeros</span></a> i.e (<strong>roots of numerator</strong>) kill/cancel frequencies near their angle on the unit circle.
 <a class="reference internal" href="#sec-z-transform-poles"><span class="std std-ref">Poles</span></a>, i.e. (<strong>roots of denominator</strong>) boost frequencies near their angle (resonances).
 And the closer a pole/zero is to the unit circle, the stronger its effect.</p>
-<p>The unit circle is acts as the frequency axis.
+<p>The unit circle acts as the frequency axis.
 Therefore, <span class="math notranslate nohighlight">\(H(z)\)</span> evaluated on the unit circle, i.e. <span class="math notranslate nohighlight">\(z = e^{i\omega}\)</span> and sweeping <span class="math notranslate nohighlight">\(\omega\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> literally sweeps from <span class="math notranslate nohighlight">\(0\)</span> to Nyquist and the magnitude <span class="math notranslate nohighlight">\(|H(e^{i\omega})|\)</span> tells us gain at that frequency.
 This is how the <span class="math notranslate nohighlight">\(z\)</span>-transform connects directly to what our ears hear.</p>
 <p>Furthermore, in audio feedback is everywhere (delays, reverb, resonant filters).</p>
@@ -685,7 +685,7 @@ This is how the <span class="math notranslate nohighlight">\(z\)</span>-transfor
 </section>
 <section id="region-of-convergence">
 <h2>Region of Convergence<a class="headerlink" href="#region-of-convergence" title="Permalink to this headline">#</a></h2>
-<p>The <em>region of convergence ROC</em> is one of the most important (and sometimes confusing) aspects of the <span class="math notranslate nohighlight">\(z\)</span>-transform.
+<p>The <em>region of convergence (ROC)</em> is one of the most important (and sometimes confusing) aspects of the <span class="math notranslate nohighlight">\(z\)</span>-transform.
 Let’s break it down carefully in the context of audio/DSP.</p>
 <p>When you define the z-transform</p>
 <div class="math notranslate nohighlight">
@@ -708,8 +708,8 @@ We get</p>
 <div class="math notranslate nohighlight">
 \[x[n] = \alpha^n \cdot u[n] = \alpha^n \cdot 1 = \alpha^n.\]</div>
 <p>In this case, we get</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75eed0f5-be32-4eb7-bcea-05e394c0b81b">
-<span class="eqno">(40)<a class="headerlink" href="#equation-75eed0f5-be32-4eb7-bcea-05e394c0b81b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1e9c1145-4973-4142-b1d5-ec8fddb58f81">
+<span class="eqno">(40)<a class="headerlink" href="#equation-1e9c1145-4973-4142-b1d5-ec8fddb58f81" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 X(z) &amp;= \sum\limits_{n = 0}^\infty x[n] z^{-n}
 = \sum\limits_{n = 0}^\infty \alpha^n z^{-n}\\
@@ -823,7 +823,7 @@ x[n] = \begin{cases}
 <p>This geometric series converges for <span class="math notranslate nohighlight">\(|\alpha| &lt; \infty\)</span> and <span class="math notranslate nohighlight">\(z \neq 0\)</span>.
 Therefore, the <em>ROC</em> is the entire <span class="math notranslate nohighlight">\(z\)</span>-plane, except <span class="math notranslate nohighlight">\(z = 0\)</span>.
 Our single <em>pole</em> is at <span class="math notranslate nohighlight">\(z = 0\)</span> since <span class="math notranslate nohighlight">\(z = \alpha\)</span> cancels out with our <em>zero</em> <span class="math notranslate nohighlight">\(z_0 = \alpha\)</span>.
-Remeber that when we multiply a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> by another complex number, the result is another complex number that is a rotated and scaled version of the first one.
+Remember that when we multiply a <a class="reference internal" href="complex.html#sec-complex-numbers"><span class="std std-ref">complex number</span></a> by another complex number, the result is another complex number that is a rotated and scaled version of the first one.
 The equation <span class="math notranslate nohighlight">\(z^N = \alpha^N\)</span> should have <span class="math notranslate nohighlight">\(N\)</span> solutions.
 <a class="reference internal" href="complex.html#theorem-de-moivre"><span class="std std-ref">De Moivre’s theorem</span></a> states that for <span class="math notranslate nohighlight">\(z = r \cdot e^{i \phi}\)</span></p>
 <div class="math notranslate nohighlight">
@@ -887,21 +887,21 @@ For the ROC <span class="math notranslate nohighlight">\(|z| &gt; 1/2\)</span> h
 </section>
 <section id="partial-fraction-expansion">
 <h2>Partial Fraction Expansion<a class="headerlink" href="#partial-fraction-expansion" title="Permalink to this headline">#</a></h2>
-<p>Given a rational function in the <span class="math notranslate nohighlight">\(z\)</span>-domain, which typically represents a system’s transfer function or a signal’s <span class="math notranslate nohighlight">\(z\)</span>-transform, the goal is to express it as a sum of simpler fractions, that is as <em>partial fraction expension (PFE)</em>, because:</p>
+<p>Given a rational function in the <span class="math notranslate nohighlight">\(z\)</span>-domain, which typically represents a system’s transfer function or a signal’s <span class="math notranslate nohighlight">\(z\)</span>-transform, the goal is to express it as a sum of simpler fractions, that is as a <em>partial fraction expansion (PFE)</em>, because:</p>
 <ul class="simple">
 <li><p>Easier inverse <span class="math notranslate nohighlight">\(z\)</span>-transform: Instead of trying to invert a complicated rational function, you invert each simple term individually.</p></li>
 <li><p>Clear connection to poles/resonances: Each term in the PFE corresponds to one pole, i.e. one resonant component in the sound.</p></li>
 <li><p>Intuitive analysis of system behavior: If you know the poles and residues (<span class="math notranslate nohighlight">\(A_i\)</span>), you can immediately tell if the system is causal or anti-causal from the ROC. Furthermore, you can see which components dominate (e.g. the pole closest to the unit circle sets the longest-lasting resonance).</p></li>
 <li><p>Practical for implementation: In DSP, many filters (like IIR biquads) are implemented as a sum of simple sections. Therefore, PFE naturally decomposes a high-order filter into first- or second-order pieces, each easy to implement with delay lines. This makes designs stable and efficient.</p></li>
 </ul>
-<p>The process to compute the partial fraction expension (PFE) involves the following steps:</p>
+<p>The process to compute the partial fraction expansion (PFE) involves the following steps:</p>
 <ol class="arabic simple">
 <li><p>Factor the denominator: Write the denominator of the <span class="math notranslate nohighlight">\(z\)</span>-domain function as a product of its factors. If the factors are not real, they will appear as conjugate pairs.</p></li>
 <li><p>Decompose the function: Express the original function as a sum of simpler fractions, where each fraction has one of the factors from the denominator as its own denominator. The numerators of these simpler fractions are constants or polynomials (typically constants in <span class="math notranslate nohighlight">\(z\)</span>-transform applications) to be determined.</p></li>
 <li><p>Find the constants: Use algebraic techniques, such as equating coefficients or substituting specific values of <span class="math notranslate nohighlight">\(z\)</span>, to solve for the constants (or coefficients in the numerators) in the simpler fractions.</p></li>
 <li><p>Inverse <span class="math notranslate nohighlight">\(z\)</span>-transform: Apply the inverse <span class="math notranslate nohighlight">\(z\)</span>-transform to each simpler fraction separately. Since the inverse <span class="math notranslate nohighlight">\(z\)</span>-transform of many basic fractions is well-known, this step is greatly simplified by the partial fraction expansion.</p></li>
 </ol>
-<p>The case of first-oder terms is the simplest and most fundamental, that is, we have</p>
+<p>The case of first-order terms is the simplest and most fundamental, that is, we have</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{B(z)}{A(z)} = \frac{b_0 + b_1 z^{-1} + b_2z^{-2} + \ldots + b_m z^{-M}}{1 + a_1 z^{-1} + a_2 z^{-2} + \ldots + a_N z^{-N}},\]</div>
 <p>where <span class="math notranslate nohighlight">\(M &lt; N\)</span> and we want to compute</p>
@@ -926,7 +926,7 @@ In a partial fraction expansion, the <span class="math notranslate nohighlight">
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[r_2 = (1-0.5z^{-1}) H(z)|_{z=0.5} = \frac{1-0.5z^{-1}}{(1-z^{-1}) (1-0.5 z^{-1})}\bigg|_{z=0.5} = \frac{1}{1-z^{-1}}\bigg|_{z=0.5} = -1.\]</div>
-<p>Therefore, we can conlcude that</p>
+<p>Therefore, we can conclude that</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{2}{^-z^{-1}} - \frac{1}{1-0.5z^{}-1}.\]</div>
 </section>
@@ -955,8 +955,8 @@ Thus we can rewrite <span class="math notranslate nohighlight">\(H(z)\)</span> i
 <p>Until now we worked with examples of a <a class="reference internal" href="lti-filters.html#sec-lti-filters"><span class="std std-ref">LTI filter</span></a>.
 It is now time to generalize to any LTI filter.</p>
 <p>The general form for a difference equation is given by (and representing a linear time-invariant filter)</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b92e10a-1797-4a6e-ba4b-9f6be86853fd">
-<span class="eqno">(41)<a class="headerlink" href="#equation-5b92e10a-1797-4a6e-ba4b-9f6be86853fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ee2a15b9-8a91-494f-8879-4f4be6d2c533">
+<span class="eqno">(41)<a class="headerlink" href="#equation-ee2a15b9-8a91-494f-8879-4f4be6d2c533" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>Usually <span class="math notranslate nohighlight">\(a_0 = 1\)</span>.</p>
@@ -976,13 +976,13 @@ Y(z) = \underbrace{\frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k
 <div class="theorem admonition" id="theorem-transfer-function">
 <p class="admonition-title">Transfer Function of LTI Filters</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-5bcb46a0-b8af-4c89-b7ad-fc68db6d2c0c">
-<span class="eqno">(42)<a class="headerlink" href="#equation-5bcb46a0-b8af-4c89-b7ad-fc68db6d2c0c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7d399e77-16c1-4fdc-ae82-46b63702a83b">
+<span class="eqno">(42)<a class="headerlink" href="#equation-7d399e77-16c1-4fdc-ae82-46b63702a83b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum\limits_{k=0}^N a_k y[n-k] = \sum\limits_{k=0}^M b_k x[n-k], \quad a_0 \neq 0
 \end{equation}\]</div>
 <p>is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-642516e0-020b-4522-9fbe-00b165ea9256">
-<span class="eqno">(43)<a class="headerlink" href="#equation-642516e0-020b-4522-9fbe-00b165ea9256" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4049f13e-7324-4116-9c26-b059cdcfd37b">
+<span class="eqno">(43)<a class="headerlink" href="#equation-4049f13e-7324-4116-9c26-b059cdcfd37b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \frac{\sum\limits_{k=0}^M b_k z^{-k}}{\sum\limits_{k=0}^N a_k z^{-k}}.
 \end{equation}\]</div>
 </div>
@@ -993,24 +993,24 @@ H(z) = \frac{b_0}{a_0} \frac{\prod\limits_{k=1}^M (1 - c_k z^{-1})}{\prod\limits
 \end{equation*}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c_k\)</span> for <span class="math notranslate nohighlight">\(k = 1, 2, \ldots M\)</span> are zeros and <span class="math notranslate nohighlight">\(d_k\)</span>, for <span class="math notranslate nohighlight">\(k = 1, 2, \ldots N\)</span> are poles.</p>
 <div class="theorem admonition" id="theorem-transfer-function-impulse-response">
-<p class="admonition-title">Transfer Funktio and Impulse Response</p>
+<p class="admonition-title">Transfer Function and Impulse Response</p>
 <p>The <em>transfer function</em> <span class="math notranslate nohighlight">\(H : \mathbb{C} \rightarrow \mathbb{C}\)</span> of a <em>linear filter</em> is the <span class="math notranslate nohighlight">\(z\)</span>-transform of the impulse response of the filter, i.e.,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74bc5eca-dd7f-4fde-8f8e-83f46982664f">
-<span class="eqno">(44)<a class="headerlink" href="#equation-74bc5eca-dd7f-4fde-8f8e-83f46982664f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f10d637d-4de4-41a9-bff7-2865d05a717e">
+<span class="eqno">(44)<a class="headerlink" href="#equation-f10d637d-4de4-41a9-bff7-2865d05a717e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 H(z) = \mathcal{Z}\{h[n]\}
 \end{equation}\]</div>
 </div>
 </section>
 <section id="example-1-filter-equation-to-transfer-function">
 <span id="sec-simple-filter-example"></span><h3>Example 1: Filter Equation to Transfer Function<a class="headerlink" href="#example-1-filter-equation-to-transfer-function" title="Permalink to this headline">#</a></h3>
-<p>Let use start with a very <em>simple filter</em>.
+<p>Let us start with a very <em>simple filter</em>.
 I will re-use this example in section <a class="reference internal" href="lti-filters.html#sec-analysis-simple-filter"><span class="std std-ref">Analysis of a Simple Filter</span></a>.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y[n] = x[n] + x[n-1], \quad n = 0, 1, 2, \ldots
 \end{equation*}\]</div>
 <p>We have <span class="math notranslate nohighlight">\(b_0 = b_1 = a_0 = 1\)</span>.
-Therfore the <em>transfer function</em> is determined by</p>
+Therefore the <em>transfer function</em> is determined by</p>
 <div class="math notranslate nohighlight">
 \[H(z) = \frac{b_0 + b_1 z^{-1}}{a_0} = \frac{1 + z^{-1}}{1} = 1 + z^{-1}\]</div>
 <p>Therefore, there is a zero at <span class="math notranslate nohighlight">\(z = -1\)</span>.

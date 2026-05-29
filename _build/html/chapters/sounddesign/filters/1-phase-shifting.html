@@ -527,9 +527,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="filtering-by-delays">
 <span id="sec-filter-by-delay"></span><h1>Filtering by Delays<a class="headerlink" href="#filtering-by-delays" title="Permalink to this headline">#</a></h1>
 <p>Delays are one of the building blocks of music synthesis and musical performances.
-In the digital world and in its basic form, it comes down to playing a signal <span class="math notranslate nohighlight">\(x\)</span> again after a certain amount of time, s.t. the result <span class="math notranslate nohighlight">\(y\)</span> is defined by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-30d70548-cc06-4ea9-b624-e491b3177958">
-<span class="eqno">(64)<a class="headerlink" href="#equation-30d70548-cc06-4ea9-b624-e491b3177958" title="Permalink to this equation">#</a></span>\[\begin{equation}
+In the digital world and in its basic form, it comes down to playing a signal <span class="math notranslate nohighlight">\(x\)</span> again after a certain amount of time,, s.t. the result <span class="math notranslate nohighlight">\(y\)</span> is defined by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7ae863f0-c863-4825-ab17-7a0afcd1d798">
+<span class="eqno">(64)<a class="headerlink" href="#equation-7ae863f0-c863-4825-ab17-7a0afcd1d798" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \begin{cases} x[n] + \alpha \cdot x[n-k], &amp; \text{ for } n \geq k\\ x[n], &amp; \text{ else } \end{cases}
 \end{equation}\]</div>
 <p>for some <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span>.
@@ -537,7 +537,7 @@ This kind of delay is called <em>feedforward comb filter</em> and <span class="m
 <p>In SuperCollider we can use the most basic delay called <a class="reference external" href="https://doc.sccode.org/Classes/DelayN.html">DelayN</a>.
 However, this unit generator will output <span class="math notranslate nohighlight">\(\alpha \cdot x[n-k]\)</span> without the original signal which we have to add manually.
 Do not confuse <a class="reference external" href="https://doc.sccode.org/Classes/Comb.html">Comb</a> with a <em>feedforward comb filter</em> since it is a <strong>feedback</strong> <em>comb filter</em>!</p>
-<p>Delays are the building block for two other central contects in digital signal processing:</p>
+<p>Delays are the building blocks for two other central concepts in digital signal processing:</p>
 <ol class="arabic simple">
 <li><p>filters, and</p></li>
 <li><p><a class="reference internal" href="6-reverb.html#sec-reverb"><span class="std std-ref">reverbs</span></a></p></li>
@@ -549,16 +549,16 @@ As we will see, we can filter a signal by using a simple oscillator, which shows
 <h2>Phase Shifting<a class="headerlink" href="#phase-shifting" title="Permalink to this headline">#</a></h2>
 <p>Let us combine two (analog) sine waves.
 First two identical ones</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ec1a731-71cf-48f5-81c8-8d80823d169b">
-<span class="eqno">(65)<a class="headerlink" href="#equation-4ec1a731-71cf-48f5-81c8-8d80823d169b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5361ec8d-28a2-4a7c-b996-72bac1798a76">
+<span class="eqno">(65)<a class="headerlink" href="#equation-5361ec8d-28a2-4a7c-b996-72bac1798a76" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t) = 2 \sin(2\pi f t),
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)}.</span><span class="nx">play</span>
 </pre></div>
 </div>
 <p>and then two where the second one is phase-shifted by <span class="math notranslate nohighlight">\(\pi\)</span>, that is,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-470c0142-a3f7-4d69-9278-80970681a679">
-<span class="eqno">(66)<a class="headerlink" href="#equation-470c0142-a3f7-4d69-9278-80970681a679" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5c10a4c-ea7b-4f0e-9fb4-621e189a8267">
+<span class="eqno">(66)<a class="headerlink" href="#equation-f5c10a4c-ea7b-4f0e-9fb4-621e189a8267" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y_1(t) = \sin(2\pi f t) + \sin(2\pi f t + \pi) = \sin(2\pi f t) - \sin(2\pi f t + \pi) = 0.
 \end{equation}\]</div>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="nx">pi</span><span class="p">)}.</span><span class="nx">play</span>
@@ -570,12 +570,12 @@ Of course, we can not hear any difference between a sine wave and its shifted co
 Only in combination, the phase plays a role!</p>
 <p>If we combine any number of signals, the <em>maximal loudness</em> of the result lies within the sum of absolute maximum loudness of each signal and zero.</p>
 <p>A phase of <span class="math notranslate nohighlight">\(\pi\)</span> (one half cycle) for an oscillator with a frequency of <span class="math notranslate nohighlight">\(200\)</span> Hz (<span class="math notranslate nohighlight">\(200\)</span> cycles per second) results in a shift of</p>
-<div class="amsmath math notranslate nohighlight" id="equation-91dec5dc-594a-4480-b57b-9bb64fdb073e">
-<span class="eqno">(67)<a class="headerlink" href="#equation-91dec5dc-594a-4480-b57b-9bb64fdb073e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-85969ac5-905b-4dd8-89e1-452c35aafb5c">
+<span class="eqno">(67)<a class="headerlink" href="#equation-85969ac5-905b-4dd8-89e1-452c35aafb5c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{200} \cdot \frac{1}{2} = \frac{1}{400} = 0.0025
 \end{equation}\]</div>
 <p>seconds.
-For an oscillator with a frequency of <span class="math notranslate nohighlight">\(100\)</span> Hz, a phase shift of <span class="math notranslate nohighlight">\(\pi\)</span> would imply a delay of ony <span class="math notranslate nohighlight">\(0.005\)</span> seconds.</p>
+For an oscillator with a frequency of <span class="math notranslate nohighlight">\(100\)</span> Hz, a phase shift of <span class="math notranslate nohighlight">\(\pi\)</span> would imply a delay of only <span class="math notranslate nohighlight">\(0.005\)</span> seconds.</p>
 <p>What will happen if we combine two <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth waves</span></a> such that the fundamental frequencies of these two signals cancel each other out?</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">300</span><span class="o">!</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">300</span><span class="o">!</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
@@ -606,14 +606,14 @@ For an oscillator with a frequency of <span class="math notranslate nohighlight"
 As before, the fundamentals of frequency <span class="math notranslate nohighlight">\(f\)</span> Hz cancel each other out.
 However, the next harmonic – with frequency <span class="math notranslate nohighlight">\(2f\)</span> Hz – is reinforced, i.e., its amplitude is doubled.
 This is because after <span class="math notranslate nohighlight">\(1/(2f)\)</span> seconds this harmonic has gone through <span class="math notranslate nohighlight">\((2f)/(2f) = 1\)</span> cycle.
-In the fact, the amplitude of each even harmonic is reinforced since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7f85587-7735-49ca-8d2d-6dce13d463de">
-<span class="eqno">(68)<a class="headerlink" href="#equation-c7f85587-7735-49ca-8d2d-6dce13d463de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+In fact, the amplitude of each even harmonic is reinforced since</p>
+<div class="amsmath math notranslate nohighlight" id="equation-06a3f0c1-e6a5-4275-8413-a030935100a4">
+<span class="eqno">(68)<a class="headerlink" href="#equation-06a3f0c1-e6a5-4275-8413-a030935100a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{2nf}{2f} = n 
 \end{equation}\]</div>
 <p>is a whole number but each odd harmonic gets canceled out since</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ad1882e-078b-400a-b403-098c2ee0019c">
-<span class="eqno">(69)<a class="headerlink" href="#equation-0ad1882e-078b-400a-b403-098c2ee0019c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-869ae88d-0be9-40d0-ab97-712453376cfb">
+<span class="eqno">(69)<a class="headerlink" href="#equation-869ae88d-0be9-40d0-ab97-712453376cfb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{nf}{2f} = \frac{n}{2} = k + \frac{1}{2},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is an odd number and <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span> (one odd harmonic starts at the beginning of a cycle while the second one half way through).</p>
@@ -626,7 +626,7 @@ The second one acts as a filter.</p>
 <span id="sec-ff-comb-filter"></span><h2>Feedforward Comb Filter<a class="headerlink" href="#feedforward-comb-filter" title="Permalink to this headline">#</a></h2>
 <p>In <code class="docutils literal notranslate"><span class="pre">sclang</span></code>, we can achieve such shift of any signal by a <em>delay</em>, e.g., <a class="reference external" href="https://doc.sccode.org/Classes/DelayL.html">DelayL</a>.
 Other than, e.g. <a class="reference internal" href="2-simpler-filters.html#sec-onezero"><span class="std std-ref">OneZero</span></a>, most of the delay unit generators in SuperCollider are controlled through time in seconds.
-This is much more convinient since it is independent of the sample rate which depends on the system.
+This is much more convenient since it is independent of the sample rate which depends on the system.
 Furthermore, it is far easier to think in time instead of number of samples.
 Given some delay time <span class="math notranslate nohighlight">\(\tau\)</span> and sample rate <span class="math notranslate nohighlight">\(f_s\)</span>, the delay in samples can be computed as <span class="math notranslate nohighlight">\(\tau \cdot f_s\)</span>. Note though that <span class="math notranslate nohighlight">\(\tau \cdot f_s\)</span> is not guaranteed to be a natural number.
 Therefore, different interpolation strategies are used.
@@ -646,7 +646,7 @@ The <code class="docutils literal notranslate"><span class="pre">L</span></code>
 <p>We delay the second signal by half the period of the first signal.
 <code class="docutils literal notranslate"><span class="pre">maxdelaytime</span></code> is a parameter that SuperCollider uses to determine the amount of memory (buffer size) required for the delay.
 It has no audible effect but has to be larger than <code class="docutils literal notranslate"><span class="pre">delaytime</span></code> ever is (we can modulate this argument).
-With <a class="reference external" href="https://doc.sccode.org/Classes/DelayL.html">DelayL</a> we can achieve the filtering of the sawthoth wave without combining the sine waves by using multiple <a class="reference internal" href="../../supercollider/synths/1-ugens.html#def-ugen"><span class="std std-ref">UGens</span></a>.</p>
+With <a class="reference external" href="https://doc.sccode.org/Classes/DelayL.html">DelayL</a> we can achieve the filtering of the sawtooth wave without combining the sine waves by using multiple <a class="reference internal" href="../../supercollider/synths/1-ugens.html#def-ugen"><span class="std std-ref">UGens</span></a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">({</span>
     <span class="kd">var</span> <span class="nx">sig</span> <span class="o">=</span> <span class="nc">LFSaw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">200</span> <span class="o">!</span> <span class="mi">2</span><span class="p">);</span>
     <span class="nx">sig</span> <span class="o">=</span> <span class="nx">sig</span> <span class="o">+</span> <span class="nc">DelayL</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span>
@@ -668,22 +668,22 @@ With <a class="reference external" href="https://doc.sccode.org/Classes/DelayL.h
               </div></div>
 </div>
 <p>Since the delay has the same effect as adding a phase shifted signal, it also amplifies/attenuate certain frequencies.
-Therfore, a <em>feedforward comb filter</em> is a <em>filter</em>!
+Therefore, a <em>feedforward comb filter</em> is a <em>filter</em>!
 It has an <em>amplitude response</em> (which is one part of the <a class="reference internal" href="../math/lti-filters.html#sec-frequency-response"><span class="std std-ref">frequency response</span></a>) that expresses the ratio of that amplification as a function of frequency.
-A <em>feedforward comb filter</em> is also a <a class="reference internal" href="../math/lti-filters.html#def-fir-filter"><span class="std std-ref">finite impuse response filter</span></a>.</p>
+A <em>feedforward comb filter</em> is also a <a class="reference internal" href="../math/lti-filters.html#def-fir-filter"><span class="std std-ref">finite impulse response filter</span></a>.</p>
 </section>
 <section id="feedback-comb-filter">
 <h2>Feedback Comb Filter<a class="headerlink" href="#feedback-comb-filter" title="Permalink to this headline">#</a></h2>
 <p>A <em>feedback comb filter</em> fulfills the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a2aa006-6516-4869-aa4f-695189441267">
-<span class="eqno">(70)<a class="headerlink" href="#equation-8a2aa006-6516-4869-aa4f-695189441267" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8aadbbcb-8489-4515-8d44-81f817f87fc2">
+<span class="eqno">(70)<a class="headerlink" href="#equation-8aadbbcb-8489-4515-8d44-81f817f87fc2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y[n] = \begin{cases} x[n] + \beta \cdot y[n-k], &amp; \text{ for } n \geq k\\ x[n], &amp; \text{ else. } \end{cases}
 \end{equation}\]</div>
 <p>The <a class="reference internal" href="../math/lti-filters.html#sec-impulse-response"><span class="std std-ref">impulse response</span></a> of this type of delay gives us infinite peaks.
-If the <em>feedback coefficient</em> <span class="math notranslate nohighlight">\(\beta &lt; 1.0\)</span> consecutive peaks decrease (stable network), if <span class="math notranslate nohighlight">\(\beta &gt; 1.0\)</span> (unstable) they increase, and if <span class="math notranslate nohighlight">\(\beta = 1\)</span> (also considered as unstable) they stay at a constant amplutide.</p>
+If the <em>feedback coefficient</em> <span class="math notranslate nohighlight">\(\beta &lt; 1.0\)</span> consecutive peaks decrease (stable network), if <span class="math notranslate nohighlight">\(\beta &gt; 1.0\)</span> (unstable) they increase, and if <span class="math notranslate nohighlight">\(\beta = 1\)</span> (also considered as unstable) they stay at a constant amplitude.</p>
 <p>Again, the comb filter amplifies/attenuate certain frequencies.
-Therfore, a <em>feedback comb filter</em> is a <em>filter</em>!
-A <em>feedback comb filter</em> is an <a class="reference internal" href="../math/lti-filters.html#def-iir-filter"><span class="std std-ref">infinite impuse response filter</span></a>.</p>
+Therefore, a <em>feedback comb filter</em> is a <em>filter</em>!
+A <em>feedback comb filter</em> is an <a class="reference internal" href="../math/lti-filters.html#def-iir-filter"><span class="std std-ref">infinite impulse response filter</span></a>.</p>
 <p>In SuperCollider the unit generator <a class="reference external" href="https://doc.sccode.org/Classes/CombN.html">CombN</a> realizes a <em>feedback comb filter</em>.
 Again, instead of providing the <em>feedback coefficient</em> directly it is computed.
 We instead provide a <code class="docutils literal notranslate"><span class="pre">decayTime</span></code> which is the time for the echoes to decay by 60 decibels.

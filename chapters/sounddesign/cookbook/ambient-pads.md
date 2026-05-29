@@ -7,6 +7,6 @@ But sometimes we want to add them artificially.
 
 *Ambience* is the opposite of *silence*.
 Every location has distinct and subtle sounds created by its environment.
-Reverberation often further distorts the noise by introducing complex pattern of peaks and nulls in their [frequency spectrum](sec-freq-spectrum).
-It blurrs their temporal characteristics.
-High frequency vanish faster and the sound becomes doll.
+Reverberation often further distorts the noise by introducing complex patterns of peaks and nulls in their [frequency spectrum](sec-freq-spectrum).
+It blurs their temporal characteristics.
+High frequencies vanish faster and the sound becomes dull.

@@ -77,8 +77,8 @@ ipd.Audio(audio_path)
 ## Scheduling Pbinds
 
 Using a *gated* envelope makes it difficult to use a plain scheduler since we have to set the gate of the synth to ``0`` manually, i.e. by another scheduled function.
-For example, the ``default`` instrument is consists of a gated envelople.
-The following ugly code plays it buy using a [TempClock](https://doc.sccode.org/Classes/TempoClock.html).
+For example, the ``default`` instrument consists of a gated envelope.
+The following ugly code plays it by using a [TempClock](https://doc.sccode.org/Classes/TempoClock.html).
 
 ```isc
 (
@@ -138,7 +138,7 @@ TempoClock.default.tempo = 120/60;
 ## Quantizing Pbinds
 
 Now let's assume we want a type of music with a different number of beats per bar.
-Furthermore, we want multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) to be played synchroniously.
+Furthermore, we want multiple [Pbinds](https://doc.sccode.org/Classes/Pbind.html) to be played synchronously.
 If we naively do this, we most likely will not achieve the desired result:
 
 ```isc
@@ -171,7 +171,7 @@ audio_path = '../../../sounds/sched-async.mp3'
 ipd.Audio(audio_path)
 ```
 
-However, we can use the a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html) to manage the **quantized** scheduling!
+However, we can use a [TempoClock](https://doc.sccode.org/Classes/TempoClock.html) to manage the **quantized** scheduling!
 Let us assume we want 120 beats per second and 3 beats per bar and a clock that is permanent, i.e. does not die when we press ``CMD + .``, the following works:
 
 ```isc
@@ -184,9 +184,9 @@ Specifically, it begins at the next integer multiple of this number.
 If the ``quant`` value is negative, it indicates scheduling a certain number of bars into the future.
 The ``phase`` parameter serves as an offset to adjust the scheduling time, typically within the bar. 
 A value of +1 means the event will be scheduled one beat later, while -1 schedules it one beat earlier.
-There's also a third argument, ``timeingOffset``, which I'm not using here. 
-This parameter allows patterns to run slightly ahead of their actual sounding time on the clock. This feature is particularly useful for controlling the execution order of different threads. 
-By computing values slightly ahead of time, ``timeingOffset`` can be beneficial, especially when one pattern is dependent on the data from another pattern. 
+There's also a third argument, ``timingOffset``, which I'm not using here.
+This parameter allows patterns to run slightly ahead of their actual sounding time on the clock. This feature is particularly useful for controlling the execution order of different threads.
+By computing values slightly ahead of time, ``timingOffset`` can be beneficial, especially when one pattern is dependent on the data from another pattern.
 This anticipatory calculation ensures smooth and coordinated pattern execution.
 
 ```isc

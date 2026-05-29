@@ -63,7 +63,7 @@ SynthDef(\glockenspiel, {
 )
 ```
 
-My first idea was to use tow pattern (one for duration and for degree) for each melodic fragment and one ``Pbind`` for each musician/instrument.
+My first idea was to use two patterns (one for duration and one for degree) for each melodic fragment and one ``Pbind`` for each musician/instrument.
 To make sure all ``Pbinds`` are in sync we can schedule them on a [clock](sec-clocks).
 Something like this:
 
@@ -98,7 +98,7 @@ var tempo = TempoClock(1);
 ```
 
 However, this just plays the exact same patterns 3 times in parallel and each *melodic fragment* is played exactly once.
-We want to play each fragment multiple times but also different amount of times for each intrument.
+We want to play each fragment multiple times but also a different number of times for each instrument.
 But how do we do that?
 We could introduce random repeats like this:
 
@@ -152,8 +152,8 @@ ipd.Audio(audio_path)
 ```
 
 Ok, using ``repeats: {rrand(1, 4)}`` to simulate the musician's choice of repetition seem to work.
-However, now we run into another problem: we need the exact same amount of repeats for the duration part of the melodig fragment!
-At this point I stoped trying to use pattern for this example because the code is already quiete complicated for something that should be rather easy.
+However, now we run into another problem: we need the exact same amount of repeats for the duration part of the melodic fragment!
+At this point I stopped trying to use pattern for this example because the code is already quite complicated for something that should be rather easy.
 
 Let us switch gears.
 Let us try to use routines instead.
@@ -245,7 +245,7 @@ Patterns are great, but they force you into a certain mindset where some things 
 However, the same is true for plain routines.
 Often you can achieve more in fewer lines of code using patterns.
 But you have to get used to them, and you have to know a lot of patterns.
-If you are used to *imperative* programming, routines can be picked but easily, even if you have to write more code which often looks not that beautiful.
+If you are used to *imperative* programming, routines can be picked up easily, even if you have to write more code which often looks not that beautiful.
 I don't know what the best way here is.
 It depends on your taste, experience, and background.
 For this example, plain routines worked better for me.

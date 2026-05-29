@@ -560,7 +560,7 @@ For example, the (periodic) <a class="reference internal" href="../additive-synt
 <p>In mathematics, the meaning of <em>transform</em> and <em>transformation</em> is somewhat specific, but it still is relatively wide or loose.
 It is called a mathematical quantity obtained from a given quality by an algebraic, geometric, or functional operation.
 And in <em>transform theory</em>, mathematicians talk about a suitable choice of a function called <em>kernel</em> (from the German <em>nucleus</em> or <em>core</em>), by which a problem may be simplified.</p>
-<p>In 1822 <em>Jean-Baptise Joseph Fourier</em> discovered a truly remarkable <em>transformation</em> which gives us insights into our knowledge of waveforms in general and music in particular.
+<p>In 1822 <em>Jean-Baptiste Joseph Fourier</em> discovered a truly remarkable <em>transformation</em> which gives us insights into our knowledge of waveforms in general and music in particular.
 He claimed that any <em>periodic</em> function, whether continuous or discontinuous, can be transformed into a series of sines.
 That important work was corrected to</p>
 <blockquote>
@@ -581,7 +581,7 @@ Well, it is all about computation speed!
 The <em>FFT</em> reduces the time complexity of the <em><a class="reference internal" href="dft.html#def-discrete-fourier-transform"><span class="std std-ref">discrete Fourier transformation (DFT)</span></a></em> from <span class="math notranslate nohighlight">\(\mathcal{O}(n^2)\)</span> to <span class="math notranslate nohighlight">\(\mathcal{O}(n\log(n))\)</span> which makes the computation of the <em>DFT</em> fast thus applicable for many areas and purposes.</p>
 <section id="frequency-spectrum">
 <span id="sec-freq-spectrum"></span><h2>Frequency Spectrum<a class="headerlink" href="#frequency-spectrum" title="Permalink to this headline">#</a></h2>
-<p>Before we dicuss the mathematical basis, let’s have a look at the <em>frequency spectrum</em> of a audio recordings such that we can picture what we want to compute.
+<p>Before we discuss the mathematical basis, let’s have a look at the <em>frequency spectrum</em> of an audio recording so that we can picture what we want to compute.
 First let us use an audio recording of a physical piano.
 The note played is A0 = 440 Hz.</p>
 <div class="cell tag_remove-input docutils container">
@@ -604,7 +604,7 @@ The note played is A0 = 440 Hz.</p>
 </figure>
 </div>
 </div>
-<p>as well as its frequency sprectrum.</p>
+<p>as well as its frequency spectrum.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="waveform-frequency">
@@ -647,7 +647,7 @@ The piano might be out of tune.</p>
 </figure>
 </div>
 </div>
-<p>as well as the frequency sprectrum</p>
+<p>as well as the frequency spectrum</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <figure class="align-default" id="synthetic-waveform-frequency">
@@ -658,7 +658,7 @@ The piano might be out of tune.</p>
 </figure>
 </div>
 </div>
-<p>In the synthetic case, we get exaclty what we expected, i.e., 5 peaks, four <em>harmonic overtones</em>, and one fundamental at 440 Hz.</p>
+<p>In the synthetic case, we get exactly what we expected, i.e., 5 peaks, four <em>harmonic overtones</em>, and one fundamental at 440 Hz.</p>
 </section>
 <section id="similarity-of-periodic-functions">
 <span id="sec-similarity-of-functions"></span><h2>Similarity of Periodic Functions<a class="headerlink" href="#similarity-of-periodic-functions" title="Permalink to this headline">#</a></h2>
@@ -668,18 +668,18 @@ The piano might be out of tune.</p>
 <li><p>From this it follows that <span class="math notranslate nohighlight">\(\int_0^{Tn} y(t) dt = n\int_0^{T}dt\)</span> with <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</p></li>
 </ol>
 <p>Let us start from the assumption that the <em><a class="reference internal" href="#theorem-fourier-synthesis"><span class="std std-ref">Fourier theorem</span></a></em> is correct (which it is).
-So we assume, that we can built any periodic vibration/signal using a combination of sinusiods whose frequencies are integer multiple of a fundamental frequcency.
-Our job is to find the correct <strong>amplitudes</strong> and <strong>phases</strong> of these sinusiods.
+So we assume that we can build any periodic vibration/signal using a combination of sinusoids whose frequencies are integer multiples of a fundamental frequency.
+Our job is to find the correct <strong>amplitudes</strong> and <strong>phases</strong> of these sinusoids.
 Let’s ignore the phase for a moment.
 For now we assume that all phases are zero.</p>
-<p>The question that we have to answer is: how much of a specific sinusoidal is in <span class="math notranslate nohighlight">\(y(t)\)</span>.
-If the answer is <em>a lot</em>, then the amplitude of the respective sinosoid should be large.
-Therefore, computing <em>sinusoidals</em> that are <strong>similar</strong> to <span class="math notranslate nohighlight">\(y(t)\)</span> seems to be a good starting point.
+<p>The question that we have to answer is: how much of a specific sinusoid is in <span class="math notranslate nohighlight">\(y(t)\)</span>.
+If the answer is <em>a lot</em>, then the amplitude of the respective sinusoid should be large.
+Therefore, computing <em>sinusoids</em> that are <strong>similar</strong> to <span class="math notranslate nohighlight">\(y(t)\)</span> seems to be a good starting point.
 Instead of similarity one speaks of <em>cross-correlation</em> which is a measure of similarity of two series as a function of the displacement of one relative to the other, also known as <em>sliding dot product</em> or <em>sliding inner-product</em>.</p>
 <p>Functions are similar if their product result in a positive function.
 In other words, if the integral of their product is positive.</p>
 <p>In the following plot we can see this intuition at play.
-The integral of <span class="math notranslate nohighlight">\(\sin(2\pi t)^2\)</span> gives us <span class="math notranslate nohighlight">\(0.5\)</span>, i.e., there is alot of <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> in <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span>.
+The integral of <span class="math notranslate nohighlight">\(\sin(2\pi t)^2\)</span> gives us <span class="math notranslate nohighlight">\(0.5\)</span>, i.e., there is a lot of <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> in <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span>.
 We also get a positive value for the integral of <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> multiplied with the <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sawtooth-wave"><span class="std std-ref">sawtooth wave</span></a>.
 The integrals of the other products are zero.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="c1">// generate the y(t) * sin(2*pi*u)</span>
@@ -787,22 +787,22 @@ The sum changes to an integral.</p>
 <p>is the inner product of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.
 It is a measure of the similarity of <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span>.</p>
 </div>
-<p>We can conclude that our steps works if <span class="math notranslate nohighlight">\(y(t)\)</span> is not a sawtooth wave but also if some frequencies are missing.
-However, if some sine waves are shifted or if their frequencies are non-integral, it is not yet clear our steps still work.</p>
+<p>We can conclude that our steps work if <span class="math notranslate nohighlight">\(y(t)\)</span> is not a sawtooth wave but also if some frequencies are missing.
+However, if some sine waves are shifted or if their frequencies are non-integral, it is not yet clear that our steps still work.</p>
 </section>
 <section id="fourier-synthesis">
 <h2>Fourier Synthesis<a class="headerlink" href="#fourier-synthesis" title="Permalink to this headline">#</a></h2>
 <p>But let us start from the beginning, i.e., from the <em>Fourier series</em>.
-The process of constructing a periodic function by a <em>Foruier series</em> is called <em>Fourier synthesis</em>.</p>
+The process of constructing a periodic function by a <em>Fourier series</em> is called <em>Fourier synthesis</em>.</p>
 <div class="definition admonition" id="def-fourier-series">
 <p class="admonition-title">Fourier Series (FS)</p>
 <p>A <em>Fourier series</em> is a sum that represents a <em>periodic function</em> as a sum of <em>sine</em> and <em>cosine</em> waves.
 The frequency of each wave in the sum is an integer multiple of the periodic function’s fundamental frequency.
-The <em>Foruier series</em> in amplitude-phase form <span class="math notranslate nohighlight">\(y_N(t)\)</span> of a periodic function <span class="math notranslate nohighlight">\(y(t)\)</span> is defined by</p>
+The <em>Fourier series</em> in amplitude-phase form <span class="math notranslate nohighlight">\(y_N(t)\)</span> of a periodic function <span class="math notranslate nohighlight">\(y(t)\)</span> is defined by</p>
 <div class="math notranslate nohighlight" id="equation-eq-fourier-series">
 <span class="eqno">(28)<a class="headerlink" href="#equation-eq-fourier-series" title="Permalink to this equation">#</a></span>\[y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(N\)</span> is potentially equal to infinity.
-<span class="math notranslate nohighlight">\(T = \frac{1}{f_0}\)</span> is the period of <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(A_n\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-th hermonic’s <em>amplitude</em> and <span class="math notranslate nohighlight">\(\phi_n\)</span> is its <em>phase (shift)</em>.
+<span class="math notranslate nohighlight">\(T = \frac{1}{f_0}\)</span> is the period of <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(A_n\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-th harmonic’s <em>amplitude</em> and <span class="math notranslate nohighlight">\(\phi_n\)</span> is its <em>phase (shift)</em>.
 <span class="math notranslate nohighlight">\(A_0/2\)</span> is the direct current (DC) component/bias, with</p>
 <div class="math notranslate nohighlight">
 \[A_0 = \int_0^1 y(t) dt\]</div>
@@ -811,30 +811,30 @@ The <em>Foruier series</em> in amplitude-phase form <span class="math notranslat
 </div>
 <p>Except for pathological functions, any periodic function can be represented by a <em>Fourier series (FS)</em> that converges.
 Convergence of <em>Fourier series</em> means that as more and more harmonics from the series are summed, each successive partial <em>Fourier series sum</em> will better approximate the function, and will equal the function with a potentially infinite number of harmonics.</p>
-<p>Still, we did not proof for completeness, that is, that we really can represent <strong>all</strong> periodic function in this way.
+<p>Still, we did not prove completeness, that is, that we really can represent <strong>all</strong> periodic functions in this way.
 For that one has to prove that our orthogonal functions are in fact a <em>complete basis</em> for <span class="math notranslate nohighlight">\(L^2([0,T])\)</span>, meaning that if a function <span class="math notranslate nohighlight">\(h\)</span> is orthogonal to all our basis, it follows that <span class="math notranslate nohighlight">\(f = 0\)</span> (in <span class="math notranslate nohighlight">\(L^2\)</span>)!
 We will not prove this because it is not important for our application but it is true.
 If you want to have a look you can find a proof <a class="reference external" href="https://ocw.mit.edu/courses/es-1803-differential-equations-spring-2024/mites_1803_s24_fourier_complete.pdf?utm_source=chatgpt.com">here</a>.
-I hope I could you provide a good intuition.</p>
+I hope I could provide you with a good intuition.</p>
 <div class="theorem admonition" id="theorem-fourier-synthesis">
 <p class="admonition-title">Fourier Theorem</p>
 <p>Except for pathological functions, any periodic vibration/signal, no matter how complicated it seems, can be built up from sinusoids whose frequencies are integer multiples of a fundamental frequency, by choosing the proper amplitudes and phases.</p>
 </div>
 <p>Note that non-periodic functions can be handled using an extension of the <em>Fourier series</em> called the <em>Fourier transform</em> which treats non-periodic functions as periodic with infinite period.
 This transform thus can generate frequency domain representations of non-periodic functions as well as periodic functions, allowing a waveform to be converted between its time domain representation and its frequency domain representation.</p>
-<p>Next we want to but things together and compute all frequency intensities and phases assuming the <em><a class="reference internal" href="#theorem-fourier-synthesis"><span class="std std-ref">Fourier theorem</span></a></em> is correct, i.e. we assume we can synthesize any periodic function using the <a class="reference internal" href="#def-fourier-series"><span class="std std-ref">definition above</span></a>.</p>
+<p>Next we want to put things together and compute all frequency intensities and phases assuming the <em><a class="reference internal" href="#theorem-fourier-synthesis"><span class="std std-ref">Fourier theorem</span></a></em> is correct, i.e. we assume we can synthesize any periodic function using the <a class="reference internal" href="#def-fourier-series"><span class="std std-ref">definition above</span></a>.</p>
 </section>
 <section id="fourier-analysis">
 <h2>Fourier Analysis<a class="headerlink" href="#fourier-analysis" title="Permalink to this headline">#</a></h2>
 <p>Until now, we assumed that all <em>phase shifts</em> are zero and that the period of the fundamental <span class="math notranslate nohighlight">\(T\)</span> is <span class="math notranslate nohighlight">\(1\)</span>.
 Then we concluded that if we compute the integral of signal <span class="math notranslate nohighlight">\(y(t)\)</span>—a sawtooth wave—multiplied with a sinusoid of the same phase we get:</p>
 <ol class="arabic simple">
-<li><p>either some <span class="math notranslate nohighlight">\(2A_n/T\)</span> positive number (similarity) where <span class="math notranslate nohighlight">\(A_n\)</span> was the frequncy intensity of frequency <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span></p></li>
+<li><p>either some <span class="math notranslate nohighlight">\(2A_n/T\)</span> positive number (similarity) where <span class="math notranslate nohighlight">\(A_n\)</span> was the frequency intensity of frequency <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span></p></li>
 <li><p>or zero, in this case <span class="math notranslate nohighlight">\(y(t)\)</span> is perpendicular to the sinusoid (non-similarity)</p></li>
 </ol>
-<p>We can easily adapt to an arbitrary period <span class="math notranslate nohighlight">\(T\)</span> if we change the intergrals accordingly.
+<p>We can easily adapt to an arbitrary period <span class="math notranslate nohighlight">\(T\)</span> if we change the integrals accordingly.
 Then, to find the correct <em>phase</em> <span class="math notranslate nohighlight">\(\phi_n\)</span>, we can reformulate the problem of similarity into an optimization problem.
-Let’s say <span class="math notranslate nohighlight">\(y(t)\)</span> is our an analog signal (its no longer a sawtooth wave but some arbitrary signal).
+Let’s say <span class="math notranslate nohighlight">\(y(t)\)</span> is our analog signal (it’s no longer a sawtooth wave but some arbitrary signal).
 And let us reconsider the <em><a class="reference internal" href="#def-fourier-series"><span class="std std-ref">Fourier series</span></a></em>:</p>
 <div class="math notranslate nohighlight">
 \[y_N(t) = \frac{A_0}{2} + \sum\limits_{n=1}^N A_n \cdot \cos\left(\frac{2\pi \cdot n}{T}t - \phi_n\right).\]</div>
@@ -863,7 +863,7 @@ Y_n(\phi) &amp;= \frac{2}{T}\int_T y(t) \cdot \cos\left(\frac{2\pi \cdot n}{T}t 
 \end{split}
 \end{equation*}\]</div>
 <p>The derivative of <span class="math notranslate nohighlight">\(Y_n(\phi)\)</span> is zero at the <strong>phase</strong> of maximum correlation.
-Threfore,</p>
+Therefore,</p>
 <div class="math notranslate nohighlight">
 \[Y'_n(\phi_n) = \sin(\phi_n) \cdot a_n - \cos(\phi_n) b_n = 0 \Rightarrow \tan(\phi_n) = \frac{b_n}{a_n}\]</div>
 <p>holds and the correlation peak value is:</p>
@@ -896,11 +896,11 @@ y_N(t) &amp;= \frac{a_0}{2} + \sum\limits_{n=1}^N \left[ a_n \cos\left( \frac{2\
 <p>We finally arrive at the <em>Fourier series in its exponential form</em>.</p>
 <div class="definition admonition" id="def-fourier-series-exp">
 <p class="admonition-title">Fourier Series (FS) in its Exponential Form</p>
-<p>The <em>Foruier series</em> in <em>exponential form</em> <span class="math notranslate nohighlight">\(y_N: \mathbb{R} \rightarrow \mathbb{C}\)</span> of a periodic function <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> is defined by</p>
+<p>The <em>Fourier series</em> in <em>exponential form</em> <span class="math notranslate nohighlight">\(y_N: \mathbb{R} \rightarrow \mathbb{C}\)</span> of a periodic function <span class="math notranslate nohighlight">\(y: \mathbb{R} \rightarrow \mathbb{C}\)</span> is defined by</p>
 <div class="math notranslate nohighlight">
 \[y_N(t) = \sum\limits_{n = -N}^N c_n \cdot e^{i2\pi n t / T}\]</div>
 <p>where <span class="math notranslate nohighlight">\(N\)</span> is potentially an infinite integer.
-<span class="math notranslate nohighlight">\(T\)</span> is the period of <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(A_n\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-th hermonic’s <em>amplitude</em>
+<span class="math notranslate nohighlight">\(T\)</span> is the period of <span class="math notranslate nohighlight">\(y(t)\)</span>, <span class="math notranslate nohighlight">\(A_n\)</span> is the <span class="math notranslate nohighlight">\(n\)</span>-th harmonic’s <em>amplitude</em>
 <span class="math notranslate nohighlight">\(c_n\)</span> is defined by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -913,8 +913,8 @@ A_0/2 &amp;= a_0 / 2 &amp; \text{ if } n = 0\\
 <p>This form generalizes to <strong>complex-valued functions</strong>.</p>
 </div>
 <p>In this form <strong>phase</strong> and <strong>amplitude</strong> are represented by a phasor, e.g., <span class="math notranslate nohighlight">\(A_n / 2 e^{-i \phi_n}\)</span> and we can re-define <span class="math notranslate nohighlight">\(Y_N : \mathbb{Z} \rightarrow \mathbb{C}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-af3ca097-e2f1-486a-846a-e0ae88f37119">
-<span class="eqno">(30)<a class="headerlink" href="#equation-af3ca097-e2f1-486a-846a-e0ae88f37119" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb73e206-2d96-4bb9-8f93-a2468125c516">
+<span class="eqno">(30)<a class="headerlink" href="#equation-fb73e206-2d96-4bb9-8f93-a2468125c516" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Y_N(n) = c_n,
 \end{equation}\]</div>
 <p>to be the <a class="reference internal" href="complex.html#def-phasor"><span class="std std-ref">phasor</span></a> of the respective sinusoid with <strong>frequency</strong> <span class="math notranslate nohighlight">\(n\)</span> times the fundamental frequency <span class="math notranslate nohighlight">\(f_0\)</span> of the <em>Fourier series</em> of a (real) <strong>periodic function</strong> <span class="math notranslate nohighlight">\(y(t)\)</span> with period equal to <span class="math notranslate nohighlight">\(1/f_0\)</span>.</p>

@@ -110,13 +110,13 @@ Such a perfect lowpass filter has magnitude responses
 
 $$H(e^{i\omega}) = \begin{cases} 1, & |\omega| \leq \omega_c \\ 0, & |\omega| > \omega_c \end{cases}$$
 
-such that it passes all frequencies below cutoff $\omega_c$ abd completely blocks all frequencies above the cutoff.
+such that it passes all frequencies below cutoff $\omega_c$ and completely blocks all frequencies above the cutoff.
 The transition is **infinitely sharp**!
 In practice this is impossible because we would need an infinite-length impulse responses and negative-time samples (but we cannot look into the future).
 
 ## A Very Simple Filter
 
-Another simple (and by no mean ideal) lowpass filter that we can define by a simple formula is give by the differential equation:
+Another simple (and by no means ideal) lowpass filter that we can define by a simple formula is given by the differential equation:
 
 ```{math}
 :label: eq:simple:filter
@@ -131,7 +131,7 @@ We can also draw a *signal flow graph* for this little filter:
 width: 400px
 name: fig-sfg-simple-filter
 ---
-Signal flow graph of the diffential equation filter.
+Signal flow graph of the differential equation filter.
 ```
 
 The $z^{-1}$ symbol means a *delay* of one sample, i.e., $z^{-1} x[n] = x[n-1]$.
@@ -142,7 +142,7 @@ Thus, a more physical way of writing equation Eq. {eq}`eq:simple:filter` is give
 $$y[n T] = x[n T] + x[(n-1) T] \quad n = 0, 1, 2, \ldots,$$
 
 where $T$ is the sampling interval in seconds.
-It is convinient in digital signal processing to omit $T$, i.e. set $T = 1$, but anytime you see $n$ you can translate to seconds by thinking $nT$.
+It is convenient in digital signal processing to omit $T$, i.e. set $T = 1$, but anytime you see $n$ you can translate to seconds by thinking $nT$.
 
 We can easily define such a filter in ``sclang``:
 
@@ -164,7 +164,7 @@ y = simpleFilter.(x);
 )
 ```
 
-The variable ``xm1`` can be referred to as the filter's state, representing the filter's current memory at the time of invoking simplp. 
+The variable ``xm1`` can be referred to as the filter's state, representing the filter's current memory at the time of invoking the filter.
 This filter is characterized as a *first-order filter* due to it having a single sample of state. 
 It is essential to preserve the state of the filter after processing each segment of a signal. 
 Therefore, the state of the filter following the completion of block $m$ becomes the initial state for processing the subsequent block $m+1$.
@@ -175,7 +175,7 @@ In what sense is it bad?
 How do we even know it is a low-pass at all? 
 The answers to these and related questions will become apparent when we find the *[frequency response](sec-frequency-response)* of this filter.
 
-In any case, we could use a input sinusoid and compute the resulting output signal.
+In any case, we could use an input sinusoid and compute the resulting output signal.
 Let 
 
 $$x[n] = A_1 \sin(2 \pi f n T + \phi_1).$$
@@ -204,7 +204,7 @@ $$G(2 \pi f) = \frac{B}{A}.$$
 ```
 
 What we desire is a formula that gives us the amplitude response and the phase response for all frequencies, that is, the [frequency response](sec-frequency-response) $H(e^{i \omega T})$ of the filter.
-In the general case, this is a hard problem but for *[linear time-invarient filters](def-linear-time-invariant)* we know how to compute it.
+In the general case, this is a hard problem but for *[linear time-invariant filters](def-linear-time-invariant)* we know how to compute it.
 
 ## A Special Type of Filters
 
@@ -219,7 +219,7 @@ Let $x[n]$ be the input signal and $y[n]$ be the output signal of a filter.
 Then a filter is *linear time-invariant* if the following two conditions hold:
 
 1. **Linearity**: $a \cdot x[n]$ translates to $a \cdot y[n]$ and $x_1[n] + x_2[n]$ translate to $y_1[n] + y_2[n]$ (superposition principle).
-2. **Timeinvarianze**: whether we apply an input to the filter now or some time later does not matter. The filters effect does not change over time.
+2. **Time invariance**: whether we apply an input to the filter now or some time later does not matter. The filter's effect does not change over time.
 
 ```
 
@@ -234,7 +234,7 @@ From here onwards we define $\omega := 2 \pi f$.
 (sec-frequency-response)=
 ## Frequency Response
 
-The frequency response of a filter tells us how it effects the amplitude and phase of a frequency of the input signal.
+The frequency response of a filter tells us how it affects the amplitude and phase of a frequency of the input signal.
 For LTI filters it is defined as the spectrum of the output signal divided by the spectrum of the input signal, that is,
 
 $$H(z) = \frac{Y(z)}{X(z)} \Rightarrow Y(z) = H(z)X(z)$$
@@ -264,7 +264,7 @@ Since $e$, $i$, and $T$ are constants, the frequency response $H(e^{i \omega T})
 Since $\omega$ is real, the frequency response may be considered a complex-valued function of a real variable.
 The response at frequency $f$ Hz, for example, is $H(e^{i 2 \pi f T})$, where $T$ is the **sampling period** in seconds.
 
-It is convinient to define a new function such as
+It is convenient to define a new function such as
 
 $$H'(\omega) := H(e^{i \omega T})$$
 
@@ -321,7 +321,7 @@ How bad is it?
 In what sense is it bad? How do we even know it is a lowpass filter at all? 
 The answers to these and related questions will become apparent when we find the [frequency response](def-frequency-response) of this filter.
 
-Our goal is to use a test singal that consists of only one frequency and then reformulate $y[n]$ such that we arrive at
+Our goal is to use a test signal that consists of only one frequency and then reformulate $y[n]$ such that we arrive at
 
 \begin{equation*}
 y[n] = H(e^{i \omega T}) \cdot x[n],
@@ -524,7 +524,7 @@ Therefore,
 
 $$H(z) = (1 - |\alpha|) \cdot \left(1 - \frac{\alpha}{|\alpha|-1} z^{-1}\right)$$
 
-If we evaluate the [transfer function](theorem-transfer-function) $H(z)$ for $\alpha = 0.5$ at the frequncies of interest we get the [frequency response](def-frequency-response):
+If we evaluate the [transfer function](theorem-transfer-function) $H(z)$ for $\alpha = 0.5$ at the frequencies of interest we get the [frequency response](def-frequency-response):
 
 $$H(e^{i \omega T}) = 0.5 \cdot (1 + e^{-i\omega T})$$
 
@@ -563,7 +563,7 @@ ax.legend();
 The unit generator [OneZero](http://doc.sccode.org/Classes/OneZero.html) got his name by the fact that it has **one zero**.
 
 Remember that the filter completely filters $f_s/2$.
-But since $f_s = 44100$ the overall effect of the filter hardly audible.
+But since $f_s = 44100$ the overall effect of the filter is hardly audible.
 Without a *pole* the filtering effect is weak.
 This can be illustrated by using $T = 1/f_s$ with $f_s = 44 100$ for the plot combined with a log-scale:
 
@@ -647,7 +647,7 @@ Therefore,
 
 $$H(z) = \frac{(1 - |\alpha|)}{1 - \alpha z^{-1}}.$$
 
-If we evaluate $H(z)$ for $\alpha = 0.5$ at the frequncies of interest we can see the *frequency response*:
+If we evaluate $H(z)$ for $\alpha = 0.5$ at the frequencies of interest we can see the *frequency response*:
 
 $$H(e^{i \omega T}) = \frac{0.5}{1 - 0.5 e^{-i \omega T}} = \frac{1}{2 - e^{-i \omega T}}.$$
 
@@ -805,7 +805,7 @@ ax.set_xlabel(r'$\Omega$ $(2\pi f)$')
 ax.legend();
 ```
 
-We can change the scaling of our axis to display gain in decible and to reflect the exponential character of frequencies.
+We can change the scaling of our axis to display gain in decibels and to reflect the exponential character of frequencies.
 
 ```{code-cell} python3
 ---
@@ -841,7 +841,7 @@ In other words: we can not just combine a high pass and lowpass filter to get th
 
 ### Digital Butterworth Filter
 
-To convert the digitalize the analog filter we can apply the so called *[bilinear transform](https://en.wikipedia.org/wiki/Bilinear_transform)*.
+To digitalize the analog filter we can apply the so-called *[bilinear transform](https://en.wikipedia.org/wiki/Bilinear_transform)*.
 It is a first order Padé approximant of the natural logarithm function that is an exact mapping of the $z$-plane to the $s$-plane, where $s := i \omega$.
 
 When the *Laplace transform* is performed on a discrete-time signal (with each element of the discrete-time sequence attached to a correspondingly delayed unit impulse), the result is precisely the [$z$-transform](sec-z-transform) of the discrete-time sequence with the substitution of
@@ -853,7 +853,7 @@ The inverse of this mapping (and its first-order bilinear appoximation) is
 $$s = \frac{1}{T} \ln(z) \approx \frac{2}{T} \frac{z-1}{z+1} = \frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}},$$
 
 where $T = 1/f_s$ is the sampling period.
-After substitution, the analog transfer function $H(s)$ becaomes:
+After substitution, the analog transfer function $H(s)$ becomes:
 
 $$H(z) = H\left(\frac{2}{T} \frac{1-z^{-1}}{1+z^{-1}} \right).$$
 
@@ -925,7 +925,7 @@ audio_path = '../../../sounds/lpf-whitenoise.mp3'
 ipd.Audio(audio_path)
 ```
 
-### 2nd Oder Butterworth Lowpass Filter
+### 2nd Order Butterworth Lowpass Filter
 
 Let us look at the formulas for an **analog** second-order Butterworth filter.
 We have 
@@ -1045,7 +1045,7 @@ $$x[n] = \delta_n[n] \cdot x[n] \text{ with } \delta_n[k] = \delta[k-n].$$
 :name: def-fir-filter
 :class: definition
 
-A filter with a finite impulse response, e.g. echos, is called *final impulse response (FIR)* filter.
+A filter with a finite impulse response, e.g. echoes, is called a *finite impulse response (FIR)* filter.
 All filters of the form
 
 \begin{equation}
@@ -1063,7 +1063,7 @@ A [one pole filter](sec-one-pole-analysis) is a *infinite impulse response (IIR)
 :name: def-iir-filter
 :class: definition
 
-A filter with a infinite impulse response, e.g. echo with feedback, is called *infinite impulse response (IIR)* filter.
+A filter with an infinite impulse response, e.g. echo with feedback, is called an *infinite impulse response (IIR)* filter.
 ```
 
 Let's look at the *one pole filter* with $\alpha = 0.5$ for simplification.
@@ -1071,13 +1071,13 @@ We get
 
 $$h[n] = 0.5 \delta[n] + 0.5 h[n-1] = 0.5 \delta[n] + 0.5 h[n-1]$$
 
-whith $h[0] = \delta[0] = 0.5$.
+with $h[0] = \delta[0] = 0.5$.
 It follows that $h[1] = 0.25$, $h[2] = 0.125$ and in general
 
 $$h[n] = 0.5^{n+1}, \quad n = 0, 1, 2, \ldots$$
 
 In other words the impulse response $h$ converges to zero $\lim_{n \leftarrow \infty} h[n] = 0$ but never reaches it.
-If we compute the *discrete-time Fourier transform* of $h[\cdot]$ we should get the frequency resonse $H(e^{i \omega T})$:
+If we compute the *discrete-time Fourier transform* of $h[\cdot]$ we should get the frequency response $H(e^{i \omega T})$:
 
 $$\sum\limits_{n-=\infty}^\infty h[n] e^{-i \omega n T} = \sum\limits_{n = 0}^\infty 0.5^{n+1} e^{-i \omega n T} = \frac{1}{2-e^{i \omega T}}$$
 

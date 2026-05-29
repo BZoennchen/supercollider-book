@@ -26,7 +26,7 @@ There are three types of proxies:
 3. for patterns:  [PatternProxy](https://doc.sccode.org/Classes/PatternProxy.html), [PbindProxy](https://doc.sccode.org/Classes/PbindProxy.html),  [Pdef](https://doc.sccode.org/Classes/Pdef.html), [Pdefn](https://doc.sccode.org/Classes/Pdefn.html), [Pbindef](https://doc.sccode.org/Classes/Pbindef.html), [Psym](https://doc.sccode.org/Classes/Psym.html), [Pnsym](https://doc.sccode.org/Classes/Pnsym.html), [Fdef](https://doc.sccode.org/Classes/Fdef.html), [Pdict](https://doc.sccode.org/Classes/Pdict.html)
 
 In section [Pattern](sec-playing-pattern), we already discussed some of these pattern proxies without calling them by this term.
-Wihtin one type these different classes are semantically interchangeable but translate to different programming styles.
+Within one type these different classes are semantically interchangeable but translate to different programming styles.
 
 ```{admonition} Client and Server Side Proxies
 :name: attention-proxy-client-server-side
@@ -67,7 +67,7 @@ ProxySpace.push(s) // s is a audio server
 ```
 
 exchanges this client side 'variable' environment with a server side environment holding [NodeProxies](https://doc.sccode.org/Classes/NodeProxy.html).
-As a consequent 
+As a consequence
 
 ```isc
 ~a = {SinOsc.ar(244!2) * 0.5;}

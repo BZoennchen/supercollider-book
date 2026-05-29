@@ -22,7 +22,7 @@ First we need to allocate a [Buffer](https://doc.sccode.org/Classes/Buffer.html)
 Then we have to write the one period of our waveform into the buffer.
 Then we can use the buffer to read from it at different frequencies.
 For example, the unit generator [Osc](https://doc.sccode.org/Classes/Osc.html) is able to write out values from the buffer into the output channel.
-The number of elements in a wavetalbe has to be a power of 2.
+The number of elements in a wavetable has to be a power of 2.
 
 ## Basic Example
 
@@ -38,12 +38,12 @@ Before we can use the signal, we have to convert it into the wavetable format.
 ~wt = ~sig.asWavetable;
 ```
 
-Then we allocate a **server-side** buffer and load it with the wavetalbe.
+Then we allocate a **server-side** buffer and load it with the wavetable.
 
-```{admonition} Wavetalbe Buffer Size
+```{admonition} Wavetable Buffer Size
 :name: attention-wavetable-buffer
 :class: attention
-The size of a *buffer* containing a wavetalbe with $n$ signalpoints, has to be of size $2n$.
+The size of a *buffer* containing a wavetable with $n$ signalpoints, has to be of size $2n$.
 ```
 
 ```isc
@@ -114,7 +114,7 @@ ipd.Audio(audio_path)
 
 ## Using Envelopes
 
-Since we can transform an envelope [Env](https://doc.sccode.org/Classes/Env.html) into a [Signal](https://doc.sccode.org/Classes/Signal.html) and a signal into a [Wavetable](https://doc.sccode.org/Classes/Wavetable.html), we can construct our waveform using an envelople!
+Since we can transform an envelope [Env](https://doc.sccode.org/Classes/Env.html) into a [Signal](https://doc.sccode.org/Classes/Signal.html) and a signal into a [Wavetable](https://doc.sccode.org/Classes/Wavetable.html), we can construct our waveform using an envelope!
 
 Let us create some crazy wavetables!
 
@@ -165,7 +165,7 @@ sig.plot;
 
 ## Wavetable Morphing
 
-[VOsc]() is a unit generater that we can utilize to morph or interpolate between two or more wavetables.
+[VOsc]() is a unit generator that we can utilize to morph or interpolate between two or more wavetables.
 First we create two different wavetables.
 The first wavetable contains a simple sine wave, the second contains 10 harmonics with equal amplitude.
 

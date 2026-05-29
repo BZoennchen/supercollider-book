@@ -587,8 +587,8 @@ If the value returned by the function is a number, the task is automatically <st
 <section id="scheduling-pbinds">
 <h2>Scheduling Pbinds<a class="headerlink" href="#scheduling-pbinds" title="Permalink to this headline">#</a></h2>
 <p>Using a <em>gated</em> envelope makes it difficult to use a plain scheduler since we have to set the gate of the synth to <code class="docutils literal notranslate"><span class="pre">0</span></code> manually, i.e. by another scheduled function.
-For example, the <code class="docutils literal notranslate"><span class="pre">default</span></code> instrument is consists of a gated envelople.
-The following ugly code plays it buy using a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempClock</a>.</p>
+For example, the <code class="docutils literal notranslate"><span class="pre">default</span></code> instrument consists of a gated envelope.
+The following ugly code plays it by using a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempClock</a>.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="o">~</span><span class="nx">synth</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">;</span>
@@ -648,7 +648,7 @@ You can change the <code class="docutils literal notranslate"><span class="pre">
 <section id="quantizing-pbinds">
 <h2>Quantizing Pbinds<a class="headerlink" href="#quantizing-pbinds" title="Permalink to this headline">#</a></h2>
 <p>Now let’s assume we want a type of music with a different number of beats per bar.
-Furthermore, we want multiple <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbinds</a> to be played synchroniously.
+Furthermore, we want multiple <a class="reference external" href="https://doc.sccode.org/Classes/Pbind.html">Pbinds</a> to be played synchronously.
 If we naively do this, we most likely will not achieve the desired result:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="nx">p</span> <span class="o">=</span> <span class="nc">Pbind</span><span class="p">(</span>
@@ -682,7 +682,7 @@ If we naively do this, we most likely will not achieve the desired result:</p>
                 </audio>
               </div></div>
 </div>
-<p>However, we can use the a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempoClock</a> to manage the <strong>quantized</strong> scheduling!
+<p>However, we can use a <a class="reference external" href="https://doc.sccode.org/Classes/TempoClock.html">TempoClock</a> to manage the <strong>quantized</strong> scheduling!
 Let us assume we want 120 beats per second and 3 beats per bar and a clock that is permanent, i.e. does not die when we press <code class="docutils literal notranslate"><span class="pre">CMD</span> <span class="pre">+</span> <span class="pre">.</span></code>, the following works:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">120</span><span class="o">/</span><span class="mi">60</span><span class="p">).</span><span class="nx">permanent_</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">schedAbs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="nx">t</span><span class="p">.</span><span class="nx">beatsPerBar_</span><span class="p">(</span><span class="mi">3</span><span class="p">)}</span> <span class="p">);</span>
 </pre></div>
@@ -693,9 +693,9 @@ Specifically, it begins at the next integer multiple of this number.
 If the <code class="docutils literal notranslate"><span class="pre">quant</span></code> value is negative, it indicates scheduling a certain number of bars into the future.
 The <code class="docutils literal notranslate"><span class="pre">phase</span></code> parameter serves as an offset to adjust the scheduling time, typically within the bar.
 A value of +1 means the event will be scheduled one beat later, while -1 schedules it one beat earlier.
-There’s also a third argument, <code class="docutils literal notranslate"><span class="pre">timeingOffset</span></code>, which I’m not using here.
+There’s also a third argument, <code class="docutils literal notranslate"><span class="pre">timingOffset</span></code>, which I’m not using here.
 This parameter allows patterns to run slightly ahead of their actual sounding time on the clock. This feature is particularly useful for controlling the execution order of different threads.
-By computing values slightly ahead of time, <code class="docutils literal notranslate"><span class="pre">timeingOffset</span></code> can be beneficial, especially when one pattern is dependent on the data from another pattern.
+By computing values slightly ahead of time, <code class="docutils literal notranslate"><span class="pre">timingOffset</span></code> can be beneficial, especially when one pattern is dependent on the data from another pattern.
 This anticipatory calculation ensures smooth and coordinated pattern execution.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nx">t</span> <span class="o">=</span> <span class="nc">TempoClock</span><span class="p">(</span><span class="mi">120</span><span class="o">/</span><span class="mi">60</span><span class="p">).</span><span class="nx">permanent_</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="nx">schedAbs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span><span class="nx">t</span><span class="p">.</span><span class="nx">beatsPerBar_</span><span class="p">(</span><span class="mi">3</span><span class="p">)}</span> <span class="p">);</span>
 

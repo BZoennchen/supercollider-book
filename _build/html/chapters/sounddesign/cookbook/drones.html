@@ -531,14 +531,14 @@ document.write(`
 Drones are great building blocks.
 They can stand on their own or be part of the background texture of our sound.
 They can be stale or slowly moving using modulation at control rate.
-Due to multichannel expansion and <em>unit generator argument modulation</em>, SuperCollider is a powerful tool for creating all kinds of drones with a view lines of code.
+Due to multichannel expansion and <em>unit generator argument modulation</em>, SuperCollider is a powerful tool for creating all kinds of drones with a few lines of code.
 I find it much more challenging to create an exciting melody than to construct interesting drones.</p>
 <section id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h2>
 <p>A fundamental building block of drones is the <em>beating effect</em>.
 If we combine two <em>waveforms</em> of slightly detuned frequency, we can clearly hear the difference in frequency.
 The result is a <em>beating effect</em> where the frequency of the beating is the difference of the two detuned frequencies.
-Take, for example, two slightly detune <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sine-wave"><span class="std std-ref">sine waves</span></a>:</p>
+Take, for example, two slightly detuned <a class="reference internal" href="../additive-synthesis/1-waveforms.html#sec-sine-wave"><span class="std std-ref">sine waves</span></a>:</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">SinOsc</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">90</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -571,7 +571,7 @@ is the difference between the two fundamental detuned frequencies.</p>
                 </audio>
               </div></div>
 </div>
-<p>One way to improve the movement within the sound we can try to modulate the beating frequencies.</p>
+<p>One way to improve the movement within the sound, we can try to modulate the beating frequencies.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nc">LPF</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="nc">Saw</span><span class="p">.</span><span class="k">ar</span><span class="p">(</span><span class="mi">90</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">+</span><span class="nc">LFNoise1</span><span class="p">.</span><span class="k">kr</span><span class="p">(</span><span class="mf">0.1</span><span class="p">).</span><span class="nx">bipolar</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)]),</span> <span class="mi">90</span><span class="o">*</span><span class="mi">2</span><span class="p">)}.</span><span class="nx">play</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -675,7 +675,7 @@ The following example, which I found on the <a class="reference external" href="
               </div></div>
 </div>
 <p>The function <span class="math notranslate nohighlight">\(h(f)\)</span> generates a signal <span class="math notranslate nohighlight">\(h(f)(t)\)</span> that oscillates in a linear fashion, ascending from 0 to 2 and then descending back to 0, and so on.
-<span class="math notranslate nohighlight">\(l(s,e)(t)\)</span> on the other hand is a line that goes from <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(e\)</span> in 1200 seconds, i.e, 20 minutes.
+<span class="math notranslate nohighlight">\(l(s,e)(t)\)</span> on the other hand is a line that goes from <span class="math notranslate nohighlight">\(s\)</span> to <span class="math notranslate nohighlight">\(e\)</span> in 1200 seconds, i.e., 20 minutes.
 Let us reduce this duration to 30 seconds and listen again:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -690,8 +690,8 @@ Let us reduce this duration to 30 seconds and listen again:</p>
 <section id="wavetable-morphing">
 <h2>Wavetable Morphing<a class="headerlink" href="#wavetable-morphing" title="Permalink to this headline">#</a></h2>
 <p>Let us try something different.
-Let’s use different <a class="reference internal" href="../wavetable.html#sec-wavetable"><span class="std std-ref">wavetables</span></a> and let us morph from one wavefrom into another but slowly.
-First we create mutiple signals.
+Let’s use different <a class="reference internal" href="../wavetable.html#sec-wavetable"><span class="std std-ref">wavetables</span></a> and let us morph from one waveform into another but slowly.
+First we create multiple signals.
 To do so lets define a function that returns a random wavetable.</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="o">~</span><span class="nx">funcRandSignal</span> <span class="o">=</span> <span class="p">{</span>

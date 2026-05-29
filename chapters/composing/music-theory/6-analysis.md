@@ -20,19 +20,19 @@ from PIL import Image
 (sec-piece-analysis)=
 # Analysis
 
-Let us look at different pieces and let us try to figure out which which key is used, which chords are played, and maybe why the choices make sense.
+Let us look at different pieces and let us try to figure out which key is used, which chords are played, and maybe why the choices make sense.
 
 ## Prelude I
 
 Every pianist played Bach's *Prelude I in C major* at least ten times.
 It is made to learn the keys of the piano, especially major and minor chords, but it is also a beautiful and simple piece of music.
 
-(1-4) The piece starts and ends at the tonic C, more preceisly at **C** (**I**), that is, C-E-G.
+(1-4) The piece starts and ends at the tonic C, more precisely at **C** (**I**), that is, C-E-G.
 In the top voice, Bach uses an arpeggio that relentlessly keeps moving through the piece.
 Going from **C**=C-E-F (**I**) to **Dm**=D-F-A (**ii**) to D-F-G in the first three top bars and C-E, C-D and B-D in the bottom bars.
 Combining **Dm** with C gives us a D minor seventh chord, i.e., **Dm7**.
 Furthermore, adding the B to D-F-G gives us G major seventh (G-B-D)-F, i.e. the dominant seventh.
-Finally Bach moves back to the tonic **C** and resolves the tention built up by the dominant.
+Finally Bach moves back to the tonic **C** and resolves the tension built up by the dominant.
 In summary, Bach moves from a major chord, i.e. **C** (I), to a minor chord, i.e., **Dm7** (ii) to **G7** first inversion (V) to **C** (I) thus he establishes the harmonic world of the piece in just four simple bars.
 
 (5-7)  Next, Bach moves into the dominant **Am**/C (first inversion A minor) which leads into a **D7**/C (with the seventh in the base) and then into a **G**/B (first inversion).
@@ -66,9 +66,9 @@ In summary: (I)-(IV)-(?)-(?)-(V).
 
 From the dominant Bach moves back to the tonic.
 
-(25-28) The top voice moves chromatically from E to G by **C**/G (E on top), **G7** (F on top), 
-**Am** diminisehd seventh (F# added), **C**/G (G on top).
-We can clearly preceive some disonance here. 
+(25-28) The top voice moves chromatically from E to G by **C**/G (E on top), **G7** (F on top),
+**Am** diminished seventh (F# added), **C**/G (G on top).
+We can clearly perceive some dissonance here.
 In summary: (I)-(V)-(vi)-(I).
 
 (29-34) Then we fall down into an F supported by C-D-G which leads smoothly to **G7**.
@@ -84,7 +84,7 @@ name: fig-prelude-back-2
 
 ## Nuvole Bianche
 
-Let us apply what we have learned by analysing the beginning of the famous piece *Nuvole Bianche* by *Ludovico Enaudi*.
+Let us apply what we have learned by analysing the beginning of the famous piece *Nuvole Bianche* by *Ludovico Einaudi*.
 
 From the signature of the piece we can see that there are 4 diminished accidentals.
 Using the [circle of fifths](sec-circle-of-fifths) we can deduce that this hints towards either **Ab** (Ab major) or **Fm** (F minor).

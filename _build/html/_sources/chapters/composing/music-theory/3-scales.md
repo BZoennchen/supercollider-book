@@ -39,7 +39,7 @@ Each individual pitch of a scale is called a *degree (Tonstufe)*.
 Most musical traditions use *octave intervals* to associate pitches that serve the same musical function (*unison*) such that a scale is completely defined by one *octave* because of *octave equivalence*, i.e., *the basic miracle of music*.
 In that case, any *degree* is a member of a class that it shares with the same degree in all other octaves.
 All pitches of a *degree* of a scale are within the same *pitch classes*.
-Thus some use the terms *note* and *pitch class* interchangeable.
+Thus some use the terms *note* and *pitch class* interchangeably.
 
 The **tonic** of a scale (also the "home" of the *keys*), is usually the first note in the respective *scale*, that is, it has degree 1.
 Note that in ``sclang`` it has degree 0, since we count from zero.
@@ -85,9 +85,9 @@ Scale.chromatic.cents;
 ```
 
 Note that on a note sheet for Western music only the letter of a note, i.e. C-D-E-F-G-A-B, determines its position.
-Raising a note by a semitone (100 cents) is indicated by the sharp # and lowing it by the same amount is indicated by a small b.
+Raising a note by a semitone (100 cents) is indicated by the sharp # and lowering it by the same amount is indicated by a small b.
 
-E, F, B, and C are special because the interval E-F is only one half step (100 semitones) and so is B-C.
+E, F, B, and C are special because the interval E-F is only one half step (100 cents) and so is B-C.
 Any other interval between consecutive letters, e.g. A-B, are whole steps.
 Consequently, sharpening an E gives us an F, i.e. E# = F.
 Furthermore, Fb = E, B# = C and Cb = B.
@@ -296,7 +296,7 @@ The *minor scale*, also known as *natural minor scale*, uses the standard *diato
 It is often regarded as invoking an overall sad feeling.
 
 We get the *minor interval sequence* by shifting the diatonic interval sequence by 2 to the right or by 5 to the left.
-Therefore, it has the same *sparsity* as well as *asymmetry*. as the [diatonic scale](sec-diatonic-scale).
+Therefore, it has the same *sparsity* as well as *asymmetry* as the [diatonic scale](sec-diatonic-scale).
 
 ```isc
 ( // minor D
@@ -343,7 +343,7 @@ C minor scale (or keys of C minor) in blue and D# minor scale in red.
 Looking closely at the [interval](sec-intervals) sequence, one can see that the minor scale has a less strong *leading tone* because it is two semitones apart from the *tonic*.
 This property is sometimes unwanted which leads to the harmonic and melodic minor scales.
 Furthermore, three out of all the intervals from the tonic to any other note are minor intervals!
-This makes the *harmonic minor* a little bit exotic.
+This makes the *natural minor* a little bit exotic.
 
 | Degree | Name          | Symbol         | Semitones |
 | ------ | ------------- | -------------- | --------- |
@@ -423,7 +423,7 @@ From now on, we abbreviate any *major/minor scale* with a bold letter, e.g., the
 
 We also say that we play a certain piece in *key of G major* or just *G major* or **G**.
 The untransposed diatonic scale is the *key of C*.
-As I we already saw, to transpose to another *key/scale* in ``sclang``, we define the ``\root`` to be different than 0.
+As we already saw, to transpose to another *key/scale* in ``sclang``, we define the ``\root`` to be different from 0.
 
 Let us consider the degrees of *major scale* (key of C) with respect to the chromatic scale:
 
@@ -433,7 +433,7 @@ Transposing the scale by the interval of seven semitones upwards, gives us
 
 $$G_\text{major} = (8, 10, 12, 1, 3, 5, 7) = (\text{G, A, B, C, D, E, F#})$$
 
-and transposing it by 7 semitones downwards gives results in
+and transposing it by 7 semitones downwards results in
 
 $$F_\text{major} = (6, 8, 10, 11, 1, 3, 5) = (\text{F, G, A, A#, C, D, E}).$$
 
@@ -442,7 +442,7 @@ Consecutive transpositions by seven semitones, i.e. by **perfect fifths**, sound
 They share many notes thus musical properties.
 Therefore, composers tend to move on the circle of fifth if they move at all.
 
-The following code generates all *major* scales by trasposing by seven semitones.
+The following code generates all *major* scales by transposing by seven semitones.
 Note that I use only sharps instead of mixing in flats:
 
 ```isc
@@ -539,7 +539,7 @@ gives us
 [Major](sec-diatonic-scale) and [minor scales](sec-minor-scale) are very prominent.
 They are widely used in all areas of music compositions.
 Interestingly, for each *major scale* there is a corresponding *minor scale* which consists of the exact same *pitch classes*, e.g. **C** (C major) corresponds to **Am** (A minor).
-This relationship is often depicted as the so called *circle of fifth*, we computed with by adding **perfect fifths**.
+This relationship is often depicted as the so-called *circle of fifths*, which we computed by adding **perfect fifths**.
 
 ```{figure} ../../../figs/composing/circle-of-fifths-dark.png
 ---
@@ -555,7 +555,7 @@ Modulation is a broad term.
 It is the change from one tonality (*tonic*, or *tonal center*) to another.
 
 Since six out of seven notes are shared by adjacent scales, a modulation by a perfect fifth can be accomplished in a very smooth fashion by only changing one note by a semitone.
-Moving from the top **C** adds more and more accidentials (# / b).
+Moving from the top **C** adds more and more accidentals (# / b).
 
 Intuitively, the [chromatic scale](sec-chromatic-scale) may be regarded as a *global world* that contains all available tonal material.
 The [major](sec-diatonic-scale) and [minor scales](sec-minor-scale) can then be regarded as *local regions* of this world, each having its own *harmonic* flavor.
@@ -584,7 +584,7 @@ In SuperCollider we can generate all the different modes by *array rotation* usi
 
 *Major* and *minor scales* are synonyms for *Ionian* and *Aeolian mode*.
 The initial degree of a mode is called *final*.
-If we additional define the *tonic* of the scale, the *final* correspond to the *tonic* which is typically the *pitch class* at which a piece ends.
+If we additionally define the *tonic* of the scale, the *final* corresponds to the *tonic* which is typically the *pitch class* at which a piece ends.
 
 Again, adding a fixed number of semitones/half steps to our C major scale does not change the mode but the key, e.g. from **C** to **D**.
 In that case we change the *tonic* [note](sec-notes) and [chord](sec-chords) of the scale but letting the interval sequence intact.
@@ -609,11 +609,11 @@ For example, in both **C** (C major) and **Cm** (C minor), the tonic is C.
 However, *relative keys* (two different scales that share a *key signature*) have different *tonics*
 For example, **C** and **Am** share a *key signature*, despite having different tonic pitches (C and A, respectively).
 
-So there a scales and modes.
+So there are scales and modes.
 But how do we determine the mode and scale of a piece?
-Well, first we try to figure out the *tonic [note](sec-notes)* and *tonic [chrod](sec-chords)*.
+Well, first we try to figure out the *tonic [note](sec-notes)* and *tonic [chord](sec-chords)*.
 If there are a lot of Gs and Bs and Ds, the tonic chord is probably a *G major chord*, i.e. G-B-D.
-Therefore, the piece is probably in the key of *G major* (*ionian mode*), *lydian* or *mixolyian mode* which is determined by the other notes and chords in the piece.
+Therefore, the piece is probably in the key of *G major* (*ionian mode*), *lydian* or *mixolydian mode*, which is determined by the other notes and chords in the piece.
 
 ### Qualities
 
@@ -637,11 +637,11 @@ The note of interest is the *tritone*.
 It sounds floaty, spacy, and wide because we have a major triad (G-B-D) but also the [tritone](sec-tritone) G-C#.
 
 **Mixolydian** is rock-ish, Irish, bright, and upbeat.
-The note of interest is the *flatten seventh*, i.e, the F.
+The note of interest is the *flattened seventh*, i.e., the F.
 It is a watered down major.
 It lacks the sickening sweetness of major.
 It is for fun rock-like music produced by bands like *AC/DC* and *Guns'n Roses*.
-Duo to the flattening of the F# in the major scale, we change the leading tone.
+Due to the flattening of the F# in the major scale, we change the leading tone.
 The F gives us an unexpected feeling and dilutes the happiness of the major scale.
 
 **Aeolian** (natural minor) is dark, rock-ish, and sad-ish.
@@ -651,10 +651,10 @@ It is darker than dorian, and less exotic than phrygian.
 
 Looking at the table above, we can see that all except the **locrain** mode contain G and D, i.e., the *fifth*!
 Not having a *fifth* makes the tonic chord of the *Locrian* a diminished [triad](sec-triads) which makes the mode rather inharmonic.
-Since there are better options to have something with a lot of tension or something odd, locrain is not really used.
+Since there are better options to have something with a lot of tension or something odd, locrian is not really used.
 
 We can use the same tonic [chord](sec-chords) and change the mode during a piece.
-This is called *model interchange* or *model mixture* and gives the composer the option to wander around across a greater tonal distance.
+This is called *modal interchange* or *modal mixture* and gives the composer the option to wander around across a greater tonal distance.
 
 ```isc
 // Playing all the different modes with C as the tonic
@@ -720,7 +720,7 @@ Pbindef(\melody,
 ```
 
 If this is not enough, we can always create our own [Scale](https://doc.sccode.org/Classes/Scale.html).
-It is defined by its *degrees*, the number of *pitches* per octave and the [tuninig](sec-tuning) in semitones (100 cents).
+It is defined by its *degrees*, the number of *pitches* per octave and the [tuning](sec-tuning) in semitones (100 cents).
 In addition we can use ``descDegrees`` to play the scale differently when descending than when ascending.
 
 In the following we re-define the [major scale](sec-diatonic-scale).

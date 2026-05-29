@@ -537,7 +537,7 @@ For instance, we could calculate the <a class="reference internal" href="../math
 However, due to computational complexity and buffering constraints, such ideal filters prove to be rather impractical for real-time use. Consequently, most filters operate differently, working to either reduce or amplify the intensity of specific frequencies.</p>
 <div class="remark admonition" id="remark-filtering-and-convolution">
 <p class="admonition-title">Filtering and the Fourier transform</p>
-<p>Filtering can be achieved by multiplication in the spectural domain and by convolution in the time domain.</p>
+<p>Filtering can be achieved by multiplication in the spectral domain and by convolution in the time domain.</p>
 </div>
 <p>For instance, if we aim to entirely filter out all high frequencies up to a cutoff frequency <span class="math notranslate nohighlight">\(f_c\)</span>, without affecting the low frequencies <span class="math notranslate nohighlight">\((f \leq f_c)\)</span>, our ideal brick wall filter would exhibit an amplitude frequency response resembling the plot shown below.</p>
 <div class="cell tag_remove-input docutils container">
@@ -551,26 +551,26 @@ However, due to computational complexity and buffering constraints, such ideal f
 The gain is 1 in the <em>passband</em>, which pans frequencies from 0 Hz to the <em>cutoff frequency</em> <span class="math notranslate nohighlight">\(f_c\)</span> Hz, and its gain is 0 in the <em>stopband</em> (all frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>).
 The output spectrum is obtained by multiplying the input spectrum by the amplitude response of the filter.</p>
 <p>Apart from changing the level of specific frequencies, filters often change the phase of the signal, e.g., <span class="math notranslate nohighlight">\(\sin(2\pi t)\)</span> is transformed to <span class="math notranslate nohighlight">\(\sin(2\pi t + 0.5\pi)\)</span>.
-Some filters do primarily apply such period shifts and we might not think of them as filters.
+Some filters primarily apply such phase shifts and we might not think of them as filters.
 For example, the <em>allpass filter</em> passes all frequencies untouched but attunes phases.</p>
 <p><em>Lowpass filters</em> are used everywhere because they can smoothen the harshness of a sound.</p>
 <p>A lot of filters support <em>feedback</em>, i.e., the output signal of the filter goes back into it.
 Each time the signal is fed back, its level gets reduced such that the feedback eventually comes to an end.
-Such feedback can be used to synthesis <a class="reference internal" href="6-reverb.html#sec-reverb"><span class="std std-ref">reverberation</span></a>.</p>
-<p>In combination with an <em>impulse</em> (e.g. <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impuse</a>) filters can be used to contruct surprising effects.</p>
-<p>And with <a class="reference internal" href="4-resonance.html#sec-resonance"><span class="std std-ref">ressonance</span></a>, filters can add many aspects to the timbre of a sound.</p>
+Such feedback can be used to synthesize <a class="reference internal" href="6-reverb.html#sec-reverb"><span class="std std-ref">reverberation</span></a>.</p>
+<p>In combination with an <em>impulse</em> (e.g. <a class="reference external" href="https://doc.sccode.org/Classes/Impulse.html">Impulse</a>) filters can be used to construct surprising effects.</p>
+<p>And with <a class="reference internal" href="4-resonance.html#sec-resonance"><span class="std std-ref">resonance</span></a>, filters can add many aspects to the timbre of a sound.</p>
 <p><a class="reference external" href="https://supercollider.github.io/">SuperCollider</a> offers a large variety of filters.
 Execute</p>
 <div class="highlight-isc notranslate"><div class="highlight"><pre><span></span><span class="nc">Filter</span><span class="p">.</span><span class="nx">dumpClassSubtree</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>to print a list of all filters to the post window.</p>
-<p>In summary, filters and substractive synthesis are inseperable.</p>
+<p>In summary, filters and subtractive synthesis are inseparable.</p>
 <ul class="simple">
 <li><p>We can use static filters to emphasize specific frequencies.</p></li>
 <li><p>We can use static filters to create formants in a sound and imitate the characteristics of the human voice or traditional acoustic instruments.</p></li>
 <li><p>A <a class="reference internal" href="4-resonance.html#sec-resonance"><span class="std std-ref">resonance filter</span></a> with a moderate <em>resonance bandwidth</em> with a cutoff frequency that tracks the pitch can create a characteristic quality that remains tonally consistent as we play the keyboard.</p></li>
-<li><p>For some <em>resonance filters</em>, if we decrease the <em>resonance bandwidth</em>, we enter an area where the filter is at the brick of self-oscillation. This creates a distinctive distortion that can be a perfect starting point.</p></li>
+<li><p>For some <em>resonance filters</em>, if we decrease the <em>resonance bandwidth</em>, we enter an area where the filter is at the brink of self-oscillation. This creates a distinctive distortion that can be a perfect starting point.</p></li>
 <li><p>If we decrease the <em>resonance bandwidth</em> even further, the filter will become a sine wave generator in its own right. In theory, no input signal is passed at this point, but few filters altogether remove all the signal, and the result is a tortured sound that has extensive uses in modern music.</p></li>
 </ul>
 <p>In analog synthesis, filters are the defining element of a synthesizer.

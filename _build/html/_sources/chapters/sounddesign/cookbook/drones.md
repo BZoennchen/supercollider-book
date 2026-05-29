@@ -16,7 +16,7 @@ In this section, we try to create an ambient drone sound.
 Drones are great building blocks.
 They can stand on their own or be part of the background texture of our sound.
 They can be stale or slowly moving using modulation at control rate.
-Due to multichannel expansion and *unit generator argument modulation*, SuperCollider is a powerful tool for creating all kinds of drones with a view lines of code.
+Due to multichannel expansion and *unit generator argument modulation*, SuperCollider is a powerful tool for creating all kinds of drones with a few lines of code.
 I find it much more challenging to create an exciting melody than to construct interesting drones.
 
 ## Basics
@@ -24,7 +24,7 @@ I find it much more challenging to create an exciting melody than to construct i
 A fundamental building block of drones is the *beating effect*.
 If we combine two *waveforms* of slightly detuned frequency, we can clearly hear the difference in frequency.
 The result is a *beating effect* where the frequency of the beating is the difference of the two detuned frequencies.
-Take, for example, two slightly detune [sine waves](sec-sine-wave):
+Take, for example, two slightly detuned [sine waves](sec-sine-wave):
 
 ```isc
 {SinOsc.ar(90 * [1, 1.01]) * 0.8}.play;
@@ -57,7 +57,7 @@ audio_path = '../../../sounds/saw-simple-drone.mp3'
 ipd.Audio(audio_path)
 ```
 
-One way to improve the movement within the sound we can try to modulate the beating frequencies.
+One way to improve the movement within the sound, we can try to modulate the beating frequencies.
 
 ```isc
 {LPF.ar(Saw.ar(90 * [1, 1.0+LFNoise1.kr(0.1).bipolar(0.5)]), 90*2)}.play;
@@ -161,7 +161,7 @@ ipd.Audio(audio_path)
 ```
 
 The function $h(f)$ generates a signal $h(f)(t)$ that oscillates in a linear fashion, ascending from 0 to 2 and then descending back to 0, and so on.
-$l(s,e)(t)$ on the other hand is a line that goes from $s$ to $e$ in 1200 seconds, i.e, 20 minutes.
+$l(s,e)(t)$ on the other hand is a line that goes from $s$ to $e$ in 1200 seconds, i.e., 20 minutes.
 Let us reduce this duration to 30 seconds and listen again:
 
 ```{code-cell} python3
@@ -173,8 +173,8 @@ ipd.Audio(audio_path)
 ## Wavetable Morphing
 
 Let us try something different.
-Let's use different [wavetables](sec-wavetable) and let us morph from one wavefrom into another but slowly.
-First we create mutiple signals.
+Let's use different [wavetables](sec-wavetable) and let us morph from one waveform into another but slowly.
+First we create multiple signals.
 To do so lets define a function that returns a random wavetable.
 
 ```isc

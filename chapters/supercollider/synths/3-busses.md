@@ -29,7 +29,7 @@ Just remember that the order goes from *head* to *tail* because it is important 
 In SuperCollider the signal flows from the *head* of the *node tree* to its *tail*.
 ```
 
-If our synth does not represent the whole signal flow graph, there has to be a possibility to read the signal and to somehow manipuate it.
+If our synth does not represent the whole signal flow graph, there has to be a possibility to read the signal and to somehow manipulate it.
 For this purpose there are so called busses.
 In fact, when we use the [Out](https://doc.sccode.org/Classes/Out.html) unit generator we actually write a signal to a [Bus](https://doc.sccode.org/Classes/Bus.html).
 
@@ -55,9 +55,9 @@ Let's construct a simple example using three synths:
 3. a reverb effect.
    
 The reverb effect should process the signal in the last stage.
-Therefore we have to positioning it at the tail.
+Therefore we have to position it at the tail.
 The impulse should be at the head, and the saw wave should be in between.
-At this point it is not necissary that you fully understand these [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html).
+At this point it is not necessary that you fully understand these [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html).
 When ever ``\impuse`` outputs an impulse, i.e., trigger, [TExpRand](https://doc.sccode.org/Classes/TExpRand.html) spits out a value between 40 and 100.
 It is a so called [demand unit generator](sec-demand-ugens).
 I use [Dust](https://doc.sccode.org/Classes/Dust.html) as a random impulse.
@@ -92,7 +92,7 @@ SynthDef(\reverb,{
 The [In](https://doc.sccode.org/Classes/In.html) unit generator read a signal from a bus and its counterpart [Out](https://doc.sccode.org/Classes/Out.html) writes the signal to a bus.
 Note that our default values would not work because each synth would write to bus 0.
 In the following, I use [Bus](https://doc.sccode.org/Classes/Bus.html) objects that are handy to organize busses client-side.
-However, these objects have no effect on the server, i.e., they do not acutally create new busses but manage bus numbers.
+However, these objects have no effect on the server, i.e., they do not actually create new busses but manage bus numbers.
 If we execute the following, we do not hear any sound:
 
 ```isc
@@ -161,9 +161,9 @@ Synth(\reverb, [\in: ~b_fx, \out: 0], addAction: \addToTail);
 )
 ```
 
-Here we add ``\saw`` after (with respect to the *head*) ``~imuplse``.
+Here we add ``\saw`` after (with respect to the *head*) ``~impulse``.
 
-Another possibility is to use [Groups](https://doc.sccode.org/Classes/Group.html) which are containes in the *node tree* that can contain multiple synths.
+Another possibility is to use [Groups](https://doc.sccode.org/Classes/Group.html) which are containers in the *node tree* that can contain multiple synths.
 This is useful if you have a lot of synth where some are independent.
 For example, if you only apply at most one effect to any signal, you could put all effect synths into the same [Group](https://doc.sccode.org/Classes/Group.html).
 

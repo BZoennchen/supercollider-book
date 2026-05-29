@@ -7,7 +7,7 @@ They are used for generating and processing signals on the SuperCollider synthes
 
 ## Definition
 
-A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point outputs, as well as *side effects* such as wrting to the post window, accessing a buffer, or sending a message over the network.
+A unit generator is a component for the synthesis server, defined in a plug-in, which can receive a number of floating-point inputs (audio- or control-rate signal or constant values) and produce a number of floating-point outputs, as well as *side effects* such as writing to the post window, accessing a buffer, or sending a message over the network.
 
 ```isc
 (
@@ -35,7 +35,7 @@ SFG of the example above which consist of three [UGen](https://doc.sccode.org/Cl
 ```
 
 Each node of the graph represents a unit generator.
-There are osillators, called *sources* (such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html)) that have no signal input.
+There are oscillators, called *sources* (such as [SinOsc](https://doc.sccode.org/Classes/SinOsc.html), [LFSaw](https://doc.sccode.org/Classes/LFSaw.html)) that have no signal input.
 They initialize the flow of numbers.
 
 ```{admonition} Unit Generator (UGen)
@@ -112,12 +112,12 @@ For example, I will explain the [fundamental wavesforms](sec-fundamental-wavefor
 We will explore many different [UGens](https://doc.sccode.org/Classes/UGen.html) discussing [filters](sec-filters) and many other concepts.
 
 (sec-mce)=
-## Multichannel Expension
+## Multichannel Expansion
 
 When an [array](sec-array) is given as an argument to a *unit generator* it causes an array of multiple copies of that unit generator to be made, each receiving as argument one specific element of the array.
-This powerful behaviour is called *multichannel expension*.
+This powerful behaviour is called *multichannel expansion*.
 
-All but a few special unit generators perform multichannel expension.
+All but a few special unit generators perform multichannel expansion.
 **Only** arrays are expanded, no other type of collection, not even subclasses of [Array](https://doc.sccode.org/Classes/Array.html).
 
 ```isc
@@ -141,8 +141,8 @@ Blip.ar({rrand(200.0,300.0)}!16, 8, 0.1)
 ```
 
 Each unit generator receives the same argument if it is a scalar.
-If their are multiple arrays, each of the same size $n$, there will be $n$ ugens generated, each receiving the respective argument.
-If there is a missmatch in length, the largest array determines the number of unit generators and all the other arrays are wraped as needed.
+If there are multiple arrays, each of the same size $n$, there will be $n$ ugens generated, each receiving the respective argument.
+If there is a mismatch in length, the largest array determines the number of unit generators and all the other arrays are wrapped as needed.
 
 ```isc
 // three unit generators created
@@ -157,5 +157,5 @@ Blip.ar(freq: 600, numharm: 5, 0.1)
 */
 ```
 
-By multichannel expension one can create a large number of unit generators which in turn generate a rich sound by a few lines of code.
+By multichannel expansion one can create a large number of unit generators which in turn generate a rich sound by a few lines of code.
 

@@ -1,7 +1,7 @@
 (sec-notes)=
 # Notes & Midi Notes
 
-While notes are introduced by musicians a long time ago, midi notes---a rather recent invention---became especially popular with the introduction of analog and digital synthesizers.
+While notes were introduced by musicians a long time ago, midi notes---a rather recent invention---became especially popular with the introduction of analog and digital synthesizers.
 Both are motivated and related to piano keys.
 
 ```{figure} ../../../figs/composing/piano-keys.png
@@ -37,7 +37,7 @@ Furthermore, A4 corresponds to a fundamental frequency of 440 Hz.
 A1 and A3 are the same note but A3 is two octaves higher thus its pitch is higher.
 We also say that they are in the same *pitch class* A.
 Additionally, the frequency of A3 is equal to the frequency of A1 multiplied by $2^2 = 4$.
-In general, the frequency doubles after each succesive 12 keys.
+In general, the frequency doubles after each successive 12 keys.
 
 Suppose we number all notes by natural numbers, e.g. F0 = 4, G0 = 5, A0 = 6, B0 = 7,  and so on.
 Then to compute the fundamental frequency $f(p+1)$ of the note number $p+1$ given the frequency $f(p)$ of the note number $p$, we have to multiply $f(p)$ by $2^{\frac{1}{12}}$.
@@ -63,7 +63,7 @@ In general, the note A$k$ corresponds to the midinote
 
 $$21 + 12 \cdot k, \quad k \in \mathbb{N}_0$$
 
-because the key pattern of a piano repeats itself and each succesive 12 keys corresponds to one *octave* (see section [Intervals](sec-intervals)).
+because the key pattern of a piano repeats itself and each successive 12 keys corresponds to one *octave* (see section [Intervals](sec-intervals)).
 Consecutive piano keys have consecutive natural number as midi notes.
 
 Using Eq. {eq}`eq:note:to:frequency` and the fact that the midi note 69 corresponds to A4 which corresponds to 440 Hz, we can compute the fundamental frequency $f(p)$ for a specific midi note $p$ by the following function:
@@ -72,7 +72,7 @@ Using Eq. {eq}`eq:note:to:frequency` and the fact that the midi note 69 correspo
     f(p) = 2^\frac{p-69}{12} \cdot 440.
 \end{equation*}
 
-``sclang`` has a build-in function to translate frequencies to midi notes and vice verca:
+``sclang`` has a built-in function to translate frequencies to midi notes and vice versa:
 
 ```isc
 440.cpsmidi // 69.0             frequency to midi
@@ -81,9 +81,9 @@ Using Eq. {eq}`eq:note:to:frequency` and the fact that the midi note 69 correspo
 
 ## Conversion
 
-There are twelve piano keys within an octave are C, C#/Bb, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B.
-This is equivalent to the [chromatic sacle](sec-chromatic-scale).
-The letter gives us the *ptich class / tone* while the number tells us in which *octave* we are.
+There are twelve piano keys within an octave: C, C#/Bb, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B.
+This is equivalent to the [chromatic scale](sec-chromatic-scale).
+The letter gives us the *pitch class / tone* while the number tells us in which *octave* we are.
 The combination determines the actual *pitch*.
 
 Since any piano key corresponds to at least one note, there is a function that gives us a midi note for a given note, for the [tuning](sec-tuning) of a piano.
@@ -111,4 +111,4 @@ Array.series(size: 7, start: 65, step: 7).collect({arg k; ~toNote.(k)});
 )
 ```
 
-In the last line I construct the keys of the [C major scale](sec-diatonic-scale) using succesive intervals of *perfect fifths*, see section [Intervals](sec-intervals). 
+In the last line I construct the keys of the [C major scale](sec-diatonic-scale) using successive intervals of *perfect fifths*, see section [Intervals](sec-intervals).

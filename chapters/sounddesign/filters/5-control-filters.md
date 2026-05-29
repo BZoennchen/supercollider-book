@@ -13,7 +13,7 @@ The [Lag](http://doc.sccode.org/Classes/Lag.html) unit generator is a simple con
 It is similar to [OnePole](http://doc.sccode.org/Classes/OnePole.html) but it has a more meaningful parameter, called ``lagTime`` which is the time it takes for the output value to reach 63.2% of the way towards the target value after the input changes.
 The higher the ``lagTime``, the slower the output will respond to changes in the input, and the smoother the transition will be.
 
-The following code plots a the signal of a noise generator which generates a random value every ``1/freq`` seconds.
+The following code plots the signal of a noise generator which generates a random value every ``1/freq`` seconds.
 We smoothen the noise by a [OnePole](http://doc.sccode.org/Classes/OnePole.html) and by [Lag](http://doc.sccode.org/Classes/Lag.html).
 Our frequency is 10 Hz and our ``lagTime`` is 0.1 seconds.
 

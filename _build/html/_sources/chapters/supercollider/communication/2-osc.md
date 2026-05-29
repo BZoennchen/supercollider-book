@@ -10,7 +10,7 @@ In fact, whenever we interact with the real-time audio server **scsynth**, for e
 Since OSC is a network protocol, the audio server could run on some other machine in our network.
 This opens up sheer endless collaborative possibilities.
 Via OSC we build connections to musicians, artists, devices and other software systems.
-As long as the instance undestands OSC, we can integrate it into our performance.
+As long as the instance understands OSC, we can integrate it into our performance.
 
 ## Receiving Messages
 
@@ -92,7 +92,7 @@ OSCdef(
 
 Ok, nice but that is nothing special.
 We could get the same effect by using the [MouseX](https://doc.sccode.org/Classes/MouseX.html) and [MouseY](https://doc.sccode.org/Classes/MouseY.html) ugens without using any explicit OSC communication.
-However, this example shows, how OSC opens up the space of possiblities because suddenly we are communicating with another program running in the network.
+However, this example shows how OSC opens up the space of possibilities because suddenly we are communicating with another program running in the network.
 
 ## Sending Messages
 

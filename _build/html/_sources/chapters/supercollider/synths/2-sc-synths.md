@@ -22,9 +22,9 @@ It can be confusing for beginners because there is a big difference between a sy
 In the real world, a synth is an instrument that can be played.
 However, in ``sclang``, we distinguish between the instrument (as a potential/thing) and the played instrument (as a process).
 While the thing is an instance of [SynthDef](https://doc.sccode.org/Classes/SynthDef.html), the process (an executed [signal-flow graph (SFG)](https://en.wikipedia.org/wiki/Signal-flow_graph)) is an instance of [Synth](https://doc.sccode.org/Classes/Synth.html).
-If we instanciate a [Synth](https://doc.sccode.org/Classes/Synth.html), defined by a specific [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) and its arguments, the signal processing begins and if we destroy the [Synth](https://doc.sccode.org/Classes/Synth.html) it stops.
+If we instantiate a [Synth](https://doc.sccode.org/Classes/Synth.html), defined by a specific [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) and its arguments, the signal processing begins and if we destroy the [Synth](https://doc.sccode.org/Classes/Synth.html) it stops.
 
-Instead of introducing a new class for each new instrument which would lead to thousand of classes, each instrument is represented by a function, more precisely by *a unit generator graph function* that realizes *a signal-flow-graph (SFG)*.
+Instead of introducing a new class for each new instrument which would lead to thousands of classes, each instrument is represented by a function, more precisely by *a unit generator graph function* that realizes *a signal-flow-graph (SFG)*.
 ``sclang`` borrows this concept from functional programming languages.
 The SFG ultimately defines the instrument.
 At the same time, the synth definition provides an interface to play it.
@@ -84,7 +84,7 @@ synthdef.add;
 // (3) use it by creating Synth of the SynthDef
 Synth(\sine_beep, [freq: 800, amp: 0.4]);
 
-// (4) the synth removes itself because we specied doneAction: Done.freeSelf
+// (4) the synth removes itself because we specified doneAction: Done.freeSelf
 ```
 
 ```{code-cell} python3
@@ -97,7 +97,7 @@ ipd.Audio(audio_path)
 Note that adding a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) to the server takes time.
 Therefore, we can not execute the last line immediately after adding the definition because it is an asynchronous, non-blocking call.
 If you want to perform, adding all your synth definitions beforehand is good practice.
-There is also the possibility to wait for the audio sever programmatically.
+There is also the possibility to wait for the audio server programmatically.
 
 By calling ``SynthDef.new()`` or just ``SynthDef()``, we generate a new factory object that produces synth according to the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) blueprint.
 On behalf of the perspective of the audio server **scsynth**, this factory object produces ``Synth`` objects!
@@ -135,15 +135,15 @@ You have to tell the server explicitly---there is no automatic garbage collectio
 
 We can also **store** the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) permanently on our hard drive by calling ``store()`` instead of ``add()``.
 This call will create the file ``sineWave.scsyndef`` in the ``synthdefs`` directory which can be found in your [SuperCollider](https://supercollider.github.io/) application directory.
-If you restart [SuperCollider](https://supercollider.github.io/) all [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html) in the ``snythdefs`` directory are added to the server automatically.
+If you restart [SuperCollider](https://supercollider.github.io/) all [SynthDefs](https://doc.sccode.org/Classes/SynthDef.html) in the ``synthdefs`` directory are added to the server automatically.
 
-## Sever vs Client
+## Server vs Client
 
 To understand [UGens](https://doc.sccode.org/Classes/UGen.html) we must understand the concept of client-side and server-side code evaluation.
 Only the client-side code of a [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) is executed when we add the [SynthDef](https://doc.sccode.org/Classes/SynthDef.html) to the server.
 Playing the synth by creating a [Synth](https://doc.sccode.org/Classes/Synth.html) executes only the server-side code!
 
-Some of the ``sclang`` code can only be excuted on the server (e.g. playing sound) while other parts can only be executed on the client (e.g. the definition of the signal-flow graph).
+Some of the ``sclang`` code can only be executed on the server (e.g. playing sound) while other parts can only be executed on the client (e.g. the definition of the signal-flow graph).
 The relationship between server- and client-side code becomes more evident if we compare server- and client-side randomness.
 
 ```isc
@@ -269,8 +269,8 @@ SynthDef(\beep, {
 ~synth.set(\freq, 500)              // works just fine
 ```
 
-Named controls in control rate, i.e. ``kr``, are like knops and buttons of a MIDI device.
-When we want to play around with the named controls of our synth we can utilize a graphical user interface ``gui`` that immitates the control components of such a MIDI device.
+Named controls in control rate, i.e. ``kr``, are like knobs and buttons of a MIDI device.
+When we want to play around with the named controls of our synth we can utilize a graphical user interface ``gui`` that imitates the control components of such a MIDI device.
 To do so we have to utilize [Ndef](https://doc.sccode.org/Classes/Ndef.html) instead of [SynthDef](https://doc.sccode.org/Classes/SynthDef.html).
 Furthermore, we can define the range of possible values using ``specs``.
 

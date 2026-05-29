@@ -18,7 +18,7 @@ It uses frequencies that are out of the limits of human hearing.
 As the name indicates, applying frequency modulation means to modulate the frequency of a signal.
 In other words, we change the frequency of a signal over time.
 
-Frequency modulation in sound design was accidently discovered by John Chowning in the mid-60s.
+Frequency modulation in sound design was accidentally discovered by John Chowning in the mid-60s.
 He wanted to generate vibrato effects but noticed that when he increased the modulating frequency, a new complex sound appears.
 
 ```isc
@@ -77,7 +77,7 @@ Above we only use two oscillators but as you will see, we already achieve a quit
 
 ## Vibrato & Sirens
 
-If the frequency of the modulator $f_{\text{mod}}$ is small, than we achieve a so called *vibrato effect*.
+If the frequency of the modulator $f_{\text{mod}}$ is small, then we achieve a so called *vibrato effect*.
 Try the following code snippet!
 
 ```isc
@@ -269,7 +269,7 @@ and fix $\beta_{\text{max}}$ as we desire.
 ```{admonition} Modulation Index
 :name: important-side-band-amplitude
 :class: remark
-The *modulation index*  $\beta_{\text{max}}$, i.e., ratio of the modulation amplitude and the modulator frequency dertermines approximatly the amplitudes of the sidebands as a whole.
+The *modulation index*  $\beta_{\text{max}}$, i.e., ratio of the modulation amplitude and the modulator frequency determines approximately the amplitudes of the sidebands as a whole.
 ```
 
 Ok, but wait, we still have no formula for the amplitude of each pair of sidebands with frequency $f_{\text{sb},n^{\pm}}$.
@@ -295,7 +295,7 @@ As we can see, $A_{ \text{sb},n^{\pm} }$ depend only on $\beta_\text{max}$ but o
 We stated that there are an infinite amount of sidebands.
 In practice, that is not the case.
 Furthermore, the amplitude of many of these sidebands might be too low to be recognized by our ears.
-As a rule of thump, the following formula gives an approximation of the bandwidth of the signal:
+As a rule of thumb, the following formula gives an approximation of the bandwidth of the signal:
 
 $$2 \cdot f_\text{mod} \cdot (1 + \beta_{ \text{max} } ).$$
 

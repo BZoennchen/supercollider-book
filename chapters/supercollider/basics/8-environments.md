@@ -1,7 +1,7 @@
 (sec-environments)=
 # Environments
 
-An [Environments](https://doc.sccode.org/Classes/Environment.html) is a collection of things that can be accessed by name.
+An [Environment](https://doc.sccode.org/Classes/Environment.html) is a collection of things that can be accessed by name.
 When we start the SuperCollider IDE, it automatically creates an environment that can be evaluated by the following line:
 
 ```isc
@@ -10,7 +10,7 @@ currentEnvironment;
 
 If this is your first evaluated command, the environment should be empty.
 This environment contains variables, more specifically all *environment variables*.
-A variable starting with a tilde is a environment variable, e.g.:
+A variable starting with a tilde is an environment variable, e.g.:
 
 ```isc
 ~number = 100;
@@ -34,7 +34,7 @@ In fact, that is more or less what happens when we call a function.
 
 Let us create an environment by using a *global variable* ``d``.
 Then we push it onto the stack.
-Additional, let us create a new *environment variable* for the environment ``d``.
+Additionally, let us create a new *environment variable* for the environment ``d``.
 
 ```isc
 d = ()
@@ -49,7 +49,7 @@ currentEnvironment
 ```
 
 we can see the new variable.
-Note that even the names of these two variables are the same, they live in different environments.
+Note that even though the names of these two variables are the same, they live in different environments.
 If we call
 
 ```isc
@@ -57,4 +57,4 @@ d.pop;
 ```
 
 we remove ``d`` from the stack and ``currentEnvironment`` is equal to the environment before we pushed ``d`` onto the stack.
-``~number`` is now equals ``100``.
+``~number`` is now equal to ``100``.

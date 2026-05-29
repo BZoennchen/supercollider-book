@@ -14,14 +14,14 @@ kernelspec:
 
 When we talk about filters, we usually mean frequency filters.
 Their arguments are more meaningful than the filters discussed in section [Basic Filters](sec-basic-filters).
-They attune the band of frequencies of a signal.
+They attenuate the band of frequencies of a signal.
 
 As Butterworth stated:
 
 >An ideal electrical filter should not only completely reject the unwanted frequencies but should also have uniform sensitivity for the wanted frequencies. -- Stephen Butterworth
 
 Such an ideal filter cannot be achieved but one can try to get close approximations by increasing the number of filter elements.
-In practice, a frequency filter decreases the power/gain of high frequncies.
+In practice, a frequency filter decreases the power/gain of high frequencies.
 
 (sec-lowpass-filter)=
 ## Lowpass Filter
@@ -29,7 +29,7 @@ In practice, a frequency filter decreases the power/gain of high frequncies.
 A *lowpass filter* filters frequency **above** its *cutoff frequency*.
 It could also be called highfrequency filter.
 Lowpass filters are used to attenuate high harmonics and make sound *darker* or *smoother* in [timbre](sec-timbre).
-A lowpass filter is often combined with a resonant because (with the respective cutoff frequency) lowpass filters leave the *fundamentals* of the signal intact.
+A lowpass filter is often combined with a resonator because (with the respective cutoff frequency) lowpass filters leave the *fundamentals* of the signal intact.
 So they do not usually affect the perceived and subjective pitch.
 
 ```{figure} ../../../figs/sounddesign/filters/lpf-graph.png
@@ -97,7 +97,7 @@ name: fig-lpf-saw
 A sawtooth wave (top) filtered by a modulated lowpass filter (bottom).
 ```
 
-We can observer that the maximum amplitude of the filtered signal decreases with the cutoff frequency.
+We can observe that the maximum amplitude of the filtered signal decreases with the cutoff frequency.
 
 (sec-highpass-filter)=
 ## Highpass Filter
@@ -127,7 +127,7 @@ audio_path = '../../../sounds/hpf-saw.mp3'
 ipd.Audio(audio_path)
 ```
 
-If we look at a plot using a modulated highpass filter (here we increase the the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.
+If we look at a plot using a modulated highpass filter (here we increase the cutoff frequency over time), we observe that the sawtooth wave becomes sharper.
 
 ```isc
 (
@@ -168,7 +168,7 @@ The gain over frequency of a signal filtered by a bandpass filter.
 
 ``sclang`` offers us the [UGen](def-ugen) called [BPF](https://doc.sccode.org/Classes/BPF.html).
 It is a second-order Butterworth bandpass filter.
-Instead of defining the *bandwith*, we define ``rq`` which is equal to *bandwidth / center frequency* thus *bandwidth* = ``rq`` * *center frequency*.
+Instead of defining the *bandwidth*, we define ``rq`` which is equal to *bandwidth / center frequency* thus *bandwidth* = ``rq`` * *center frequency*.
 
 Let us plot the effect of a modulated bandpass filter.
 Here we only change the *center frequency* from 220 Hz to 880 Hz.

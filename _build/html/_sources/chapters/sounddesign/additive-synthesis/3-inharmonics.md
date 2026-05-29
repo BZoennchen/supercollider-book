@@ -12,8 +12,8 @@ kernelspec:
 
 # Inharmonic Series
 
-In [Harmonic Series](sec-harmonic-series), we build a sound consisting only of specific harmonics, i.e., a sound wave consistent of many frequencies which are whole-number multiples of the fundamental.
-This gave us an harmonic tone.
+In [Harmonic Series](sec-harmonic-series), we build a sound consisting only of specific harmonics, i.e., a sound wave consisting of many frequencies which are whole-number multiples of the fundamental.
+This gave us a harmonic tone.
 
 We added a slight frequency modulation to simulate a vibrato effect to make the sound more natural.
 Furthermore, we increased the steepness of the envelope for increasing frequency to emulate the natural phenomenon of faster disappearing high frequencies.
@@ -35,9 +35,9 @@ ipd.Audio(audio_path)
 ```
 
 If you're creating experimental or atonal music, inharmonics could be used to create novel, unusual, or dissonant sounds.
-Finally if we are creating experimental or *atonal* music, inharmonics could be used to create novel, unusual, or dissonant sounds.
+Finally, if we are creating experimental or *atonal* music, inharmonics could be used to create novel, unusual, or dissonant sounds.
 
-Let us now synthesize a sound consistent of many inharmonics.
+Let us now synthesize a sound consisting of many inharmonics.
 
 ```isc
 (
